@@ -416,7 +416,20 @@ translate_f(){
 
         let "r = $RANDOM % 4 "
         color="${color_arr1[$r]}"
-        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
+
+
+         #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
+            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] || [ $lang = 'ar' ]
+            then
+
+echo ''
+            else
+
+        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 7 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
+            fi
+
+
+
     fi
     
     if [ "$silent" = false ];then
@@ -432,16 +445,13 @@ translate_f(){
 
 
          #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
-            if [  $lang = 'en' ] || [ $lang = 'it' ] 
+            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] || [ $lang = 'ar' ]
             then
                 play  $mp3_file 
             else
 
 
 
-            play  $mp3_file 
-
-            play  $mp3_file 
             play  $mp3_file 
             play  $mp3_file 
             fi

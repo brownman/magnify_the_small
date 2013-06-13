@@ -1,12 +1,3 @@
-13-6-2013
------------
-create schedule
-update kuka
-
-health - me and Shal
-
-
-
 regarding this Bash-project:
 -------------------
 Target: 

@@ -11,3 +11,12 @@ ofer1/txt
 *.*~
 *~
 .rvmrc
+aliases/
+bin/
+completion/
+lib/
+plugins/
+template/
+themes/
+bash_it.sh
+install.sh
