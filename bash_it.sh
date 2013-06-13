@@ -4,15 +4,15 @@
 # Reload Library
 alias reload='source ~/.bash_profile'
 PATH=$PATH:~/.bash_it/custom/backup
-PATH=$PATH:~/.bash_it/custom/ofer1
+PATH=$PATH:~/.bash_it/ofer1
 
 
 
 src1=/TORRENTS/CODE_UNUSED/ANDROID/adt-bundle-linux-x86-20130522/sdk/platform-tools
 PATH=$PATH:$src1
 
-alias tr1=~/.bash_it/custom/ofer1/translate.sh
-echo $src1
+#alias tr1=~/.bash_it/custom/ofer1/translate.sh
+#echo $src1
 export PATH
 
 # Only set $BASH_IT if it's not already set

@@ -861,14 +861,17 @@ then
 elif [ $1 = english ]
 then
     $OFER_DIR/english.sh
-elif [ $1 = timer2 ]
+elif [ $1 = task ]
 then
 
     while :; do
-         file=$TODO_FILE
+
         . $TIMERTXT_CFG_FILE
 
+
+
         first=`cat $file | head -1`
+         file=$TODO_FILE
         str=$(gxmessage -timeout $SLEEP -title 'next easy:' -entry -file $file )
         if [ "$str" !=  ''  ] 
         then
@@ -888,7 +891,23 @@ then
         first=`cat $file | head -1`
         translate.sh "$first" 
 
+########memory test
 
+         file=$MEMORY_FILE
+        
+      str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
+      if [ "$str" !=  ''  ] 
+        then
+            if [ "$str" = 'exit' ]
+            then
+                exit
+            fi
+
+            cat $file > /tmp/2.txt 
+            echo "$str" > $file
+            cat /tmp/2.txt >> $file
+            #else
+        fi
 
 
     done

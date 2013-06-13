@@ -416,7 +416,7 @@ translate_f(){
 
         let "r = $RANDOM % 4 "
         color="${color_arr1[$r]}"
-        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color -iconic &)
+        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
     fi
     
     if [ "$silent" = false ];then
