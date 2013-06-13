@@ -1,0 +1,12 @@
+*/enabled/*
+.DS_Store
+custom
+.rvmrc
+aliases/custom.aliases.bash
+lib/custom.bash
+plugins/custom.plugins.bash
+*.swp
+.*.un~
+*.*~
+*.*~
+*~
