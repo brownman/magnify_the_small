@@ -13,7 +13,7 @@ ofer1/txt
 
 *.*.swo
 *.swo
-
+.swo
 
 .rvmrc
 aliases
