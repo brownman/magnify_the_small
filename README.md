@@ -1,7 +1,9 @@
 regarding this Bash-project:
 -------------------
-Target: 
+Target: don't let the time pass !  
        
+       how to take control?
+       -------------------
        Collect your through and translate them:
          Q: did you ever wondered how many productive thoughs you had during the day ? 
          A: write 1 essay aday !
@@ -41,3 +43,4 @@ xfce-desktop - pharse .txt files to update wallpaper (using ImageMagic)
 timer.sh
 one should update this script to adapt his need for periodic notifications.
 
+<script type="text/javascript" src="http://ascii.io/a/3581.js" id="asciicast-3581" async></script>
