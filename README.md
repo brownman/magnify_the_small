@@ -33,7 +33,7 @@ bash_koans - upgraded test-result notifications for including tts (using flite)
 
 
 my scripts:
-----------
+===========
 fetch.sh:
 google-calendar - fetch to a file
 
@@ -43,4 +43,10 @@ xfce-desktop - pharse .txt files to update wallpaper (using ImageMagic)
 timer.sh
 one should update this script to adapt his need for periodic notifications.
 
-<script type="text/javascript" src="http://ascii.io/a/3581.js" id="asciicast-3581" async></script>
+translate.sh 
+fetch google-translate, cache translation.
+
+
+records:
+=======
+There is a recording of me doing all that jazz at [ascii.io](http://ascii.io/a/3581).
