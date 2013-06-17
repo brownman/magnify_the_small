@@ -1,3 +1,49 @@
+pushd `dirname $0` > /dev/null
+
+SCRIPTPATH1=`pwd -P`
+file3=/tmp/missions.txt
+file1=/tmp/file1.txt
+file2=/tmp/file2.txt
+
+
+
+echo 'fetch google-tasks' 'file: $file3'
+echo 'curl'
+curl https://www.google.com/accounts/ClientLogin \
+-d Email="$USER@gmail.com" \
+-d Passwd="$PASS" \
+-d source=privacylog \
+-d service=goanna_mobile > /tmp/token
+
+AUTH=$(sed -n 's/Auth=/auth=/p' /tmp/token)
+HEADER="Authorization: GoogleLogin $AUTH"
+URL="https://mail.google.com/tasks/ig"
+curl --header "$HEADER" "$URL" > /tmp/tasks
+
+
+
+grep -o "\"\(name\|notes\)\":\"[^\"]*\"" /tmp/tasks > $file1
+
+#grep "name" $file1 | awk -F : '{print $2}' > list2
+#cat $file1 | awk -F : '{print $2}' | sed 's/[",\\n]//g' > list
+
+cat $file1 | awk -F : '{print $2}' | sed 's/\\n//g' | sed 's/"//g' > $file2
+
+cat $file2 | head  -n -1 > $file3
+cat $file3
+#echo 'exiting'
+#echo 'file: $file3'
+#rm tasks
+#rm $file1
+#rm today.txt
+#rm token
+#rm list
+#rm $file2
+#rm list2
+
+#rm ofer.html
+#rm ofer.txt 
+
 file_name=/tmp/gcalcli_agenda.txt
 
 file_name2=/tmp/gcalcli_agenda_full.txt
@@ -27,3 +73,5 @@ gcalcli --cal brownman-calendar --nc --ignore-started agenda "`date --date='08:0
 
 
 #echo 'fetch: google-calendar'  "$file_name"
+
+popd > /dev/null

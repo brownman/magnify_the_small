@@ -1,5 +1,8 @@
 echo 'mail.sh: make me effective!'
-missions_txt=$TIMER_DIR/missions.txt
+missions_txt=/tmp/missions.txt
+schedule_txt=/tmp/gcalcli_agenda_full.txt
+#$TIMER_DIR
+#/missions.txt
 #ls -l  $missions_txt
 #thanks_txt=$DAILY_DIR/thanks.txt
 #essay_txt=$ESSAYS_DIR/essay.txt
@@ -13,7 +16,7 @@ txt_file=$(echo ~/pictures/done-$(date +%m_%d_%Y_%H_%M).txt)
 
 xloadimage $pic_file
 
-str=$( gxmessage -entry -title 'press no for cancel the sending to Kuka' -file  ~/tmp/ofer/done.txt )
+str=$( gxmessage -entry -title 'press no for cancel the sending to Kuka' -file  $mission_txt -timeout 10 )
 
 
 if [[ $str != 'no'  ]]
@@ -27,8 +30,10 @@ then
 
     mpack -s 'my pic' $pic_file $MAIL1
     mpack -s 'my pic' $pic_file $MAIL2 
-    mpack -s 'my luz'  /tmp/gcalcli_agenda_full.txt $MAIL1
-    mpack -s 'my luz'  /tmp/gcalcli_agenda_full.txt $MAIL2 
+
+    mpack -s 'my luz'  $schedule_txt $MAIL1
+    mpack -s 'my luz'  $schedule_txt $MAIL2
+    
     mpack -s 'my missions'  $missions_txt $MAIL2 
     mpack -s 'my missions'  $missions_txt $MAIL1 
 

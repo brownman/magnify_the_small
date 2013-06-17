@@ -333,8 +333,13 @@ translate_f(){
             echo -n  "$output" >>   "$file_name"
             if [ "$phonetics"  != '' ]
             then
+                
+                if [ $lang != 'ru' ]
+                then
+                    
+                    echo -n " _ $phonetics" >>   "$file_name"
+                fi
 
-                echo -n " _ $phonetics" >>   "$file_name"
             fi
 
 
@@ -419,13 +424,15 @@ translate_f(){
 
 
          #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
-            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] || [ $lang = 'ar' ]
+            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
             then
 
-echo ''
+#echo ''
+
+        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
             else
 
-        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 7 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
+        ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
             fi
 
 
@@ -445,12 +452,14 @@ echo ''
 
 
          #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
-            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] || [ $lang = 'ar' ]
+            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
             then
                 play  $mp3_file 
             else
 
 
+
+            play  $mp3_file 
 
             play  $mp3_file 
             play  $mp3_file 
