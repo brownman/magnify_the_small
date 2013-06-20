@@ -14,8 +14,10 @@ if [ "$1" = '' ];then
 fi
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
-export TIMERTXT_CFG_FILE="$PWD/cfg/timer.cfg"
+export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
 echo "cfg is: $TIMERTXT_CFG_FILE"
+ls -l $TIMERTXT_CFG_FILE
+cat $TIMERTXT_CFG_FILE
 . $TIMERTXT_CFG_FILE
 declare -i my_score
 my_score=0 #-1
@@ -114,8 +116,8 @@ rooting(){
 }
 
 
-ofer_sh="$OFER_DIR/translate.sh"
-#ofer_sh=/TORRENTS/SCRIPTS/EXEC/bash_koans/ofer.sh
+timer2_sh="$TIMER2_DIR/translate.sh"
+#timer2_sh=/TORRENTS/SCRIPTS/EXEC/bash_koans/timer2.sh
 msg_m0='I am writing short essay in many languages'
 msg_m1='sign one circle on the wall' 
 msg_m3='please update list' 
@@ -135,17 +137,17 @@ declare -i reminder
 declare -i counter 
 counter=0
 
-dir_essay=~/tmp/ofer/essays
-file_now=~/tmp/ofer/daily/now.txt
+dir_essay=~/tmp/timer2/essays
+file_now=~/tmp/timer2/daily/now.txt
 
-file_thanks=~/tmp/ofer/daily/thanks.txt
-#file_twitter=~/tmp/ofer/twitter.txt
+file_thanks=~/tmp/timer2/daily/thanks.txt
+#file_twitter=~/tmp/timer2/twitter.txt
 
 last_task="you are the man"
 #how easier can it realy be ?"
 last_imagine="you can do it - it is so easy"
 last_essay="essay step"
-#Ofer - one step for man - one step for"
+#timer2 - one step for man - one step for"
 last_suspend="well - I am tired - i am going to sleep1 now - thanks for the fish" 
 
 last_bash="linux programming start here"
@@ -319,7 +321,7 @@ sport(){
 
 learn_lang(){
 
-    #(gedit ~/tmp/ofer/essay.txt &)
+    #(gedit ~/tmp/timer2/essay.txt &)
     say1 "$last_essay" 
 
     lang=$1
@@ -329,7 +331,7 @@ learn_lang(){
 
     # (update_file "$file5" 'ESSAY:' $last_essay &)
     #cat $file5
-    # (gedit ~/tmp/ofer/essay.txt)&
+    # (gedit ~/tmp/timer2/essay.txt)&
     (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
     num=num-2
     #gxmessage "$msg_m0"
@@ -391,19 +393,19 @@ translate1(){
 
 
 
-    local str=$1
-    local lang=$2
+    local str="$1"
+    local lang="$2"
 
     local file=$3
 
     local push_top=$4
 
-    echo "translate1 got: str:$1 , lang:$2 file:$3 -- push_top:$4 ---  article: $article , silent: $silent, silent_msg: $silent_msg , silent_fetch: $silent_fetch"
+    echo "translate1 got: str:$str , lang:$lang file:$3 -- push_top:$4 ---  article: $article , silent: $silent, silent_msg: $silent_msg , silent_fetch: $silent_fetch"
 
-    #local file5=~/tmp/ofer/essay${lang}.txt
+    #local file5=~/tmp/timer2/essay${lang}.txt
     #touch $file5
 
-    if [[ "$str" != '' ]]
+    if [ "$str" != '' ]
     then
 
 
@@ -411,7 +413,7 @@ translate1(){
 
         langs=$(lower $lang)
 
-        $ofer_sh $langs "$str" $article $silent $silent_msg $file $silent_fetch $push_top 
+$timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push_top
 
     else
 
@@ -432,7 +434,7 @@ translate_file()
 
     else
         echo 'take 1 line of imagine.txt'
-        #~/tmp/ofer/thanks.txt
+        #~/tmp/timer2/thanks.txt
         str4=$(cat $file_thanks | head -1)
         echo $str4
         str5=$(echo "$str4"  | tr -d '\012\015')
@@ -477,12 +479,12 @@ input_task(){
 
 
 
-    #msg='free ofer = byebye ofer manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE ofer'  -sticky -ontop
+    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
+    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
     title='task:'
     say1 "$last_task"
     answer=$( gxmessage -buttons "_$last_task"  -entry -title "$title" -file  "$file_now" -ontop -timeout $timeout1 )
-    if [ $answer = exit ]
+    if [ "$answer" = exit ]
     then
         echo 'exiting'
         exit 1
@@ -490,7 +492,7 @@ input_task(){
 
     last_task="$answer"
 
-    if [ $translate = true ]
+    if [ $TRANSLATE = true ]
     then
 
         say2 "$answer" -l $file_now true 
@@ -546,7 +548,7 @@ say2(){
     if [ "$msg" != '' ]
     then
         if [ "$lang" != '' ];then
-            translate1 "$msg" $lang $file $push_top 
+            translate1 "$msg" "$lang" $file $push_top 
         fi
     fi
 
@@ -559,8 +561,8 @@ update_file(){
 
 
 
-    #msg='free ofer = byebye ofer manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE ofer'  -sticky -ontop
+    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
+    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
     #msg='progress:'
 
     answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop )
@@ -584,15 +586,15 @@ input_thanks(){
 
     local file=$file_thanks
     #echo 'you killed me ! can you be less depressing please ?' 
-    #msg='free ofer = byebye ofer manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE ofer'  -sticky -ontop
+    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
+    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
     title='imagine:'
 
     say1 "$last_imagine"
     answer=$( gxmessage -buttons "_$last_task"  -entry -title "$title" -file  "$file" -ontop -timeout $timeout1)
     last_imagine="$answer"
 
-    if [ $translate = true ]
+    if [ "$translate" = true ]
     then
 
 
@@ -634,7 +636,7 @@ twitter(){
     msg='write twitter:'
 
     answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file2" -ontop )
-    if [[ $answer != '' ]]
+    if [[ "$answer" != '' ]]
     then
 
         cat $file2 > /tmp/1.txt 
@@ -793,8 +795,8 @@ update_env(){
 
 delete_files(){
 
-    dir=~/tmp/ofer/daily
-    dir1=~/tmp/ofer/essays
+    dir=~/tmp/timer2/daily
+    dir1=~/tmp/timer2/essays
 
     for I in $(ls -1 --sort=time $dir/*.txt )
     do 
@@ -822,7 +824,7 @@ delete_files(){
 
 
 
-if [ "$1" = "testing" ]
+if [ $1 = "testing" ]
 then
     #first=$(cat $TODO_FILE | head -1)
     first=`cat $TODO_FILE | head -1`
@@ -837,7 +839,7 @@ then
     dereference msg_m0 
 
 
-elif [ "$1" = delete ];then
+elif [ $1 = delete ];then
     echo 'delete'
 
     delete_files 
@@ -845,22 +847,22 @@ elif [ "$1" = delete ];then
 elif [ $1 = meditate ];then
     echo 'meditate'
 
-    $OFER_DIR/meditate.sh 
+    $TIMER2_DIR/meditate.sh 
 elif [ $1 = watchr ];then
     echo 'watchr'
 
-    watchr $OFER_DIR/koans-linux.watchr 
+    watchr $TIMER2_DIR/koans-linux.watchr 
 
 elif [ $1 = fetch ];then
     echo 'fetching'
 
-    $OFER_DIR/fetch.sh 
+    $TIMER2_DIR/fetch.sh 
 elif [ $1 = mail ]
 then
-    $OFER_DIR/mail.sh
+    $TIMER2_DIR/mail.sh
 elif [ $1 = english ]
 then
-    $OFER_DIR/english.sh
+    $TIMER2_DIR/english.sh
 elif [ $1 = task ]
 then
 
@@ -889,7 +891,7 @@ then
 
 
         first=`cat $file | head -1`
-        translate.sh "$first" 
+        $timer2_sh "$first" 
 
 ########memory test
 
@@ -909,13 +911,14 @@ then
             #else
         fi
 
-
+echo exiting
+exit
     done
 
 
 
 
-elif [ $1 = timer1 ];then # ------------------ all
+elif [ $1 = all ];then # ------------------ all
 
 
 

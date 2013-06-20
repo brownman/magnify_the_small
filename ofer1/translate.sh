@@ -6,7 +6,10 @@
 # spawn.sh
 #http://tldp.org/LDP/abs/html/internal.html
 #pids
-
+exiting(){
+echo 'exiting'
+exit
+}
 color_arr1=( blue green red black )
 echo 'help: ofer.sh -l X true -> generate article'
 echo 'help: ofer.sh it something  -> generate regular translation and sound'
@@ -38,19 +41,19 @@ let "instances = ${#P_array[*]} - 1"  # Count elements, less 1.
 echo "$instances instance(s) of this script running."
 echo "[Hit Ctl-C to exit.]"; echo
 
-if [[  $1 ]]
+if [  "$1" ]
 then
-    echo "param exist $1 $2"
+    echo "param exist $1"
 else
-    echo "no first  param $1 $2 exising!"
+    echo "no first  param $1 exising!"
     exit
 fi
 #missions:
 #echo "ofer.sh run with" "$2"
 
 
-word=$1
-
+word=$(echo "$1")
+echo $word
 
 if [ "$2" = "" ]
 then
@@ -85,8 +88,7 @@ else
 
 fi
 
-echo "||    many? $many  |        str_from? "$word"    |    article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
-
+echo "translate.sh got: ||        str_from? $word    |     many? $many  |   article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
 update_google='false'
 #silent='false'
 service='google'
@@ -259,6 +261,7 @@ update_file(){
     fi
 
 }
+
 
 translate_f(){
     #from english
