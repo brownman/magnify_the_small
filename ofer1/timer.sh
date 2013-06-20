@@ -1,13 +1,6 @@
 #!/bin/bash 
 #-x
 
-#kill
-#http://www.linuxcommand.org/lts0080.php#listing_your_processes
-
-#scratch linux
-#http://www.linuxfromscratch.org/blfs/view/development/chapter07/network.html
-
-
 pushd `dirname $0` > /dev/null
 if [ "$1" = '' ];then
     exit 1
@@ -22,10 +15,70 @@ cat $TIMERTXT_CFG_FILE
 declare -i my_score
 my_score=0 #-1
 gxmessage  'every input str should contain atleast 1 word that used before !'
-#echo 'run timer.sh from ~/.bash_it/.../todo.sh'
-#echo 'params: all/test time_in_sec lesson_index'
 echo "timer.sh got: 1:$1 2:$2 3:$3"
 lower() { echo ${@,,}; }
+
+
+
+input_line(){
+
+
+
+
+
+local file="$1"
+local title="$2"
+#local last_input="$3"
+  y=\$"$3"   # Name of variable (not value!).
+        echo $y    # $Junk
+
+        x=`eval "expr \"$y\" "`
+        echo $3=$x
+        
+echo "$x"
+local last_input="$x"
+
+    echo "so.. what do you mean when you say - - $last_input" 
+
+    #title='task:'
+    say1 "$last_input"
+
+   
+    answer=$( gxmessage -buttons "_ $last_input"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
+    
+     eval "$3=\"$answer\""  # Assign new value.
+    gxmessage "last task: $last_task"
+    if [ "$answer" = exit ]
+    then
+        echo 'exiting'
+        exit 1
+    fi
+
+
+   # last_input="$answer"
+
+    if [ $TRANSLATE = true ]
+    then
+
+        say2 "$answer" -l $file true 
+
+    fi
+
+
+
+    cat $file > /tmp/1.txt 
+
+    date1="$(date +%H:%M)"
+
+    echo "_____________________" > $file
+    echo "$date1 - $answer" >> $file
+
+
+    cat /tmp/1.txt >> $file
+
+
+}
+
 
 
 check_in_file(){
@@ -51,12 +104,9 @@ check_subgroup() {
 
     for item in $(echo $group1)
     do 
-        #notify-send "item is: $item"
         check_item "$item" "$group2" 
         answer=$?
-        # let "answer += 0"
-
-        #notify-send "answer is :  $answer"
+  
 
         if [ $answer = 1 ]
         then
@@ -75,10 +125,8 @@ check_subgroup() {
 
 
 check_item(){
-    #notify-send " $1 -#exist- in $2 ?"
     local result
 
-    #group=[ 'boot' , 'root' , 'boots' ]
 
     item=$1 #'root'
     group=$2 #"boots roots root"
@@ -87,11 +135,8 @@ check_item(){
 
     local count=$(echo "$group" | grep -o "$item"   | wc -w )
 
-    #notify-send "score is $count" 
 
     result=$( test $count -eq 0  && echo 0 || echo 1 )
-    #tmp=$result
-    #notify-send "result is: $result"
     return $result
 
 }
@@ -138,8 +183,7 @@ declare -i counter
 counter=0
 
 dir_essay=~/tmp/timer2/essays
-file_now=~/tmp/timer2/daily/now.txt
-
+file_task=~/tmp/timer2/daily/now.txt
 file_thanks=~/tmp/timer2/daily/thanks.txt
 #file_twitter=~/tmp/timer2/twitter.txt
 
@@ -226,33 +270,21 @@ buy()
 }
 
 time1(){
-    #while :; do
-    #xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s "$(find ~/Pictures -type f -iregex '.*\.\(bmp\|gif\|jpg\|png\)$' | sort -R | head -1)"; 
-
-
-    #last_task="more"
-    #gxmessage "last task is: $last_task"
+  
     date1="$(date +%H:%M)"
     (gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop    -font "serif bold 74" &)
     say1 "$date1"
-    #xdg-open ~/tmp/#done.txt 
-    #dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    #/TORRENTS/SCRIPTS/EXEC/remind.sh 3 
-
-    #echo "#sleep1 for $sec seconds"
-
-    #sleep1 $sec 
-    #done
+  
 
 }
 
 
-suspend(){
+suspend1(){
 
 
     say1 "$last_suspend" 
     #while :; do
-    gxmessage -buttons "_$last_task" "sudpending: $date1"  -sticky -ontop
+    gxmessage -buttons "_$last_task" "sudpending: $date1"  -sticky -ontop -timeout $TIMEOUT1
 
 
 
@@ -310,7 +342,6 @@ sport(){
 
     echo 'come back - everything is possible now' 
 
-    #/TORRENTS/SCRIPTS/EXEC/remind.sh 1 
 
 
 
@@ -321,7 +352,6 @@ sport(){
 
 learn_lang(){
 
-    #(gedit ~/tmp/timer2/essay.txt &)
     say1 "$last_essay" 
 
     lang=$1
@@ -329,16 +359,10 @@ learn_lang(){
     num=$lesson
     num=num+2
 
-    # (update_file "$file5" 'ESSAY:' $last_essay &)
-    #cat $file5
-    # (gedit ~/tmp/timer2/essay.txt)&
     (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
     num=num-2
-    #gxmessage "$msg_m0"
 
 
-    #echo "msg_m0 is: $msg_m0"   
-    #gxmessage -buttons "_$last_task" "msg_m0 is: $msg_m0"   
     (dereference msg_m0 &)
 
 
@@ -364,8 +388,6 @@ learn_lang1(){
 
     for I in $(ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)")
     do 
-        # play $I;
-        #gxmessage -buttons "_$last_task" -file
         str1=$(echo $I | sed 's/txt/mp3/g' ) #| sed 's/word_//g')
 
 
@@ -473,46 +495,6 @@ motivation_end(){
     # /TORRENTS/SCRIPTS/EXEC/remind.sh 5 
 }
 
-input_task(){
-
-    echo "so.. what do you mean when you say - - $last_task" 
-
-
-
-    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
-    title='task:'
-    say1 "$last_task"
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$title" -file  "$file_now" -ontop -timeout $timeout1 )
-    if [ "$answer" = exit ]
-    then
-        echo 'exiting'
-        exit 1
-    fi
-
-    last_task="$answer"
-
-    if [ $TRANSLATE = true ]
-    then
-
-        say2 "$answer" -l $file_now true 
-
-    fi
-
-
-
-    cat $file_now > /tmp/1.txt 
-
-    date1="$(date +%H:%M)"
-
-    echo "_____________________" > $file_now
-    echo "$date1 - $answer" >> $file_now
-
-
-    cat /tmp/1.txt >> $file_now
-
-
-}
 take_photo(){
     say1 "$last_camera_before" 
     pic_file=$(echo ~/pictures/webcam-$(date +%m_%d_%Y_%H_%M).jpeg)
@@ -561,73 +543,16 @@ update_file(){
 
 
 
-    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
-    #msg='progress:'
 
     answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop )
-    #last=$answer
-    #last_task=$answer
+
     cat $file > /tmp/1.txt 
 
-    #date1="$(date +%H:%M)"
-    #echo -e "$answer\n$date1" > $file
 
     echo "$answer" > $file
-    #echo "$date1" >> $file
 
     cat /tmp/1.txt >> $file
 
-
-    #echo "$date1 - $answer" >> $file
-}
-
-input_thanks(){
-
-    local file=$file_thanks
-    #echo 'you killed me ! can you be less depressing please ?' 
-    #msg='free timer2 = byebye timer2 manager! - I let timer the control for my time'
-    #gxmessage -buttons "_$last_task" "$msg" -title 'FREE timer2'  -sticky -ontop
-    title='imagine:'
-
-    say1 "$last_imagine"
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$title" -file  "$file" -ontop -timeout $timeout1)
-    last_imagine="$answer"
-
-    if [ "$translate" = true ]
-    then
-
-
-        say2 "$answer" -l $file true 
-    fi
-
-
-
-
-    #translate1 "$msg" $lang $file true
-
-    #if [[ $answer != '' ]]
-    #then
-
-    cat $file > /tmp/1.txt 
-
-    date1="$(date +%H:%M)"
-
-
-    echo "_____________________" > $file
-    echo "$answer" >> $file
-
-
-
-    cat /tmp/1.txt >> $file
-    #else
-    #echo "answer is not empty : $answer"
-    #fi
-
-
-
-    #cp /TORRENTS/SCRIPTS/END/DEPLOY/tasks/html/all.html /tmp/bash_koans/html/
-    #xdg-open /tmp/bash_koans/html/all.html
 
 }
 
@@ -749,23 +674,15 @@ dereference(){
 
 
 
-        if [[ "$answer" != '' ]]
+        if [ "$answer" != '' ]
         then
             local plus=0
             echo 'change value of $1'
-            #$1="$answer"
-
-            #echo "_______________" >> $file5
-            #echo "$answer" >> $file5
+          
             echo 'before update score'
             update_score "$answer" $file5
             echo 'after update score'
-            #plus=$?
-
-            #let "my_score -= 1"
-            #let "score += $plus"
-
-            say2 "$answer" $lang $file5 true
+                   say2 "$answer" $lang $file5 true
 
 
 
@@ -826,6 +743,15 @@ delete_files(){
 
 if [ $1 = "testing" ]
 then
+last_task="rabbiit2"
+
+    cat $file_task | head -3 
+
+    sleep1 5s
+
+    cat $file_task | head -3 
+    sleep1 5s
+    exiting
     #first=$(cat $TODO_FILE | head -1)
     first=`cat $TODO_FILE | head -1`
     echo $first
@@ -941,7 +867,9 @@ elif [ $1 = all ];then # ------------------ all
         sleep1 10s
         motivation_start 
 
-        input_task 
+        title="task:"
+        file=$file_task
+        input_line $file "$title" last_task
 
         time1
         echo "run all tasks: one after another"
@@ -956,8 +884,10 @@ elif [ $1 = all ];then # ------------------ all
 
         sleep1 $sec
 
-        input_thanks 
-
+   title="thanks:"
+        file=$file_thanks
+        input_line $file "$title" last_imagine
+        
         sleep1 $sec
 
         sleep1 $sec 
@@ -969,7 +899,7 @@ elif [ $1 = all ];then # ------------------ all
         sleep1 10s 
         if [ "$SUSPEND" = true ];then
 
-            suspend
+            suspend1
         fi
 
         (xloadimage $pic_file &)
@@ -986,17 +916,17 @@ pwd
 popd > /dev/null
 exit
 #learn_book_splitter
-
-
-
 #twitter
 #youtube 
-
 #sleep1 $sec
 #learn_web
-
 #learn_security
 
+#kill
+#http://www.linuxcommand.org/lts0080.php#listing_your_processes
+
+#scratch linux
+#http://www.linuxfromscratch.org/blfs/view/development/chapter07/network.html
 
 
 
