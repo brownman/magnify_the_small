@@ -21,6 +21,9 @@ lower() { echo ${@,,}; }
 
 
 input_line(){
+#latest modifications: 
+#pass reference by supplying name of global variable.
+#
 
 
 
@@ -34,28 +37,21 @@ local title="$2"
 
         x=`eval "expr \"$y\" "`
         echo $3=$x
-        
-echo "$x"
-local last_input="$x"
+       echo  "$3 " 
 
-    echo "so.. what do you mean when you say - - $last_input" 
-
-    #title='task:'
-    say1 "$last_input"
+    say1 "$x"
 
    
-    answer=$( gxmessage -buttons "_ $last_input"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
+    answer=$( gxmessage -buttons "_ $x"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
     
      eval "$3=\"$answer\""  # Assign new value.
-    gxmessage "last task: $last_task"
+     
     if [ "$answer" = exit ]
     then
         echo 'exiting'
         exit 1
     fi
 
-
-   # last_input="$answer"
 
     if [ $TRANSLATE = true ]
     then
@@ -64,18 +60,11 @@ local last_input="$x"
 
     fi
 
-
-
     cat $file > /tmp/1.txt 
-
     date1="$(date +%H:%M)"
-
     echo "_____________________" > $file
     echo "$date1 - $answer" >> $file
-
-
     cat /tmp/1.txt >> $file
-
 
 }
 
@@ -189,7 +178,7 @@ file_thanks=~/tmp/timer2/daily/thanks.txt
 
 last_task="you are the man"
 #how easier can it realy be ?"
-last_imagine="you can do it - it is so easy"
+last_thanks="you can do it - it is so easy"
 last_essay="essay step"
 #timer2 - one step for man - one step for"
 last_suspend="well - I am tired - i am going to sleep1 now - thanks for the fish" 
@@ -284,7 +273,7 @@ suspend1(){
 
     say1 "$last_suspend" 
     #while :; do
-    gxmessage -buttons "_$last_task" "sudpending: $date1"  -sticky -ontop -timeout $TIMEOUT1
+    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  -sticky -ontop -timeout $TIMEOUT1
 
 
 
@@ -396,7 +385,7 @@ learn_lang1(){
         if [[  "$files"  ]]
         then
             (say1 "$str1" &)
-            gxmessage -buttons "_$last_task" -nearmouse -wrap -buttons "_it's my day ?"  -title "title"  -file $I -font "serif bold 34"
+            gxmessage -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
             echo "txt file: $I"
 
 
@@ -508,7 +497,7 @@ take_photo(){
 say1(){
     local msg="$1"
     echo "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
-    if [ "$silence1" = false ]
+    if [ "$SILENCE" = false ]
     then
         echo "$msg" | flite -voice rms 
         sleep1 2s
@@ -544,7 +533,7 @@ update_file(){
 
 
 
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop )
+    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop -sticky )
 
     cat $file > /tmp/1.txt 
 
@@ -560,7 +549,7 @@ twitter(){
 
     msg='write twitter:'
 
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file2" -ontop )
+    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file2" -ontop -sticky )
     if [[ "$answer" != '' ]]
     then
 
@@ -667,7 +656,7 @@ dereference(){
         local label="$my_score"
 
 
-        answer=$( gxmessage -buttons "$label" -center -timeout "$timeout1" -title "$x" -file "$file5" -ontop -entry )
+        answer=$( gxmessage -buttons "$label" -center  -title "$x" -file "$file5" "$GXMESSAGE1"  )
 
         eval "$1=\"$answer\""  # Assign new value.
 
@@ -846,6 +835,7 @@ exit
 
 elif [ $1 = all ];then # ------------------ all
 
+        #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
 
 
 
@@ -886,7 +876,7 @@ elif [ $1 = all ];then # ------------------ all
 
    title="thanks:"
         file=$file_thanks
-        input_line $file "$title" last_imagine
+        input_line $file "$title" last_thanks
         
         sleep1 $sec
 
