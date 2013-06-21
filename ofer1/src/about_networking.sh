@@ -36,7 +36,7 @@ results=`echo "$str"`
 
 #assertEqual '1'  '1'  
 
-assertMatch "$results"  'b43-pci-bridge' & #'nice 1' &
+assertMatch "$results"  'b43-pci-bridge' #& 'nice 1' &
 
 echo "return ? $?"
 

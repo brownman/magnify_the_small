@@ -20,5 +20,5 @@ test_adb() {
 #local command='cat /etc/udev/rules.d/70-persistent-net.rules'
 #local str=`$command`
 #echo "echooo $str"
-assertEqual 1 1 fine
+assertEqual 1 1 #fine
 }

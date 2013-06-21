@@ -1,6 +1,8 @@
 #!/bin/bash 
 #-x
 
+        #answer=$( gxmessage abc -buttons "$label" -center  -title "xx"  "$GXMESSAGE1" -entry  )
+       #exit 
 pushd `dirname $0` > /dev/null
 if [ "$1" = '' ];then
     exit 1
@@ -261,7 +263,7 @@ buy()
 time1(){
   
     date1="$(date +%H:%M)"
-    (gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop    -font "serif bold 74" &)
+    ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" &)
     say1 "$date1"
   
 
@@ -273,7 +275,8 @@ suspend1(){
 
     say1 "$last_suspend" 
     #while :; do
-    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  -sticky -ontop -timeout $TIMEOUT1
+    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE1 
+  
 
 
 
@@ -646,7 +649,7 @@ dereference(){
         echo $1=$x
 
 
-        say1 "$x"
+      #  say1 "$x"
         #echo $str=$x
         # eval "$1=\"Some Different Text \""  # Assign new value.
         echo "$file5"
@@ -656,7 +659,7 @@ dereference(){
         local label="$my_score"
 
 
-        answer=$( gxmessage -buttons "$label" -center  -title "$x" -file "$file5" "$GXMESSAGE1"  )
+        answer=$( gxmessage -entry -buttons "$label" -center  -title "$x" -file "$file5" $GXMESSAGE1  )
 
         eval "$1=\"$answer\""  # Assign new value.
 
