@@ -318,7 +318,7 @@ sport(){
         echo 'learn lang'
         learn_lang $lang
         echo 'learn lang1'
-        learn_lang1 $lang
+    #    learn_lang1 $lang
     fi
 
 
@@ -339,8 +339,38 @@ sport(){
 
 
 }
+send_essay(){
 
 
+pini_file=/home/dao01/tmp/timer2/essays/essayhi.txt
+pini_subject="ofer to pini: my essay"
+
+
+alice_file=/home/dao01/tmp/timer2/essays/essaytl.txt
+alice_subject="ofer to alice: my essay"
+
+
+pini_send="mpack -s '$pini_subject' $pini_file '$pini_email ,  $MAIL1'"
+alice_send="mpack -s '$alice_subject' $alice_file '$alice_email ,  $MAIL1'"
+
+alice_echo='echo $alice_send'
+pini_echo='echo $pini_send'
+echo "$alice_send"
+echo "$pini_send"
+}
+
+write_essay(){
+    echo "write essay got: first: $1 | second: $2"
+    if [ "$1" != '' ]
+    then
+
+    lang="$1"
+    fi
+
+
+    dereference msg_m0 
+    
+}
 
 learn_lang(){
 
@@ -355,7 +385,9 @@ learn_lang(){
     num=num-2
 
 
-    (dereference msg_m0 &)
+    #(dereference msg_m0 &)
+
+    (write_essay &)
 
 
 
@@ -497,7 +529,17 @@ take_photo(){
     say1 "$last_camera_after" 
     (xloadimage $pic_file &)
 }
+Backtrace () {
+   echo "Backtrace is:"
+   i=0
+   while caller $i
+   do
+      i=$((i+1))
+   done
+}
 say1(){
+Backtrace
+
     local msg="$1"
     echo "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
     if [ "$SILENCE" = false ]
@@ -634,6 +676,7 @@ update_score() {
     # return $?
 }
 dereference(){
+    echo "lang: $lang | dir essay: $dir_essay | file5:  $file5"
     echo 'dereference'
     local file5="$dir_essay/essay${lang}.txt"
     touch $file5
@@ -659,7 +702,7 @@ dereference(){
         local label="$my_score"
 
 
-        answer=$( gxmessage -entry -buttons "$label" -center  -title "$x" -file "$file5" $GXMESSAGE1  )
+        answer=$( gxmessage -entry -buttons "$label" -center  -title "$x" -file "$file5" $GXMESSAGE0 -timeout 20 )
 
         eval "$1=\"$answer\""  # Assign new value.
 
@@ -778,6 +821,17 @@ elif [ $1 = fetch ];then
 elif [ $1 = mail ]
 then
     $TIMER2_DIR/mail.sh
+
+elif [ $1 = write_essay ]
+then
+    lang1=$2
+    write_essay $lang1
+
+elif [ $1 = send_essay ]
+then
+    send_essay 
+
+
 elif [ $1 = english ]
 then
     $TIMER2_DIR/english.sh
@@ -829,9 +883,8 @@ then
             #else
         fi
 
-echo exiting
-exit
     done
+
 
 
 
