@@ -1,4 +1,7 @@
-tpng=txt_to_png.sh
+
+pushd `dirname $0` > /dev/null
+
+tpng=./txt_to_png.sh
 src=xfce-transparent.png
 file1="/usr/share/xfce4/backdrops/${src}"
 #cp ~/Pictures/lubuntu-default-wallpaper-2.png /tmp/result.png
@@ -50,9 +53,10 @@ $tpng $background $text_file 1130 150 600x 13 white true
 #$tpng $background $text_file 190 490 400x 70 yellow true
 #
 #
+
+
+
+
+
+popd > /dev/null
 exit
-
-
-
-
-

@@ -244,7 +244,7 @@ configuration(){
 sleep1()
 {
     local sec=$1
-    echo1 "sleeping for $sec"
+    green "sleeping for $sec"
     sleep $sec
 }
 learn_web(){
@@ -953,6 +953,7 @@ elif [ $1 = all ];then # ------------------ all
     counter=$r
 
     while :; do
+        ( edit.sh &)
         echo1  "reload config file: $TIMERTXT_CFG_FILE"
         #### refresh vars ####
         . $TIMERTXT_CFG_FILE

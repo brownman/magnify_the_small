@@ -1,4 +1,7 @@
 #!/bin/bash
+
+pushd `dirname $0` > /dev/null
+
 notify-send 'meditate..'
 echo 'meditate'
 # Setup
@@ -33,3 +36,5 @@ for file in `ls src | grep .sh`; do
 
 done
 
+popd > /dev/null
+exit

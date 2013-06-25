@@ -68,5 +68,8 @@ demonstrations
     records:
         [ascii.io](http://ascii.io/a/3581)
 
-
+efficiency
+    utilize cfg to update execution of shell functions
+user-friendly
+    use menus - instide cli args
 
