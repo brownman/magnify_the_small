@@ -1,4 +1,5 @@
-#!/bin/bash -x
+#!/bin/bash 
+#-x
 
 #local tts:
 #http://leb.net/pub/blinux/doc/blinux/my-tts-linux.txt
@@ -6,54 +7,79 @@
 # spawn.sh
 #http://tldp.org/LDP/abs/html/internal.html
 #pids
+green() {
+    echo -e "\033[32m$1\033[0m"
+}
+
+red() {
+    echo -e "\033[31m$1\033[1m"
+}
+yellow() {
+    echo -e "\033[33m$1\033[0m"
+}
+blue() {
+    echo -e "\033[34m$1\033[0m"
+}
+echo1(){
+echo -n  '_'
+}
+echo2(){
+
+caller 0
+green "$1"
+red "$2"
+blue ""
+}
+
+
 exiting(){
-echo 'exiting'
+echo1 'exiting'
 exit
 }
 color_arr1=( blue green red black )
-echo 'help: ofer.sh -l X true -> generate article'
-echo 'help: ofer.sh it something  -> generate regular translation and sound'
-echo 'help: ofer.sh -l x false false file false'
+echo1 'help: ofer.sh -l X true -> generate article'
+echo1 'help: ofer.sh it something  -> generate regular translation and sound'
+echo1 'help: ofer.sh -l x false false file false'
 
 num=`pidof -x ofer.sh`
 num1=`pidof -x ofer.sh | wc -w`
-echo "$num"
-echo "$num1"
+echo1 "$num"
+echo1 "$num1"
 if [ $num1 -gt 2 ]; then 
 
-    echo "More than 1"
+    echo1 "More than 1"
     exit 1 
 fi
 
 pushd `dirname $0` > /dev/null
-echo "Only one; doing whatever..."
-echo 'purpose: deel only with outputs , dont update wallpaper'
-echo "ofer.sh got: $2"
-echo "$0"
-echo "RUN ofer.sh $1 $2"
+echo1 "Only one; doing whatever..."
+echo1 'purpose: deel only with outputs , dont update wallpaper'
+echo1 "ofer.sh got: $2"
+echo1 "$0"
+echo1 "RUN ofer.sh $1 $2"
 background=/tmp/static.png
 
 PIDS=$(pidof sh $0)  # Process IDs of the various instances of this script.
 P_array=( $PIDS )    # Put them in an array (why?).
-echo $PIDS           # Show process IDs of parent and child processes.
+echo1 "$PIDS"           # Show process IDs of parent and child processes.
 let "instances = ${#P_array[*]} - 1"  # Count elements, less 1.
 # Why subtract 1?
-echo "$instances instance(s) of this script running."
-echo "[Hit Ctl-C to exit.]"; echo
+echo1 "$instances instance(s) of this script running."
+echo1 "[Hit Ctl-C to exit.]"; echo1
 
 if [  "$1" ]
 then
-    echo "param exist $1"
+    echo1 "param exist $1"
 else
-    echo "no first  param $1 exising!"
+    echo1 "no first  param $1 exising!"
     exit
 fi
 #missions:
-#echo "ofer.sh run with" "$2"
+#echo1 "ofer.sh run with" "$2"
 
 
 word=$(echo "$1")
-echo $word
+echo1 "$word"
 
 if [ "$2" = "" ]
 then
@@ -88,7 +114,7 @@ else
 
 fi
 
-echo "translate.sh got: ||        str_from? $word    |     many? $many  |   article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
+echo1 "translate.sh got: ||        str_from? $word    |     many? $many  |   article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
 update_google='false'
 #silent='false'
 service='google'
@@ -114,7 +140,7 @@ mkdir -p /tmp/bash_koans/html
 if [ -z "$1" ]                           # Is parameter #1 zero length?
 then
 
-    echo 'zero length, exit!'
+    echo1 'zero length, exit!'
     exit
 fi
 
@@ -124,23 +150,23 @@ fi
 file_essay=~/tmp/ofer/essay.txt
 
 file_sentance=/tmp/sentance.txt
-#echo '' > $file_sentance
+#echo1 '' > $file_sentance
 
 
 
 
-#echo "$file_essay"
+#echo1 "$file_essay"
 
 SCRIPTPATH=`pwd -P`
 
-echo $SCRIPTPATH
+#echo1 $SCRIPTPATH
 
 
 
-echo $SCRIPTPATH
+#echo1 $SCRIPTPATH
 
 
-echo ${file_image_group} 
+#echo1 ${file_image_group} 
 declare -A ln_arr3
 
 ln_arr3["hi"]="Hindi"
@@ -243,20 +269,20 @@ ln_arr["cy"]="Welsh"
 ln_arr["yi"]="Yiddish"
 
 update_file(){
-    if [[ $push_top = false  ]];then
+    if [ "$push_top" = false  ];then
         file=$2
         str=$(echo -n "$1")
-        echo "update $file with: $str"
+        echo1 "update $file with: $str"
         echo "$str" >> $file
     else
         str=$(echo -n "$1")
-        echo "update file with: $str"
+        echo1 "update file with: $str"
         file=$2
         cat $file > /tmp/1.txt
-        echo "$str"
+        echo1 "$str"
         echo "      $str" > $file
         cat /tmp/1.txt >> $file
-        #echo 'updated file is:'
+        #echo1 'updated file is:'
         #cat $file
     fi
 
@@ -267,13 +293,13 @@ translate_f(){
     #from english
     # if [ -z "$2" ]                           # Is parameter #1 zero length?
     # then
-    #     echo "-Parameter #1 is zero length.-"  # Or no parameter passed.
+    #     echo1 "-Parameter #1 is zero length.-"  # Or no parameter passed.
     # else
     local lang=$1 #translate to..
 
-    local file_image_group=$(  echo group_${lang}.png )
+    #local file_image_group=$(  echo1 group_${lang}.png )
     local input=$2 #translate src
-    #debug: echo $input
+    #debug: echo1 $input
     local lang_long=$3 
 
     local output=''
@@ -295,14 +321,14 @@ translate_f(){
 
     if [[ $article != 'true' ]]
     then
-        echo 'its not an article!'
+        echo1 'its not an article!'
         file_name=$(  echo /tmp/bash_koans/txt/${input_ws}_${lang}.txt )
 
         #cat "$file_name" >> $file_sentance
     else
-        echo 'its an article!'
+        echo1 'its an article!'
 
-        echo "article file input: $file_essay"
+        echo1 "article file input: $file_essay"
         file_name=$(  echo /tmp/bash_koans/html/${lang}.html )
         rm $file_name
     fi
@@ -314,13 +340,13 @@ translate_f(){
 
     if [[ ! "$files"  ]]
     then
-        #echo 'file not exist'
-        #echo  "need to translate.."
+        #echo1 'file not exist'
+        #echo1  "need to translate.."
 
         if [[ $article != 'true' ]]
         then
             result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
-            echo $result
+            echo1 "$result"
             # show_one=`cat "$file_name"`
             cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
             echo $cleaner > /tmp/dirty.txt
@@ -331,7 +357,7 @@ translate_f(){
             output_ws=$(echo "$output"|sed 's/ /_/g');
 
             touch "$file_name"
-            #echo -n "$lang :" >>   "$file_name"
+            #echo1 -n "$lang :" >>   "$file_name"
 
             echo -n  "$output" >>   "$file_name"
             if [ "$phonetics"  != '' ]
@@ -348,7 +374,7 @@ translate_f(){
 
 
 
-            # echo -n  "$output" >>   $file_to_update
+            # echo1 -n  "$output" >>   $file_to_update
             #update_file "$phonetics" "$file_to_update"
             if [ "$push_top" = true ];then 
 
@@ -366,42 +392,42 @@ translate_f(){
             #  update_file "$phonetics" "$file_to_update1"
             #  update_file  "$output"  "$file_to_update1"
         else
-            echo 'it is an article !'
+            echo1 'it is an article !'
             result=$(translate-bin -s $service -f en -t $lang $file_essay) 
-            echo "$result"
+            echo1 "$result"
             touch "$file_name"
             echo "$lang_long :" >>   "$file_name"
             #back to result !
             echo "$result" >>   "$file_name"
 
-            #echo "$result" >>   "$file_to_update"
+            #echo1 "$result" >>   "$file_to_update"
 
 
         fi
 
         if [ "$silent_fetch" = false ];then
-            #echo  "no silent !"
+            #echo1  "no silent !"
 
-            echo 'fetch sound'
+            echo1 'fetch sound'
             if [ $lang = 'tl' ]
             then
 
-                #echo 'lion is cool too also' | flite -o dog.wav | lame -b 128 dog.wav dog111.mp3 | play dog111.mp3
-                #echo "$output" | flite -o /tmp/1.wav | lame -b 128 /tmp/1.wav $mp3_file | play $mp3_file 
+                #echo1 'lion is cool too also' | flite -o dog.wav | lame -b 128 dog.wav dog111.mp3 | play dog111.mp3
+                #echo1 "$output" | flite -o /tmp/1.wav | lame -b 128 /tmp/1.wav $mp3_file | play $mp3_file 
                 rm /tmp/1.wav
-                #echo $output | flite $mp3_file #-o /tmp/1.wav | #| lame -b 128 /tmp/1.wav $mp3_file #&&  play $mp3_file #/tmp/1.wav
-                echo $output
+                #echo1 $output | flite $mp3_file #-o /tmp/1.wav | #| lame -b 128 /tmp/1.wav $mp3_file #&&  play $mp3_file #/tmp/1.wav
+                echo1 $output
                 echo -n "$output" | text2wave -o "$mp3_file" #/tmp/1.wav | lame /tmp/1.wav  $mp3_file 
                 #/tmp/2.mp3 # | play /tmp/2.mp3
                 #play $mp3_file
 
                 #wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=en\&q=${output_wsp} > $mp3_file
             else
-
+#echo "$output" | espeak -v "$lang"
                 ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $mp3_file \&\& play  $mp3_file \&)
             fi
         else
-            echo 'no fetch sound'
+            echo1 'no fetch sound'
 
         fi
 
@@ -414,8 +440,8 @@ translate_f(){
         #update_file "$str7" "$file_to_update"
 
     else
-        #echo   'file exist'
-        echo   "$lang_long" "Cached Copy!" 
+        #echo1   'file exist'
+        echo1   "$lang_long" "Cached Copy!" 
 
 
     fi
@@ -430,7 +456,7 @@ translate_f(){
             if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
             then
 
-#echo ''
+#echo1 ''
 
         ( gxmessage -nofocus -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
             else
@@ -443,13 +469,13 @@ translate_f(){
     fi
     
     if [ "$silent" = false ];then
-        echo 'PLAY !'
-        echo "play $mp3_file" 
-        #echo "$lang_long" | espeak -v en
+        echo1 'PLAY !'
+        echo1 "play $mp3_file" 
+        #echo1 "$lang_long" | espeak -v en
         if [ "$silent_fetch" = true ]
         then
           #  ( play  $mp3_file &)
-          echo 'silent fetch'
+          echo1 'silent fetch'
         else
 
 
@@ -481,7 +507,7 @@ translate_f(){
 
 
 
-    #echo "content: $show_lang_group file is: $file_name "
+    #echo1 "content: $show_lang_group file is: $file_name "
 
 
 }
@@ -493,7 +519,7 @@ if [[ $many = -l || $many = --list ]]; then #list
     touch  $file_sentance
     param1="${!ln_arr3[@]}"
 
-    echo "$param1"
+    echo1 "$param1"
 
     for i in $param1 ;do
         lang="$i"
@@ -505,14 +531,14 @@ if [[ $many = -l || $many = --list ]]; then #list
 
         word="$word"
         lang_long="$param2"
-        # echo "$lang_long"
+        # echo1 "$lang_long"
         translate_f "$i" "$word" "$lang_long"
 
     done #| sort -k2
 
     #str=`/TORRENTS/SCRIPTS/EXEC/remove_endl.sh $file_sentance`
     #cat $file_sentance
-    #echo $file_sentance 
+    #echo1 $file_sentance 
 else
     lang=$many
     file_group=$(  echo /tmp/bash_koans/group_${lang}.txt )
@@ -520,7 +546,7 @@ else
     touch "$file_group"
 
     i=$lang
-    # echo "lang is: $i"
+    # echo1 "lang is: $i"
     param2="${ln_arr[$i]}"
     word="$word"
     lang_long="$param2"
@@ -530,19 +556,19 @@ fi
 
 
 
-#echo finitto | espeak -v it
+#echo1 finitto | espeak -v it
 
 group1=`cat "$file_group"`
 group1_ws=$(echo "$group1"|sed 's/\n/_/g' | tail -10) 
-#echo  "group:  $group1_ws" "file: $file_group"
+#echo1  "group:  $group1_ws" "file: $file_group"
 
 if [[ "$update_google" = 'true' ]]
 then
     google calendar --debug add  -d 'today at 10pm' --src "$group1_ws"
-    echo "google_u enable !" 
+    echo1 "google_u enable !" 
 else
-    echo ''
-    #echo "google_u disable !" 
+    echo1 ''
+    #echo1 "google_u disable !" 
 fi
 
 
@@ -550,7 +576,7 @@ fi
 
 
 
-pwd
+#pwd
 
 popd > /dev/null
 exit 0

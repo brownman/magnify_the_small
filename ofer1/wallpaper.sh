@@ -15,8 +15,15 @@ background=/tmp/result.png
 #text_file=/tmp/ampm.txt
 #/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 400 750 900x 20 black true
 
+text_file=~/tmp/timer2/daily/todo.txt
+#gedit $text_file
+$tpng $background $text_file 450 830 1300x 33 white true
+text_file=~/tmp/timer2/daily/done.txt
+#gedit $text_file
+$tpng $background $text_file 450 430 1300x 63 yellow true
+
 text_file=/tmp/gcalcli_agenda.txt
-$tpng $background $text_file 240 150 600x 20 white true
+$tpng $background $text_file 40 150 600x 13 white true
 
 
 #text_file=~/tmp/ofer/weekly/todo.txt
@@ -26,10 +33,9 @@ $tpng $background $text_file 240 150 600x 20 white true
 #
 text_file=/tmp/missions.txt
 #tmp/ofer/daily/now.txt
-#$tpng $background $text_file 30 650 800x 20 black true
+$tpng $background $text_file 1130 150 600x 13 white true
 #
-#text_file=~/tmp/ofer/weekly/done.txt
-$tpng $background $text_file 1050 230 1300x 23 red true
+
 #
 #text_file=~/tmp/ofer/daily/thanks.txt
 #$tpng $background $text_file 550 790 600x 20 black true

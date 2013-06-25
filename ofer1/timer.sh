@@ -1,4 +1,6 @@
-#!/bin/bash 
+#!/bin/bash
+#-x
+
 #-x
 
         #answer=$( gxmessage abc -buttons "$label" -center  -title "xx"  "$GXMESSAGE1" -entry  )
@@ -7,17 +9,56 @@ pushd `dirname $0` > /dev/null
 if [ "$1" = '' ];then
     exit 1
 fi
+green() {
+    echo -e "\033[32m$1\033[0m"
+}
+
+red() {
+    echo -e "\033[31m$1\033[1m"
+}
+yellow() {
+    echo -e "\033[33m$1\033[0m"
+}
+blue() {
+    echo -e "\033[34m$1\033[0m"
+}
+
+echo3(){
+#caller 0
+#red "$1"
+
+echo -n "_"
+}
+
+echo1(){
+
+
+echo -n "_"
+#red "$2"
+
+#green ""
+#$1"
+
+#caller 0
+
+
+}
+echo2(){
+#green "$1"
+
+echo -n "_"
+}
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
 export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
-echo "cfg is: $TIMERTXT_CFG_FILE"
-ls -l $TIMERTXT_CFG_FILE
-cat $TIMERTXT_CFG_FILE
+echo2 "cfg is: $TIMERTXT_CFG_FILE"
+#ls -l $TIMERTXT_CFG_FILE
+#cat $TIMERTXT_CFG_FILE
 . $TIMERTXT_CFG_FILE
 declare -i my_score
 my_score=0 #-1
-gxmessage  'every input str should contain atleast 1 word that used before !'
-echo "timer.sh got: 1:$1 2:$2 3:$3"
+#gxmessage  'every input str should contain atleast 1 word that used before !'
+echo2 "timer.sh got: 1:$1 2:$2 3:$3"
 lower() { echo ${@,,}; }
 
 
@@ -35,11 +76,11 @@ local file="$1"
 local title="$2"
 #local last_input="$3"
   y=\$"$3"   # Name of variable (not value!).
-        echo $y    # $Junk
+        echo1 $y    # $Junk
 
         x=`eval "expr \"$y\" "`
         echo $3=$x
-       echo  "$3 " 
+       echo1  "$3 " 
 
     say1 "$x"
 
@@ -50,7 +91,7 @@ local title="$2"
      
     if [ "$answer" = exit ]
     then
-        echo 'exiting'
+        echo1 'exiting'
         exit 1
     fi
 
@@ -133,22 +174,22 @@ check_item(){
 }
 #ffmpeg -an -f video4linux -s 320x240 -b 800k -r 15 -i /dev/v4l/video0 -vcodec mpeg4 myvideo.avi
 rooting(){
-    echo 'how to root a close device to a789 ?'
-    echo 'http://www.tipidcp.com/viewtopic.php?tid=33617&page=1'
+    echo1 'how to root a close device to a789 ?'
+    echo1 'http://www.tipidcp.com/viewtopic.php?tid=33617&page=1'
     xdg-open 'http://www.china1buye.com/lenovo-a789-mtk-6577-dual-core-cortex-a9-1-0ghz-android4-0-gps-dual-camera-5-0mp-4-inch-smartphone'
 
-    echo 'where r the roms and backup tools ?'
+    echo1 'where r the roms and backup tools ?'
     xdg-open 'http://d-h.st/users/cybermaus/?fld_id=9986#files'
 
 
-    echo '1. GENERAL RECOVERY'
+    echo1 '1. GENERAL RECOVERY'
     http://bm-smartphone-reviews.blogspot.nl/2012/02/complete-guide-to-clockworkmod-recovery.html
 
-    echo 'how to root different lenovo phone ?'
-    echo 'http://www.youtube.com/watch?v=Qo8xrxMisr8'
+    echo1 'how to root different lenovo phone ?'
+    echo1 'http://www.youtube.com/watch?v=Qo8xrxMisr8'
 
-    echo 'android: hebrew forum about flashing a rom of a789'
-    echo     'http://iandroid.co.il/forum/topic111628.html'
+    echo1 'android: hebrew forum about flashing a rom of a789'
+    echo1     'http://iandroid.co.il/forum/topic111628.html'
 }
 
 
@@ -197,16 +238,15 @@ last_camera_after="" #this is much better"
 #declare -A arr1
 #arr1["en"]="English"
 configuration(){
-    echo "silent? $silent  "
+    echo1 "silent? $silent  "
 }
 
 sleep1()
 {
     local sec=$1
-    echo "sleeping for $sec"
+    echo1 "sleeping for $sec"
     sleep $sec
 }
-echo "#sleep1 period is: $sec"
 learn_web(){
 
     dir=/TORRENTS/AUDIO/ANGULAR
@@ -214,7 +254,7 @@ learn_web(){
     #/home/dao01/desktop/shit/www.egghead.io.html)
     (vlc "$dir" &)
     #egghead.io - angularjs - built-in filters-d4nya-sfnzg.mp4")
-    echo 'cd /TORRENTS/RAILS/BACKBONE/ANGULAR/angular-phonecat/'
+    echo1 'cd /TORRENTS/RAILS/BACKBONE/ANGULAR/angular-phonecat/'
 }
 learn_security(){
     (vlc "$dir/security00.mp4")&
@@ -222,8 +262,8 @@ learn_security(){
     #http://www.wireshark.org/docs/
 }
 learn_book_splitter(){
-    echo     'http://docs.angularjs.org/guide/dev_guide.templates.databinding'
-    echo 'http://plnkr.co/edit/6UYL17'
+    echo1     'http://docs.angularjs.org/guide/dev_guide.templates.databinding'
+    echo1 'http://plnkr.co/edit/6UYL17'
     msg='what is the next task in book splitter ? '
 
 
@@ -242,28 +282,28 @@ learn_android(){
 
 
     # //opensource
-    echo https://play.google.com/store/search?q=%27open+source%27+game+port&c=apps
+    echo1 https://play.google.com/store/search?q=%27open+source%27+game+port&c=apps
 }
 build_android(){
-    echo 'http://www.kickstarter.com/projects/435742530/udoo-android-linux-arduino-in-a-tiny-single-board?ref=search#faq_55732'
-    echo 'build a789 rom'
+    echo1 'http://www.kickstarter.com/projects/435742530/udoo-android-linux-arduino-in-a-tiny-single-board?ref=search#faq_55732'
+    echo1 'build a789 rom'
     xdg-open 'http://forum.xda-developers.com/showthread.php?t=1899245'
 
 }
 
 buy()
 {
-    echo 'build a laptop'
+    echo1 'build a laptop'
     xdg-open 'http://www.kickstarter.com/projects/lividesign/casetop-every-phone-becomes-a-laptop'
     #go to zap  and search for replacement part + do it in ebay too
-    echo  ''
-    echo 'http://www.engadget.com/tag/MiniPc/'
+    echo1  ''
+    echo1 'http://www.engadget.com/tag/MiniPc/'
 }
 
 time1(){
   
     date1="$(date +%H:%M)"
-    ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" &)
+    ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
     say1 "$date1"
   
 
@@ -280,44 +320,44 @@ suspend1(){
 
 
 
-    echo "#sleep1 for $sec seconds"
+    echo1 "#sleep1 for $sec seconds"
 
     #sleep1 $sec 
 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    echo 'got back from suspension'
+    echo1 'got back from suspension'
     #done
 
 }
 network(){
-    echo 'bash examples:'
+    echo1 'bash examples:'
     xdg-open 'http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/'
-    echo 'show apps that use network right now'
+    echo1 'show apps that use network right now'
     lsof -P -i -n | cut -f 1 -d " "| uniq | tail -n +2
 
-    echo 'which app use which port'
+    echo1 'which app use which port'
     lsof -Pan -i tcp -i udp
 
-    echo 'show hardware being recognized'
+    echo1 'show hardware being recognized'
     lshw
 
-    echo 'kernel dependency graph'
+    echo1 'kernel dependency graph'
     lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -
 
-    echo 'Create a system overview dashboard on F12 key'
+    echo1 'Create a system overview dashboard on F12 key'
     bind '"\e[24~"':"\"ps -elF;df -h;free -mt;netstat -lnpt;who -a\C-m"""
 }
 sport(){
 
     lang=$1
-    echo 'do sport for 1 minute'$ 
+    echo1 'do sport for 1 minute'$ 
     sleep1 $sec
 
     if [ $silent1 = false ]
     then
-        echo 'learn lang'
+        echo1 'learn lang'
         learn_lang $lang
-        echo 'learn lang1'
+        echo1 'learn lang1'
     #    learn_lang1 $lang
     fi
 
@@ -332,7 +372,7 @@ sport(){
 
 
 
-    echo 'come back - everything is possible now' 
+    echo1 'come back - everything is possible now' 
 
 
 
@@ -340,6 +380,10 @@ sport(){
 
 }
 send_essay(){
+
+kuka_file=/home/dao01/tmp/timer2/essays/essayru.txt
+kuka_subject="ofer to kuka: my essay"
+
 
 
 pini_file=/home/dao01/tmp/timer2/essays/essayhi.txt
@@ -350,17 +394,21 @@ alice_file=/home/dao01/tmp/timer2/essays/essaytl.txt
 alice_subject="ofer to alice: my essay"
 
 
+kuka_send="mpack -s '$kuka_subject' $kuka_file '$MAIL2 ,  $MAIL1'"
 pini_send="mpack -s '$pini_subject' $pini_file '$pini_email ,  $MAIL1'"
 alice_send="mpack -s '$alice_subject' $alice_file '$alice_email ,  $MAIL1'"
 
-alice_echo='echo $alice_send'
-pini_echo='echo $pini_send'
-echo "$alice_send"
-echo "$pini_send"
+alice_echo1='echo1 $alice_send'
+kuka_echo1='echo1 $kuka_send'
+pini_echo1='echo1 $pini_send'
+
+echo1 "$kuka_send"
+echo1 "$alice_send"
+echo1 "$pini_send"
 }
 
 write_essay(){
-    echo "write essay got: first: $1 | second: $2"
+    echo2 "write essay got: first: $1 | second: $2"
     if [ "$1" != '' ]
     then
 
@@ -391,7 +439,7 @@ learn_lang(){
 
 
 
-    echo 'playing..'
+    echo1 'playing..'
     if [ $silent1 = false ];then
 
         play "/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
@@ -404,7 +452,7 @@ learn_lang(){
 
 learn_lang1(){
     lang1=$(lower $lang)
-    echo $lang1
+    echo1 $lang1
     #ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)"
 
 
@@ -421,7 +469,7 @@ learn_lang1(){
         then
             (say1 "$str1" &)
             gxmessage -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
-            echo "txt file: $I"
+            echo1 "txt file: $I"
 
 
         fi
@@ -446,7 +494,7 @@ translate1(){
 
     local push_top=$4
 
-    echo "translate1 got: str:$str , lang:$lang file:$3 -- push_top:$4 ---  article: $article , silent: $silent, silent_msg: $silent_msg , silent_fetch: $silent_fetch"
+    echo2 "translate1 got: str:$str , lang:$lang file:$3 -- push_top:$4 ---  article: $article , silent: $silent, silent_msg: $silent_msg , silent_fetch: $silent_fetch"
 
     #local file5=~/tmp/timer2/essay${lang}.txt
     #touch $file5
@@ -463,7 +511,7 @@ $timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push
 
     else
 
-        echo "no str to translate"
+        echo1 "no str to translate"
     fi
 
 
@@ -472,17 +520,17 @@ $timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push
 translate_file()
 {
     # /TORRENTS/SCRIPTS/EXEC/remind.sh 4 
-    echo "$1"
+    echo1 "$1"
     if [[ "$1" ]]
     then
-        echo 'translate msg'
+        echo1 'translate msg'
 
 
     else
-        echo 'take 1 line of imagine.txt'
+        echo1 'take 1 line of imagine.txt'
         #~/tmp/timer2/thanks.txt
         str4=$(cat $file_thanks | head -1)
-        echo $str4
+        echo1 $str4
         str5=$(echo "$str4"  | tr -d '\012\015')
         langs='-l'
 
@@ -530,7 +578,7 @@ take_photo(){
     (xloadimage $pic_file &)
 }
 Backtrace () {
-   echo "Backtrace is:"
+   echo1 "Backtrace is:"
    i=0
    while caller $i
    do
@@ -541,12 +589,16 @@ say1(){
 Backtrace
 
     local msg="$1"
-    echo "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
+    echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
     if [ "$SILENCE" = false ]
     then
         echo "$msg" | flite -voice rms 
         sleep1 2s
         echo "$msg" | flite -voice slt
+        $timer2_sh "$msg" "ru"
+        $timer2_sh "$msg" "ru"
+
+       # $timer2_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
     fi
 
 
@@ -554,8 +606,8 @@ Backtrace
 
 
 say2(){
-    echo "say2() got :  msg:  $1 || lang: $2 || file: $3 || push_top: $4"
-    echo "say1 push_top = true" 
+    echo1 "say2() got :  msg:  $1 || lang: $2 || file: $3 || push_top: $4"
+    echo1 "say1 push_top = true" 
 
     local msg="$1"
     local lang=$2
@@ -618,26 +670,27 @@ twitter(){
 
 update_wallpaper(){
     echo 'update desktop' | flite  
-    /TORRENTS/SCRIPTS/MIDDLE/ENGLISH/script.sh
+    #/TORRENTS/SCRIPTS/MIDDLE/ENGLISH/script.sh
+    ./wallpaper.sh
 }
 
 
 test1(){
-    echo $TIMER_DIR
+    echo1 $TIMER_DIR
     exit
     say1 "I love you" 
 
     sleep1 5s
 
-    echo 'exiting'
+    echo1 'exiting'
     exit 0
 
     str=$1
     if [ "$str" = true ]
     then
-        echo 'result: true'
+        echo1 'result: true'
     else
-        echo 'result: false'
+        echo1 'result: false'
 
     fi 
 
@@ -665,7 +718,7 @@ motivation_start(){
 }
 exiting()
 {
-    echo 'exiting'
+    echo1 'exiting'
     exit
 }
 update_score() {
@@ -676,8 +729,8 @@ update_score() {
     # return $?
 }
 dereference(){
-    echo "lang: $lang | dir essay: $dir_essay | file5:  $file5"
-    echo 'dereference'
+    echo2 "lang: $lang | dir essay: $dir_essay | file5:  $file5"
+    #echo1 'dereference'
     local file5="$dir_essay/essay${lang}.txt"
     touch $file5
 
@@ -686,16 +739,16 @@ dereference(){
     while [ "$msg_m0" != '' ];do
 
         y=\$"$1"   # Name of variable (not value!).
-        echo $y    # $Junk
+        #echo1 $y    # $Junk
 
         x=`eval "expr \"$y\" "`
-        echo $1=$x
+        #echo2 $1=$x
 
 
       #  say1 "$x"
-        #echo $str=$x
+        #echo1 $str=$x
         # eval "$1=\"Some Different Text \""  # Assign new value.
-        echo "$file5"
+        echo2 "$file5"
 
 
         #local label="_$last_task"
@@ -712,11 +765,11 @@ dereference(){
         if [ "$answer" != '' ]
         then
             local plus=0
-            echo 'change value of $1'
+            echo1 'change value of $1'
           
-            echo 'before update score'
+            echo1 'before update score'
             update_score "$answer" $file5
-            echo 'after update score'
+            echo1 'after update score'
                    say2 "$answer" $lang $file5 true
 
 
@@ -733,7 +786,7 @@ dereference(){
 
 }
 update_env(){
-    echo 'update env'
+    echo1 'update env'
 
     lesson=$LESSON
     sec="${SLEEP}s"
@@ -758,7 +811,7 @@ delete_files(){
         if [ "$answer" != 'no' ];then
 
             echo '' > "$I"
-            echo 'clean file'
+            echo1 'clean file'
         fi
     done
     for I in $(ls -1 --sort=time $dir1/*.txt )
@@ -769,7 +822,7 @@ delete_files(){
         if [ "$answer" != 'no' ];then
 
             echo '' > "$I"
-            echo 'clean file'
+            echo1 'clean file'
         fi
     done
 }
@@ -789,7 +842,7 @@ last_task="rabbiit2"
     exiting
     #first=$(cat $TODO_FILE | head -1)
     first=`cat $TODO_FILE | head -1`
-    echo $first
+    echo1 $first
     #gxmessage "$first"
     exiting
     gxmessage 'testing'
@@ -801,21 +854,21 @@ last_task="rabbiit2"
 
 
 elif [ $1 = delete ];then
-    echo 'delete'
+    echo1 'delete'
 
     delete_files 
 
 elif [ $1 = meditate ];then
-    echo 'meditate'
+    echo1 'meditate'
 
     $TIMER2_DIR/meditate.sh 
 elif [ $1 = watchr ];then
-    echo 'watchr'
+    echo1 'watchr'
 
     watchr $TIMER2_DIR/koans-linux.watchr 
 
 elif [ $1 = fetch ];then
-    echo 'fetching'
+    echo1 'fetching'
 
     $TIMER2_DIR/fetch.sh 
 elif [ $1 = mail ]
@@ -835,7 +888,7 @@ then
 elif [ $1 = english ]
 then
     $TIMER2_DIR/english.sh
-elif [ $1 = task ]
+elif [ $1 = one_task ]
 then
 
     while :; do
@@ -846,7 +899,7 @@ then
 
         first=`cat $file | head -1`
          file=$TODO_FILE
-        str=$(gxmessage -timeout $SLEEP -title 'next easy:' -entry -file $file )
+        str=$(gxmessage -timeout $TIMEOUT1 -title 'next easy:' -entry -file $file )
         if [ "$str" !=  ''  ] 
         then
             if [ "$str" = 'exit' ]
@@ -895,44 +948,51 @@ elif [ $1 = all ];then # ------------------ all
 
 
 
-    echo 'PLAY AGAIN    '
+    echo1 'PLAY AGAIN    '
     let "r = $RANDOM % 4 + 1"
     counter=$r
 
     while :; do
-        echo  "reload config file: $TIMERTXT_CFG_FILE"
+        echo1  "reload config file: $TIMERTXT_CFG_FILE"
         #### refresh vars ####
         . $TIMERTXT_CFG_FILE
         update_env 
 
         #######################
-        echo "lesson is: $LESSON"
+        echo1 "lesson is: $LESSON"
 
-        echo "suspend is: $SUSPEND"
-        echo "silence is: $silent1"
+        echo1 "suspend is: $SUSPEND"
+        echo1 "silence is: $silent1"
         sleep1 10s
         motivation_start 
 
-        title="task:"
+        title="question:"
         file=$file_task
         input_line $file "$title" last_task
 
         time1
-        echo "run all tasks: one after another"
+        echo1 "run all tasks: one after another"
         let "reminder = $counter % 4"
-        echo "the reminder is: $reminder"
+        echo1 "the reminder is: $reminder"
         lang="${arr1[$reminder]}"
 
-        sport $lang 
+      #  sport $lang 
 
 
         counter+=1
 
         sleep1 $sec
 
-   title="thanks:"
+    
+if [ $INPUT_THANKS = true ]
+then
+
+        title="thanks:"
         file=$file_thanks
         input_line $file "$title" last_thanks
+fi
+
+
         
         sleep1 $sec
 
@@ -941,7 +1001,7 @@ elif [ $1 = all ];then # ------------------ all
         #   (xdg-open 'https://www.google.com/calendar/render?tab=mc' &)
         motivation_end
 
-        echo 'suspend..'
+        echo1 'suspend..'
         sleep1 10s 
         if [ "$SUSPEND" = true ];then
 
@@ -957,7 +1017,7 @@ fi
 #    learn_web
 #fi
 
-pwd
+#pwd
 
 popd > /dev/null
 exit
