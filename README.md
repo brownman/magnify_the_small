@@ -65,9 +65,11 @@ collaboration
 
 demonstrations
     presentation - show how to utilize the scripts
-    records:
-        [ascii.io](http://ascii.io/a/3581)
-
+    last records:
+        [menu.sh - the project menu ](http://ascii.io/a/3758)
+        [timer.cfg - for updating the Env vars](http://ascii.io/a/3759)
+        [unit tests - test runner](http://ascii.io/a/3757)
+        
 efficiency
     utilize cfg to update execution of shell functions
 user-friendly
