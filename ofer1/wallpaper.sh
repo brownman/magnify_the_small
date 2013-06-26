@@ -20,10 +20,10 @@ background=/tmp/result.png
 
 text_file=~/tmp/timer2/daily/todo.txt
 #gedit $text_file
-$tpng $background $text_file 450 830 1300x 33 white true
+$tpng $background $text_file 450 830 1300x 33 yellow true
 text_file=~/tmp/timer2/daily/done.txt
 #gedit $text_file
-$tpng $background $text_file 450 430 1300x 63 yellow true
+$tpng $background $text_file 450 430 1300x 33 white true
 
 text_file=/tmp/gcalcli_agenda.txt
 $tpng $background $text_file 40 150 600x 13 white true

@@ -69,6 +69,7 @@ demonstrations
         [menu.sh - the project menu ](http://ascii.io/a/3758)
         [timer.cfg - for updating the Env vars](http://ascii.io/a/3759)
         [unit tests - test runner](http://ascii.io/a/3757)
+        [fetch.sh - download personal google calendar and tasks](http://ascii.io/a/3768)
         
 efficiency
     utilize cfg to update execution of shell functions

@@ -1,56 +1,39 @@
 #!/bin/bash
 #-x
 
-#-x
 
-        #answer=$( gxmessage abc -buttons "$label" -center  -title "xx"  "$GXMESSAGE1" -entry  )
-       #exit 
 pushd `dirname $0` > /dev/null
 if [ "$1" = '' ];then
     exit 1
 fi
-green() {
-    echo -e "\033[32m$1\033[0m"
-}
-
-red() {
-    echo -e "\033[31m$1\033[1m"
-}
-yellow() {
-    echo -e "\033[33m$1\033[0m"
-}
-blue() {
-    echo -e "\033[34m$1\033[0m"
-}
-
 echo3(){
-#caller 0
-#red "$1"
+    #caller 0
+    #red "$1"
 
-echo -n "_"
+    echo -n "_"
 }
 
 echo1(){
 
 
-echo -n "_"
-#red "$2"
+    echo -n "_"
+    #red "$2"
 
-#green ""
-#$1"
+    #green ""
+    #$1"
 
-#caller 0
+    #caller 0
 
 
 }
 echo2(){
-#green "$1"
+    #green "$1"
 
-echo -n "_"
+    blue "$1"
 }
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
-export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
+#export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
 echo2 "cfg is: $TIMERTXT_CFG_FILE"
 #ls -l $TIMERTXT_CFG_FILE
 #cat $TIMERTXT_CFG_FILE
@@ -64,31 +47,31 @@ lower() { echo ${@,,}; }
 
 
 input_line(){
-#latest modifications: 
-#pass reference by supplying name of global variable.
-#
+    #latest modifications: 
+    #pass reference by supplying name of global variable.
+    #
 
 
 
 
 
-local file="$1"
-local title="$2"
-#local last_input="$3"
-  y=\$"$3"   # Name of variable (not value!).
-        echo1 $y    # $Junk
+    local file="$1"
+    local title="$2"
+    #local last_input="$3"
+    y=\$"$3"   # Name of variable (not value!).
+    echo1 $y    # $Junk
 
-        x=`eval "expr \"$y\" "`
-        echo $3=$x
-       echo1  "$3 " 
+    x=`eval "expr \"$y\" "`
+    echo $3=$x
+    echo1  "$3 " 
 
     say1 "$x"
 
-   
+
     answer=$( gxmessage -buttons "_ $x"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
-    
-     eval "$3=\"$answer\""  # Assign new value.
-     
+
+    eval "$3=\"$answer\""  # Assign new value.
+
     if [ "$answer" = exit ]
     then
         echo1 'exiting'
@@ -138,7 +121,7 @@ check_subgroup() {
     do 
         check_item "$item" "$group2" 
         answer=$?
-  
+
 
         if [ $answer = 1 ]
         then
@@ -301,11 +284,11 @@ buy()
 }
 
 time1(){
-  
+
     date1="$(date +%H:%M)"
     ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
     say1 "$date1"
-  
+
 
 }
 
@@ -316,7 +299,7 @@ suspend1(){
     say1 "$last_suspend" 
     #while :; do
     gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE1 
-  
+
 
 
 
@@ -358,7 +341,7 @@ sport(){
         echo1 'learn lang'
         learn_lang $lang
         echo1 'learn lang1'
-    #    learn_lang1 $lang
+        #    learn_lang1 $lang
     fi
 
 
@@ -381,30 +364,49 @@ sport(){
 }
 send_essay(){
 
-kuka_file=/home/dao01/tmp/timer2/essays/essayru.txt
-kuka_subject="ofer to kuka: my essay"
+
+    echo2 "send essay got: first: $1 | second: $2"
+    local lang="$1"
+
+
+    kuka_file=/home/dao01/tmp/timer2/essays/essayru.txt
+    kuka_subject="ofer to kuka: my essay"
 
 
 
-pini_file=/home/dao01/tmp/timer2/essays/essayhi.txt
-pini_subject="ofer to pini: my essay"
+    pini_file=/home/dao01/tmp/timer2/essays/essayhi.txt
+    pini_subject="ofer to pini: my essay"
 
 
-alice_file=/home/dao01/tmp/timer2/essays/essaytl.txt
-alice_subject="ofer to alice: my essay"
+    alice_file=/home/dao01/tmp/timer2/essays/essaytl.txt
+    alice_subject="ofer to alice: my essay"
 
 
-kuka_send="mpack -s '$kuka_subject' $kuka_file '$MAIL2 ,  $MAIL1'"
-pini_send="mpack -s '$pini_subject' $pini_file '$pini_email ,  $MAIL1'"
-alice_send="mpack -s '$alice_subject' $alice_file '$alice_email ,  $MAIL1'"
+    kuka_send="mpack -s '$kuka_subject' $kuka_file '$MAIL2 ,  $MAIL1'"
+    pini_send="mpack -s '$pini_subject' $pini_file '$pini_email ,  $MAIL1'"
+    alice_send="mpack -s '$alice_subject' $alice_file '$alice_email ,  $MAIL1'"
 
-alice_echo1='echo1 $alice_send'
-kuka_echo1='echo1 $kuka_send'
-pini_echo1='echo1 $pini_send'
+    alice_echo='echo $alice_send'
+    kuka_echo='echo $kuka_send'
+    pini_echo='echo $pini_send'
 
-echo1 "$kuka_send"
-echo1 "$alice_send"
-echo1 "$pini_send"
+    if [ "$lang" = ru ]
+    then
+        echo2 "$kuka_send"
+    elif [ "$lang" = hi ]
+    then
+        echo2 "$pini_send"
+    elif [ "$lang" = tl ]
+    then
+        echo2 "$alice_send"
+    else
+        echo 'no recipiant'
+    fi
+
+
+
+
+
 }
 
 write_essay(){
@@ -412,12 +414,12 @@ write_essay(){
     if [ "$1" != '' ]
     then
 
-    lang="$1"
+        lang="$1"
     fi
 
 
     dereference msg_m0 
-    
+
 }
 
 learn_lang(){
@@ -507,7 +509,7 @@ translate1(){
 
         langs=$(lower $lang)
 
-$timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push_top
+        $timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push_top
 
     else
 
@@ -578,15 +580,15 @@ take_photo(){
     (xloadimage $pic_file &)
 }
 Backtrace () {
-   echo1 "Backtrace is:"
-   i=0
-   while caller $i
-   do
-      i=$((i+1))
-   done
+    echo1 "Backtrace is:"
+    i=0
+    while caller $i
+    do
+        i=$((i+1))
+    done
 }
 say1(){
-Backtrace
+    Backtrace
 
     local msg="$1"
     echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
@@ -598,7 +600,7 @@ Backtrace
         $timer2_sh "$msg" "ru"
         $timer2_sh "$msg" "ru"
 
-       # $timer2_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
+        # $timer2_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
     fi
 
 
@@ -745,7 +747,7 @@ dereference(){
         #echo2 $1=$x
 
 
-      #  say1 "$x"
+        #  say1 "$x"
         #echo1 $str=$x
         # eval "$1=\"Some Different Text \""  # Assign new value.
         echo2 "$file5"
@@ -766,11 +768,11 @@ dereference(){
         then
             local plus=0
             echo1 'change value of $1'
-          
+
             echo1 'before update score'
             update_score "$answer" $file5
             echo1 'after update score'
-                   say2 "$answer" $lang $file5 true
+            say2 "$answer" $lang $file5 true
 
 
 
@@ -831,7 +833,7 @@ delete_files(){
 
 if [ $1 = "testing" ]
 then
-last_task="rabbiit2"
+    last_task="rabbiit2"
 
     cat $file_task | head -3 
 
@@ -840,8 +842,8 @@ last_task="rabbiit2"
     cat $file_task | head -3 
     sleep1 5s
     exiting
-    #first=$(cat $TODO_FILE | head -1)
-    first=`cat $TODO_FILE | head -1`
+    #first=$(cat $todo_txt | head -1)
+    first=`cat $todo_txt | head -1`
     echo1 $first
     #gxmessage "$first"
     exiting
@@ -882,7 +884,9 @@ then
 
 elif [ $1 = send_essay ]
 then
-    send_essay 
+    lang1=$2
+    send_essay $lang1
+     
 
 
 elif [ $1 = english ]
@@ -898,7 +902,7 @@ then
 
 
         first=`cat $file | head -1`
-         file=$TODO_FILE
+        file=$todo_txt
         str=$(gxmessage -timeout $TIMEOUT1 -title 'next easy:' -entry -file $file )
         if [ "$str" !=  ''  ] 
         then
@@ -918,12 +922,12 @@ then
         first=`cat $file | head -1`
         $timer2_sh "$first" 
 
-########memory test
+        ########memory test
 
-         file=$MEMORY_FILE
-        
-      str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
-      if [ "$str" !=  ''  ] 
+        file=$memory_txt
+
+        str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
+        if [ "$str" !=  ''  ] 
         then
             if [ "$str" = 'exit' ]
             then
@@ -944,7 +948,7 @@ then
 
 elif [ $1 = all ];then # ------------------ all
 
-        #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
+    #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
 
 
 
@@ -977,24 +981,24 @@ elif [ $1 = all ];then # ------------------ all
         echo1 "the reminder is: $reminder"
         lang="${arr1[$reminder]}"
 
-      #  sport $lang 
+        #  sport $lang 
 
 
         counter+=1
 
         sleep1 $sec
 
-    
-if [ $INPUT_THANKS = true ]
-then
 
-        title="thanks:"
-        file=$file_thanks
-        input_line $file "$title" last_thanks
-fi
+        if [ $INPUT_THANKS = true ]
+        then
+
+            title="thanks:"
+            file=$file_thanks
+            input_line $file "$title" last_thanks
+        fi
 
 
-        
+
         sleep1 $sec
 
         sleep1 $sec 
