@@ -224,12 +224,7 @@ configuration(){
     echo1 "silent? $silent  "
 }
 
-sleep1()
-{
-    local sec=$1
-    green "sleeping for $sec"
-    sleep $sec
-}
+
 learn_web(){
 
     dir=/TORRENTS/AUDIO/ANGULAR
@@ -718,11 +713,7 @@ motivation_start(){
     #say1 "$msg_m3"
     #say1 "$msg_m4"
 }
-exiting()
-{
-    echo1 'exiting'
-    exit
-}
+
 update_score() {
     local group1="$1"
     local file="$2" 
@@ -829,7 +820,179 @@ delete_files(){
     done
 }
 
+all1(){
 
+    . $TIMERTXT_CFG_FILE
+
+    IFS=', ' read -a array <<< "$SERIES"
+
+    #echo "${array[0]}"
+    #echo $str
+    for index in "${!array[@]}"
+    do
+        green "$index" 
+
+        #$yno=`eval ${array[index]}`
+        local yno=`echo ${array[index]}`
+
+
+yellow $yno
+
+        case $yno in
+            "input_task")
+            title="next task:"
+            file=$file_task
+            input_line $file "$title" last_task
+
+                ;;
+            "time")
+                time1
+                ;;
+     "suspend")
+                suspend1
+                ;;
+  "one_task")
+      one_task1
+                ;;
+     "edit")
+         (edit.sh &)
+                ;;
+
+            *) echo "Invalid input"
+                ;;
+        esac     
+
+    done
+    exit
+
+    #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
+
+
+}
+many(){
+
+    echo1 'PLAY AGAIN    '
+    let "r = $RANDOM % 4 + 1"
+    counter=$r
+
+    #while :; do
+
+    ( edit.sh &)
+    echo1  "reload config file: $TIMERTXT_CFG_FILE"
+    #### refresh vars ####
+    . $TIMERTXT_CFG_FILE
+    update_env 
+
+    #######################
+    echo1 "lesson is: $LESSON"
+
+    echo1 "suspend is: $SUSPEND"
+    echo1 "silence is: $silent1"
+    sleep1 10s
+    motivation_start 
+
+    title="next task:"
+    file=$file_task
+    input_line $file "$title" last_task
+
+    time1
+    echo1 "run all tasks: one after another"
+    let "reminder = $counter % 4"
+    echo1 "the reminder is: $reminder"
+    lang="${arr1[$reminder]}"
+
+    #  sport $lang 
+
+
+    counter+=1
+
+    sleep1 $sec
+
+
+    if [ $INPUT_THANKS = true ]
+    then
+
+        title="thanks:"
+        file=$file_thanks
+        input_line $file "$title" last_thanks
+    fi
+
+
+
+    sleep1 $sec
+
+    sleep1 $sec 
+    #update_wallpaper
+    #   (xdg-open 'https://www.google.com/calendar/render?tab=mc' &)
+    motivation_end
+
+    echo1 'suspend..'
+    sleep1 10s 
+    if [ "$SUSPEND" = true ];then
+
+        suspend1
+    fi
+
+    (xloadimage $pic_file &)
+    #done
+
+    one_task1
+
+
+}
+one_task1(){
+
+    #while :; do
+
+    . $TIMERTXT_CFG_FILE
+
+
+
+    first=`cat $file | head -1`
+    file=$now_txt
+    str=$(gxmessage -timeout $TIMEOUT1 -title '1 task:' -entry -file $file )
+    if [ "$str" !=  ''  ] 
+    then
+        if [ "$str" = 'exit' ]
+        then
+            exit
+        fi
+
+        cat $file > /tmp/2.txt 
+        echo "$str" > $file
+        cat /tmp/2.txt >> $file
+        #else
+    fi
+
+
+
+    first=`cat $file | head -1`
+    $timer2_sh "$first" 
+
+    ########memory test
+
+    file=$memory_txt
+
+    str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
+    if [ "$str" !=  ''  ] 
+    then
+        if [ "$str" = 'exit' ]
+        then
+            exit
+        fi
+
+        cat $file > /tmp/2.txt 
+        echo "$str" > $file
+        cat /tmp/2.txt >> $file
+        #else
+    fi
+
+    #done
+
+
+
+
+}
 
 if [ $1 = "testing" ]
 then
@@ -886,7 +1049,7 @@ elif [ $1 = send_essay ]
 then
     lang1=$2
     send_essay $lang1
-     
+
 
 
 elif [ $1 = english ]
@@ -894,128 +1057,10 @@ then
     $TIMER2_DIR/english.sh
 elif [ $1 = one_task ]
 then
-
-    while :; do
-
-        . $TIMERTXT_CFG_FILE
-
-
-
-        first=`cat $file | head -1`
-        file=$todo_txt
-        str=$(gxmessage -timeout $TIMEOUT1 -title 'next easy:' -entry -file $file )
-        if [ "$str" !=  ''  ] 
-        then
-            if [ "$str" = 'exit' ]
-            then
-                exit
-            fi
-
-            cat $file > /tmp/2.txt 
-            echo "$str" > $file
-            cat /tmp/2.txt >> $file
-            #else
-        fi
-
-
-
-        first=`cat $file | head -1`
-        $timer2_sh "$first" 
-
-        ########memory test
-
-        file=$memory_txt
-
-        str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
-        if [ "$str" !=  ''  ] 
-        then
-            if [ "$str" = 'exit' ]
-            then
-                exit
-            fi
-
-            cat $file > /tmp/2.txt 
-            echo "$str" > $file
-            cat /tmp/2.txt >> $file
-            #else
-        fi
-
-    done
-
-
-
-
+    one_task1
 
 elif [ $1 = all ];then # ------------------ all
-
-    #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
-
-
-
-    echo1 'PLAY AGAIN    '
-    let "r = $RANDOM % 4 + 1"
-    counter=$r
-
-    while :; do
-        ( edit.sh &)
-        echo1  "reload config file: $TIMERTXT_CFG_FILE"
-        #### refresh vars ####
-        . $TIMERTXT_CFG_FILE
-        update_env 
-
-        #######################
-        echo1 "lesson is: $LESSON"
-
-        echo1 "suspend is: $SUSPEND"
-        echo1 "silence is: $silent1"
-        sleep1 10s
-        motivation_start 
-
-        title="question:"
-        file=$file_task
-        input_line $file "$title" last_task
-
-        time1
-        echo1 "run all tasks: one after another"
-        let "reminder = $counter % 4"
-        echo1 "the reminder is: $reminder"
-        lang="${arr1[$reminder]}"
-
-        #  sport $lang 
-
-
-        counter+=1
-
-        sleep1 $sec
-
-
-        if [ $INPUT_THANKS = true ]
-        then
-
-            title="thanks:"
-            file=$file_thanks
-            input_line $file "$title" last_thanks
-        fi
-
-
-
-        sleep1 $sec
-
-        sleep1 $sec 
-        #update_wallpaper
-        #   (xdg-open 'https://www.google.com/calendar/render?tab=mc' &)
-        motivation_end
-
-        echo1 'suspend..'
-        sleep1 10s 
-        if [ "$SUSPEND" = true ];then
-
-            suspend1
-        fi
-
-        (xloadimage $pic_file &)
-    done
-
+    all1
 fi
 
 #if [[ $1 = learn_web ]];then
