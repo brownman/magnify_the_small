@@ -7,19 +7,7 @@
 # spawn.sh
 #http://tldp.org/LDP/abs/html/internal.html
 #pids
-green() {
-    echo -e "\033[32m$1\033[0m"
-}
 
-red() {
-    echo -e "\033[31m$1\033[1m"
-}
-yellow() {
-    echo -e "\033[33m$1\033[0m"
-}
-blue() {
-    echo -e "\033[34m$1\033[0m"
-}
 echo1(){
 echo -n  '_'
 }
@@ -31,11 +19,10 @@ red "$2"
 blue ""
 }
 
-
-exiting(){
-echo1 'exiting'
-exit
+play1(){
+play -q  "$1"
 }
+
 color_arr1=( blue green red black )
 echo1 'help: ofer.sh -l X true -> generate article'
 echo1 'help: ofer.sh it something  -> generate regular translation and sound'
@@ -412,19 +399,19 @@ translate_f(){
             if [ $lang = 'tl' ]
             then
 
-                #echo1 'lion is cool too also' | flite -o dog.wav | lame -b 128 dog.wav dog111.mp3 | play dog111.mp3
-                #echo1 "$output" | flite -o /tmp/1.wav | lame -b 128 /tmp/1.wav $mp3_file | play $mp3_file 
+                #echo1 'lion is cool too also' | flite -o dog.wav | lame -b 128 dog.wav dog111.mp3 | play1 dog111.mp3
+                #echo1 "$output" | flite -o /tmp/1.wav | lame -b 128 /tmp/1.wav $mp3_file | play1 $mp3_file 
                 rm /tmp/1.wav
-                #echo1 $output | flite $mp3_file #-o /tmp/1.wav | #| lame -b 128 /tmp/1.wav $mp3_file #&&  play $mp3_file #/tmp/1.wav
+                #echo1 $output | flite $mp3_file #-o /tmp/1.wav | #| lame -b 128 /tmp/1.wav $mp3_file #&&  play1 $mp3_file #/tmp/1.wav
                 echo1 $output
                 echo -n "$output" | text2wave -o "$mp3_file" #/tmp/1.wav | lame /tmp/1.wav  $mp3_file 
-                #/tmp/2.mp3 # | play /tmp/2.mp3
-                #play $mp3_file
+                #/tmp/2.mp3 # | play1 /tmp/2.mp3
+                #play1 $mp3_file
 
                 #wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=en\&q=${output_wsp} > $mp3_file
             else
 #echo "$output" | espeak -v "$lang"
-                ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $mp3_file \&\& play  $mp3_file \&)
+                ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $mp3_file \&\& play1  $mp3_file \&)
             fi
         else
             echo1 'no fetch sound'
@@ -469,12 +456,12 @@ translate_f(){
     fi
     
     if [ "$silent" = false ];then
-        echo1 'PLAY !'
-        echo1 "play $mp3_file" 
+        echo1 'play1 !'
+        echo1 "play1 $mp3_file" 
         #echo1 "$lang_long" | espeak -v en
         if [ "$silent_fetch" = true ]
         then
-          #  ( play  $mp3_file &)
+          #  ( play1  $mp3_file &)
           echo1 'silent fetch'
         else
 
@@ -483,15 +470,15 @@ translate_f(){
          #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
             if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
             then
-                play  $mp3_file 
+                play1  $mp3_file 
             else
 
 
 
-            play  $mp3_file 
+            play1  $mp3_file 
 
-            play  $mp3_file 
-            play  $mp3_file 
+            play1  $mp3_file 
+            play1  $mp3_file 
             fi
  
 

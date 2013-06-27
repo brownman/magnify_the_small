@@ -29,7 +29,7 @@ do
                 echo -ne $count'\r'
                 read keypress
 
-            $dir/timer.sh all
+            $dir/timer.sh series 
             sleep 10s
             done
 

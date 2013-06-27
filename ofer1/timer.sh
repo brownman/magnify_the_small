@@ -88,8 +88,8 @@ input_line(){
 
     cat $file > /tmp/1.txt 
     date1="$(date +%H:%M)"
-    echo "_____________________" > $file
-    echo "$date1 - $answer" >> $file
+    #echo "_____________________" > $file
+    echo "$date1 - $answer" > $file
     cat /tmp/1.txt >> $file
 
 }
@@ -198,7 +198,7 @@ declare -i counter
 counter=0
 
 dir_essay=~/tmp/timer2/essays
-file_task=~/tmp/timer2/daily/now.txt
+file_task=~/tmp/timer2/daily/task.txt
 file_thanks=~/tmp/timer2/daily/thanks.txt
 #file_twitter=~/tmp/timer2/twitter.txt
 
@@ -207,10 +207,10 @@ last_task="you are the man"
 last_thanks="you can do it - it is so easy"
 last_essay="essay step"
 #timer2 - one step for man - one step for"
-last_suspend="well - I am tired - i am going to sleep1 now - thanks for the fish" 
+last_suspend="well - I am tired - i am going to sleep2 now - thanks for the fish" 
 
 last_bash="linux programming start here"
-#well - I am tired - i am going to sleep1 now - thanks for the fish" 
+#well - I am tired - i am going to sleep2 now - thanks for the fish" 
 
 
 last_camera_before="" #say cheese little mouse" 
@@ -298,9 +298,9 @@ suspend1(){
 
 
 
-    echo1 "#sleep1 for $sec seconds"
+    echo1 "#sleep2 for $SLEEP seconds"
 
-    #sleep1 $sec 
+    sleep2 $SLEEP 
 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     echo1 'got back from suspension'
@@ -329,7 +329,7 @@ sport(){
 
     lang=$1
     echo1 'do sport for 1 minute'$ 
-    sleep1 $sec
+    sleep2 $SLEEP
 
     if [ $silent1 = false ]
     then
@@ -341,11 +341,11 @@ sport(){
 
 
 
-    sleep1 $sec
+    sleep2 $SLEEP
     take_photo
 
 
-    sleep1 $sec
+    sleep2 $SLEEP
 
 
 
@@ -590,7 +590,7 @@ say1(){
     if [ "$SILENCE" = false ]
     then
         echo "$msg" | flite -voice rms 
-        sleep1 2s
+        sleep1 10 
         echo "$msg" | flite -voice slt
         $timer2_sh "$msg" "ru"
         $timer2_sh "$msg" "ru"
@@ -677,7 +677,7 @@ test1(){
     exit
     say1 "I love you" 
 
-    sleep1 5s
+    sleep2 5s
 
     echo1 'exiting'
     exit 0
@@ -768,7 +768,7 @@ dereference(){
 
 
 
-            #sleep1 1s
+            #sleep2 1s
         fi
 
 
@@ -778,7 +778,7 @@ dereference(){
 
 
 }
-update_env(){
+update_env1(){
     echo1 'update env'
 
     lesson=$LESSON
@@ -820,7 +820,7 @@ delete_files(){
     done
 }
 
-all1(){
+series1(){
 
     . $TIMERTXT_CFG_FILE
 
@@ -840,13 +840,16 @@ yellow $yno
 
         case $yno in
             "input_task")
-            title="next task:"
-            file=$file_task
+            title="task:"
+            file=$task_txt
             input_line $file "$title" last_task
 
                 ;;
             "time")
                 time1
+                ;;
+    "sleep")
+                sleep1 $SLEEP
                 ;;
      "suspend")
                 suspend1
@@ -888,7 +891,7 @@ many(){
 
     echo1 "suspend is: $SUSPEND"
     echo1 "silence is: $silent1"
-    sleep1 10s
+    sleep2 10s
     motivation_start 
 
     title="next task:"
@@ -906,7 +909,7 @@ many(){
 
     counter+=1
 
-    sleep1 $sec
+    sleep2 $SLEEP
 
 
     if [ $INPUT_THANKS = true ]
@@ -919,15 +922,15 @@ many(){
 
 
 
-    sleep1 $sec
+    sleep2 $SLEEP
 
-    sleep1 $sec 
+    sleep2 $SLEEP 
     #update_wallpaper
     #   (xdg-open 'https://www.google.com/calendar/render?tab=mc' &)
     motivation_end
 
     echo1 'suspend..'
-    sleep1 10s 
+    sleep2 10s 
     if [ "$SUSPEND" = true ];then
 
         suspend1
@@ -1000,10 +1003,8 @@ then
 
     cat $file_task | head -3 
 
-    sleep1 5s
 
     cat $file_task | head -3 
-    sleep1 5s
     exiting
     #first=$(cat $todo_txt | head -1)
     first=`cat $todo_txt | head -1`
@@ -1059,8 +1060,8 @@ elif [ $1 = one_task ]
 then
     one_task1
 
-elif [ $1 = all ];then # ------------------ all
-    all1
+elif [ $1 = series ];then # ------------------ all
+    series1
 fi
 
 #if [[ $1 = learn_web ]];then
@@ -1074,7 +1075,6 @@ exit
 #learn_book_splitter
 #twitter
 #youtube 
-#sleep1 $sec
 #learn_web
 #learn_security
 
