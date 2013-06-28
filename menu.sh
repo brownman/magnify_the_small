@@ -129,17 +129,9 @@ while [ true ];do
     #echo 'take a breath !'
     #sleep1 5
     reset
-    break;
 done
 
 
-            git add .
-            line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
-            if [ "$line" != '' ]
-            then
-                git commit -am "$line"
-                git push origin develop
-            fi
 
 
 
@@ -150,9 +142,7 @@ done
 
 
 
-
-
-#exiting
+exiting
 
 str=`cat  "$todo_txt" | head -2`
 echo  "Ofer - I believe you !" # | flite
