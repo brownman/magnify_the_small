@@ -800,22 +800,34 @@ delete_files(){
     do 
 
 
-        answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
-        if [ "$answer" != 'no' ];then
+        #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+blue 'press ESC to ignore '
+
+        answer=$( messageYN "Delete file?" "$I" )
+        #echo "answer is: $answer" 
+        if [ "$answer" = 0 ];then
 
             echo '' > "$I"
-            echo1 'clean file'
+            red 'clean file'
+        else
+
+            green 'ignore file'
         fi
     done
     for I in $(ls -1 --sort=time $dir1/*.txt )
     do 
 
 
-        answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
-        if [ "$answer" != 'no' ];then
+        #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+
+        answer=$( messageYN "delete:" "$I")
+        if [ "$answer" = 0 ];then
 
             echo '' > "$I"
-            echo1 'clean file'
+            red 'clean file'
+        else
+
+            green 'ignore file'
         fi
     done
 }
@@ -836,29 +848,29 @@ series1(){
         local yno=`echo ${array[index]}`
 
 
-yellow $yno
+        yellow $yno
 
         case $yno in
             "input_task")
-            title="task:"
-            file=$task_txt
-            input_line $file "$title" last_task
+                title="task:"
+                file=$task_txt
+                input_line $file "$title" last_task
 
                 ;;
             "time")
                 time1
                 ;;
-    "sleep")
+            "sleep")
                 sleep1 $SLEEP
                 ;;
-     "suspend")
+            "suspend")
                 suspend1
                 ;;
-  "one_task")
-      one_task1
+            "one_task")
+                one_task1
                 ;;
-     "edit")
-         (edit.sh &)
+            "edit")
+                (edit.sh &)
                 ;;
 
             *) echo "Invalid input"

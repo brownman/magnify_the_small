@@ -10,9 +10,11 @@ echo $TIMERTXT_CFG_FILE
 #ls -l  $missions_txt
 #thanks_txt=$DAILY_DIR/thanks.txt
 #essay_txt=$ESSAYS_DIR/essay.txt
+wallpaper_file=/tmp/result.png
+
 photo1(){
 
-    background=/tmp/result.png
+    #background=/tmp/result.png
 
     pic_file=$(echo ~/pictures/webcam-$(date +%m_%d_%Y_%H_%M).jpeg)
     ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file && Xloadimage $pic_file
@@ -23,7 +25,8 @@ photo1(){
 
 
 
-    convert /tmp/result.png -resize 800x600 /tmp/result.png
+    convert /tmp/result.png -resize 640x480 /tmp/result.png
+xloadimage $wallpaper_file
 }
 
 send1(){
@@ -59,6 +62,7 @@ send1 schedule_txt
 send1 missions_txt
 send1 todo_txt
 send1 done_txt
+send1 wallpaper_file
 else
     notify-send 'not sending !'
 

@@ -29,12 +29,11 @@ $tpng $background $points_txt 830 480 1300x 393 red true
 
 text_file=~/tmp/timer2/daily/todo.txt
 #gedit $text_file
-$tpng $background $text_file 450 430 1300x 13 yellow true
+$tpng $background $text_file 450 200 800x 13 yellow true
+
 text_file=~/tmp/timer2/daily/done.txt
-
-
 #gedit $text_file
-$tpng $background $text_file 450 130 1300x 13 white true
+$tpng $background $text_file 90 630 1300x 15 white true
 
 
 
@@ -63,7 +62,7 @@ $tpng $background $text_file 1130 150 600x 13 white true
 ##/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 50 30 500x 33 green true
 #
 text_file=/tmp/date.txt
-$tpng $background $text_file 90 190 400x 70 yellow true
+$tpng $background $text_file 90 1000 400x 70 yellow true
 #
 #
 

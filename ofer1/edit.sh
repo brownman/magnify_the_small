@@ -7,6 +7,6 @@ text_file=~/tmp/timer2/daily/done.txt
 gedit $text_file
 #$tpng $background $text_file 450 630 1300x 63 white true
 
-./wallpaper.sh
+( ./wallpaper.sh &)
 popd > /dev/null
 exit
