@@ -33,8 +33,8 @@ while [ true ];do
 
     white "1 - write schedules and update Kuka"
     white "2 - imagine first"
-    white "3 - invest"
-    white "4 - profit"
+    white "3 - remind me.."
+    white "4 - update points"
     white "5 - study"
     white "6 - quit"
 

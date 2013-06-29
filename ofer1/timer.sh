@@ -3,6 +3,11 @@
 
 
 pushd `dirname $0` > /dev/null
+
+. $TIMERTXT_CFG_FILE
+
+date1="$(date +%H:%M)"
+
 if [ "$1" = '' ];then
     exit 1
 fi
@@ -29,7 +34,7 @@ echo1(){
 echo2(){
     #green "$1"
 
-    blue "$1"
+    echo "$1"
 }
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
@@ -37,7 +42,7 @@ echo2(){
 echo2 "cfg is: $TIMERTXT_CFG_FILE"
 #ls -l $TIMERTXT_CFG_FILE
 #cat $TIMERTXT_CFG_FILE
-. $TIMERTXT_CFG_FILE
+
 declare -i my_score
 my_score=0 #-1
 #gxmessage  'every input str should contain atleast 1 word that used before !'
@@ -176,8 +181,8 @@ rooting(){
 }
 
 
-timer2_sh="$TIMER2_DIR/translate.sh"
-#timer2_sh=/TORRENTS/SCRIPTS/EXEC/bash_koans/timer2.sh
+translate_sh="$TIMER2_DIR/translate.sh"
+#translate_sh=/TORRENTS/SCRIPTS/EXEC/bash_koans/timer2.sh
 msg_m0='I am writing short essay in many languages'
 msg_m1='sign one circle on the wall' 
 msg_m3='please update list' 
@@ -207,7 +212,7 @@ last_task="you are the man"
 last_thanks="you can do it - it is so easy"
 last_essay="essay step"
 #timer2 - one step for man - one step for"
-last_suspend="well - I am tired - i am going to sleep2 now - thanks for the fish" 
+last_suspend="well - I am tired - i am going to sleep now - thanks for the fish" 
 
 last_bash="linux programming start here"
 #well - I am tired - i am going to sleep2 now - thanks for the fish" 
@@ -289,22 +294,29 @@ time1(){
 
 
 suspend1(){
-
+    if [ "$1" = '' ] 
+    then
+    say1 "$last_suspend"
+    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+    else
+    echo2 "suspend1() got: $1 $2"
 
     say1 "$last_suspend" 
     #while :; do
-    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE1 
+    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE0 -timeout $TIMEOUT1 
 
 
 
 
-    echo1 "#sleep2 for $SLEEP seconds"
+    echo2 "#sleep2 for $SLEEP seconds"
 
-    sleep2 $SLEEP 
+    sleep1 $SLEEP 
 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    echo1 'got back from suspension'
+    echo2 'got back from suspension'
     #done
+    fi
+
 
 }
 network(){
@@ -504,7 +516,7 @@ translate1(){
 
         langs=$(lower $lang)
 
-        $timer2_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push_top
+        $translate_sh "$str" "$lang" $article $silent $silent_msg $file $silent_fetch $push_top
 
     else
 
@@ -574,28 +586,40 @@ take_photo(){
     say1 "$last_camera_after" 
     (xloadimage $pic_file &)
 }
-Backtrace () {
-    echo1 "Backtrace is:"
-    i=0
-    while caller $i
-    do
-        i=$((i+1))
-    done
-}
-say1(){
-    Backtrace
 
-    local msg="$1"
+say1(){
+
     echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
+    #Backtrace
+    sleep1 10
+    gxmessage -entry -timeout 10 -title "say1() is running" 'onEntering'
+    #-timeout $TIMEOUT1 $GXMESSAGE0
+    local msg="$1"
+
     if [ "$SILENCE" = false ]
     then
+
+    gxmessage -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
         sleep1 10 
         echo "$msg" | flite -voice slt
-        $timer2_sh "$msg" "ru"
-        $timer2_sh "$msg" "ru"
+        $translate_sh "$msg" "it"
+        $translate_sh "$msg" "it"
+        
+        $translate_sh "$msg" "ru"
+        $translate_sh "$msg" "ru"
 
-        # $timer2_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
+        $translate_sh "$msg" "ar"
+        $translate_sh "$msg" "ar"
+
+
+        $translate_sh "$msg" "hi"
+        $translate_sh "$msg" "hi"
+
+        $translate_sh "$msg" "tl"
+        $translate_sh "$msg" "tl"
+
+        # $translate_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
     fi
 
 
@@ -801,7 +825,7 @@ delete_files(){
 
 
         #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
-blue 'press ESC to ignore '
+        blue 'press ESC to ignore '
 
         answer=$( messageYN "Delete file?" "$I" )
         #echo "answer is: $answer" 
@@ -982,7 +1006,7 @@ one_task1(){
 
 
     first=`cat $file | head -1`
-    $timer2_sh "$first" 
+    $translate_sh "$first" 
 
     ########memory test
 
@@ -1063,7 +1087,9 @@ then
     lang1=$2
     send_essay $lang1
 
-
+elif [ $1 = suspend ]
+then
+    suspend1
 
 elif [ $1 = english ]
 then
