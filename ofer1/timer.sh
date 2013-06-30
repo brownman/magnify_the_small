@@ -296,13 +296,12 @@ time1(){
 suspend1(){
     if [ "$1" = '' ] 
     then
-    say1 "$last_suspend"
+    #say1 "$last_suspend"
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     else
     echo2 "suspend1() got: $1 $2"
 
     say1 "$last_suspend" 
-    #while :; do
     gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE0 -timeout $TIMEOUT1 
 
 
@@ -314,8 +313,14 @@ suspend1(){
 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     echo2 'got back from suspension'
+
+
     #done
     fi
+
+    answer=$( gxmessage -buttons "ok" "suggest improvements:"  $GXMESSAGE1 -entry )
+    echo2 "$answer" >> $rules_txt
+    #0 -timeout $TIMEOUT1 
 
 
 }
@@ -981,14 +986,17 @@ many(){
 }
 one_task1(){
 
-    #while :; do
 
-    . $TIMERTXT_CFG_FILE
+    file=$now_txt
+    while :; do
+
+
+
 
 
 
     first=`cat $file | head -1`
-    file=$now_txt
+
     str=$(gxmessage -timeout $TIMEOUT1 -title '1 task:' -entry -file $file )
     if [ "$str" !=  ''  ] 
     then
@@ -1026,7 +1034,7 @@ one_task1(){
         #else
     fi
 
-    #done
+    done
 
 
 
