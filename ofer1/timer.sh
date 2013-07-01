@@ -287,7 +287,7 @@ time1(){
 
     date1="$(date +%H:%M)"
     ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
-    say1 "$date1"
+#    say1 "$date1"
 
 
 }
@@ -318,8 +318,8 @@ suspend1(){
     #done
     fi
 
-    answer=$( gxmessage -buttons "ok" "suggest improvements:"  $GXMESSAGE1 -entry )
-    echo2 "$answer" >> $rules_txt
+    #answer=$( gxmessage -buttons "ok" "next task is:"  $GXMESSAGE1 -entry )
+    #echo2 "$answer" >> $rules_txt
     #0 -timeout $TIMEOUT1 
 
 
@@ -596,17 +596,17 @@ say1(){
 
     echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
     #Backtrace
-    sleep1 10
-    gxmessage -entry -timeout 10 -title "say1() is running" 'onEntering'
+    #sleep1 10
+    #gxmessage -entry -timeout 10 -title "say1() is running" 'onEntering'
     #-timeout $TIMEOUT1 $GXMESSAGE0
     local msg="$1"
 
     if [ "$SILENCE" = false ]
     then
 
-    gxmessage -entry -timeout 10 -title "say1() is running" 'talking' 
+    #gxmessage -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
-        sleep1 10 
+      #  sleep1 10 
         echo "$msg" | flite -voice slt
         $translate_sh "$msg" "it"
         $translate_sh "$msg" "it"
@@ -988,7 +988,7 @@ one_task1(){
 
 
     file=$now_txt
-    while :; do
+    #while :; do
 
 
 
@@ -1034,7 +1034,7 @@ one_task1(){
         #else
     fi
 
-    done
+    #done
 
 
 

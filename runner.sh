@@ -22,10 +22,31 @@ reset
         $PWD/menu.sh
 
     else
-             $timer_sh one_task 
+green 'run series of tasks in circle'
+        if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
 
-#cd $TIMER2_DIR
-#watchr koans-linux.watchr
+            count=0
+            keypress=''
+            while [ "x$keypress" = "x" ]; do
+
+
+                let count+=1
+                echo -ne $count'\r'
+                read keypress
+
+##############################################################
+                 $dir/timer.sh series 
+##############################################################
+                sleep1 10
+            done
+
+            if [ -t 0 ]; then stty sane; fi
+
+            echo "You pressed '$keypress' after $count loop iterations"
+            echo "Thanks for using this script."
+            exit 0
+
+
 
     fi
 
