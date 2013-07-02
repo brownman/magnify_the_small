@@ -19,9 +19,14 @@ reset
         exiting
     elif [ "$answer" = y ]
         then
+
+
+. $TIMERTXT_CFG_FILE
         $PWD/menu.sh
 
     else
+
+. $TIMERTXT_CFG_FILE
 green 'run series of tasks in circle'
         if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
 
@@ -35,7 +40,7 @@ green 'run series of tasks in circle'
                 read keypress
 
 ##############################################################
-                 $dir/timer.sh series 
+                 $dir/timer.sh series "$SERIES1" 
 ##############################################################
                 sleep1 10
             done

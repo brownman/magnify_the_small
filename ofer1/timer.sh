@@ -6,8 +6,9 @@ pushd `dirname $0` > /dev/null
 
 . $TIMERTXT_CFG_FILE
 
-date1="$(date +%H:%M)"
 
+
+    msg_others="do for other first and have a blessing on your head"
 if [ "$1" = '' ];then
     exit 1
 fi
@@ -39,7 +40,7 @@ echo2(){
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
 #export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
-echo2 "cfg is: $TIMERTXT_CFG_FILE"
+#echo2 "cfg is: $TIMERTXT_CFG_FILE"
 #ls -l $TIMERTXT_CFG_FILE
 #cat $TIMERTXT_CFG_FILE
 
@@ -181,19 +182,6 @@ rooting(){
 }
 
 
-translate_sh="$TIMER2_DIR/translate.sh"
-#translate_sh=/TORRENTS/SCRIPTS/EXEC/bash_koans/timer2.sh
-msg_m0='I am writing short essay in many languages'
-msg_m1='sign one circle on the wall' 
-msg_m3='please update list' 
-msg_m2='excellent' 
-msg_m4='good'
-
-msg_m6='write the impossible - the hardest thing for you' 
-
-msg_m7='update your notebook please positively' 
-msg_m8='you know what is right and what to do now' 
-
 arr1=( IT AR HI RU )
 lang='it'
 #'false'
@@ -202,24 +190,7 @@ declare -i reminder
 declare -i counter 
 counter=0
 
-dir_essay=~/tmp/timer2/essays
-file_task=~/tmp/timer2/daily/task.txt
-file_thanks=~/tmp/timer2/daily/thanks.txt
-#file_twitter=~/tmp/timer2/twitter.txt
 
-last_task="you are the man"
-#how easier can it realy be ?"
-last_thanks="you can do it - it is so easy"
-last_essay="essay step"
-#timer2 - one step for man - one step for"
-last_suspend="well - I am tired - i am going to sleep now - thanks for the fish" 
-
-last_bash="linux programming start here"
-#well - I am tired - i am going to sleep2 now - thanks for the fish" 
-
-
-last_camera_before="" #say cheese little mouse" 
-last_camera_after="" #this is much better" 
 
 #"$2s"
 
@@ -294,6 +265,9 @@ time1(){
 
 
 suspend1(){
+
+    say1 "$msg_others"
+sleep1 5 
     if [ "$1" = '' ] 
     then
     #say1 "$last_suspend"
@@ -317,7 +291,7 @@ suspend1(){
 
     #done
     fi
-
+echo "update your points" | flite
     #answer=$( gxmessage -buttons "ok" "next task is:"  $GXMESSAGE1 -entry )
     #echo2 "$answer" >> $rules_txt
     #0 -timeout $TIMEOUT1 
@@ -606,24 +580,23 @@ say1(){
 
     #gxmessage -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
-      #  sleep1 10 
         echo "$msg" | flite -voice slt
         $translate_sh "$msg" "it"
-        $translate_sh "$msg" "it"
+        #$translate_sh "$msg" "it"
         
         $translate_sh "$msg" "ru"
-        $translate_sh "$msg" "ru"
+        #$translate_sh "$msg" "ru"
 
-        $translate_sh "$msg" "ar"
+        #$translate_sh "$msg" "ar"
         $translate_sh "$msg" "ar"
 
 
         $translate_sh "$msg" "hi"
-        $translate_sh "$msg" "hi"
+        #$translate_sh "$msg" "hi"
 
         $translate_sh "$msg" "tl"
-        $translate_sh "$msg" "tl"
-
+        #$translate_sh "$msg" "tl"
+sleep1 10
         # $translate_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
     fi
 
@@ -863,9 +836,9 @@ delete_files(){
 
 series1(){
 
-    . $TIMERTXT_CFG_FILE
-
-    IFS=', ' read -a array <<< "$SERIES"
+local series="$1"
+local yno=""
+    IFS=', ' read -a array <<< "$series"
 
     #echo "${array[0]}"
     #echo $str
@@ -874,10 +847,10 @@ series1(){
         green "$index" 
 
         #$yno=`eval ${array[index]}`
-        local yno=`echo ${array[index]}`
+         yno=`echo ${array[index]}`
 
-
-        yellow $yno
+        
+        echo "$series" | grep $yno
 
         case $yno in
             "input_task")
@@ -1107,7 +1080,7 @@ then
     one_task1
 
 elif [ $1 = series ];then # ------------------ all
-    series1
+    series1 "$2"
 fi
 
 #if [[ $1 = learn_web ]];then

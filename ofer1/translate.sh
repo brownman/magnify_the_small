@@ -20,7 +20,24 @@ blue ""
 }
 
 play1(){
-play -q  "$1"
+    echo "play1() got: $1 | $2"
+local lang="$2"
+
+local lang_repeat=\$"$lang"R   # Name of variable (not value!).
+
+local        times=`eval "expr \"$lang_repeat\" "`
+        echo2 "repeat $lang - time: $times"
+#echo "play lang: $lang | times: $lang_repeat"
+local file="$1"
+
+  counter=0
+  while [  $counter -lt  $times ]; do
+
+    play -q  "$1"
+    (( counter++ ))
+  done
+
+
 }
 
 color_arr1=( blue green red black )
@@ -464,27 +481,7 @@ translate_f(){
           #  ( play1  $mp3_file &)
           echo1 'silent fetch'
         else
-
-
-
-         #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
-            if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
-            then
-                play1  $mp3_file 
-            else
-
-
-
-            play1  $mp3_file 
-
-            play1  $mp3_file 
-            play1  $mp3_file 
-            fi
- 
-
-
-
-
+                play1  $mp3_file $lang 
         fi
 
     fi

@@ -27,6 +27,16 @@ $tpng $background $points_txt 770 440 1300x 383 black true
 $tpng $background $points_txt 800 460 1300x 393 grey true
 $tpng $background $points_txt 830 480 1300x 393 red true
 
+
+#cat $motivations_txt | head -1 > $motivation_txt
+#cat "$motivation_txt"
+#gxmessage -title 1 -file $motivation_txt
+#sleep1 10
+$tpng $background $motivations_txt 770 140 500x 43 black true
+$tpng $background $motivations_txt 800 160 500x 43 grey true
+$tpng $background $motivations_txt 830 180 500x 43 orange true
+
+
 text_file=~/tmp/timer2/daily/todo.txt
 #gedit $text_file
 $tpng $background $text_file 450 200 800x 13 yellow true
