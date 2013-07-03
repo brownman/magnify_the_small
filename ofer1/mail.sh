@@ -21,12 +21,14 @@ photo1(){
 
     txt_file=$(echo ~/pictures/done-$(date +%m_%d_%Y_%H_%M).txt)
 
-    xloadimage $pic_file
+
 
 
 
     convert /tmp/result.png -resize 640x480 /tmp/result.png
-xloadimage $wallpaper_file
+    ( xloadimage $wallpaper_file &) 
+
+    xloadimage $pic_file
 }
 
 send1(){

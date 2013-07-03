@@ -32,8 +32,11 @@ local file="$1"
 
   counter=0
   while [  $counter -lt  $times ]; do
+    if [ "$SILENCE" = false ];then
 
-    play -q  "$1"
+        play -q  "$1"
+    fi
+
     (( counter++ ))
   done
 
@@ -118,7 +121,7 @@ else
 
 fi
 
-echo1 "translate.sh got: ||        str_from? $word    |     many? $many  |   article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
+echo2 "translate.sh got: ||        str_from? $word    |     many? $many  |   article? $article    |     silent? $silent   |   silent_msg? $silent_msg   |     file_to_update? $file_to_update | silent_fetch? $silent_fetch | push_top?  $push_top"
 update_google='false'
 #silent='false'
 service='google'

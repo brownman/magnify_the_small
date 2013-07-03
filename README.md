@@ -1,3 +1,14 @@
+change log
+-----------
+3.7.2013 - 
+Q:  how to commit myself to learn few words in a language ?
+A:  update a file: glossary.txt which contain a list of new sentences/words
+    this new file should be updated every day.
+    the first menu default - is to present this file' translation.
+           
+  
+
+
 regarding this Bash-project:
 -------------------
 project goal:
@@ -75,4 +86,5 @@ efficiency
     utilize cfg to update execution of shell functions
 user-friendly
     use menus - instide cli args
+
 

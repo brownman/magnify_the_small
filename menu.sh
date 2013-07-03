@@ -6,16 +6,8 @@ dir=$TIMER2_DIR
 
 #str3=`echo -n 'NOW: '; cat  "$todo_txt" | head -2 | awk -F '|' '{print $2}' `
 
-str3=`echo   ''; cat  "$todo_txt" | head -2`
-str6=$( date | awk -F ' ' '{print $4}' )
-str5=`cat  "$timing_txt"  `
-#str33=`cat  "$todo_txt" | head -2 | tail -1`
 
-str4=`echo   ''; cat  "$done_txt" | head -2`
-
-str1=""
-str2=$(white "\t\t\t\t $str6";  yellow "$str4"; green "$str3"; red "$str5"; )
-PS3="$str2"
+PS3="choose: "
 
 
 reset

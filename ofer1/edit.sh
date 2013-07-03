@@ -12,6 +12,7 @@ gedit $ideas_txt &
 touch $timing_txt
 gedit $timing_txt &
 gedit $questions_txt &
+gedit $glossary_txt &
 gedit $motivations_txt 
 fi
 
@@ -25,4 +26,4 @@ fi
 
 
 popd > /dev/null
-exit
+#exit

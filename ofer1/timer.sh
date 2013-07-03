@@ -3,40 +3,16 @@
 
 
 pushd `dirname $0` > /dev/null
-
+export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 
+red "proxy the call for translate_sh !"
 
     msg_others="do for other first and have a blessing on your head"
 if [ "$1" = '' ];then
     exit 1
 fi
-echo3(){
-    #caller 0
-    #red "$1"
-
-    echo -n "_"
-}
-
-echo1(){
-
-
-    echo -n "_"
-    #red "$2"
-
-    #green ""
-    #$1"
-
-    #caller 0
-
-
-}
-echo2(){
-    #green "$1"
-
-    echo "$1"
-}
 #export REPORT_FILE="$TIMER_DIR/report.txt"
 
 #export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
@@ -80,8 +56,7 @@ input_line(){
 
     if [ "$answer" = exit ]
     then
-        echo1 'exiting'
-        exit 1
+        exiting
     fi
 
 
