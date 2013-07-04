@@ -55,7 +55,7 @@ done
 
 popd > /dev/null
 exit
-options=( "Quit" "TIMER!"  "Record" "Configuration" "Edit" "fetch" "Wallpaper" "mail"  "blogging" "testing" "github" "Job" "Delete" )
+options=( "Quit" "TIMER!"  "Record" "Configuration" "Edit" "fetch" "Wallpaper" "mail"  "blogging" "testing" "Job" "Delete" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -108,17 +108,6 @@ do
             $dir/wallpaper.sh
             ;;
 
-
-        "github")
-            git add .
-            line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
-            if [ "$line" != '' ]
-            then
-                git commit -am "$line"
-                git push origin develop
-            fi
-
-            ;;
 
 
         "fetch")

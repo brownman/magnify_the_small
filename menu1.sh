@@ -11,7 +11,7 @@ points=$( cat $done_txt | head -1 )
 #white "POINTS:   $points"
 str2="===============my   POINTS:     $points  =============="
 PS3=$str2
-options=( "Update txt" "My state" "schedule report" "Quit" )
+options=( "Update txt" "Github" "My state" "schedule report" "Quit" "Delete" )
 
 
 reset
@@ -54,9 +54,25 @@ do
 
 
             ;;
+     "Delete")
+            echo 'delete txt files'
+            $dir/timer.sh delete
+            ;;
         "Quit")
             exiting
             ;;
+        "Github")
+            git add .
+            line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
+            if [ "$line" != '' ]
+            then
+                git commit -am "$line"
+                git push origin develop
+            fi
+
+            ;;
+
+
         "Update txt")
 
             white "update ideas.txt:"

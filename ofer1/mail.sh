@@ -24,11 +24,11 @@ photo1(){
 
 
 
-
+xloadimage $mind_map_png &
     convert /tmp/result.png -resize 640x480 /tmp/result.png
     ( xloadimage $wallpaper_file &) 
 
-    xloadimage $pic_file
+    xloadimage $pic_file &
 }
 
 send1(){
@@ -65,8 +65,10 @@ send1 missions_txt
 send1 todo_txt
 send1 done_txt
 send1 wallpaper_file
+send1 mind_map_png
 else
     notify-send 'not sending !'
 
 fi
+
 

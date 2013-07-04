@@ -5,7 +5,13 @@ Q:  how to commit myself to learn few words in a language ?
 A:  update a file: glossary.txt which contain a list of new sentences/words
     this new file should be updated every day.
     the first menu default - is to present this file' translation.
-           
+
+TODOS:
+----
+translate_sh - smarter cli args
+               proxy request for translation - update tag list' frequencies
+
+
   
 
 

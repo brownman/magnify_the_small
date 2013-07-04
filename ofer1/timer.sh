@@ -3,7 +3,9 @@
 
 
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+#add to .bashrc:
+#export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+
 . $TIMERTXT_CFG_FILE
 
 
@@ -457,7 +459,9 @@ translate1(){
 
     local push_top=$4
 
+
     echo2 "translate1 got: str:$str , lang:$lang file:$3 -- push_top:$4 ---  article: $article , silent: $silent, silent_msg: $silent_msg , silent_fetch: $silent_fetch"
+
 
     #local file5=~/tmp/timer2/essay${lang}.txt
     #touch $file5
@@ -782,7 +786,7 @@ delete_files(){
 
         answer=$( messageYN "Delete file?" "$I" )
         #echo "answer is: $answer" 
-        if [ "$answer" = 0 ];then
+        if [ "$answer" = 2 ];then
 
             echo '' > "$I"
             red 'clean file'
@@ -798,7 +802,7 @@ delete_files(){
         #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
 
         answer=$( messageYN "delete:" "$I")
-        if [ "$answer" = 0 ];then
+        if [ "$answer" = 2 ];then
 
             echo '' > "$I"
             red 'clean file'
@@ -840,8 +844,21 @@ local yno=""
             "sleep")
                 sleep1 $SLEEP
                 ;;
+  "mindmap")
+                xdg-open $mm_link &
+                ;;
+      "glossary")
+          ( gxmessage -title 'how to say..' -file $glossary_txt -timeout 30 &)
+write_essay "$LANG_ESSAY"
+          
+                ;;
             "suspend")
                 suspend1
+                ;;
+          "rules")
+              echo2 'update rules'
+               messageANS "update rules" "$rules_txt" 
+              
                 ;;
             "one_task")
                 one_task1

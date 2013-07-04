@@ -9,7 +9,7 @@ points=$( cat $done_txt | head -1 )
 #white "POINTS:   $points"
 str2="===============my   POINTS:     $points  =============="
 PS3=$str2
-options=( "Quit" "Job" "Delete"  "Cfg")
+options=( "Quit" "Job"  "Cfg")
 
 
 reset
@@ -24,10 +24,6 @@ do
             ;;
 
 
-        "Delete")
-            echo 'delete txt files'
-            $dir/timer.sh delete
-            ;;
         "Cfg")
             vi $dir/cfg/timer.cfg
             ;;
