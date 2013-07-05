@@ -15,8 +15,13 @@ dir=$TIMER2_DIR
 
 while [ true ];do
     reset
+    echo "does the timer run with suspension ?"
     log1
-    yellow "choose mode: Txt/Play/Edit/Continue/Quit"
+
+  
+ 
+        
+    yellow "choose:\nEdit .txt\nPlay timer tasks\nUpdate .sh\nContinue to next menu\nQuit"
 
     read answer
   
@@ -27,12 +32,12 @@ while [ true ];do
     then
         $PWD/menu.sh
 
-    elif [ "$answer" = t ]
+    elif [ "$answer" = e ]
     then
         echo2 "edit .txt files"
         . $TIMER2_DIR/edit.sh
 
-    elif [ "$answer" = e ]
+    elif [ "$answer" = u ]
     then
         echo2 "edit .cfg/.sh files" 
         vi $TIMER2_DIR/cfg/timer.cfg
@@ -70,27 +75,26 @@ while [ true ];do
 
     else
        # $PWD/menu.sh
+green 'learn X words aday: use glossary.txt'
+   cat "$dir_essay/essayIT.txt"
+    cat "$dir_essay/essayRU.txt"
+    cat "$dir_essay/essayHI.txt"
+    cat "$dir_essay/essayAR.txt"
+    cat "$dir_essay/essayTL.txt"
 
-         white "add a sentence to glossary.txt:"  
-     
-        read answer
-  
-        if [ "$answer" != '' ]
-        then
-            echo "$answer" >> $glossary_txt
-        fi
-            
     
-       cat $glossary_txt 
-       white "choose a language: (it/ru/ar/hi/tl) "  
-        read answer
-  
-        if [ "$answer" != '' ]
+       white "choose a language: IT TL RU HI AR "  
+        read lang 
+
+        if [ "$lang" != '' ]
         then
 
-        $timer_sh write_essay $answer
+       gedit $glossary_txt & 
+        $timer_sh learn_lang $lang $LESSON
+        #write_essay $answer
         fi
        
+
 
             
     fi
@@ -102,3 +106,4 @@ done
 
 popd > /dev/null
 exit
+

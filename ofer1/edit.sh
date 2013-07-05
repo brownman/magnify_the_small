@@ -16,7 +16,7 @@ gedit $ideas_txt &
 gedit $timing_txt &
 gedit $questions_txt &
 gedit $glossary_txt &
-gedit $project_txt &
+gedit $product_txt &
 gedit $motivations_txt 
 fi
 

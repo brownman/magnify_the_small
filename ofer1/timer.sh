@@ -4,7 +4,7 @@
 
 pushd `dirname $0` > /dev/null
 #add to .bashrc:
-#export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 
 . $TIMERTXT_CFG_FILE
 
@@ -310,7 +310,7 @@ sport(){
 
 
     sleep2 $SLEEP
-    take_photo
+    #take_photo
 
 
     sleep2 $SLEEP
@@ -387,10 +387,11 @@ write_essay(){
 
 learn_lang(){
 
-    say1 "$last_essay" 
+    #say1 "$last_essay" 
 
     lang=$1
     declare -i num
+    lesson=$2
     num=$lesson
     num=num+2
 
@@ -398,17 +399,14 @@ learn_lang(){
     num=num-2
 
 
-    #(dereference msg_m0 &)
 
     (write_essay &)
 
 
 
     echo1 'playing..'
-    if [ $silent1 = false ];then
 
         play "/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
-    fi
 
 
 
@@ -704,7 +702,6 @@ update_score() {
 }
 dereference(){
     echo2 "lang: $lang | dir essay: $dir_essay | file5:  $file5"
-    #echo1 'dereference'
     local file5="$dir_essay/essay${lang}.txt"
     touch $file5
 
@@ -845,7 +842,14 @@ local yno=""
                 sleep1 $SLEEP
                 ;;
   "mindmap")
+      answer=$( messageYN "y/n question" "open mind map link ?" )
+        if [ "$answer" = 2 ];then
+
                 xdg-open $mm_link &
+        fi
+
+
+
                 ;;
       "glossary")
           ( gxmessage -title 'how to say..' -file $glossary_txt -timeout 30 &)
@@ -864,7 +868,11 @@ write_essay "$LANG_ESSAY"
                 one_task1
                 ;;
             "edit")
+       answer=$( messageYN "y/n question" "edit .txt files ?" )
+        if [ "$answer" = 2 ];then
                 (edit.sh &)
+        fi
+
                 ;;
 
             *) echo "Invalid input"
@@ -1023,9 +1031,6 @@ then
     gxmessage 'testing'
 
     #  say1 "hello world"
-    dereference msg_m0 
-
-    dereference msg_m0 
 
 
 elif [ $1 = delete ];then
@@ -1049,6 +1054,14 @@ elif [ $1 = fetch ];then
 elif [ $1 = mail ]
 then
     $TIMER2_DIR/mail.sh
+
+elif [ $1 = learn_lang ]
+then
+    echo2 "learn a language $1 | $2"
+    lang1=$2
+    lesson1=$3
+    learn_lang $lang1 $lesson1
+
 
 elif [ $1 = write_essay ]
 then

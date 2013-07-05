@@ -1,140 +1,8 @@
-#!/bin/bash 
 #!/bin/bash
  
 . $TIMERTXT_CFG_FILE
 #!/bin/bash
 
-while getopts "abc:d:" flag
-do
-  case $flag in
-    a) echo "[getopts:$OPTIND]==> -$flag";;
-    b) echo "[getopts:$OPTIND]==> -$flag";;
-    c) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
-    d) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
-  esac
-done
-
-#shift $((OPTIND-1))
-echo "[otheropts]==> $@"
-exiting
-aflag=no
-bflag=no
-
-flist=""
-rlist=""
-set -- $(getopt abfr: "$@")
-while [ $# -gt 0 ]
-do
-    case "$1" in
-    (-a) aflag=yes;;
-    (-b) bflag=yes;;
-    (-f) flist="$flist $2"; shift 2;;
-
-    (-r) rlist="$rlist $2"; shift 1;;
-    (--) shift; break;;
-    (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
-    (*)  break;;
-    esac
-    shift
-done
-echo $aflag
-echo $bflag
-
-echo "file: $flist"
-echo "r: $rlist"
-exiting
-# Process remaining non-option arguments
-#w
-word=""
-#l
-many='-l'
-#|1 language 
-#a
-article=false 
-#b
-silent=false
-#c
-silent_msg=false
-#f
-file_to_update='/tmp/tmp.txt'
-#e
-silent_fetch=false
-#d
-push_top=false
-
-
-while getopts :abcdefwl: opt; do
-  case $opt in
-    a)
-      echo "option artlcle"
-
-     article=true 
-    ;;
-    b)
-      echo "option silent"
-
-       silent=false
-    ;;
-  c)
-      echo "option silent_msg"
-
-       silent_msg=true
-    ;;
-
-    d)
-      echo "option push_top"
-
-       push_top=true
-    ;;
-    e)
-      echo "option silent_fetch"
-
-       silent_fetch=true
-    ;;
-      f)
-      echo "option file"
-      if [[ $OPTARG = -* ]]; then
-        ((OPTIND--))
-        continue
-      fi
-      echo "(f) argument $OPTARG"
-      file_to_update="$OPTARG"
-      echo  "file_to_update: $file_to_update  "
-
-    ;;
-    w)
-      echo "option: word/sentence"
-      if [[ $OPTARG = -* ]]; then
-        ((OPTIND--))
-        continue
-      fi
-      echo "(w) argument $OPTARG"
-     word="$OPTARG"
-
-      echo  "word: $word  "
-    ;;
-    l)
-      echo "option language"
-            echo "option: language/many"
-      if [[ $OPTARG = -* ]]; then
-        ((OPTIND--))
-        continue
-      fi
-      echo "(l) argument $OPTARG"
-      many="$OPTARG"
-
-      echo  "many: $many  "
-
-    ;;
-    \?)
-      echo "WTF!"
-      exit 1
-    ;;
-  esac
-done
-
-
-exiting
 echo1(){
 echo -n  '_'
 }
@@ -694,3 +562,135 @@ fi
 
 popd > /dev/null
 exit 0
+
+while getopts "abc:d:" flag
+do
+  case $flag in
+    a) echo "[getopts:$OPTIND]==> -$flag";;
+    b) echo "[getopts:$OPTIND]==> -$flag";;
+    c) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
+    d) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
+  esac
+done
+
+#shift $((OPTIND-1))
+echo "[otheropts]==> $@"
+exiting
+aflag=no
+bflag=no
+
+flist=""
+rlist=""
+set -- $(getopt abfr: "$@")
+while [ $# -gt 0 ]
+do
+    case "$1" in
+    (-a) aflag=yes;;
+    (-b) bflag=yes;;
+    (-f) flist="$flist $2"; shift 2;;
+
+    (-r) rlist="$rlist $2"; shift 1;;
+    (--) shift; break;;
+    (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
+    (*)  break;;
+    esac
+    shift
+done
+echo $aflag
+echo $bflag
+
+echo "file: $flist"
+echo "r: $rlist"
+#exiting
+# Process remaining non-option arguments
+#w
+word=""
+#l
+many='-l'
+#|1 language 
+#a
+article=false 
+#b
+silent=false
+#c
+silent_msg=false
+#f
+file_to_update='/tmp/tmp.txt'
+#e
+silent_fetch=false
+#d
+push_top=false
+
+
+while getopts :abcdefwl: opt; do
+  case $opt in
+    a)
+      echo "option artlcle"
+
+     article=true 
+    ;;
+    b)
+      echo "option silent"
+
+       silent=false
+    ;;
+  c)
+      echo "option silent_msg"
+
+       silent_msg=true
+    ;;
+
+    d)
+      echo "option push_top"
+
+       push_top=true
+    ;;
+    e)
+      echo "option silent_fetch"
+
+       silent_fetch=true
+    ;;
+      f)
+      echo "option file"
+      if [[ $OPTARG = -* ]]; then
+        ((OPTIND--))
+        continue
+      fi
+      echo "(f) argument $OPTARG"
+      file_to_update="$OPTARG"
+      echo  "file_to_update: $file_to_update  "
+
+    ;;
+    w)
+      echo "option: word/sentence"
+      if [[ $OPTARG = -* ]]; then
+        ((OPTIND--))
+        continue
+      fi
+      echo "(w) argument $OPTARG"
+     word="$OPTARG"
+
+      echo  "word: $word  "
+    ;;
+    l)
+      echo "option language"
+            echo "option: language/many"
+      if [[ $OPTARG = -* ]]; then
+        ((OPTIND--))
+        continue
+      fi
+      echo "(l) argument $OPTARG"
+      many="$OPTARG"
+
+      echo  "many: $many  "
+
+    ;;
+    \?)
+      echo "WTF!"
+      exit 1
+    ;;
+  esac
+done
+
+
+exiting

@@ -55,7 +55,7 @@ done
 
 popd > /dev/null
 exit
-options=( "Quit" "TIMER!"  "Record" "Configuration" "Edit" "fetch" "Wallpaper" "mail"  "blogging" "testing" "Job" "Delete" )
+options=( "Quit" "TIMER!"  "Record" "Configuration" "Edit" "fetch" "Wallpaper" "mail"  "blogging" "testing" "Job" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -90,10 +90,6 @@ do
             ;;
 
 
-        "Delete")
-            echo 'delete txt files'
-            $dir/timer.sh delete
-            ;;
 
         "Record")
             title=$( gxmessage "please title the screencast:" -entry )
