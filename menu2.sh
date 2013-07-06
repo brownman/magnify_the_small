@@ -3,8 +3,8 @@
 pushd `dirname $0` > /dev/null
 #. $TIMERTXT_CFG_FILE
 
-PS3="Blogging:" 
-options=( "Quit" "Blog" )
+PS3="Coding:" 
+options=( "Quit" "Collaborate" "Coding" "Testing" )
 
 
 reset
@@ -16,13 +16,18 @@ do
             exiting
             ;;
 
-
-        "Blog")
-            echo '~/.bash_it/blog/brownman.github.com'
-            echo 'Jakyll serve'
-            echo 'rake post title="day X: goal X"'
+        "Collaborate")
+            echo 
             ;;
 
+        "Testing")
+            $TIMER2_DIR/meditate.sh
+            ;;
+
+
+        "Coding")
+            $TIMER2_DIR/meditate.sh
+            ;;
 
         *)
             reset

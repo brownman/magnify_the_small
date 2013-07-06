@@ -10,13 +10,17 @@ then
 
 
 
-gedit $done_txt &
+
+
+gedit $job_txt &
+gedit $product_txt &
 gedit $todo_txt &
+gedit $done_txt &
+gedit $rules_txt &
 gedit $ideas_txt &
 gedit $timing_txt &
 gedit $questions_txt &
 gedit $glossary_txt &
-gedit $product_txt &
 gedit $motivations_txt 
 fi
 

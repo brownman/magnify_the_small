@@ -6,7 +6,7 @@ dir=$TIMER2_DIR
 str1=""
 
 PS3="Updating:" 
-options=("Delete" "Schedule" "Github"  "Quit" )
+options=(  "Quit" "Delete" "Schedule" "Github" )
 
 
 reset

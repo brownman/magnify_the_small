@@ -12,13 +12,13 @@ PS3="Main Menus"
 reset
 #echo "$str2"
 #cyan  "\t\t\t\t Parent Menu" 
-options=(  "update" "job" "buy" "blog" "quit" )
+options=("Quit"   "update" "job" "buy" "code" )
 select opt in "${options[@]}"
 do
     #echo "my status is:"
 
     case $opt in
-        "quit")
+        "Quit")
             exiting
             ;;
 
@@ -34,7 +34,7 @@ do
             echo 'update'
             $PWD/menu3.sh
             ;;
-     "blog")
+     "code")
             echo 'update'
             $PWD/menu2.sh
             ;;

@@ -4,7 +4,7 @@ pushd `dirname $0` > /dev/null
 #. $TIMERTXT_CFG_ILE
 
 PS3="Job & Collaboration:"
-options=( "Quit" "Collaborate" "Job"  )
+options=( "Quit" "Job"  )
 
 
 reset
@@ -18,11 +18,10 @@ do
             ;;
         "Job")
             echo 'open: linkin, check mails, etc'
+xdg-open 'http://geekjob.co.il/'
             ;;
 
-        "Collaborate")
-            echo 'update Eran, Boaz'
-            ;;
+    
 
         *)
             echo '*'

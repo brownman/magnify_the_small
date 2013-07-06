@@ -11,7 +11,7 @@ export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 
 red "proxy the call for translate_sh !"
 
-    msg_others="do for other first and have a blessing on your head"
+msg_others="do for other first and have a blessing on your head"
 if [ "$1" = '' ];then
     exit 1
 fi
@@ -24,7 +24,7 @@ fi
 
 declare -i my_score
 my_score=0 #-1
-#gxmessage  'every input str should contain atleast 1 word that used before !'
+#gxmessage   'every input str should contain atleast 1 word that used before !'
 echo2 "timer.sh got: 1:$1 2:$2 3:$3"
 lower() { echo ${@,,}; }
 
@@ -52,7 +52,7 @@ input_line(){
     say1 "$x"
 
 
-    answer=$( gxmessage -buttons "_ $x"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
+    answer=$( gxmessage  -buttons "_ $x"  -entry -title "$title" -file  "$file" -ontop -timeout $TIMEOUT1 )
 
     eval "$3=\"$answer\""  # Assign new value.
 
@@ -198,10 +198,10 @@ learn_book_splitter(){
     msg='what is the next task in book splitter ? '
 
 
-    gxmessage -buttons "_$last_task" "$msg"  -sticky -ontop
+    gxmessage  -buttons "_$last_task" "$msg"  -sticky -ontop
 
     msg='make it play sound simultaniously'
-    gxmessage -buttons "_$last_task" "$msg"  -sticky -ontop
+    gxmessage  -buttons "_$last_task" "$msg"  -sticky -ontop
 
 }
 learn_android(){
@@ -234,7 +234,7 @@ buy()
 time1(){
 
     date1="$(date +%H:%M)"
-    ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
+    ( gxmessage  -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
     say1 "$date1"
 
 
@@ -242,51 +242,53 @@ time1(){
 
 suspend1(){
     say1 "$msg_suspend" 
-answer=$( messageYN 'suspend?' '')
-if [ "$answer" = 2 ];then
-    echo '+1 point'
-    echo '+1' >> $done_txt
-    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-else
-    echo '-1 point'
-    echo '-1' >> $done_txt
-fi
+    answer=$( messageYN 'suspend?' '')
+    if [ "$answer" = 2 ];then
+        echo '+1 point'
+        echo '+1' >> $done_txt
+
+    else
+        echo '-1 point'
+        echo '-1' >> $done_txt
+    fi
+
+        dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
 
 }
 
 suspend2(){
 
     say1 "$msg_others"
-sleep1 5 
+    sleep1 5 
     if [ "$1" = '' ] 
     then
-    #say1 "$last_suspend"
-    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+        #say1 "$last_suspend"
+        dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     else
-    echo2 "suspend1() got: $1 $2"
+        echo2 "suspend1() got: $1 $2"
 
-    say1 "$last_suspend" 
-    gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $GXMESSAGE0 -timeout $TIMEOUT1 
-
-
+        say1 "$last_suspend" 
+        gxmessage -buttons "_$last_task" "sudpending: $date1, timeout is: $TIMEOUT1 "  $gxmessage 0 -timeout $TIMEOUT1 
 
 
-    echo2 "#sleep2 for $SLEEP seconds"
-
-    sleep1 $SLEEP 
-
-if [ "$answer" = 2 ];then
-    
-    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-
-fi
-    echo2 'got back from suspension'
 
 
-    #done
+        echo2 "#sleep2 for $SLEEP seconds"
+
+        sleep1 $SLEEP 
+
+        if [ "$answer" = 2 ];then
+
+            dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+
+        fi
+        echo2 'got back from suspension'
+
+
+        #done
     fi
-echo "update your points" | flite
-    #answer=$( gxmessage -buttons "ok" "next task is:"  $GXMESSAGE1 -entry )
+    echo "update your points" | flite
+    #answer=$( gxmessage  -buttons "ok" "next task is:"  $gxmessage 1 -entry )
     #echo2 "$answer" >> $rules_txt
     #0 -timeout $TIMEOUT1 
 
@@ -423,7 +425,7 @@ learn_lang(){
 
     echo1 'playing..'
 
-        play "/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
+    play "/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
 
 
 
@@ -448,7 +450,7 @@ learn_lang1(){
         if [[  "$files"  ]]
         then
             (say1 "$str1" &)
-            gxmessage -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
+            gxmessage  -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
             echo1 "txt file: $I"
 
 
@@ -565,19 +567,19 @@ say1(){
     echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
     Backtrace
     #sleep1 10
-    #gxmessage -entry -timeout 10 -title "say1() is running" 'onEntering'
-    #-timeout $TIMEOUT1 $GXMESSAGE0
+    #gxmessage  -entry -timeout 10 -title "say1() is running" 'onEntering'
+    #-timeout $TIMEOUT1 $gxmessage 0
     local msg="$1"
 
-    if [ "$SILENCE" = false ]
+    if [ "$SILENCE" = false && "$PLAYING_ON" = false ]
     then
 
-    #gxmessage -entry -timeout 10 -title "say1() is running" 'talking' 
+        #gxmessage  -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
         echo "$msg" | flite -voice slt
         $translate_sh "$msg" "it"
         #$translate_sh "$msg" "it"
-        
+
         $translate_sh "$msg" "ru"
         #$translate_sh "$msg" "ru"
 
@@ -590,8 +592,11 @@ say1(){
 
         $translate_sh "$msg" "tl"
         #$translate_sh "$msg" "tl"
-sleep1 10
+        sleep1 10
         # $translate_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
+    else
+
+        red 'other procces is already playing'
     fi
 
 
@@ -602,16 +607,23 @@ say2(){
     Backtrace
     echo1 "say2() got :  msg:  $1 || lang: $2 || file: $3 || push_top: $4"
     echo1 "say1 push_top = true" 
+    if [ "$PLAYING_ON" = false ];then
 
-    local msg="$1"
-    local lang=$2
-    local file=$3
-    local push_top=$4
-    if [ "$msg" != '' ]
-    then
-        if [ "$lang" != '' ];then
-            translate1 "$msg" "$lang" $file $push_top 
+
+
+        local msg="$1"
+        local lang=$2
+        local file=$3
+        local push_top=$4
+        if [ "$msg" != '' ]
+        then
+            if [ "$lang" != '' ];then
+                translate1 "$msg" "$lang" $file $push_top 
+            fi
         fi
+    else
+        red 'already playing'
+
     fi
 
 }
@@ -624,7 +636,7 @@ update_file(){
 
 
 
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop -sticky )
+    answer=$( gxmessage  -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop -sticky )
 
     cat $file > /tmp/1.txt 
 
@@ -640,7 +652,7 @@ twitter(){
 
     msg='write twitter:'
 
-    answer=$( gxmessage -buttons "_$last_task"  -entry -title "$msg" -file  "$file2" -ontop -sticky )
+    answer=$( gxmessage  -buttons "_$last_task"  -entry -title "$msg" -file  "$file2" -ontop -sticky )
     if [[ "$answer" != '' ]]
     then
 
@@ -744,7 +756,7 @@ dereference(){
         local label="$my_score"
 
 
-        answer=$( gxmessage -entry -buttons "$label" -center  -title "$x" -file "$file5" $GXMESSAGE0 -timeout 20 )
+        answer=$( gxmessage -entry -buttons "$label" -center  -title "$x" -file "$file5" $gxmessage 0 -timeout 20 )
 
         eval "$1=\"$answer\""  # Assign new value.
 
@@ -796,7 +808,7 @@ delete_files(){
     do 
 
 
-        #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
         blue 'press ESC to ignore '
 
         answer=$( messageYN "Delete file?" "$I" )
@@ -814,7 +826,7 @@ delete_files(){
     do 
 
 
-        #answer=$( gxmessage -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
 
         answer=$( messageYN "delete:" "$I")
         if [ "$answer" = 2 ];then
@@ -830,20 +842,20 @@ delete_files(){
 
 series1(){
 
-local series="$1"
-local yno=""
+    local series="$1"
+    local yno=""
     IFS=', ' read -a array <<< "$series"
 
     #echo "${array[0]}"
     #echo $str
     for index in "${!array[@]}"
     do
-        green "$index" 
+        green "current task: $index" 
 
         #$yno=`eval ${array[index]}`
-         yno=`echo ${array[index]}`
+        yno=`echo ${array[index]}`
 
-        
+
         echo "$series" | grep $yno
 
         case $yno in
@@ -856,43 +868,43 @@ local yno=""
             "time")
                 time1
                 ;;
-       "motivation_start")
+            "motivation_start")
                 motivation_start
                 ;;
             "sleep")
                 sleep1 $SLEEP
                 ;;
-  "mindmap")
-      answer=$( messageYN "y/n question" "open mind map link ?" )
-        if [ "$answer" = 2 ];then
+            "mindmap")
+                answer=$( messageYN "y/n question" "open mind map link ?" )
+                if [ "$answer" = 2 ];then
 
-                xdg-open $mm_link &
-        fi
+                    xdg-open $mm_link &
+                fi
 
 
 
                 ;;
-      "glossary")
-          ( gxmessage -title 'how to say..' -file $glossary_txt -timeout 30 &)
-write_essay "$LANG_ESSAY"
-          
+            "glossary")
+                ( gxmessage  -title 'how to say..' -file $glossary_txt -timeout 30 &)
+                write_essay "$LANG_ESSAY"
+
                 ;;
             "suspend")
                 suspend1
                 ;;
-          "rules")
-              echo2 'update rules'
-               messageANS "update rules" "$rules_txt" 
-              
+            "rules")
+                echo2 'update rules'
+                messageANS "update rules" "$rules_txt" 
+
                 ;;
             "one_task")
                 one_task1
                 ;;
             "edit")
-       answer=$( messageYN "y/n question" "edit .txt files ?" )
-        if [ "$answer" = 2 ];then
-                (edit.sh &)
-        fi
+                answer=$( messageYN "y/n question" "edit .txt files ?" )
+                if [ "$answer" = 2 ];then
+                    (edit.sh &)
+                fi
 
                 ;;
 
@@ -903,7 +915,7 @@ write_essay "$LANG_ESSAY"
     done
     exit
 
-    #answer=$( gxmessage "$last_task" -center  -title "title"  "$GXMESSAGE1"  )
+    #answer=$( gxmessage  "$last_task" -center  -title "title"  "$gxmessage 1"  )
 
 
 }
@@ -980,59 +992,70 @@ many1(){
 }
 one_task1(){
 
-
-    file=$now_txt
-    #while :; do
+    if [ $PLAYING_ON = false ];then
 
 
 
 
 
+        export PLAYING_ON=true
+        file=$now_txt
+        #while :; do
 
-    first=`cat $file | head -1`
 
-    str=$(gxmessage -timeout $TIMEOUT1 -title '1 task:' -entry -file $file )
-    if [ "$str" !=  ''  ] 
-    then
-        if [ "$str" = 'exit' ]
+
+
+
+
+        first=`cat $file | head -1`
+
+        str=$(gxmessage  -timeout $TIMEOUT1 -title '1 task:' -entry -file $file )
+        if [ "$str" !=  ''  ] 
         then
-            exit
+            if [ "$str" = 'exit' ]
+            then
+                exit
+            fi
+
+            cat $file > /tmp/2.txt 
+            echo "$str" > $file
+            cat /tmp/2.txt >> $file
+            #else
         fi
 
-        cat $file > /tmp/2.txt 
-        echo "$str" > $file
-        cat /tmp/2.txt >> $file
-        #else
-    fi
 
 
+        first=`cat $file | head -1`
+        $translate_sh "$first" 
 
-    first=`cat $file | head -1`
-    $translate_sh "$first" 
+        ########memory test
 
-    ########memory test
+        file=$memory_txt
 
-    file=$memory_txt
-
-    str=$(gxmessage -timeout $SLEEP -title 'memory?' -entry -file $file )
-    if [ "$str" !=  ''  ] 
-    then
-        if [ "$str" = 'exit' ]
+        str=$(gxmessage  -timeout $SLEEP -title 'memory?' -entry -file $file )
+        if [ "$str" !=  ''  ] 
         then
-            exit
+            if [ "$str" = 'exit' ]
+            then
+                exit
+            fi
+
+            cat $file > /tmp/2.txt 
+            echo "$str" > $file
+            cat /tmp/2.txt >> $file
+            #else
         fi
 
-        cat $file > /tmp/2.txt 
-        echo "$str" > $file
-        cat /tmp/2.txt >> $file
-        #else
+        #done
+
+
+
+    else
+        red "other proccess already playing "
+
     fi
 
-    #done
-
-
-
-
+    export PLAYING_ON=false
 }
 
 if [ $1 = "testing" ]
@@ -1047,9 +1070,9 @@ then
     #first=$(cat $todo_txt | head -1)
     first=`cat $todo_txt | head -1`
     echo1 $first
-    #gxmessage "$first"
+    #gxmessage  "$first"
     exiting
-    gxmessage 'testing'
+    gxmessage  'testing'
 
     #  say1 "hello world"
 

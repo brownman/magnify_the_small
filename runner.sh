@@ -55,6 +55,34 @@ play1(){
     echo "Thanks for using this script."
     exit 0
 }
+play2(){
+    sleep1 60
+    echo 'play1'
+    green 'run series of tasks in circle'
+    if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
+
+    count=0
+    keypress=''
+    while [ "x$keypress" = "x" ]; do
+
+        . $TIMERTXT_CFG_FILE
+
+        let count+=1
+        echo -ne $count'\r'
+        read keypress
+
+        ##############################################################
+        $TIMER2_DIR/timer.sh series "one_task" 
+        ##############################################################
+        sleep1 10
+    done
+
+    if [ -t 0 ]; then stty sane; fi
+
+    echo "You pressed '$keypress' after $count loop iterations"
+    echo "Thanks for using this script."
+    exit 0
+}
 
 remind1(){
 
@@ -64,7 +92,7 @@ remind1(){
     green "do you have schedules ?"
     white "did you write on the whiteboard ?"
     green "runner.sh - play motivations"
-    echo "klara - mother reminder"
+    red "klara - mother reminder"
     log1
 
 }
@@ -77,6 +105,16 @@ remind1(){
 
 
 present1(){
+    green 'post to blog ?'
+    read answer
+    if [  $answer = y ]
+    then
+            echo '~/.bash_it/blog/brownman.github.com'
+            echo 'Jakyll serve'
+            echo 'rake post title="day X: goal X"'
+    fi
+   
+
     green 'record screencast?'
     read answer
     if [  $answer = y ]
@@ -112,7 +150,7 @@ present1(){
 PS3=$( yellow "\nRunner Menu:" )
 
 #cyan  "\t\t\t\t Parent Menu" 
-options=(  "Record & Publish"  "Edit .txt" "Play timer" "Update .sh" "Next menu" "Quit" )
+options=("Quit"   "Record & Publish"  "Edit .txt" "Play timer" "Update .sh" "Next menu" )
 
 remind1
 #yellow "choose:\nEdit .txt\nPlay timer tasks\nUpdate .sh\nContinue to next menu\nQuit"
@@ -130,6 +168,7 @@ do
             . $TIMER2_DIR/edit.sh
             ;; 
         "Play timer")
+            play2 &
             play1 
             ;;
         "Update .sh")

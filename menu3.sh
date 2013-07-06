@@ -3,8 +3,8 @@
 pushd `dirname $0` > /dev/null
 #. $TIMERTXT_CFG_FILE
 
-PS3="DEAL scraping:"
-options=( "Quit" "scraping" "testing" )
+PS3="Scraping:"
+options=( "Quit" "Scraping" )
 
 
 reset
@@ -17,13 +17,12 @@ do
 
             exiting
             ;;
-        "scraping")
+        "Scraping")
+            echo 'scraping for: language-website? deals?'
             echo 'google forms + xpath'
             ;;
 
-        "testing")
-            $TIMER2_DIR/meditate.sh
-            ;;
+      
         *)
             reset
             ;;
