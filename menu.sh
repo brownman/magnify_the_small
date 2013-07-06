@@ -1,19 +1,18 @@
 #!/bin/bash
 
 pushd `dirname $0` > /dev/null
-. $TIMERTXT_CFG_FILE
-dir=$TIMER2_DIR
-
-#str3=`echo -n 'NOW: '; cat  "$todo_txt" | head -2 | awk -F '|' '{print $2}' `
+#. $TIMERTXT_CFG_FILE
+#dir=$TIMER2_DIR
 
 
-PS3="choose: "
+
+PS3="Main Menus"
 
 
 reset
 #echo "$str2"
-cyan  "\t\t\t\t Parent Menu" 
-options=(  "update" "imagine" "do!" "config" "quit" )
+#cyan  "\t\t\t\t Parent Menu" 
+options=(  "update" "job" "buy" "blog" "quit" )
 select opt in "${options[@]}"
 do
     #echo "my status is:"
@@ -25,30 +24,24 @@ do
 
         "update")
             echo 'update'
-            ./menu1.sh
-            reset
+            $PWD/menu1.sh
             ;;
-
-        "imagine")
-            echo 'imagine'
-            ./menu2.sh
-
+     "job")
+            echo 'update'
+            $PWD/menu4.sh
             ;;
-
-
-        "do!")
-            echo 'do!'
-            ./menu3.sh
+     "buy")
+            echo 'update'
+            $PWD/menu3.sh
             ;;
-      "config")
-            echo 'config'
-            ./menu4.sh
+     "blog")
+            echo 'update'
+            $PWD/menu2.sh
             ;;
 
 
         *)
             exiting
-            echo 'LET ME IN !' 
             ;;
 
     esac

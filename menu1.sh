@@ -3,15 +3,10 @@
 pushd `dirname $0` > /dev/null
 . $TIMERTXT_CFG_FILE
 dir=$TIMER2_DIR
-str=`cat  "$todo_txt" | head -2 | awk -F '|' '{print $2}' `
 str1=""
-points=$( cat $done_txt | head -1 )
 
-#cat $file1 | awk -F : '{print $2}'
-#white "POINTS:   $points"
-str2="===============my   POINTS:     $points  =============="
-PS3=$str2
-options=( "Update txt" "Github" "My state" "schedule report" "Quit" "Delete" )
+PS3="Updating:" 
+options=("Delete" "Schedule" "Github"  "Quit" )
 
 
 reset
@@ -23,7 +18,7 @@ do
     case $opt in
 
 
-   "schedule report")
+   "Schedule")
         echo 'write schedules and update kuka'
 
         ( xdg-open https://www.google.com/calendar/render?tab=mc &)
@@ -50,10 +45,8 @@ do
 
         $TIMER2_DIR/mail2.sh
 
+        ;;
 
-
-
-            ;;
      "Delete")
             echo 'delete txt files'
             $dir/timer.sh delete
@@ -61,45 +54,16 @@ do
         "Quit")
             exiting
             ;;
-        "Github")
-            git add .
-            line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
-            if [ "$line" != '' ]
-            then
-                git commit -am "$line"
-                git push origin develop
-            fi
-
-            ;;
+       
 
 
-        "Update txt")
 
-            white "update ideas.txt:"
-            $dir/edit.sh
-            ;;
-        "My state")
-   str=`cat  "$todo_txt" | head -2`
-            red "TODO FILE: $str" 
-
-            str=`cat "$done_txt"`
-            cyan "REMINDER FILE: \n $str"
-
-         
-
-            str=`cat  "$questions_txt" `
-            white "TODO FILE: $str" 
-
-            str=`cat  "$ideas_txt" `
-            yellow "IDEAS FILE: $str" 
-            ;;
         "Unlock")
             yellow "I am aware of the time - let me go in !"
             break
             ;;
         *)
             reset
-            echo 'LET ME IN !' 
             ;;
     esac
 done

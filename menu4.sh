@@ -1,15 +1,10 @@
 #!/bin/bash
 
 pushd `dirname $0` > /dev/null
-. $TIMERTXT_CFG_FILE
-dir=$TIMER2_DIR
-str=`cat  "$todo_txt" | head -2`
-str1=""
-points=$( cat $done_txt | head -1 )
-#white "POINTS:   $points"
-str2="===============my   POINTS:     $points  =============="
-PS3=$str2
-options=( "Quit" "Job"  "Cfg")
+#. $TIMERTXT_CFG_ILE
+
+PS3="Job & Collaboration:"
+options=( "Quit" "Collaborate" "Job"  )
 
 
 reset
@@ -18,18 +13,17 @@ select opt in "${options[@]}"
 do
 
     case $opt in
-
+        "Quit")
+            exiting
+            ;;
         "Job")
             echo 'open: linkin, check mails, etc'
             ;;
 
+        "Collaborate")
+            echo 'update Eran, Boaz'
+            ;;
 
-        "Cfg")
-            vi $dir/cfg/timer.cfg
-            ;;
-       "Quit")
-            exiting
-            ;;
         *)
             echo '*'
             ;;

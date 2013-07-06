@@ -235,13 +235,26 @@ time1(){
 
     date1="$(date +%H:%M)"
     ( gxmessage -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
-#    say1 "$date1"
+    say1 "$date1"
 
 
 }
 
-
 suspend1(){
+    say1 "$msg_suspend" 
+answer=$( messageYN 'suspend?' '')
+if [ "$answer" = 2 ];then
+    echo '+1 point'
+    echo '+1' >> $done_txt
+    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+else
+    echo '-1 point'
+    echo '-1' >> $done_txt
+fi
+
+}
+
+suspend2(){
 
     say1 "$msg_others"
 sleep1 5 
@@ -262,7 +275,11 @@ sleep1 5
 
     sleep1 $SLEEP 
 
+if [ "$answer" = 2 ];then
+    
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+
+fi
     echo2 'got back from suspension'
 
 
@@ -546,7 +563,7 @@ take_photo(){
 say1(){
 
     echo1 "say1() \n ------------ \ngot :    $1 ||  $2 ||  $3 ||  $4"
-    #Backtrace
+    Backtrace
     #sleep1 10
     #gxmessage -entry -timeout 10 -title "say1() is running" 'onEntering'
     #-timeout $TIMEOUT1 $GXMESSAGE0
@@ -582,6 +599,7 @@ sleep1 10
 
 
 say2(){
+    Backtrace
     echo1 "say2() got :  msg:  $1 || lang: $2 || file: $3 || push_top: $4"
     echo1 "say1 push_top = true" 
 
@@ -838,6 +856,9 @@ local yno=""
             "time")
                 time1
                 ;;
+       "motivation_start")
+                motivation_start
+                ;;
             "sleep")
                 sleep1 $SLEEP
                 ;;
@@ -886,7 +907,7 @@ write_essay "$LANG_ESSAY"
 
 
 }
-many(){
+many1(){
 
     echo1 'PLAY AGAIN    '
     let "r = $RANDOM % 4 + 1"
@@ -1085,6 +1106,7 @@ then
     one_task1
 
 elif [ $1 = series ];then # ------------------ all
+    echo2 "series1() got: $2" 
     series1 "$2"
 fi
 
