@@ -1,7 +1,6 @@
 #!/bin/bash
  
 . $TIMERTXT_CFG_FILE
-#!/bin/bash
 
 echo1(){
 echo -n  '_'
@@ -120,7 +119,7 @@ echo2 "translate.sh got: ||        str_from? $word    |     many? $many  |   art
 update_google='false'
 #silent='false'
 service='google'
-
+exiting
 #many_images='false'
 #~/tmp/ofer/essay.txt
 
@@ -604,22 +603,7 @@ echo "r: $rlist"
 #exiting
 # Process remaining non-option arguments
 #w
-word=""
-#l
-many='-l'
-#|1 language 
-#a
-article=false 
-#b
-silent=false
-#c
-silent_msg=false
-#f
-file_to_update='/tmp/tmp.txt'
-#e
-silent_fetch=false
-#d
-push_top=false
+
 
 
 while getopts :abcdefwl: opt; do
@@ -692,5 +676,32 @@ while getopts :abcdefwl: opt; do
   esac
 done
 
+word=""
+#l
+many='-l'
+#|1 language 
+article=false #a 
+silent=false #b
+silent_msg=false #c
+file_to_update='/tmp/tmp.txt' #f
+silent_fetch=false #e
+push_top=false #d
 
+while getopts "[xyz]abc:d:" flag
+do
+  case $flag in
+
+    xyz) echo "[getopts:$OPTIND]==> -$flag";;
+    a) echo "[getopts:$OPTIND]==> -$flag";;
+    b) echo "[getopts:$OPTIND]==> -$flag";;
+    c) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
+    d) echo "[getopts:$OPTIND]==> -$flag $OPTARG";;
+  esac
+done
+
+#shift $((OPTIND-1))
+echo "[otheropts]==> $@"
+#!/bin/bash
+
+exiting
 exiting

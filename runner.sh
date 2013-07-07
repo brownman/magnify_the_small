@@ -4,7 +4,11 @@ pushd `dirname $0` > /dev/null
 
 export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
+export VERBOSE=true
 
+
+cat -n $motivations_txt
+read 
 learn1(){
     echo 'learn1'
     # $PWD/menu.sh
@@ -86,7 +90,7 @@ play2(){
 
 remind1(){
 
-    reset
+    #reset
     #echo "$str2"
     white "does the timer run with suspension ?"
     green "do you have schedules ?"
@@ -107,17 +111,17 @@ remind1(){
 present1(){
     green 'post to blog ?'
     read answer
-    if [  $answer = y ]
+    if [  "$answer" = y ]
     then
-            echo '~/.bash_it/blog/brownman.github.com'
-            echo 'Jakyll serve'
-            echo 'rake post title="day X: goal X"'
+        echo '~/.bash_it/blog/brownman.github.com'
+        echo 'Jakyll serve'
+        echo 'rake post title="day X: goal X"'
     fi
-   
+
 
     green 'record screencast?'
     read answer
-    if [  $answer = y ]
+    if [  "$answer" = y ]
     then
         title=$( gxmessage "please title the screencast:" -entry )
         asciiio -t "$title"
@@ -125,14 +129,14 @@ present1(){
     fi
     green 'add presentation to the README..?'
     read answer
-    if [  $answer = y ]
+    if [  "$answer" = y ]
     then
         echo "$?"
         gedit README.md
     fi
     green 'publish to github ?'
     read answer
-    if [  $answer = y ]
+    if [  "$answer" = y ]
     then
         git add .
         line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
@@ -150,7 +154,7 @@ present1(){
 PS3=$( yellow "\nRunner Menu:" )
 
 #cyan  "\t\t\t\t Parent Menu" 
-options=("Quit"   "Record & Publish"  "Edit .txt" "Play timer" "Update .sh" "Next menu" )
+options=("Quit"   "Record & Publish"  "Edit .txt" "Play timer" "Update .sh" "Next menu" "motivation" "best idea" "game" "security" )
 
 remind1
 #yellow "choose:\nEdit .txt\nPlay timer tasks\nUpdate .sh\nContinue to next menu\nQuit"
@@ -158,7 +162,45 @@ select opt in "${options[@]}"
 do
     #echo "my status is:"
 
+
+
     case $opt in
+     "security")
+            echo 'security hole'
+
+echo 'check system security:'
+
+
+
+( xterm -e 'sudo lynis --check-all -Q' &)
+
+ vi /usr/sbin/lynis
+            ;;
+
+        "game")
+            echo 'memory game'
+            $timer_sh game 
+
+            ;;
+        "best idea")
+            echo "add idea:"
+            read answer
+
+            if [ "$answer" != '' ];then
+                echo "$answer" >> $ideas_txt 
+            fi
+            cat -n $ideas_txt
+            ;;
+
+        "motivation")
+            echo "everything is funny actualy"
+            read answer
+
+            if [ "$answer" != '' ];then
+                echo "$answer" >> $motivations_txt 
+            fi
+            cat -n $motivations_txt
+            ;;
         "Record & Publish")
             present1
 

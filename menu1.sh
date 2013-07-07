@@ -1,8 +1,8 @@
 #!/bin/bash
 
 pushd `dirname $0` > /dev/null
-. $TIMERTXT_CFG_FILE
-dir=$TIMER2_DIR
+#. $TIMERTXT_CFG_FILE
+#dir=$TIMER2_DIR
 str1=""
 
 PS3="Updating:" 
@@ -18,43 +18,48 @@ do
     case $opt in
 
 
-   "Schedule")
-        echo 'write schedules and update kuka'
+        "Schedule")
+            echo 'write schedules and update kuka'
+            echo 'open website ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
+                ( xdg-open https://www.google.com/calendar/render?tab=mc &)
+                ( xdg-open https://mail.google.com/tasks/ig?pli=1 &)
+            fi
 
-        ( xdg-open https://www.google.com/calendar/render?tab=mc &)
-        ( xdg-open https://mail.google.com/tasks/ig?pli=1 &)
-        sleep1 2
-        echo 'fetch ?'
-        read answer
-        if [ "$answer" = 'y' ]
-        then
+            sleep1 2
+            echo 'fetch ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
 
-            echo 'fetch'
-            $TIMER2_DIR/fetch.sh
-        fi
-        sleep1 2
-        echo 'email report ?'
-        read answer
-        if [ "$answer" = 'y' ]
-        then
+                echo 'fetch'
+                $TIMER2_DIR/fetch.sh
+            fi
+            sleep1 2
+            echo 'email report ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
 
-            echo 'mail'
-            $TIMER2_DIR/mail.sh
-        fi
-        sleep1 5
+                echo 'mail'
+                $TIMER2_DIR/mail.sh
+            fi
+            sleep1 5
 
-        $TIMER2_DIR/mail2.sh
+            $TIMER2_DIR/mail2.sh
 
-        ;;
+            ;;
 
-     "Delete")
+        "Delete")
             echo 'delete txt files'
             $dir/timer.sh delete
             ;;
         "Quit")
             exiting
             ;;
-       
+
 
 
 

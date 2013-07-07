@@ -6,7 +6,7 @@ pushd `dirname $0` > /dev/null
 
 
 
-PS3="Main Menus"
+PS3="Main Menu:"
 
 
 reset
