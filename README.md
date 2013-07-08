@@ -83,6 +83,7 @@ collaboration
 demonstrations
     presentation - show how to utilize the scripts
     last records:
+        [8-7-13 commitment - set time limit for the next task ](http://ascii.io/a/3923)	
         [6-7-13 menu.sh - the project menu ](http://ascii.io/a/3905)	
         [timer.cfg - for updating the Env vars](http://ascii.io/a/3759)
         [unit tests - test runner](http://ascii.io/a/3757)

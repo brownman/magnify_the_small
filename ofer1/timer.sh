@@ -1181,13 +1181,13 @@ present1(){
     if [  "$answer" = y ]
     then
         echo "$?"
-        gedit README.md
+        gedit $PWD/README.md
     fi
     green 'publish to github ?'
     read answer
     if [  "$answer" = y ]
     then
-        cd..
+        #cd..
         git add .
         line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
         if [ "$line" != '' ]
@@ -1195,7 +1195,7 @@ present1(){
             git commit -am "$line"
             git push origin develop
         fi
-        cd -
+        #cd -
     fi
 }
 
