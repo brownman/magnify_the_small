@@ -6,7 +6,7 @@ pushd `dirname $0` > /dev/null
 str1=""
 
 PS3="Updating:" 
-options=(  "Quit" "Delete" "Schedule" "Github" )
+options=(  "Quit" "Delete" "Schedule" "Record & Publish" )
 
 
 reset
@@ -16,7 +16,9 @@ select opt in "${options[@]}"
 do
 
     case $opt in
-
+        "Record & Publish")
+            $timer_sh present1
+            ;;
 
         "Schedule")
             echo 'write schedules and update kuka'

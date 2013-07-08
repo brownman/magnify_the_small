@@ -3,7 +3,7 @@ pushd `dirname $0` > /dev/null
 
 #SCRIPTPATH1=`pwd -P`
 #. ./cfg/timer.cfg
-echo "password:$PASS1"
+#echo "password:$PASS1"
 file3=/tmp/missions.txt
 file1=/tmp/file1.txt
 file2=/tmp/file2.txt

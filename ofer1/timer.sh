@@ -17,7 +17,6 @@ export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 ##string globalvar
 #
 ##echo "'${globalvar}'"
-red "proxy the call for translate_sh !"
 
 
 if [ "$1" = '' ];then
@@ -34,7 +33,7 @@ declare -i my_score
 my_score=0 #-1
 #gxmessage   'every input str should contain atleast 1 word that used before !'
 echo2 "timer.sh got: 1:$1 2:$2 3:$3"
-lower() { echo ${@,,}; }
+
 
 
 #    translate_f "$i" "$word" "$lang_long"
@@ -74,6 +73,7 @@ game1(){
 
                 return_var=''
                 translate_f return_var "$str" "$lang" 
+
                 echo $return_var
             fi
 
@@ -83,9 +83,75 @@ game1(){
 
 
 }
+printing1(){
+    local input_ws="$1" 
+    local file_name="$2"
+
+    local line1=`cat $file_name | head -1`
+    local line2=`cat $file_name | head -2 | tail -1`
+
+        local line3=$(echo "$line2"|sed 's/ /:1,/g');
+
+    if [ $GUI = true ]
+    then
+
+        let "r = $RANDOM % 4 "
+        color="${color_arr1[$r]}"
+        echo "color: $color"
+        
+        ( gxmessage "$line1" -buttons "$line3" -sticky -timeout 11 -title "$input_ws"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
+    else
+      echo '' #  cat $file_name 
+    fi
+
+        cat $file_name 
+        echo "$input_ws"
+
+}
+
+play1(){
+
+        #echo "play1() got: $1 | $2"
+    if [ $PLAYING_ON = false ];then
+
+
+        export PLAYING_ON=true
+
+
+        local lang="$2"
+
+        local lang_repeat=\$"$lang"R   # Name of variable (not value!).
+
+        local  times=`eval "expr \"$lang_repeat\" "`
+        local file="$1"
+
+        #declare  -i  counter
+        local counter=0
+        while [  $counter -lt  $times ]; do
+            if [ "$SILENCE" = false ];then
+
+                play -V1 -q  "$1"
+            fi
+
+            (( counter++ ))
+        done
+
+        export PLAYING_ON=false
+    else
+        red 'playing is already on'
+        Backtrace
+    fi
+
+
+
+}
 
 
 translate_f(){
+
+    local silent_fetch=$SILENT_FETCH
+    local silent=$SILENT
+
     local lang="$3"
     echo2 "translate_f() got:  $1 | $2 | $3"
 
@@ -93,15 +159,17 @@ translate_f(){
     local input_wsp=$(echo "$input"|sed 's/ /+/g');
     local input_ws=$(echo "$input"|sed 's/ /_/g');
 
+    local  mp3_file=$dir_mp3/${input_ws}_${lang}.mp3
+    local file_name=$(  echo $dir_txt/${input_ws}_${lang}.txt )
 
-    file_name=$(  echo /tmp/bash_koans/txt/${input_ws}_${lang}.txt )
 
 
-    files=$(ls  $file_name 2> /dev/null )
-    if [[ ! "$files"  ]]
+    local files1=$(ls  $file_name 2> /dev/null )
+    local files2=$(ls  $mp3_file 2> /dev/null )
+    if [ ! "$files1"  ] #|| [ ! "$files2" ]
     then
 
-        yellow "fetch txt"
+        echo2 "fetch txt"
         #echo1 'file not exist'
         #echo1  "need to translate.."
 
@@ -116,209 +184,56 @@ translate_f(){
 
 
         touch "$file_name"
-        echo -n  "$output" >>   "$file_name"
-  
-                echo -n " _ $phonetics" >>   "$file_name"
-    else
-        blue "cache copy"
-    fi
+        echo "$output" >   "$file_name"
 
-    #  eval  "$1='some other string'"
-    str=`cat "$file_name" `
-    str1=`echo -n $str`
-    #echo "$str1" 
-    #eval "$1=' a b str1'"
-    eval "$1=\"$str1\""  # Assign new value.
-
-}
-
-translate_f_2(){
-    #from english
-    # if [ -z "$2" ]                           # Is parameter #1 zero length?
-    # then
-    #     echo1 "-Parameter #1 is zero length.-"  # Or no parameter passed.
-    # else
-    local lang=$1 #translate to..
-
-    #local file_image_group=$(  echo1 group_${lang}.png )
-    local input=$2 #translate src
-    #debug: echo1 $input
-    local lang_long=$3 
-
-    local output=''
-    local output_wsp=''
-    local output_ws=''
-
-    local show_one=''
-
-    local input_wsp=$(echo "$input"|sed 's/ /+/g');
-    local input_ws=$(echo "$input"|sed 's/ /_/g');
-
-
-    local  mp3_file=/tmp/bash_koans/mp3/${input_ws}_${lang}.mp3
-    #local  mp3_file=/tmp/bash_koans/mp3/${lang}.mp3
-    local phonetics=''
-
-    local str1=''
-    local file_name=''
-
-    if [[ $article != 'true' ]]
-    then
-        echo1 'its not an article!'
-        file_name=$(  echo /tmp/bash_koans/txt/${input_ws}_${lang}.txt )
-
-        #cat "$file_name" >> $file_sentance
-    else
-        echo1 'its an article!'
-
-        echo1 "article file input: $file_essay"
-        file_name=$(  echo /tmp/bash_koans/html/${lang}.html )
-        rm $file_name
-    fi
-
-
-
-
-    files=$(ls  $file_name 2> /dev/null )
-
-    if [[ ! "$files"  ]]
-    then
-        #echo1 'file not exist'
-        #echo1  "need to translate.."
-
-        if [[ $article != 'true' ]]
-        then
-            result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
-            echo1 "$result"
-            # show_one=`cat "$file_name"`
-            cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
-            echo $cleaner > /tmp/dirty.txt
-            phonetics=$(echo "$cleaner" | cut -d \" -f 5)
-            output=$(echo "$cleaner" | cut -d \" -f 1)
-
-            output_wsp=$(echo "$output"|sed 's/ /+/g');
-            output_ws=$(echo "$output"|sed 's/ /_/g');
-
-            touch "$file_name"
-            #echo1 -n "$lang :" >>   "$file_name"
-
-            echo -n  "$output" >>   "$file_name"
-            if [ "$phonetics"  != '' ]
-            then
-
-                if [ $lang != 'ru' ]
-                then
-
-                    echo -n " _ $phonetics" >>   "$file_name"
-                fi
-
-            fi
-
-
-
-
-            # echo1 -n  "$output" >>   $file_to_update
-            #update_file "$phonetics" "$file_to_update"
-            if [ "$push_top" = true ];then 
-
-                update_file  "$output ::: $phonetics ::: $input "  "$file_to_update"
-            else
-
-                update_file  "$output ::: $phonetics"  "$file_to_update"
-            fi
-
-
-            #update_file  "$output _ $phonetics "  "$file_essay"
-
-            #update_file  "$input"  "$file_to_update"
-            #  file_to_update1=~/tmp/ofer/essay.txt
-            #  update_file "$phonetics" "$file_to_update1"
-            #  update_file  "$output"  "$file_to_update1"
-        else
-            echo1 'it is an article !'
-            result=$(translate-bin -s $service -f en -t $lang $file_essay) 
-            echo1 "$result"
-            touch "$file_name"
-            echo "$lang_long :" >>   "$file_name"
-            #back to result !
-            echo "$result" >>   "$file_name"
-
-            #echo1 "$result" >>   "$file_to_update"
-
-
+        if [  $lang = 'ru' ] || [ $lang = 'hi' ];then 
+            echo  " _ $phonetics" >>   "$file_name"
         fi
 
-        if [ "$silent_fetch" = false ];then
+
+    else
+        echo2 "cache copy"
+    fi
+echo 'print the content of the result'
+cat $file_name 
+    if [ "$silent_fetch" = false ];then
+        output=`cat $file_name | head -1`
+        blue "fetch for: $output"
+        output_wsp=$(echo "$output"|sed 's/ /+/g');
+        output_ws=$(echo "$output"|sed 's/ /_/g');
+        if [ ! "$files2" ];then
+
             #echo1  "no silent !"
 
-            echo1 'fetch sound'
+            echo2 'fetch sound'
             if [ $lang = 'tl' ]
             then
 
-                #echo1 'lion is cool too also' | flite -o dog.wav | lame -b 128 dog.wav dog111.mp3 | play1 dog111.mp3
-                #echo1 "$output" | flite -o /tmp/1.wav | lame -b 128 /tmp/1.wav $mp3_file | play1 $mp3_file 
                 rm /tmp/1.wav
-                #echo1 $output | flite $mp3_file #-o /tmp/1.wav | #| lame -b 128 /tmp/1.wav $mp3_file #&&  play1 $mp3_file #/tmp/1.wav
                 echo1 $output
                 echo -n "$output" | text2wave -o "$mp3_file" #/tmp/1.wav | lame /tmp/1.wav  $mp3_file 
-                #/tmp/2.mp3 # | play1 /tmp/2.mp3
-                #play1 $mp3_file
 
-                #wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=en\&q=${output_wsp} > $mp3_file
             else
-                #echo "$output" | espeak -v "$lang"
                 ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $mp3_file \&\& play1  $mp3_file \&)
             fi
         else
-            echo1 'no fetch sound'
+            echo2 'no fetch sound'
 
         fi
 
-        echo "----" >> "$file_group"
-        echo "$input" >> "$file_group"
-        cat "$file_name" >> "$file_group"
-        str7=`cat $file_name`
-        echo "$str7" >> $file_sentance
-
-        #update_file "$str7" "$file_to_update"
-
-    else
-        #echo1   'file exist'
-        echo1   "$lang_long" "Cached Copy!" 
-
-
-    fi
-    if [[ $silent_msg = false ]]
-    then
-
-        let "r = $RANDOM % 4 "
-        color="${color_arr1[$r]}"
-
-
-        #   if [  $lang = 'ar' ] ||  [ $lang = 'hi'  ] ||  [ $lang = 'tl'  ]
-        if [  $lang = 'en' ] || [ $lang = 'it' ] || [ $lang = 'ru' ] # || [ $lang = 'ar' ]
-        then
-
-            #echo1 ''
-
-            ( gxmessage  -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
-        else
-
-            ( gxmessage  -buttons "was easy ?" -sticky -timeout 11 -title "$input_ws"  -file $file_name -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
-        fi
-
-
-
     fi
 
+    str=`cat "$file_name" `
+    str1=`echo -n $str`
+ 
+    printing1 "$input_ws" "$file_name"
     if [ "$silent" = false ];then
         echo1 'play1 !'
         echo1 "play1 $mp3_file" 
-        #echo1 "$lang_long" | espeak -v en
         if [ "$silent_fetch" = true ]
         then
             #  ( play1  $mp3_file &)
-            echo1 'silent fetch'
+            echo2 'silent fetch'
         else
             play1  $mp3_file $lang 
         fi
@@ -326,15 +241,9 @@ translate_f_2(){
     fi
 
 
-    show_lang_group=$(cat $file_name | head -6)
-
-
-
-    #echo1 "content: $show_lang_group file is: $file_name "
-
+    eval "$1=\"$str1\""  # Assign new value.
 
 }
-
 
 
 input_line(){
@@ -466,7 +375,7 @@ rooting(){
 }
 
 
-arr1=( IT AR HI RU )
+
 lang='it'
 #'false'
 
@@ -554,14 +463,10 @@ suspend1(){
 
     say1 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    answer=$( messageYN 'yes/no question' 'did sport? | update wall? | know next task?' )
+    answer=$( messageYN 'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
     if [ "$answer" = 2 ];then
         echo '+1 point'
-        echo '+1' >> $done_txt
-
-    else
-        echo '-1 point'
-        echo '-1' >> $done_txt
+        echo -n '+' >> $sport_txt
     fi
 }
 
@@ -881,7 +786,7 @@ say1(){
     #-timeout $TIMEOUT1 $gxmessage 0
     local msg="$1"
 
-    if [ [ "$SILENCE" = false] && [ "$PLAYING_ON" = false ] ]
+    if  [ "$SILENCE" = false] && [ "$PLAYING_ON" = false ] 
     then
 
         #gxmessage  -entry -timeout 10 -title "say1() is running" 'talking' 
@@ -1150,6 +1055,152 @@ delete_files(){
     done
 }
 
+loop_learn1(){
+    echo 'learn1'
+    # $PWD/menu.sh
+    green 'learn X words aday: use glossary.txt'
+
+    cat "$dir_essay/essayIT.txt"
+    cat "$dir_essay/essayRU.txt"
+    cat "$dir_essay/essayHI.txt"
+    cat "$dir_essay/essayAR.txt"
+    cat "$dir_essay/essayTL.txt"
+
+    white "choose a language: IT TL RU HI AR "  
+    read lang 
+
+    if [ "$lang" != '' ]
+    then
+
+        gedit $glossary_txt & 
+        #$timer_sh 
+        learn_lang $lang $LESSON
+        #write_essay $answer
+    fi
+}
+
+loop_play1(){
+    echo 'play1'
+    green 'run series of tasks in circle'
+    if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
+
+    count=0
+    keypress=''
+    while [ "x$keypress" = "x" ]; do
+
+        . $TIMERTXT_CFG_FILE
+
+        let count+=1
+        echo -ne $count'\r'
+        read keypress
+
+        ##############################################################
+        #$TIMER2_DIR/timer.sh 
+        series1 "$series1" 
+        ##############################################################
+        sleep1 10
+    done
+
+    if [ -t 0 ]; then stty sane; fi
+
+    echo "You pressed '$keypress' after $count loop iterations"
+    echo "Thanks for using this script."
+    exit 0
+}
+loop_play2(){
+    #sleep1 60
+    echo 'play1'
+    green 'run series of tasks in circle'
+    if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
+
+    count=0
+    keypress=''
+    while [ "x$keypress" = "x" ]; do
+
+        . $TIMERTXT_CFG_FILE
+
+        let count+=1
+        echo -ne $count'\r'
+        read keypress
+
+        ##############################################################
+        #$TIMER2_DIR/timer.sh series 
+        one_task1 
+        ##############################################################
+        sleep1 10
+    done
+
+    if [ -t 0 ]; then stty sane; fi
+
+    echo "You pressed '$keypress' after $count loop iterations"
+    echo "Thanks for using this script."
+    exit 0
+}
+
+remind1(){
+
+    #reset
+    #echo "$str2"
+    white "does the timer run with suspension ?"
+    green "do you have schedules ?"
+    white "did you write on the whiteboard ?"
+    green "runner.sh - play motivations"
+    red "klara - mother reminder"
+    log1
+
+}
+
+
+
+#yellow "choose:\nEdit .txt\nPlay timer tasks\nUpdate .sh\nContinue to next menu\nQuit"
+
+
+
+
+present1(){
+    green 'post to blog ?'
+    read answer
+    if [  "$answer" = y ]
+    then
+        echo '~/.bash_it/blog/brownman.github.com'
+        echo 'Jakyll serve'
+        echo 'rake post title="day X: goal X"'
+    fi
+
+
+    green 'record screencast?'
+    read answer
+    if [  "$answer" = y ]
+    then
+        title=$( gxmessage "please title the screencast:" -entry )
+        asciiio -t "$title"
+
+    fi
+    green 'add presentation to the README..?'
+    read answer
+    if [  "$answer" = y ]
+    then
+        echo "$?"
+        gedit README.md
+    fi
+    green 'publish to github ?'
+    read answer
+    if [  "$answer" = y ]
+    then
+        cd..
+        git add .
+        line=$( gxmessage -buttons "I did add a presentation!" "write description for the commit" -entry -timeout 20 -title "Github update: ")
+        if [ "$line" != '' ]
+        then
+            git commit -am "$line"
+            git push origin develop
+        fi
+        cd -
+    fi
+}
+
+
+
 series1(){
 
     . $TIMERTXT_CFG_FILE
@@ -1217,9 +1268,8 @@ series1(){
                 ;;
 
             "edit")
-
-                    ($TIMER2_DIR/edit.sh &)
-                    ;; 
+                ( xterm -e "$TIMER2_DIR/edit.sh" &)
+                ;; 
 
             *) echo "Invalid input"
                 ;;
@@ -1232,6 +1282,7 @@ series1(){
 
 
 }
+
 many1(){
 
     echo1 'PLAY AGAIN    '
@@ -1327,7 +1378,7 @@ one_task1(){
         then
             if [ "$str" = 'exit' ]
             then
-                exit
+                exit 1
             fi
 
             cat $file > /tmp/2.txt 
@@ -1404,7 +1455,7 @@ elif [ $1 = translate ];then
 
 
 
-    echo $return_var
+    #echo $return_var
 
 elif [ $1 = meditate ];then
     echo1 'meditate'
@@ -1444,6 +1495,19 @@ then
 elif [ $1 = suspend ]
 then
     suspend1
+elif [ $1 = play1 ]
+then
+    loop_play1
+elif [ $1 = play2 ]
+then
+    loop_play2
+
+elif [ $1 = game1 ]
+then
+    loop_game1
+
+
+
 
 elif [ $1 = english ]
 then
@@ -1456,6 +1520,19 @@ then
     echo 'let the game start'
 
     game1
+
+elif [ $1 = remind ]
+then
+    echo 'remind me'
+
+    remind1
+elif [ $1 = present1 ]
+then
+    echo 'remind me'
+
+    present1
+
+
 
 
 

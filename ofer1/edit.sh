@@ -21,6 +21,9 @@ gedit $ideas_txt &
 gedit $timing_txt &
 gedit $questions_txt &
 gedit $glossary_txt &
+
+gedit $efficiency_txt &
+gedit $commitment &
 gedit $motivations_txt 
 fi
 
@@ -34,6 +37,18 @@ then
 
 $TIMER2_DIR/wallpaper.sh &
 fi
+
+answer=$( messageYN 'edit.sh' 'update schedule ?' )
+if [ "$answer" = 2 ]
+then
+
+     ( xdg-open https://www.google.com/calendar/render?tab=mc &)
+     ( xdg-open https://mail.google.com/tasks/ig?pli=1 &)
+
+fi
+
+
+
 
 
 popd > /dev/null
