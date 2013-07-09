@@ -61,11 +61,12 @@ then
 
 send1 pic_file
 send1 schedule_txt
-send1 missions_txt
+#send1 missions_txt
 send1 todo_txt
 send1 done_txt
 send1 wallpaper_file
 send1 mind_map_png
+#send1 report_txt
 else
     notify-send 'not sending !'
 

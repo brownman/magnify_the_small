@@ -8,6 +8,10 @@ pushd `dirname $0` > /dev/null
 export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 #export VERBOSE=true
+#red "$commitment"
+#echo -n "imagine commands: "
+#me "translate-"
+
 
 pids(){
     PIDS=$(pidof sh $0)  # Process IDs of the various instances of this script.
@@ -41,7 +45,7 @@ commitment1(){
     red "$str6"
     echo -n  "you commited to the next obligation:  "
     str=`cat  $commitment_txt | head -1`
-    yellow "$str"
+    white "$str"
 
 
     #$timer_sh  translate  "$str" "it"  
@@ -97,7 +101,11 @@ commitment1(){
 points=$( cat  "$done_txt" | head -2 ) #points
 PS3=$(  log1; yellow "$NAME1 - go on to: " )
 reset
+
+$PWD/robot.sh
 commitment1 
+
+
 #cyan  "\t\t\t\t Parent Menu" 
 
 options=("Quit" "Status"  "Job" "Points" )

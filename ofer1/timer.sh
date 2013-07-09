@@ -74,7 +74,7 @@ game1(){
                 return_var=''
                 translate_f return_var "$str" "$lang" 
 
-                echo $return_var
+                #echo $return_var
             fi
 
         done
@@ -97,7 +97,7 @@ printing1(){
 
         let "r = $RANDOM % 4 "
         color="${color_arr1[$r]}"
-        echo "color: $color"
+        #echo2 "color: $color"
         
         ( gxmessage "$line1" -buttons "$line3" -sticky -timeout 11 -title "$input_ws"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
     else
@@ -105,7 +105,9 @@ printing1(){
     fi
 
         cat $file_name 
-        echo "$input_ws"
+
+
+        #echo "$input_ws"
 
 }
 
@@ -187,18 +189,18 @@ translate_f(){
         echo "$output" >   "$file_name"
 
         if [  $lang = 'ru' ] || [ $lang = 'hi' ];then 
-            echo  " _ $phonetics" >>   "$file_name"
+            echo  "$phonetics" >>   "$file_name"
         fi
 
 
     else
         echo2 "cache copy"
     fi
-echo 'print the content of the result'
-cat $file_name 
+#echo2 'print the content of the result'
+#cat $file_name 
     if [ "$silent_fetch" = false ];then
         output=`cat $file_name | head -1`
-        blue "fetch for: $output"
+        #blue "fetch for: $output"
         output_wsp=$(echo "$output"|sed 's/ /+/g');
         output_ws=$(echo "$output"|sed 's/ /_/g');
         if [ ! "$files2" ];then
