@@ -7,14 +7,13 @@
 #
 
 
-file=$PWD/public/cfg/timer.cfg
-#echo "$file"
-. $file
+export TIMERTXT_CFG_FILE=$PWD/public/cfg/timer.cfg
+. $TIMERTXT_CFG_FILE
 
 
 thought="$1"
 command="$2"
-answer="$command # $tought"
+answer="$command \# $tought"
 
 
 message1() {
@@ -31,6 +30,8 @@ reset
 if [ "$thought" = '' ];then
     cyan "Help:"
     white  "please supply: 'command' 'thought' ''"
+
+cat $repl_sh
     exit 1
 else
     message1
@@ -42,3 +43,4 @@ fi
 
 blue "should I record you ?"
 
+white 'make presentation aday - js inheritance'

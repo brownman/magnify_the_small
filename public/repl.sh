@@ -1,9 +1,11 @@
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
-color_arr1=(
+./public/menus.sh \#
+./public/menus.sh \#
+./public/menus.sh #
+cyan "some command" #
+green "some command" #
+echo "some command" #
+some command #
+some command && echo
+some command #
+some command \#
+

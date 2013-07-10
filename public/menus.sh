@@ -5,7 +5,7 @@
 
 pushd `dirname $0` > /dev/null
 
-export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+#export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 #export VERBOSE=true
 #red "$commitment"
