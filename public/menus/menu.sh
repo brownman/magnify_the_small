@@ -24,19 +24,19 @@ do
 
         "update")
             echo 'update'
-            $PWD/menu1.sh
+            $MENUS_DIR/menu1.sh
             ;;
      "job")
             echo 'update'
-            $PWD/menu4.sh
+            $MENUS_DIR/menu4.sh
             ;;
      "buy")
             echo 'update'
-            $PWD/menu3.sh
+            $MENUS_DIR/menu3.sh
             ;;
      "code")
             echo 'update'
-            $PWD/menu2.sh
+            $MENUS_DIR/menu2.sh
             ;;
 
 

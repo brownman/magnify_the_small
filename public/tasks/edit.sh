@@ -23,7 +23,9 @@ gedit $questions_txt &
 gedit $glossary_txt &
 
 gedit $efficiency_txt &
-gedit $commitment &
+
+gedit $commitment_txt &
+gedit $readme_txt &
 gedit $motivations_txt 
 fi
 

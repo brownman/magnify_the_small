@@ -4,9 +4,10 @@
 
 pushd `dirname $0` > /dev/null
 #add to .bashrc:
-export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+#export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
 
 . $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 
 #string ()
@@ -188,7 +189,8 @@ translate_f(){
         touch "$file_name"
         echo "$output" >   "$file_name"
 
-        if [  $lang = 'ru' ] || [ $lang = 'hi' ];then 
+        if [  $lang = 'ru' ] || [ $lang = 'hi' ]
+        then 
             echo  "$phonetics" >>   "$file_name"
         fi
 
@@ -1273,7 +1275,8 @@ series1(){
                 ( xterm -e "$TIMER2_DIR/edit.sh" &)
                 ;; 
 
-            *) echo "Invalid input"
+            *) red "Invalid task:"
+               yellow "$yno"
                 ;;
         esac     
 

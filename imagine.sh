@@ -7,40 +7,48 @@
 #
 
 
+export workflow_morning="suspend,tasks,blog,readme,record|menus"
 export TIMERTXT_CFG_FILE=$PWD/public/cfg/timer.cfg
+
 . $TIMERTXT_CFG_FILE
+#echo "$timer_sh"
 
-
-thought="$1"
-command="$2"
-answer="$command \# $tought"
-
-
-message1() {
-cyan "~ Dream First ~"
-white "Imagine easiness.."
-white "only then.."
-sleep1 3
-yellow " ACT !"
-update_file  $repl_sh "$answer"
-
-}
-
-reset
-if [ "$thought" = '' ];then
-    cyan "Help:"
-    white  "please supply: 'command' 'thought' ''"
-
-cat $repl_sh
-    exit 1
+result=` echo "$workflow_morning" | grep -o "$1" `
+if [ "$1" = 'menus' ];then
+    $PUBLIC_DIR/menus.sh
+elif [ "$1" = 'scrap' ];then
+    $TASKS_DIR/scrap.sh "$2" "$3"
 else
-    message1
-    eval "$answer"
-    red "$?"
-    green "try harder my lad !"
+    if [ "$result" = '' ];then
+
+        echo "$workflow_morning"
+        red "invalid task"
+
+
+    else
+
+        echo -n "choosen task: "
+        cyan "$1"
+        echo "you are here:"
+        echo "$workflow_morning" | grep "$1" 
+
+        $timer_sh "$1" "$2" "$3"
+
+    fi
 fi
+#random quote:
+
+#echo "evaluate?"
+#read answer
+#if [ "$answer" = y ];then
+#    eval "$1"
+#fi
+#
+
+#$TASKS_DIR/edit.sh
+
+cat -n $motivations_txt 
 
 
-blue "should I record you ?"
+exiting
 
-white 'make presentation aday - js inheritance'

@@ -2,7 +2,7 @@
 
 pushd `dirname $0` > /dev/null
 #. $TIMERTXT_CFG_FILE
-#dir=$TIMER2_DIR
+#dir=$TASKS_DIR
 str1=""
 
 PS3="Updating:" 
@@ -29,42 +29,53 @@ do
                 ( xdg-open https://www.google.com/calendar/render?tab=mc &)
                 ( xdg-open https://mail.google.com/tasks/ig?pli=1 &)
             fi
-
-            sleep1 2
             echo 'fetch ?'
             read answer
             if [ "$answer" = 'y' ]
             then
-
                 echo 'fetch'
-                $TIMER2_DIR/fetch.sh
+                $TASKS_DIR/fetch.sh
             fi
-            sleep1 2
+            echo 'edit .txt ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
+                echo 'edit'
+                $TASKS_DIR/edit.sh
+            fi
+            echo 'update wallpaper picture ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
+                echo 'update wallpaper'
+                $TASKS_DIR/edit.sh
+            fi
+
+            echo 'update mindmap ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
+                echo 'mindmap'
+                xdg-open "http://drichard.org/mindmaps/#"
+
+            fi
+
             echo 'email report ?'
             read answer
             if [ "$answer" = 'y' ]
             then
-
                 echo 'mail'
-                $TIMER2_DIR/mail.sh
+                $TASKS_DIR/mail.sh
             fi
-            sleep1 5
-
-            $TIMER2_DIR/mail2.sh
-
+            $TASKS_DIR/mail2.sh
             ;;
-
         "Delete")
             echo 'delete txt files'
-            $dir/timer.sh delete
+            $timer_sh delete
             ;;
         "Quit")
             exiting
             ;;
-
-
-
-
         "Unlock")
             yellow "I am aware of the time - let me go in !"
             break

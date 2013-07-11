@@ -21,12 +21,12 @@ do
             ;;
 
         "Testing")
-            $TIMER2_DIR/meditate.sh
+            $TASKS_DIR/meditate.sh
             ;;
 
 
         "Coding")
-            $TIMER2_DIR/meditate.sh
+            $TASKS_DIR/meditate.sh
             ;;
 
         *)

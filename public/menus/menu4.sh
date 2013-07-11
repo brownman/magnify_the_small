@@ -72,7 +72,7 @@ $timer_sh     learn1
             ;;
         "Update .sh")
             echo2 "edit .cfg/.sh files" 
-           #vi $TIMER2_DIR/cfg/timer.cfg
+           #vi $TASKS_DIR/cfg/timer.cfg
 vi $TIMERTXT_CFG_FILE
             ;;
 
