@@ -8,7 +8,9 @@ curl "http://en.wikiquote.org/wiki/Russian_proverbs" | head -${1} | tail -${2}
 google(){ 
     Q="$@"; GOOG_URL='https://www.google.de/search?tbs=li:1&q='; AGENT="Mozilla/4.0"; stream=$(curl -A "$AGENT" -skLm 10 "${GOOG_URL}${Q//\ /+}" | grep -oP '\/url\?q=.+?&amp' | sed 's|/url?q=||; s|&amp||'); echo -e "${stream//\%/\x}";
 }
-
+guitar(){
+for n in E2 A2 D3 G3 B3 E4;do play -n synth 4 pluck $n repeat 2;done
+}
 commandFU(){
 local format="plaintext"
 local command_set="browse/sort-by-votes"

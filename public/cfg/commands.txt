@@ -1,1 +1,0 @@
-#check system insecurities: sudo lynis --check-all -Q

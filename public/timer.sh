@@ -1,6 +1,13 @@
 #!/bin/bash
 #-x
 
+# about file:
+# run series of tasks
+# each task call to another function
+# example:
+# timer.sh series 'input_task,suspend'
+# will execute 2 function: input_task() and then suspend()
+#
 
 pushd `dirname $0` > /dev/null
 #add to .bashrc:
@@ -228,7 +235,7 @@ translate_f(){
     fi
 
     str=`cat "$file_name" `
-    str1=`echo -n $str`
+    str1=`echo  $str`
  
     printing1 "$input_ws" "$file_name"
     if [ "$silent" = false ];then
@@ -1231,6 +1238,9 @@ series1(){
                 input_line $file "$title" last_task
 
                 ;;
+        "remind_me")
+            say1 $msg_remind_me 
+                ;;
             "time")
                 time1
                 ;;
@@ -1372,69 +1382,6 @@ motivation(){
 
 
 }
-commitment1(){
-
-    str6=$( date | awk -F ' ' '{print $4}' )
-    echo -n "dear:  "
-    green "$NAME1"
-    echo -n "the time is: "
-    red "$str6"
-    echo -n  "you commited to the next obligation:  "
-    str=`cat  $commitment_txt | head -1`
-    white "$str"
-
-
-    #$timer_sh  translate  "$str" "it"  
-    #$timer_sh  translate  "$str" "ru"  
-    #$timer_sh  translate  "$str" "tl"  
-    #$timer_sh  translate  "$str" "ar"  
-    #$timer_sh  translate  "$str" "ru"  
-    #( echo "$str" | flite &)
-
-    #"until X i finish doing Y and start doing Z"
-    cyan 'update commitment ?'
-    ( echo4 "$str" &)
-    read answer
-    if [ "$answer" = 'y' ];then
-
-
-        cyan 'until:'
-        read x
-        cyan 'I finish doing:'
-        read y
-        cyan 'and start doing:'
-        read z
-
-        if  [ "$x" != '' ]     && [ "$y" != '' ]    && [ "$z" != '' ] 
-        then
-            echo "until $x - I finish  $y - and start  $z" > $commitment_txt
-            exiting
-        else
-            echo 'error on input'
-            exiting
-        fi
-    elif [ "$answer" = 'n' ];then
-
-        red "Must log in to continue ?"
-
-        read        answer
-        if [  $answer = y ];then
-
-            green "$NAME1 is commited ! "
-        else
-
-            $timer_sh suspend
-        fi
-    else
-        exiting
-
-    fi
-
-
-}
-
-
-
 one_task1(){
 
     if [ $PLAYING_ON = false ];then
@@ -1618,8 +1565,15 @@ then
 
 
 elif [ $1 = series ];then # ------------------ all
-    echo2 "series1() got: $2" 
+    echo "series1() got: $2" 
+    if [ "$2" = '' ];then
+
+    series1 "$series1"
+    else
+
     series1 "$2"
+    fi
+
 fi
 
 #if [[ $1 = learn_web ]];then

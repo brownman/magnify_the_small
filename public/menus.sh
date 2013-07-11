@@ -1,5 +1,8 @@
 #!/bin/bash
-#keep this file clean  !
+#-x
+# about file:
+# parent menu
+#
 
 
 
