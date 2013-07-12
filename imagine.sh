@@ -32,19 +32,22 @@ export workflow_motivation="find quote -> translte it"
 #result=` echo "$workflow_morning" | grep -o "$1" `
 if [ "$1" = 'suspend' ];then
 $timer_sh series "$series_on_suspend"
-
+elif [ "$1" = 'testing' ];then
+    $PUBLIC_DIR/koans/meditate.sh
 elif [ "$1" = 'menus' ];then
     $PUBLIC_DIR/menus.sh
 elif [ "$1" = 'scrap' ];then
     $TASKS_DIR/scrap.sh "$2" "$3"
-elif [ "$1" = 'tasks'  ];then
+    elif [ "$1" = 'periodic' ];then
+    $SCREENS_DIR/periodic.sh #"$2" "$
+elif [ "$1" = 'task'  ];then
 #    echo 'continue to timer series ?'
 #    read answer
 #    if [ "$answer" = y  ];then
 #
 #    fi
 
-        $timer_sh series "$2"
+        $timer_sh "$2"
 else
     echo 'assuming you wants alittle attention:'
     #echo 'series: motivation, prespective, commi'

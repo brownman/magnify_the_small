@@ -2,50 +2,61 @@
 #-x
 
 # about file:
-# run series of tasks
-# each task call to another function
-# example:
-# timer.sh series 'input_task,suspend'
-# will execute 2 function: input_task() and then suspend()
-#
-
-pushd `dirname $0` > /dev/null
-#add to .bashrc:
-#export TIMERTXT_CFG_FILE=~/.bash_it/ofer1/cfg/timer.cfg
+# collection of tasks 
+# functions are set to use from external script 
 
 . $TIMERTXT_CFG_FILE
-#. $TIMERTXT_CFG_FILE
-
-
-#string ()
-#{
-#  eval  "$1='some other string'"
-#} # ----------  end of function string  ----------
-#
-##string globalvar
-#
-##echo "'${globalvar}'"
-
 
 if [ "$1" = '' ];then
     exit 1
 fi
-#export REPORT_FILE="$TIMER_DIR/report.txt"
 
-#export TIMERTXT_CFG_FILE="./cfg/timer.cfg"
-#echo2 "cfg is: $TIMERTXT_CFG_FILE"
-#ls -l $TIMERTXT_CFG_FILE
-#cat $TIMERTXT_CFG_FILE
 
 declare -i my_score
 my_score=0 #-1
 #gxmessage   'every input str should contain atleast 1 word that used before !'
 echo2 "timer.sh got: 1:$1 2:$2 3:$3"
+update_array(){
 
+file1=$police_txt
+#touch $file1
+    green 'update array !'
+    old_IFS=$IFS
+    IFS=$'\n'
+    lines=($(cat $file1)) # array
+    IFS=$old_IFS
+    max=`cat -b $file1 | wc -l`
 
+   changed1=`stat -c %Y "$file1"`
+}
+#for var in "${lines[@]}"
+speak1(){
+changed1=''
+#if p[]
+echo 'speak1()'
+if [ "$changed1" = '' ];then
+update_array
+fi
+file1=$police_txt
+changed2=`stat -c %Y "$file1"`
+if [ $changed2 -gt $changed1 ];then #update file1
+        update_array
+    fi
+   
+    random1 $max
+    local num=$?
+    str="${lines[num]}"
+    echo5 "$str"
+}
+age() {
+   local filename=$1
+   local changed=`stat -c %Y "$filename"`
+   local now=`date +%s`
+   local elapsed
 
-#    translate_f "$i" "$word" "$lang_long"
-
+   let elapsed=now-changed
+   echo $elapsed
+}
 
 game1(){
     local str=''
@@ -94,11 +105,11 @@ game1(){
 printing1(){
     local input_ws="$1" 
     local file_name="$2"
+    local lang="$3"
 
     local line1=`cat $file_name | head -1`
     local line2=`cat $file_name | head -2 | tail -1`
-
-        local line3=$(echo "$line2"|sed 's/ /:1,/g');
+    local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
     if [ $GUI = true ]
     then
@@ -106,22 +117,29 @@ printing1(){
         let "r = $RANDOM % 4 "
         color="${color_arr1[$r]}"
         #echo2 "color: $color"
-        
-        ( gxmessage "$line1" -buttons "$line3" -sticky -timeout 11 -title "$input_ws"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
+        if [[ $lang = ru  ||  $lang = hi ]];
+        then
+            notify-send "$line1" "$line2"
+        else
+            notify-send "$line1" 
+        fi
+
+
+        #( gxmessage "$line1" -buttons "$line3" -sticky -timeout 11 -title "$input_ws"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC &)
     else
-      echo '' #  cat $file_name 
+        echo '' #  cat $file_name 
     fi
 
-        cat $file_name 
+    cat $file_name 
 
 
-        #echo "$input_ws"
+    #echo "$input_ws"
 
 }
 
 play1(){
 
-        #echo "play1() got: $1 | $2"
+    #echo "play1() got: $1 | $2"
     if [ $PLAYING_ON = false ];then
 
 
@@ -205,8 +223,8 @@ translate_f(){
     else
         echo2 "cache copy"
     fi
-#echo2 'print the content of the result'
-#cat $file_name 
+    #echo2 'print the content of the result'
+    #cat $file_name 
     if [ "$silent_fetch" = false ];then
         output=`cat $file_name | head -1`
         #blue "fetch for: $output"
@@ -236,8 +254,8 @@ translate_f(){
 
     str=`cat "$file_name" `
     str1=`echo  $str`
- 
-    printing1 "$input_ws" "$file_name"
+
+    printing1 "$input_ws" "$file_name" "$lang"
     if [ "$silent" = false ];then
         echo1 'play1 !'
         echo1 "play1 $mp3_file" 
@@ -258,6 +276,7 @@ translate_f(){
 
 
 input_line(){
+    echo "input line fot: 1:$1 2:$2 3:$3"
     #latest modifications: 
     #pass reference by supplying name of global variable.
     #
@@ -797,29 +816,14 @@ say1(){
     #-timeout $TIMEOUT1 $gxmessage 0
     local msg="$1"
 
-    if  [ "$SILENCE" = false] && [ "$PLAYING_ON" = false ] 
+    if  [[ "$SILENCE" = false &&  "$PLAYING_ON" = false ]]
     then
 
         #gxmessage  -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
         echo "$msg" | flite -voice slt
-        $translate_sh "$msg" "it"
-        #$translate_sh "$msg" "it"
-
-        $translate_sh "$msg" "ru"
-        #$translate_sh "$msg" "ru"
-
-        #$translate_sh "$msg" "ar"
-        $translate_sh "$msg" "ar"
-
-
-        $translate_sh "$msg" "hi"
-        #$translate_sh "$msg" "hi"
-
-        $translate_sh "$msg" "tl"
-        #$translate_sh "$msg" "tl"
-        sleep1 10
-        # $translate_sh "$msg" "ru" $article $silent $silent_msg $file $silent_fetch $push_top
+ 
+        #sleep1 10
     else
 
         red 'other procces is already playing'
@@ -1034,7 +1038,7 @@ delete_files(){
     do 
 
 
-        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+        #answer=$( gxmessage  -focus -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
         blue 'press ESC to ignore '
 
         answer=$( messageYN "Delete file?" "$I" )
@@ -1212,92 +1216,6 @@ present1(){
 
 
 
-series1(){
-
-    . $TIMERTXT_CFG_FILE
-    local series="$1"
-    local yno=""
-    IFS=', ' read -a array <<< "$series"
-
-    #echo "${array[0]}"
-    #echo $str
-    for index in "${!array[@]}"
-    do
-        green "current task: $index" 
-
-        #$yno=`eval ${array[index]}`
-        yno=`echo ${array[index]}`
-
-
-        echo "$series" | grep $yno
-
-        case $yno in
-            "input_task")
-                title="task:"
-                file=$task_txt
-                input_line $file "$title" last_task
-
-                ;;
-        "remind_me")
-            say1 $msg_remind_me 
-                ;;
-            "time")
-                time1
-                ;;
-            "motivation_start")
-                motivation_start
-                ;;
-            "sleep")
-                sleep1 $SLEEP
-                ;;
-            "mindmap")
-                answer=$( messageYN "y/n question" "open mind map link ?" )
-                if [ "$answer" = 2 ];then
-
-                    xdg-open $mm_link &
-                fi
-                ;;
-            "show_done")
-                gxmessage  -title 'how to say..' -file $done_txt -timeout 30 
-                ;;
-            "show_todo")
-                gxmessage  -title 'how to say..' -file $todo_txt -timeout 30 
-                ;;
-            "glossary")
-                ( gxmessage  -title 'how to say..' -file $glossary_txt -timeout 30 &)
-                write_essay "$LANG_ESSAY"
-                ;;
-            "suspend")
-                suspend1
-                ;;
-            "rules")
-                echo2 'update rules'
-                messageANS "update rules" "$rules_txt" 
-                ;;
-            "one_task")
-                one_task1
-                ;;
-            "schedule")
-                xdg-open 'https://www.google.com/calendar/render?tab=mc'
-                ;;
-
-            "edit")
-                ( xterm -e "$TIMER2_DIR/edit.sh" &)
-                ;; 
-
-            *) red "Invalid task:"
-               yellow "$yno"
-                ;;
-        esac     
-
-    done
-    exit
-
-    #answer=$( gxmessage  "$last_task" -center  -title "title"  "$gxmessage 1"  )
-
-
-}
-
 many1(){
 
     echo1 'PLAY AGAIN    '
@@ -1450,7 +1368,7 @@ one_task1(){
     export PLAYING_ON=false
 }
 
-if [ $1 = "testing" ]
+if [ "$1" = "testing" ]
 then
     last_task="rabbiit2"
 
@@ -1468,7 +1386,10 @@ then
 
     #  say1 "hello world"
 
+elif [ $1 = input_line ];then
+    echo1 'input_line'
 
+    input_line "$2" "$3" "$4" 
 elif [ $1 = delete ];then
     echo1 'delete'
 
@@ -1484,7 +1405,11 @@ elif [ $1 = translate ];then
 
 
     #echo $return_var
+elif [ $1 = motivation_start ];then
+    echo 'motivation'
+    motivation_start
 
+    
 elif [ $1 = meditate ];then
     echo1 'meditate'
 
@@ -1560,6 +1485,12 @@ then
 
     present1
 
+elif [ $1 = speak ]
+then
+    echo 'speak'
+
+    speak1
+
 
 
 
@@ -1568,10 +1499,10 @@ elif [ $1 = series ];then # ------------------ all
     echo "series1() got: $2" 
     if [ "$2" = '' ];then
 
-    series1 "$series1"
+        series1 "$series1"
     else
 
-    series1 "$2"
+        series1 "$2"
     fi
 
 fi
@@ -1582,8 +1513,8 @@ fi
 
 #pwd
 
-popd > /dev/null
-exit
+#popd > /dev/null
+#exit
 #learn_book_splitter
 #twitter
 #youtube 
@@ -1596,5 +1527,8 @@ exit
 #scratch linux
 #http://www.linuxfromscratch.org/blfs/view/development/chapter07/network.html
 
+
+#export -f input_line
+#eval '"$1" "$2" "$3" "$4"'
 
 

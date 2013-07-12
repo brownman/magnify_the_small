@@ -12,7 +12,7 @@ escort(){
 echo "choose a language:"
 read answer
 if [ "$answer" != '' ];then
-    update_lang "it"
+    update_lang "$answer"
 else
     echo "stick to default language: $LANG"
     update_lang "ru"
@@ -25,7 +25,7 @@ fi
     for var in "${lines[@]}"
     do
         str="${var}"
-        echo "$str"
+        #echo "$str"
         echo4 "$str"
         read answer
         if [ "$answer" = 'exit'  ];then
