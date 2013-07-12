@@ -8,25 +8,20 @@ answer=$( messageYN 'edit.sh' 'edit .txt ?' )
 if [ "$answer" = 2 ]
 then
 
-
-
-
-
-gedit $job_txt &
-gedit $product_txt &
 gedit $todo_txt &
 gedit $done_txt &
 gedit $rules_txt &
-gedit $ideas_txt &
-gedit $timing_txt &
-gedit $questions_txt &
-gedit $glossary_txt &
+gedit $timing_txt 
 
-gedit $efficiency_txt &
-
-gedit $commitment_txt &
-gedit $readme_txt &
-gedit $motivations_txt 
+#gedit $job_txt &
+#gedit $product_txt 
+#gedit $readme_txt 
+#gedit $ideas_txt &
+#gedit $questions_txt &
+#gedit $glossary_txt &
+#gedit $efficiency_txt &
+#gedit $commitment_txt &
+#gedit $motivations_txt 
 fi
 
 #echo 'update wallpaper?'
@@ -37,7 +32,7 @@ answer=$( messageYN 'edit.sh' 'update wallpaper ?' )
 if [ "$answer" = 2 ]
 then
 
-$TIMER2_DIR/wallpaper.sh &
+$TASKS_DIR/wallpaper.sh &
 fi
 
 answer=$( messageYN 'edit.sh' 'update schedule ?' )

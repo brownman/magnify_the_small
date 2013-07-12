@@ -18,8 +18,8 @@ my_score=0 #-1
 echo2 "timer.sh got: 1:$1 2:$2 3:$3"
 update_array(){
 
-file1=$police_txt
-#touch $file1
+    file1=$police_txt
+    #touch $file1
     green 'update array !'
     old_IFS=$IFS
     IFS=$'\n'
@@ -27,35 +27,35 @@ file1=$police_txt
     IFS=$old_IFS
     max=`cat -b $file1 | wc -l`
 
-   changed1=`stat -c %Y "$file1"`
+    changed1=`stat -c %Y "$file1"`
 }
 #for var in "${lines[@]}"
 speak1(){
-changed1=''
-#if p[]
-echo 'speak1()'
-if [ "$changed1" = '' ];then
-update_array
-fi
-file1=$police_txt
-changed2=`stat -c %Y "$file1"`
-if [ $changed2 -gt $changed1 ];then #update file1
+    changed1=''
+    #if p[]
+    echo 'speak1()'
+    if [ "$changed1" = '' ];then
         update_array
     fi
-   
+    file1=$police_txt
+    changed2=`stat -c %Y "$file1"`
+    if [ $changed2 -gt $changed1 ];then #update file1
+        update_array
+    fi
+
     random1 $max
     local num=$?
     str="${lines[num]}"
     echo5 "$str"
 }
 age() {
-   local filename=$1
-   local changed=`stat -c %Y "$filename"`
-   local now=`date +%s`
-   local elapsed
+    local filename=$1
+    local changed=`stat -c %Y "$filename"`
+    local now=`date +%s`
+    local elapsed
 
-   let elapsed=now-changed
-   echo $elapsed
+    let elapsed=now-changed
+    echo $elapsed
 }
 
 game1(){
@@ -822,7 +822,7 @@ say1(){
         #gxmessage  -entry -timeout 10 -title "say1() is running" 'talking' 
         echo "$msg" | flite -voice rms 
         echo "$msg" | flite -voice slt
- 
+
         #sleep1 10
     else
 
@@ -1028,6 +1028,24 @@ update_env1(){
 
 
 }
+motivation_random(){
+    sleep1 3
+    max=`cat -b $motivations_txt | wc -l`
+    random1 $max
+    num=$?
+    let "num += 2"
+    echo "num is $num "
+    str=`cat $motivations_txt | head -$num | tail -1`
+    echo4 "$str" 
+
+    max=`cat -b $quotes_txt | wc -l`
+    random1 $max
+    num=$?
+    str=`cat $quotes_txt | head -$num | tail -1`
+    echo4 "$str" 
+
+
+}
 
 delete_files(){
 
@@ -1038,10 +1056,10 @@ delete_files(){
     do 
 
 
-        #answer=$( gxmessage  -focus -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file $I -ontop )
         blue 'press ESC to ignore '
 
-        answer=$( messageYN "Delete file?" "$I" )
+        answer=$( messageFYN "Delete file?" "$I" )
         #echo "answer is: $answer" 
         if [ "$answer" = 2 ];then
 
@@ -1058,7 +1076,7 @@ delete_files(){
 
         #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
 
-        answer=$( messageYN "delete:" "$I")
+        answer=$( messageFYN "delete:" "$I")
         if [ "$answer" = 2 ];then
 
             echo '' > "$I"
@@ -1196,7 +1214,7 @@ present1(){
     if [  "$answer" = y ]
     then
         echo "$?"
-        gedit $PWD/README.md
+        gedit ../../README.md
     fi
     green 'publish to github ?'
     read answer
@@ -1409,7 +1427,7 @@ elif [ $1 = motivation_start ];then
     echo 'motivation'
     motivation_start
 
-    
+
 elif [ $1 = meditate ];then
     echo1 'meditate'
 

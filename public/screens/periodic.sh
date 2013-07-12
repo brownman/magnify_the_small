@@ -66,7 +66,7 @@ series1(){
                 write_essay "$LANG_ESSAY"
                 ;;
             "suspend")
-                suspend1
+                $timer_sh suspend
                 ;;
             "rules")
                 echo2 'update rules'
@@ -80,7 +80,8 @@ series1(){
                 ;;
 
             "edit")
-                ( xterm -e "$TIMER2_DIR/edit.sh" &)
+                #( xterm -e 
+                ( "$TASKS_DIR/edit.sh" &)
                 ;; 
 
             *) red "Invalid task:"
@@ -102,6 +103,6 @@ sleep1 15
 
 
 while :;do
-    series1 "speak" #,motivation_start,input_task"
+    series1 "edit,speak,input_task,sleep,suspend" #,motivation_start,input_task"
     sleep1 1
 done

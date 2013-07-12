@@ -39,20 +39,4 @@ fi
 }
 
 escort
-exiting
-sleep1 3
-max=`cat -b $motivations_txt | wc -l`
-random1 $max
-num=$?
-let "num += 2"
-echo "num is $num "
-str=`cat $motivations_txt | head -$num | tail -1`
-echo4 "$str" 
-
-max=`cat -b $quotes_txt | wc -l`
-random1 $max
-num=$?
-str=`cat $quotes_txt | head -$num | tail -1`
-echo4 "$str" 
-
 

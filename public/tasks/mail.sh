@@ -62,6 +62,7 @@ then
 send1 pic_file
 send1 schedule_txt
 #send1 missions_txt
+send1 timing_txt 
 send1 todo_txt
 send1 done_txt
 send1 wallpaper_file

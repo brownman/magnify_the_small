@@ -2,7 +2,7 @@
 is a quote I borrowed from Wayne Dyer's philosophy.
 
 
-this quote is something I am trying to remind myself when facing new defficulties.
+this quote is something I am trying to remind myself when facing new difficulties.
 
 every little step is look pretty scary to me,
 and this project is like a story for my journey.
