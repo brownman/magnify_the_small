@@ -26,7 +26,7 @@ export workflow_money="find task -> increase points"
 export workflow_motivation="find quote -> translte it"
 ########################################################################
 
-cyan "prespective:"
+cyan "prespective|you are here"
 echo "suspend|testing|menus|scrap|periodic|task|motivation" | grep menus
 
 #result=` echo "$workflow_morning" | grep -o "$1" `

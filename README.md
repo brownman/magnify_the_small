@@ -1,14 +1,21 @@
-"Magnify The Small" 
-is a quote I borrowed from Wayne Dyer's philosophy.
+Quote: 
+"Magnify The Small" (Wayne Dyer) 
 
+What is this project ?
+it's my ongoing effort to simplify daily tasks.
 
-this quote is something I am trying to remind myself when facing new difficulties.
+Why should I care ?
+life is what happend while you making plans -
+so charish the random happenings - store and share your thoughts.
 
-every little step is look pretty scary to me,
-and this project is like a story for my journey.
-
-let me share with you my ledder, you may find it useful too.
-Ofer.
+How?
+running imagine.sh will lead you to a menu of choices.
+this menu's goal is to give you:
+- time prespective
+- task managment
+- idea store
+- motivation guides steps
+- learning forign language experience
 
 presentations:
         [ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
