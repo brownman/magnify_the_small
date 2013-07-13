@@ -1059,8 +1059,10 @@ delete_files(){
         #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file $I -ontop )
         blue 'press ESC to ignore '
 
-        answer=$( messageFYN "Delete file?" "$I" )
+        #answer=$( messageFYN "Delete file?" "$I" )
         #echo "answer is: $answer" 
+answer=2
+        cat $I
         if [ "$answer" = 2 ];then
 
             echo '' > "$I"
@@ -1076,7 +1078,10 @@ delete_files(){
 
         #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
 
-        answer=$( messageFYN "delete:" "$I")
+        #answer=$( messageFYN "delete: $I ?" "$I")
+
+answer=2
+        cat $I
         if [ "$answer" = 2 ];then
 
             echo '' > "$I"

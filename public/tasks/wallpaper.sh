@@ -1,4 +1,4 @@
-
+#!/bin/bash
 pushd `dirname $0` > /dev/null
 
 tpng=./txt_to_png.sh
@@ -6,7 +6,10 @@ tpng=./txt_to_png.sh
 points_txt=/tmp/points.txt
 
 src=xfce-transparent.png
-file1="/usr/share/xfce4/backdrops/${src}"
+
+#file1="/usr/share/xfce4/backdrops/${src}"
+file1="/tmp/mm.png"
+#usr/share/xfce4/backdrops/${src}"
 #cp ~/Pictures/lubuntu-default-wallpaper-2.png /tmp/result.png
 cp $file1 /tmp/result.png
 #str=$(head -4 /tmp/gcalcli_agenda.txt | tail -3)

@@ -7,57 +7,52 @@
 
 
 pushd `dirname $0` > /dev/null
-
 . $TIMERTXT_CFG_FILE
-points=$( cat  "$done_txt" | head -2 ) #points
-PS3=$(  log1; yellow "$NAME1 - go on to: " )
+PS3=$(  log1; white "$NAME1 - go on to: " )
+options=("Quit" "Run_Workflow" "Do_For_Others"  "Act_childish" "Else" )
 
-#cyan  "\t\t\t\t Parent Menu" 
-
-options=("Quit" "Status"  "Job" "Else" )
-
-
-#yellow "choose:\nEdit .txt\nPlay timer tasks\nUpdate .sh\nContinue to next menu\nQuit"
+reset
 select opt in "${options[@]}"
 do
-    #echo "my status is:"
-
-
 
     case $opt in
         "Quit")
             exiting
             ;;
+        "Run_Workflow")
+            white 'do you want to increase prespective ?'
+            yellow 'the current workflow is:' 
+            cyan "Workflow:"
+            echo "$workflow"
+echo 'run workflow ?'
+read answer
+if [ $answer = y ]
+then
 
-        "Status")
-            white 'update points ?'
-            sleep1 1
-            #log2
-            sleep1 2
-            #$timer_sh remind 
-            echo2 "edit .txt files"
+            $SCREENS_DIR/periodic.sh "$workflow"
+fi
+
+
+
+            ;;
+
+        "Do_For_Others")
+            cyan 'update points !'
+
             $TASKS_DIR/edit.sh
             ;;
-        "Job")
-            echo 'open: linkin, check mails, etc'
-            xdg-open 'http://geekjob.co.il/'
 
-
-            echo "add idea for efficient job hunting:"
+        "Act_childish")
+            echo 'wana scrap something nice ? '
+            green "wana write a new children song and post it ?"
             read answer
-
-            if [ "$answer" != '' ];then
-                echo "$answer" >> $job_txt 
+            if [ "$answer" = y ];then
+                $SCREEN_DIR/motivation.sh
             fi
-            cat -n $job_txt
-     ;;
+            ;;
         "Else")
-            
-
             $MENUS_DIR/menu.sh
             ;;
-
-
         *)
             #$timer_sh remind1
             #read

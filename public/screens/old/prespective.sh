@@ -9,6 +9,10 @@
 # "CODE - control it - don't let it to control you"
 
 ########## time: management
+ #gedit $product_txt 
+    #gedit $ideas_txt &
+    #gedit $questions_txt &
+    #gedit $glossary_txt &
 until="11:40"
 finish="updating"
 start="sending"
@@ -124,34 +128,4 @@ gedit $done_txt &
 gedit $timing_txt & 
 gedit $todo_txt &
 }
-
-report(){
-edit $report_txt
-echo 'contine to sending it ?'
-read answer
-if [ "$answer" = y ];then
-   $TIMER2_DIR/mail.sh 
-fi
-}
-
-automation(){
-#send report
-echo "automate requested task"
-eval "$1"
-}
-
-
-print_state
-sleep1 3
-
-print_prespective
-sleep1 1 
-
-edit
-#automation "$1"
-
-#print_report
-#input_repl
-#make_me_effective
-#echo 'get prespective!'
 

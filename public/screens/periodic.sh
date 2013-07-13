@@ -30,10 +30,10 @@ series1(){
             "input_task")
                 title="task:"
                 file=$task_txt
-             $timer_sh input_line $file "$title" last_task
+                $timer_sh input_line $file "$title" last_task
 
                 ;;
-           "speak")
+            "speak")
                 $timer_sh speak
                 ;;
             "remind_me")
@@ -78,7 +78,9 @@ series1(){
             "schedule")
                 xdg-open 'https://www.google.com/calendar/render?tab=mc'
                 ;;
-
+            "delete")
+                $timer_sh delete
+                ;; 
             "edit")
                 #( xterm -e 
                 ( "$TASKS_DIR/edit.sh" &)
@@ -88,13 +90,7 @@ series1(){
                 yellow "$yno"
                 ;;
         esac     
-sleep1 15
     done
-    exit
-
-    #answer=$( gxmessage  "$last_task" -center  -title "title"  "$gxmessage 1"  )
-
-
 }
 
 
@@ -102,7 +98,4 @@ sleep1 15
 
 
 
-while :;do
-    series1 "edit,speak,input_task,sleep,suspend" #,motivation_start,input_task"
-    sleep1 1
-done
+series1  $workflow   

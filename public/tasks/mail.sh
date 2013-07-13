@@ -2,7 +2,7 @@ echo 'mail.sh: make me effective!'
 #vim - comment all selected linese: to:,ic from:,rc 
 #how to remember? i see = ic
 
-echo $TIMERTXT_CFG_FILE
+#echo $TIMERTXT_CFG_FILE
 . $TIMERTXT_CFG_FILE
 
 #$TIMER_DIR

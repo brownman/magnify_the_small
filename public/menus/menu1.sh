@@ -21,53 +21,30 @@ do
             ;;
 
         "Schedule")
-            echo 'write schedules and update kuka'
-            echo 'open website ?'
-            read answer
-            if [ "$answer" = 'y' ]
-            then
-                ( xdg-open https://www.google.com/calendar/render?tab=mc &)
-                ( xdg-open https://mail.google.com/tasks/ig?pli=1 &)
-            fi
-            echo 'fetch ?'
+            echo 'write schedules and update X'
+
+            echo 'fetch google calendar and tasks?'
+
             read answer
             if [ "$answer" = 'y' ]
             then
                 echo 'fetch'
                 $TASKS_DIR/fetch.sh
             fi
-            echo 'edit .txt ?'
+            echo 'send  report on email ?'
             read answer
             if [ "$answer" = 'y' ]
             then
-                echo 'edit'
-                $TASKS_DIR/edit.sh
-            fi
-            echo 'update wallpaper picture ?'
-            read answer
-            if [ "$answer" = 'y' ]
-            then
-                echo 'update wallpaper'
-                $TASKS_DIR/edit.sh
-            fi
-
-            echo 'update mindmap ?'
-            read answer
-            if [ "$answer" = 'y' ]
-            then
-                echo 'mindmap'
-                xdg-open "http://drichard.org/mindmaps/#"
-
-            fi
-
-            echo 'email report ?'
-            read answer
-            if [ "$answer" = 'y' ]
-            then
-                echo 'mail'
+                echo 'send  mail'
                 $TASKS_DIR/mail.sh
             fi
-            $TASKS_DIR/mail2.sh
+            echo 'check mail ?'
+            read answer
+            if [ "$answer" = 'y' ]
+            then
+                echo 'get mail'
+                $TASKS_DIR/mail2.sh
+            fi
             ;;
         "Delete")
             echo 'delete txt files'

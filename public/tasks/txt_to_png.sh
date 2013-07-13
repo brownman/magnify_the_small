@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'generate new text on the background'
 echo -e "background:$1 \n text_file:$2 \n x:$3 y:$4 \n size:$5 \n point_size:$6"
 background=$1 # /tmp/background.png

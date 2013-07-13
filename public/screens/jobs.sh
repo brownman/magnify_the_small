@@ -10,6 +10,7 @@
 file=$STORY_DIR/${1}.txt
 
 
+
 delete_file(){
 
     cat $blank_txt
@@ -48,14 +49,7 @@ imaginary_friend(){
     do
         str="${var}"
         #echo "$str"
-        echo4 "$str"
-        read answer
-        if [ "$answer" = 'exit'  ];then
-            break 
-        else
-            echo "$answer" >> "$blank_txt"
-            echo4 "$answer"
-        fi
+    xdg-open $str 
     done
 }
 
