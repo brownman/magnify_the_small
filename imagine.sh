@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # about file:
-# tought-proxy-command
-# 
+# first page:
+#  - plan your day
+#  - childish motivation
+#  - connect to earth
+#  - do tasks 
+#  - learn
 #
 #
 #. $TIMERTXT_CFG_FILE
@@ -11,34 +15,54 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 reset 
 echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
 
-profit(){
-    cyan 'are you creative now ?'
-    ls -1 $STORY_DIR
+sky(){
+    cyan 'have profit !'
+    yellow 'imagine an ideal day !'
+    $SCREENS_DIR/motivation.sh 
+}
+
+plan(){
+
+    cyan "guidance ?"
     read answer
-
-    file=$STORY_DIR/${answer}.txt
-
-    files=$(ls  $file 2> /dev/null )
-
-    if [[  "$files"  ]]
-    then
-        green '...'
-        $SCREENS_DIR/motivation.sh "$answer"
-    else
-        red 'file not found'
+    if [ "$answer" = y ];then
+        sky
     fi
-    sleep1 1
+    cyan "creative ?"
+    read answer
+    if [ "$answer" = y ];then
+        sky
+    fi
+    cyan "update project's goals ?"
+    read answer
+    if [ "$answer" = y ];then
+        gedit $readme_md 
+    fi
 
+    cyan "current workflow:"
+    echo "$workflow"
+    echo 'execute the workflow ?'
+    read answer
+    if [ "$answer" = y ];then
+        xterm -e "$SCREENS_DIR/periodic.sh \"$workflow\""
+    fi
+
+      cyan "continue to manu ?"
+    read answer
+    if [ "$answer" = y ];then
+
+    $PUBLIC_DIR/menus.sh
+    fi
 }
 
 
-
-
 if [ "$1" = "periodic" ];then
-    $SCREENS_DIR/periodic.sh
+    $SCREENS_DIR/periodic.sh $workflow
 else
-    profit
-    $PUBLIC_DIR/menus.sh
+
+    plan
+
+
 fi
 
 

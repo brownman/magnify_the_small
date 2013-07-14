@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# about file:
+# update desktop wallpaper
+# background: is the mindmap.png | mm.png
+#  
+#
+#
+. $TIMERTXT_CFG_FILE
+
+
 pushd `dirname $0` > /dev/null
 
 tpng=./txt_to_png.sh

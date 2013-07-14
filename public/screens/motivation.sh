@@ -7,29 +7,43 @@
 #
 #
 . $TIMERTXT_CFG_FILE
-file=$STORY_DIR/${1}.txt
+file_guide=''
+
+delete1(){
+
+    echo '' > $blank_txt
+}
+guide1(){
 
 
-delete_file(){
-
-    cat $blank_txt
-    red "clean file ? $blank_txt" 
-
-
+    cyan 'are you creative now ?'
+    ls -1 $STORY_DIR
     read answer
-    if [ "$answer" = 'y' ]
+
+    local file=$STORY_DIR/${answer}.txt
+
+    files=$(ls  $file 2> /dev/null )
+
+    if [[  "$files"  ]]
     then
-        red 'cleaning..'
-        echo '' > $blank_txt
+        #$SCREENS_DIR/motivation.sh "$answer"
+        file_guide=$file
+        #$STORY_DIR/${1}.txt
+        green "$file"
+        sleep1 2
+        menu1
     else
-        green 'skipping'
+        red 'file not found'
     fi
+
+
+    sleep1 2
+
+
 }
 
-
-
-imaginary_friend(){
-
+new1(){
+    cyan "guidance: $file_guide"
     echo "choose a language:"
     read answer
     if [ "$answer" != '' ];then
@@ -39,10 +53,10 @@ imaginary_friend(){
         update_lang "ru"
     fi
 
-    echo "\n $date" >> "$mini_tasks_txt"
+    #echo "\n $date" >> "$mini_tasks_txt"
     old_IFS=$IFS
     IFS=$'\n'
-    lines=($(cat $file)) # array
+    lines=($(cat $file_guide)) # array
     IFS=$old_IFS
     for var in "${lines[@]}"
     do
@@ -59,13 +73,29 @@ imaginary_friend(){
     done
 }
 
+spell1(){
+
+    cat $blank_txt
+    aspell -a <<< `cat $blank_txt`
+}
 
 publish1(){
     cyan "story:"
     cat $blank_txt
-    green 'publish to blog ?'
+
+
+
+    echo 'story need correction ?'
     read answer
     if [ "$answer" = 'y'  ];then
+        gedit $blank_txt
+    fi
+
+    green 'publish to blog ?'
+    read answer
+
+    if [ "$answer" = 'y'  ];then
+
         echo 'enter title:'
         read title 
         echo 'enter tags comma-saperated:'
@@ -84,7 +114,46 @@ publish1(){
     fi
 }
 
-cyan "create a story:"
-delete_file
-imaginary_friend
-publish1 
+menu1(){
+
+
+    PS3="play with idea:" 
+    options=(  "Quit" "Delete" "Spell" "Publish" "Guide" "New" )
+    reset
+    select opt in "${options[@]}"
+    do
+
+        case $opt in
+            "Quit")
+                exiting    
+                ;;
+            "Delete")
+                delete1
+                ;;
+
+            "Spell")
+                spell1
+                ;;
+            "Publish")
+                publish1
+                ;;
+            "New")
+                new1
+                ;;
+            "Guide")
+                guide1
+                ;;
+            *)
+                reset
+                ;;
+        esac
+    done   
+
+
+
+
+}
+
+
+guide1
+

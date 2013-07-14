@@ -138,55 +138,43 @@ printing1(){
 }
 
 play1(){
-
     #echo "play1() got: $1 | $2"
     if [ $PLAYING_ON = false ];then
-
-
         export PLAYING_ON=true
-
-
         local lang="$2"
-
         local lang_repeat=\$"$lang"R   # Name of variable (not value!).
-
-        local  times=`eval "expr \"$lang_repeat\" "`
-        local file="$1"
-
-        #declare  -i  counter
-        local counter=0
-        while [  $counter -lt  $times ]; do
-            if [ "$SILENCE" = false ];then
-
-                play -V1 -q  "$1"
-            fi
-
-            (( counter++ ))
-        done
-
+        local times=`eval "expr \"$lang_repeat\" "`
+        if [ "$timer" != '' ];then
+            local file="$1"
+            #declare  -i  counter
+            local counter=0
+            while [  $counter -lt  $times ]; do
+                if [ "$SILENCE" = false ];then
+                    play -V1 -q  "$1"
+                fi
+                (( counter++ ))
+            done
+        else
+            play -V1 -q  "$1"
+        fi
         export PLAYING_ON=false
     else
         red 'playing is already on'
         Backtrace
     fi
 
-
-
 }
 
 
 translate_f(){
-
     local silent_fetch=$SILENT_FETCH
     local silent=$SILENT
-
     local lang="$3"
     echo2 "translate_f() got:  $1 | $2 | $3"
 
     local input="$2" #translate src
     local input_wsp=$(echo "$input"|sed 's/ /+/g');
     local input_ws=$(echo "$input"|sed 's/ /_/g');
-
     local  mp3_file=$dir_mp3/${input_ws}_${lang}.mp3
     local file_name=$(  echo $dir_txt/${input_ws}_${lang}.txt )
 
@@ -270,7 +258,7 @@ translate_f(){
     fi
 
 
-    eval "$1=\"$str1\""  # Assign new value.
+    #eval "$1=\"$str1\""  # Assign new value.
 
 }
 
@@ -326,18 +314,13 @@ input_line(){
 
 
 check_in_file(){
-
-
     local group1="$1"
     local file=$2
     #local item=$1
-
     #local result=$(cat /tmp/test1 | grep -o "$item" | wc -l)
     local group2=$( cat "$file" )
     check_subgroup "$group1" "$group2"
-
     #return $?
-
 }
 check_subgroup() {
     local number=0
@@ -487,8 +470,6 @@ time1(){
 }
 
 suspend1(){
-
-
     take_photo
 
     say1 "$msg_suspend" 
@@ -1061,7 +1042,7 @@ delete_files(){
 
         #answer=$( messageFYN "Delete file?" "$I" )
         #echo "answer is: $answer" 
-answer=2
+        answer=2
         cat $I
         if [ "$answer" = 2 ];then
 
@@ -1080,7 +1061,7 @@ answer=2
 
         #answer=$( messageFYN "delete: $I ?" "$I")
 
-answer=2
+        answer=2
         cat $I
         if [ "$answer" = 2 ];then
 

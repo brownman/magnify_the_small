@@ -61,7 +61,7 @@ answer=$( messageYN "$title" "$str" )
 if [ "$answer" = 2 ]
 then
     echo 'update wallpaper'
-    $TASKS_DIR/edit.sh
+    $TASKS_DIR/wallpaper.sh
 fi
 
 

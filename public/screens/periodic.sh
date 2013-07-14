@@ -23,10 +23,16 @@ series1(){
         #$yno=`eval ${array[index]}`
         yno=`echo ${array[index]}`
 
+echo4 "you are here"
+        notify-send "$index: $yno" "$workflow"
 
         echo "$series" | grep $yno
 
         case $yno in
+            "remind_workflow")
+                
+                
+                ;;
             "input_task")
                 title="task:"
                 file=$task_txt
@@ -98,4 +104,4 @@ series1(){
 
 
 
-series1  $workflow   
+series1  "$1"   

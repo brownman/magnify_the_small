@@ -54,18 +54,8 @@ fi
             $MENUS_DIR/menu.sh
             ;;
         *)
-            #$timer_sh remind1
-            #read
-
-
-            #reset
-
-
-            #$timer_sh     learn1
-            #exiting
-
+            reset
             ;;
-
     esac
 done
 
