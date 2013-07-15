@@ -1,3 +1,14 @@
+#!/bin/bash
+
+# about file:
+#  
+#
+#
+
+
+
+. $TIMERTXT_CFG_FILE
+
 echo 'mail.sh: make me effective!'
 #vim - comment all selected linese: to:,ic from:,rc 
 #how to remember? i see = ic

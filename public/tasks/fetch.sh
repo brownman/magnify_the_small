@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# about file:
+#  
+#
+#
+
+. $TIMERTXT_CFG_FILE
 pushd `dirname $0` > /dev/null
 
 

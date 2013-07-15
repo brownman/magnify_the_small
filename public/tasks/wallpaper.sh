@@ -9,9 +9,11 @@
 . $TIMERTXT_CFG_FILE
 
 
-pushd `dirname $0` > /dev/null
 
-tpng=./txt_to_png.sh
+
+
+tpng=$PWD/txt_to_png.sh
+#tpng=./txt_to_png.sh
 
 points_txt=/tmp/points.txt
 
@@ -89,5 +91,5 @@ $tpng $background $text_file 90 1000 400x 70 yellow true
 
 
 
-popd > /dev/null
-exit
+
+

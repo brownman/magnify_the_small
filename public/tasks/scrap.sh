@@ -1,4 +1,12 @@
 #!/bin/bash
+
+# about file:
+#  
+#
+#
+
+
+
 . $TIMERTXT_CFG_FILE
 quote(){
 echo "curl http://en.wikiquote.org/wiki/Russian_proverbs | head -$1 | tail -$2"

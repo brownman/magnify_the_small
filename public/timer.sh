@@ -226,7 +226,7 @@ translate_f(){
             if [ $lang = 'tl' ]
             then
 
-                rm /tmp/1.wav
+                #rm /tmp/1.wav
                 echo1 $output
                 echo -n "$output" | text2wave -o "$mp3_file" #/tmp/1.wav | lame /tmp/1.wav  $mp3_file 
 
@@ -252,7 +252,7 @@ translate_f(){
             #  ( play1  $mp3_file &)
             echo2 'silent fetch'
         else
-            play1  $mp3_file $lang 
+            play1  "$mp3_file" "$lang"
         fi
 
     fi
@@ -785,6 +785,7 @@ take_photo(){
     ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file
 
     say1 "$last_camera_after" 
+
     (xloadimage $pic_file &)
 }
 
@@ -1017,13 +1018,13 @@ motivation_random(){
     let "num += 2"
     echo "num is $num "
     str=`cat $motivations_txt | head -$num | tail -1`
-    echo4 "$str" 
+    echo5 "$str" 
 
     max=`cat -b $quotes_txt | wc -l`
     random1 $max
     num=$?
     str=`cat $quotes_txt | head -$num | tail -1`
-    echo4 "$str" 
+    echo5 "$str" 
 
 
 }
@@ -1098,7 +1099,7 @@ loop_learn1(){
     fi
 }
 
-loop_play1(){
+loop_series1(){
     echo 'play1'
     green 'run series of tasks in circle'
     if [ -t 0 ]; then stty -echo -icanon time 0 min 0; fi
@@ -1454,7 +1455,7 @@ then
     suspend1
 elif [ $1 = play1 ]
 then
-    loop_play1
+    loop_series1
 elif [ $1 = play2 ]
 then
     loop_play2
@@ -1488,6 +1489,10 @@ then
     echo 'remind me'
 
     present1
+elif [ $1 = motivation_random ]
+then
+    echo 'speak'
+motivation_random
 
 elif [ $1 = speak ]
 then

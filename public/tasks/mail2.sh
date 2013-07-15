@@ -1,3 +1,13 @@
+#!/bin/bash
+
+# about file:
+#  
+#
+#
+
+
+
+. $TIMERTXT_CFG_FILE
 str="$USER1:$PASS1"
 
 #echo2 "$str"

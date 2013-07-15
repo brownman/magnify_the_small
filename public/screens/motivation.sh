@@ -7,7 +7,7 @@
 #
 #
 . $TIMERTXT_CFG_FILE
-file_guide=''
+file_guide="$1"
 
 delete1(){
 
@@ -63,6 +63,13 @@ new1(){
         str="${var}"
         #echo "$str"
         echo4 "$str"
+
+        if [ "$str" != 'ho' ];then
+        echo -n "$str  " >> "$blank_txt"
+        fi
+
+
+        
         read answer
         if [ "$answer" = 'exit'  ];then
             break 
@@ -75,8 +82,9 @@ new1(){
 
 spell1(){
 
-    cat $blank_txt
+    #cat $blank_txt
     aspell -a <<< `cat $blank_txt`
+    gedit $blank_txt
 }
 
 publish1(){
@@ -85,11 +93,6 @@ publish1(){
 
 
 
-    echo 'story need correction ?'
-    read answer
-    if [ "$answer" = 'y'  ];then
-        gedit $blank_txt
-    fi
 
     green 'publish to blog ?'
     read answer
@@ -117,7 +120,7 @@ publish1(){
 menu1(){
 
 
-    PS3="play with idea:" 
+    PS3="choosen guide:  $file_guide:  " 
     options=(  "Quit" "Delete" "Spell" "Publish" "Guide" "New" )
     reset
     select opt in "${options[@]}"
@@ -155,5 +158,4 @@ menu1(){
 }
 
 
-guide1
-
+menu1
