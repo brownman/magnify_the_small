@@ -7,15 +7,15 @@
 #
 #
 . $TIMERTXT_CFG_FILE
+
 file_guide="$1"
+echo "motivation.sh got $1 , $2"
 
 delete1(){
 
     echo '' > $blank_txt
 }
 guide1(){
-
-
     cyan 'are you creative now ?'
     ls -1 $STORY_DIR
     read answer
@@ -41,6 +41,56 @@ guide1(){
 
 
 }
+
+practice1(){
+    cyan "Practice.."
+    cat $STORY_DIR/glossary.txt 
+    echo "choose a language:"
+    read answer
+    if [ "$answer" != '' ];then
+        update_lang "$answer"
+    else
+        echo "stick to default language: $LANG"
+        update_lang "ru"
+    fi
+
+    cyan 'enter text:'
+while :;do
+        read answer
+        if [ "$answer" = 'exit'  ];then
+            break 
+        else
+            echo "$answer" >> "$memory_txt"
+            echo4 "$answer"
+        fi
+    done
+}
+listen1(){
+    file_guide=$STORY_DIR/words_of_peace.txt
+    cyan "guidance: $file_guide"
+    echo "choose a language:"
+    read answer
+    if [ "$answer" != '' ];then
+        update_lang "$answer"
+    else
+        echo "stick to default language: $LANG"
+        update_lang "ru"
+    fi
+
+    #echo "\n $date" >> "$mini_tasks_txt"
+    old_IFS=$IFS
+    IFS=$'\n'
+    lines=($(cat $file_guide)) # array
+    IFS=$old_IFS
+    for var in "${lines[@]}"
+    do
+        str="${var}"
+        #echo "$str"
+        echo4 "$str"
+
+    done
+}
+
 
 new1(){
     cyan "guidance: $file_guide"
@@ -133,7 +183,9 @@ menu1(){
             "Delete")
                 delete1
                 ;;
-
+    "Practice")
+                practice1
+                ;;
             "Spell")
                 spell1
                 ;;
@@ -157,5 +209,11 @@ menu1(){
 
 }
 
+if [ "$1" = practice ];then
+    practice1
+elif [ "$1" = listen ];then
+   listen1 
+else
+    menu1
+fi
 
-menu1

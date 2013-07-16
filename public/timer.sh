@@ -129,7 +129,7 @@ printing1(){
     else
         echo '' #  cat $file_name 
     fi
-
+    echo $file_name
     cat $file_name 
 
 
@@ -192,6 +192,8 @@ translate_f(){
 
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
         cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
+
+        echo2 "$cleaner"
         phonetics=$(echo "$cleaner" | cut -d \" -f 5)
         output=$(echo "$cleaner" | cut -d \" -f 1)
 
@@ -200,6 +202,7 @@ translate_f(){
 
 
         touch "$file_name"
+        echo2 "$phonetics"
         echo "$output" >   "$file_name"
 
         if [  $lang = 'ru' ] || [ $lang = 'hi' ]
