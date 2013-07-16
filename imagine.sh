@@ -122,23 +122,22 @@ breakthrough(){
 
 reminder(){
 
+    yellow "Remind:"
     cyan "update project's goals ?"
     read answer
     if [ "$answer" = y ];then
         gedit $readme_md 
     fi
 
- 
-    cyan "Remind:"
-    cyan "priorities  ?"
+
+    cyan "show priorities  ?"
     read answer
     if [ "$answer" = y ];then
 
-        #edit $prespective_txt
+        gedit $done_txt &
         gedit $todo_txt &
-        gedit $prespective_txt &
         gedit $timing_txt &
-        gedit $readme_md &
+
         xdg-open $url_calendar & 
         xdg-open $url_tasks &
     fi
@@ -170,24 +169,27 @@ forign_language(){
 }
 
 effectivity_spy(){
-    cyan "update rules for increase productivity:"
+    cyan "please update the timer workflow"
     gedit $rules_txt
-
 
     green "current workflow:"
     echo "$workflow"
-    echo 'execute the workflow ?'
+    yellow 'test the workflow ?'
     read answer
     if [ "$answer" = y ];then
         xterm -e "$SCREENS_DIR/periodic.sh \"$workflow\""
     fi
-    $PUBLIC_DIR/menus.sh
-}
-update_project(){
-    reminder
+    yellow 'continue to menu ?'
+    read answer
+    if [ "$answer" = y ];then
+
+        $PUBLIC_DIR/menus.sh
+    fi
+
 }
 
-update_fun(){
+
+update_auto(){
     eacher forign_language "learn something new ?"
     eacher efficiency_proof "efficiency proof ?"
     eacher breakthrough "need to cut what you currently doing ?" 
@@ -203,24 +205,38 @@ ideas_bank_for_later(){
     echo 'project must have be examed from top level view'
 
     echo    http://zshwiki.org/home/tutorials
+    gedit $ideas_txt &
 
 }
 order_please(){
-    mood=baby
 
-    cyan "you are here:"
-    echo "baby|child|grownup|adult" | grep $mood
-    sleep1 2
-    if [ $mood = 'baby' ];then
-        effectivity_spy
-    elif [ $mood = 'child' ];then
-        update_project
-    elif [ $mood = 'grownup' ];then
-        ideas_bank_for_later
-    elif [ $mood = 'adult' ];then
-        update_fun
-    else
-        echo 'are you dead aleady ?'
+    cyan "states:"
+    echo "morning|state|ideas|auto" 
+    echo 'enter state:'
+    read mood
+
+    if [ "$mood" != '' ];then
+
+
+        #maturity=$maturity
+        cyan "you are here:"
+        echo "morning|state|ideas|auto" | grep $mood
+        sleep1 2
+        if [ "$mood" = 'morning' ];then
+            effectivity_spy
+        elif [ "$mood" = 'state' ];then
+            reminder 
+        elif [ "$mood" = 'ideas' ];then
+            ideas_bank_for_later
+        elif [ "$mood" = 'auto' ];then
+           yellow 'do 1 step aday in X field' 
+           sleep1 2
+            update_auto
+        else
+            echo 'are you dead aleady ?'
+        fi
+
+
     fi
 
 }

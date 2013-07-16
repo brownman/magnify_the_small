@@ -17,8 +17,15 @@ private
 
 
 
-public/story/plan.txt
+public/story/plans.txt
 public/story/jobs.txt
 public/story/study.txt
+
+public/tasks/plans.sh
+public/tasks/jobs.sh
+
+public/tasks/study.sh
+public/tasks/scrap.sh
+
 
 
