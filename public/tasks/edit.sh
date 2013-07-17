@@ -5,7 +5,7 @@
 #
 #
 . $TIMERTXT_CFG_FILE
-
+cyan 'edit.sh:'
 title='edit.sh'
 
 
@@ -80,7 +80,7 @@ edit2(){
 
 }
 
-str='run edit .txt ?'
+str='update .txt and open urls ?'
 answer=$( messageYN "$title" "$str" )
 if [ "$answer" = 2 ]
 then

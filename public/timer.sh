@@ -477,7 +477,7 @@ suspend1(){
 
     say1 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    answer=$( gxmessage -title 'commitment?' -file $todo_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
+    answer=$( gxmessage -title 'commitment?' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
     
     #'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
 #    if [ "$answer" = 2 ];then
@@ -485,7 +485,7 @@ suspend1(){
 #        echo -n '+' >> $sport_txt
 #    fi
     #echo "$answer" 
-    update_file  $todo_txt "$answer"
+    update_file  $done_txt "$answer"
     
 }
 

@@ -23,6 +23,7 @@ update README.md as MarkDown file!
 move from .txt to .db
 start scraping for deals
 essay aday - send products to google blog
+task series - each task should have description 
 
 
 productivity-upgrades:

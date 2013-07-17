@@ -12,15 +12,15 @@
 
 
 
-tpng=$PWD/txt_to_png.sh
+
 #tpng=./txt_to_png.sh
 
 points_txt=/tmp/points.txt
 
 src=xfce-transparent.png
 
-#file1="/usr/share/xfce4/backdrops/${src}"
-file1="/tmp/mm.png"
+file1="/usr/share/xfce4/backdrops/${src}"
+#file1="/tmp/mm.png"
 #usr/share/xfce4/backdrops/${src}"
 #cp ~/Pictures/lubuntu-default-wallpaper-2.png /tmp/result.png
 cp $file1 /tmp/result.png

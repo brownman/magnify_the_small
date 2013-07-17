@@ -36,7 +36,7 @@ echo4 "you are here"
             "input_task")
                 title="task:"
                 file=$task_txt
-                $timer_sh input_line $file "$title" last_task
+                $timer_sh input_line $file "$title" task_txt 
 
                 ;;
             "speak")
