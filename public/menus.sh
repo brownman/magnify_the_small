@@ -8,7 +8,16 @@
 
 pushd `dirname $0` > /dev/null
 . $TIMERTXT_CFG_FILE
-PS3=$(  log1; white "$NAME1 - go on to: " )
+if [ "$1" = ''  ];then
+
+msg=$(  log1; white "$NAME1 - go on to: " )
+else
+
+msg="$1"
+fi
+
+PS3="$msg"
+
 options=("Quit" "Run_Workflow" "Do_For_Others"  "Act_childish" "Else" )
 
 reset

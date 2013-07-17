@@ -21,6 +21,7 @@ do
             ;;
 
         "Schedule")
+            $TASKS_DIR/edit.sh
             echo 'write schedules and update X'
 
             echo 'fetch google calendar and tasks?'

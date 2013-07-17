@@ -129,8 +129,8 @@ printing1(){
     else
         echo '' #  cat $file_name 
     fi
-    echo $file_name
-    cat $file_name 
+    #echo $file_name
+    cat -n $file_name 
 
 
     #echo "$input_ws"
@@ -477,11 +477,16 @@ suspend1(){
 
     say1 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    answer=$( messageYN 'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
-    if [ "$answer" = 2 ];then
-        echo '+1 point'
-        echo -n '+' >> $sport_txt
-    fi
+    answer=$( gxmessage -title 'commitment?' -file $todo_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
+    
+    #'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
+#    if [ "$answer" = 2 ];then
+#        echo '+1 point'
+#        echo -n '+' >> $sport_txt
+#    fi
+    #echo "$answer" 
+    update_file  $todo_txt "$answer"
+    
 }
 
 
@@ -842,27 +847,27 @@ say2(){
     fi
 
 }
-update_file(){
-    local file=$1
-    local msg=$2
-
-    local last=$3
-
-
-
-
-    answer=$( gxmessage  -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop -sticky )
-
-    cat $file > /tmp/1.txt 
-
-
-    echo "$answer" > $file
-
-    cat /tmp/1.txt >> $file
-
-
-}
-
+#update_file(){
+#    local file=$1
+#    local msg=$2
+#
+#    local last=$3
+#
+#
+#
+#
+#    answer=$( gxmessage  -buttons "_$last_task"  -entry -title "$msg" -file  "$file" -ontop -sticky )
+#
+#    cat $file > /tmp/1.txt 
+#
+#
+#    echo "$answer" > $file
+#
+#    cat /tmp/1.txt >> $file
+#
+#
+#}
+#
 twitter(){
 
     msg='write twitter:'
@@ -1034,8 +1039,8 @@ motivation_random(){
 
 delete_files(){
 
-    dir=~/tmp/timer2/daily
-    dir1=~/tmp/timer2/essays
+    dir=$TMP_DIR/daily
+    dir1=$TMP_DIR/essays
 
     for I in $(ls -1 --sort=time $dir/*.txt )
     do 

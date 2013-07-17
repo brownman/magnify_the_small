@@ -25,19 +25,22 @@ start scraping for deals
 essay aday - send products to google blog
 
 
-Changelog:
-16-7-2013 - imagine.sh: 
-               add variable: mood 
-		   		 will trigger correct workflow
-		   
-               show effectivity question on each run 
-	
+productivity-upgrades:
+----------------------
+1. statistics:
+		ping external server to report: productivity level
+		hourly report:
+			send whiteboard picture to the blog: 
+2. profit:
+		listen to translated text every imagine.sh run
+3. elegance: 
+		edit README.md as MarkDown
+5. monitoring:
+		must be asked:
+			agree to dump idea - and reconnect to the schedules ?
+			suspension is enabled ?
+6. 		
 
-15-7-2013 - imagine.sh: 
-                   present options intercativly:
-                       print them one by one - unlike a menu
-            Share: 
-                   publish your progress to Google Blogger:
-                       - commitment text
-                       - whiteboard picture
+		
+
 

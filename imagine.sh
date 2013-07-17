@@ -11,6 +11,7 @@
 #
 #. $TIMERTXT_CFG_FILE
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
+
 . $TIMERTXT_CFG_FILE
 reset 
 echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
@@ -148,7 +149,7 @@ eacher(){
     question="$2"
     command="$1"
 
-    cyan "$question"
+    green "$question"
     read answer
     if [ "$answer" = y ];then
         eval "$command"
@@ -164,14 +165,56 @@ forign_language(){
     echo2 'forign language()'
     command="$SCREENS_DIR/motivation.sh practice" 
     eacher "$command" "practice frequent word ?"
+
+}
+relax(){
     command="$SCREENS_DIR/motivation.sh listen" 
     eacher "$command" "listen to words of peace ?"
 }
 
-effectivity_spy(){
-    cyan "please update the timer workflow"
-    gedit $rules_txt
+log3(){
 
+    str9=`cat  "$glossary_txt"  | head -3`
+    str8=`cat  "$product_txt"  | head -3`
+    str7=`cat  "$motivations_txt" | head -3 `
+
+    str2=$( cyan "$str7"; white "$str8" ;green "$str9" )
+
+    echo "$str2"
+    yellow 'clean yesturday files';
+    green 'set priorities of todos';
+    white 'update calendar, tasks';
+    white "update today's plans";
+    white "update goals: 1 step aday";
+    yellow "2. set a workflow and run it in loop !";
+}
+log4(){
+    str2=$(   
+
+    cat -n $STORY_DIR/workflow_morning.txt
+    )
+
+    echo "$str2"
+}
+
+new_day(){
+
+    msg1=`log4`
+    #msg1="print me!"
+    $PUBLIC_DIR/menus.sh "$msg1"
+}
+
+
+
+expend(){
+    yellow 'edit .txt ?'
+    read answer
+    if [ "$answer" = y ];then
+        cyan "please update the timer workflow"
+        gedit $priorities_txt
+        gedit $study_txt
+        gedit $efficiency_txt
+    fi
     green "current workflow:"
     echo "$workflow"
     yellow 'test the workflow ?'
@@ -185,7 +228,6 @@ effectivity_spy(){
 
         $PUBLIC_DIR/menus.sh
     fi
-
 }
 
 
@@ -198,22 +240,61 @@ update_auto(){
 }
 
 ideas_bank_for_later(){
+    green 'edit ideas ?' 
+    read answer
+    if [ "$answer" = 'y'  ];then
+        gedit $ideas_txt &
+        gedit $STORY_DIR/words_of_peace.txt &
+    fi
+    green 'upgrade productivity ?' 
+    read answer
+    if [ "$answer" = 'y'  ];then
+        gedit $readme_md &
 
-    yellow "update_uml_of_this_project"
-    echo 'http://plantuml.sourceforge.net/sequence.html'
-    echo 'http://www.plantuml.com/plantuml/'
-    echo 'project must have be examed from top level view'
+    fi
 
-    echo    http://zshwiki.org/home/tutorials
-    gedit $ideas_txt &
+    relax
 
 }
+breakout_idea_prison(){
+
+    eacher ideas_bank_for_later 'need to break free ?'
+    #asave idea for later and connect earth ?'
+}
+
+statistics(){
+    red 'pinging a server to report productivity level..'
+sleep1 4
+echo -n 'productivity level:  '
+if [ "$efficiency" = 'low' ];then
+    red "low"
+     
+    yellow "must update workflow to a better one !"
+    random_quote1 $STORY_DIR/ground.txt
+elif [ "$efficiency" = 'medium' ];then
+    yellow 'medium'
+elif [ "$efficiency" = 'high' ];then
+    green 'high'
+else
+    'wtf ?'
+fi
+
+sleep1 1
+
+}
+
+
 order_please(){
 
-    cyan "states:"
-    echo "morning|state|ideas|auto" 
-    echo 'enter state:'
-    read mood
+statistics
+breakout_idea_prison
+
+
+
+    #cyan "states:"
+    #echo "morning|state|ideas|auto" 
+    #echo 'enter state:'
+    #read mood
 
     if [ "$mood" != '' ];then
 
@@ -223,14 +304,14 @@ order_please(){
         echo "morning|state|ideas|auto" | grep $mood
         sleep1 2
         if [ "$mood" = 'morning' ];then
-            effectivity_spy
+            new_day 
         elif [ "$mood" = 'state' ];then
             reminder 
         elif [ "$mood" = 'ideas' ];then
             ideas_bank_for_later
         elif [ "$mood" = 'auto' ];then
-           yellow 'do 1 step aday in X field' 
-           sleep1 2
+            yellow 'do 1 step aday in X field' 
+            sleep1 2
             update_auto
         else
             echo 'are you dead aleady ?'

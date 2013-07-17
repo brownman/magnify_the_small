@@ -6,7 +6,7 @@
 #
 . $TIMERTXT_CFG_FILE
 
- title='edit.sh'
+title='edit.sh'
 
 
 edit2(){
@@ -14,15 +14,10 @@ edit2(){
 
 
 
-    green 'open freelance/job sites'
-    echo 'open: linkin, check mails, etc'
-    echo "add idea for efficient job hunting:"
-    ( xdg-open 'http://geekjob.co.il/' &)
-    gedit $job_txt &
+    #gedit $jobs_txt &
 
-    sleep1 $SLEEP
+    #sleep1 $SLEEP
 
-    echo2 "edit .txt files"
 
     str='update mindmap ?'
     answer=$( messageYN "$title" "$str" )
@@ -71,6 +66,16 @@ edit2(){
         echo 'update wallpaper'
         $TASKS_DIR/wallpaper.sh
     fi
+
+    str='find a job?'
+    answer=$( messageYN "$title" "$str" )
+    if [ "$answer" = 2 ]
+    then
+        echo 'update wallpaper'
+        $TASKS_DIR/jobs.sh
+    fi
+
+
 
 
 }
