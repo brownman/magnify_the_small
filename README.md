@@ -20,9 +20,10 @@ Integrated services:
 
 Presentations:
 ---------------
-        [ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
+[ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
 
 Todo:
+---------------
 - update README.md as MarkDown file! 
 - move from .txt to .db
 - start scraping for deals
@@ -32,20 +33,18 @@ Todo:
 
 productivity-upgrades:
 ----------------------
-* 1. statistics:
+1. statistics:
 		ping external server to report: productivity level
 		hourly report:
 			send whiteboard picture to the blog: 
-* 2. profit:
+2. profit:
 		listen to translated text every imagine.sh run
-* 3. elegance: 
+3. elegance: 
 		edit README.md as MarkDown
-* 4. monitoring:
+4. monitoring:
 		must be asked:
 			agree to dump idea - and reconnect to the schedules ?
 			suspension is enabled ?
-
-		
 
 
         
