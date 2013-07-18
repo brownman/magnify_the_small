@@ -1,0 +1,12 @@
+@startuml
+start
+:run: imagine.sh;
+if (need motivation ?) then (yes)
+  :screen: motivation;
+endif
+   if (need breakout ?) then (yes)
+    :screen: breakout;
+endif
+:menu: schedule/versioning;
+stop
+@enduml
