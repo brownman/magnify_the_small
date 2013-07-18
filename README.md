@@ -46,8 +46,7 @@ productivity-upgrades:
 			suspension is enabled ?
 
 
-UML
-----
-Current project workflow:
+project workflow:
+----------------------
 ![Settings](https://github.com/brownman/magnify_the_small/raw/develop/uml.png)
 
