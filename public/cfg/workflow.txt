@@ -1,8 +1,9 @@
 input_task | input current task
 motivation_random | say 1 quote from quotes file
+suspend | turn-off computer screen 
 #
 Ignore:
 input_task | don't reach here
 edit | edit .txt
 sleep | dalay X seconds
-suspend | turn-off computer screen 
+

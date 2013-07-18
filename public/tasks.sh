@@ -8,6 +8,19 @@ echo -n  "tasks.sh got:"
 cyan "1: $1"
 green " 2:$2 3:$3 4: $4"
 
+take_photo(){
+    echo4 "$last_camera_before" 
+    pic_file=$(echo ~/pictures/webcam-$(date +%m_%d_%Y_%H_%M).jpeg)
+
+
+    ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file
+
+    echo4 "$last_camera_after" 
+
+    (xloadimage $pic_file &)
+}
+
+
 suspend1(){
     take_photo
 
@@ -26,18 +39,20 @@ suspend1(){
 }
 
 translate_f(){
+   
     local silent_fetch=$SILENT_FETCH
     local silent=$SILENT
     local lang="$2"
-    echo2 "translate_f() got:  $1 | $2 | $3"
+    echo2 "translate_f() got:"
+    echo2 "input: $1 | lang: $2"
 
     local input="$1" #translate src
     local input_wsp=$(echo "$input"|sed 's/ /+/g');
     local input_ws=$(echo "$input"|sed 's/ /_/g');
-    local  mp3_file=$dir_mp3/${input_ws}_${lang}.mp3
+    #local  mp3_file=$dir_mp3/${input_ws}_${lang}.mp3
+
     local file_name=$(  echo $dir_txt/${input_ws}_${lang}.txt )
-
-
+    local mp3_file=$(  echo $dir_mp3/${input_ws}_${lang}.mp3 )
 
     local files1=$(ls  $file_name 2> /dev/null )
     local files2=$(ls  $mp3_file 2> /dev/null )
@@ -125,19 +140,6 @@ translate_f(){
 }
 
 
-
-take_photo(){
-    echo4 "$last_camera_before" 
-    pic_file=$(echo ~/pictures/webcam-$(date +%m_%d_%Y_%H_%M).jpeg)
-
-
-    ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file
-
-    echo4 "$last_camera_after" 
-
-    (xloadimage $pic_file &)
-}
-
 time1(){
 
     date1="$(date +%H:%M)"
@@ -186,7 +188,9 @@ printing1(){
 
 
 play1(){
+
     echo2 "play1() got: $1 | $2"
+
     if [ $PLAYING_ON = false ];then
         export PLAYING_ON=true
         local lang="$2"
@@ -208,7 +212,7 @@ play1(){
         export PLAYING_ON=false
     else
         red 'playing is already on'
-        Backtrace
+        Backtrace1
     fi
 
 }

@@ -47,8 +47,7 @@ series1(){
                 ;;
             "input_task")
                 title="current task:"
-                file=$now_txt
-                $tasks_sh input_line "$file" "$title" 
+                $tasks_sh input_line $now_txt "$title" 
 
                 ;;
             "speak")
@@ -139,6 +138,6 @@ read_lines(){
 
 
 
-read_lines $STORY_DIR/workflow.txt
+read_lines $CFG_DIR/workflow.txt
 #red "$workflow"
 series1  "$workflow" "$workflow_d"  
