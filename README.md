@@ -18,7 +18,7 @@ Integrated services:
 - Google Translate
 - Google Text To Speech Engine
 
-Presentations:
+videos:
 ---------------
 [ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
 
@@ -29,7 +29,6 @@ Todo:
 - start scraping for deals
 - essay aday - send products to google blog
 - task series - each task should have description 
-
 
 productivity-upgrades:
 ----------------------
@@ -47,7 +46,8 @@ productivity-upgrades:
 			suspension is enabled ?
 
 
-        
+UML
+----
+Current project workflow:
 ![Settings](https://github.com/brownman/magnify_the_small/raw/develop/uml.png)
 
-<script type="text/javascript" src="http://ascii.io/a/4113.js" id="asciicast-4113" async></script>
