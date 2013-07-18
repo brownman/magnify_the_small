@@ -45,3 +45,19 @@ productivity-upgrades:
 		
 
 
+        
+![Settings](https://github.com/brownman/magnify_the_small/raw/develop/uml.png)
+
+
+@startuml
+start
+:run: imagine.sh;
+if (need motivation ?) then (yes)
+  :screen: motivation;
+endif
+   if (need breakout ?) then (yes)
+    :screen: breakout;
+endif
+:menu: schedule/versioning;
+stop
+@enduml

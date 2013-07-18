@@ -44,9 +44,9 @@ guidance(){
         $SCREENS_DIR/motivation.sh $file_guide 
     fi
 
-    cyan "glossary of the day ?"
-    read answer
-    if [ "$answer" = y ];then
+
+}
+glossary_aday(){
         cyan 'have profit !'
         yellow 'imagine an ideal day !'
         cat $glossary_txt
@@ -55,8 +55,6 @@ guidance(){
         cat $file_guide
         read 
         $SCREENS_DIR/motivation.sh $file_guide
-
-    fi
 }
 
 one_step_aday(){
@@ -186,7 +184,7 @@ log3(){
     white 'update calendar, tasks';
     white "update today's plans";
     white "update goals: 1 step aday";
-    yellow "2. set a workflow and run it in loop !";
+    yellow "set a workflow and run it in loop !";
 }
 log4(){
     str2=$(   
@@ -194,7 +192,7 @@ log4(){
     cat -n $STORY_DIR/workflow_morning.txt
     )
 
-    echo "$str2"
+    echo "$str2 :: "
 }
 
 new_day(){
@@ -284,42 +282,16 @@ sleep1 1
 }
 
 
-order_please(){
-
-statistics
-breakout_idea_prison
-
-
-
-    #cyan "states:"
-    #echo "morning|state|ideas|auto" 
-    #echo 'enter state:'
-    #read mood
-
-    if [ "$mood" != '' ];then
-
-
-        #maturity=$maturity
-        cyan "you are here:"
-        echo "morning|state|ideas|auto" | grep $mood
-        sleep1 2
-        if [ "$mood" = 'morning' ];then
-            new_day 
-        elif [ "$mood" = 'state' ];then
-            reminder 
-        elif [ "$mood" = 'ideas' ];then
-            ideas_bank_for_later
-        elif [ "$mood" = 'auto' ];then
-            yellow 'do 1 step aday in X field' 
-            sleep1 2
-            update_auto
-        else
-            echo 'are you dead aleady ?'
-        fi
-
-
-    fi
-
+uml_me(){
+xdg-open http://www.plantuml.com/plantuml/ &
+#blue 
+xdg-open 'http://plantuml.sourceforge.net/activity2.html#simple' &
+#blue 'http://alternativeto.net/?platform=linux'
+yellow 'save the world for those who left behind !'
+sleep1 2
+eacher glossary_aday "glossary of the day ?"
+eacher breakout_idea_prison "breakout idea prison ?"
+eacher new_day "uml a day ?"
 }
 
 
@@ -328,7 +300,7 @@ if [ "$1" = "periodic" ];then
 elif [ "$1" = 'menus' ];then
     $PUBLIC_DIR/menus.sh
 else
-    order_please 
+    uml_me
 fi
 
 

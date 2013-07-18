@@ -13,7 +13,7 @@
 
 
 
-#tpng=./txt_to_png.sh
+tpng=$TASKS_DIR/txt_to_png.sh
 
 points_txt=/tmp/points.txt
 
@@ -37,11 +37,11 @@ background=/tmp/result.png
 #text_file=/tmp/ampm.txt
 #/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 400 750 900x 20 black true
 
-cat $done_txt | head -2 | tail -1 > $points_txt
-$tpng $background $points_txt 770 440 1300x 383 black true
-$tpng $background $points_txt 800 460 1300x 393 grey true
-$tpng $background $points_txt 830 480 1300x 393 red true
-
+#cat $done_txt | head -2 | tail -1 > $points_txt
+#$tpng $background $points_txt 770 440 1300x 383 black true
+#$tpng $background $points_txt 800 460 1300x 393 grey true
+#$tpng $background $points_txt 830 480 1300x 393 red true
+#
 
 $tpng $background $motivation_txt 770 140 500x 43 black true
 $tpng $background $motivation_txt 800 160 500x 43 grey true

@@ -1,26 +1,17 @@
 #!/bin/bash
-#-x
-# about file:
-# parent menu
-#
-
-
 
 pushd `dirname $0` > /dev/null
-. $TIMERTXT_CFG_FILE
-if [ "$1" = ''  ];then
+#. $TIMERTXT_CFG_FILE
+#dir=$TASKS_DIR
+str1=""
 
-msg=$(  log1; white "$NAME1 - go on to: " )
-else
+PS3="Updating:" 
+options=(  "Quit" "Schedule" "next version !" )
 
-msg="$1"
-fi
-
-PS3="$msg"
-
-options=("Quit" "Run_Workflow" "Do_For_Others"  "Act_childish" "Else" )
 
 reset
+blue  "update tasks" # | flite
+
 select opt in "${options[@]}"
 do
 
@@ -28,51 +19,20 @@ do
         "Quit")
             exiting
             ;;
-        "Run_Workflow")
-            white 'do you want to increase prespective ?'
-            yellow 'the current workflow is:' 
-            cyan "Workflow:"
-            echo "$workflow"
-echo 'run workflow ?'
-read answer
-if [ $answer = y ]
-then
-
-            $SCREENS_DIR/periodic.sh "$workflow"
-fi
-
-
-
+   
+        "Schedule")
+            echo 'update/share schedules'
+            $MENUS_DIR/menu1.sh
             ;;
+   
 
-        "Do_For_Others")
-            cyan 'update points !'
-
-            $TASKS_DIR/edit.sh
-            ;;
-
-        "Act_childish")
-            echo 'wana scrap something nice ? '
-            green "wana write a new children song and post it ?"
-            read answer
-            if [ "$answer" = y ];then
-                $SCREEN_DIR/motivation.sh
-            fi
-            ;;
-        "Else")
-            $MENUS_DIR/menu.sh
+        "next version !")
+            echo 'update uml design ?'
+            echo 'update workflow'
+            gedit $idea_txt
             ;;
         *)
             reset
             ;;
     esac
 done
-
-
-
-
-popd > /dev/null
-exiting
-
-
-
