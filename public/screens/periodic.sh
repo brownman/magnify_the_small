@@ -6,41 +6,53 @@
 . $TIMERTXT_CFG_FILE
 #update_lang it
 
+source $tasks_sh
+workflow=''
+workflow_d=''
 
 series1(){
 
     . $TIMERTXT_CFG_FILE
+
     local series="$1"
+    local series_d="$2"
     local yno=""
-    IFS=', ' read -a array <<< "$series"
+    IFS=',' read -a array <<< "$series"
+    IFS=',' read -a array_d <<< "$series_d"
 
     #echo "${array[0]}"
     #echo $str
     for index in "${!array[@]}"
     do
-        green "current task: $index" 
+
+    
 
         #$yno=`eval ${array[index]}`
+        
         yno=`echo ${array[index]}`
+        yno_d=`echo ${array_d[index]}`
 
-echo4 "you are here"
-        notify-send "$index: $yno" "$workflow"
+
+        notify-send "$index: $yno" "$yno_d"
 
         echo "$series" | grep $yno
 
         case $yno in
+       "motivation_random")
+                $tasks_sh motivation_random
+                ;;
             "remind_workflow")
                 
-                
+               echo '' 
                 ;;
             "input_task")
-                title="task:"
-                file=$task_txt
-                $timer_sh input_line $file "$title" task_txt 
+                title="current task:"
+                file=$now_txt
+                $tasks_sh input_line "$file" "$title" 
 
                 ;;
             "speak")
-                $timer_sh speak
+                $tasks_sh speak
                 ;;
             "remind_me")
                 say1 $msg_remind_me 
@@ -49,7 +61,7 @@ echo4 "you are here"
                 time1
                 ;;
             "motivation_start")
-                $timer_sh motivation_start
+                $tasks_sh motivation_start
                 ;;
             "sleep")
                 sleep1 $SLEEP
@@ -72,7 +84,7 @@ echo4 "you are here"
                 write_essay "$LANG_ESSAY"
                 ;;
             "suspend")
-                $timer_sh suspend
+                $tasks_sh suspend1
                 ;;
             "rules")
                 echo2 'update rules'
@@ -85,7 +97,7 @@ echo4 "you are here"
                 xdg-open 'https://www.google.com/calendar/render?tab=mc'
                 ;;
             "delete")
-                $timer_sh delete
+                $tasks_sh delete
                 ;; 
             "edit")
                 #( xterm -e 
@@ -101,7 +113,32 @@ echo4 "you are here"
 
 
 
+read_lines(){
+    echo2 'read_lines()'
+    local file_guide="$1"
+    old_IFS=$IFS
+    IFS=$'\n'
+    lines=($(cat $file_guide)) # array
+    IFS=$old_IFS
+    for line in "${lines[@]}"
+    do
+        echo "$line "
+        if [ "$line" = '#' ];then
+            break
+            #red 'empty line'  
+        else
+            desc=$( echo $line | awk -F '|' '{print $2}' )
+            command=$( echo $line | awk -F '|' '{print $1}' )
+             workflow="$workflow,$command"
+             workflow_d="$workflow_d,$desc"
+             #red "workflow_d: $workflow_d"
+        fi
+    done
+
+}
 
 
 
-series1  "$1"   
+read_lines $STORY_DIR/workflow.txt
+#red "$workflow"
+series1  "$workflow" "$workflow_d"  

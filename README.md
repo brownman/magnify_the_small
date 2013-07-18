@@ -44,6 +44,8 @@ productivity-upgrades:
 		must be asked:
 			agree to dump idea - and reconnect to the schedules ?
 			suspension is enabled ?
+5. task breaker:
+        should break a task to  easy-to-accomplish mini-tasks 
 
 
 project workflow:

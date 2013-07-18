@@ -1,3 +1,11 @@
+urls:
+------
+http://www.plantuml.com/plantuml/ 
+http://plantuml.sourceforge.net/activity2.html#simple
+http://alternativeto.net/?platform=linux
+
+current workflow:
+-----------------
 @startuml
 start
 :run: imagine.sh;
@@ -10,3 +18,4 @@ endif
 :menu: schedule/versioning;
 stop
 @enduml
+

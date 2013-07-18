@@ -143,7 +143,7 @@ reminder(){
 }
 
 eacher(){
-    echo2 "eacher() got: 1: $1     2: $2"
+    echo1  "eacher() got: 1: $1     2: $2"
     question="$2"
     command="$1"
 
@@ -160,7 +160,7 @@ efficiency_proof(){
 }
 
 forign_language(){
-    echo2 'forign language()'
+    echo1  'forign language()'
     command="$SCREENS_DIR/motivation.sh practice" 
     eacher "$command" "practice frequent word ?"
 
@@ -283,9 +283,11 @@ sleep1 1
 
 
 uml_me(){
-xdg-open http://www.plantuml.com/plantuml/ &
+echo 'http://bash.cyberciti.biz/guide/Source_command'
+echo http://www.offensive-security.com/metasploit-unleashed/Getting_A_Shell
+#xdg-open http://www.plantuml.com/plantuml/ &
 #blue 
-xdg-open 'http://plantuml.sourceforge.net/activity2.html#simple' &
+#xdg-open 'http://plantuml.sourceforge.net/activity2.html#simple' &
 #blue 'http://alternativeto.net/?platform=linux'
 yellow 'save the world for those who left behind !'
 sleep1 2
@@ -296,7 +298,8 @@ eacher new_day "uml a day ?"
 
 
 if [ "$1" = "periodic" ];then
-    $SCREENS_DIR/periodic.sh $workflow
+    $SCREENS_DIR/periodic.sh
+    #$workflow
 elif [ "$1" = 'menus' ];then
     $PUBLIC_DIR/menus.sh
 else
