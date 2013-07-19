@@ -17,7 +17,7 @@ do
 
     case $opt in
         "Record & Publish")
-            $timer_sh present1
+            $tasks_sh present1
             ;;
 
         "Schedule")
@@ -49,10 +49,10 @@ do
             ;;
         "Delete")
             echo 'delete txt files'
-            $timer_sh delete
+            $tasks_sh delete
             ;;
         "Quit")
-            exiting
+            exit
             ;;
         "Unlock")
             yellow "I am aware of the time - let me go in !"

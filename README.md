@@ -2,7 +2,7 @@ Quote:
 ----------
 "Magnify The Small" (Wayne Dyer)
 
-Project goals:
+Project feature:
 -------------
 * time prespective
 * task managment
@@ -12,43 +12,45 @@ Project goals:
 
 Integrated services:
 --------------------
-- Google tasks
-- Google calendar
+- Google Tasks
+- Google Calendar
 - Google Blogger
 - Google Translate
 - Google Text To Speech Engine
 
-videos:
----------------
-[ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
+
+
+Personal goals
+--------------------
+- morning:
+                        set daily goals
+- statistics:
+                        time prespective: 
+                        every hour:
+                        report progress to a blog 
+- monitoring:
+                        breakthrough time consumers
+- expose all edited files
+- timer:
+                         periodicly run:
+                         $workflow (a series of editable tasks)
+- profit:
+                         learn forign languages
+
+
 
 Todo:
 ---------------
-- update README.md as MarkDown file! 
 - move from .txt to .db
-- start scraping for deals
-- essay aday - send products to google blog
-- task series - each task should have description 
-
-productivity-upgrades:
-----------------------
-1. statistics:
-		ping external server to report: productivity level
-		hourly report:
-			send whiteboard picture to the blog: 
-2. profit:
-		listen to translated text every imagine.sh run
-3. elegance: 
-		edit README.md as MarkDown
-4. monitoring:
-		must be asked:
-			agree to dump idea - and reconnect to the schedules ?
-			suspension is enabled ?
-5. task breaker:
-        should break a task to  easy-to-accomplish mini-tasks 
 
 
 project workflow:
 ----------------------
 ![Settings](https://github.com/brownman/magnify_the_small/raw/develop/uml.png)
+
+
+videos:
+---------------
+[ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
+
 

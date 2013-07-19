@@ -25,25 +25,34 @@ series1(){
     for index in "${!array[@]}"
     do
 
-    
+
 
         #$yno=`eval ${array[index]}`
-        
+
         yno=`echo ${array[index]}`
         yno_d=`echo ${array_d[index]}`
 
-
+        echo5 "$yno_d"
         notify-send "$index: $yno" "$yno_d"
 
         echo "$series" | grep $yno
 
         case $yno in
-       "motivation_random")
+
+
+            "morning_reminder")
+                $tasks_sh glossary_reminder
+                ;;
+
+            "morning_reminder")
+                $tasks_sh morning_reminder
+                ;;
+            "motivation_random")
                 $tasks_sh motivation_random
                 ;;
             "remind_workflow")
-                
-               echo '' 
+
+                echo '' 
                 ;;
             "input_task")
                 title="current task:"
@@ -83,7 +92,7 @@ series1(){
                 write_essay "$LANG_ESSAY"
                 ;;
             "suspend")
-                $tasks_sh suspend1
+                $tasks_sh suspend
                 ;;
             "rules")
                 echo2 'update rules'
@@ -96,7 +105,7 @@ series1(){
                 xdg-open 'https://www.google.com/calendar/render?tab=mc'
                 ;;
             "delete")
-                $tasks_sh delete
+                $tasks_sh delete_files 
                 ;; 
             "edit")
                 #( xterm -e 
@@ -128,9 +137,9 @@ read_lines(){
         else
             desc=$( echo $line | awk -F '|' '{print $2}' )
             command=$( echo $line | awk -F '|' '{print $1}' )
-             workflow="$workflow,$command"
-             workflow_d="$workflow_d,$desc"
-             #red "workflow_d: $workflow_d"
+            workflow="$workflow,$command"
+            workflow_d="$workflow_d,$desc"
+            #red "workflow_d: $workflow_d"
         fi
     done
 

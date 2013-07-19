@@ -14,15 +14,14 @@ do
     case $opt in
 
         "Quit")
-
-            exiting
+            exit
             ;;
         "Scraping")
             echo 'scraping for: language-website? deals?'
             echo 'google forms + xpath'
             ;;
 
-      
+
         *)
             reset
             ;;

@@ -26,7 +26,7 @@ do
 
     case $opt in
         "Quit")
-            exiting
+            exit
             ;;
         "Run_Workflow")
             white 'do you want to increase prespective ?'

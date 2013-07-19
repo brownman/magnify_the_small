@@ -21,12 +21,12 @@ take_photo(){
 }
 
 
-suspend1(){
+suspend(){
     take_photo
 
     echo4 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    answer=$( gxmessage -title 'commitment?' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
+    answer=$( gxmessage -title 'ACHIVEMENTS:' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
     
     #'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
 #    if [ "$answer" = 2 ];then
@@ -250,21 +250,75 @@ input_line(){
 }
 
 motivation_random(){
-    sleep1 3
-    max=`cat -b $motivations_txt | wc -l`
+say_random_line $motivations_txt
+say_random_line $quotes_txt
+}
+
+say_random_line(){
+   local file="$1"
+    max=`cat -b $file | wc -l`
     random1 $max
     num=$?
-    let "num += 2"
-    str=`cat $motivations_txt | head -$num | tail -1`
+    str=`cat $file | head -$num | tail -1`
     echo5 "$str" 
-
-    max=`cat -b $quotes_txt | wc -l`
-    random1 $max
-    num=$?
-    str=`cat $quotes_txt | head -$num | tail -1`
-    echo5 "$str" 
+}
 
 
+morning_reminder(){
+   gxmessage -title 'morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGE_T
+}
+
+glossary_reminder(){
+
+    word=$(    gxmessage -title 'morning reminder' -file $STORY_DIR/glossary.txt $GXMESSAGE_T -entry )
+    echo5 "$word"
+   
+}
+
+delete_files(){
+
+    dir=$TMP_DIR/daily
+    dir1=$TMP_DIR/essays
+
+    for I in $(ls -1 --sort=time $dir/*.txt )
+    do 
+
+
+        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file $I -ontop )
+        blue 'press ESC to ignore '
+
+        #answer=$( messageFYN "Delete file?" "$I" )
+        #echo "answer is: $answer" 
+        answer=2
+        cat $I
+        if [ "$answer" = 2 ];then
+
+            echo '' > "$I"
+            red 'clean file'
+        else
+
+            green 'ignore file'
+        fi
+    done
+    for I in $(ls -1 --sort=time $dir1/*.txt )
+    do 
+
+
+        #answer=$( gxmessage  -buttons "delete"  -entry -title "delete file:: $I" -file "$I" -ontop )
+
+        #answer=$( messageFYN "delete: $I ?" "$I")
+
+        answer=2
+        cat $I
+        if [ "$answer" = 2 ];then
+
+            echo '' > "$I"
+            red 'clean file'
+        else
+
+            green 'ignore file'
+        fi
+    done
 }
 
 

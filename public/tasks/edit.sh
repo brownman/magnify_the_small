@@ -80,7 +80,7 @@ edit2(){
 
 }
 
-str='update .txt and open urls ?'
+str='update status ?'
 answer=$( messageYN "$title" "$str" )
 if [ "$answer" = 2 ]
 then

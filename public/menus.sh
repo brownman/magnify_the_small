@@ -17,7 +17,7 @@ do
 
     case $opt in
         "Quit")
-            exiting
+            exit
             ;;
    
         "Schedule")

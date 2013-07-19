@@ -13,7 +13,7 @@ do
 
     case $opt in
         "Quit")
-            exiting
+            exit
             ;;
 
         "Collaborate")

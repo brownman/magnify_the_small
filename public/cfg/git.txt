@@ -1,2 +1,0 @@
-git clean -n -d -x
-http://gitready.com/beginner/2009/01/16/cleaning-up-untracked-files.html
