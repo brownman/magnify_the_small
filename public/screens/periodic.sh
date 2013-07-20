@@ -26,13 +26,12 @@ series1(){
     do
 
 
-
         #$yno=`eval ${array[index]}`
 
         yno=`echo ${array[index]}`
         yno_d=`echo ${array_d[index]}`
 
-        echo4 "$yno_d" &
+        echo4 "$yno_d" 
         notify-send "$index: $yno" "$yno_d"
 
         echo "$series" | grep $yno

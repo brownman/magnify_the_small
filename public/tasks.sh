@@ -24,6 +24,10 @@ take_photo(){
 suspend(){
     take_photo
 
+last_commitment=`cat $done_txt | head -1`
+
+
+    echo4 "$last_commitment" 
     echo4 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     answer=$( gxmessage -title 'ACHIVEMENTS:' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
@@ -236,11 +240,15 @@ input_line(){
         echo4 "$answer" 
     fi
 
-    cat $file > /tmp/1.txt 
-    date1="$(date +%H:%M)"
-    #echo "_____________________" > $file
-    echo "$date1 - $answer" > $file
-    cat /tmp/1.txt >> $file
+#    cat $file > /tmp/1.txt 
+#    date1="$(date +%H:%M)"
+#    #echo "_____________________" > $file
+#    echo "$date1 - $answer" > $file
+#    cat /tmp/1.txt >> $file
+
+str="$date1 - $answer"
+
+update_file $file $str
 
 }
 
@@ -255,7 +263,7 @@ say_random_line(){
     random1 $max
     num=$?
     str=`cat $file | head -$num | tail -1`
-    echo4 "$str" 
+    echo5 "$str" 
 }
 
 
@@ -263,6 +271,8 @@ morning_reminder(){
 
     gxmessage -title 'morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGET
     gxmessage -title 'plan a day' -file $CFG_DIR/earth.txt $GXMESSAGET
+
+
 
 }
 
