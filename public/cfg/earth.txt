@@ -2,39 +2,27 @@ hourly:
 -------
 - update the blog hourly based
 
-
-urgent tasks:
--------------
-    Shalva medicine
-    
 priorities:
 -----------
     task:   make the qa test
     reason: grab this chance!
 
-    task:   start cooperation with eran
-    reason: store hourly statistics + work with db
-    options: try_redis | meteor.js + angular form | jquery widget
-
+    
 fast tasks:
 -------------
     e-mail:
         clinic reciept
         send eran the java questions
 
-later tasks
------------
-    project + first wiki pages
-    android + python
-    reason: make my first app!
-    boaz + php + mysql
+ideas:
+-------
+backup ideas from notebook to file
+
+
+
 
 burning questions:
 -----------------
 parents - decrease the fax noise
 project - step aday should be publicly accessible
 start scraping for deals
-
-
-
-

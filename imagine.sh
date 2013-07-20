@@ -40,6 +40,10 @@ glossary_aday(){
 }
 
 
+
+
+
+
 uml_me(){
 #echo 'http://bash.cyberciti.biz/guide/Source_command'
 #echo http://www.offensive-security.com/metasploit-unleashed/Getting_A_Shell
@@ -92,6 +96,9 @@ if [ "$1" = "periodic" ];then
     #$workflow
 elif [ "$1" = 'menus' ];then
     $PUBLIC_DIR/menus.sh
+elif [ "$1" = 'help' ];then
+    echo -n 'second arg: '
+    cyan 'menus OR periodic'
 else
     uml_me
 fi

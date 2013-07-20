@@ -32,15 +32,22 @@ series1(){
         yno=`echo ${array[index]}`
         yno_d=`echo ${array_d[index]}`
 
-        echo5 "$yno_d"
+        echo4 "$yno_d" &
         notify-send "$index: $yno" "$yno_d"
 
         echo "$series" | grep $yno
 
         case $yno in
+  "store_ideas")
+                $tasks_sh store_ideas 
+                ;; 
+
+  "scrap_practice")
+                $tasks_sh scrap_practice 
+                ;; 
 
 
-            "morning_reminder")
+            "glossary_reminder")
                 $tasks_sh glossary_reminder
                 ;;
 
@@ -111,8 +118,10 @@ series1(){
                 #( xterm -e 
                 ( "$TASKS_DIR/edit.sh" &)
                 ;; 
+   
 
-            *) red "Invalid task:"
+            *) 
+                red "Invalid task:"
                 yellow "$yno"
                 ;;
         esac     

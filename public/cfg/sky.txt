@@ -26,3 +26,16 @@ http://www.linkedin.com/job/home?trk=nmp_rj_sm
 http://www.linkedin.com/vsearch/j?openAdvancedForm=true&locationType=I&countryCode=il&sortBy=R&f_N=F,S&rsid=527752131374161829367&orig=ADVS
 
 
+later tasks
+-----------
+    project + first wiki pages
+    android + python
+    reason: make my first app!
+    boaz + php + mysql
+    
+    task:   start cooperation with eran
+    reason: store hourly statistics + work with db
+    options: try_redis | meteor.js + angular form | jquery widget
+
+
+

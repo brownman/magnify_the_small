@@ -1,11 +1,13 @@
+glossary_reminder | choose a word from this list
+store_ideas | backup ideas and preserve a clear mind
 morning_reminder | remind the task I should complete before anything else 
 input_task | input current task
 motivation_random | say 1 quote from quotes file
-glossary_reminder | choose a word from this list
 suspend | turn-off computer screen 
 #
 Ignore:
 input_task | don't reach here
 edit | edit .txt
 sleep | dalay X seconds
+scrap_practice | practice scraping websites
 

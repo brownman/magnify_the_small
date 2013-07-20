@@ -4,9 +4,9 @@
 #
 . $TIMERTXT_CFG_FILE
 
-echo -n  "tasks.sh got:"
-cyan "1: $1"
-green " 2:$2 3:$3 4: $4"
+echo2  "tasks.sh got: "
+echo2 "1: $1"
+echo2 " 2:$2 3:$3 4: $4"
 
 take_photo(){
     echo4 "$last_camera_before" 
@@ -27,19 +27,14 @@ suspend(){
     echo4 "$msg_suspend" 
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
     answer=$( gxmessage -title 'ACHIVEMENTS:' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
-    
-    #'yes/no question' 'break through! | did sport? | update wall? | know next task?' )
-#    if [ "$answer" = 2 ];then
-#        echo '+1 point'
-#        echo -n '+' >> $sport_txt
-#    fi
-    #echo "$answer" 
+
+
     update_file  $done_txt "$answer"
-    
+
 }
 
 translate_f(){
-   
+
     local silent_fetch=$SILENT_FETCH
     local silent=$SILENT
     local lang="$2"
@@ -218,15 +213,15 @@ play1(){
 }
 
 input_line(){
-    echo2 "input line got: 1:$1 2:$2 3:$3"
+    echo2 "input line got: file:$1 title:$2 3:$3"
     #latest modifications: 
     #pass reference by supplying name of global variable.
-     local file=$1
+    local file=$1
     local title="$2"
 
 
 
-    answer=$( gxmessage  -buttons "ok"  -entry -title "$title" -file  $file -ontop -timeout $TIMEOUT1 )
+    answer=$( gxmessage  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
 
 
     if [ "$answer" = exit ]
@@ -250,29 +245,32 @@ input_line(){
 }
 
 motivation_random(){
-say_random_line $motivations_txt
-say_random_line $quotes_txt
+    say_random_line $motivations_txt
+    say_random_line $quotes_txt
 }
 
 say_random_line(){
-   local file="$1"
+    local file="$1"
     max=`cat -b $file | wc -l`
     random1 $max
     num=$?
     str=`cat $file | head -$num | tail -1`
-    echo5 "$str" 
+    echo4 "$str" 
 }
 
 
 morning_reminder(){
-   gxmessage -title 'morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGE_T
+
+    gxmessage -title 'morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGET
+    gxmessage -title 'plan a day' -file $CFG_DIR/earth.txt $GXMESSAGET
+
 }
 
 glossary_reminder(){
 
-    word=$(    gxmessage -title 'morning reminder' -file $STORY_DIR/glossary.txt $GXMESSAGE_T -entry )
+    word=$(    gxmessage -title 'morning reminder' -file $STORY_DIR/glossary.txt $GXMESSAGET -entry )
     echo5 "$word"
-   
+
 }
 
 delete_files(){
@@ -320,7 +318,36 @@ delete_files(){
         fi
     done
 }
+store_ideas(){
+    cyan "update ideas' bank"
 
+    while :;do
+
+        answer=$( gxmessage  -buttons "ok"  -entry -title "enter_idea:" -file  $ideas_txt -ontop -timeout $TIMEOUT1 )
+        if [ "$answer" = '' ];then
+            break
+        else 
+            echo "$answer" >> $ideas_txt
+        fi
+    done
+}
+
+scrap_practice(){
+
+    cyan "scrap something:"
+    result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=something&sl=en&tl=it" ) 
+    cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
+
+    echo2 "$cleaner"
+    phonetics=$(echo "$cleaner" | cut -d \" -f 5)
+    output=$(echo "$cleaner" | cut -d \" -f 1)
+
+    output_wsp=$(echo "$output"|sed 's/ /+/g');
+    output_ws=$(echo "$output"|sed 's/ /_/g');
+
+    gxmessage -title 'scraping practice' "$result" $GXMESSAGE1 &
+    gxmessage -title 'scraping practice' "$cleaner" $GXMESSAGE1
+}
 
 
 #
