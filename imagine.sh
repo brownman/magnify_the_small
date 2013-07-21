@@ -16,7 +16,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 reset 
 
 echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
-pids
+pids "$0" 
 
 eacher(){
     echo1  "eacher() got: 1: $1     2: $2"

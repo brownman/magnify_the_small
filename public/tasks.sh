@@ -174,11 +174,11 @@ play1(){
 
 }
 update(){
-    title="now_txt:"
+    title="update: now_txt"
     file=$now_txt
     add_line $file "$title" 
 
-    title="ideas_txt:"
+    title="update: ideas_txt"
     file=$ideas_txt
     add_line $file "$title"
 }
@@ -190,9 +190,10 @@ motivation_random(){
 }
 
 show(){
-    gxmessage -title 'morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGET
-    gxmessage -title 'plan a day' -file $CFG_DIR/earth.txt $GXMESSAGET
-    gxmessage -title 'project goals' -file $CFG_DIR/project.txt $GXMESSAGET
+    gxmessage -title 'show: morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGET
+    gxmessage -title 'show: plan a day' -file $CFG_DIR/earth.txt $GXMESSAGET
+    gxmessage -title 'show: project goals' -file $CFG_DIR/project.txt $GXMESSAGET
+    gxmessage -title 'show: timer workflow' -file $CFG_DIR/workflow.txt $GXMESSAGET
 }
 
 glossary_reminder(){

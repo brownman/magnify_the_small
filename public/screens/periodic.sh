@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # about file:
 # run task in circle
 #
