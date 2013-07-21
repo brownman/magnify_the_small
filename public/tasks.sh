@@ -176,9 +176,12 @@ play1(){
 update(){
     title="update: now_txt"
     file=$now_txt
-    add_line $file "$title" 
+    add_line $file "$title" true #add time note 
 
-    title="update: ideas_txt"
+
+    #title="update: ideas_txt"
+    #title="update: ideas_txt"
+    tile="efficiency breakthrough:"
     file=$ideas_txt
     add_line $file "$title"
 }
@@ -187,9 +190,21 @@ update(){
 motivation_random(){
     choose4 $motivations_txt
     choose4 $quotes_txt
+    one_tip
+}
+
+one_tip(){
+    desc='open website ?'
+    command='xdg-open    http://www.mamalisa.com/?t=ec&p=981&c=150'
+    eacher "$command" "$desc"
+
+
 }
 
 show(){
+
+    gxmessage -title 'show: current TEST' -file $TMP_DIR/test.txt $GXMESSAGET
+    sleep1 20
     gxmessage -title 'show: morning reminder' -file $STORY_DIR/morning.txt $GXMESSAGET
     gxmessage -title 'show: plan a day' -file $CFG_DIR/earth.txt $GXMESSAGET
     gxmessage -title 'show: project goals' -file $CFG_DIR/project.txt $GXMESSAGET
@@ -234,8 +249,9 @@ delete_files(){
 
 scrap_practice(){
     cyan "idea for practive scraping"
+    local title='scraping idea ?'
     while :;do
-        answer=$( gxmessage  -buttons "ok"  -entry -title "scrap_txt:" -file  $scrap_txt -ontop -timeout $TIMEOUT1 )
+        answer=$( gxmessage  -buttons "ok"  -entry -title "$title"  -file  $scrap_txt -ontop -timeout $TIMEOUT1 )
         if [ "$answer" = '' ];then
             break
         else 

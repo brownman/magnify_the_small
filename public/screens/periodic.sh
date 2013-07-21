@@ -30,7 +30,7 @@ series1(){
         yno_d=`echo ${array_d[index]}`
 
         echo4 "$yno_d" 
-        notify-send "$index: $yno" "$yno_d"
+        notify-send "step: $index" "$yno_d"
 
         echo "$series" | grep $yno
 
@@ -159,3 +159,4 @@ read_lines(){
 read_lines $CFG_DIR/workflow.txt
 #red "$workflow"
 series1  "$workflow" "$workflow_d"  
+exit
