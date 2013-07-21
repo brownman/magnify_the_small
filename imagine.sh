@@ -18,7 +18,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 reset 
 
 echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
-pids "$0" 
+pids1 "$0" 
 
 
 
