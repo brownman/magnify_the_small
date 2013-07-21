@@ -37,9 +37,16 @@ series1(){
         echo "$series" | grep $yno
 
         case $yno in
+   "update")
+                $tasks_sh update 
+                ;;
   "store_ideas")
                 $tasks_sh store_ideas 
                 ;; 
+  "show")
+                $tasks_sh show 
+                ;; 
+
 
   "scrap_practice")
                 $tasks_sh scrap_practice 
@@ -60,11 +67,7 @@ series1(){
 
                 echo '' 
                 ;;
-            "input_task")
-                title="current task:"
-                $tasks_sh input_line $now_txt "$title" 
-
-                ;;
+         
             "speak")
                 $tasks_sh speak
                 ;;

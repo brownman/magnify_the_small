@@ -31,21 +31,9 @@ cp $file1 /tmp/result.png
 date | awk -F ' ' '{print $4}' > /tmp/date.txt
 
 background=/tmp/result.png
-#text_file=/tmp/missions.txt
-#/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 900 250 600x 15 black true
 
-#text_file=/tmp/ampm.txt
-#/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 400 750 900x 20 black true
 
-#cat $done_txt | head -2 | tail -1 > $points_txt
-#$tpng $background $points_txt 770 440 1300x 383 black true
-#$tpng $background $points_txt 800 460 1300x 393 grey true
-#$tpng $background $points_txt 830 480 1300x 393 red true
-#
 
-$tpng $background $motivation_txt 770 140 500x 43 black true
-$tpng $background $motivation_txt 800 160 500x 43 grey true
-$tpng $background $motivation_txt 830 180 500x 43 orange true
 
 
 text_file=~/tmp/timer2/daily/todo.txt
@@ -56,37 +44,21 @@ text_file=~/tmp/timer2/daily/done.txt
 #gedit $text_file
 $tpng $background $text_file 90 630 1300x 15 white true
 
-
-
 text_file=/tmp/gcalcli_agenda.txt
 $tpng $background $text_file 40 150 600x 13 white true
 
-
-#text_file=~/tmp/ofer/weekly/todo.txt
-#$tpng $background $text_file 600 230 600x 23 black true
-#
-#
-#
 text_file=/tmp/missions.txt
 #tmp/ofer/daily/now.txt
 $tpng $background $text_file 1130 150 600x 13 white true
-#
 
-#
-#text_file=~/tmp/ofer/daily/thanks.txt
-#$tpng $background $text_file 550 790 600x 20 black true
-#
-#text_file=~/tmp/ofer/weekly/rules.txt
-#$tpng $background $text_file 1100 830 500x 23 pink true
-#
-##text_file=~/tmp/ofer/essay.txt
-##/TORRENTS/SCRIPTS/EXEC/txt_to_png.sh $background $text_file 50 30 500x 33 green true
-#
 text_file=/tmp/date.txt
 $tpng $background $text_file 90 1000 400x 70 yellow true
-#
-#
 
+cat $motivations_txt | head -1 > $motivation_txt
+text_file=$motivation_txt
+$tpng $background $motivation_txt 770 140 500x 33 black true
+$tpng $background $motivation_txt 800 160 500x 33 grey true
+$tpng $background $motivation_txt 830 180 500x 33 orange true
 
 
 

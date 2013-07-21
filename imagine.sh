@@ -9,12 +9,14 @@
 #  - learn
 #
 #
-#. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILEadd_line
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 
 . $TIMERTXT_CFG_FILE
 reset 
+
 echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
+pids
 
 eacher(){
     echo1  "eacher() got: 1: $1     2: $2"
@@ -90,8 +92,11 @@ breakout_idea_prison(){
     #asave idea for later and connect earth ?'
 }
 
-
-if [ "$1" = "periodic" ];then
+if [ "$1" = "test" ];then
+    #split1 $STORY_DIR/glossary.txt 
+    echo 'test'
+    #$workflow
+elif [ "$1" = "periodic" ];then
     $SCREENS_DIR/periodic.sh
     #$workflow
 elif [ "$1" = 'menus' ];then
