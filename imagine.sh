@@ -28,7 +28,7 @@ glossary_aday(){
         cyan 'have profit !'
         yellow 'imagine an ideal day !'
         cat $glossary_txt
-        file_guide=$STORY_DIR/glossary.txt
+        file_guide=$MORNING_DIR/glossary.txt
         #http://en.wiktionary.org/wiki/Wiktionary:Frequency_lists
         cat $file_guide
         read 
@@ -91,7 +91,7 @@ if [ "$1" = "test" ];then
 
     echo 'test'
 
-    $tasks_sh one_tip
+$tasks_sh  suspend
 
 elif [ "$1" = "periodic" ];then
     $SCREENS_DIR/periodic.sh

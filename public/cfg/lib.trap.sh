@@ -226,11 +226,13 @@ function exit_handler ()
 
     test -t 1 && tput sgr0 # Reset terminal
 
-    exit "$error_code"
+   # exit "$error_code"
 }
 #trap exit_handler EXIT                                                  # ! ! ! TRAP EXIT ! ! !
 
-trap error_handler_2 ERR                                                           # ! ! ! TRAP ERR ! ! !
+
+trap exit_handler ERR                                                           # ! ! ! TRAP ERR ! ! !
+#trap error_handler_2 ERR                                                           # ! ! ! TRAP ERR ! ! !
 
 
 ###~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##

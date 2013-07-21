@@ -19,13 +19,30 @@ take_photo(){
 
 
 suspend(){
+    local elapsed
     take_photo
-    last_commitment=`cat $done_txt | head -1`
+    last_commitment=`cat $now_txt | head -1`
     echo4 "$last_commitment" 
     echo4 "$msg_suspend" 
+
+    local before=`date +%s`
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-    answer=$( gxmessage -title 'done_txt' -file $done_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
-    update_file  $done_txt "$answer"
+    local after=`date +%s`
+   
+    let elapsed=after-before
+
+    gxmessage -title 'suspend for:'  "$elapsed" $GXMESSAGET
+    
+    if [ $elapsed -lt 20 ];then
+    echo4 'let me sleep for at least 20 seconds' 
+    suspend
+    fi
+    
+    answer=$( gxmessage -title 'now_txt' -file $now_txt  -entrytext 'my commitment is to '  $GXMESSAGE1 )
+    update_file  $now_txt "$answer"
+
+
+
 }
 
 translate_f(){
@@ -195,10 +212,14 @@ motivation_random(){
 
 one_tip(){
     desc='open website ?'
-    command='xdg-open    http://www.mamalisa.com/?t=ec&p=981&c=150'
+    url='http://www.mamalisa.com/?t=ec&p=981&c=150'
+    command="xdg-open $url"
     eacher "$command" "$desc"
-
-
+    
+    desc='open website ?'
+    url='http://mywiki.wooledge.org/BashFAQ'
+    command="xdg-open $url"
+    eacher "$command" "$desc"
 }
 
 show(){
@@ -263,8 +284,12 @@ scrap_practice(){
 
 #
 #export -f suspend1
+
+
 #export -f translate_f 
 #export -f time1 
 #export -f input_line 
 
-eval '$1 "$2" "$3" "$4" "$5" '
+#eval '$1 "$2" "$3" "$4" "$5" '
+#eval echo \${$n}
+$1 "$2" "$3" "$4" "$5" 
