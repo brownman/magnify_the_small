@@ -4,7 +4,8 @@ test_learning() {
 
 assertEqual 1 1 #fine
 }
-test_js(){
+test_debian_package(){
 
-assertEqual 0 1 #fine
+assertEqual 0 1 'all tests are ok'
+
 }

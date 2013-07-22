@@ -1,15 +1,31 @@
-glossary_reminder | choose a word from this list
-show | show text files
-update | update text files
-motivation_random | say 1 quote from quotes file
-scrap_practice | practice scraping websites
-suspend | turn-off computer screen 
+koan|run 1 test
+motivation|increase motivation
+edit|free style
+show|show text files
+suspend|turn-off computer screen 
 #
-Ignore:
-input_task | don't reach here
-edit | edit .txt
-sleep | dalay X seconds
-scrap_practice | practice scraping websites
-project_reminder | next version plans
-store_ideas | backup ideas and preserve a clear mind
+#
 
+
+
+update|update text files
+remind|plan of the day
+
+add_koan|expect greatness
+uml|update workflow diagram
+
+===================================================
+current workflow:
+-----------------
+@startuml
+start
+:run: imagine.sh;
+if (need motivation ?) then (yes)
+  :screen: motivation;
+endif
+   if (need breakout ?) then (yes)
+    :screen: breakout;
+endif
+:menu: schedule/versioning;
+stop
+@enduml

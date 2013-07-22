@@ -7,7 +7,7 @@ Project feature:
 * time prespective
 * task managment
 * ideas blogging
-* increase motivation guidance
+* motivation guidance
 * forign language learning
 
 Integrated services:
