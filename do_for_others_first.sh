@@ -41,12 +41,11 @@ elif [ "$1" = 'help' ];then
     echo -n 'second arg: '
     cyan 'menus OR periodic'
 else
-
-cyan "YOU R GOOD !"
-
 #choose4 $STORY_DIR/exit.txt 
-result=$( exec $PUBLIC_DIR/koan.sh )
-yellow $result
+#result=$( exec $PUBLIC_DIR/koan.sh )
+#yellow $result
+
+    $PUBLIC_DIR/menus.sh
 fi
 
 

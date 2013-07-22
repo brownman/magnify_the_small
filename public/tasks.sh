@@ -24,7 +24,9 @@ take_photo(){
     (xloadimage $pic_file &)
 }
 edit(){
-    ( gedit $DYNAMIC_DIR/*.txt &)
+
+    ( gedit $DYNAMIC_DIR/wish.txt &)
+    ( gedit $DYNAMIC_DIR/breakthrough.txt &)
 }
 remind(){
     msg='there is only 1 way to go'
@@ -81,7 +83,9 @@ update(){
 motivation(){
     choose5 $STATIC_DIR/reminder.txt
     choose4 $STATIC_DIR/motivations.txt
-    choose4 $DYNAMIC_DIR/glossary.txt
+
+    choose4 $DYNAMIC_DIR/motivation/glossary.txt
+    choose4 $DYNAMIC_DIR/wish.txt
     
     #choose4 $quotes_txt
     #one_tip
