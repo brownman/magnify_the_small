@@ -1,19 +1,13 @@
-koan|run 1 test
 motivation|increase motivation
 edit|free style
-show|show text files
 suspend|turn-off computer screen 
 #
-#
-
-
-
+koan|run 1 test
+show|show text files
 update|update text files
 remind|plan of the day
-
 add_koan|expect greatness
 uml|update workflow diagram
-
 ===================================================
 current workflow:
 -----------------
@@ -29,3 +23,9 @@ endif
 :menu: schedule/versioning;
 stop
 @enduml
+=====================================================
+conditions:
+------------
+Q: must do step:X 
+A: update mini-steps OR suspend ?
+

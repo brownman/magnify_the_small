@@ -22,11 +22,12 @@ take_photo(){
     ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file
     echo4 "$last_camera_after" 
     (xloadimage $pic_file &)
+    (xloadimage $uml_pic &)
 }
 edit(){
-
-    ( gedit $DYNAMIC_DIR/wish.txt &)
-    ( gedit $DYNAMIC_DIR/breakthrough.txt &)
+    ( gedit $DYNAMIC_DIR/wish_txt &)
+    ( gedit $DYNAMIC_DIR/learn/questions_txt &)
+    ( gedit $DYNAMIC_DIR/day/plan.txt &)
 }
 remind(){
     msg='there is only 1 way to go'
@@ -38,13 +39,16 @@ remind(){
 suspend(){
     #touch $now_txt
     local elapsed
-    #take_photo
+    take_photo
     #last_commitment=`cat $now_txt | head -1`
     #echo4 "$last_commitment" 
     #echo4 "$msg_suspend" 
 
+    choose5 $DYNAMIC_DIR/motivation/glossary.txt
     local before=`date +%s`
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+
+    choose4 $DYNAMIC_DIR/wish.txt
 
     #. $TIMERTXT_CFG_FILE
     local after=`date +%s`
@@ -81,10 +85,10 @@ update(){
 
 
 motivation(){
-    choose5 $STATIC_DIR/reminder.txt
-    choose4 $STATIC_DIR/motivations.txt
+    #choose5 $STATIC_DIR/reminder.txt
+    #choose4 $STATIC_DIR/motivations.txt
 
-    choose4 $DYNAMIC_DIR/motivation/glossary.txt
+    #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     choose4 $DYNAMIC_DIR/wish.txt
     
     #choose4 $quotes_txt
