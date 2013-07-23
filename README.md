@@ -35,6 +35,7 @@ Integrated services:
 
 Personal goals
 --------------------
+code
 - morning:
                         set daily goals
 - statistics:
@@ -66,7 +67,6 @@ Personal goals
                                              protect folder: 'story/dynamic'
         - story:
             permission:     static\dynamic
-                            
             desc: edit text files:
                         questions.txt
                         plan.txt
@@ -88,7 +88,6 @@ Personal goals
         - menus:
         - screens:
 
-                            
 
 
 project workflow:
