@@ -2,19 +2,6 @@ Quote:
 ----------
 "Magnify The Small" (Wayne Dyer)
 
-Disclaimer:
-----------------
-make the word nicer - yes, you!
-share your ideas ! 
-expose your weakness - but be funny!
-wake up early in the morning and do something - imagine/pretend it's for the benefits of others/next generations
-be sad 
-tell the world
-cry in words
-share your lonelyness
-be alittle happier - one step/tear at a time
-give others a reason/hope to be happy
-
 
 
 Project features:
