@@ -35,7 +35,6 @@ Integrated services:
 
 Personal goals
 --------------------
-code
 - morning:
                         set daily goals
 - statistics:
@@ -51,7 +50,8 @@ code
 - profit:
                          learn forign languages
 
-- directory structure:
+directory structure:
+----------------------
         - configuration:
             desc:           A user settings zone
             setup:
