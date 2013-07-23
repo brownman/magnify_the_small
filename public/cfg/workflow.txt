@@ -1,15 +1,15 @@
-motivation|increase motivation
-edit|free style
 suspend|turn-off computer screen 
 #
+motivation|increase motivation
+edit|free style
 koan|run 1 test
 show|show text files
 update|update text files
 remind|plan of the day
 add_koan|expect greatness
 uml|update workflow diagram
-===================================================
-current workflow:
+====================old: ===============================
+next workflow:
 -----------------
 @startuml
 start
@@ -23,9 +23,27 @@ endif
 :menu: schedule/versioning;
 stop
 @enduml
-=====================================================
-conditions:
-------------
-Q: must do step:X 
-A: update mini-steps OR suspend ?
+=====================today's: ==============================
+current workflow:
+@startuml
+start
+:run: imagine.sh;
+:suspend;
+stop
+@enduml
+===================================================
+free speech:
+1. time:
+    every X seconds:
+        run imagine.sh 
+                     workflow -> suspend
+2. option: 
+    update workflow to add more tasks?
+3. plugins:
+        - listen
+            listen to mp3 to learn a new language
+        - record
+            record self voice - to plan next task - and break to mini-tasks
+        - report
+            fill up a quiz - update the blog - for statistical use
 
