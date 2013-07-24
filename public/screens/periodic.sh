@@ -28,7 +28,7 @@ read_lines(){
             #red "workflow_d: $workflow_d"
             #$tasks_sh "$command"
 
-            $tasks_sh eacher "$command" "$desc"
+             exec $tasks_sh act "$command" "$desc"
 
 
         fi
@@ -43,6 +43,5 @@ read_lines $CFG_DIR/workflow.txt
 #series1  "$workflow" "$workflow_d"  
 #read_lines $CFG_DIR/url.txt
 #series1  "$workflow" "$workflow_d"  true
-exit
 
 

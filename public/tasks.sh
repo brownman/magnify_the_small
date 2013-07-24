@@ -16,14 +16,7 @@ koan(){
     ( bash -c $KOANS_DIR/meditate.sh &)
 }
 
-take_photo(){
-    echo4 "$last_camera_before" 
-    pic_file=$(echo ~/pictures/webcam-$(date +%m_%d_%Y_%H_%M).jpeg)
-    ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 $pic_file
-    echo4 "$last_camera_after" 
-    (xloadimage $pic_file &)
-    (xloadimage $uml_pic &)
-}
+
 edit(){
     ( gedit $DYNAMIC_DIR/wish_txt &)
     ( gedit $DYNAMIC_DIR/learn/questions_txt &)
@@ -138,6 +131,12 @@ delete_files(){
 }
 
 
+wish(){
+echo -n 'to be implemented: '
+blue "$1"
+}
+
+
 scrap_practice(){
     cyan "idea for practive scraping"
     local title='scraping idea ?'
@@ -151,6 +150,9 @@ scrap_practice(){
     done
 }
 
-
-
-eval $1 '"$2" "$3"'
+act(){
+    yellow "act() got: 1: $1 | 2: $2 | 3: $3"
+#eval '$1 "$2" "$3"'
+#eacher "$1"
+}
+eval "$1" '"$2" "$3"'

@@ -3,5 +3,10 @@
 # fix comptability: gui or non gui 
 # 
 
+. $TIMERTXT_CFG_FILE
 
-echo  "$@"
+red  "gxmessage(): $@"
+
+
+
+
