@@ -66,14 +66,19 @@ directory structure:
 
         - plugin system:
             desc:           A community-interest zone
-            examples:
+            add: task / screen / menu
+            tasks examples:
                             - record self voice:        set up a new target 
                             - post a post to your blog: containing a filled up form
                             - record a screencast:      
                                                         share a life's episode  
                                                         publish your intelligence/funny/creativity
-        - menus:
-        - screens:
+            menus examples:
+                            - schedules menu:
+                                                        fetch google calendar/tasks
+                                                        
+
+
 
 
 
