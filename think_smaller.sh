@@ -25,9 +25,9 @@ yellow $str
 
 if [ "$1" = "test" ];then
     echo 'test'
-    $tasks_sh  suspend
+    $tasks_sh "$2" "$3" 
 elif [ "$1" = "periodic" ];then
-    pids1 "$0" 
+    #pids1 "$0" 
     $SCREENS_DIR/periodic.sh
 elif [ "$1" = 'menus' ];then
     $PUBLIC_DIR/menus.sh
@@ -35,7 +35,7 @@ else #lazy loading
     cyan 'DO FOR OTHERS IDEA ?'
     read answer
     if  [ "$answer" != '' ];then
-        echo "$answer" >> others.txt 
+        echo "$answer" >> $DYNAMIC_DIR/day/others.txt 
     else
         $tasks_sh suspend
     fi
