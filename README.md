@@ -90,8 +90,8 @@ project workflow:
 videos/a life episode
 ---------------
 
-[ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
-[ 25-7-13 plugin: translation: choose random line from motivation.txt and say it to many languages ](http://ascii.io/a/4337).
+- [ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
+- [ 25-7-13 plugin: translation: choose random line from motivation.txt and say it to many languages ](http://ascii.io/a/4337).
 
 
 
