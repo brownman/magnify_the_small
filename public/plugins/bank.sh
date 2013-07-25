@@ -1,6 +1,7 @@
 #!/bin/bash
 # about file:
-# fast update for txt files
+# plugin:
+# update .txt files faser
 
 
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg

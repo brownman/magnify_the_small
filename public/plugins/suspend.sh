@@ -1,38 +1,25 @@
 #!/bin/bash
 # about file:
-# collection of system tasks
-# no gui here - remove gxmessage 
-# 
+# plugin:        suspend
+# description:   suspend the computer + limit powering-on to X seconds
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
-
 suspend(){
-    #touch $now_txt
-    local elapsed
-    #take_photo
-    #last_commitment=`cat $now_txt | head -1`
-    #echo4 "$last_commitment" 
-    #echo4 "$msg_suspend" 
-
-    #choose5 $DYNAMIC_DIR/motivation/glossary.txt
+    local elapsed=0
     local before=`date +%s`
+    local timeout=10
     echo -n "the timeout is:"
-    cyan "$TIMEOUT1"
+    cyan "$timeout"
     sleep1 5
     dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-
-    #choose4 $DYNAMIC_DIR/wish.txt
-
-    #. $TIMERTXT_CFG_FILE
     local after=`date +%s`
-
     let elapsed=after-before
-
-    #gxmessage -title 'suspend for:'  "$elapsed" $GXMESSAGET
-
-    if [[ $elapsed -lt $TIMEOUT1 ]];then
-        echo "let me sleep for at least $TIMEOUT1 seconds"
+    echo "slept for: $elapsed"
+    if [[ $elapsed -lt $timeout ]];then
+        echo "let me sleep for at least $timeout seconds"
         suspend
+    else
+        green 'get awake'
     fi
 }
 

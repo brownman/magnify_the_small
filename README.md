@@ -66,7 +66,7 @@ directory structure:
 
         - plugin system:
             desc:           A community-interest zone
-            add: task / screen / menu
+            add: task / menu
             tasks examples:
                             - record self voice:        set up a new target 
                             - post a post to your blog: containing a filled up form
@@ -89,6 +89,9 @@ project workflow:
 
 videos/a life episode
 ---------------
+
 [ 11-7-13 imagine.sh - break task to mini-tasks ](http://ascii.io/a/4113).
+[ 25-7-13 plugin: translation: choose random line from motivation.txt and say it to many languages ](http://ascii.io/a/4337).
+
 
 

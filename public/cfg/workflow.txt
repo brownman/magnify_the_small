@@ -1,3 +1,5 @@
+suspend|turn-off computer screen 
+#
 motivation|increase motivation
 wish|record a timer cycle
 wish|send report to the blog
@@ -5,7 +7,7 @@ wish|long-term planning
 wish|you are here picture map
 wish|command solver - ask something as a koan
 #
-suspend|turn-off computer screen 
+
 edit|free style
 koan|run 1 test
 show|show text files

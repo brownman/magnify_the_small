@@ -29,33 +29,6 @@ remind(){
 
 }
 
-suspend(){
-    #touch $now_txt
-    local elapsed
-    take_photo
-    #last_commitment=`cat $now_txt | head -1`
-    #echo4 "$last_commitment" 
-    #echo4 "$msg_suspend" 
-
-    choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    local before=`date +%s`
-    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
-
-    choose4 $DYNAMIC_DIR/wish.txt
-
-    #. $TIMERTXT_CFG_FILE
-    local after=`date +%s`
-
-    let elapsed=after-before
-
-    gxmessage -title 'suspend for:'  "$elapsed" $GXMESSAGET
-
-    if [ $elapsed -lt $TIMEOUT1 ];then
-        echo4 "let me sleep for at least $TIMEOUT1 seconds"
-        suspend
-    fi
-}
-
 time1(){
     date1="$(date +%H:%M)"
     ( gxmessage  -buttons "_$last_task" "time: $date1"  -sticky -ontop -font "serif bold 74" -timeout $TIMEOUT1 &)
@@ -82,7 +55,7 @@ motivation(){
     #choose4 $STATIC_DIR/motivations.txt
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
-    choose4 $DYNAMIC_DIR/wish.txt
+    choose5 $DYNAMIC_DIR/motivation/glossary.txt
     
     #choose4 $quotes_txt
     #one_tip
@@ -155,4 +128,17 @@ act(){
 #eval '$1 "$2" "$3"'
 #eacher "$1"
 }
+suspend(){
+$PLUGINS_DIR/suspend.sh
+}
+is_valid1(){
+file="$1"
+is_valid "$file"
+yellow "$?"
+}
+
+
+
+
+
 eval "$1" '"$2" "$3"'

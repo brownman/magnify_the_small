@@ -1,10 +1,12 @@
 # about file:
-# run task in circle
+# run circle of tasks: 
+# read: workflow.txt
+# execute: tasks.sh $workflow
 #
-. $TIMERTXT_CFG_FILE
-#update_lang it
 
-source $tasks_sh
+export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
+. $TIMERTXT_CFG_FILE
+#source $tasks_sh
 workflow=''
 workflow_d=''
 read_lines(){
@@ -28,7 +30,8 @@ read_lines(){
             #red "workflow_d: $workflow_d"
             #$tasks_sh "$command"
 
-             exec $tasks_sh act "$command" "$desc"
+             #exec $tasks_sh act "$command" "$desc"
+             exec $tasks_sh $command "$desc"
 
 
         fi
