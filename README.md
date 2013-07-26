@@ -95,7 +95,7 @@ videos/a life episode
 
 
 
-today's effectivity exam:
+daily effectivity report:
 ---------------------
 (task)(est|command)(took|grad|idea)
 
@@ -104,18 +104,31 @@ today's effectivity exam:
     - run: fetch.sh , mail.sh
         - 1:15 hour (12:40 - 13:55) 
         - low 
-        - run these 2 script + publish results to readme.md
+        - update readme.md
 
-- task: checkout linkedin - find phone of N.
+- task: find the best job 
     - est:  5 minutes
-    - commands: open linkedin
+    - run: jobs.sh
+        - 20 minutes (14:44 - 15:07) 
+        - middle 
+        - add links to jobs.sh
+
+basic tasks:
+-----------
+- edit readme
+- update tasks/schedules + email report
+- find the best job
 
 
-Commitments: do these tasks today:
+extra tasks:
 -----------------------------------
 * talk with N.
-* buy Laptop for K. mother
-* silicon glue - mother
-* pool
-* f. time
+
+* evening - silicon glue - mother
+* 17:30 - pool
+* 16:30 - f. time
+
+advice
+------
+* buy Laptop for K. mother --> update screen/shopping.sh
 

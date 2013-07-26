@@ -27,17 +27,15 @@ gedit $DYNAMIC_DIR/wish.txt
 fi
 
 
+cyan 'SCREEN LIST: '
+ls -1 $SCREENS_DIR/*.sh
 
-white ' run options.sh ?'
+
+yellow 'ENTER SELECTED:'
 read answer
-if  [ "$answer" = 'y' ];then
-$PUBLIC_DIR/options.sh
-else
-
-echo 'do it manualy !'
+if [ "$answer" != '' ];then
+$SCREENS_DIR/${answer}.sh
 fi
-
-
 
 
 
