@@ -111,10 +111,11 @@ today's effectivity exam:
     - commands: open linkedin
 
 
-- Commitments: do these tasks today:
-- 1 talk with N.
-- 2 buy Laptop for K. mother
-- 3 silicon glue - mother
-- 4 pool
-- 5 f. time
+Commitments: do these tasks today:
+-----------------------------------
+* talk with N.
+* buy Laptop for K. mother
+* silicon glue - mother
+* pool
+* f. time
 
