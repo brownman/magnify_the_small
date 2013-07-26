@@ -1,4 +1,5 @@
-suspend|turn-off computer screen 
+suspend|turn-off computer screen
+motivation|increase motivation
 #
 motivation|increase motivation
 wish|record a timer cycle

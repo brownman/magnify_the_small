@@ -95,3 +95,24 @@ videos/a life episode
 
 
 
+today's effectivity exam:
+---------------------
+(task)(est|command)(took|grad|idea)
+
+- task: updating tasks/schedule and send to email
+    - 10 minutes
+    - run: fetch.sh , mail.sh
+        - 1:15 hour (12:40 - 13:55) 
+        - low 
+        - run these 2 script + publish results to readme.md
+
+- task: checkout linkedin - find phone of N.
+    - est:  5 minutes
+    - commands: open linkedin
+
+
+- Commitments: do these tasks today:
+-1 talk with N.
+-2 buy Laptop for K. mother
+-3 silicon glue - mother
+
