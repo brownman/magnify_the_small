@@ -112,7 +112,9 @@ today's effectivity exam:
 
 
 - Commitments: do these tasks today:
--1 talk with N.
--2 buy Laptop for K. mother
--3 silicon glue - mother
+- 1 talk with N.
+- 2 buy Laptop for K. mother
+- 3 silicon glue - mother
+- 4 pool
+- 5 f. time
 
