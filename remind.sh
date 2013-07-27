@@ -20,21 +20,11 @@ echo2 "imagine.sh got:  1: $1 2: $2 3: $3"
 str=$(higher "$1:")
 yellow $str
 
-white ' priorities reminder '
+white 'update report ? '
 read answer
 if  [ "$answer" = 'y' ];then
-gedit $DYNAMIC_DIR/wish.txt 
-fi
-
-
-cyan 'SCREEN LIST: '
-ls -1 $SCREENS_DIR/*.sh
-
-
-yellow 'ENTER SELECTED:'
-read answer
-if [ "$answer" != '' ];then
-$SCREENS_DIR/${answer}.sh
+gedit $DYNAMIC_DIR/wish.txt & 
+gedit $DYNAMIC_DIR/report.txt &
 fi
 
 

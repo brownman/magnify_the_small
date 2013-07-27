@@ -263,7 +263,7 @@ motivation(){
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     choose5 $DYNAMIC_DIR/motivation/glossary.txt
     
-    #choose4 $quotes_txt
+    choose4 $CFG_DIR/quotes.txt
     #one_tip
 }
 

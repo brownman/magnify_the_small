@@ -55,11 +55,15 @@ motivation(){
     #choose4 $STATIC_DIR/motivations.txt
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
-    choose5 $DYNAMIC_DIR/motivation/glossary.txt
+    #choose5 $DYNAMIC_DIR/motivation/glossary.txt
+    $PLUGINS_DIR/translation.sh
     
     #choose4 $quotes_txt
     #one_tip
 }
+
+
+
 
 
 
@@ -138,6 +142,9 @@ yellow "$?"
 }
 
 
+report(){
+echo 'update google blogger with the score for this cycle'
+}
 
 
 

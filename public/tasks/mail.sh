@@ -7,6 +7,7 @@
 
 
 
+export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 echo 'mail.sh: make me effective!'
@@ -58,30 +59,36 @@ local str=$( echo $1 | sed 's/_txt//g' )
     mpack -s "my $str" "$x" "$MAIL1 , $MAIL2" 
 
 }
+send2(){
+    file=$1
+    mpack -s "my report" $file "$MAIL1 , $MAIL2" 
+}
+
+#
+#photo1
+#str=$( gxmessage -title 'press no for cancel the sending to Kuka' -file  "$missions_txt" -timeout 10 -entry )
+#if [[ $str != 'no'  ]]
+#then
+#
+#
+#    echo 'sleep 10 seconds !'
+#    sleep 10s
+#
+##
+#send1 pic_file
+##send1 schedule_txt
+###send1 missions_txt
+##send1 timing_txt 
+##send1 todo_txt
+##send1 done_txt
+##send1 wallpaper_file
+##send1 mind_map_png
+###send1 report_txt
+#
+#else
+#    notify-send 'not sending !'
+#
+#fi
 
 
-photo1
-str=$( gxmessage -title 'press no for cancel the sending to Kuka' -file  "$missions_txt" -timeout 10 -entry )
-if [[ $str != 'no'  ]]
-then
-
-
-    echo 'sleep 10 seconds !'
-    sleep 10s
-
-
-send1 pic_file
-send1 schedule_txt
-#send1 missions_txt
-send1 timing_txt 
-send1 todo_txt
-send1 done_txt
-send1 wallpaper_file
-send1 mind_map_png
-#send1 report_txt
-else
-    notify-send 'not sending !'
-
-fi
-
-
+send2 $DYNAMIC_DIR/report.txt

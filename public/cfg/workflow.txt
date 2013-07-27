@@ -1,5 +1,7 @@
 suspend|turn-off computer screen
+edit|free style
 motivation|increase motivation
+report|fill up a form and update google blogger
 #
 motivation|increase motivation
 wish|record a timer cycle
