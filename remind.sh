@@ -27,5 +27,15 @@ gedit $DYNAMIC_DIR/wish.txt &
 gedit $DYNAMIC_DIR/report.txt &
 fi
 
+white 'post to blogger/email?'
+read answer
+if  [ "$answer" = 'y' ];then
+$TASKS_DIR/blogger.sh
+fi
 
+white 'edit schedules ?'
+read answer
+if  [ "$answer" = 'y' ];then
+echo 'edit.sh'
+fi
 

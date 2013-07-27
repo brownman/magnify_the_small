@@ -16,7 +16,6 @@ cat $file
 yellow 'send to blogger ?'
 read answer
 if [ "$answer" = y ];then
-
 google blogger post $file 
 fi
 
