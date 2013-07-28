@@ -45,7 +45,7 @@ xloadimage $mind_map_png &
 
 send1(){
 
-    echo "send() got: $1"
+    echo "send1() got: $1"
     local y=\$"$1"   # Name of variable (not value!).
     #echo $y    # $Junk
 
@@ -60,6 +60,8 @@ local str=$( echo $1 | sed 's/_txt//g' )
 
 }
 send2(){
+
+    echo "send2() got: $1"
     file=$1
     mpack -s "my report" $file "$MAIL1 , $MAIL2" 
 }
@@ -75,7 +77,7 @@ send2(){
 #    sleep 10s
 #
 ##
-#send1 pic_file
+
 ##send1 schedule_txt
 ###send1 missions_txt
 ##send1 timing_txt 
@@ -91,4 +93,6 @@ send2(){
 #fi
 
 
-send2 $DYNAMIC_DIR/report.txt
+send2 $TODAY_DIR/txt/report.txt
+photo1
+send1 pic_file

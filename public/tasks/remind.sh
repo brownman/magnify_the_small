@@ -39,3 +39,19 @@ if  [ "$answer" = 'y' ];then
 echo 'edit.sh'
 fi
 
+white 'find a job ?'
+read answer
+if  [ "$answer" = 'y' ];then
+echo 'edit.sh'
+$TASKS_DIR/job.sh
+fi
+
+white 'answer last question ?'
+read answer
+if  [ "$answer" = 'y' ];then
+echo 'which is the last bash script to learn from ?'
+cd $STORY_DIR/collaboration
+pwd
+
+fi
+

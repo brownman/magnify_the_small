@@ -4,6 +4,8 @@
 # description: translate 1 line of text to many languages by choice
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
+from="$2" #file or sentance
+method="$1" #sentance, line, lines
 
 play1(){
 
@@ -48,7 +50,7 @@ play1(){
 
 translate_f(){
 
-################################# result: txt 
+    ################################# result: txt 
     echo2 "translate_f() got:"
     echo2 "input: $1 | lang: $2"
 
@@ -97,139 +99,139 @@ translate_f(){
     fi
 
     printing1 "$input_ws" "$file_txt" "$lang"
-################################# result: mp3 
+    ################################# result: mp3 
 
 
-        output=`cat $file_txt | head -1`
-        #blue "fetch for: $output"
-        output_wsp=$(echo "$output"|sed 's/ /+/g');
-        output_ws=$(echo "$output"|sed 's/ /_/g');
-        is_valid $file_mp3
-        result=$?
-        if [ $result -eq 0 ];then
-            echo2 'fetch sound'
-            if [ "$lang" = 'tl' ]
-            then
-                echo1 $output
-                echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
+    output=`cat $file_txt | head -1`
+    #blue "fetch for: $output"
+    output_wsp=$(echo "$output"|sed 's/ /+/g');
+    output_ws=$(echo "$output"|sed 's/ /_/g');
+    is_valid $file_mp3
+    result=$?
+    if [ $result -eq 0 ];then
+        echo2 'fetch sound'
+        if [ "$lang" = 'tl' ]
+        then
+            echo1 $output
+            echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
+        else
+            if [ "$silent_fetch" = true ];then
+                echo2 'play this mp3 on next run'
+                ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 &) 
             else
-                if [ "$silent_fetch" = true ];then
-                    echo2 'play this mp3 on next run'
-                    ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 &) 
-                else
-                    wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 
-                    play1  "$file_mp3" "$lang"
-                fi
+                wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 
+                play1  "$file_mp3" "$lang"
             fi
-            is_valid $file_mp3
-        else
-            echo2 "cache copy"
-            play1  "$file_mp3" "$lang"
         fi
+        is_valid $file_mp3
+    else
+        echo2 "cache copy"
+        play1  "$file_mp3" "$lang"
+    fi
 
-    }
-
-
-
-
-    choose5(){
-        echo2 "choose5() got: $1"
-
-        local file=$1
-        local files1=$(ls  $file 2> /dev/null )
-        if [ ! "$files1" ];then
-            error_handler 
-        fi
-
-
-        local str=`cat $file | sort --random-sort | head -n 1`
-
-        echo -n "choosen line: "
-        yellow "$str"
-        echo5 "$str" 
-    }
-
-
-    choose4(){
-        echo2 "choose4() got: $1"
-
-        local file=$1
-        local files1=$(ls  $file 2> /dev/null )
-        if [ ! "$files1" ];then
-            error_handler 
-        fi
-
-        local str=`cat $file | sort --random-sort | head -n 1`
-
-        echo -n "choosen line: "
-        yellow "$str"
-        echo4 "$str" 
-    }
-  echo4(){
-        echo2 "echo4() got: $1"
-        #sleep1 3
-        if [ "$1" = '' ];then
-            error_handler 
-        fi
-        #split2 "$1"
-
-        local lang1=$LANG
-        echo2 "lang1: $lang1"
-        if [ "$lang1" = '' ];then
-            random1 4
-            local num=$?
-            #red "num: $num"
-            lang0="${arr1[$num]}"
-            lang1=$(lower $lang0)
-        fi
+}
 
 
 
-        #red "lang: $lang1"
-        #echo "playing is on? $PLAYING_ON"
-        local str="$1"
-        yellow "$str"
 
-        translate_f  "$str" "en"
-        translate_f  "$str" "$lang1"
+choose5(){
+    echo2 "choose5() got: $1"
 
-    }
-    echo5(){
-
-        #sleep1 3
-
-        #count words in sentence - if lower then 4 - translate_f also to: ar, hi
-
-        local str="$1"
+    local file=$1
+    local files1=$(ls  $file 2> /dev/null )
+    if [ ! "$files1" ];then
+        error_handler 
+    fi
 
 
-        if [ "$str" = '' ];then
+    local str=`cat $file | sort --random-sort | head -n 1`
 
-            error_handler
-            exiting
-        else
-
-            num=`echo "$str" | wc -w`
-
+    echo -n "choosen line: "
+    yellow "$str"
+    echo5 "$str" 
+}
 
 
-            translate_f  "$str" en 
-            #echo "$str" | flite
+choose4(){
+    echo2 "choose4() got: $1"
+
+    local file=$1
+    local files1=$(ls  $file 2> /dev/null )
+    if [ ! "$files1" ];then
+        error_handler 
+    fi
+
+    local str=`cat $file | sort --random-sort | head -n 1`
+
+    echo -n "choosen line: "
+    yellow "$str"
+    echo4 "$str" 
+}
+echo4(){
+    echo2 "echo4() got: $1"
+    #sleep1 3
+    if [ "$1" = '' ];then
+        error_handler 
+    fi
+    #split2 "$1"
+
+    local lang1=$LANG
+    echo2 "lang1: $lang1"
+    if [ "$lang1" = '' ];then
+        random1 4
+        local num=$?
+        #red "num: $num"
+        lang0="${arr1[$num]}"
+        lang1=$(lower $lang0)
+    fi
+
+
+
+    #red "lang: $lang1"
+    #echo "playing is on? $PLAYING_ON"
+    local str="$1"
+    yellow "$str"
+
+    translate_f  "$str" "en"
+    translate_f  "$str" "$lang1"
+
+}
+echo5(){
+
+    #sleep1 3
+
+    #count words in sentence - if lower then 4 - translate_f also to: ar, hi
+
+    local str="$1"
+
+
+    if [ "$str" = '' ];then
+
+        error_handler
+        exiting
+    else
+
+        num=`echo "$str" | wc -w`
+
+
+
+        translate_f  "$str" en 
+        #echo "$str" | flite
+        sleep1 2
+        translate_f  "$str" it 
+        sleep1 2
+        translate_f  "$str" ru 
+        if [ $num -lt 4 ];then
             sleep1 2
-            translate_f  "$str" it 
+            translate_f  "$str" hi 
             sleep1 2
-            translate_f  "$str" ru 
-            if [ $num -lt 4 ];then
-                sleep1 2
-                translate_f  "$str" hi 
-                sleep1 2
-                translate_f  "$str" ar 
-                sleep1 2
-                translate_f  "$str" tl 
-            fi
-
+            translate_f  "$str" ar 
+            sleep1 2
+            translate_f  "$str" tl 
         fi
-    }
+
+    fi
+}
 
 printing1(){
     local input_ws="$1" 
@@ -256,17 +258,32 @@ printing1(){
 }
 
 
-motivation(){
+one_line(){
+    local file="$1"
     #choose5 $STATIC_DIR/reminder.txt
     #choose4 $STATIC_DIR/motivations.txt
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
-    choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    
-    choose4 $CFG_DIR/quotes.txt
+    #choose5 $DYNAMIC_DIR/motivation/glossary.txt
+    if [ "$file" != '' ];then
+        choose5 "$file"
+    else
+        choose5 $CFG_DIR/quotes.txt
+    fi
+
     #one_tip
 }
 
 
 
-motivation
+#motivation "$file"
+if [ "$method" = 'sentence' ];then
+   echo5 "$from" 
+elif [ "$method" = 'line' ];then
+   one_line "$from"
+elif [ "$method" = 'lines' ];then
+   all_lines "$from"
+else
+    echo -n   "unknown method:"
+    red $2
+fi

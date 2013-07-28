@@ -5,7 +5,7 @@
 
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
-file=$DYNAMIC_DIR/report.txt
+file=$TODAY_DIR/txt/report.txt
 
 yellow "record your mission being done:"
 gedit $file
@@ -20,5 +20,12 @@ google blogger post $file
 fi
 
 
+yellow 'send as email ?'
+read answer
+if [ "$answer" = y ];then
 
+$TASKS_DIR/mail.sh
+$TASKS_DIR/mail2.sh
+
+fi
 

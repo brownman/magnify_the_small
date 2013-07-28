@@ -8,12 +8,5 @@
 *.*.swo
 *.swo
 .swo
-.rvmrc
-bash_it.sh
-install.sh
-ignore
 private
-public/tmp
-public/story/dynamic
-imagine.txt
-remind.txt
+today
