@@ -2,16 +2,6 @@ Quote:
 ----------
 "Magnify The Small" (Wayne Dyer)
 
-
-
-Project features:
------------------
-* time prespective
-* task managment
-* ideas blogging
-* motivation guidance
-* forign language learning
-
 Integrated services:
 --------------------
 - Google Tasks
@@ -20,65 +10,37 @@ Integrated services:
 - Google Translate
 - Google Text To Speech Engine
 
-Personal goals
+Project features:
+-----------------
+* time prespective
+* task managment
+* ideas blogging
+* motivation guidance
+* forign language learning
+* monitoring: difficulties,time consumers
+* use a timer: to run series of tasks
+
+usage:
 --------------------
-- morning:
-                        set daily goals
-- statistics:
-                        time prespective: 
-                        every hour:
-                        report progress to a blog 
-- monitoring:
-                        breakthrough time consumers
-- expose all edited files
-- timer:
-                         periodicly run:
-                         $workflow (a series of editable tasks)
-- profit:
-                         learn forign languages
+- morning:              post to blog: today's master-plan 
+- every 5 min:          update your doings 
+- every 1 hour:         fill-up the report + post to blog
 
 directory structure:
 ----------------------
-        - configuration:
-            desc:           A user settings zone
-            setup:
-                            timer:           set time period for execution
-                            workflow:        compose a list of tasks to run one after another on a timer's cycle
-                            translation:     on/off
-                            translate to:    set forign languages
-            optional:
-                            uml:             setup a conditional workflow
-                            permissions:   
-                                             update .gitignore file and share your world with others
-                                  currently:
-                                             protect folder: 'story/dynamic'
-        - story:
-            permission:     static\dynamic
-            desc: edit text files:
-                        questions.txt
-                        plan.txt
-                        ideas.txt
+config/timer.cfg    | user set preferences
+conifg/workflow.txt | user set list of tasks to execute one after another 
 
-        - guidance:
-            desc: answer a list of questions interactively:
-                        report.txt
-                        commitment.txt
+today/txt/report.txt      | fill-up this form | every 1 hour
+today/txt/motivations.txt | list of nice quotes/sentences for cheering up
 
-        - plugin system:
-            desc:           A community-interest zone
-            add: task / menu
-            tasks examples:
-                            - record self voice:        set up a new target 
-                            - post a post to your blog: containing a filled up form
-                            - record a screencast:      
-                                                        share a life's episode  
-                                                        publish your intelligence/funny/creativity
-            menus examples:
-                            - schedules menu:
-                                                        fetch google calendar/tasks
-                                                        
+public/plugins/suspend.sh     | plugin example: suspend the computer
+public/plugins/translation.sh | plugin example: translate a sentance to a choosen forign-languages
 
+public/stories/guidance/ | a motivation guidance
 
+automatic.sh    | every 5 min - run a list of tasks
+manual.sh       | every 1 hour - run a list of tasks
 
 
 
@@ -95,40 +57,4 @@ videos/a life episode
 
 
 
-daily effectivity report:
----------------------
-(task)(est|command)(took|grad|idea)
-
-- task: updating tasks/schedule and send to email
-    - 10 minutes
-    - run: fetch.sh , mail.sh
-        - 1:15 hour (12:40 - 13:55) 
-        - low 
-        - update readme.md
-
-- task: find the best job 
-    - est:  5 minutes
-    - run: jobs.sh
-        - 20 minutes (14:44 - 15:07) 
-        - middle 
-        - add links to jobs.sh
-
-basic tasks:
------------
-- edit readme
-- update tasks/schedules + email report
-- find the best job
-
-
-extra tasks:
------------------------------------
-* talk with N.
-
-* evening - silicon glue - mother
-* 17:30 - pool
-* 16:30 - f. time
-
-advice
-------
-* buy Laptop for K. mother --> update screen/shopping.sh
 
