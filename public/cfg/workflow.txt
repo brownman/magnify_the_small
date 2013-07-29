@@ -1,9 +1,13 @@
+gui_update_log|update logging file
 suspend|turn-off computer screen
 #
+motivation|increase motivation
 edit|free style
+
+
 report|fill up a form and update google blogger
 
-motivation|increase motivation
+
 wish|record a timer cycle
 wish|send report to the blog
 wish|long-term planning

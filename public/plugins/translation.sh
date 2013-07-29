@@ -6,6 +6,8 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 from="$2" #file or sentance
 method="$1" #sentance, line, lines
+help_options="sentance/ line/ lines"
+
 
 play1(){
 
@@ -285,5 +287,6 @@ elif [ "$method" = 'lines' ];then
    all_lines "$from"
 else
     echo -n   "unknown method:"
-    red $2
+    red $1
+    help1 "$help_options"
 fi

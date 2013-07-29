@@ -5,6 +5,7 @@
 # 
 
 
+export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 
@@ -61,11 +62,23 @@ motivation(){
     #choose4 $quotes_txt
     #one_tip
 }
+gui_update_log(){
+
+    cyan "update:"
+    title="NOW DOING:"
+    file=$TODAY_DIR/txt/log.txt
+    #add_line $file "$title" true #add time note 
+    $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
+    #add time note 
 
 
+}
 
 
-
+#ensure_suspension(){
+#    exec xterm -e $PLUGINS_DIR/ensure_suspension.sh
+#}
+#
 
 show(){
     cyan "show:"

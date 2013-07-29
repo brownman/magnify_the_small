@@ -11,17 +11,18 @@ suspend01(){
     echo -n "the timeout is:"
     cyan "$timeout"
     sleep1 5
-    exec dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
+    echo2 "res:  $res"
     local after=`date +%s`
     let elapsed=after-before
-    echo "slept for: $elapsed"
+    echo -n "slept for: "
+    cyan "$elapsed"
     if [[ $elapsed -lt $timeout ]];then
         echo "let me sleep for at least $timeout seconds"
-
-    sleep1 5
+        sleep1 5
         suspend01
     else
-        green 'get awake'
+        green 'you are free now - act wisely'
     fi
 }
 
