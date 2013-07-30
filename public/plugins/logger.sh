@@ -60,26 +60,40 @@ add_line(){
     local file="$1"
     local title="$2"
     local when="$3"
+    local last_msg='yes, you can'
+    while :;do
+
     answer=$( gxmessage  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
     if [ "$answer" = '' ];then
-        $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt 
-    elif [ "$answer" = 'delete' ];then
+        sleep1 5
+        #$PLUGINS_DIR/translation.sh $last_msg
+        
+        
+        $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/glossary.txt 
+   elif [ "$answer" = 'exit' ];then
+        break;
+    elif [ "$answer" = 'delete1' ];then
        echo '' > $file 
+    elif [ "$answer" = 'remind1' ];then
+     gxmessage  -title "I have time for everything:" -file  "$TODAY_DIR/txt/times.txt" -ontop -timeout 10
     else
-      
-
         if [ "$when" = 'true' ];then
             date1="$(date +%H:%M)"
             str="$date1 - $answer"
         else
             str="$answer"
         fi
+        if [ "$last_msg" != "$answer"];then
+        last_msg="$answer"
         update_file $file "$str"
+        fi
+       
     if [  "$PROFIT" = true ];then
             $PLUGINS_DIR/translation.sh sentence "$answer" 
         fi
     fi
 
+    done
 
 }
 update_file(){

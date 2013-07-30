@@ -7,6 +7,8 @@
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
+
+pids3 $0
 workflow=''
 workflow_d=''
 read_lines(){

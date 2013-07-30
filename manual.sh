@@ -50,13 +50,9 @@ take_guidance(){
 }
 
 publish_report(){
-    #update_report(){
-    #    gedit $DYNAMIC_DIR/report.txt &
-    #}
-    #
+
 
     $TASKS_DIR/blogger.sh
-    # $SCREEN_DIR/mail.sh
 }
 
 suspend(){
@@ -128,6 +124,7 @@ pass_to_enlightment(){
     #eacher1 update_report 'write a report'
 
     eacher1 publish_report 'publish the report'
+    exiting
     eacher1 deepest_fears 'what are your deepest fears ?'
     eacher1 entertainment 'remind of price'
     eacher1 help1 'show goals'
