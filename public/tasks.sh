@@ -57,21 +57,28 @@ motivation(){
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    $PLUGINS_DIR/translation.sh
+    $PLUGINS_DIR/translation.sh $TODAY_DIR/txt/motivations.txt
     
     #choose4 $quotes_txt
     #one_tip
 }
-gui_update_log(){
+update_status(){
+
 
     cyan "update:"
-    title="NOW DOING:"
+    title="3 ROUTES:"
     file=$TODAY_DIR/txt/log.txt
-    #add_line $file "$title" true #add time note 
+  max=10
+for (( c=1; c<=$max; c++ ))
+do
+    echo -n "counter: "
+    cyan "$c of $max"
     $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
-    #add time note 
+done
 
 
+
+#'http://www.cyberciti.biz/faq/bash-for-loop/'
 }
 
 
@@ -159,6 +166,14 @@ report(){
 echo 'update google blogger with the score for this cycle'
 }
 
+
+update_statistics(){
+    gedit $CFG_DIR/workflow.txt &
+}
+
+publish_report(){
+    ( xterm -e "$TASKS_DIR/blogger.sh" &)
+}
 
 
 eval "$1" '"$2" "$3"'

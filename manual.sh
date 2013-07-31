@@ -50,8 +50,6 @@ take_guidance(){
 }
 
 publish_report(){
-
-
     $TASKS_DIR/blogger.sh
 }
 

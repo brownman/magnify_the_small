@@ -23,13 +23,17 @@ read_lines(){
     do
         echo "$line "
         if [ "$line" = '#' ];then
+            $tasks_sh update_statistics &
+            $tasks_sh publish_report &
+            #sleep1 120
             break
         else
             desc=$( echo $line | awk -F '|' '{print $2}' )
             command=$( echo $line | awk -F '|' '{print $1}' )
-             exec $tasks_sh $command "$desc"
+            #exec
+            $tasks_sh $command "$desc"
         fi
-        sleep1 40
+        sleep1 60
     done
 
     sleep1 60

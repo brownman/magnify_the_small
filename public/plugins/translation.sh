@@ -99,7 +99,7 @@ translate_f(){
         echo2 "cache copy"
 
     fi
-
+    
     printing1 "$input_ws" "$file_txt" "$lang"
     ################################# result: mp3 
 

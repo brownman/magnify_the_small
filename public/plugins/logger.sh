@@ -61,17 +61,17 @@ add_line(){
     local title="$2"
     local when="$3"
     local last_msg='yes, you can'
-    while :;do
+    #while :;do
 
     answer=$( gxmessage  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
     if [ "$answer" = '' ];then
-        sleep1 5
+        sleep1 20
         #$PLUGINS_DIR/translation.sh $last_msg
         
         
         $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/glossary.txt 
    elif [ "$answer" = 'exit' ];then
-        break;
+        exit 1
     elif [ "$answer" = 'delete1' ];then
        echo '' > $file 
     elif [ "$answer" = 'remind1' ];then
@@ -93,7 +93,6 @@ add_line(){
         fi
     fi
 
-    done
 
 }
 update_file(){

@@ -1,4 +1,7 @@
-gui_update_log|update logging file
-#ignore:
-suspend|turn-off computer screen
+publish_report|post report to blog
+update_statistics|report on each cycle
+motivation|say something good
+update_status|update logging file
+#
+ignore:
 
