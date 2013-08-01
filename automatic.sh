@@ -6,9 +6,18 @@
 
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
+#eval $PWD/public/cfg/tmp/mute.sh
+#sleep 20
+#exiting
+
+if [ -e /tmp/lock1 ];then
+    red 'file exist: assume proccess is running'
+    exit 1 
+else
+green 'create /tmp/lock1'
+touch /tmp/lock1
 
 
-pids3 $0
 workflow=''
 workflow_d=''
 read_lines(){
@@ -37,11 +46,14 @@ read_lines(){
     done
 
     sleep1 60
-    exec $tasks_sh suspend "regardless workflow"
+    #exec $tasks_sh suspend "regardless workflow"
 }
 read_lines $CFG_DIR/workflow.txt
 #series1  "$workflow" "$workflow_d"  
 #read_lines $CFG_DIR/url.txt
 #series1  "$workflow" "$workflow_d"  true
 
+yellow 'removing /tmp/lock1'
+`rm /tmp/lock1`
 
+fi

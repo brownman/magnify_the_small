@@ -57,7 +57,7 @@ motivation(){
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    $PLUGINS_DIR/translation.sh $TODAY_DIR/txt/motivations.txt
+    $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt
     
     #choose4 $quotes_txt
     #one_tip

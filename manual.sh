@@ -121,8 +121,8 @@ pass_to_enlightment(){
     #family
     #eacher1 update_report 'write a report'
 
-    eacher1 publish_report 'publish the report'
-    exiting
+    #eacher1 publish_report 'publish the report'
+    #exiting
     eacher1 deepest_fears 'what are your deepest fears ?'
     eacher1 entertainment 'remind of price'
     eacher1 help1 'show goals'

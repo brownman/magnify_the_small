@@ -4,6 +4,8 @@
 # description:   suspend the computer + limit powering-on to X seconds
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
+
+
 suspend01(){
     local elapsed=0
     local before=`date +%s`
@@ -26,4 +28,19 @@ suspend01(){
     fi
 }
 
+
+if [ -e /tmp/lock2 ];then
+    red 'file exist: assume proccess is running'
+    exit 1 
+else
+green 'create /tmp/lock2'
+touch /tmp/lock2
+
+
+yellow 'removing /tmp/lock2'
+`rm /tmp/lock2`
+
 suspend01
+fi
+
+
