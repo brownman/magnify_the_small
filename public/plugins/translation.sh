@@ -7,7 +7,10 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 from="$2" #file or sentance
 method="$1" #sentance, line, lines
 help_options="sentance/ line/ lines"
-
+#update configuration: currently localy
+multiple_langs=false #export MULTIPLE_LANGS=true
+target_lang=ru #export LANG=ru
+dirty_log=true #export DIRTY_LOG=true
 
 play1(){
 
@@ -62,6 +65,10 @@ translate_f(){
 
 
     local input="$1" #translate src
+
+ 
+
+
     local input_wsp=$(echo "$input"|sed 's/ /+/g');
     local input_ws=$(echo "$input"|sed 's/ /_/g');
 
@@ -171,14 +178,13 @@ choose4(){
 }
 echo4(){
     echo2 "echo4() got: $1"
-    #sleep1 3
     if [ "$1" = '' ];then
         error_handler 
     fi
-    #split2 "$1"
 
-    local lang1=$LANG
-    echo2 "lang1: $lang1"
+    local lang1="$target_lang"
+    echo2 "translate to: $lang1"
+    
     if [ "$lang1" = '' ];then
         random1 4
         local num=$?
@@ -187,17 +193,19 @@ echo4(){
         lang1=$(lower $lang0)
     fi
 
-
-
-    #red "lang: $lang1"
-    #echo "playing is on? $PLAYING_ON"
     local str="$1"
     yellow "$str"
 
     translate_f  "$str" "en"
-    translate_f  "$str" "$lang1"
 
+    if [ "$dirty_log" = true ];then
+        external_file=$TODAY_DIR/txt/log.txt
+        update_file $external_file "$str"
+    fi
+
+    translate_f  "$str" "$lang1"
 }
+
 echo5(){
 
     #sleep1 3
@@ -267,16 +275,29 @@ one_line(){
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    if [ "$file" != '' ];then
+if [ "$multiple_langs" = true ];then
+        if [ "$file" != '' ];then
         choose5 "$file"
     else
         choose5 $CFG_DIR/quotes.txt
     fi
 
     #one_tip
+else
+    if [ "$file" != '' ];then
+        choose4 "$file"
+    else
+        choose4 $CFG_DIR/quotes.txt
+    fi
+
+    #one_tip
+fi
+
 }
 
-
+all_lines(){
+echo ''
+}
 
 #motivation "$file"
 if [ "$method" = 'sentence' ];then

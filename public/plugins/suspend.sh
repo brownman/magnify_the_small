@@ -2,6 +2,7 @@
 # about file:
 # plugin:        suspend
 # description:   suspend the computer + limit powering-on to X seconds
+# unlock: https://bugs.launchpad.net/ubuntu/+source/dbus/+bug/811441
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
@@ -37,10 +38,11 @@ green 'create /tmp/lock2'
 touch /tmp/lock2
 
 
-yellow 'removing /tmp/lock2'
-`rm /tmp/lock2`
 
 suspend01
+
+yellow 'removing /tmp/lock2'
+`rm /tmp/lock2`
 fi
 
 

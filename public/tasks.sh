@@ -66,9 +66,9 @@ update_status(){
 
 
     cyan "update:"
-    title="3 ROUTES:"
+    title="my Children story:"
     file=$TODAY_DIR/txt/log.txt
-  max=10
+  max=30
 for (( c=1; c<=$max; c++ ))
 do
     echo -n "counter: "

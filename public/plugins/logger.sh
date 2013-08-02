@@ -63,9 +63,9 @@ add_line(){
     local last_msg='yes, you can'
     #while :;do
 
-    answer=$( gxmessage  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
+    answer=$( gxmessage  -button "$NAME1 Story"  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
     if [ "$answer" = '' ];then
-        sleep1 20
+        sleep1 5 
         #$PLUGINS_DIR/translation.sh $last_msg
         
         
@@ -95,16 +95,6 @@ add_line(){
 
 
 }
-update_file(){
-    echo "update_file got: file: $1 | msg: $2 | $3"
-    local file="$1"
-    local msg="$2"
-  
-        cat $file > /tmp/1.txt 
-        echo "$msg" > $file
-        cat /tmp/1.txt >> $file
-}
-
 
 
 

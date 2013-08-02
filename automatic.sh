@@ -42,10 +42,10 @@ read_lines(){
             #exec
             $tasks_sh $command "$desc"
         fi
-        sleep1 60
+        sleep1 10
     done
 
-    sleep1 60
+    sleep1 10
     #exec $tasks_sh suspend "regardless workflow"
 }
 read_lines $CFG_DIR/workflow.txt

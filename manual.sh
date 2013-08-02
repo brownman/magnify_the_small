@@ -110,28 +110,31 @@ step_a_day(){
 
 
 pass_to_enlightment(){
-
-
-
+    echo 'pass_to_enlightment()'
+    echo 'collaborations ?'
+    echo 'android dev ?'
+    gedit $TODAY_DIR/txt/report.txt 
     #others:
 
 
     #me:
 
     #family
-    #eacher1 update_report 'write a report'
+    #eacher1
+    #$tasks_sh update_report 'write a report'
 
     #eacher1 publish_report 'publish the report'
     #exiting
-    eacher1 deepest_fears 'what are your deepest fears ?'
-    eacher1 entertainment 'remind of price'
-    eacher1 help1 'show goals'
-    eacher1 step_a_day 'push forward - make 1 step in 1 field'
-    eacher1 scoring 'current status'
-    eacher1 remind 'remind me of the true reasons of what I am doing'
+    #eacher1 deepest_fears 'what are your deepest fears ?'
+    #eacher1 entertainment 'remind of price'
+    #eacher1 help1 'show goals'
+    #eacher1 step_a_day 'push forward - make 1 step in 1 field'
+    #eacher1 scoring 'current status'
+    #eacher1 remind 'remind me of the true reasons of what I am doing'
 
-    eacher1 update_status 'update your state'
-    suspend #30 seconds
+    #eacher1 update_status 'update your state'
+    #suspend #30 seconds
+    
 }
 
 pass_to_enlightment
