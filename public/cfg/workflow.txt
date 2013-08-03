@@ -1,7 +1,7 @@
-motivation|say something good
 update_status|update logging file
+motivation|say something good
 #
 ignore:
-publish_report|post report to blog
+update_report|post report to blog
 update_statistics|report on each cycle
 

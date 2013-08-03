@@ -13,6 +13,7 @@ suspend01(){
     local timeout=30
     echo -n "the timeout is:"
     cyan "$timeout"
+    reminder
     sleep1 5
     res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
     echo2 "res:  $res"

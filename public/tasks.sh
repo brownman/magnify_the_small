@@ -171,8 +171,9 @@ update_statistics(){
     gedit $CFG_DIR/workflow.txt &
 }
 
-publish_report(){
-    ( xterm -e "$TASKS_DIR/blogger.sh" &)
+update_report(){
+    #( xterm -e "$TASKS_DIR/blogger.sh" &)
+    gedit $TODAY_DIR/txt/report.txt
 }
 
 

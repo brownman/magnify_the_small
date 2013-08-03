@@ -11,6 +11,7 @@ POINTS_SUSPEND=0
 POINTS_OTHER_HEART=0
 POINTS_REPORT=0
 POINTS_IMAGINE=0
+help_options="add|network|recent"
 
 update_status(){
     echo "what are you doing right now ?"
@@ -109,13 +110,10 @@ step_a_day(){
 }
 
 
-pass_to_enlightment(){
-    echo 'pass_to_enlightment()'
-    echo 'collaborations ?'
-    echo 'android dev ?'
-    gedit $TODAY_DIR/txt/report.txt 
-    #others:
 
+old(){
+    #others:
+echo ''
 
     #me:
 
@@ -134,7 +132,39 @@ pass_to_enlightment(){
 
     #eacher1 update_status 'update your state'
     #suspend #30 seconds
-    
 }
 
-pass_to_enlightment
+
+now(){
+$tasks_sh update_report 
+
+
+}
+network(){
+file=$TODAY_DIR/code/linux.sh
+
+gedit $TODAY_DIR/code/linux.sh
+
+$file
+
+
+}
+add(){
+echo "$1" >> $TODAY_DIR/ideas.txt
+}
+
+recent(){
+echo 'recent activities:'
+#jobs
+    #http://www.alljobs.co.il/
+
+#cooperation
+    #https://c9.io/brownman/angular-phonecat
+    #https://codenvy.com/ide
+
+}
+
+help1 $help_options
+$@
+exit
+#/TORRENTS/CODE1/RAILS/ANGULAR/AngularJS-Testing-Article

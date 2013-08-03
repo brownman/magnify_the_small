@@ -54,7 +54,8 @@ messageYN() {
 }
 
 add_line(){
-    echo2 "add line got: file:$1 title:$2 3:$3"
+    debug white "add_line() got:"
+    debug cyan "file:$1 title:$2 when:$3"
     #latest modifications: 
     #pass reference by supplying name of global variable.
     local file="$1"

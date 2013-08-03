@@ -301,7 +301,7 @@ echo ''
 
 #motivation "$file"
 if [ "$method" = 'sentence' ];then
-   echo5 "$from" 
+   echo4 "$from" 
 elif [ "$method" = 'line' ];then
    one_line "$from"
 elif [ "$method" = 'lines' ];then

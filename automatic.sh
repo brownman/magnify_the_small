@@ -10,14 +10,6 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 #sleep 20
 #exiting
 
-if [ -e /tmp/lock1 ];then
-    red 'file exist: assume proccess is running'
-    exit 1 
-else
-green 'create /tmp/lock1'
-touch /tmp/lock1
-
-
 workflow=''
 workflow_d=''
 read_lines(){
@@ -48,6 +40,14 @@ read_lines(){
     sleep1 10
     #exec $tasks_sh suspend "regardless workflow"
 }
+
+if [ -e /tmp/lock1 ];then
+    red 'file exist: assume proccess is running'
+    echo "process already running" | flite
+    exit 1 
+else
+green 'create /tmp/lock1'
+touch /tmp/lock1
 read_lines $CFG_DIR/workflow.txt
 #series1  "$workflow" "$workflow_d"  
 #read_lines $CFG_DIR/url.txt
@@ -56,4 +56,8 @@ read_lines $CFG_DIR/workflow.txt
 yellow 'removing /tmp/lock1'
 `rm /tmp/lock1`
 
+exit 0
 fi
+
+
+
