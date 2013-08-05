@@ -8,7 +8,7 @@ from="$2" #file or sentance
 method="$1" #sentance, line, lines
 help_options="sentance/ line/ lines"
 #update configuration: currently localy
-multiple_langs=false #export MULTIPLE_LANGS=true
+multiple_langs="$3" #false #export MULTIPLE_LANGS=true
 target_lang=ru #export LANG=ru
 dirty_log=true #export DIRTY_LOG=true
 
@@ -66,7 +66,7 @@ translate_f(){
 
     local input="$1" #translate src
 
- 
+
 
 
     local input_wsp=$(echo "$input"|sed 's/ /+/g');
@@ -83,6 +83,7 @@ translate_f(){
     then
         echo2 "fetch txt"
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
+        echo "$result" >> $TODAY_DIR/translate.json
         cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
         echo2 "$cleaner"
         phonetics=$(echo "$cleaner" | cut -d \" -f 5)
@@ -106,7 +107,7 @@ translate_f(){
         echo2 "cache copy"
 
     fi
-    
+
     printing1 "$input_ws" "$file_txt" "$lang"
     ################################# result: mp3 
 
@@ -184,7 +185,7 @@ echo4(){
 
     local lang1="$target_lang"
     echo2 "translate to: $lang1"
-    
+
     if [ "$lang1" = '' ];then
         random1 4
         local num=$?
@@ -275,37 +276,41 @@ one_line(){
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-if [ "$multiple_langs" = true ];then
+    if [ "$multiple_langs" = true ];then
         if [ "$file" != '' ];then
-        choose5 "$file"
-    else
-        choose5 $CFG_DIR/quotes.txt
-    fi
+            choose5 "$file"
+        else
+            choose5 $CFG_DIR/quotes.txt
+        fi
 
-    #one_tip
-else
-    if [ "$file" != '' ];then
-        choose4 "$file"
+        #one_tip
     else
-        choose4 $CFG_DIR/quotes.txt
-    fi
+        if [ "$file" != '' ];then
+            choose4 "$file"
+        else
+            choose4 $CFG_DIR/quotes.txt
+        fi
 
-    #one_tip
-fi
+        #one_tip
+    fi
 
 }
 
 all_lines(){
-echo ''
+    echo ''
 }
 
 #motivation "$file"
 if [ "$method" = 'sentence' ];then
-   echo4 "$from" 
+    if [ "$multiple_langs" = true ];then
+        echo5 "$from" 
+    else
+        echo4 "$from" 
+    fi
 elif [ "$method" = 'line' ];then
-   one_line "$from"
+    one_line "$from"
 elif [ "$method" = 'lines' ];then
-   all_lines "$from"
+    all_lines "$from"
 else
     echo -n   "unknown method:"
     red $1

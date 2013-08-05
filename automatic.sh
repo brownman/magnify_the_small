@@ -9,7 +9,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 #eval $PWD/public/cfg/tmp/mute.sh
 #sleep 20
 #exiting
-
+export locker=/tmp/lock1
 workflow=''
 workflow_d=''
 read_lines(){
@@ -41,23 +41,42 @@ read_lines(){
     #exec $tasks_sh suspend "regardless workflow"
 }
 
-if [ -e /tmp/lock1 ];then
-    red 'file exist: assume proccess is running'
+if [ -e $locker ];then
+    echo -n  "file exist: "
+    red "$locker"
+    echo -n "assume proccess is running"
     echo "process already running" | flite
-    exit 1 
+    cat $locker
 else
-green 'create /tmp/lock1'
-touch /tmp/lock1
-read_lines $CFG_DIR/workflow.txt
-#series1  "$workflow" "$workflow_d"  
-#read_lines $CFG_DIR/url.txt
-#series1  "$workflow" "$workflow_d"  true
+    green 'create $locker'
+    touch $locker
+    echo $$ >> $locker
 
-yellow 'removing /tmp/lock1'
-`rm /tmp/lock1`
+    msg0="are you doing what you wished for ?"
+    echo "have you already planned what to do next? "
+    echo "sport/job"
+
+result1=$( messageYN "y/n question" "$msg0" )
+    if [ "$result1" = 2 ];then
+        echo 'I am free'
+        echo0 "$msg1"
+        sleep1 60
+        read_lines $CFG_DIR/workflow.txt
+  
+    else
+        red 'Suspending..'
+        xterm -e  $PLUGINS_DIR/suspend.sh
+    fi
+
+
+
+
+  yellow "removing $locker"
+    `rm $locker`
+
+fi
 
 exit 0
-fi
 
 
 

@@ -65,6 +65,10 @@ motivation(){
 update_status(){
 
 
+
+edit_stuff
+
+sleep1 10
     cyan "update:"
     title="my Children story:"
     file=$TODAY_DIR/txt/log.txt
@@ -75,6 +79,8 @@ do
     cyan "$c of $max"
     $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
 done
+
+
 
 
 

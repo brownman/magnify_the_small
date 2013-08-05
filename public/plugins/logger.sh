@@ -22,37 +22,6 @@ messageANS() {
 
 
 }
-messageFYN() {
-
-    local title="$1"
-    local file="$2"
-    #local result=
-
-    result=$( gxmessage  -buttons "No":1,"Yes":2       -title "$title" -file $file $GXMESSAGET )
-    echo "$?"
-    return "$?"
-}
-messageYN() {
-
-    local title="$1"
-    local str="$2"
-    local result=0
-
-    if [ "$GUI" = 'true' ];then
-        result=$( gxmessage -buttons "No":1,"Yes":2          -title "$title" "$str"  $GXMESSAGET )
-    else
-        green "$str"
-        read result
-        if [ "$result" = 'y' ];then
-            result=2
-            let "result = 2"
-        else
-            let "result = 1"
-        fi
-    fi
-    return $result
-}
-
 add_line(){
     debug white "add_line() got:"
     debug cyan "file:$1 title:$2 when:$3"
@@ -64,7 +33,8 @@ add_line(){
     local last_msg='yes, you can'
     #while :;do
 
-    answer=$( gxmessage  -button "$NAME1 Story"  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
+    answer=$( gxmessage  -button "$NAME1 Story"  -title "$title" -file  "$file" -ontop -timeout 10 -entry $ICONIC  )
+    
     if [ "$answer" = '' ];then
         sleep1 5 
         #$PLUGINS_DIR/translation.sh $last_msg
@@ -76,7 +46,7 @@ add_line(){
     elif [ "$answer" = 'delete1' ];then
        echo '' > $file 
     elif [ "$answer" = 'remind1' ];then
-     gxmessage  -title "I have time for everything:" -file  "$TODAY_DIR/txt/times.txt" -ontop -timeout 10
+     gxmessage  -title "I have time for everything:" -file  "$TODAY_DIR/txt/times.txt" -ontop -timeout 10 $ICONIC
     else
         if [ "$when" = 'true' ];then
             date1="$(date +%H:%M)"

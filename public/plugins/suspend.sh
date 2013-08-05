@@ -5,14 +5,17 @@
 # unlock: https://bugs.launchpad.net/ubuntu/+source/dbus/+bug/811441
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
+timeout=$TIMEOUT_LET_ME_SLEEP
 
 
 suspend01(){
+    echo2 "suspend01().."
     local elapsed=0
     local before=`date +%s`
-    local timeout=30
-    echo -n "the timeout is:"
+
+    echo -n "let me sleep timeout -  is:"
     cyan "$timeout"
+    #echo0 "you have $timeout seconds to accomplish your task - go !" 
     reminder
     sleep1 5
     res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
@@ -31,19 +34,7 @@ suspend01(){
 }
 
 
-if [ -e /tmp/lock2 ];then
-    red 'file exist: assume proccess is running'
-    exit 1 
-else
-green 'create /tmp/lock2'
-touch /tmp/lock2
-
-
 
 suspend01
-
-yellow 'removing /tmp/lock2'
-`rm /tmp/lock2`
-fi
-
+#exit 1 
 
