@@ -1,3 +1,4 @@
+edit_txt|relax and update daily plan
 update_status|update logging file
 motivation|say something good
 #

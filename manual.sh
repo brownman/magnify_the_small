@@ -24,23 +24,34 @@ bash -x $file "$1"
 
 
 }
-smaller_step(){
+step(){
 echo2 "add() got: $1 $2"
 
 file_name="$1"
 msg="$2"
 
-local file1=$TODAY_DIR/${file_name}.txt
+local file1=$TODAY_DIR/${file_name}.yaml
 echo "#$msg" >> $file1
 local file=$TODAY_DIR/${file_name}.sh
 echo "#$msg" >> $file
 echo -n 'file: '
 green "$file"
-echo 'edit andrelamusia ?'
+#echo 'edit andrelamusia ?'
+#read answer
+#if [ "$answer" = y ];then
+#xdg-open http://yaml-online-parser.appspot.com &
+#vi $TODAY_DIR/andrelamusia.yaml
+#fi
+
+echo 'edit reminders ?'
 read answer
 if [ "$answer" = y ];then
-xdg-open http://yaml-online-parser.appspot.com &
-vi $TODAY_DIR/andrelamusia.yaml
+
+echo 'edit the prespective file first' 
+gedit $TODAY_DIR/yaml/plan.yaml &
+gedit $TODAY_DIR/yaml/me.yaml & 
+
+
 fi
 
 echo 'edit file ?'

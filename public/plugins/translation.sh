@@ -85,7 +85,7 @@ translate_f(){
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
         echo "$result" >> $TODAY_DIR/translate.json
         cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
-        echo2 "$cleaner"
+        echo2 "$result"
         phonetics=$(echo "$cleaner" | cut -d \" -f 5)
         output=$(echo "$cleaner" | cut -d \" -f 1)
         output_wsp=$(echo "$output"|sed 's/ /+/g');
