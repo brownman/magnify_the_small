@@ -11,7 +11,7 @@ POINTS_SUSPEND=0
 POINTS_OTHER_HEART=0
 POINTS_REPORT=0
 POINTS_IMAGINE=0
-help_options="smaller_step|network|recent"
+help_options="step|network|recent"
 
 
 network(){
@@ -25,14 +25,15 @@ bash -x $file "$1"
 
 }
 step(){
-echo2 "add() got: $1 $2"
+echo2 "add() got: $1 $2 $3"
 
 file_name="$1"
-msg="$2"
+stop_watch="$2"
+msg="$3"
 
-local file1=$TODAY_DIR/${file_name}.yaml
+local file1=$TODAY_DIR/yaml/${file_name}.yaml
 echo "#$msg" >> $file1
-local file=$TODAY_DIR/${file_name}.sh
+local file=$TODAY_DIR/code/${file_name}.sh
 echo "#$msg" >> $file
 echo -n 'file: '
 green "$file"
@@ -42,6 +43,16 @@ green "$file"
 #xdg-open http://yaml-online-parser.appspot.com &
 #vi $TODAY_DIR/andrelamusia.yaml
 #fi
+echo 'use a stop-watch?'
+read answer
+if [ "$answer" = y ];then
+
+echo 'edit the prespective file first' 
+xterm -e $PLUGINS_DIR/stop_watch.sh "$stop_watch" "$msg" &
+
+
+fi
+
 
 echo 'edit reminders ?'
 read answer
@@ -97,7 +108,7 @@ echo ''
 help1 "$help_options"
 
 #help1 $help_options
-eval $1 '"$2" "$3"'
+eval $1 '"$2" "$3" "$4"'
 
 exit
 #/TORRENTS/CODE1/RAILS/ANGULAR/AngularJS-Testing-Article

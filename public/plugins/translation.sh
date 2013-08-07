@@ -9,7 +9,7 @@ method="$1" #sentance, line, lines
 help_options="sentance/ line/ lines"
 #update configuration: currently localy
 multiple_langs="$3" #false #export MULTIPLE_LANGS=true
-target_lang=ru #export LANG=ru
+target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 
 play1(){

@@ -46,7 +46,12 @@ if [ -e $locker ];then
     red "$locker"
     echo -n "assume proccess is running"
     echo "process already running" | flite
-    cat $locker
+    pids1=`cat $locker`
+
+    `rm $locker`
+    `kill -9 $pids1`
+
+    
 else
     green 'create $locker'
     touch $locker
