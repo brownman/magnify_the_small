@@ -45,5 +45,5 @@ $PLUGINS_DIR/suspend.sh
     `rm $locker2`
 
 fi
-
+exit
 

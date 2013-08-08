@@ -58,7 +58,7 @@ motivation(){
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
     $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt
-    
+
     #choose4 $quotes_txt
     #one_tip
 }
@@ -66,25 +66,25 @@ update_status(){
 
 
 
-edit_stuff
+    edit_stuff
 
-sleep1 10
+    sleep1 10
     cyan "update:"
     title="my Children story:"
     file=$TODAY_DIR/txt/log.txt
-  max=30
-for (( c=1; c<=$max; c++ ))
-do
-    echo -n "counter: "
-    cyan "$c of $max"
-    $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
-done
+    max=30
+    for (( c=1; c<=$max; c++ ))
+    do
+        echo -n "counter: "
+        cyan "$c of $max"
+        $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
+    done
 
 
 
 
 
-#'http://www.cyberciti.biz/faq/bash-for-loop/'
+    #'http://www.cyberciti.biz/faq/bash-for-loop/'
 }
 
 
@@ -135,8 +135,8 @@ delete_files(){
 
 
 wish(){
-echo -n 'to be implemented: '
-blue "$1"
+    echo -n 'to be implemented: '
+    blue "$1"
 }
 
 
@@ -155,21 +155,21 @@ scrap_practice(){
 
 act(){
     yellow "act() got: 1: $1 | 2: $2 | 3: $3"
-#eval '$1 "$2" "$3"'
-#eacher "$1"
+    #eval '$1 "$2" "$3"'
+    #eacher "$1"
 }
 suspend(){
-$PLUGINS_DIR/suspend.sh
+    $PLUGINS_DIR/suspend.sh
 }
 is_valid1(){
-file="$1"
-is_valid "$file"
-yellow "$?"
+    file="$1"
+    is_valid "$file"
+    yellow "$?"
 }
 
 
 report(){
-echo 'update google blogger with the score for this cycle'
+    echo 'update google blogger with the score for this cycle'
 }
 
 
@@ -182,6 +182,17 @@ update_report(){
     gedit $TODAY_DIR/txt/report.txt
 }
 
+commitment(){
+    local line=$( gxmessage -entry -title 'commitment' '5 minutes for the next step:' $GXMESSAGET  )
+    if [ "$line" != '' ];then
+        (      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
+    else
+        exiting
+    fi
+}
+achivements(){
+gedit $TODAY_DIR/yaml/achivements.yaml &
+}
 
 
 eval "$1" '"$2" "$3"'

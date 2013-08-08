@@ -28,8 +28,8 @@ step(){
 echo2 "add() got: $1 $2 $3"
 
 file_name="$1"
-stop_watch="$2"
-msg="$3"
+#period=500 #"$2"
+msg="$2"
 
 local file1=$TODAY_DIR/yaml/${file_name}.yaml
 echo "#$msg" >> $file1
@@ -48,8 +48,7 @@ read answer
 if [ "$answer" = y ];then
 
 echo 'edit the prespective file first' 
-xterm -e $PLUGINS_DIR/stop_watch.sh "$stop_watch" "$msg" &
-
+xterm -e $PLUGINS_DIR/stop_watch.sh "$msg" &
 
 fi
 

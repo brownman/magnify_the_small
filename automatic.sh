@@ -24,8 +24,8 @@ read_lines(){
     do
         echo "$line "
         if [ "$line" = '#' ];then
-            $tasks_sh update_statistics &
-            $tasks_sh publish_report &
+            #$tasks_sh update_statistics &
+            #$tasks_sh publish_report &
             #sleep1 120
             break
         else
@@ -65,7 +65,7 @@ result1=$( messageYN "y/n question" "$msg0" )
     if [ "$result1" = 2 ];then
         echo 'I am free'
         echo0 "$msg1"
-        sleep1 60
+        #sleep1 60
         read_lines $CFG_DIR/workflow.txt
   
     else

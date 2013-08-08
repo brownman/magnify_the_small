@@ -5,10 +5,11 @@
 
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
-file=$TODAY_DIR/txt/report.txt
+file=$TODAY_DIR/txt/report.yaml
 
 yellow "record your mission being done:"
-gedit $file
+gedit $file 
+
 
 
 cat $file
@@ -27,5 +28,12 @@ if [ "$answer" = y ];then
 $TASKS_DIR/mail.sh
 $TASKS_DIR/mail2.sh
 
+fi
+
+yellow 'upload new video to youtube ?'
+read answer
+if [ "$answer" = y ];then
+url1=https://www.youtube.com/upload
+chromium-browser $url1
 fi
 
