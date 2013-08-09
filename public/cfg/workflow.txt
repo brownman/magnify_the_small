@@ -1,10 +1,13 @@
-achivements|what are my achivements
-commitment|define your targets
-update_status|update logging file
+time_is_limited|time is limited
+commitment|make commitments
+achivements|show achivements
+edit_txt|update daily plan
+update_glossary|update logging file
 motivation|say something good
+learn_langs|play a lesson
 #
 ignore:
-edit_txt|relax and update daily plan
+
 update_report|post report to blog
 update_statistics|report on each cycle
 

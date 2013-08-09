@@ -8,7 +8,6 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 messageANS() {
-
     local title="$1"
     local file="$2"
     #local result=
@@ -19,9 +18,8 @@ messageANS() {
         echo "$result" > $rules_txt
         cat /tmp/rules >> $rules_txt
     fi
-
-
 }
+
 add_line(){
     debug white "add_line() got:"
     debug cyan "file:$1 title:$2 when:$3"
@@ -41,6 +39,9 @@ add_line(){
         
         
         $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/glossary.txt 
+   elif [ "$answer" = 'mute' ];then
+       export SILENCE=true 
+
    elif [ "$answer" = 'exit' ];then
         exit 1
     elif [ "$answer" = 'delete1' ];then

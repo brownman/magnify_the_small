@@ -16,7 +16,9 @@ koan(){
     yellow 'add 1 koan !'
     ( bash -c $KOANS_DIR/meditate.sh &)
 }
-
+time_is_limited(){
+gedit $TODAY_DIR/yaml/time.yaml &
+}
 
 edit(){
     ( gedit $DYNAMIC_DIR/wish_txt &)
@@ -62,12 +64,12 @@ motivation(){
     #choose4 $quotes_txt
     #one_tip
 }
-update_status(){
 
+edit_txt(){
+edit_stuff
+}
 
-
-    edit_stuff
-
+update_glossary(){
     sleep1 10
     cyan "update:"
     title="my Children story:"
@@ -79,11 +81,6 @@ update_status(){
         cyan "$c of $max"
         $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
     done
-
-
-
-
-
     #'http://www.cyberciti.biz/faq/bash-for-loop/'
 }
 
@@ -97,6 +94,16 @@ show(){
     cyan "show:"
     gxmessage -title 'show: morning reminder' -file $DYNAMIC/wish.txt $GXMESSAGET
 }
+edit_yaml(){
+echo 'edit the prespective file first' 
+gedit $TODAY_DIR/yaml/plan.yaml &
+gedit $TODAY_DIR/yaml/report.yaml &
+gedit $TODAY_DIR/yaml/me.yaml & 
+gedit $TODAY_DIR/yaml/breakthrough.yaml & 
+
+
+}
+
 
 glossary_reminder(){
     word=$(    gxmessage -title 'glossary reminder' -file $DYNAMIC_DIR/glossary.txt $GXMESSAGET -entry )
@@ -187,11 +194,20 @@ commitment(){
     if [ "$line" != '' ];then
         (      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
     else
-        exiting
+       echo 'no commitments !' | flite
     fi
 }
 achivements(){
 gedit $TODAY_DIR/yaml/achivements.yaml &
+}
+game_essay(){
+$PLUGINS_DIR/game_essay.sh
+}
+learn_langs(){
+#LANG_NAME
+#LANG_NUM
+$PLUGINS_DIR/learn_langs.sh $LANG_NAME $LANG_NUM
+#RU 13
 }
 
 

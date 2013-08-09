@@ -21,7 +21,7 @@ cyan "$result1"
 test_learn_langs(){
 echo 'the start'
 #$PLUGINS_DIR/learn_langs.sh RU 13
-$tasks_sh achivements
+$tasks_sh game_essay 
 
 echo 'the  end'
 }

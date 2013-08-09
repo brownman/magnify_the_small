@@ -16,6 +16,7 @@ local msg1=""
 echo "sleep ${sec}s"
 
 
+echo0 "$msg"
   
 for (( c=0; c<=$sec; c++ ))
 do
@@ -31,6 +32,7 @@ echo -n "$c "
    sleep 1s
 done
  
+echo0 "$msg"
 
 
 #ref: http://linux.about.com/od/Bash_Scripting_Solutions/a/Arithmetic-In-Bash.htm

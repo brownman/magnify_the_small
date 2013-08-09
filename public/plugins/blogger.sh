@@ -5,16 +5,23 @@
 
 export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
-file=$TODAY_DIR/txt/report.yaml
+
+file=$TODAY_DIR/yaml/report.yaml
+file1=$TODAY_DIR/yaml/achivements.yaml
 
 yellow "record your mission being done:"
-gedit $file 
+
+gedit $file & 
+gedit $file1  
 
 
+yellow "send $file1 to blogger ?"
+read answer
+if [ "$answer" = y ];then
+google blogger post $file1 
+fi
 
-cat $file
-
-yellow 'send to blogger ?'
+yellow "send $file to blogger ?"
 read answer
 if [ "$answer" = y ];then
 google blogger post $file 

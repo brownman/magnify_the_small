@@ -31,6 +31,8 @@ read_lines(){
         else
             desc=$( echo $line | awk -F '|' '{print $2}' )
             command=$( echo $line | awk -F '|' '{print $1}' )
+            notify-send "TASK:" "$desc"
+            echo "$desc" | flite
             #exec
             $tasks_sh $command "$desc"
         fi
@@ -57,14 +59,15 @@ else
     touch $locker
     echo $$ >> $locker
 
-    msg0="are you doing what you wished for ?"
+    msg0="do you know what to do next?"
+    #are you doing what you wished for ?"
     echo "have you already planned what to do next? "
     echo "sport/job"
 
 result1=$( messageYN "y/n question" "$msg0" )
-    if [ "$result1" = 2 ];then
+    if [ "$result1" = 1 ];then
         echo 'I am free'
-        echo0 "$msg1"
+        echo "$msg1"
         #sleep1 60
         read_lines $CFG_DIR/workflow.txt
   

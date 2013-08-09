@@ -11,19 +11,36 @@ POINTS_SUSPEND=0
 POINTS_OTHER_HEART=0
 POINTS_REPORT=0
 POINTS_IMAGINE=0
-help_options="step|network|recent"
+help_options="step|network|recent|report"
 
 
 network(){
     echo "network() got $1"
 file=$TODAY_DIR/code/linux.sh
-
 gedit $TODAY_DIR/code/linux.sh
-
 bash -x $file "$1"
+}
+report(){
 
+    $PLUGINS_DIR/blogger.sh
 
 }
+remind(){
+msg="$1"
+echo 'use a stop-watch?'
+read answer
+if [ "$answer" = y ];then
+echo 'edit the prespective file first' 
+xterm -e $PLUGINS_DIR/stop_watch.sh "$msg" &
+fi
+echo 'edit reminders ?'
+read answer
+if [ "$answer" = y ];then
+$tasks_sh edit_yaml
+fi
+$tasks_sh suspend
+}
+
 step(){
 echo2 "add() got: $1 $2 $3"
 
@@ -43,26 +60,8 @@ green "$file"
 #xdg-open http://yaml-online-parser.appspot.com &
 #vi $TODAY_DIR/andrelamusia.yaml
 #fi
-echo 'use a stop-watch?'
-read answer
-if [ "$answer" = y ];then
-
-echo 'edit the prespective file first' 
-xterm -e $PLUGINS_DIR/stop_watch.sh "$msg" &
-
-fi
 
 
-echo 'edit reminders ?'
-read answer
-if [ "$answer" = y ];then
-
-echo 'edit the prespective file first' 
-gedit $TODAY_DIR/yaml/plan.yaml &
-gedit $TODAY_DIR/yaml/me.yaml & 
-
-
-fi
 
 echo 'edit file ?'
 read answer
