@@ -36,7 +36,7 @@ read_lines(){
             #exec
             $tasks_sh $command "$desc"
         fi
-        sleep1 10
+        sleep1 60
     done
 
     sleep1 10

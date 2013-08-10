@@ -19,12 +19,27 @@ cyan "$result1"
 }
 
 test_learn_langs(){
-echo 'the start'
+#echo 'the start'
 #$PLUGINS_DIR/learn_langs.sh RU 13
-$tasks_sh game_essay 
+#$tasks_sh game_essay 
 
 echo 'the  end'
+#gedit /tmp/1.txt
 }
-test_learn_langs
+step1(){
+str="ok:2","cancel:3"
+#http://wiki.bash-hackers.org/syntax/expansion/brace
+#http://wiki.bash-hackers.org/syntax/start
+$( gxmessage -buttons $str 'ab cd' )
+array=(a sdsf dfdf)
+for i in "${!array[@]}"; do
+   echo "${array[$i]}"
+done
+echo $?
+}
+
+#play $infile trim 0:00 =0:10 
+
+step1
 exit
 

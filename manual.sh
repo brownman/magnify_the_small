@@ -33,11 +33,11 @@ if [ "$answer" = y ];then
 echo 'edit the prespective file first' 
 xterm -e $PLUGINS_DIR/stop_watch.sh "$msg" &
 fi
-echo 'edit reminders ?'
-read answer
-if [ "$answer" = y ];then
-$tasks_sh edit_yaml
-fi
+#echo 'edit reminders ?'
+#read answer
+#if [ "$answer" = y ];then
+#$tasks_sh edit_yaml
+#fi
 $tasks_sh suspend
 }
 

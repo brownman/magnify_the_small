@@ -17,7 +17,9 @@ koan(){
     ( bash -c $KOANS_DIR/meditate.sh &)
 }
 time_is_limited(){
-gedit $TODAY_DIR/yaml/time.yaml &
+
+gedit $TODAY_DIR/yaml/3_routes.yaml &
+gedit $TODAY_DIR/yaml/priority.yaml &
 }
 
 edit(){
@@ -186,7 +188,7 @@ update_statistics(){
 
 update_report(){
     #( xterm -e "$TASKS_DIR/blogger.sh" &)
-    gedit $TODAY_DIR/txt/report.txt
+    gedit $TODAY_DIR/txt/report.txt &
 }
 
 commitment(){
@@ -197,9 +199,14 @@ commitment(){
        echo 'no commitments !' | flite
     fi
 }
-achivements(){
-gedit $TODAY_DIR/yaml/achivements.yaml &
+achievements(){
+gedit $TODAY_DIR/yaml/achievements.yaml &
 }
+increase_motivation(){
+achievements
+}
+
+
 game_essay(){
 $PLUGINS_DIR/game_essay.sh
 }

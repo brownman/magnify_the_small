@@ -17,13 +17,15 @@ learn_lang(){
     lesson=$2
     num=$lesson
     num=num+2
-
     (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
+
     num=num-2
     #(write_essay &)
     echo1 'playing..'
 
-    play "/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
+    infile="/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
+play $infile trim 0:00 =0:25 
+
 }
 
 play_history(){
