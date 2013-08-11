@@ -14,7 +14,7 @@ local sec=500
 local msg="$1"
 local msg1=""
 echo "sleep ${sec}s"
-
+local title=''
 
 echo0 "$msg"
   
@@ -25,8 +25,12 @@ do
 
     m=$((c%60))
     if [ "$m" -eq 0  ];then
+ title="commitment reminder"
+
    local msg1="$c/$sec:  $msg:"
-   gxmessage -title "commitment reminder:" "$msg1" $GXMESSAGET &
+array_to_buttons "$msg" "$msg1" "$title"
+
+   #gxmessage -title "commitment reminder:" "$msg1" $GXMESSAGET &
     fi
 echo -n "$c "
    sleep 1s

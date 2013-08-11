@@ -9,23 +9,41 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 file=$TODAY_DIR/txt/report.yaml
 learn_lang(){
+    while :;do
+
+
     echo2 "learn_lang() got: $1 $2"
     #say1 "$last_essay" 
 
-    lang=$1
+    local lang=$1
     declare -i num
-    lesson=$2
-    num=$lesson
+    local lesson=0 #$2
+    lesson=$( gxmessage -title 'Level:' 'choose a lesson number:' -entrytext $lesson $GXMESSAGET )
+    if [ $lesson -eq 0 ];then
+        echo 'finish the lesson' | flite
+        break
+    fi
+
+
+                
+
+
+    local num=$lesson
     num=num+2
+   if [ $SHOW_LESSON = true ];then
     (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
+   fi
+
 
     num=num-2
     #(write_essay &)
     echo1 'playing..'
 
-    infile="/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
-play $infile trim 0:00 =0:25 
+    local infile="/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
+    local time_str="$TIME_STR"
+    play $infile trim "$time_str"
 
+    done
 }
 
 play_history(){

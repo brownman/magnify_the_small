@@ -32,7 +32,8 @@ read_lines(){
             desc=$( echo $line | awk -F '|' '{print $2}' )
             command=$( echo $line | awk -F '|' '{print $1}' )
             notify-send "TASK:" "$desc"
-            echo "$desc" | flite
+            ( echo "$desc" | flite &)
+            #( echo0 "$desc" &)
             #exec
             $tasks_sh $command "$desc"
         fi
