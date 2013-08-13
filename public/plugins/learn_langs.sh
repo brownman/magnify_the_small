@@ -19,7 +19,7 @@ learn_lang(){
     declare -i num
     local lesson=0 #$2
     lesson=$( gxmessage -title 'Level:' 'choose a lesson number:' -entrytext $lesson $GXMESSAGET )
-    if [ $lesson -eq 0 ];then
+    if [[ $lesson -eq 0 ]];then
         echo 'finish the lesson' | flite
         break
     fi
@@ -41,8 +41,13 @@ learn_lang(){
 
     local infile="/TORRENTS/AUDIO/LANGS/${lang}/EN${lang}0${num}.mp3"
     local time_str="$TIME_STR"
-    play $infile trim "$time_str"
+#yellow "$time_str"
+    #echo "play $infile trim $time_str"
 
+
+     #play "$infile" trim $time_str
+    #exec play "$infile" trim $time_str
+    exec play "$infile" trim ${time_str}
     done
 }
 

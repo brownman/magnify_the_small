@@ -35,9 +35,12 @@ read_lines(){
             ( echo "$desc" | flite &)
             #( echo0 "$desc" &)
             #exec
-            $tasks_sh $command "$desc"
+
+            cmd1='$tasks_sh $command "$desc"'
+
+            eacher "$tasks_sh $command"  "$desc" #eacher '$tasks_sh time_is_limited' 'it should take a while' 
         fi
-        sleep1 60
+        sleep1 $WORKFLOW_DELAY
     done
 
     sleep1 10
@@ -60,13 +63,14 @@ else
     touch $locker
     echo $$ >> $locker
 
-    msg0="do you know what to do next?"
+    msg0="I follow my commitments And I never lie"
+    #"do you know what to do next?"
     #are you doing what you wished for ?"
     echo "have you already planned what to do next? "
     echo "sport/job"
 
 result1=$( messageYN "y/n question" "$msg0" )
-    if [ "$result1" = 1 ];then
+    if [[ $result1 -eq 1 ]];then
         echo 'I am free'
         echo "$msg1"
         #sleep1 60
@@ -74,6 +78,7 @@ result1=$( messageYN "y/n question" "$msg0" )
   
     else
         red 'Suspending..'
+        $timer_sh motivation
         xterm -e  $PLUGINS_DIR/suspend.sh
     fi
 

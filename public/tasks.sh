@@ -9,13 +9,25 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 
-blue  "tasks.sh got: "
+yellow  "tasks.sh got: "
 echo2 "1: $1"
 echo2 " 2:$2 3:$3 4: $4"
 koan(){
     yellow 'add 1 koan !'
     ( bash -c $KOANS_DIR/meditate.sh &)
 }
+show_self(){
+gedit $CFG_DIR/workflow.txt &
+}
+scrap_something(){
+dir=/TORRENTS/JAVASCRIPT/casperjs
+local result=$( $dir/bin/casperjs $dir/samples/translate.js --target=ru 'dogs' )
+notify-send "$result"
+#echo "$result"
+exiting
+}
+
+
 time_is_limited(){
 
 gedit $TODAY_DIR/yaml/3_routes.yaml &
@@ -201,9 +213,6 @@ commitment(){
 }
 achievements(){
 gedit $TODAY_DIR/yaml/achievements.yaml &
-}
-increase_motivation(){
-achievements
 }
 
 

@@ -16,7 +16,7 @@ local msg1=""
 echo "sleep ${sec}s"
 local title=''
 
-echo0 "$msg"
+#echo0 "$msg"
   
 for (( c=0; c<=$sec; c++ ))
 do

@@ -27,19 +27,11 @@ echo 'the  end'
 #gedit /tmp/1.txt
 }
 step1(){
-#str="ok:2","cancel:3"
 
 #http://wiki.bash-hackers.org/syntax/expansion/brace
 #http://wiki.bash-hackers.org/syntax/start
+eacher '$tasks_sh time_is_limited' 'it should take a while' 
 
-#echo $?
-arr=()
-
-#arr="('once' 'upon' 'a' 'time')"
-local str="once upon a time"
-array_to_buttons "$str" 
-#choose="$?"
-#echo "result: ${array[$choose]}"
 }
 
 #play $infile trim 0:00 =0:10 
