@@ -20,16 +20,23 @@ show_self(){
 gedit $CFG_DIR/workflow.txt &
 }
 scrap_something(){
-dir=/TORRENTS/JAVASCRIPT/casperjs
-local result=$( $dir/bin/casperjs $dir/samples/translate.js --target=ru 'dogs' )
-notify-send "$result"
+#.echo("Usage: $ casperjs googlepagination.js my search terms")
+local dir=/TORRENTS/JAVASCRIPT/casperjs
+local prog="$dir/bin/casperjs"
+local script="$dir/samples/translate.js"
+
+
+local args1="--target=ru"
+local args2='my dogs'
+local result=$( $prog $script $args1 "$args2" )
+gxmessage -title "scraping result:" "$result" $GXMESSAGE1
+
+( gedit "$script" &)
 #echo "$result"
-exiting
 }
 
 
-time_is_limited(){
-
+edit_prespective(){
 gedit $TODAY_DIR/yaml/3_routes.yaml &
 gedit $TODAY_DIR/yaml/priority.yaml &
 }
@@ -44,6 +51,9 @@ remind(){
     rainbow "$msg"
 
 
+}
+take_photo(){
+$PLUGINS_DIR/take_photo.sh
 }
 
 time1(){
@@ -82,13 +92,17 @@ motivation(){
 edit_txt(){
 edit_stuff
 }
+edit_motivations(){
+    ( gedit $TODAY_DIR/txt/motivations.txt &)
+}
+
 
 update_glossary(){
     sleep1 10
     cyan "update:"
     title="my Children story:"
     file=$TODAY_DIR/txt/log.txt
-    max=30
+    max=5
     for (( c=1; c<=$max; c++ ))
     do
         echo -n "counter: "

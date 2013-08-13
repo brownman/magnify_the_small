@@ -1,12 +1,13 @@
+scrap_something|now - try to do some scrapping
+edit_motivations|believe in yourself
 commitment|make commitments
 show_self|increase efficiency level 
 show_achievements|say something good
-time_is_limited|time is limited
+edit_prespective|time is limited - update priorities
 edit_txt|update daily plan
 update_glossary|update logging file
 motivation|say something good
 learn_langs|play a lesson
-scrap_something|do some scrapping
 #
 ignore:
 update_report|post report to blog

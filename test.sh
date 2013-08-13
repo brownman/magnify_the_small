@@ -30,7 +30,8 @@ step1(){
 
 #http://wiki.bash-hackers.org/syntax/expansion/brace
 #http://wiki.bash-hackers.org/syntax/start
-eacher '$tasks_sh time_is_limited' 'it should take a while' 
+#eacher '$tasks_sh time_is_limited' 'it should take a while' 
+$tasks_sh scrap_something
 
 }
 

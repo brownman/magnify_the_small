@@ -17,7 +17,7 @@ play1(){
 
     echo2 "play1() got: $1 | $2"
 
-    if [ "$silent" = false ];then
+    if [ "$SILENCE" = false ];then
 
         local file="$1"
 

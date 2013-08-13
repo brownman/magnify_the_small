@@ -43,7 +43,7 @@ read_lines(){
         sleep1 $WORKFLOW_DELAY
     done
 
-    sleep1 10
+    sleep1 60
     #exec $tasks_sh suspend "regardless workflow"
 }
 
@@ -70,7 +70,7 @@ else
     echo "sport/job"
 
 result1=$( messageYN "y/n question" "$msg0" )
-    if [[ $result1 -eq 1 ]];then
+    if [[ $result1 -eq 2 ]];then
         echo 'I am free'
         echo "$msg1"
         #sleep1 60
