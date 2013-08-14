@@ -19,26 +19,17 @@ koan(){
 show_self(){
 gedit $CFG_DIR/workflow.txt &
 }
-scrap_something(){
-#.echo("Usage: $ casperjs googlepagination.js my search terms")
-local dir=/TORRENTS/JAVASCRIPT/casperjs
-local prog="$dir/bin/casperjs"
-local script="$dir/samples/translate.js"
-
-
-local args1="--target=ru"
-local args2='my dogs'
-local result=$( $prog $script $args1 "$args2" )
-gxmessage -title "scraping result:" "$result" $GXMESSAGE1
-
-( gedit "$script" &)
-#echo "$result"
-}
-
 
 edit_prespective(){
 gedit $TODAY_DIR/yaml/3_routes.yaml &
 gedit $TODAY_DIR/yaml/priority.yaml &
+}
+edit_fear(){
+gedit $TODAY_DIR/yaml/fear.yaml &
+}
+
+record_for_later(){
+xdg-open 'http://www.youtube.com/upload'
 }
 
 edit(){
