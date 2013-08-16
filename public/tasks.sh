@@ -12,6 +12,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 yellow  "tasks.sh got: "
 echo2 "1: $1"
 echo2 " 2:$2 3:$3 4: $4"
+
 koan(){
     yellow 'add 1 koan !'
     ( bash -c $KOANS_DIR/meditate.sh &)
@@ -69,12 +70,22 @@ update(){
 
 
 motivation(){
+
+    local field="$1"
+    
+    if [ "$field" != '' ];then
+        $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/${field}.txt
+    else
+ #general 
+    $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt
+    fi
+    
     #choose5 $STATIC_DIR/reminder.txt
     #choose4 $STATIC_DIR/motivations.txt
 
     #choose4 $DYNAMIC_DIR/motivation/glossary.txt
     #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-    $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt
+
 
     #choose4 $quotes_txt
     #one_tip
@@ -85,8 +96,14 @@ edit_stuff
 }
 edit_motivations(){
     ( gedit $TODAY_DIR/txt/motivations.txt &)
+    ( gedit $TODAY_DIR/txt/sport.txt &)
 }
 
+recent_progress(){
+echo  'show progress in a field'
+echo 'show buttinns'
+"does 1 tiny step aday - is equal to a nice huge step a month ?"
+}
 
 update_glossary(){
     sleep1 10
@@ -206,6 +223,20 @@ update_statistics(){
 update_report(){
     #( xterm -e "$TASKS_DIR/blogger.sh" &)
     gedit $TODAY_DIR/txt/report.txt &
+}
+recent_steps(){
+
+
+
+#gedit $CFG_DIR/step_a_day.txt
+
+rainbow "$remind1" 
+rainbow "$remind2" 
+
+}
+
+collaboration(){
+$PLUGINS_DIR/cooperation.sh
 }
 
 commitment(){

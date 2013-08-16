@@ -31,12 +31,15 @@ step1(){
 #http://wiki.bash-hackers.org/syntax/expansion/brace
 #http://wiki.bash-hackers.org/syntax/start
 #eacher '$tasks_sh time_is_limited' 'it should take a while' 
-$tasks_sh commitment
+#$tasks_sh commitment
+#$tasks_sh remind_me1
+#$tasks_sh recent_steps 
+$tasks_sh collaboration
 
 }
 
 #play $infile trim 0:00 =0:10 
 
 step1
-exit
+#exit
 

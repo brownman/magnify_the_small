@@ -1,17 +1,17 @@
 commitment|make commitments
-learn_langs|play a lesson
-edit_fear|I hate to do it
-edit_motivations|believe in yourself
-show_self|increase efficiency level 
-show_achievements|say something good
-edit_prespective|time is limited - update priorities
-edit_txt|update daily plan
-update_glossary|update logging file
-motivation|say something good
-record_for_later|recored your ideas and insight for this day
+#edit_fear|I hate to do it
+#edit_motivations|believe in yourself
+#show_self|increase efficiency level 
+#show_achievements|say something good
+#edit_prespective|time is limited - update priorities
+#edit_txt|update daily plan
+#update_glossary|update logging file
+#motivation|say something good
+#record_for_later|recored your ideas and insight for this day
+#learn_langs|play a lesson
+#recent_steps|exopose your goal
+#scrap_something|now - try to do some scrapping
+##ignore:
+##update_report|post report to blog
+##update_statistics|report on each cycle
 #
-scrap_something|now - try to do some scrapping
-ignore:
-update_report|post report to blog
-update_statistics|report on each cycle
-

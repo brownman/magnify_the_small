@@ -1,0 +1,4 @@
+eran|inherite js?|open website: js.com
+ran.t|hello kernel?|open file: kernel.pdf
+nir|netstat?|netstat --help
+
