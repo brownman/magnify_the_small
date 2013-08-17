@@ -34,7 +34,8 @@ step1(){
 #$tasks_sh commitment
 #$tasks_sh remind_me1
 #$tasks_sh recent_steps 
-$tasks_sh collaboration
+#$tasks_sh collaboration
+$tasks_sh motivation sport 
 
 }
 

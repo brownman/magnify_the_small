@@ -23,7 +23,7 @@ increase_efficiency(){
     local file1=$TODAY_DIR/txt/efficiency.txt
     echo "level: $level"
     echo "$task:$level" >> $file1
-    gedit $file1
+    #gedit $file1
         
 }
 
@@ -58,31 +58,20 @@ max=${#lines[@]}
 echo "executing $max tasks" | flite
     for line in "${lines[@]}"
     do
-
-
         $tasks_sh motivation sport
         echo "$line "
-  
-            desc=$( echo $line | awk -F '|' '{print $2}' )
             command=$( echo $line | awk -F '|' '{print $1}' )
-
+            args=$( echo $line | awk -F '|' '{print $2}' )
+            desc=$( echo $line | awk -F '|' '{print $3}' )
             notify-send "TASK:" "$desc"
             ( echo "$desc" | flite &)
             #( echo0 "$desc" &)
-            #exec
-
-
-
-            cmd1='$tasks_sh $command "$desc"'
-
-            eacher "$tasks_sh $command"  "$desc" #eacher '$tasks_sh time_is_limited' 'it should take a while' 
-
+            #cmd1='$tasks_sh $command "$desc"'
+            eacher "$tasks_sh $command $args"  "$desc" #eacher '$tasks_sh time_is_limited' 'it should take a while' 
 increase_efficiency $count $max $command
         sleep1 $WORKFLOW_DELAY
-
     let "count=count+1"
     done
-
     sleep1 60
     #exec $tasks_sh suspend "regardless workflow"
 }
@@ -98,22 +87,15 @@ result1=$( messageYN "y/n question" "$msg2" )
     if [[ $result1 -eq 2 ]];then
     `rm $locker`
     `kill -9 $pids1`
-    #$0
-    echo "exec $0 ?"
-
-  ./$0             #  Script recursively spawns a new instance of itself.
-    
-    #echo 'process terminated' | flite
+  #./$0             #  Script recursively spawns a new instance of itself.
     fi
-
-
-    
 else
     green 'create $locker'
     touch $locker
     echo $$ > $locker
 
-    msg0="I follow my commitments And I never lie"
+    msg0="I have the power to change"
+    #follow my commitments And I never lie"
     #"do you know what to do next?"
     #are you doing what you wished for ?"
     echo "have you already planned what to do next? "
@@ -125,24 +107,13 @@ result1=$( messageYN "y/n question" "$msg0" )
         echo "$msg1"
         #sleep1 60
         read_lines $CFG_DIR/workflow.txt
-  
     else
         red 'Suspending..'
         $timer_sh motivation
         xterm -e  $PLUGINS_DIR/suspend.sh
     fi
-
-
-
-
   #yellow "removing $locker"
 #  `rm $locker`
-
-
-
-
-
-
 fi
 exit 0
 

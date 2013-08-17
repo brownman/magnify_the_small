@@ -35,7 +35,7 @@ line=${lines[$i]}
     done
     
 #green "str1: $str1"
-$( string_to_buttons "$str1" "collaboration:" )
+$( string_to_buttons "$str1" "collaboration:" 'choose a friend:' )
 result="$?"
 
 cyan "result: $result"
@@ -45,11 +45,13 @@ local line1="${lines[$result]}"
 yellow "line1: $line1"
 local name1=$( echo "$line1" | awk -F '|' '{print $1}' )
 local ask1=$( echo "$line1" | awk -F '|' '{print $2}' )
-local cmd1=$( echo "$line1" | awk -F '|' '{print $3}' )
+#local cmd1=$( echo "$line1" | awk -F '|' '{print $3}' )
 $( gxmessage -title "collaborations: with $name1" $GXMESSAGET "$ask1" -entrytext "$cmd1" )
 #echo  "$cmd1"
 #bash -c "$cmd1" &
-xterm -e "$cmd1" &
+#xterm -e "$cmd1" &
+#exec "$cmd1"
+$TODAY_DIR/code/collaboration.sh "$name1"
 
 
             #notify-send "TASK:" "$desc"

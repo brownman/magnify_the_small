@@ -12,38 +12,41 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 yellow  "tasks.sh got: "
 echo2 "1: $1"
 echo2 " 2:$2 3:$3 4: $4"
+reminder(){
+    #recent_progress
+    #last_step
+echo  'show progress in a field'
+echo 'show buttinns'
+"does 1 tiny step aday - is equal to a nice huge step a month ?"
+rainbow "$remind1" 
+rainbow "$remind2" 
+}
+
+edit(){
+arg="$1"
+gedit $TODAY_DIR/txt/$arg.txt
+}
+
+motivation(){
+arg="$1"
+$PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/$arg.txt
+}
 
 koan(){
     yellow 'add 1 koan !'
     ( bash -c $KOANS_DIR/meditate.sh &)
 }
-show_self(){
-gedit $CFG_DIR/workflow.txt &
-}
 
-edit_prespective(){
-gedit $TODAY_DIR/yaml/3_routes.yaml &
-gedit $TODAY_DIR/yaml/priority.yaml &
-}
-edit_fear(){
-gedit $TODAY_DIR/yaml/fear.yaml &
-}
 
 record_for_later(){
 xdg-open 'http://www.youtube.com/upload'
 }
 
-edit(){
-    ( gedit $DYNAMIC_DIR/wish_txt &)
-    ( gedit $DYNAMIC_DIR/learn/questions_txt &)
-    ( gedit $DYNAMIC_DIR/day/plan.txt &)
-}
 remind(){
     msg='there is only 1 way to go'
     rainbow "$msg"
-
-
 }
+
 take_photo(){
 $PLUGINS_DIR/take_photo.sh
 }
@@ -55,55 +58,16 @@ time1(){
 }
 
 update(){
-
     cyan "update:"
     title="NOW DOING:"
     file=$now_txt
     add_line $file "$title" true #add time note 
-
-    #title="update: ideas_txt"
-    #title="update: ideas_txt"
     tile="EFFICIENT COMMITMENT:"
     file=$ideas_txt
     add_line $file "$title"
 }
 
 
-motivation(){
-
-    local field="$1"
-    
-    if [ "$field" != '' ];then
-        $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/${field}.txt
-    else
- #general 
-    $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/motivations.txt
-    fi
-    
-    #choose5 $STATIC_DIR/reminder.txt
-    #choose4 $STATIC_DIR/motivations.txt
-
-    #choose4 $DYNAMIC_DIR/motivation/glossary.txt
-    #choose5 $DYNAMIC_DIR/motivation/glossary.txt
-
-
-    #choose4 $quotes_txt
-    #one_tip
-}
-
-edit_txt(){
-edit_stuff
-}
-edit_motivations(){
-    ( gedit $TODAY_DIR/txt/motivations.txt &)
-    ( gedit $TODAY_DIR/txt/sport.txt &)
-}
-
-recent_progress(){
-echo  'show progress in a field'
-echo 'show buttinns'
-"does 1 tiny step aday - is equal to a nice huge step a month ?"
-}
 
 update_glossary(){
     sleep1 10
@@ -120,25 +84,11 @@ update_glossary(){
     #'http://www.cyberciti.biz/faq/bash-for-loop/'
 }
 
-
-#ensure_suspension(){
-#    exec xterm -e $PLUGINS_DIR/ensure_suspension.sh
-#}
-#
-
 show(){
     cyan "show:"
     gxmessage -title 'show: morning reminder' -file $DYNAMIC/wish.txt $GXMESSAGET
 }
-edit_yaml(){
-echo 'edit the prespective file first' 
-gedit $TODAY_DIR/yaml/plan.yaml &
-gedit $TODAY_DIR/yaml/report.yaml &
-gedit $TODAY_DIR/yaml/me.yaml & 
-gedit $TODAY_DIR/yaml/breakthrough.yaml & 
 
-
-}
 
 
 glossary_reminder(){
@@ -147,53 +97,9 @@ glossary_reminder(){
     choose5 $DYNAMIC_DIR/glossary.txt
 }
 
-delete_files(){
-    dir=$TMP_DIR/daily
-    dir1=$TMP_DIR/essays
-    for I in $(ls -1 --sort=time $dir/*.txt )
-    do 
-        blue 'press ESC to ignore '
-        answer=2
-        cat $I
-        if [ "$answer" = 2 ];then
-            echo '' > "$I"
-            red 'clean file'
-        else
-            green 'ignore file'
-        fi
-    done
-    for I in $(ls -1 --sort=time $dir1/*.txt )
-    do 
-        answer=2
-        cat $I
-        if [ "$answer" = 2 ];then
-
-            echo '' > "$I"
-            red 'clean file'
-        else
-            green 'ignore file'
-        fi
-    done
-}
-
-
 wish(){
     echo -n 'to be implemented: '
     blue "$1"
-}
-
-
-scrap_practice(){
-    cyan "idea for practive scraping"
-    local title='scraping idea ?'
-    while :;do
-        answer=$( gxmessage  -buttons "ok"  -entry -title "$title"  -file  $scrap_txt -ontop -timeout $TIMEOUT1 )
-        if [ "$answer" = '' ];then
-            break
-        else 
-            update_file $scrap_txt "$answer"
-        fi
-    done
 }
 
 act(){
@@ -201,9 +107,11 @@ act(){
     #eval '$1 "$2" "$3"'
     #eacher "$1"
 }
-suspend(){
+
+suspend1(){
     $PLUGINS_DIR/suspend.sh
 }
+
 is_valid1(){
     file="$1"
     is_valid "$file"
@@ -215,28 +123,9 @@ report(){
     echo 'update google blogger with the score for this cycle'
 }
 
-
-update_statistics(){
-    gedit $CFG_DIR/workflow.txt &
-}
-
-update_report(){
-    #( xterm -e "$TASKS_DIR/blogger.sh" &)
-    gedit $TODAY_DIR/txt/report.txt &
-}
-recent_steps(){
-
-
-
-#gedit $CFG_DIR/step_a_day.txt
-
-rainbow "$remind1" 
-rainbow "$remind2" 
-
-}
-
 collaboration(){
-$PLUGINS_DIR/cooperation.sh
+(      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
+sleep1 30
 }
 
 commitment(){
@@ -247,14 +136,11 @@ commitment(){
        echo 'no commitments !' | flite
     fi
 }
-achievements(){
-gedit $TODAY_DIR/yaml/achievements.yaml &
-}
-
 
 game_essay(){
 $PLUGINS_DIR/game_essay.sh
 }
+
 learn_langs(){
 #LANG_NAME
 #LANG_NUM
