@@ -23,8 +23,13 @@ rainbow "$remind2"
 }
 
 edit(){
-arg="$1"
-gedit $TODAY_DIR/txt/$arg.txt
+local name="$1"
+local result=0
+local file1=$TODAY_DIR/txt/$name.txt
+local file2=$TODAY_DIR/yaml/$name.yaml
+
+gedit $file1 & 
+gedit $file2 &
 }
 
 motivation(){
@@ -41,14 +46,49 @@ koan(){
 record_for_later(){
 xdg-open 'http://www.youtube.com/upload'
 }
+chooser(){
+local name="$1"
+local value=$( eval echo \$$name )
+echo "name: $name"
+echo "value: $value"
 
-remind(){
-    msg='there is only 1 way to go'
-    rainbow "$msg"
+local str="$value"
+local file_msg=$CFG_DIR/guidance.txt 
+local msg="push forward:"
+local title='options'
+
+res=$( string_to_buttons "$str" "$title" "$msg" )
+#res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
+answer=$?
+#cyan "$res"
+#yellow "$answer"
+
+
+if [[ $answer -eq 0 ]];then
+echo 'skip editing'
+else
+gedit $TODAY_DIR/yaml/$res.yaml
+fi
 }
 
 take_photo(){
 $PLUGINS_DIR/take_photo.sh
+}
+
+show(){
+    echo "show() got: $1 $2"
+local name="$1"
+local file=$TODAY_DIR/yaml/$name.yaml
+touch $file
+
+    string_to_buttons_file 'cancel edit' '2 options' $file
+    answer=$?
+
+    if [[ $answer -eq 1 ]];then
+        gedit $file
+    else
+        echo 'skip editing'
+    fi
 }
 
 time1(){
@@ -84,11 +124,11 @@ update_glossary(){
     #'http://www.cyberciti.biz/faq/bash-for-loop/'
 }
 
-show(){
-    cyan "show:"
-    gxmessage -title 'show: morning reminder' -file $DYNAMIC/wish.txt $GXMESSAGET
-}
-
+#show(){
+#    cyan "show:"
+#    gxmessage -title 'show: morning reminder' -file $DYNAMIC/wish.txt $GXMESSAGET
+#}
+#
 
 
 glossary_reminder(){
@@ -124,8 +164,9 @@ report(){
 }
 
 collaboration(){
-(      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
-sleep1 30
+#(      xterm -e $PLUGINS_DIR/collaboration.sh &)
+$PLUGINS_DIR/collaboration.sh 
+#sleep1 30
 }
 
 commitment(){
@@ -133,7 +174,7 @@ commitment(){
     if [ "$line" != '' ];then
         (      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
     else
-       echo 'no commitments !' | flite
+       flite 'no commitments !' 
     fi
 }
 

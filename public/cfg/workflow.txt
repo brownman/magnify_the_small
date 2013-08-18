@@ -1,20 +1,29 @@
-motivation|sport|say sport motivation
-#edit|wish|wish for anything
-#essay_aday|write a children story is the best product of one day
+show|guidance|show important notes
+chooser|power_source|my power source
+chooser|routes_3|3 routes
+chooser|childish|3 routes
+edit|sport|update sport tasks
+##
+#childish||child menu
+#routes_3||3 routes
+#remind_finite||remind who am I and how long should I wonder around earth
+#commitment||make commitments
+#motivation|sport|say sport motivation
 #collaboration|exopose your goal
-#commitment|make commitments
-#edit_fear|I hate to do it
 #learn_langs|play a lesson
-##edit_motivations|believe in yourself
-##show_self|increase efficiency level 
-##show_achievements|say something good
-##edit_prespective|time is limited - update priorities
-##edit_txt|update daily plan
-##update_glossary|update logging file
 ##motivation|say something good
 ##record_for_later|recored your ideas and insight for this day
 ##scrap_something|now - try to do some scrapping
-###ignore:
+##
+##edit_motivations|believe in yourself
+#edit|wish|wish for anything
+#edit_fear|I hate to do it
+#edit|thanks|define rich
+#edit|essay_aday|write a children story is the best product of one day
+##edit_prespective|time is limited - update priorities
+##edit_txt|update daily plan
+##show_self|increase efficiency level 
+##show_achievements|say something good
 ###update_report|post report to blog
 ###update_statistics|report on each cycle
-##
+##update_glossary|update logging file

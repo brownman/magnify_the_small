@@ -12,6 +12,9 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 export locker=/tmp/lock1
 workflow=''
 workflow_d=''
+#waiting=$("$1" || 60 )
+waiting=${1:-60}   # Defaults to /tmp dir.
+green   "waiting  $waiting"
 
 increase_efficiency(){
     count="$1"
@@ -53,9 +56,10 @@ done < "$file_guide"
 echo "lines: ${lines}"
 
 max=${#lines[@]}
-count=0
+count=1
 max=${#lines[@]}
-echo "executing $max tasks" | flite
+flite "executing $max tasks" 
+$tasks_sh edit sport
     for line in "${lines[@]}"
     do
         $tasks_sh motivation sport
@@ -64,15 +68,15 @@ echo "executing $max tasks" | flite
             args=$( echo $line | awk -F '|' '{print $2}' )
             desc=$( echo $line | awk -F '|' '{print $3}' )
             notify-send "TASK:" "$desc"
-            ( echo "$desc" | flite &)
+            flite "$desc" true
             #( echo0 "$desc" &)
             #cmd1='$tasks_sh $command "$desc"'
             eacher "$tasks_sh $command $args"  "$desc" #eacher '$tasks_sh time_is_limited' 'it should take a while' 
-increase_efficiency $count $max $command
-        sleep1 $WORKFLOW_DELAY
+increase_efficiency $count $max "$command"
+        sleep1 $waiting
     let "count=count+1"
     done
-    sleep1 60
+    #sleep1 $waiting
     #exec $tasks_sh suspend "regardless workflow"
 }
 
@@ -80,10 +84,9 @@ if [ -e $locker ];then
     echo -n  "file exist: "
     red "$locker"
     echo -n "assume proccess is running"
-    #echo "process already running" | flite
  pids1=`cat $locker`
  msg2="kill running process ?"
-result1=$( messageYN "y/n question" "$msg2" )
+result1=$( messageYN  "$msg2" )
     if [[ $result1 -eq 2 ]];then
     `rm $locker`
     `kill -9 $pids1`
@@ -101,19 +104,9 @@ else
     echo "have you already planned what to do next? "
     echo "sport/job"
 
-result1=$( messageYN "y/n question" "$msg0" )
-    if [[ $result1 -eq 2 ]];then
-        echo 'I am free'
-        echo "$msg1"
-        #sleep1 60
+
         read_lines $CFG_DIR/workflow.txt
-    else
-        red 'Suspending..'
-        $timer_sh motivation
-        xterm -e  $PLUGINS_DIR/suspend.sh
-    fi
-  #yellow "removing $locker"
-#  `rm $locker`
+  
 fi
 exit 0
 
