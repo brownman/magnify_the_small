@@ -12,15 +12,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 yellow  "tasks.sh got: "
 echo2 "1: $1"
 echo2 " 2:$2 3:$3 4: $4"
-reminder(){
-    #recent_progress
-    #last_step
-echo  'show progress in a field'
-echo 'show buttinns'
-"does 1 tiny step aday - is equal to a nice huge step a month ?"
-rainbow "$remind1" 
-rainbow "$remind2" 
-}
+
 
 edit(){
 local name="$1"
@@ -34,7 +26,15 @@ gedit $file2 &
 
 motivation(){
 arg="$1"
+
+if [ "$arg" = 'glossary' ];then
+local word=$( random_line $TODAY_DIR/txt/glossary.txt )
+$PLUGINS_DIR/scrap.sh translate "$LANG_DEFAULT" "$word"
+sleep1 3
+$PLUGINS_DIR/scrap.sh translate 'ar' "$word"
+else
 $PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/$arg.txt
+fi
 }
 
 koan(){
@@ -46,6 +46,7 @@ koan(){
 record_for_later(){
 xdg-open 'http://www.youtube.com/upload'
 }
+
 chooser(){
 local name="$1"
 local value=$( eval echo \$$name )
@@ -109,34 +110,6 @@ update(){
 
 
 
-update_glossary(){
-    sleep1 10
-    cyan "update:"
-    title="my Children story:"
-    file=$TODAY_DIR/txt/log.txt
-    max=5
-    for (( c=1; c<=$max; c++ ))
-    do
-        echo -n "counter: "
-        cyan "$c of $max"
-        $PLUGINS_DIR/logger.sh add_line "$file" "$title" 'true'
-    done
-    #'http://www.cyberciti.biz/faq/bash-for-loop/'
-}
-
-#show(){
-#    cyan "show:"
-#    gxmessage -title 'show: morning reminder' -file $DYNAMIC/wish.txt $GXMESSAGET
-#}
-#
-
-
-glossary_reminder(){
-    word=$(    gxmessage -title 'glossary reminder' -file $DYNAMIC_DIR/glossary.txt $GXMESSAGET -entry )
-    echo5 "$word"
-    choose5 $DYNAMIC_DIR/glossary.txt
-}
-
 wish(){
     echo -n 'to be implemented: '
     blue "$1"
@@ -169,13 +142,8 @@ $PLUGINS_DIR/collaboration.sh
 #sleep1 30
 }
 
-commitment(){
-    local line=$( gxmessage -entry -title 'commitment' '5 minutes for the next step:' $GXMESSAGET  )
-    if [ "$line" != '' ];then
-        (      xterm -e $PLUGINS_DIR/stop_watch.sh "$line" &)
-    else
-       flite 'no commitments !' 
-    fi
+reminder(){
+(      xterm -e $PLUGINS_DIR/stop_watch.sh &)
 }
 
 game_essay(){
@@ -183,11 +151,10 @@ $PLUGINS_DIR/game_essay.sh
 }
 
 learn_langs(){
-#LANG_NAME
-#LANG_NUM
 $PLUGINS_DIR/learn_langs.sh $LANG_NAME $LANG_NUM
 #RU 13
 }
+
 
 
 eval "$1" '"$2" "$3"'

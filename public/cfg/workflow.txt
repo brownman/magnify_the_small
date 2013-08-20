@@ -1,14 +1,17 @@
+motivation|glossary|pick 1 word
+reminder||set timer for annoyance
 show|guidance|show important notes
-chooser|power_source|my power source
-chooser|routes_3|3 routes
-chooser|childish|3 routes
-edit|sport|update sport tasks
+#show|prespective|show timing
+#chooser|power_source|my power source
+#chooser|routes_3|3 routes
+#chooser|childish|3 routes
+#edit|sport|update sport tasks
+#motivation|sport|say sport motivation
 ##
 #childish||child menu
 #routes_3||3 routes
 #remind_finite||remind who am I and how long should I wonder around earth
 #commitment||make commitments
-#motivation|sport|say sport motivation
 #collaboration|exopose your goal
 #learn_langs|play a lesson
 ##motivation|say something good

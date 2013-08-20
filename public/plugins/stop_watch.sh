@@ -43,12 +43,14 @@ array_to_buttons(){
 }
 
 stop_watch1(){
-    echo2 "stop_watch1() got: $1 $2"
+    echo2 "stop_watch1() got: $1 $2 $3"
 
-    local sec=500
-    local msg="$1"
+
+    local sec="$1" #500 long
+    local every="$2" #60 every 
+    local msg="$3" #msg
     local msg1=""
-    echo "sleep ${sec}s"
+    #echo "sleep ${sec}s"
     local title=''
 
     #echo0 "$msg"
@@ -58,17 +60,24 @@ stop_watch1(){
 
         #let "m = $c % 60"
 
-        m=$((c%60))
+        m=$((c%every))
         if [ "$m" -eq 0  ];then
             title="commitment reminder"
 
-            local msg1="$c/$sec:  $msg:"
+            local msg1="$c/$sec:  $msg"
 
             if [ "$SHOW_BUTTONS" = 'true' ];then
                 array_to_buttons "$msg" "$title" "$msg1" 
             else
+    string_to_buttons 'exit ok'  "commitment reminder:" "$msg1"
+    answer=$?
 
-                gxmessage -title "commitment reminder:" "$msg1" $GXMESSAGET &
+    if [[ $answer -eq 0 ]];then
+        exiting
+    else
+        echo 'go on'
+    fi
+            
             fi
 
 
@@ -84,8 +93,17 @@ stop_watch1(){
     #ref: http://linux.about.com/od/Bash_Scripting_Solutions/a/Arithmetic-In-Bash.htm
 }
 
-
-stop_watch1 "$1" "$2"
-
-exit 
+reminder1(){
+    local line=$( gxmessage -entrytext  '500|60|commitment:' -title 'commitment' '5 minutes for the next step:' $GXMESSAGET  )
+ local   long=$( echo $line | awk -F '|' '{print $1}' )
+  local every=$( echo $line | awk -F '|' '{print $2}' )
+  local   msg=$( echo $line | awk -F '|' '{print $3}' )
+    if [ "$msg" != '' ];then
+     stop_watch1 "$long" "$every" "$msg" 
+    else
+       flite 'no commitments !' 
+    fi
+}
+reminder1 
+#exit 
 

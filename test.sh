@@ -35,7 +35,10 @@ step1(){
 #$tasks_sh remind_me1
 #$tasks_sh recent_steps 
 #$tasks_sh edit essay_aday 
-$tasks_sh show guidance 
+
+#$tasks_sh reminder 
+$tasks_sh glossary 
+#show guidance 
 #$tasks_sh motivation sport 
 
 }

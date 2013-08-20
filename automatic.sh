@@ -59,7 +59,7 @@ max=${#lines[@]}
 count=1
 max=${#lines[@]}
 flite "executing $max tasks" 
-$tasks_sh edit sport
+$tasks_sh show sport
     for line in "${lines[@]}"
     do
         $tasks_sh motivation sport
@@ -67,7 +67,7 @@ $tasks_sh edit sport
             command=$( echo $line | awk -F '|' '{print $1}' )
             args=$( echo $line | awk -F '|' '{print $2}' )
             desc=$( echo $line | awk -F '|' '{print $3}' )
-            notify-send "TASK:" "$desc"
+            notify-send "TASK: $desc" "$args"
             flite "$desc" true
             #( echo0 "$desc" &)
             #cmd1='$tasks_sh $command "$desc"'
