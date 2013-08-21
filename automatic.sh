@@ -4,7 +4,7 @@
 # execute: tasks.sh $workflow
 #
 
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
+export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
 #eval $PWD/public/cfg/tmp/mute.sh
 #sleep 20
@@ -105,7 +105,7 @@ else
     echo "sport/job"
 
 
-        read_lines $CFG_DIR/workflow.txt
+        read_lines $CFG_DIR/workflow.cfg
   
 fi
 exit 0

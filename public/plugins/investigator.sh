@@ -1,7 +1,6 @@
 #!/bin/bash
 # about file:
 # plugin:   ask a question +  try to give answer + save the command result
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 

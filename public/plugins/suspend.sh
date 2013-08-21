@@ -4,7 +4,6 @@
 # description:   suspend the computer + limit powering-on to X seconds
 # unlock: https://bugs.launchpad.net/ubuntu/+source/dbus/+bug/811441
 # progress bar: http://bash.cyberciti.biz/guide/A_progress_bar_(gauge_box)
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 timeout=$TIMEOUT_LET_ME_SLEEP
 

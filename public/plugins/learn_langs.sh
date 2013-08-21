@@ -5,7 +5,6 @@
 # record your steps being done
 #./private/old/oldy1/timer.sh:    (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
 
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 file=$TODAY_DIR/txt/report.yaml
 learn_lang(){

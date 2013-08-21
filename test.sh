@@ -3,7 +3,7 @@
 # about file:
 # test first!
 #
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
+export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
 reset 
 test_cli_gui_comptability(){
@@ -37,7 +37,7 @@ step1(){
 #$tasks_sh edit essay_aday 
 
 #$tasks_sh reminder 
-$tasks_sh glossary 
+$tasks_sh learn_langs 
 #show guidance 
 #$tasks_sh motivation sport 
 
@@ -45,6 +45,9 @@ $tasks_sh glossary
 
 #play $infile trim 0:00 =0:10 
 
-step1
+#step1
+$tasks_sh "$1"
+
+
 #exit
 

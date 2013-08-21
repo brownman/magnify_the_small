@@ -5,7 +5,7 @@
 # 
 
 
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
+#export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 
@@ -27,13 +27,12 @@ gedit $file2 &
 motivation(){
 arg="$1"
 
+$PLUGINS_DIR/translation.sh line $CFG_DIR/txt/$arg.txt
 if [ "$arg" = 'glossary' ];then
-local word=$( random_line $TODAY_DIR/txt/glossary.txt )
-$PLUGINS_DIR/scrap.sh translate "$LANG_DEFAULT" "$word"
+local word=$( random_line $CFG_DIR/txt/glossary.txt )
+$PLUGINS_DIR/scrap.sh translate 'ru' "$word"
 sleep1 3
 $PLUGINS_DIR/scrap.sh translate 'ar' "$word"
-else
-$PLUGINS_DIR/translation.sh line $TODAY_DIR/txt/$arg.txt
 fi
 }
 
@@ -54,7 +53,7 @@ echo "name: $name"
 echo "value: $value"
 
 local str="$value"
-local file_msg=$CFG_DIR/guidance.txt 
+#local file_msg=$CFG_DIR/txt/guidance.txt 
 local msg="push forward:"
 local title='options'
 
@@ -79,7 +78,7 @@ $PLUGINS_DIR/take_photo.sh
 show(){
     echo "show() got: $1 $2"
 local name="$1"
-local file=$TODAY_DIR/yaml/$name.yaml
+local file=$CFG_DIR/txt/$name.txt
 touch $file
 
     string_to_buttons_file 'cancel edit' '2 options' $file

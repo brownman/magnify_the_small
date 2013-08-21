@@ -2,7 +2,6 @@
 # about file:
 # plugin:        collaboration
 # description:   refresh  last step in a field
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 file=$CFG_DIR/step_a_day.txt

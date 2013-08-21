@@ -2,7 +2,6 @@
 # about file:
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 from="$2" #file or sentance
 method="$1" #sentance, line, lines

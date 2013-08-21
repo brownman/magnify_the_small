@@ -4,7 +4,6 @@
 # update .txt files faser
 
 
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 
 echo 'help: use:'

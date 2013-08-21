@@ -2,7 +2,6 @@
 # about file:
 # plugin:        take_photo.sh 
 # description:   take a picture   
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/timer.cfg
 . $TIMERTXT_CFG_FILE
 dir1=~/pictures/
 
