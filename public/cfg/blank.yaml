@@ -1,26 +1,20 @@
-- first:
-    - workflow:
-        - morning:
-            - motivation
-        - study:
-            - push forward 1 thing
-
-    - study:
+- wish:
+	- study:
             - responsive design website ?
             - android-app from sample ?
-- achivements:
-    - project_order:
-        - share txt files - for better accuracy and attention
-- daily_goal:
-    - 1 small product: - a website starter - maybe phonegap version
-    - send some questions for programmers
-    
-- wish:
-    - nice day
-    - focus on 1 subject
-    - timing attentions
-    - some tasks done
-    - many suspensions
+  	    - send some questions for programmers
    
 - motivations:
     - everything is a good bullshit
+
+- achivements:
+    - project:
+        - share txt files - for better accuracy and attention
+	- update readme
+	- add timer.sh wrapper that runs parser.sh
+	- workflow_types  menu -> trigger spacific workflow
+
+- timing:
+	- 18:00 - pool
+	- 19:00 - chichi
+	- 19:30 - kuka

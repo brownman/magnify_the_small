@@ -9,9 +9,10 @@
 . $TIMERTXT_CFG_FILE
 
 
-yellow  "tasks.sh got: "
-echo2 "1: $1"
-echo2 " 2:$2 3:$3 4: $4"
+echo  "tasks.sh got: "  >&2
+echo "1: $1"  >&2
+echo " 2:$2 3:$3 4: $4"  >&2
+
 
 
 edit(){
@@ -49,37 +50,30 @@ xdg-open 'http://www.youtube.com/upload'
 chooser(){
 local name="$1"
 local value=$( eval echo \$$name )
-echo "name: $name"
-echo "value: $value"
+#echo "name: $name"
+#echo "value: $value"
 
 local str="$value"
-#local file_msg=$CFG_DIR/txt/guidance.txt 
 local msg="push forward:"
 local title='options'
 
-res=$( string_to_buttons "$str" "$title" "$msg" )
-#res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
-answer=$?
-#cyan "$res"
-#yellow "$answer"
 
+res=$( string_to_buttons "$str" "$title" "$msg" )
+answer=$?
 
 if [[ $answer -eq 0 ]];then
-echo 'skip editing'
+echo 'skip editing'  >&2
 else
-gedit $TODAY_DIR/yaml/$res.yaml
+#gedit $TODAY_DIR/yaml/$res.yaml
+echo "$res"
 fi
 }
 
 take_photo(){
 $PLUGINS_DIR/take_photo.sh
 }
-
-show(){
-    echo "show() got: $1 $2"
-local name="$1"
-local file=$CFG_DIR/txt/$name.txt
-touch $file
+show_file(){
+local    file="$1"
 
     string_to_buttons_file 'cancel edit' '2 options' $file
     answer=$?
@@ -89,6 +83,16 @@ touch $file
     else
         echo 'skip editing'
     fi
+}
+
+
+show(){
+    echo "show() got: $1 $2"
+local name="$1"
+local file=$CFG_DIR/txt/$name.txt
+touch $file
+show_file "$file"
+
 }
 
 time1(){

@@ -68,15 +68,15 @@ stop_watch1(){
             if [ "$SHOW_BUTTONS" = 'true' ];then
                 array_to_buttons "$msg" "$title" "$msg1" 
             else
-    string_to_buttons 'exit ok'  "commitment reminder:" "$msg1"
-    answer=$?
+                string_to_buttons 'exit ok'  "commitment reminder:" "$msg1"
+                answer=$?
 
-    if [[ $answer -eq 0 ]];then
-        exiting
-    else
-        echo 'go on'
-    fi
-            
+                if [[ $answer -eq 0 ]];then
+                    exiting
+                else
+                    echo 'go on'
+                fi
+
             fi
 
 
@@ -94,13 +94,15 @@ stop_watch1(){
 
 reminder1(){
     local line=$( gxmessage -entrytext  '500|60|commitment:' -title 'commitment' '5 minutes for the next step:' $GXMESSAGET  )
- local   long=$( echo $line | awk -F '|' '{print $1}' )
-  local every=$( echo $line | awk -F '|' '{print $2}' )
-  local   msg=$( echo $line | awk -F '|' '{print $3}' )
-    if [ "$msg" != '' ];then
-     stop_watch1 "$long" "$every" "$msg" 
+
+    if [ "$line" != '' ];then
+        local   long=$( echo $line | awk -F '|' '{print $1}' )
+        local every=$( echo $line | awk -F '|' '{print $2}' )
+        local   msg=$( echo $line | awk -F '|' '{print $3}' )
+
+        stop_watch1 "$long" "$every" "$msg" 
     else
-       flite 'no commitments !' 
+        flite 'no commitments !' 
     fi
 }
 reminder1 

@@ -3,9 +3,9 @@
 # about file:
 # test first!
 #
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
+export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
-reset 
+$tasks_sh reminder
 test_cli_gui_comptability(){
 export GUI='true'
 echo 'test.sh !'
@@ -37,16 +37,19 @@ step1(){
 #$tasks_sh edit essay_aday 
 
 #$tasks_sh reminder 
-$tasks_sh learn_langs 
+#$tasks_sh learn_langs 
 #show guidance 
 #$tasks_sh motivation sport 
 
+local aa=$( $tasks_sh chooser workflows )
+echo $aa
 }
 
 #play $infile trim 0:00 =0:10 
 
-#step1
-$tasks_sh "$1"
+step1
+#$tasks_sh "$1" "$2" "$3"
+
 
 
 #exit

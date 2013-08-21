@@ -7,15 +7,15 @@ from="$2" #file or sentance
 method="$1" #sentance, line, lines
 help_options="sentance/ line/ lines"
 #update configuration: currently localy
-multiple_langs="$3" #false #export MULTIPLE_LANGS=true
+multiple_langs=true #"$3" #false #export MULTIPLE_LANGS=true
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 
 
 play1(){
 
-
-    echo2 "play1() got: $1 | $2"
+    echo -n "play1() got: "
+    debug yellow "$1 | $2"
 
     if [ "$SILENCE" = false ];then
 
@@ -79,7 +79,7 @@ translate_f(){
     result=$?
     echo -n 'result is: '
     green $result
-    if [ $result -eq 0  ];
+    if [[ $result -eq 0  ]];
     then
         echo2 "fetch txt"
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
@@ -118,7 +118,7 @@ translate_f(){
     output_ws=$(echo "$output"|sed 's/ /_/g');
     is_valid $file_mp3
     result=$?
-    if [ $result -eq 0 ];then
+    if [[ $result -eq 0 ]];then
         echo2 'fetch sound'
         if [ "$lang" = 'tl' ]
         then
@@ -135,8 +135,9 @@ translate_f(){
         fi
         is_valid $file_mp3
     else
+        #debug red $result
         echo2 "cache copy"
-        play1  "$file_mp3" "$lang"
+        play1  $file_mp3 "$lang"
     fi
 
 }
@@ -232,13 +233,16 @@ echo5(){
         translate_f  "$str" it 
         sleep1 2
         translate_f  "$str" ru 
+         sleep1 2
+            translate_f  "$str" ar 
         if [ $num -lt 4 ];then
             sleep1 2
             translate_f  "$str" hi 
-            sleep1 2
-            translate_f  "$str" ar 
+           
             sleep1 2
             translate_f  "$str" tl 
+        else
+            echo 'more then 4 words -> skip playing hi,tl'
         fi
 
     fi

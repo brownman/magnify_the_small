@@ -36,6 +36,6 @@ suspend01(){
 
 
 suspend01
-gedit $TODAY_DIR/yaml/achievements.yaml
+$tasks_sh reminder
 exit 
 
