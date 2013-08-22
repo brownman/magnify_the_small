@@ -34,7 +34,7 @@ else
     echo $$ > $locker
 
     $tasks_sh show_file $CFG_DIR/blank.yaml
-    $tasks_sh reminder
+    #$tasks_sh reminder
     
     route=$($tasks_sh chooser workflows)
     if [ $route != '' ];then
@@ -44,7 +44,8 @@ else
     fi
 
     $tasks_sh motivation sport
-    play $PWD/drip.ogg  -trim $TIME_STR
+    #play $PWD/drip.ogg  -trim $TIME_STR
+    flite 'end of task series'
 fi
 exit 0
 

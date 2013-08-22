@@ -5,42 +5,6 @@
 . $TIMERTXT_CFG_FILE
 timeout=$1
 
-array_to_buttons(){
-    #    local str1=''
-    local str="$1"
-    #local times="$2"
-    local title="$2"
-
-    local msg="$3"
-    #IFS=' ' read -a array <<< "$1"
-    # #echo ${array[@]}
-    #
-    #    #array=$( echo "$1" )
-    #    
-    #
-    #    for i in "${!array[@]}"; do
-    #        if [ "$str1" = '' ];then
-    #       str1="${array[$i]}:$i"
-    #        else
-    #       str1="$str1,${array[$i]}:$i"
-    #        fi
-    #    done
-    #
-    #    #echo "$str1"
-    #
-    #$( gxmessage -buttons "$str1" -title "$3" "$2" $GXMESSAGET )
-    string_to_buttons "$str" "$title"
-    choose="$?"
-    local result=${array[$choose]}
-    echo "result: $result"
-    echo0 "$result"
-    #{array[$choose]}"
-    #echo
-    if [ $SHOW_SIMILAR_WORDS = true ];then
-        scrap_something "$LANG_DEFAULT" "$result"
-    fi
-}
-
 stop_watch1(){
     echo2 "stop_watch1() got: $1 $2 $3"
 
@@ -66,13 +30,20 @@ stop_watch1(){
             local msg1="$c/$sec:  $msg"
 
             if [ "$SHOW_BUTTONS" = 'true' ];then
-                array_to_buttons "$msg" "$title" "$msg1" 
+                res=$( string_to_buttons "exit - $msg" "$title" "translate:" '-' )
+                answer=$?
+
+                if [[ $answer -eq 0 ]];then
+                   break 
+                else
+                    echo0 "$res"
+                fi
             else
                 string_to_buttons 'exit ok'  "commitment reminder:" "$msg1"
                 answer=$?
 
                 if [[ $answer -eq 0 ]];then
-                    exiting
+                   break 
                 else
                     echo 'go on'
                 fi

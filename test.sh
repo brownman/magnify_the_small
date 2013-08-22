@@ -47,8 +47,8 @@ echo $aa
 
 #play $infile trim 0:00 =0:10 
 
-step1
-#$tasks_sh "$1" "$2" "$3"
+#step1
+$tasks_sh "$1" "$2" "$3"
 
 
 

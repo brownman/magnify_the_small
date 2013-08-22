@@ -8,7 +8,7 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
 
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
-timeout_for_suspension=200
+timeout_for_suspension=400
 
 
 export locker2=/tmp/lock2

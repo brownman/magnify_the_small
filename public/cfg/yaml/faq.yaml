@@ -7,5 +7,7 @@
                 - push python_koans
             - buy:
                 - buy car radio
+            - backup:
+                - hdd to cds
 
 
