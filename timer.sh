@@ -12,41 +12,61 @@ workflow=''
 workflow_d=''
 waiting=${1:-60}   # Defaults to /tmp dir.
 green   "waiting  $waiting"
+before(){
+    local result1=0
+
+    if [ -e $locker ];then
+        echo -n  "file exist: "
+        red "$locker"
+        echo -n "assume proccess running: "
+        pids1=`cat $locker`
+        cyan "$pids1"
+        msg2="kill running process ?"
+
+        $( messageYN  "$msg2" )
+
+
+        result1="$?"
+
+        cyan "result: $result1"
+        if [[ $result1 -eq 2 ]];then
+            echo 'killing'
+            `rm $locker`
+            `kill -9 $pids1`
+            #./$0             #  Script recursively spawns a new instance of itself.
+        else
+            echo 'skipping'
+        fi
+        #./$0
+    else
+        green 'create $locker'
+        touch $locker
+        echo $$ > $locker
+        while :;do
+
+
+            local route=$($tasks_sh chooser workflows)
+            echo "route is: $route"
+            #local route='motivation'
+            if [ "$route" != '' ];then
+                workflow_file=$WORKFLOWS_DIR/workflow_$route.cfg 
+                echo "$workflow_file"
+                
+                #$tasks_sh show_file $workflow_file
+                $PWD/serial.sh read_lines "$workflow_file" "$waiting"
+            else
+                $tasks_sh show_file $CFG_DIR/blank.yaml
+            $tasks_sh motivation guidance 
+            echo 'skip'
+            fi
 
 
 
-if [ -e $locker ];then
-    echo -n  "file exist: "
-    red "$locker"
-    echo -n "assume proccess is running"
-    pids1=`cat $locker`
-    msg2="kill running process ?"
-    result1=$( messageYN  "$msg2" )
-    if [[ $result1 -eq 2 ]];then
-        `rm $locker`
-        `kill -9 $pids1`
-        #./$0             #  Script recursively spawns a new instance of itself.
+        done
     fi
-    #./$0
-else
-    green 'create $locker'
-    touch $locker
-    echo $$ > $locker
 
-    $tasks_sh show_file $CFG_DIR/blank.yaml
-    #$tasks_sh reminder
-    
-    route=$($tasks_sh chooser workflows)
-    if [ $route != '' ];then
-        workflow_file=$WORKFLOWS_DIR/workflow_$route.cfg 
-        $tasks_sh show_file $workflow_file
-        $PWD/serial.sh read_lines $workflow_file "$waiting"
-    fi
-
-    $tasks_sh motivation sport
-    #play $PWD/drip.ogg  -trim $TIME_STR
-    flite 'end of task series'
-fi
+}
+before
 exit 0
 
 

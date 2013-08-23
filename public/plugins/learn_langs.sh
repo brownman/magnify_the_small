@@ -9,7 +9,7 @@
 file=$TODAY_DIR/txt/report.yaml
 learn_lang(){
 
-    local lesson=0 #$2
+    local lesson=10 #$2
     local lang=$1
     declare -i num
 
@@ -18,7 +18,7 @@ learn_lang(){
 
 
     let "lesson=$lesson+1"
-    lesson=$( gxmessage -title 'Level:' 'choose a lesson number:' -entrytext $lesson $GXMESSAGET )
+    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET $ICONIC )
 
 
     if [[ $lesson -eq 0 ]];then

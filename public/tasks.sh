@@ -32,7 +32,7 @@ $PLUGINS_DIR/translation.sh line $CFG_DIR/txt/$arg.txt
 if [ "$arg" = 'glossary' ];then
 local word=$( random_line $CFG_DIR/txt/glossary.txt )
 $PLUGINS_DIR/scrap.sh translate 'ru' "$word"
-sleep1 3
+sleep1 5
 $PLUGINS_DIR/scrap.sh translate 'ar' "$word"
 fi
 }
@@ -54,7 +54,7 @@ local value=$( eval echo \$$name )
 #echo "value: $value"
 
 local str="$value"
-local msg="push forward:"
+local msg="what's the easiest task ?"
 local title='options'
 
 
@@ -125,7 +125,12 @@ act(){
 }
 
 suspend1(){
-    $PLUGINS_DIR/suspend.sh
+
+ motivation sport
+ $PLUGINS_DIR/suspend.sh
+ 
+ show sport 
+
 }
 
 is_valid1(){
@@ -146,7 +151,8 @@ $PLUGINS_DIR/collaboration.sh
 }
 
 reminder(){
-(      xterm -e $PLUGINS_DIR/stop_watch.sh &)
+#(      xterm -e $PLUGINS_DIR/stop_watch.sh &)
+ $PLUGINS_DIR/stop_watch.sh 
 }
 
 game_essay(){

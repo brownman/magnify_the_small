@@ -8,8 +8,9 @@ export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
 
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
-timeout_for_suspension=400
 
+timeout_for_suspension=${1:-200}   # Defaults to /tmp dir.
+echo 'going to sleep in 3 minutes'
 
 export locker2=/tmp/lock2
 if [ -e $locker2 ];then
@@ -39,7 +40,8 @@ else
     echo $$ >> $locker2
 
 sleep1 $timeout_for_suspension 
-$PLUGINS_DIR/suspend.sh
+#$PLUGINS_DIR/suspend.sh
+$tasks_sh suspend1
 
 
     yellow 'removing $locker2'

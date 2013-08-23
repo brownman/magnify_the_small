@@ -16,7 +16,7 @@ suspend01(){
     echo -n "let me sleep timeout -  is:"
     cyan "$timeout"
     #echo0 "you have $timeout seconds to accomplish your task - go !" 
-    reminder
+    #reminder
     sleep1 5
     res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
     echo2 "res:  $res"
@@ -36,6 +36,6 @@ suspend01(){
 
 
 suspend01
-$tasks_sh reminder
+
 exit 
 

@@ -21,17 +21,10 @@ increase_efficiency(){
 }
 
 read_lines(){
-    echo2 'read_lines()'
+    echo2 "read_lines() got:  1:$1 2:$2"
     local file_guide="$1"
     local waiting="$2"
-#    old_IFS=$IFS
-#    IFS=$'\n'
-#    lines=($(cat $file_guide)) # array
-#    IFS=$old_IFS
-#
-
-# Bash
-
+    
     while read -r line
     do
         [[ $line = \#* ]] && continue
@@ -44,14 +37,10 @@ read_lines(){
 done < "$file_guide"
 
 
-echo "lines: ${lines}"
+#echo "lines: ${lines}"
 
 max=${#lines[@]}
 count=1
-max=${#lines[@]}
-flite "executing $max tasks" 
-
-
 
     for line in "${lines[@]}"
     do
@@ -64,14 +53,21 @@ flite "executing $max tasks"
             flite "$desc" true
             #( echo0 "$desc" &)
             #cmd1='$tasks_sh $command "$desc"'
-            eacher "$tasks_sh $command $args"  "$desc" #eacher '$tasks_sh time_is_limited' 'it should take a while' 
-increase_efficiency $count $max "$command" "$file_guide"
-        sleep1 $waiting
+            eacher "$tasks_sh $command $args"  "$desc ?" "$waiting" "task: $count/$max" 
+            result="$?"
+
+            echo -n  "eacher result:"
+            green "$result"
+            if [[ $result -eq 0 ]];then
+            return 0
+            fi
+
+
+sleep1 $waiting
+#increase_efficiency $count $max "$desc" "$file_guide"
     let "count=count+1"
     done
 
-    
-    #sleep1 $waiting
     #exec $tasks_sh suspend "regardless workflow"
 }
 $@
