@@ -55,14 +55,22 @@ local value=$( eval echo \$$name )
 
 local str="$value"
 
-local msg=`cat $TODAY_DIR/yaml/network.yaml | head -1`
-local file_msg=$CFG_DIR/blank.yaml
+#local msg=`cat $TODAY_DIR/yaml/network.yaml | head -1`
+#local file_msg=$CFG_DIR/blank.yaml
+
+
+#local msg=`cat public/cfg/blank.yaml | shyaml get-values project.next`
+local msg=`cat public/cfg/blank.yaml | shyaml get-values subvalue.things.tasks.easiest`
+
 #`cat $TODAY_DIR/yaml/network.yaml | head -1`
 
 local title='options'
 
 
-res=$( string_to_buttons "$str" "$title" "$file_msg" )
+echo0 "$msg"
+#res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
+res=$( string_to_buttons "$str" "$title" "$msg" )
+
 answer=$?
 
 if [[ $answer -eq 0 ]];then
@@ -164,7 +172,7 @@ $PLUGINS_DIR/game_essay.sh
 }
 
 learn_langs(){
-$PLUGINS_DIR/learn_langs.sh $LANG_NAME $LANG_NUM
+    ( xterm -e $PLUGINS_DIR/learn_langs.sh $LANG_NAME $LANG_NUM &)
 #RU 13
 }
 

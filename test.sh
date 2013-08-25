@@ -42,7 +42,9 @@ step1(){
 
     #local aa=$( $tasks_sh chooser workflows )
     #echo $aa
-$tasks_sh chooser workflows
+#$tasks_sh chooser workflows
+$tasks_sh learn_langs
+#motivation sport
 #  local route=$($tasks_sh chooser workflows)
 #  local result=$?
 #            echo "route is: $route"

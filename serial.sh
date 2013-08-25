@@ -56,6 +56,7 @@ count=1
             eacher "$tasks_sh $command $args"  "$desc ?" "$waiting" "task: $count/$max" 
             result="$?"
 
+
             echo -n  "eacher result:"
             green "$result"
             if [[ $result -eq 0 ]];then
@@ -63,7 +64,7 @@ count=1
             fi
 
 
-sleep1 $waiting
+#sleep1 $waiting
 #increase_efficiency $count $max "$desc" "$file_guide"
     let "count=count+1"
     done

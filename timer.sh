@@ -56,8 +56,8 @@ before(){
                 $PWD/serial.sh read_lines "$workflow_file" "$waiting"
             else
                 $tasks_sh show_file $CFG_DIR/blank.yaml
-            $tasks_sh motivation guidance 
-            echo 'skip'
+            #$tasks_sh motivation guidance 
+            #echo 'skip'
             fi
 
 

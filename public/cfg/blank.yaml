@@ -1,4 +1,36 @@
-- project:
-    - next:
-        - add: show blank.yaml as default
-        - next_feature: testing-button-2
+moto: "you are here to change"
+subvalue:
+    date: 25.8.13
+    day: sunday
+    things:
+        project:
+            next:
+                - plugin: youtube
+            later:
+                - file-sync
+                - article / yaml tranlsation / bin-translate 
+        tasks:
+            easiest:
+                - call Sima-gezer?
+            later:
+                - talk with Rotem
+                - check accounts
+                - talk to the diantist
+                - talk to noam .g
+                - buy glue
+        creative:
+            avshalom:
+                - make a sketch
+        timing:
+                - 18:00 pool
+
+motivations: |
+        be happy because:
+        I have many things to do
+        I want to learn more
+        
+resources:
+    git@github.com:darxx/youtube-dl-gui.git
+    https://github.com/rg3/youtube-dl
+    https://github.com/0k/shyaml
+

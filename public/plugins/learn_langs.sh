@@ -6,23 +6,24 @@
 #./private/old/oldy1/timer.sh:    (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
 
 . $TIMERTXT_CFG_FILE
-file=$TODAY_DIR/txt/report.yaml
+#file=$TODAY_DIR/txt/report.yaml
 learn_lang(){
-
-    local lesson=10 #$2
+    trace "learn langs() $1 $2"
+    local lesson=${2:-10} #$2
     local lang=$1
     declare -i num
 
+    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET $ICONIC )
     while :;do
 
 
 
     let "lesson=$lesson+1"
-    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET $ICONIC )
+
 
 
     if [[ $lesson -eq 0 ]];then
-        echo 'finish the lesson' | flite
+        flite 'finish the lesson' 
         break
     fi
 
