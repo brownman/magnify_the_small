@@ -28,12 +28,12 @@ gedit $file2 &
 motivation(){
 arg="$1"
 
-$PLUGINS_DIR/translation.sh line $CFG_DIR/txt/$arg.txt
+( xterm -e $PLUGINS_DIR/translation.sh line $CFG_DIR/txt/$arg.txt &)
 if [ "$arg" = 'glossary' ];then
 local word=$( random_line $CFG_DIR/txt/glossary.txt )
-$PLUGINS_DIR/scrap.sh translate 'ru' "$word"
+( xterm -e $PLUGINS_DIR/scrap.sh translate 'ru' "$word" &)
 sleep1 5
-$PLUGINS_DIR/scrap.sh translate 'ar' "$word"
+( xterm -e $PLUGINS_DIR/scrap.sh translate 'ar' "$word" &)
 fi
 }
 
@@ -54,11 +54,15 @@ local value=$( eval echo \$$name )
 #echo "value: $value"
 
 local str="$value"
-local msg="what's the easiest task ?"
+
+local msg=`cat $TODAY_DIR/yaml/network.yaml | head -1`
+local file_msg=$CFG_DIR/blank.yaml
+#`cat $TODAY_DIR/yaml/network.yaml | head -1`
+
 local title='options'
 
 
-res=$( string_to_buttons "$str" "$title" "$msg" )
+res=$( string_to_buttons "$str" "$title" "$file_msg" )
 answer=$?
 
 if [[ $answer -eq 0 ]];then
@@ -151,8 +155,8 @@ $PLUGINS_DIR/collaboration.sh
 }
 
 reminder(){
-#(      xterm -e $PLUGINS_DIR/stop_watch.sh &)
- $PLUGINS_DIR/stop_watch.sh 
+(      xterm -e $PLUGINS_DIR/stop_watch.sh &)
+ #$PLUGINS_DIR/stop_watch.sh 
 }
 
 game_essay(){

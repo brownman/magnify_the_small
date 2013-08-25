@@ -35,13 +35,20 @@ step1(){
     #$tasks_sh recent_steps 
     #$tasks_sh edit essay_aday 
 
-    $tasks_sh reminder 
+   # $tasks_sh reminder 
     #$tasks_sh learn_langs 
     #show guidance 
     #$tasks_sh motivation sport 
 
     #local aa=$( $tasks_sh chooser workflows )
     #echo $aa
+$tasks_sh chooser workflows
+#  local route=$($tasks_sh chooser workflows)
+#  local result=$?
+#            echo "route is: $route"
+#
+#            echo "result is: $result"
+#            #local route='motivation'
 }
 
 
@@ -50,10 +57,14 @@ msg2="a b cc"
 $( messageYN  "$msg2" )
 echo $?
 }
-#step1
-
+step3(){
 w1=${1:-'ss'}   # Defaults to /tmp dir.
 echo "w1: $w1"
+}
+
+step1
+
+
 #step1
 #hello='ab ccd'
 #gxmessage $GXMESSAGET "$hello" -buttons "ok:2,cancel:1"
