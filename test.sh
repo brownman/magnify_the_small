@@ -5,6 +5,7 @@
 #
 export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
+
 test_cli_gui_comptability(){
     export GUI='true'
     echo 'test.sh !'
@@ -25,53 +26,23 @@ test_learn_langs(){
     echo 'the  end'
     #gedit /tmp/1.txt
 }
-step1(){
 
-    #http://wiki.bash-hackers.org/syntax/expansion/brace
-    #http://wiki.bash-hackers.org/syntax/start
-    #eacher '$tasks_sh time_is_limited' 'it should take a while' 
-    #$tasks_sh commitment
-    #$tasks_sh remind_me1
-    #$tasks_sh recent_steps 
-    #$tasks_sh edit essay_aday 
-
-   # $tasks_sh reminder 
-    #$tasks_sh learn_langs 
-    #show guidance 
-    #$tasks_sh motivation sport 
-
-    #local aa=$( $tasks_sh chooser workflows )
-    #echo $aa
-#$tasks_sh chooser workflows
-$tasks_sh learn_langs
-#motivation sport
-#  local route=$($tasks_sh chooser workflows)
-#  local result=$?
-#            echo "route is: $route"
-#
-#            echo "result is: $result"
-#            #local route='motivation'
+test_default(){
+    w1=${1:-'ss'}   # Defaults to /tmp dir.
+    echo "w1: $w1"
 }
 
-
-step2(){
-msg2="a b cc"
-$( messageYN  "$msg2" )
-echo $?
-}
-step3(){
-w1=${1:-'ss'}   # Defaults to /tmp dir.
-echo "w1: $w1"
+func1() {
+echo 'func1'
+#echo 'abc'
+#return 11
 }
 
-step1
+func2(){
+func1
+res11=$?
+echo "$res11"
+}
 
-
-#step1
-#hello='ab ccd'
-#gxmessage $GXMESSAGET "$hello" -buttons "ok:2,cancel:1"
-#exit
-#play $infile trim 0:00 =0:10 
-#step1
-#$tasks_sh "$1" "$2" "$3"
-#messageYN 
+$tasks_sh recent we
+#echo $?

@@ -8,6 +8,7 @@ method="$1" #sentance, line, lines
 help_options="sentance/ line/ lines"
 #update configuration: currently localy
 multiple_langs=true #"$3" #false #export MULTIPLE_LANGS=true
+silence1=$3
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 
@@ -30,10 +31,8 @@ play1(){
 
                 #declare  -i  counter
                 local counter=0
-                while [  $counter -lt  $times ]; do
-                    if [ "$SILENCE" = false ];then
+                while [[  $counter -lt  $times ]]; do
                         play -V1 -q  "$1"
-                    fi
                     (( counter++ ))
                 done
             else

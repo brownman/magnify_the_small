@@ -15,6 +15,38 @@ echo " 2:$2 3:$3 4: $4"  >&2
 
 
 
+recent(){
+#trace "recent: $1"
+local subject="$1"
+
+local str='mini edit commitment action breath' 
+
+#local title="$subject: recent task:"
+
+local title=$(parse_time $subject)
+local msg=$(parse_msg $subject)
+echo0 "$msg" 
+
+local cmd=$(string_to_buttons "$str" "$title" "$msg" )
+if [ "$cmd" != '' ];then
+
+trace "num: $?"
+echo "cmd: $cmd"
+    
+#local answer=$?
+
+    #debug "$answer"
+
+
+        eval "do_$cmd" "$subject"
+
+fi
+
+}
+
+
+
+
 edit(){
     local name="$1"
     local result=0
@@ -60,11 +92,12 @@ chooser(){
 
 
     #local msg=`cat public/cfg/blank.yaml | shyaml get-values project.next`
-    local msg=`cat public/cfg/blank.yaml | shyaml get-values subvalue.things.tasks.easiest`
+    local msg=`cat public/cfg/blank.yaml | shyaml get-values routes.we.tasks.easiest`
 
     #`cat $TODAY_DIR/yaml/network.yaml | head -1`
 
-    local title='options'
+    local title='Timing - where am I ?'
+    #3 routes: job / we / study'
     local msg2=$( spell2 "$msg")
     local result=$?
     trace "result: $result"
@@ -72,9 +105,10 @@ chooser(){
         echo0 "$msg"
     else
         flite 'error on spelling' 
+        echo "$msg2"
     fi
      #res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
-        res=$( string_to_buttons "$str" "$title" "$msg2" )
+        res=$( string_to_buttons "$str" "$title" "$msg" )
 
         answer=$?
 
@@ -85,7 +119,11 @@ chooser(){
             echo "$res"
         fi
 }
+tasker(){
+pick='routes.we.tasks.easiest'
 
+
+}
 take_photo(){
     $PLUGINS_DIR/take_photo.sh
 }
