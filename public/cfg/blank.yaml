@@ -1,10 +1,49 @@
-date: 26.8.13
-day:  tuesday 
-mantra: "think - easiness"
-goal:   "take a breath between tasks"
+date: 28.8.13
+day:  wednesday
+goal: start working on Avshalom's website
+frame:
+            time: 15:30 - 16:00
+            doing:  use yaml to parse menus
+            should: bring a mouse trap
+            happy: working on Avshalom's website
+            sport: 9
+            stretch: 1
+            push_forward: x
+            breakthrough: 
+                - open notebook
+                - yell on Masha
+menus:
+    - sleeper:
+        - suspend
+        - done
+    - push_forward: 
+        - job
+        - study
+        - we
+    - remind:
+        - tasks
+      
+ideas:
+            - menus like workflows  instide of cfg
+            - motivation  - silent option
+
+wish:
+        money: avshalom
+        commitment: make distinction between pushing life and project
+        advice:
+            pleasure: buy something new
+            periodicly:
+                - checkout Shlava
+                - interact with Kuka
+            efficiency:
+                - add another dropbox instance
+                - add another db sync to phone
+                - add rony to whatsup
+        mantra: be amazed
+
 order:
         creative: read some children books
-        fun:      have fun reading interesting materials"
+        fun:      have fun reading interesting materials
         timing:
                 - 17:00 Shiler
                 - 19:00 pool
@@ -12,6 +51,8 @@ order:
 
 routes:
     study:
+        recent:
+                - update project - add essay game
         project:
             next:
                 - plugin: youtube
@@ -26,9 +67,9 @@ routes:
             - bash examples
     we:
          recent:
-                - checkout the sum
+                - check my accounts
          timing:
-                - 15:16 - 15:21
+                - time frame is 12:00 - 12:30
          steps:
                 - open website
                 - check the subject
@@ -37,16 +78,16 @@ routes:
                 - http://www.btl.gov.il/benefits/unemployment/Pages/default.aspx
          tasks:
             later:
-                - buy glue
-                - talk to the Binyan
                 - check my accounts
             harder:
                 - check info about new laptop
             ongoing:
+                - talk to the Binyan
                 - call Sima-gezer?
                 - bank - call Yael
                 - talk to the dentist
                 - talk to noam .g
+                - checkout the sum of Masha
             ask_kuka:
                 - talk with Rotem
     job:
@@ -57,6 +98,8 @@ routes:
             ideas:
                 - X
                 - oDesk - scrap
+            url:
+                - http://www.linkedin.com/jsearch?keywords=linux&searchLocationType=I&countryCode=il&postalCode=76829&distance=50&keepFacets=keepFacets&page_num=1&pplSearchOrigin=JSHP&sortCriteria=R
     breath:
             recent:
                 - goto wikipedia phisics

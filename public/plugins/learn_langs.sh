@@ -13,6 +13,7 @@ learn_lang(){
     local lang=$1
     declare -i num
 
+       write_essay &
     lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET $ICONIC )
     while :;do
 
@@ -34,7 +35,8 @@ learn_lang(){
     local num=$lesson
     num=num+2
    if [ $SHOW_LESSON = true ];then
-    (xdg-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
+
+    (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
    fi
 
 
@@ -50,29 +52,22 @@ learn_lang(){
     done
 }
 
-play_history(){
-    lang1=$(lower $lang)
-    echo1 $lang1
-    #ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)"
-    #exit
-
-    for I in $(ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)")
-    do 
-        str1=$(echo $I | sed 's/txt/mp3/g' ) #| sed 's/word_//g')
-
-
-        files=$(ls  $str1 2> /dev/null )
-
-        if [[  "$files"  ]]
-        then
-            (say1 "$str1" &)
-            gxmessage  -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
-            echo1 "txt file: $I"
-
-
-        fi
-
-    done
+write_essay(){
+echo ''
+local file=$TODAY_DIR/txt/essay.txt
+touch $file
+local str=''
+while :;do
+    str=$( gxmessage $GXMESSAGET -entry -file $file )
+    if [ "$str" = '' ];then
+    flite 'breaking'
+        break
+    else
+        update_file $file "$str"
+        echo01 "$str"
+    fi
+done
 }
+
 
 learn_lang "$1" "$2"

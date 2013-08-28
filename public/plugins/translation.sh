@@ -3,12 +3,12 @@
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
 . $TIMERTXT_CFG_FILE
-from="$2" #file or sentance
-method="$1" #sentance, line, lines
+
 help_options="sentance/ line/ lines"
-#update configuration: currently localy
-multiple_langs=true #"$3" #false #export MULTIPLE_LANGS=true
-silence1=$3
+method="$1" #sentance, line, lines
+from="$2" #file or sentance
+multiple_langs="$3" #false #export MULTIPLE_LANGS=true
+silence1=$4
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 

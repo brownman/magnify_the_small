@@ -33,16 +33,58 @@ test_default(){
 }
 
 func1() {
-echo 'func1'
-#echo 'abc'
-#return 11
+    echo 'func1'
+    #echo 'abc'
+    #return 11
 }
 
 func2(){
-func1
-res11=$?
-echo "$res11"
+    func1
+    res11=$?
+    echo "$res11"
 }
 
-$tasks_sh recent we
-#echo $?
+test_write_essay(){
+    echo ''
+    local file=$TODAY_DIR/txt/essay.txt
+    touch $file
+    local str=''
+    while :;do
+        str=$( gxmessage $GXMESSAGET -entry -file $file )
+        if [ "$str" = '' ];then
+            flite 'breaking'
+            break
+        else
+            update_file $file "$str"
+            echo01 $str
+
+        fi
+    done
+}
+
+test_language_times(){
+    echo ''
+}
+
+test_proxy_before_cfg_function_run(){
+    echo ''
+}
+test_choose_workflow(){
+    msg=$( $tasks_sh chooser workflows )
+    echo $msg
+    echo $?
+}
+
+return_test()  
+{
+    echo 'return test'
+    return $1
+}
+
+return_test 27         # o.k.
+echo $?                # Returns 27.
+
+
+#test_commitment
+#$tasks_sh commitment
+#write_essay

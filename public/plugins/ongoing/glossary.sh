@@ -1,3 +1,28 @@
+play_history(){
+    lang1=$(lower $lang)
+    echo1 $lang1
+    #ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)"
+    #exit
+
+    for I in $(ls -1 --sort=time /tmp/bash_koans/txt/*.txt | grep -E "($lang1.txt|it.txt)")
+    do 
+        str1=$(echo $I | sed 's/txt/mp3/g' ) #| sed 's/word_//g')
+
+
+        files=$(ls  $str1 2> /dev/null )
+
+        if [[  "$files"  ]]
+        then
+            (say1 "$str1" &)
+            gxmessage  -buttons "_$last_task" -nearmouse -wrap -title "title"  -file $I -font "serif bold 34" -sticky
+            echo1 "txt file: $I"
+
+
+        fi
+
+    done
+}
+
 
 update_glossary(){
     sleep1 10

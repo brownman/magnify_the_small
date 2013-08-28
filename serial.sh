@@ -60,7 +60,9 @@ count=1
             echo -n  "eacher result:"
             green "$result"
             if [[ $result -eq 0 ]];then
-            return 0
+            echo 'returning'
+            #return 0
+            break
             fi
 
 

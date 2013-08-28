@@ -23,15 +23,16 @@ stop_watch1(){
             local msg1="$c/$sec:  $msg"
 
             if [ "$SHOW_BUTTONS" = 'true' ];then
-                res=$( string_to_buttons "exit - $msg" "$title" "$msg" "-" )
-                answer=$?
+                res=$( string_to_buttons "exit-$msg" "$title" "$msg" "-" )
+                #answer=$?
 
-                if [[ $answer -eq 0 ]];then
-                   echo 'breaking' 
-                   break
-                else
+             if [ "$res" = 'exit' ];then
+                 echo 'breaking'
+               break 
+             else
                     echo0 "$res"
-                fi
+             fi
+
             fi
         fi
         echo -n "$c "

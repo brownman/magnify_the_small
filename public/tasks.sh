@@ -19,7 +19,7 @@ recent(){
 #trace "recent: $1"
 local subject="$1"
 
-local str='mini edit commitment action breath' 
+local str='edit mini action' 
 
 #local title="$subject: recent task:"
 
@@ -59,14 +59,18 @@ edit(){
 
 motivation(){
     arg="$1"
-
-    ( xterm -e $PLUGINS_DIR/translation.sh line $CFG_DIR/txt/$arg.txt &)
+local file=$CFG_DIR/txt/$arg.txt
+$PLUGINS_DIR/translation.sh line $file 
+    ( xterm -e $file &)
     if [ "$arg" = 'glossary' ];then
         local word=$( random_line $CFG_DIR/txt/glossary.txt )
         ( xterm -e $PLUGINS_DIR/scrap.sh translate 'ru' "$word" &)
         sleep1 5
         ( xterm -e $PLUGINS_DIR/scrap.sh translate 'ar' "$word" &)
     fi
+
+show_file $file
+    
 }
 
 koan(){
@@ -91,33 +95,39 @@ chooser(){
     #local file_msg=$CFG_DIR/blank.yaml
 
 
-    #local msg=`cat public/cfg/blank.yaml | shyaml get-values project.next`
-    local msg=`cat public/cfg/blank.yaml | shyaml get-values routes.we.tasks.easiest`
+    #local msg=`cat public/cfg/blank.yaml | shyaml get-values frame.time`
+    local title=`cat public/cfg/blank.yaml | shyaml get-value frame.doing`
+
+    local msg=`cat public/cfg/blank.yaml | shyaml get-value frame.time`
+
+    local msg1=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
 
     #`cat $TODAY_DIR/yaml/network.yaml | head -1`
-
-    local title='Timing - where am I ?'
-    #3 routes: job / we / study'
-    local msg2=$( spell2 "$msg")
-    local result=$?
-    trace "result: $result"
-    if [[ $result -eq 0 ]];then
-        echo0 "$msg"
-    else
-        flite 'error on spelling' 
-        echo "$msg2"
-    fi
+#
+#    local title='Timing - where am I ?'
+#    #3 routes: job / we / study'
+#    local msg2=$( spell2 "$msg")
+#    local result=$?
+#    trace "result: $result"
+#    if [[ $result -eq 0 ]];then
+#        echo0 "$msg"
+#    else
+#        flite 'error on spelling' 
+#        echo "$msg2"
+#    fi
      #res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
-        res=$( string_to_buttons "$str" "$title" "$msg" )
+        res=$( string_to_buttons "$str" "$title" "$msg: $msg1" )
 
         answer=$?
-
-        if [[ $answer -eq 0 ]];then
-            echo 'skip editing'  >&2
-        else
-            #gedit $TODAY_DIR/yaml/$res.yaml
+#
+#        if [[ $answer -eq 0 ]];then
+#            echo 'skip editing'  >&2
+#        else
+#            #gedit $TODAY_DIR/yaml/$res.yaml
+#
+#        fi
+#
             echo "$res"
-        fi
 }
 tasker(){
 pick='routes.we.tasks.easiest'
@@ -128,6 +138,7 @@ take_photo(){
     $PLUGINS_DIR/take_photo.sh
 }
 show_file(){
+
     local    file="$1"
 
     string_to_buttons_file 'cancel edit' '2 options' $file
@@ -144,6 +155,8 @@ show_file(){
 show(){
     echo "show() got: $1 $2"
     local name="$1"
+
+    flite "minimizinged file - $name"
     local file=$CFG_DIR/txt/$name.txt
     touch $file
     show_file "$file"
@@ -181,10 +194,18 @@ act(){
 
 suspend1(){
 
+    local msg=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
+    #flite "should - $msg"
+flite 'update your notebook'
+
     motivation sport
     $PLUGINS_DIR/suspend.sh
 
-    show sport 
+
+
+    
+
+
 
 }
 
@@ -205,7 +226,7 @@ collaboration(){
     #sleep1 30
 }
 
-reminder(){
+commitment(){
     (      xterm -e $PLUGINS_DIR/stop_watch.sh &)
     #$PLUGINS_DIR/stop_watch.sh 
 }
