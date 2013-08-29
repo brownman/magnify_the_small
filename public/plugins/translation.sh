@@ -11,7 +11,8 @@ multiple_langs="$3" #false #export MULTIPLE_LANGS=true
 silence1=$4
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
-
+echo 'translate.sh got:'
+echo "1:$1 2:$2"
 
 play1(){
 
@@ -62,8 +63,8 @@ translate_f(){
     local silent=$SILENT
     local lang="$2"
 
-
-    local input="$1" #translate src
+local input=$(remove_trailing "$1")
+    #local input="$1" #translate src
 
 
 

@@ -45,8 +45,11 @@ stop_watch1(){
     
 }
 
+
 reminder1(){
-    local line=$( gxmessage  $GXMESSAGET -entry -title 'Game of tasks: ' 'what is the easiest task possible ?'  )
+
+    local msg1=$(grab_it breath)
+    local line=$( gxmessage  $GXMESSAGET -entrytext "$msg1" -title 'commitment:' 'add reminder:' )
 
 
     if [ "$line" != '' ];then

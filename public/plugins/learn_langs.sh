@@ -16,9 +16,9 @@ play_lesson(){
 
 
 
-    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET $ICONIC -buttons "ok:$lesson" )
+    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
     while :;do
-        messageYN 'title' 'continue to next lesson ?'
+        messageYN1 'continue to next lesson ?'
         result="$?"
         echo -n  "eacher result:"
         green "$result"
@@ -33,7 +33,7 @@ play_lesson(){
 
 code1(){
 
-    memory_game &
+    xterm1 $PLUGINS_DIR/free_speak.sh
 
     declare -i num
 
@@ -70,22 +70,7 @@ code1(){
     play "$infile" trim ${time_str}
 
 }
-memory_game(){
-    echo ''
-    local file=$TODAY_DIR/txt/essay.txt
-    touch $file
-    local str=''
-    while :;do
-        str=$( gxmessage  -entry -file $file -timeout 10 -title 'Memory:' )
-        if [ "$str" = '' ];then
-            flite 'breaking'
-            break
-        else
-            update_file $file "$str"
-            echo01 "$str"
-        fi
-    done
-}
+
 
 $@
 #learn_lang "$1" "$2"

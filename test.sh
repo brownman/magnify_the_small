@@ -97,7 +97,6 @@ echo $?                # Returns 27.
 }
 
 test_lesson(){
-export DEBUG='true'
 $tasks_sh learn_langs 
 }
 
@@ -114,10 +113,23 @@ echo 'parse menu from yaml - the first menu should be pondering'
 test_xterm(){
 xterm 'echo zz;sleep1 5'
 }
+test_menus(){
+echo ''
+local msg=$($tasks_sh chooser sleeper)
+#eval "do_$msg"
+echo $msg
+}
+test_parse(){
+#$tasks_sh present achivements 
+
+parse_from frame.now 
+}
+
 step1(){
 
 export DEBUG='true'
-test_pick_1
+test_parse
+
 }
 step1
 popd > /dev/null

@@ -16,33 +16,27 @@ workflow_d=''
 waiting=${1:-60}   # Defaults to /tmp dir.
 green   "waiting  $waiting"
 
-menu0(){
-    flite 'update time frame'
-    local option=$($tasks_sh chooser sleeper )
-    echo "$option"
-    
+restart(){
+    while :;do
+        flite 'basic menu'
+        local option=$($tasks_sh chooser sleeper )
+
+        flite "$option"
+        if [ "$option" = 'next' ];then
+
+            flite 'run workflow'
+            steps
+        fi
+    done
+
+
+
 }
-menu1(){
-  
-    $tasks_sh commitment
-}
-menu2(){
-    local route=$($tasks_sh chooser workflows)
-    echo "$route"
-}
+
 
 steps(){
     #local route='life'
-
-    local option=$( menu0 )
-    echo "$option"
-    eval "do_$option"
-    sleep1 $waiting
-    menu1
-
-    sleep1 $waiting
-    local route=$( menu2 )
-    #$tasks_sh chooser workflows)
+    local route='fun'
     echo "route is: $route"
     flite "push forward - $route"
 
@@ -59,7 +53,7 @@ steps(){
 
 run_workflow(){
     local route="$1" 
-    workflow_file=$WORKFLOWS_DIR/workflow_$route.cfg 
+    workflow_file=$CFG_DIR/workflow_$route.cfg 
     echo "$workflow_file"
 
     #$tasks_sh show_file $workflow_file
@@ -81,13 +75,13 @@ unlock(){
         cyan "$pids1"
         msg2="kill running process ?"
 
-        $( messageYN  "$msg2" )
+        $( messageYN1  "$msg2" )
 
 
         result1="$?"
 
         cyan "result: $result1"
-        if [[ $result1 -eq 2 ]];then
+        if [[ $result1 -eq 1 ]];then
             echo 'killing'
             `rm $locker`
             `kill -9 $pids1`
@@ -101,14 +95,15 @@ unlock(){
         touch $locker
         echo $$ > $locker
 
-        while :;do
-
-           steps 
-            #$PROJECT_DIR/test.sh
-
-            #$PROJECT_DIR/serial.sh read_lines "$workflow_file" "$waiting"
-
-        done
+        #        while :;do
+        #
+        #           steps 
+        #            #$PROJECT_DIR/test.sh
+        #
+        #            #$PROJECT_DIR/serial.sh read_lines "$workflow_file" "$waiting"
+        #
+        #        done
+        restart
     fi
 
 }

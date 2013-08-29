@@ -8,18 +8,19 @@
 
 
 increase_efficiency(){
+  
+        
     count="$1"
     max="$2"
     task="$3"
     local str2="$count of $max"
-    local msg1=$( gxmessage "$str2" -entry -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  )
+    gxmessage "$str2" -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  
     local level="$?"
     local file1=$4
     #CFG_DIR/txt/efficiency.txt
     echo "level: $level"
-    echo "##$task:$level:$msg1" >> $file1
+    echo "##$task:$level" >> $file1
     #gedit $file1
-        
 }
 
 read_lines(){
@@ -46,7 +47,7 @@ count=1
 
     for line in "${lines[@]}"
     do
-        #$tasks_sh motivation sport
+        $tasks_sh motivation sport
         echo "$line "
             command=$( echo $line | awk -F '|' '{print $1}' )
             args=$( echo $line | awk -F '|' '{print $2}' )
@@ -69,7 +70,7 @@ count=1
 
 
 #sleep1 $waiting
-increase_efficiency $count $max "$desc" "$file_guide"
+increase_efficiency $count $max "$desc" "$CFG_DIR/blank.yaml"
     let "count=count+1"
     done
 
