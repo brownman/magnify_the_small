@@ -12,22 +12,25 @@ frame:
             breakthrough: 
                 - open notebook
                 - yell on Masha
-menus:
-    - sleeper:
+cycle:
+    if_easy:
+        - essay_aday #decide - what will be the next step 
+    sleeper:
         - suspend
         - done
-    - push_forward: 
+    push_forward: 
         - job
         - study
         - we
-    - remind:
+    remind:
         - tasks
       
 ideas:
             - menus like workflows  instide of cfg
             - motivation  - silent option
 
-wish:
+imagine:
+
         money: avshalom
         commitment: make distinction between pushing life and project
         advice:
@@ -139,3 +142,13 @@ recent:
     - http://www.taasuka.gov.il/Taasuka/About/EmploymentBureaus.htm
   money:
     - make an excell table - of the last 3 month
+
+buy:
+    searches:
+        life_upgrade:
+            - 1 more battery for the laptop
+        laptop:
+            - 2 parts laptop - search for replacement parts first
+            - mini computer solution
+            - laptop alternative
+        

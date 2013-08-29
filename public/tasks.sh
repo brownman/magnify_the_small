@@ -16,31 +16,31 @@ echo " 2:$2 3:$3 4: $4"  >&2
 
 
 recent(){
-#trace "recent: $1"
-local subject="$1"
+    #trace "recent: $1"
+    local subject="$1"
 
-local str='edit mini action' 
+    local str='edit mini action' 
 
-#local title="$subject: recent task:"
+    #local title="$subject: recent task:"
 
-local title=$(parse_time $subject)
-local msg=$(parse_msg $subject)
-echo0 "$msg" 
+    local title=$(parse_time $subject)
+    local msg=$(parse_msg $subject)
+    echo0 "$msg" 
 
-local cmd=$(string_to_buttons "$str" "$title" "$msg" )
-if [ "$cmd" != '' ];then
+    local cmd=$(string_to_buttons "$str" "$title" "$msg" )
+    if [ "$cmd" != '' ];then
 
-trace "num: $?"
-echo "cmd: $cmd"
-    
-#local answer=$?
+        trace "num: $?"
+        echo "cmd: $cmd"
 
-    #debug "$answer"
+        #local answer=$?
+
+        #debug "$answer"
 
 
         eval "do_$cmd" "$subject"
 
-fi
+    fi
 
 }
 
@@ -58,19 +58,25 @@ edit(){
 }
 
 motivation(){
-    arg="$1"
-local file=$CFG_DIR/txt/$arg.txt
-$PLUGINS_DIR/translation.sh line $file 
-    ( xterm -e $file &)
-    if [ "$arg" = 'glossary' ];then
-        local word=$( random_line $CFG_DIR/txt/glossary.txt )
-        ( xterm -e $PLUGINS_DIR/scrap.sh translate 'ru' "$word" &)
-        sleep1 5
-        ( xterm -e $PLUGINS_DIR/scrap.sh translate 'ar' "$word" &)
+    file_name="$1"
+    local file=$CFG_DIR/txt/$file_name.txt
+
+    echo "file: $file"
+    $PLUGINS_DIR/translation.sh line $file 
+    show_file $file
+}
+scrap(){
+    local word=$( random_line $CFG_DIR/txt/glossary.txt )
+    echo "word: $word"
+    if  [ "$word" != '' ] ;then
+
+
+        xterm1  "$PLUGINS_DIR/scrap.sh" "translate ar '$word'"
+        sleep1 10
+
+        xterm1  "$PLUGINS_DIR/scrap.sh" "translate ru '$word'" 
     fi
 
-show_file $file
-    
 }
 
 koan(){
@@ -103,34 +109,34 @@ chooser(){
     local msg1=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
 
     #`cat $TODAY_DIR/yaml/network.yaml | head -1`
-#
-#    local title='Timing - where am I ?'
-#    #3 routes: job / we / study'
-#    local msg2=$( spell2 "$msg")
-#    local result=$?
-#    trace "result: $result"
-#    if [[ $result -eq 0 ]];then
-#        echo0 "$msg"
-#    else
-#        flite 'error on spelling' 
-#        echo "$msg2"
-#    fi
-     #res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
-        res=$( string_to_buttons "$str" "$title" "$msg: $msg1" )
+    #
+    #    local title='Timing - where am I ?'
+    #    #3 routes: job / we / study'
+    #    local msg2=$( spell2 "$msg")
+    #    local result=$?
+    #    trace "result: $result"
+    #    if [[ $result -eq 0 ]];then
+    #        echo0 "$msg"
+    #    else
+    #        flite 'error on spelling' 
+    #        echo "$msg2"
+    #    fi
+    #res=$( string_to_buttons_file "$str" "$title" "$file_msg" )
+    res=$( string_to_buttons "$str" "$title" "$msg: $msg1" )
 
-        answer=$?
-#
-#        if [[ $answer -eq 0 ]];then
-#            echo 'skip editing'  >&2
-#        else
-#            #gedit $TODAY_DIR/yaml/$res.yaml
-#
-#        fi
-#
-            echo "$res"
+    answer=$?
+    #
+    #        if [[ $answer -eq 0 ]];then
+    #            echo 'skip editing'  >&2
+    #        else
+    #            #gedit $TODAY_DIR/yaml/$res.yaml
+    #
+    #        fi
+    #
+    echo "$res"
 }
 tasker(){
-pick='routes.we.tasks.easiest'
+    pick='routes.we.tasks.easiest'
 
 
 }
@@ -146,9 +152,12 @@ show_file(){
 
     if [[ $answer -eq 1 ]];then
         gedit $file
+
+        sleep1 20
     else
         echo 'skip editing'
     fi
+
 }
 
 
@@ -196,14 +205,14 @@ suspend1(){
 
     local msg=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
     #flite "should - $msg"
-flite 'update your notebook'
+    flite 'update your notebook'
 
     motivation sport
     $PLUGINS_DIR/suspend.sh
 
 
 
-    
+
 
 
 
@@ -221,13 +230,13 @@ report(){
 }
 
 collaboration(){
-    #(      xterm -e $PLUGINS_DIR/collaboration.sh &)
+    #(      \'xterm1 $PLUGINS_DIR/collaboration.sh &)
     $PLUGINS_DIR/collaboration.sh 
     #sleep1 30
 }
 
 commitment(){
-    (      xterm -e $PLUGINS_DIR/stop_watch.sh &)
+    (      xterm1 $PLUGINS_DIR/stop_watch.sh &)
     #$PLUGINS_DIR/stop_watch.sh 
 }
 
@@ -236,10 +245,18 @@ game_essay(){
 }
 
 learn_langs(){
-    ( xterm -e $PLUGINS_DIR/learn_langs.sh $LANG_NAME $LANG_NUM &)
+    if [ "$DEBUG" = 'true' ];then
+
+        $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM 
+    else
+
+        ( xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM &)
+    fi
+
     #RU 13
 }
 
 
 
 eval "$1" '"$2" "$3"'
+

@@ -5,9 +5,9 @@
 
 
 
-#export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
-#. $TIMERTXT_CFG_FILE
-. $PWD/public/cfg/user.cfg
+pushd `dirname $0` > /dev/null
+export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
+. $TIMERTXT_CFG_FILE
 export locker=/tmp/lock1
 
 
@@ -15,6 +15,7 @@ workflow=''
 workflow_d=''
 waiting=${1:-60}   # Defaults to /tmp dir.
 green   "waiting  $waiting"
+
 menu0(){
     flite 'update time frame'
     local option=$($tasks_sh chooser sleeper )
@@ -36,9 +37,10 @@ steps(){
     local option=$( menu0 )
     echo "$option"
     eval "do_$option"
-    sleep1 60
+    sleep1 $waiting
     menu1
-    sleep1 60
+
+    sleep1 $waiting
     local route=$( menu2 )
     #$tasks_sh chooser workflows)
     echo "route is: $route"
@@ -112,6 +114,7 @@ unlock(){
 }
 unlock
 
+popd > /dev/null
 exit 0
 
 

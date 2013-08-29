@@ -3,8 +3,18 @@
 # about file:
 # test first!
 #
-export TIMERTXT_CFG_FILE=public/cfg/user.cfg
+
+pushd `dirname $0` > /dev/null
+export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
+
+echo "PWD: $PWD"
+
 . $TIMERTXT_CFG_FILE
+
+sleep1 2
+
+
+
 
 test_cli_gui_comptability(){
     export GUI='true'
@@ -75,16 +85,39 @@ test_choose_workflow(){
     echo $?
 }
 
-return_test()  
+test_return()  
 {
     echo 'return test'
     return $1
 }
-
+test_return1(){
 return_test 27         # o.k.
 echo $?                # Returns 27.
 
+}
+
+test_lesson(){
+export DEBUG='true'
+$tasks_sh learn_langs 
+}
+
+test_pick_1(){
+$tasks_sh scrap
+}
 
 #test_commitment
 #$tasks_sh commitment
 #write_essay
+test_first_menu(){
+echo 'parse menu from yaml - the first menu should be pondering'
+}
+test_xterm(){
+xterm 'echo zz;sleep1 5'
+}
+step1(){
+
+export DEBUG='true'
+test_pick_1
+}
+step1
+popd > /dev/null

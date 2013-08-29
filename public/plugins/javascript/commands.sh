@@ -1,5 +1,6 @@
 #!/bin/bash
 #nvm use 0.8
+echo "commands.sh"
 . ~/.profile
 path1=/TORRENTS/JAVASCRIPT/casperjs
 lang="$1"
@@ -10,7 +11,8 @@ $path1/bin/casperjs $script_js --target="$lang" "$str" > /tmp/test1.html
 
 #cat /tmp/test1.html | head -1
 
-xdg-open /tmp/test1.html
+exo-open /tmp/test1.html
+sleep 5
 
 #./bin/casperjs ./samples/translate.coffee --target=ru 'small' | grep noun
 #grep fetchText . -r

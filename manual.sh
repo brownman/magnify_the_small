@@ -3,8 +3,10 @@
 #- efficiency_push:
 #        - easy show statistics
 #        - where_am_i ?
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
+pushd `dirname $0` > /dev/null
+export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
+
 
 
 file=$CFG_DIR/blank.yaml
@@ -25,3 +27,5 @@ touch $file
 
 eacher upload 'upload file to blogger?'
 eacher backup 'clean blank.yaml ?'
+
+popd > /dev/null

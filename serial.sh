@@ -3,19 +3,21 @@
 # input: workflow.txt
 # execute: tasks.sh $workflow
 #
-. $TIMERTXT_CFG_FILE
+
+
+
 
 increase_efficiency(){
     count="$1"
     max="$2"
     task="$3"
     local str2="$count of $max"
-    $( gxmessage "$str2" -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  )
+    local msg1=$( gxmessage "$str2" -entry -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  )
     local level="$?"
     local file1=$4
     #CFG_DIR/txt/efficiency.txt
     echo "level: $level"
-    echo "##$task:$level" >> $file1
+    echo "##$task:$level:$msg1" >> $file1
     #gedit $file1
         
 }
@@ -67,7 +69,7 @@ count=1
 
 
 #sleep1 $waiting
-#increase_efficiency $count $max "$desc" "$file_guide"
+increase_efficiency $count $max "$desc" "$file_guide"
     let "count=count+1"
     done
 

@@ -1,10 +1,14 @@
 #!/bin/bash
 # about file:
-# plugin:        ensure suspension!
+# name:        ensure suspension!
 # description:   separate the proccess running the suspend.sh
 
-export TIMERTXT_CFG_FILE=~/.magnify_the_small/public/cfg/user.cfg
+
+pushd `dirname $0` > /dev/null
+export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
+
+
 
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
@@ -48,5 +52,7 @@ $tasks_sh suspend1
     `rm $locker2`
 
 fi
+
+popd > /dev/null
 exit
 
