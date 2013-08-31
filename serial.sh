@@ -8,8 +8,8 @@
 
 
 increase_efficiency(){
-  
-        
+
+
     count="$1"
     max="$2"
     task="$3"
@@ -24,54 +24,68 @@ increase_efficiency(){
 }
 
 read_lines(){
-    echo2 "read_lines() got:  1:$1 2:$2"
+    trace "read_lines() got:  1:$1 2:$2"
     local file_guide="$1"
     local waiting="$2"
-    
+
     while read -r line
     do
         [[ $line = \#* ]] && continue
         #echo "$line"
-#lines=("${lines[@]}" "$line")
-    if [ "$line" != ''  ];then
-    #echo "line: $line"
-    lines+=("$line")
-    fi
-done < "$file_guide"
+        #lines=("${lines[@]}" "$line")
+        if [ "$line" != ''  ];then
+            #echo "line: $line"
+            lines+=("$line")
+        fi
+    done < "$file_guide"
 
 
-#echo "lines: ${lines}"
+    #echo "lines: ${lines}"
 
-max=${#lines[@]}
-count=1
+    max=${#lines[@]}
+    count=1
 
     for line in "${lines[@]}"
     do
-        $tasks_sh motivation sport
+        if [ "$DEBUG" = false ];then
+            $tasks_sh motivation sport
+            $tasks_sh take_photo
+        fi
+
         echo "$line "
-            command=$( echo $line | awk -F '|' '{print $1}' )
-            args=$( echo $line | awk -F '|' '{print $2}' )
-            desc=$( echo $line | awk -F '|' '{print $3}' )
-            notify-send "TASK: $desc" "$args"
-            flite "$desc" true
-            #( echo0 "$desc" &)
-            #cmd1='$tasks_sh $command "$desc"'
+        command=$( echo $line | awk -F '|' '{print $1}' )
+        args=$( echo $line | awk -F '|' '{print $2}' )
+        desc=$( echo $line | awk -F '|' '{print $3}' )
+        notify-send "TASK: $desc" "$args"
+        flite "$desc" true
+        #( echo0 "$desc" &)
+        #cmd1='$tasks_sh $command "$desc"'
+        if [[ $count -eq 1 ]];then
+            $tasks_sh $command $args
+        else
+
+
             eacher "$tasks_sh $command $args"  "$desc ?" "$waiting" "task: $count/$max" 
             result="$?"
 
 
             echo -n  "eacher result:"
-            green "$result"
+            trace "$result"
             if [[ $result -eq 0 ]];then
-            echo 'returning'
-            #return 0
-            break
+                flite 'exit workflow'
+                #return 0
+                break
             fi
 
+        fi
 
-#sleep1 $waiting
-increase_efficiency $count $max "$desc" "$CFG_DIR/blank.yaml"
-    let "count=count+1"
+
+        #sleep1 $waiting
+if [ $DEBUG = false ];then
+        increase_efficiency $count $max "$desc" "$file_report"
+fi
+
+        let "count=count+1"
     done
 
     #exec $tasks_sh suspend "regardless workflow"

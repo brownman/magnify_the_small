@@ -11,13 +11,15 @@ multiple_langs="$3" #false #export MULTIPLE_LANGS=true
 silence1=$4
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
+silent_fetch=$SILENT_FETCH
+silent=$SILENT
 echo 'translate.sh got:'
 echo "1:$1 2:$2"
 
 play1(){
 
     echo -n "play1() got: "
-    debug yellow "$1 | $2"
+    debug trace "$1 | $2"
 
     if [ "$SILENCE" = false ];then
 
@@ -46,8 +48,8 @@ play1(){
         fi
     else
 
-        echo2    'silent is on'
-        echo2 'skip playing'
+        trace    'silent is on'
+        trace 'skip playing'
     fi
 
 }
@@ -56,11 +58,10 @@ play1(){
 translate_f(){
 
     ################################# result: txt 
-    echo2 "translate_f() got:"
-    echo2 "input: $1 | lang: $2"
+    trace "translate_f() got:"
+    trace "input: $1 | lang: $2"
 
-    local silent_fetch=$SILENT_FETCH
-    local silent=$SILENT
+
     local lang="$2"
 
 local input=$(remove_trailing "$1")
@@ -78,14 +79,14 @@ local input=$(remove_trailing "$1")
     is_valid $file_txt
     result=$?
     echo -n 'result is: '
-    green $result
+    trace $result
     if [[ $result -eq 0  ]];
     then
-        echo2 "fetch txt"
+        trace "fetch txt"
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
         #echo "$result" >> $TODAY_DIR/translate.json
         cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
-        #echo2 "$result"
+        #trace "$result"
         phonetics=$(echo "$cleaner" | cut -d \" -f 5)
         output=$(echo "$cleaner" | cut -d \" -f 1)
         output_wsp=$(echo "$output"|sed 's/ /+/g');
@@ -104,7 +105,7 @@ local input=$(remove_trailing "$1")
     else
 
         cat $file_txt
-        echo2 "cache copy"
+        trace "cache copy"
 
     fi
 
@@ -119,14 +120,14 @@ local input=$(remove_trailing "$1")
     is_valid $file_mp3
     result=$?
     if [[ $result -eq 0 ]];then
-        echo2 'fetch sound'
+        trace 'fetch sound'
         if [ "$lang" = 'tl' ]
         then
-            echo1 $output
+            trace $output
             echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
         else
             if [ "$silent_fetch" = true ];then
-                echo2 'play this mp3 on next run'
+                trace 'play this mp3 on next run'
                 ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 &) 
             else
                 wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 
@@ -136,7 +137,7 @@ local input=$(remove_trailing "$1")
         is_valid $file_mp3
     else
         #debug red $result
-        echo2 "cache copy"
+        trace "cache copy"
         play1  $file_mp3 "$lang"
     fi
 
@@ -146,7 +147,7 @@ local input=$(remove_trailing "$1")
 
 
 choose5(){
-    echo2 "choose5() got: $1"
+    trace "choose5() got: $1"
 
     local file=$1
     local files1=$(ls  $file 2> /dev/null )
@@ -158,13 +159,13 @@ choose5(){
     local str=`cat $file | sort --random-sort | head -n 1`
 
     echo -n "choosen line: "
-    yellow "$str"
+    trace "$str"
     echo5 "$str" 
 }
 
 
 choose4(){
-    echo2 "choose4() got: $1"
+    trace "choose4() got: $1"
 
     local file=$1
     local files1=$(ls  $file 2> /dev/null )
@@ -175,17 +176,17 @@ choose4(){
     local str=`cat $file | sort --random-sort | head -n 1`
 
     echo -n "choosen line: "
-    yellow "$str"
+    trace "$str"
     echo4 "$str" 
 }
 echo4(){
-    echo2 "echo4() got: $1"
+    trace "echo4() got: $1"
     if [ "$1" = '' ];then
         error_handler 
     fi
 
     local lang1="$target_lang"
-    echo2 "translate to: $lang1"
+    trace "translate to: $lang1"
 
     if [ "$lang1" = '' ];then
         random1 4
@@ -196,7 +197,7 @@ echo4(){
     fi
 
     local str="$1"
-    yellow "$str"
+    trace "$str"
 
     translate_f  "$str" "en"
 

@@ -5,12 +5,10 @@
 #
 
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
-
+export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 echo "PWD: $PWD"
-
 . $TIMERTXT_CFG_FILE
-
+export DEBUG='true'
 sleep1 2
 
 
@@ -124,12 +122,49 @@ test_parse(){
 
 parse_from frame.now 
 }
+test_take_picture(){
+$tasks_sh take_photo
+}
 
-step1(){
+test_article_translation(){
+echo ''
+}
+test_recent_step(){
+$tasks_sh recent_step
+}
+test_plugin_yaml_parser(){
+#present frame.self
+$tasks_sh present frame.mantra
+}
+test_essay(){
+$tasks_sh write_essay
+}
 
-export DEBUG='true'
-test_parse
+test_suspend(){
+$tasks_sh suspend1
 
 }
+test_workflow_generation(){
+echo ''
+$tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
+}
+test_python_koans_test_shell_also(){
+echo ''
+}
+
+
+step1(){
+#test_take_picture
+#test_recent_step study
+
+#$tasks_sh commitment 
+#test_suspend
+#test_workflow_generation
+#eacher "$tasks_sh show sport" 'abc' 'def'
+#$tasks_sh show sport
+eacher "$tasks_sh show sport"  "desc ?" "1" "task: count/max" 
+echo "result: $?"
+}
+
 step1
 popd > /dev/null

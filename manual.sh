@@ -4,7 +4,7 @@
 #        - easy show statistics
 #        - where_am_i ?
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
+export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
 
 
@@ -25,7 +25,8 @@ ls -l $old_file
 touch $file
 }
 
-eacher upload 'upload file to blogger?'
-eacher backup 'clean blank.yaml ?'
-
+#eacher upload 'upload file to blogger?'
+#eacher backup 'clean blank.yaml ?'
+echo 'hi'
+upload
 popd > /dev/null

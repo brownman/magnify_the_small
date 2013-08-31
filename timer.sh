@@ -14,19 +14,13 @@ export locker=/tmp/lock1
 workflow=''
 workflow_d=''
 waiting=${1:-60}   # Defaults to /tmp dir.
-green   "waiting  $waiting"
+trace   "waiting  $waiting"
 
 restart(){
     while :;do
-        flite 'basic menu'
-        local option=$($tasks_sh chooser sleeper )
-
-        flite "$option"
-        if [ "$option" = 'next' ];then
-
-            flite 'run workflow'
-            steps
-        fi
+        flite 'restart workflow'
+           run_workflow
+           sleep1 $waiting
     done
 
 
@@ -34,36 +28,11 @@ restart(){
 }
 
 
-steps(){
-    #local route='life'
-    local route='fun'
-    echo "route is: $route"
-    flite "push forward - $route"
-
-    if [ "$route" != '' ];then
-        run_workflow $route
-    else
-        $tasks_sh show_file $CFG_DIR/blank.yaml
-        #$tasks_sh motivation guidance 
-        #echo 'skip'
-    fi
-
-
-}
-
 run_workflow(){
-    local route="$1" 
-    workflow_file=$CFG_DIR/workflow_$route.cfg 
-    echo "$workflow_file"
-
-    #$tasks_sh show_file $workflow_file
-
+    workflow_file=$CFG_DIR/workflow.cfg 
+    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
     $PWD/serial.sh read_lines "$workflow_file" "$waiting"
-
-
-
 }
-
 unlock(){
     local result1=0
 
@@ -72,7 +41,7 @@ unlock(){
         red "$locker"
         echo -n "assume proccess running: "
         pids1=`cat $locker`
-        cyan "$pids1"
+        trace "$pids1"
         msg2="kill running process ?"
 
         $( messageYN1  "$msg2" )
@@ -80,7 +49,7 @@ unlock(){
 
         result1="$?"
 
-        cyan "result: $result1"
+        trace "result: $result1"
         if [[ $result1 -eq 1 ]];then
             echo 'killing'
             `rm $locker`
@@ -91,7 +60,7 @@ unlock(){
         fi
         #./$0
     else
-        green 'create $locker'
+        trace 'create $locker'
         touch $locker
         echo $$ > $locker
 

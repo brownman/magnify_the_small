@@ -7,9 +7,9 @@
 
 file=$1
 
-yellow "record your mission being done:"
+trace "record your mission being done:"
 
-yellow "send $file to blogger ?"
+trace "send $file to blogger ?"
 read answer
 if [ "$answer" = y ];then
 google blogger post $file 
