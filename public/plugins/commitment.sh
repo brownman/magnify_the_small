@@ -23,16 +23,14 @@ stop_watch1(){
             local msg1="$c/$long:  $msg"
 
             if [ "$show_buttons" = 'true' ];then
-                res=$( string_to_buttons "exit-$msg" "$title" "$msg" "-" )
-                #answer=$?
-
-             if [ "$res" = 'exit' ];then
-                 reminder1
-                 #echo 'breaking'
-               #break 
-             else
-                    echo0 "$res"
-             fi
+                local res=$( $tasks_sh string_to_buttons pick_one "$msg")
+                
+#
+#             if [ "$res" = 'exit' ];then
+#                 reminder1
+#             else
+#                 flite "$res"
+#             fi
 
             fi
         fi
@@ -49,7 +47,7 @@ stop_watch1(){
 
 reminder1(){
 
-    local line=$( gxmessage  $GXMESSAGET -entry -title 'commitment:' 'add reminder:' )
+    local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'commitment:' 'add reminder:' )
 
 
     if [ "$line" != '' ];then
@@ -69,6 +67,6 @@ local title="commitment reminder"
     fi
 
 }
-reminder1 
+reminder1 "$1" 
 #exit 
 

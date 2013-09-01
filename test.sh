@@ -6,10 +6,12 @@
 
 pushd `dirname $0` > /dev/null
 export TIMERTXT_CFG_FILE=public/cfg/user.cfg
-echo "PWD: $PWD"
+
+#export DEBUG='true'
 . $TIMERTXT_CFG_FILE
-export DEBUG='true'
-sleep1 2
+
+#trace "PWD: $PWD"
+
 
 
 
@@ -89,82 +91,88 @@ test_return()
     return $1
 }
 test_return1(){
-return_test 27         # o.k.
-echo $?                # Returns 27.
+    return_test 27         # o.k.
+    echo $?                # Returns 27.
 
 }
 
 test_lesson(){
-$tasks_sh learn_langs 
+    $tasks_sh learn_langs 
 }
 
 test_pick_1(){
-$tasks_sh scrap
+    $tasks_sh scrap
 }
 
 #test_commitment
 #$tasks_sh commitment
 #write_essay
 test_first_menu(){
-echo 'parse menu from yaml - the first menu should be pondering'
+    echo 'parse menu from yaml - the first menu should be pondering'
 }
 test_xterm(){
-xterm 'echo zz;sleep1 5'
+    xterm 'echo zz;sleep1 5'
 }
 test_menus(){
-echo ''
-local msg=$($tasks_sh chooser sleeper)
-#eval "do_$msg"
-echo $msg
+    echo ''
+    local msg=$($tasks_sh chooser sleeper)
+    #eval "do_$msg"
+    echo $msg
 }
 test_parse(){
-#$tasks_sh present achivements 
+    #$tasks_sh present achivements 
 
-parse_from frame.now 
+    parse_from frame.now 
 }
 test_take_picture(){
-$tasks_sh take_photo
+    $tasks_sh take_photo
 }
 
 test_article_translation(){
-echo ''
+    echo ''
 }
 test_recent_step(){
-$tasks_sh recent_step
+    $tasks_sh recent_step
 }
 test_plugin_yaml_parser(){
-#present frame.self
-$tasks_sh present frame.mantra
+    #present frame.self
+    $tasks_sh present frame.mantra
 }
 test_essay(){
-$tasks_sh write_essay
+    $tasks_sh write_essay
 }
 
 test_suspend(){
-$tasks_sh suspend1
+    $tasks_sh suspend1
 
 }
 test_workflow_generation(){
-echo ''
-$tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
+    echo ''
+    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
 }
 test_python_koans_test_shell_also(){
-echo ''
+    echo ''
 }
 
 
-step1(){
-#test_take_picture
-#test_recent_step study
+think(){
 
-#$tasks_sh commitment 
-#test_suspend
-#test_workflow_generation
-#eacher "$tasks_sh show sport" 'abc' 'def'
-#$tasks_sh show sport
-eacher "$tasks_sh show sport"  "desc ?" "1" "task: count/max" 
-echo "result: $?"
+
+    trace "think() got: plugin:$1 method:$2 arg:$3"
+
+    local plugin_name="$1"
+local cmd=$PLUGINS_DIR/$plugin_name.sh
+    local method="$2"
+    local arg="$3"
+    
+local ans=$($cmd  "$method" "$arg")
+    echo "ans: $ans"
+    
+    #result=$?
+    #echo "$result"
 }
 
-step1
+think "$1" "$2" "$3" 
 popd > /dev/null
+
+

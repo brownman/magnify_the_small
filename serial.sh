@@ -50,6 +50,7 @@ read_lines(){
         if [ "$DEBUG" = false ];then
             $tasks_sh motivation sport
             $tasks_sh take_photo
+            sleep1 10
         fi
 
         echo "$line "

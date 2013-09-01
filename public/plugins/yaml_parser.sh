@@ -151,10 +151,13 @@ present(){
 grab1(){
     local msg=$(parse_from "$1")
     local title="$1"
-    echo $msg
+    trace $msg
+$tasks_sh commitment "$msg"
 
-    echo0 "$msg"
-    gxmessage "$msg" -title "$title" $GXMESSAGET
+    #echo0 "$msg"
+
+    #gxmessage "$msg" -title "$title" $GXMESSAGET
+     "$msg" "$title" 
 
 }
 

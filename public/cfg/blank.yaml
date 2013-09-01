@@ -1,74 +1,27 @@
-date: 31.8.13
-day:  saturday 
+date: 1.9.13
+day:  sunday
 frame:
-        goal: get-value wish.0
         episode: get-value episode.0
         should: get-value should.0 
         doing: get-value doing.0 
+
+motivation:
         mantra: get-value mantra.0
         breath: get-value fun.0
         achivements: get-value achivements.0
-        reasoning: get-value reasoning.0
+        breakthrough: get-value breakthrough.0
         new_words: get-value words.0
 
 workflow:
-        - present|frame.should|I should do
-        - present|frame.episode|current episosde
-        - present|frame.goal|my daily goal
-
-
-words:
-    - his dog, their dogs, our dog
-
-
-tweets:
-        - today is the history of tomorroe
-        - tomorrow will be changed by today's ideas
-
-triggers:
-        create_essay_ideas:
-            - to be happy
-            - to do a task
-            - to smile
-            - to take it easy
-        remind_life_goal:
-            - why_be_optimistic|collaboration
-
-wish:
-        - start working on Avshalom's website
+            - present|frame.episode|current episosde
 
 episode:
-        - 14:00 - 15:00 : work on Avshalom's website 
-        - 16:00 - 18:00 : WE 
-        - 18:00 - 19:00 : go to pool 
-
-ideas:
-    efficiency:
-        popups:
-            - multiple choices - like - update stop-watch- timing,txt
-        workflow:
-            - suspend -> commitment
-            - error_handler -> tracex popup !
-        system:
-            - python koan - use for testing - shell scripts
-
-
-
-
-mantra:
-        - run only 1 task and increase after suspension
-        - take a breath for atleast 10 minutes
-
-achivements:
-        - I did some coding
-        - tried give Shalva food
-        
-fun:
-        - physics
-        - shopping
-
-doing:
-        - update project 
+        - 8:00 - 9:00 - start the day , open the notebook
+        - coursera - web course + eran + codenvy
+wish:
+        - start work on Avshalom's website
+        - use the youtube project to add another dialog type
+        - update project - string_to_buttons+translation as plugin 
 
 should:
         - check info regarding a new laptop
@@ -83,108 +36,77 @@ should:
         - talk with Rotem
 
 
-later:            
-            happy: working on Avshalom's website
-            sport: 9
-            stretch: 1
-            push_forward: x
-            breakthrough: y 
-            
-cycle:
-    if_easy:
-        - essay_aday #decide - what will be the next step 
-    sleeper:
-        - suspend
-        - done
-    push_forward: 
-        - job
-        - study
-        - we
-    remind:
-        - tasks
-      
-ideas:
-            - menus like workflows  instide of cfg
-            - motivation  - silent option
 
-imagine:
 
-        money: avshalom
-        commitment: make distinction between pushing life and project
-        advice:
-            pleasure: buy something new
-            periodicly:
-                - checkout Shlava
-                - interact with Kuka
-            efficiency:
-                - add another dropbox instance
-                - add another db sync to phone
-                - add rony to whatsup
-        mantra: be amazed
-
-order:
-        creative: read some children books
-        fun:      have fun reading interesting materials
-        timing:
-                - 17:00 Shiler
-                - 19:00 pool
-        buy:      soap, spagetti
-
-routes:
-    project:
-        recent: do_test
-        plugins:
-            - article_translation
-            - youtube_downloader
-            - else
-    study:
+    
+triggers:
+        buy:      spagetti
+        remind_life_goal:
+            - why_be_optimistic|collaboration
+        words:
+            - his dog, their dogs, our dog
+        breakthrough:
+            - collaboration
         recent:
-                - update project - add essay game
-        project:
-            next:
-                - plugin: youtube
-            later:
-                - file-sync
-                - article / yaml tranlsation / bin-translate 
-                - plugin: languages tree - for 1 
-                - plugin: shopping - scrap
-        later:
-            - koans - runner
-            - network questions
-            - bash examples
-    we:
-         recent:
-                - check my accounts
-         timing:
-                - time frame is 12:00 - 12:30
-         steps:
-                - open website
-                - check the subject
-                - be happy
-         url:
-                - http://www.btl.gov.il/benefits/unemployment/Pages/default.aspx
-        
-    job:
-            recent:
-                - start working on the website for Avshalom
-            avshalom:
-                - start X
-            ideas:
-                - X
-                - oDesk - scrap
-            url:
-                - http://www.linkedin.com/jsearch?keywords=linux&searchLocationType=I&countryCode=il&postalCode=76829&distance=50&keepFacets=keepFacets&page_num=1&pplSearchOrigin=JSHP&sortCriteria=R
-    breath:
-            recent:
-                - goto wikipedia phisics
-            timing:
-                - 15:31 - 15:35
-            steps:
-                - open website
-                - check the subject
-                - be happy
-            url:
-                - http://he.wikipedia.org/wiki/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%A0%D7%99%D7%A1%D7%95%D7%99%D7%99%D7%9D_%D7%9E%D7%97%D7%A9%D7%91%D7%AA%D7%99%D7%99%D7%9D
+            - update project
+        create_essay_ideas:
+            - to be happy
+            - to do a task
+            - to smile
+            - to take it easy
+        tweets:
+            - today is the history of tomorroe
+            - tomorrow will be changed by today's ideas
+        wish:
+            - start working on Avshalom's website
+        ideas:
+            efficiency:
+                popups:
+                    - multiple choices - like - update stop-watch- timing,txt
+                workflow:
+                    - suspend -> commitment
+                    - error_handler -> tracex popup !
+                system:
+                    - python koan - use for testing - shell scripts
+        mantra:
+                - run only 1 task and increase after suspension
+                - take a breath for atleast 10 minutes
+        achivements:
+                - I did some coding
+                - tried give Shalva food
+        fun:
+                - physics
+                - shopping
+
+        ideas:
+                    - menus like workflows  instide of cfg
+                    - motivation  - silent option
+        routes:
+            project:
+                recent: do_test
+                plugins:
+                    - article_translation
+                    - youtube_downloader
+                    - else
+            study:
+                recent:
+                        - update project - add essay game
+                project:
+                    next:
+                        - plugin: youtube
+                    later:
+                        - file-sync
+                        - article / yaml tranlsation / bin-translate 
+                        - plugin: languages tree - for 1 
+                        - plugin: shopping - scrap
+                later:
+                    - koans - runner
+                    - network questions
+                    - bash examples
+
+
+
+
 
 
         
@@ -201,24 +123,21 @@ resources:
     job:
         http://www.working.org.il/%D7%93%D7%9E%D7%99_%D7%90%D7%91%D7%98%D7%9C%D7%94/%D7%97%D7%99%D7%A9%D7%95%D7%91_%D7%93%D7%9E%D7%99_%D7%90%D7%91%D7%98%D7%9C%D7%94/
         http://www.taasuka.gov.il/Taasuka/Employment+Consultation/Courses/tel+aviv070108.htm
+    recent:       
+        we:
+                    - http://www.btl.gov.il/benefits/unemployment/Pages/default.aspx
+        job:
+                    - http://www.linkedin.com/jsearch?keywords=linux&searchLocationType=I&countryCode=il&postalCode=76829&distance=50&keepFacets=keepFacets&page_num=1&pplSearchOrigin=JSHP&sortCriteria=R
+        breath:
+                    - http://he.wikipedia.org/wiki/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%A0%D7%99%D7%A1%D7%95%D7%99%D7%99%D7%9D_%D7%9E%D7%97%D7%A9%D7%91%D7%AA%D7%99%D7%99%D7%9D
+    buy:
+        searches:
+            life_upgrade:
+                - 1 more battery for the laptop
+            laptop:
+                - 2 parts laptop - search for replacement parts first
+                - mini computer solution
+                - laptop alternative
+            url:
+                - http://www.antutu.net/index.shtml
 
-recent:
-  glue:
-    - http://drfix.co.il/iphone-cover-epoxy-gluing
-    - http://www.zap.co.il/models.aspx?sog=h-glue&db137795=2783583
-  job:
-    - http://www.taasuka.gov.il/Taasuka/About/EmploymentBureaus.htm
-  money:
-    - make an excell table - of the last 3 month
-
-buy:
-    searches:
-        life_upgrade:
-            - 1 more battery for the laptop
-        laptop:
-            - 2 parts laptop - search for replacement parts first
-            - mini computer solution
-            - laptop alternative
-        url:
-            - http://www.antutu.net/index.shtml
-       

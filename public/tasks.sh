@@ -17,6 +17,10 @@ present(){
     $PLUGINS_DIR/yaml_parser.sh grab1 "$1"
 }
 
+string_to_buttons(){
+   local res=$($PLUGINS_DIR/string_to_buttons.sh "$1" "$2" "$3")
+   echo "$res"
+}
 
 write_essay(){
     $PLUGINS_DIR/free_speak.sh
@@ -146,7 +150,7 @@ collaboration(){
 }
 
 commitment(){
-    $PLUGINS_DIR/stop_watch.sh 
+    $PLUGINS_DIR/commitment.sh "$1"  
     #$PLUGINS_DIR/stop_watch.sh 
 }
 

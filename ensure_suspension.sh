@@ -13,7 +13,7 @@ export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
 
-timeout_for_suspension=${1:-140}   # Defaults to /tmp dir.
+timeout_for_suspension=${1:-240}   # Defaults to /tmp dir.
 echo "going to sleep in $timeout_for_suspension seconds"
 
 export locker2=/tmp/lock2
