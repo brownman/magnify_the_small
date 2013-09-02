@@ -54,19 +54,21 @@ read_lines(){
         fi
 
         echo "$line "
-        command=$( echo $line | awk -F '|' '{print $1}' )
-        args=$( echo $line | awk -F '|' '{print $2}' )
+        action=$( echo $line | awk -F '|' '{print $1}' )
+        args0=$( echo $line | awk -F '|' '{print $2}' )
+
+        args=$($PLUGINS_DIR/yaml_parser.sh fetch "$args0")
         desc=$( echo $line | awk -F '|' '{print $3}' )
         notify-send "TASK: $desc" "$args"
         flite "$desc" true
         #( echo0 "$desc" &)
-        #cmd1='$tasks_sh $command "$desc"'
+        #cmd1='$tasks_sh $action "$desc"'
         if [[ $count -eq 1 ]];then
-            $tasks_sh $command $args
+            $tasks_sh "$action" "$args" "$desc" 
         else
 
 
-            eacher "$tasks_sh $command $args"  "$desc ?" "$waiting" "task: $count/$max" 
+            eacher "$tasks_sh $action $args $desc"  "$desc ?" "$waiting" "task: $count/$max" 
             result="$?"
 
 
@@ -82,9 +84,9 @@ read_lines(){
 
 
         #sleep1 $waiting
-if [ $DEBUG = false ];then
-        increase_efficiency $count $max "$desc" "$file_report"
-fi
+        if [ $DEBUG = false ];then
+            increase_efficiency $count $max "$desc" "$file_report"
+        fi
 
         let "count=count+1"
     done

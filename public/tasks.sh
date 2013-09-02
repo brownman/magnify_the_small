@@ -13,8 +13,20 @@ trace "tasks.sh got: "
 trace "1: $1"  
 trace " 2:$2 3:$3 4: $4"  
 
-present(){
-    $PLUGINS_DIR/yaml_parser.sh grab1 "$1"
+#present(){
+#    trace "present() got: 1:$1 2:$2"
+#    action="$2"
+#    title="present:"
+#    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
+#    $action "$msg" "$title"
+#}
+show_msg(){
+local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
+commitment "$msg"
+}
+show_msg_entry(){
+local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
+echo01 "$msg"
 }
 
 string_to_buttons(){
@@ -37,7 +49,7 @@ edit(){
     gedit $file2 &
 }
 take_photo(){
-    $PLUGINS_DIR/take_photo.sh
+    xterm1 $PLUGINS_DIR/take_photo.sh
 }
 
 motivation(){
@@ -51,10 +63,10 @@ motivation(){
     #sleep 10
 }
 scrap(){
-    local word=$( random_line $CFG_DIR/txt/glossary.txt )
+    local word=$1 
+    ##$( random_line $CFG_DIR/txt/glossary.txt )
     echo "word: $word"
     if  [ "$word" != '' ] ;then
-
 
         xterm1  "$PLUGINS_DIR/scrap.sh" "translate ar '$word'"
         sleep1 10
@@ -74,9 +86,7 @@ record_for_later(){
     xdg-open 'http://www.youtube.com/upload'
 }
 
-take_photo(){
-    $PLUGINS_DIR/take_photo.sh
-}
+
 show_file(){
 
     local    file="$1"
@@ -164,8 +174,7 @@ learn_langs(){
         $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM 
     else
 
-        ( 
-        xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM &)
+        (        xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM &)
     fi
 
     #RU 13

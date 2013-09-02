@@ -24,7 +24,7 @@ show_item(){
 
 
 msg_with_buttons(){
-    str="$1"
+    str="exit - $1"
     local str_buttons=$(string_to_arr "$str")
 
     gxmessage $GXMESSAGET -title "title" -buttons "$str_buttons" "$str" 
@@ -38,11 +38,19 @@ msg_with_buttons(){
 }
 
 pick_one(){
-    tracex "pick_one() got: 1:$1 2:$2"
+    trace "pick_one() got: 1:$1 2:$2"
     local  res=$(msg_with_buttons "$1")
-    notify-send "$res"
-    echo0 "$res"
-    echo "$res"
+    if [ "$res" = 'exit' ];then
+        $tasks_sh motivation glossary
+    else
+        notify-send "$res"
+        echo0 "$res"
+        #$tasks_sh scrap "$res"
+
+    fi
+
+        echo "$res"
+
 }
 string_to_arr(){
     trace "string_to_arr() got:  1:$1 2:$2" 

@@ -1,29 +1,29 @@
-date: 1.9.13
-day:  sunday
+date: 2.9.13
+day:  Monday 
 frame:
-        episode: get-value episode.0
-        should: get-value should.0 
+        translate: get-value translate.0 
+        imagine: get-values imagine_push
+        should: get-value on_suspend.0 
         doing: get-value doing.0 
 
-motivation:
-        mantra: get-value mantra.0
-        breath: get-value fun.0
-        achivements: get-value achivements.0
-        breakthrough: get-value breakthrough.0
-        new_words: get-value words.0
-
 workflow:
-            - present|frame.episode|current episosde
+        - show_msg|frame.imagine|imagine this day accomplishments 
+        - show_msg_entry|frame.translate|how to say 
 
-episode:
-        - 8:00 - 9:00 - start the day , open the notebook
-        - coursera - web course + eran + codenvy
-wish:
-        - start work on Avshalom's website
-        - use the youtube project to add another dialog type
-        - update project - string_to_buttons+translation as plugin 
+translate:
+        - we have and they have
 
-should:
+imagine_push:
+        - 10.backup phone storage
+        - 10.youtube-sh
+        - 30.python koans + youtube quantom
+        - 60.coursera - web course + eran + codenvy + avshalom
+
+
+
+on_suspend:
+        - papers - account - feb 2013
+        - mail to ofri - mazkirut
         - check info regarding a new laptop
         - backup hd to google drive OR else
         - check my accounts
@@ -36,108 +36,22 @@ should:
         - talk with Rotem
 
 
+rules:
+    home:
+        - hang the laundry
+        - give Shalva food and madicine
+    out:
+        - car - from the bag to the car - move the documents 
+        - do shopping - take the list/photo it
+        - goto pool
+        - Rehovot - buy coffee from
+    report:
+        - every suspension - efficiency level is:X
+        - every hour - am I aware of the daily goal ?
 
-
-    
-triggers:
-        buy:      spagetti
-        remind_life_goal:
-            - why_be_optimistic|collaboration
-        words:
-            - his dog, their dogs, our dog
-        breakthrough:
-            - collaboration
-        recent:
-            - update project
-        create_essay_ideas:
-            - to be happy
-            - to do a task
-            - to smile
-            - to take it easy
-        tweets:
-            - today is the history of tomorroe
-            - tomorrow will be changed by today's ideas
-        wish:
-            - start working on Avshalom's website
-        ideas:
-            efficiency:
-                popups:
-                    - multiple choices - like - update stop-watch- timing,txt
-                workflow:
-                    - suspend -> commitment
-                    - error_handler -> tracex popup !
-                system:
-                    - python koan - use for testing - shell scripts
-        mantra:
-                - run only 1 task and increase after suspension
-                - take a breath for atleast 10 minutes
-        achivements:
-                - I did some coding
-                - tried give Shalva food
-        fun:
-                - physics
-                - shopping
-
-        ideas:
-                    - menus like workflows  instide of cfg
-                    - motivation  - silent option
-        routes:
-            project:
-                recent: do_test
-                plugins:
-                    - article_translation
-                    - youtube_downloader
-                    - else
-            study:
-                recent:
-                        - update project - add essay game
-                project:
-                    next:
-                        - plugin: youtube
-                    later:
-                        - file-sync
-                        - article / yaml tranlsation / bin-translate 
-                        - plugin: languages tree - for 1 
-                        - plugin: shopping - scrap
-                later:
-                    - koans - runner
-                    - network questions
-                    - bash examples
-
-
-
-
-
-
-        
-resources:
-    youtbe:
-        git@github.com:darxx/youtube-dl-gui.git
-        https://github.com/rg3/youtube-dl
-    js:
-        http://phrogz.net/js/d3-playground/#VerticalBars_HTML
-    bash:
-        './private/old/resources/packages/abs-guide-6.5/hanoi2.bash:      repeat " " $empty'
-    ref:
-        https://github.com/0k/shyaml
-    job:
-        http://www.working.org.il/%D7%93%D7%9E%D7%99_%D7%90%D7%91%D7%98%D7%9C%D7%94/%D7%97%D7%99%D7%A9%D7%95%D7%91_%D7%93%D7%9E%D7%99_%D7%90%D7%91%D7%98%D7%9C%D7%94/
-        http://www.taasuka.gov.il/Taasuka/Employment+Consultation/Courses/tel+aviv070108.htm
-    recent:       
-        we:
-                    - http://www.btl.gov.il/benefits/unemployment/Pages/default.aspx
-        job:
-                    - http://www.linkedin.com/jsearch?keywords=linux&searchLocationType=I&countryCode=il&postalCode=76829&distance=50&keepFacets=keepFacets&page_num=1&pplSearchOrigin=JSHP&sortCriteria=R
-        breath:
-                    - http://he.wikipedia.org/wiki/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%A0%D7%99%D7%A1%D7%95%D7%99%D7%99%D7%9D_%D7%9E%D7%97%D7%A9%D7%91%D7%AA%D7%99%D7%99%D7%9D
-    buy:
-        searches:
-            life_upgrade:
-                - 1 more battery for the laptop
-            laptop:
-                - 2 parts laptop - search for replacement parts first
-                - mini computer solution
-                - laptop alternative
-            url:
-                - http://www.antutu.net/index.shtml
-
+    recent:
+            - test new plugin with Python
+    idea:   
+            - show recent picture - to refresh memory
+    workflow:
+            - all the time - learn new words by translating - set only 1 sentance in this file

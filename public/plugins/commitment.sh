@@ -24,13 +24,10 @@ stop_watch1(){
 
             if [ "$show_buttons" = 'true' ];then
                 local res=$( $tasks_sh string_to_buttons pick_one "$msg")
-                
-#
-#             if [ "$res" = 'exit' ];then
-#                 reminder1
-#             else
-#                 flite "$res"
-#             fi
+
+             if [ "$res" = 'exit' ];then
+                 reminder1
+             fi
 
             fi
         fi

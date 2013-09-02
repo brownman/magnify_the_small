@@ -148,16 +148,17 @@ present(){
     gxmessage $GXMESSAGET "$msg"
 }
 
-grab1(){
+fetch(){
     local msg=$(parse_from "$1")
     local title="$1"
     trace $msg
-$tasks_sh commitment "$msg"
+#$tasks_sh commitment "$msg"
 
     #echo0 "$msg"
 
     #gxmessage "$msg" -title "$title" $GXMESSAGET
-     "$msg" "$title" 
+     #"$msg" "$title" 
+     echo "$msg"
 
 }
 
