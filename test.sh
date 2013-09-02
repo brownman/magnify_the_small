@@ -47,7 +47,7 @@ test_task(){
             $tasks_sh take_photo
             echo 'am i dirty?'
 }
-test_task
+test_plugin "$1" "$2" "$3"
 popd > /dev/null
 
 

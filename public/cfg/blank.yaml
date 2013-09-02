@@ -18,7 +18,9 @@ imagine_push:
         - 10.youtube-sh
         - 30.python koans + youtube quantom
         - 60.coursera - web course + eran + codenvy + avshalom
-
+recent:
+        goto: ~/.magnify_the_small/today/resources/python_koans/python2
+        run: ./run.sh
 
 
 on_suspend:
