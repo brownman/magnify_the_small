@@ -7,8 +7,8 @@ frame:
         doing: get-value doing.0 
 
 workflow:
-        - show_msg|frame.imagine|imagine this day accomplishments 
         - show_msg_entry|frame.translate|how to say 
+        #- show_msg|frame.imagine|imagine this day accomplishments 
 
 translate:
         - we have and they have

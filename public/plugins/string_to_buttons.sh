@@ -2,44 +2,38 @@
 # about file:
 # string to buttons -> choose -> echo -> say
 
-
+#http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
 trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3" 
+#delimeter='-'
+#delimeter=''
 
+arr=()
+declare -a arr=() #=('aa')
 
-
-
-show_item(){
-    trace "show_item() got:  1:$1 2:$2" 
-    local str="$1" 
-    local index="$2"
-    delimeter=' '
-    old_IFS=$IFS
-    IFS="$delimeter"
-    read -a array <<< "$str"
-    IFS=$old_IFS
-    read -a array <<< "$str"
-    local item=${array[$index]}
+show_item() {
+    show_arr 'show item()' 
+    local item=${arr[$1]}
+    #tracex "show item: index $1: value: $item"
     echo "$item"
 }
 
 
-msg_with_buttons(){
-    str="exit - $1"
-    local str_buttons=$(string_to_arr "$str")
 
-    gxmessage $GXMESSAGET -title "title" -buttons "$str_buttons" "$str" 
-
-    local num=$?
-    local str2=$(show_item "$str" "$num" )
-
-    trace "$str2"
-    echo "$str2"
-
-}
-
-pick_one(){
+pick_one(){                          
     trace "pick_one() got: 1:$1 2:$2"
-    local  res=$(msg_with_buttons "$1")
+    local str="$1"
+    string_to_arr "$str"
+
+
+    show_arr1 'done?' 
+   
+    gxmessage $GXMESSAGET -title "title" -buttons "$arr" "$str" 
+
+exiting
+    local num="$?"
+    tracex "$num"
+
+    #local  res=$()
     if [ "$res" = 'exit' ];then
         $tasks_sh motivation glossary
     else
@@ -49,123 +43,87 @@ pick_one(){
 
     fi
 
-        echo "$res"
+    echo "$res"
 
 }
-string_to_arr(){
+
+show_arr(){
+echo ''
+}
+
+
+show_arr1(){
+    #local caller1=$(caller 0)
+    local str=`echo ${arr[@]}`
+    trace "show_arr:: $1:  --> $str"
+}
+arr_to_msg(){
+gxmessage -buttons "$1" "msg: $1" $GXMESSAGET
+local num=$?
+local str="${arr[$num]}"
+tracex "$str"
+echo "$str"
+}
+str_to_arr(){
     trace "string_to_arr() got:  1:$1 2:$2" 
+    #  local item=${arr[1]}`
+    #    gxmessage "res1: $item"
     str="$1" 
-    delimeter=' '
+
     old_IFS=$IFS
+    #show_arr 1
+    #read -a arr <<< "$str"
     IFS="$delimeter"
-    read -a array <<< "$str"
+
+    arr=($(echo "$str"))
+
     IFS=$old_IFS
 
-    for i in "${!array[@]}"; do
+}
+arr_to_str(){
+
+#local str1="$1"
+local item=''
+local item1=''
+    for i in "${!arr[@]}"; do
+item=${arr[$i]}
+#item1=$(remove_trailing "$item")
         if [ "$str1" = '' ];then
-            str1="${array[$i]}:$i"
+            str1="$item:$i"
         else
-            str1="$str1,${array[$i]}:$i"
+            str1="$str1,$item:$i"
         fi
     done
-
-
-
-    #gxmessage $GXMESSAGET -title "title" -buttons "$str1"  msg 
-    trace "$str1"
+#
+#    show_arr1 'string_to_arr() 1' 
+#
+#
+#
+#    trace "$str"
     echo "$str1"
-    #return "$str1"
 
 }
-string_to_buttons_file1(){
-
-    tracex "string_to_buttons()  got: 1:$1 2: $2 3:$3 4:$4"
-    local str="$1"
-    local title="$2"
-    local file_msg="$3" 
-    local delimeter="$4"
-
-    local str1=''
-    if [ "$delimeter" = '' ];then
-        trace 'no delimeter found'
-        delimeter=' '  
-    fi
-
-    #delimeter=${1:-60}   # Defaults to /tmp dir.
-
-    old_IFS=$IFS
-    IFS="$delimeter"
-    #echo  "ifs: $IFS" >&2
-    #cat $file
-
-
-    read -a array <<< "$str"
-    for i in "${!array[@]}"; do
-        if [ "$str1" = '' ];then
-            str1="${array[$i]}:$i"
-        else
-            str1="$str1,${array[$i]}:$i"
-        fi
-    done
-
-    IFS=$old_IFS
-
-    gxmessage $(echo $GXMESSAGET) -title "$title" -buttons "$str1"  -file $file_msg $ICONIC
-    choose="$?"
-
-    local str2="${array[$choose]}"
-    echo "$str2"
-
-    return $choose
+step1(){
+local str="$1"
+delimeter="${2:-'-'}"   # Defaults to /tmp dir.
+str_to_arr "$1" #create new array
+local str2=$(arr_to_str ) #use array to create buttons-string
+echo "$str2"
 }
+step2(){
+
+local str="$1"
+delimeter="${2:-'-'}"   # Defaults to /tmp dir.
+str_to_arr "$1" #create new array
+local str2=$(arr_to_str ) #use array to create buttons-string
+#echo "$str2"tracex "$str2"
+#tracex "arr: ${arr[@]}"
+local str3=$(arr_to_msg "$str2")
+echo "$str3"
 
 
-
-string_to_buttons2(){
-    tracex "string_to_buttons()  got: 1:$1 2:$2 3:$3 4:$4"
-    local str="$1"
-    local title="$2"
-    local msg="$3" 
-    local delimeter="$4"
-    local result=0
-
-    local str1=''
-    if [ "$delimeter" = '' ];then
-        delimeter=' '  
-        trace 'no delimeter found'
-    fi
-
-    #delimeter=${1:-60}   # Defaults to /tmp dir.
-
-    old_IFS=$IFS
-    IFS="$delimeter"
-    #echo  "ifs: $IFS" >&2
-    #cat $file
-
-
-    read -a array <<< "$str"
-    for i in "${!array[@]}"; do
-        if [ "$str1" = '' ];then
-            str1="${array[$i]}:$i"
-        else
-            str1="$str1,${array[$i]}:$i"
-        fi
-    done
-
-    IFS=$old_IFS
-    gxmessage $GXMESSAGET -title "$title" -buttons  "$str1" "$msg"
-    result=$?
-    #trace "$result"
-    #
-    #    local str2="${array[$choose]}"
-    #    trace "str2: $str2"
-    #
-    #    trace "choose: $choose"
-    #    echo "$str2"
-    #
-    return $result
 }
-
-
 
 $1 "$2" "$3"
+
+

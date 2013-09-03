@@ -7,8 +7,10 @@
 pushd `dirname $0` > /dev/null
 export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 
-export DEBUG='true'
 . $TIMERTXT_CFG_FILE
+#remove_trailing " abc "
+export DEBUG='true'
+
 
 #trace "PWD: $PWD"
 
@@ -25,7 +27,7 @@ local cmd=$PLUGINS_DIR/$plugin_name.sh
     local arg="$3"
     
 local ans=$($cmd  "$method" "$arg")
-    echo "ans: $ans"
+    echo "$ans"
     
     #result=$?
     #echo "$result"
@@ -47,7 +49,26 @@ test_task(){
             $tasks_sh take_photo
             echo 'am i dirty?'
 }
+arr=(1 2)
+
+make_array(){
+#arr=( ${arr[@]/1/} )
+
+arr=($(echo '1 2 3'))
+}
+show_array1(){
+echo "before: ${arr[@]}"
+make_array
+echo "after: ${arr[@]}"
+}
+#show_array1
+
 test_plugin "$1" "$2" "$3"
+#cd testing/python2
+
+#./testing/python2/run.sh
 popd > /dev/null
+
+
 
 

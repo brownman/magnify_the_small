@@ -57,7 +57,7 @@ read_lines(){
         action=$( echo $line | awk -F '|' '{print $1}' )
         args0=$( echo $line | awk -F '|' '{print $2}' )
 
-        args=$($PLUGINS_DIR/yaml_parser.sh fetch "$args0")
+        args=$($tasks_sh fetch "$args0")
         desc=$( echo $line | awk -F '|' '{print $3}' )
         notify-send "TASK: $desc" "$args"
         flite "$desc" true
@@ -84,7 +84,7 @@ read_lines(){
 
 
         #sleep1 $waiting
-        if [ $DEBUG = false ];then
+        if [ "$REPORT" = true ];then
             increase_efficiency $count $max "$desc" "$file_report"
         fi
 

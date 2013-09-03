@@ -20,6 +20,12 @@ trace " 2:$2 3:$3 4: $4"
 #    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
 #    $action "$msg" "$title"
 #}
+fetch(){
+local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
+echo "$msg"
+}
+
+
 show_msg(){
 local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
 commitment "$msg"

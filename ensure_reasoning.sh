@@ -14,6 +14,13 @@ help1 "$help_options"
 
 timeout_for_reasoning=${1:-5}   # Defaults to /tmp dir.
 echo "going to run in $timeout_for_reasoning seconds"
+act1(){
+    result=$($tasks_sh fetch 'frame.translate')
+$tasks_sh commitment "$result"
+
+
+}
+
 
 export locker3=/tmp/lock3
 if [ -e $locker3 ];then
@@ -33,9 +40,7 @@ else
     echo $$ >> $locker3
 
 sleep1 $timeout_for_reasoning
-$tasks_sh commitment 
-
-
+act1
     trace 'removing $locker3'
     `rm $locker3`
 
