@@ -23,9 +23,10 @@ stop_watch1(){
             local msg1="$c/$long:  $msg"
 
             if [ "$show_buttons" = 'true' ];then
-                local res=$( $tasks_sh string_to_buttons pick_one "$msg")
+                local res=$( $tasks_sh string_to_buttons step2 "$msg" '-')
+                echo0 "$res"
 
-             if [ "$res" = 'exit' ];then
+             if [ "$res" = 'Q' ];then
                  reminder1
              fi
 

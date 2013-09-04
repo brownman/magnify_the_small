@@ -6,20 +6,21 @@
 trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3" 
 #delimeter='-'
 #delimeter=''
-
+file_memory=/tmp/memory.txt
+empty='Q'
 arr=()
 declare -a arr=() #=('aa')
 
 show_item() {
     show_arr 'show item()' 
     local item=${arr[$1]}
-    #tracex "show item: index $1: value: $item"
+    #trace "show item: index $1: value: $item"
     echo "$item"
 }
 
 
 
-pick_one(){                          
+pick_one1(){                          
     trace "pick_one() got: 1:$1 2:$2"
     local str="$1"
     string_to_arr "$str"
@@ -31,7 +32,7 @@ pick_one(){
 
 exiting
     local num="$?"
-    tracex "$num"
+    trace "$num"
 
     #local  res=$()
     if [ "$res" = 'exit' ];then
@@ -58,10 +59,10 @@ show_arr1(){
     trace "show_arr:: $1:  --> $str"
 }
 arr_to_msg(){
-gxmessage -buttons "$1" "msg: $1" $GXMESSAGET
+gxmessage -buttons "$1" -file $file_memory $GXMESSAGET
 local num=$?
 local str="${arr[$num]}"
-tracex "$str"
+trace "$str"
 echo "$str"
 }
 str_to_arr(){
@@ -112,13 +113,19 @@ echo "$str2"
 }
 step2(){
 
-local str="$1"
+local str="Q-$1"
 delimeter="${2:-'-'}"   # Defaults to /tmp dir.
-str_to_arr "$1" #create new array
+str_to_arr "$str" #create new array
 local str2=$(arr_to_str ) #use array to create buttons-string
-#echo "$str2"tracex "$str2"
-#tracex "arr: ${arr[@]}"
+#echo "$str2"trace "$str2"
+#trace "arr: ${arr[@]}"
 local str3=$(arr_to_msg "$str2")
+if [ "$str" != "$empty" ];then
+update_file $file_memory "$str3"
+else
+    tracex "choosen: empty string: -$str3-"
+fi
+
 echo "$str3"
 
 

@@ -32,7 +32,13 @@ commitment "$msg"
 }
 show_msg_entry(){
 local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
+if [ "$msg" = '' ];then
+motivation glossary
+else
+
 echo01 "$msg"
+fi
+
 }
 
 string_to_buttons(){
@@ -63,7 +69,9 @@ motivation(){
     local file=$CFG_DIR/txt/$file_name.txt
 
     echo "file: $file"
-    xterm1 $PLUGINS_DIR/translation.sh line $file 
+
+     $PLUGINS_DIR/translation.sh line $file 
+    #xterm1 $PLUGINS_DIR/translation.sh line $file 
 
     #show_file $file
     #sleep 10

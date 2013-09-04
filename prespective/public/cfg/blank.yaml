@@ -5,23 +5,27 @@ frame:
         imagine: get-values imagine_push
         should: get-value on_suspend.0 
         doing: get-value doing.0 
+        testing: get-value testing.0 
 
 workflow:
         - show_msg_entry|frame.translate|how to say 
-        #- show_msg|frame.imagine|imagine this day accomplishments 
+        - show_msg|frame.imagine|imagine this day accomplishments 
+testing:
+        - remove_trailing|a bc |a bc
 
 translate:
         - we have and they have
 
-imagine_push:
-        - 10.backup phone storage
+easiness:
+        - 10.scrap for language
         - 10.youtube-sh
+        - 20.mother.shopping.sp
+        - 30.Avshalom start
         - 30.python koans + youtube quantom
         - 60.coursera - web course + eran + codenvy + avshalom
 recent:
         goto: ~/.magnify_the_small/today/resources/python_koans/python2
         run: ./run.sh
-
 
 on_suspend:
         - papers - account - feb 2013
@@ -36,9 +40,14 @@ on_suspend:
         - talk to noam .g
         - checkout the sum of Masha
         - talk with Rotem
+on_project:
+        - use Yad dialogs
+        - scrap for language learning
 
 
 rules:
+    timer:
+        - http://lifehacker.com/tag/jobs
     home:
         - hang the laundry
         - give Shalva food and madicine
@@ -57,3 +66,15 @@ rules:
             - show recent picture - to refresh memory
     workflow:
             - all the time - learn new words by translating - set only 1 sentance in this file
+
+resources:
+    linux-news:
+        - http://www.webupd8.org/2011/02/how-to-start-applications-minimized.html
+        - http://www.wired.co.uk/news/archive/2011-10/24/iris-siri-android
+        - http://lifehacker.com/tag/jobs
+    storage:
+        - http://www.webupd8.org/2013/09/mount-google-drive-in-linux-with-google.html
+    streaming-audio:
+        - http://www.webupd8.org/2013/07/command-line-video-download-tool.html
+    shell-menus:
+        - http://code.google.com/p/yad/wiki/Examples

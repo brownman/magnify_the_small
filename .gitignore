@@ -8,8 +8,8 @@
 *.*.swo
 *.swo
 .swo
-private
-today
+prespective/private
+prespective/today
 magnify_the_small.txt
 plan.txt
 website

@@ -6,7 +6,7 @@
 
 
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=$PWD/public/cfg/user.cfg
+export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
 export locker=/tmp/lock1
 

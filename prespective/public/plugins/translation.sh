@@ -7,7 +7,8 @@
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
-multiple_langs="$3" #false #export MULTIPLE_LANGS=true
+multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
+#tracex "multiple langs: $multiple_langs"
 silence1=$4
 target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true

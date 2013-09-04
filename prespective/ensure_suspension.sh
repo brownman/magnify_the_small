@@ -22,7 +22,7 @@ if [ -e $locker2 ];then
     echo 'kill process ?'
 
         pids=`cat $locker2`
-          yellow 'removing $locker2'
+        trace 'removing $locker2'
         `rm $locker2`    
         kill $pids
 
@@ -48,7 +48,7 @@ sleep1 $timeout_for_suspension
 $tasks_sh suspend1
 
 
-    yellow 'removing $locker2'
+    trace 'removing $locker2'
     `rm $locker2`
 
 fi

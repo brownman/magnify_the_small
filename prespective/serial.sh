@@ -47,11 +47,7 @@ read_lines(){
 
     for line in "${lines[@]}"
     do
-        if [ "$DEBUG" = false ];then
-            $tasks_sh motivation sport
-            $tasks_sh take_photo
-            sleep1 10
-        fi
+
 
         echo "$line "
         action=$( echo $line | awk -F '|' '{print $1}' )
@@ -61,33 +57,31 @@ read_lines(){
         desc=$( echo $line | awk -F '|' '{print $3}' )
         notify-send "TASK: $desc" "$args"
         flite "$desc" true
-        #( echo0 "$desc" &)
-        #cmd1='$tasks_sh $action "$desc"'
         if [[ $count -eq 1 ]];then
             $tasks_sh "$action" "$args" "$desc" 
         else
-
-
-            eacher "$tasks_sh $action $args $desc"  "$desc ?" "$waiting" "task: $count/$max" 
-            result="$?"
-
-
-            echo -n  "eacher result:"
-            trace "$result"
+            local title="task: $count/$max" 
+            local msg="$desc ?"
+            $(messageYN1 "$msg" "$title")
+            local result=$?
+            trace "continue? $result"
             if [[ $result -eq 0 ]];then
                 flite 'exit workflow'
                 #return 0
                 break
+            else
+                $tasks_sh "$action" "$args" "$desc" 
+                if [ "$DEBUG" = false ];then
+                    $tasks_sh motivation sport
+                    $tasks_sh take_photo
+                    sleep1 10
+                fi
             fi
-
         fi
-
-
-        #sleep1 $waiting
+        sleep1 $waiting
         if [ "$REPORT" = true ];then
             increase_efficiency $count $max "$desc" "$file_report"
         fi
-
         let "count=count+1"
     done
 

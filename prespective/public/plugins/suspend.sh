@@ -31,6 +31,7 @@ suspend01(){
     else
         green 'you are free now - act wisely'
     fi
+    flite 'add a new task'
 }
 
 
