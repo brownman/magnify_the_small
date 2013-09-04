@@ -11,21 +11,34 @@ export TIMERTXT_CFG_FILE=public/cfg/user.cfg
 #remove_trailing " abc "
 export DEBUG='true'
 
+     file_test=/tmp/testing
 
 #trace "PWD: $PWD"
 
-
+task_sh(){
+$task_sh "$1" "$2" 
+}
 test_yaml(){
+
 local line=$( $tasks_sh fetch 'frame.testing')
-
+#tracex "-$line-"
 echo "$res"
-action=$( echo $line | awk -F '|' '{print $1}' )
-input=$( echo $line | awk -F '|' '{print $2}' )
-expect=$( echo $line | awk -F '|' '{print $3}' )
-result=$($action "$input")
-tracex " input: $input | expect: $expect | result: $result " "action: $action "
-        #args=$($tasks_sh fetch "$args0")
+action=$( echo "$line" | awk -F '|' '{print $1}' )
+input=$( echo "$line" | awk -F '|' '{print $2}' )
+#tracex "-$input-"
+expect=$( echo "$line" | awk -F '|' '{print $3}' )
+result=$($tasks_sh $action "$input")
+equality=$([[ "$result" = "$expect" ]] && echo equal || echo "result: $result")
 
+echo -n '' > $file_test
+echo "input:   -$input-" >> $file_test
+echo "expect: -$expect-" >> $file_test
+
+local str=`cat $file_test`
+tracex "$str" "action: $action " "$equality"
+        #args=$($tasks_sh fetch "$args0")
+#http://tldp.org/LDP/abs/html/comparison-ops.html
+#http://stackoverflow.com/questions/3265803/bash-string-equality
 }
 
 

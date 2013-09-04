@@ -1,5 +1,5 @@
-date: 2.9.13
-day:  Monday 
+date: 4.9.13
+day:  Wednesday 
 frame:
         translate: get-value translate.0 
         imagine: get-values imagine_push
@@ -11,7 +11,8 @@ workflow:
         - show_msg_entry|frame.translate|how to say 
         - show_msg|frame.imagine|imagine this day accomplishments 
 testing:
-        - remove_trailing|a bc |a bc
+        - nothing|ab|ab
+        - remove_trailing| a  bc |a bc   
 
 translate:
         - we have and they have

@@ -19,7 +19,9 @@ watch('testing/python2/runner\/.*\.py') {|match| system "./testing/python2/run.s
 
 watch('prespective\/.*\.sh') {|match| system "./testing/python2/run.sh"}
 
-watch('prespective/public/cfg\/.*\.sh') {|match| system "./testing/python2/run.sh"}
+
+watch('prespective/public/cfg\/.*\.yaml') {|match| system "./testing/python2/run.sh"}
+watch('prespective/public/cfg\/.*\.cfg') {|match| system "./testing/python2/run.sh"}
 
 
 #watch('runner\/.*\.py') {|match| system "./run.sh"}

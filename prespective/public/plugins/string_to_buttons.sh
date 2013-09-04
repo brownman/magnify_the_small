@@ -125,8 +125,8 @@ update_file $file_memory "$str3"
 else
     tracex "choosen: empty string: -$str3-"
 fi
-
-echo "$str3"
+local str4=$(remove_trailing "$str3")
+echo "$str4"
 
 
 }

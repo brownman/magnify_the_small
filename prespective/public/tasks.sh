@@ -50,7 +50,10 @@ write_essay(){
     $PLUGINS_DIR/free_speak.sh
 }
 
-
+nothing(){
+tracex "nothing got: $1"
+echo "$1"
+}
 edit(){
     local name="$1"
     local result=0
