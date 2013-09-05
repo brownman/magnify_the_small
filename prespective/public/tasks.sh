@@ -96,7 +96,7 @@ scrap(){
             local answer=$?
             if [[ $answer -eq 1 ]];then
                 word1=`echo "$word"`
-                $PLUGINS_DIR/scrap.sh translate $lang "$word1" &
+                xterm1 $PLUGINS_DIR/scrap.sh translate $lang "$word1" 
             fi  
         fi
     fi

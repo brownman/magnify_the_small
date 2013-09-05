@@ -20,9 +20,9 @@ $path1/bin/casperjs $script_js --target="$lang" "$str_ws" > $file_html
 #cat /tmp/test1.html | head -1
 
 sleep 5
-(exo-open $file_html &) 
+`exo-open $file_html ` & 
 #cp $file_html "$file_html1"
-sleep 5
+sleep 25
 
 #./bin/casperjs ./samples/translate.coffee --target=ru 'small' | grep noun
 #grep fetchText . -r
