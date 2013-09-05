@@ -5,13 +5,23 @@ echo "commands.sh"
 path1=/TORRENTS/JAVASCRIPT/casperjs
 lang="$1"
 str="$2"
+str_ws=$(echo "$str"|sed 's/ /_/g');
 script_js="$3"
 echo "lang: $1 || str: $2" 
-$path1/bin/casperjs $script_js --target="$lang" "$str" > /tmp/test1.html
+
+
+file_html=$(  echo $dir_html/${str_ws}_${lang}.html )
+#file_html=/tmp/test1.html
+
+
+trace "html file: $file_html"
+$path1/bin/casperjs $script_js --target="$lang" "$str_ws" > $file_html
 
 #cat /tmp/test1.html | head -1
 
-exo-open /tmp/test1.html
+sleep 5
+(exo-open $file_html &) 
+#cp $file_html "$file_html1"
 sleep 5
 
 #./bin/casperjs ./samples/translate.coffee --target=ru 'small' | grep noun

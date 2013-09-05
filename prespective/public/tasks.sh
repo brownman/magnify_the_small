@@ -21,29 +21,29 @@ trace " 2:$2 3:$3 4: $4"
 #    $action "$msg" "$title"
 #}
 fetch(){
-local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
-echo "$msg"
+    local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
+    echo "$msg"
 }
 
 
 show_msg(){
-local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
-commitment "$msg"
+    local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
+    commitment "$msg"
 }
 show_msg_entry(){
-local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
-if [ "$msg" = '' ];then
-motivation glossary
-else
+    local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
+    if [ "$msg" = '' ];then
+        motivation glossary
+    else
 
-echo01 "$msg"
-fi
+        echo01 "$msg"
+    fi
 
 }
 
 string_to_buttons(){
-   local res=$($PLUGINS_DIR/string_to_buttons.sh "$1" "$2" "$3")
-   echo "$res"
+    local res=$($PLUGINS_DIR/string_to_buttons.sh "$1" "$2" "$3")
+    echo "$res"
 }
 
 write_essay(){
@@ -51,8 +51,8 @@ write_essay(){
 }
 
 nothing(){
-tracex "nothing got: $1"
-echo "$1"
+    trace "nothing got: $1"
+    echo "$1"
 }
 edit(){
     local name="$1"
@@ -73,23 +73,35 @@ motivation(){
 
     echo "file: $file"
 
-     $PLUGINS_DIR/translation.sh line $file 
+    $PLUGINS_DIR/translation.sh line $file 
     #xterm1 $PLUGINS_DIR/translation.sh line $file 
 
     #show_file $file
     #sleep 10
+    #    if [ "$file_name" = 'glossary' ];then
+    #        scrap "$1"
+    #    fi
 }
 scrap(){
-    local word=$1 
-    ##$( random_line $CFG_DIR/txt/glossary.txt )
-    echo "word: $word"
-    if  [ "$word" != '' ] ;then
 
-        xterm1  "$PLUGINS_DIR/scrap.sh" "translate ar '$word'"
-        sleep1 10
+    local lang=$1 
+    local word=$2 
+    local word1=''
+    trace "word: $word"
 
-        xterm1  "$PLUGINS_DIR/scrap.sh" "translate ru '$word'" 
+    if [ "$lang" = 'ru' ] || [ "$lang" = 'ar' ]
+    then
+        if  [ "$word" != '' ] ;then
+            $(messageYN1 'scrap' 'translation' true ) #iconic=true
+            local answer=$?
+            if [[ $answer -eq 1 ]];then
+                word1=`echo "$word"`
+                $PLUGINS_DIR/scrap.sh translate $lang "$word1" &
+            fi  
+        fi
     fi
+
+
 
 }
 
@@ -163,7 +175,7 @@ suspend1(){
 generate_file(){
     local subject=$1
     local file=$2
-$PLUGINS_DIR/yaml_parser.sh generate_file $subject $file
+    $PLUGINS_DIR/yaml_parser.sh generate_file $subject $file
 }
 
 report(){

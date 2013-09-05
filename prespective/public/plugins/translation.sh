@@ -76,6 +76,7 @@ local input=$(remove_trailing "$1")
 
     local file_txt=$(  echo $dir_txt/${input_ws}_${lang}.txt )
     local file_mp3=$(  echo $dir_mp3/${input_ws}_${lang}.mp3 )
+    local file_html=$(  echo $dir_html/${input_ws}_${lang}.html )
 
     is_valid $file_txt
     result=$?
@@ -102,7 +103,7 @@ local input=$(remove_trailing "$1")
         fi
         cat $file_txt
 
-        is_valid $file_txt
+        #is_valid $file_txt
     else
 
         cat $file_txt
@@ -112,7 +113,20 @@ local input=$(remove_trailing "$1")
 
     printing1 "$input_ws" "$file_txt" "$lang"
     ################################# result: mp3 
+    is_valid "$file_html"
+    result=$?
+    echo -n 'result is: '
+    trace $result
+    if [[ $result -eq 0  ]];
+    then
+        trace "fetch html"
+        $tasks_sh scrap "$lang" "$str"
+    else
 
+        cat $file_html
+        trace "cache copy"
+
+    fi
 
     output=`cat $file_txt | head -1`
     #blue "fetch for: $output"
@@ -125,7 +139,7 @@ local input=$(remove_trailing "$1")
         if [ "$lang" = 'tl' ]
         then
             trace $output
-            echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
+            #echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
         else
             if [ "$silent_fetch" = true ];then
                 trace 'play this mp3 on next run'
@@ -135,11 +149,19 @@ local input=$(remove_trailing "$1")
                 play1  "$file_mp3" "$lang"
             fi
         fi
-        is_valid $file_mp3
+        #is_valid $file_mp3
     else
         #debug red $result
         trace "cache copy"
+  if [ "$lang" = 'tl' ]
+        then
+trace 'no tl audio'
+        else
+
         play1  $file_mp3 "$lang"
+        fi
+
+
     fi
 
 }
@@ -246,6 +268,7 @@ echo5(){
         else
             echo 'more then 4 words -> skip playing hi,tl'
         fi
+        $tasks_sh scrap "$str"
 
     fi
 }

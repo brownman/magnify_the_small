@@ -14,28 +14,37 @@ export DEBUG='true'
      file_test=/tmp/testing
 
 #trace "PWD: $PWD"
+plugin(){
+$PLUGINS_DIR/$1.sh "$2" "$3"
 
-task_sh(){
-$task_sh "$1" "$2" 
+}
+cfg(){
+ "$1" "$2" "$3"
+
+}
+tasks_sh(){
+    trace "tasks_sh run: 1:$1 2:$2 3:$3"
+$tasks_sh "$1" "$2" "$3"
 }
 test_yaml(){
 
 local line=$( $tasks_sh fetch 'frame.testing')
 #tracex "-$line-"
 echo "$res"
-action=$( echo "$line" | awk -F '|' '{print $1}' )
-input=$( echo "$line" | awk -F '|' '{print $2}' )
-#tracex "-$input-"
-expect=$( echo "$line" | awk -F '|' '{print $3}' )
-result=$($tasks_sh $action "$input")
-equality=$([[ "$result" = "$expect" ]] && echo equal || echo "result: $result")
+
+route=$( echo "$line" | awk -F '|' '{print $1}' )
+method=$( echo "$line" | awk -F '|' '{print $2}' )
+input=$( echo "$line" | awk -F '|' '{print $3}' )
+expect=$( echo "$line" | awk -F '|' '{print $4}' )
+result=$(eval $route '"$method" "$input"')
+equality=$([[ "$result" = "$expect" ]] && echo equal || echo "result:-$result-")
 
 echo -n '' > $file_test
 echo "input:   -$input-" >> $file_test
 echo "expect: -$expect-" >> $file_test
 
 local str=`cat $file_test`
-tracex "$str" "action: $action " "$equality"
+tracex "$str" "action: $method " "$equality"
         #args=$($tasks_sh fetch "$args0")
 #http://tldp.org/LDP/abs/html/comparison-ops.html
 #http://stackoverflow.com/questions/3265803/bash-string-equality
