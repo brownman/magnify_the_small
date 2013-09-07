@@ -8,9 +8,10 @@
 *.*.swo
 *.swo
 .swo
-prespective/private
-prespective/today
 magnify_the_small.txt
 plan.txt
 website
 true
+angular-phonecat
+.old
+

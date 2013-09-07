@@ -2,7 +2,7 @@
 # about file:
 # plugin:        take_photo.sh 
 # description:   take a picture   
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 dir1=~/pictures/
 
 

@@ -4,7 +4,7 @@
 # description: translate 1 line of text to many languages by choice
 # gui: yes
 # cli: no
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 messageANS() {
     local title="$1"

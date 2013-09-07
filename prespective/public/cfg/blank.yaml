@@ -1,32 +1,33 @@
-date: 5.9.13
-day:  Thusday 
+date: 7.9.13
+day:  Saturday
 frame:
-        translate: get-value translate.0 
-        imagine: get-values imagine_push
+        translate: get-value rules.translate.0 
+        doing: get-values on_computer 
         should: get-value on_suspend.0 
-        doing: get-value doing.0 
         testing: get-value testing.0 
 
 workflow:
         - show_msg_entry|frame.translate|how to say 
         - show_msg|frame.imagine|imagine this day accomplishments 
+        - learn_langs||learn a new language
+
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|learn_langs||success
         - tasks_sh|nothing|ab|ab
 
-translate:
-        - we have and they have
 
-easiness:
+
+priorities:
+        - 10.morning - create a new workflow - with listening to mp3
+        - 5.mini website
         - 10.scrap for language
         - 10.youtube-sh
         - 20.mother.shopping.sp
         - 30.Avshalom start
         - 30.python koans + youtube quantom
         - 60.coursera - web course + eran + codenvy + avshalom
-recent:
-        goto: ~/.magnify_the_small/today/resources/python_koans/python2
-        run: ./run.sh
+
 
 on_suspend:
         - papers - account - feb 2013
@@ -41,6 +42,7 @@ on_suspend:
         - talk to noam .g
         - checkout the sum of Masha
         - talk with Rotem
+
 on_project:
         - use Yad dialogs
         - scrap for language learning
@@ -67,6 +69,8 @@ rules:
             - show recent picture - to refresh memory
     workflow:
             - all the time - learn new words by translating - set only 1 sentance in this file
+    translate:
+            - I get it
 
 resources:
     linux-news:

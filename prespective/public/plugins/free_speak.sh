@@ -3,7 +3,7 @@
 # desc: talk to yourself and translate it
 
 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 memory_game(){
     trace 'memory game'
     local file=$TODAY_DIR/txt/essay.txt

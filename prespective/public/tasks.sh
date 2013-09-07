@@ -73,7 +73,7 @@ motivation(){
 
     echo "file: $file"
 
-    $PLUGINS_DIR/translation.sh line $file 
+    (    xterm1 $PLUGINS_DIR/translation.sh line $file &) 
     #xterm1 $PLUGINS_DIR/translation.sh line $file 
 
     #show_file $file
@@ -81,6 +81,7 @@ motivation(){
     #    if [ "$file_name" = 'glossary' ];then
     #        scrap "$1"
     #    fi
+    echo 'motivation() exiting'
 }
 scrap(){
 
@@ -89,18 +90,9 @@ scrap(){
     local word1=''
     trace "word: $word"
 
-    if [ "$lang" = 'ru' ] || [ "$lang" = 'ar' ]
-    then
-        if  [ "$word" != '' ] ;then
-            $(messageYN1 'scrap' 'translation' true ) #iconic=true
-            local answer=$?
-            if [[ $answer -eq 1 ]];then
-                word1=`echo "$word"`
-                xterm1 $PLUGINS_DIR/scrap.sh translate $lang "$word1" 
-            fi  
-        fi
-    fi
 
+    word1=`echo "$word"`
+    $PLUGINS_DIR/scrap.sh translate $lang "$word1" 
 
 
 }
@@ -198,15 +190,7 @@ game_essay(){
 }
 
 learn_langs(){
-    if [ "$DEBUG" = 'true' ];then
-
-        $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM 
-    else
-
-        (        xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM &)
-    fi
-
-    #RU 13
+        xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM
 }
 
 

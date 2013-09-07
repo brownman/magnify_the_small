@@ -1,7 +1,7 @@
 #!/bin/bash
 # about file:
 # plugin:   ask a question +  try to give answer + save the command result
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 
 

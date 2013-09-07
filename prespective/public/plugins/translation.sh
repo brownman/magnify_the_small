@@ -2,7 +2,7 @@
 # about file:
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
@@ -14,13 +14,13 @@ target_lang=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 silent_fetch=$SILENT_FETCH
 silent=$SILENT
-echo 'translate.sh got:'
-echo "1:$1 2:$2"
+trace 'translate.sh got:'
+trace "1:$1 2:$2"
 
 play1(){
 
-    echo -n "play1() got: "
-    debug trace "$1 | $2"
+    trace "play1() got: "
+    trace "$1 | $2"
 
     if [ "$SILENCE" = false ];then
 
@@ -36,7 +36,7 @@ play1(){
                 #declare  -i  counter
                 local counter=0
                 while [[  $counter -lt  $times ]]; do
-                        play -V1 -q  "$1"
+                    play -V1 -q  "$1"
                     (( counter++ ))
                 done
             else
@@ -44,7 +44,7 @@ play1(){
             fi
             export PLAYING_ON=false
         else
-            red 'playing is already on'
+            trace 'playing is already on'
             Backtrace1
         fi
     else
@@ -65,7 +65,7 @@ translate_f(){
 
     local lang="$2"
 
-local input=$(remove_trailing "$1")
+    local input=$(remove_trailing "$1")
     #local input="$1" #translate src
 
 
@@ -80,7 +80,7 @@ local input=$(remove_trailing "$1")
 
     is_valid $file_txt
     result=$?
-    echo -n 'result is: '
+    trace 'result is: '
     trace $result
     if [[ $result -eq 0  ]];
     then
@@ -112,22 +112,31 @@ local input=$(remove_trailing "$1")
     fi
 
     printing1 "$input_ws" "$file_txt" "$lang"
-    ################################# result: mp3 
+
+    ################################# result: html 
     is_valid "$file_html"
     result=$?
-    echo -n 'result is: '
+    trace 'result is: '
     trace $result
     if [[ $result -eq 0  ]];
     then
         trace "fetch html"
-        $tasks_sh scrap "$lang" "$str"
+        $tasks_sh scrap "$lang" "$input"
     else
+        if [ "$lang" = 'ru' ]|[ "$lang" = 'ar' ]
+        then
+            $(messageYN1 "scrap" "$lang|$input" true ) #iconic=true
+            local answer1=$?
+            if [[ $answer1 -eq 1 ]];then
+               tracex $file_html
+            fi  
 
-        cat $file_html
+        fi
         trace "cache copy"
 
     fi
 
+    ################################# result: mp3 
     output=`cat $file_txt | head -1`
     #blue "fetch for: $output"
     output_wsp=$(echo "$output"|sed 's/ /+/g');
@@ -139,7 +148,7 @@ local input=$(remove_trailing "$1")
         if [ "$lang" = 'tl' ]
         then
             trace $output
-            #echo -n "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
+            #trace "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
         else
             if [ "$silent_fetch" = true ];then
                 trace 'play this mp3 on next run'
@@ -151,14 +160,14 @@ local input=$(remove_trailing "$1")
         fi
         #is_valid $file_mp3
     else
-        #debug red $result
+        #trace $result
         trace "cache copy"
-  if [ "$lang" = 'tl' ]
+        if [ "$lang" = 'tl' ]
         then
-trace 'no tl audio'
+            trace 'no tl audio'
         else
 
-        play1  $file_mp3 "$lang"
+            play1  $file_mp3 "$lang"
         fi
 
 
@@ -181,7 +190,7 @@ choose5(){
 
     local str=`cat $file | sort --random-sort | head -n 1`
 
-    echo -n "choosen line: "
+    trace "choosen line: "
     trace "$str"
     echo5 "$str" 
 }
@@ -198,7 +207,7 @@ choose4(){
 
     local str=`cat $file | sort --random-sort | head -n 1`
 
-    echo -n "choosen line: "
+    trace "choosen line: "
     trace "$str"
     echo4 "$str" 
 }
@@ -214,7 +223,7 @@ echo4(){
     if [ "$lang1" = '' ];then
         random1 4
         local num=$?
-        #red "num: $num"
+        #trace "num: $num"
         lang0="${arr1[$num]}"
         lang1=$(lower $lang0)
     fi
@@ -257,18 +266,17 @@ echo5(){
         translate_f  "$str" it 
         sleep1 2
         translate_f  "$str" ru 
-         sleep1 2
-            translate_f  "$str" ar 
+        sleep1 2
+        translate_f  "$str" ar 
         if [ $num -lt 4 ];then
             sleep1 2
             translate_f  "$str" hi 
-           
+
             sleep1 2
             translate_f  "$str" tl 
         else
             echo 'more then 4 words -> skip playing hi,tl'
         fi
-        $tasks_sh scrap "$str"
 
     fi
 }
@@ -341,7 +349,7 @@ elif [ "$method" = 'line' ];then
 elif [ "$method" = 'lines' ];then
     all_lines "$from"
 else
-    echo -n   "unknown method:"
-    red $1
+    trace   "unknown method:"
+    trace $1
     help1 "$help_options"
 fi

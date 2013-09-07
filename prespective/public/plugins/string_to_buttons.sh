@@ -120,12 +120,14 @@ local str2=$(arr_to_str ) #use array to create buttons-string
 #echo "$str2"trace "$str2"
 #trace "arr: ${arr[@]}"
 local str3=$(arr_to_msg "$str2")
-if [ "$str" != "$empty" ];then
-update_file $file_memory "$str3"
-else
-    tracex "choosen: empty string: -$str3-"
-fi
+
 local str4=$(remove_trailing "$str3")
+if [ "$str4" != "$empty" ];then
+update_file $file_memory "$str4"
+else
+    trace "choosen: empty string: -$str4-"
+fi
+
 echo "$str4"
 
 

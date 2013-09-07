@@ -44,7 +44,10 @@ echo "input:   -$input-" >> $file_test
 echo "expect: -$expect-" >> $file_test
 
 local str=`cat $file_test`
-tracex "$str" "action: $method " "$equality"
+
+#tracex "$str" "action: $method " "$equality"
+trace "$str" "action: $method " "$equality"
+echo "$equality"
         #args=$($tasks_sh fetch "$args0")
 #http://tldp.org/LDP/abs/html/comparison-ops.html
 #http://stackoverflow.com/questions/3265803/bash-string-equality

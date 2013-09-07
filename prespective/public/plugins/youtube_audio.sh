@@ -39,7 +39,7 @@ local riper=$url
 
     cd /tmp
 
-    (youtube-dl -t "$riper"  --no-part --console-title --extract-audio --audio-format mp3 --audio-quality 192k | gawk 'BEGIN { RS="\r" } /%/ { print gensub(/.*(\<.?.?.\..\>)%.*/, "\\1", ""); fflush(); }' ) | zenity --progress --percentage=0 --percentage=0 --auto-close --auto-kill
+    (youtube-dl -c -t "$riper"  --no-part --console-title --extract-audio --audio-format mp3 --audio-quality 192k | gawk 'BEGIN { RS="\r" } /%/ { print gensub(/.*(\<.?.?.\..\>)%.*/, "\\1", ""); fflush(); }' ) | zenity --progress --percentage=0 --percentage=0 --auto-close --auto-kill
 #youtube-dl -t "$riper"  --no-part --console-title --extract-audio --audio-format mp3 --audio-quality 192k | zenity --progress --percentage=0 --percentage=0 --auto-close --auto-kill
 #zenity --progress --percentage=0 --percentage=0 --auto-close --auto-kill
 #| gawk 'BEGIN { RS="\r" } /%/ { print gensub(/.*(\<.?.?.\..\>)%.*/, "\\1", ""); fflush(); }' ) | 

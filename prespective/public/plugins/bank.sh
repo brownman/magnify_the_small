@@ -4,7 +4,7 @@
 # update .txt files faser
 
 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 echo 'help: use:'
 blue 'txt_file |  title | content '

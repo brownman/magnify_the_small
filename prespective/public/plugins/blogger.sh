@@ -3,7 +3,7 @@
 # mission documentation:
 # record your steps being done
 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 file=$1
 

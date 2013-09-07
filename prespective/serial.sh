@@ -52,8 +52,12 @@ read_lines(){
         echo "$line "
         action=$( echo $line | awk -F '|' '{print $1}' )
         args0=$( echo $line | awk -F '|' '{print $2}' )
+        if [ "$arg0" != '' ];then
+                args=$($tasks_sh fetch "$args0")
+            else
+                args=''
+        fi
 
-        args=$($tasks_sh fetch "$args0")
         desc=$( echo $line | awk -F '|' '{print $3}' )
         notify-send "TASK: $desc" "$args"
         flite "$desc" true

@@ -2,7 +2,7 @@
 # about file:
 # plugin:       parse yaml file
 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 file1=public/cfg/blank.yaml
 

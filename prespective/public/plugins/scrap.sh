@@ -2,7 +2,7 @@
 # about file:
 # plugin:       scrapper
 echo "cfg file: $TIMERTXT_CFG_FILE " 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 
 translate(){

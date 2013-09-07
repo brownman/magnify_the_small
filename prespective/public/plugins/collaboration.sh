@@ -2,7 +2,7 @@
 # about file:
 # plugin:        collaboration
 # description:   refresh  last step in a field
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 
 file=$CFG_DIR/step_a_day.txt
 

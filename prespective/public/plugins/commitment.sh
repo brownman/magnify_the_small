@@ -2,7 +2,7 @@
 # about file:
 # plugin:       stop-watch 
 
-. $TIMERTXT_CFG_FILE
+#. $TIMERTXT_CFG_FILE
 long=500
 every=20
 show_buttons=$SHOW_BUTTONS
@@ -24,10 +24,13 @@ stop_watch1(){
 
             if [ "$show_buttons" = 'true' ];then
                 local res=$( $tasks_sh string_to_buttons step2 "$msg" '-')
-                echo0 "$res"
+
 
              if [ "$res" = 'Q' ];then
                  reminder1
+             else
+
+                echo0 "$res"
              fi
 
             fi
