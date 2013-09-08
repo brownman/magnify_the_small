@@ -3,11 +3,16 @@
 # run 
 #
 
-
-
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=public/cfg/user.cfg
+#reset
+cd ../public
+export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
+
 . $TIMERTXT_CFG_FILE
+#
+#pushd `dirname $0` > /dev/null
+#export TIMERTXT_CFG_FILE=../public/cfg/user.cfg
+#. $TIMERTXT_CFG_FILE
 export locker=/tmp/lock1
 
 
@@ -17,10 +22,20 @@ waiting=${1:-60}   # Defaults to /tmp dir.
 trace   "waiting  $waiting"
 
 restart(){
+    trace "$DEBUG: DEBUG:"
     while :;do
-        flite 'restart workflow'
-           run_workflow
-           sleep1 $waiting
+
+        . $TIMERTXT_CFG_FILE
+        if [ "$DEBUG" = false ];then
+            random_quote_before  
+        fi
+
+        $tasks_sh motivation glossary
+        run_workflow
+        sleep1 $waiting
+        if [ "$DEBUG" = false ];then
+            random_quote_after    
+        fi
     done
 
 
@@ -30,8 +45,10 @@ restart(){
 
 run_workflow(){
     workflow_file=$CFG_DIR/workflow.cfg 
-    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
-    $PWD/serial.sh read_lines "$workflow_file" "$waiting"
+    #    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
+    #    sleep1 5
+    #tracex "serial run? $SCRIPTS_DIR/serial.sh"
+    $SCRIPTS_DIR/serial.sh read_lines "$workflow_file" "$waiting"
 }
 unlock(){
     local result1=0

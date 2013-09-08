@@ -5,9 +5,14 @@
 #
 
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=public/cfg/user.cfg
+#reset
+cd ../public
+export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 
 . $TIMERTXT_CFG_FILE
+
+trace $TIMERTXT_CFG_FILE
+
 #remove_trailing " abc "
 export DEBUG='true'
 
@@ -27,17 +32,19 @@ tasks_sh(){
 $tasks_sh "$1" "$2" "$3"
 }
 test_yaml(){
-
+trace "$tasks_sh"
 local line=$( $tasks_sh fetch 'frame.testing')
+if [ "$line" != '' ];then
 #tracex "-$line-"
-echo "$res"
+#echo "$res"
 
 route=$( echo "$line" | awk -F '|' '{print $1}' )
 method=$( echo "$line" | awk -F '|' '{print $2}' )
 input=$( echo "$line" | awk -F '|' '{print $3}' )
 expect=$( echo "$line" | awk -F '|' '{print $4}' )
+trace "route: $route"
 result=$(eval $route '"$method" "$input"')
-equality=$([[ "$result" = "$expect" ]] && echo equal || echo "result:-$result-")
+equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
 
 echo -n '' > $file_test
 echo "input:   -$input-" >> $file_test
@@ -45,19 +52,45 @@ echo "expect: -$expect-" >> $file_test
 
 local str=`cat $file_test`
 
-#tracex "$str" "action: $method " "$equality"
+#(tracex "$str" "action: $method " "$equality" true &)
 trace "$str" "action: $method " "$equality"
 echo "$equality"
+
+else
+
+tracex "empty line"
+echo "empty line"
+
+fi
         #args=$($tasks_sh fetch "$args0")
 #http://tldp.org/LDP/abs/html/comparison-ops.html
 #http://stackoverflow.com/questions/3265803/bash-string-equality
 }
 
+smoke(){
+tracex 'do what serial.sh does'
 
-test_plugin(){
+
+line='show_msg|frame.should|I should do'
+
+        echo "$line "
+        action=$( echo $line | awk -F '|' '{print $1}' )
+        args0=$( echo $line | awk -F '|' '{print $2}' )
+        if [ "$arg0" != '' ];then
+                args=$($tasks_sh fetch "$args0")
+            else
+                args=''
+        fi
+echo "$args0"
+exit
+        desc=$( echo $line | awk -F '|' '{print $3}' )
+        notify-send "TASK: $desc" "$args"
+            $tasks_sh "$action" "$args" "$desc" 
+}
+plugin(){
 
 
-    trace "think() got: plugin:$1 method:$2 arg:$3"
+    tracex "think() got: plugin:$1 method:$2 arg:$3"
 
     local plugin_name="$1"
 local cmd=$PLUGINS_DIR/$plugin_name.sh

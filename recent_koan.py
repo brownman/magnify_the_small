@@ -1,1 +1,1 @@
-/home/dao01/.magnify_the_small/testing/python2/koans/about_string_to_buttons.py
+/home/dao01/.magnify_the_small/testing/python2/koans/about_tuples.py

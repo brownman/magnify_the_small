@@ -30,7 +30,6 @@ pick_one1(){
    
     gxmessage $GXMESSAGET -title "title" -buttons "$arr" "$str" 
 
-exiting
     local num="$?"
     trace "$num"
 

@@ -21,14 +21,18 @@ trace " 2:$2 3:$3 4: $4"
 #    $action "$msg" "$title"
 #}
 fetch(){
+    tracex "fetch got: $1 $2"
     local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
+    
     echo "$msg"
 }
 
 
 show_msg(){
+    trace "show_msg $1: $2"
     local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
-    commitment "$msg"
+    #commitment "$msg"
+    echo "$msg"
 }
 show_msg_entry(){
     local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
@@ -70,18 +74,9 @@ take_photo(){
 motivation(){
     file_name="$1"
     local file=$CFG_DIR/txt/$file_name.txt
-
-    echo "file: $file"
-
-    (    xterm1 $PLUGINS_DIR/translation.sh line $file &) 
-    #xterm1 $PLUGINS_DIR/translation.sh line $file 
-
-    #show_file $file
-    #sleep 10
-    #    if [ "$file_name" = 'glossary' ];then
-    #        scrap "$1"
-    #    fi
-    echo 'motivation() exiting'
+    $PLUGINS_DIR/translation.sh line $file false
+#    (    show_file $file &)
+   
 }
 scrap(){
 
@@ -112,7 +107,8 @@ show_file(){
 
     local    file="$1"
 
-    string_to_buttons_file 'cancel edit' '2 options' $file
+    #string_to_buttons_file 'cancel edit' '2 options' $file
+    $(messageYN1 'edit file ?' 'show_file' '-iconic' )
     answer=$?
 
     if [[ $answer -eq 1 ]];then
@@ -124,9 +120,24 @@ show_file(){
 
 }
 
+show_file_html(){
+
+    local    file="$1"
+
+    string_to_buttons_file 'cancel edit' '2 options' $file
+    answer=$?
+
+    if [[ $answer -eq 1 ]];then
+        exo-open $file
+
+    else
+        echo 'skip editing'
+    fi
+
+}
 
 show(){
-    echo "show() got: $1 $2"
+    trace "show() got: $1 $2"
     local name="$1"
 
     flite "minimizinged file" # - $name"

@@ -4,14 +4,15 @@
 
 #. $TIMERTXT_CFG_FILE
 
-file1=public/cfg/blank.yaml
-
+file1=$CFG_DIR/blank.yaml
+tracex "yaml_parser got: 1:$1 2:$2"
 parse_from(){
+    parse_from ""
     local location="$1"
 
 
     local msg=`cat $file1 | shyaml get-value $location`
-    trace "msg: $msg"
+    tracex "msg: $msg"
 
 
     local msg1=`cat $file1 | shyaml $msg`

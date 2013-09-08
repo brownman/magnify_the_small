@@ -16,7 +16,23 @@ silent_fetch=$SILENT_FETCH
 silent=$SILENT
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
-
+fetch_html(){
+   is_valid "$file_html"
+    result=$?
+    trace 'result is: '
+    trace $result
+    if [[ $result -eq 0  ]];
+    then
+        trace "fetch html"
+        if [ "$lang" = 'ru' ]|[ "$lang" = 'ar' ];then
+            $tasks_sh scrap "$lang" "$input"
+            $tasks_sh show_file_html $file_html
+        fi
+    else
+        $tasks_sh show_file_html $file_html
+        trace "cache copy"
+    fi
+}
 play1(){
 
     trace "play1() got: "
@@ -111,30 +127,10 @@ translate_f(){
 
     fi
 
-    printing1 "$input_ws" "$file_txt" "$lang"
+    printing1  "$file_txt" "$lang"
 
     ################################# result: html 
-    is_valid "$file_html"
-    result=$?
-    trace 'result is: '
-    trace $result
-    if [[ $result -eq 0  ]];
-    then
-        trace "fetch html"
-        $tasks_sh scrap "$lang" "$input"
-    else
-        if [ "$lang" = 'ru' ]|[ "$lang" = 'ar' ]
-        then
-            $(messageYN1 "scrap" "$lang|$input" true ) #iconic=true
-            local answer1=$?
-            if [[ $answer1 -eq 1 ]];then
-               tracex $file_html
-            fi  
-
-        fi
-        trace "cache copy"
-
-    fi
+ #fetch_html
 
     ################################# result: mp3 
     output=`cat $file_txt | head -1`
@@ -233,10 +229,7 @@ echo4(){
 
     translate_f  "$str" "en"
 
-    if [ "$dirty_log" = true ];then
-        external_file=$TODAY_DIR/txt/log.txt
-        update_file $external_file "$str"
-    fi
+   
 
     translate_f  "$str" "$lang1"
 }
@@ -282,9 +275,9 @@ echo5(){
 }
 
 printing1(){
-    local input_ws="$1" 
-    local file_txt="$2"
-    local lang="$3"
+    #local input_ws="$1" 
+    local file_txt="$1"
+    local lang="$2"
 
     local line1=`cat $file_txt | head -1`
     local line2=`cat $file_txt | head -2 | tail -1`
@@ -302,7 +295,11 @@ printing1(){
 
     cat -n $file_txt 
 
-    #update_file $log_txt "$line1 | $line2"    
+                #local res=$( $tasks_sh string_to_buttons step2 "$line1" ' ')
+
+ if [ "$dirty_log" = true ];then
+    update_file $file_log "- $line1 | $line2"    
+    fi
 }
 
 

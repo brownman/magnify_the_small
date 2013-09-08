@@ -47,7 +47,7 @@ stop_watch1(){
 
 
 reminder1(){
-
+tracex "reminder got: $1"
     local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'commitment:' 'add reminder:' )
 
 
