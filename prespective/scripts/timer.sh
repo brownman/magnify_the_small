@@ -24,20 +24,18 @@ trace   "waiting  $waiting"
 restart(){
     trace "$DEBUG: DEBUG:"
     while :;do
-
         . $TIMERTXT_CFG_FILE
         if [ "$DEBUG" = false ];then
-            random_quote_before  
+        $tasks_sh motivation glossary
         fi
 
-        $tasks_sh motivation glossary
         run_workflow
         sleep1 $waiting
         if [ "$DEBUG" = false ];then
-            random_quote_after    
+            random_quote_before  
         fi
     done
-
+    random_quote_after    
 
 
 }
@@ -45,8 +43,8 @@ restart(){
 
 run_workflow(){
     workflow_file=$CFG_DIR/workflow.cfg 
-    #    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
-    #    sleep1 5
+    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
+    sleep1 5
     #tracex "serial run? $SCRIPTS_DIR/serial.sh"
     $SCRIPTS_DIR/serial.sh read_lines "$workflow_file" "$waiting"
 }

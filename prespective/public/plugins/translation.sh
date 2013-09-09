@@ -10,12 +10,14 @@ from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
 #tracex "multiple langs: $multiple_langs"
 silence1=$4
-target_lang=$LANG_DEFAULT
+language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 silent_fetch=$SILENT_FETCH
 silent=$SILENT
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
+
+    update_file $file_log "-__"    
 fetch_html(){
    is_valid "$file_html"
     result=$?
@@ -213,7 +215,7 @@ echo4(){
         error_handler 
     fi
 
-    local lang1="$target_lang"
+    local lang1="$language_of_the_day"
     trace "translate to: $lang1"
 
     if [ "$lang1" = '' ];then
@@ -293,7 +295,7 @@ printing1(){
         fi
     fi
 
-    cat -n $file_txt 
+    #cat -n $file_txt 
 
                 #local res=$( $tasks_sh string_to_buttons step2 "$line1" ' ')
 

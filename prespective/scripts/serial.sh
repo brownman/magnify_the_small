@@ -24,22 +24,10 @@ increase_efficiency(){
 }
 execute_line(){
     local line="$1"
-    tracex "$line" "1 line"
+    trace "$line" "1 line"
     #evaluate_
     parse_line "$line"
 }
-fetching(){
-    local fold="$1"
-tracex "fold: $fold"
-#    local msg=$( cat $file_guide | shyaml get-value $fold )
-    local msg=`cat $file_guide | shyaml get-value "$fold"`
-    #cat $file_guide
-    #trace "$fold",cs
-#local ans=$(    gxmessage -title 'shyaml doing:' $GXMESSAGET -entrytext "$fold")
-
-    echo "$msg"
-}
-
 
 parse_line(){
 local line="$1"
@@ -49,17 +37,15 @@ local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
 local    args=''
 
         args=$( fetching "$args0" )
-        
-    tracex "args: $args"
- 
+    trace "args: $args"
+ notify-send "TASK: $desc" "$args"
+        #flite "$desc" true
+
+$tasks_sh $action "$args" 
+#"$desc" 
+
 }
-execute(){
-   # notify-send "TASK: $desc" "$args"
-    #        flite "$desc" true
-    #            $tasks_sh "$action" "$args" "$desc" 
-    #
-    trace ''
-}
+
 
 read_lines(){
     trace "read_lines() got:  1:$1 2:$2"

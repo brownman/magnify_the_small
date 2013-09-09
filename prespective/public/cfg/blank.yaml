@@ -6,13 +6,18 @@ frame:
         should: get-value on_suspend.0 
         testing: get-value testing.0 
         project: get-value project.0
+        imagine: get-value imagine.0
+        achievments: get-values achievments
 
 
 workflow:
-        - show_msg|frame.should|I should do
+        - show_msg_entry|frame.should|I should do
+        - show_msg_entry|frame.achievments|I did it
 #        - show_msg|frame.on_computer|I am doing
 #        - show_msg_entry|frame.translate|how to say 
 #        - learn_langs||learn a new language
+imagine:
+        - I have all the papers I need and I am ready
 
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
@@ -20,6 +25,8 @@ testing:
         - tasks_sh|nothing|ab|ab
         - tasks_sh|fetch|frame.should|a|b
         - tasks_sh|show_msg|df|d
+        - cfg|fetching|frame.should|a
+        - cfg|fetching|frame.achievments|a
 
 project:
         - fix serial.sh
@@ -27,6 +34,11 @@ project:
 motivation:
         - don't prospond
         - check priorities every suspension - and measure the progress
+
+achievments:
+        - give Shalva medicine
+        - send Gila a message
+        - arrage a meeting regarding the course
 
 on_computer:
         - 10.see-security academy
@@ -41,7 +53,7 @@ on_computer:
 
 
 on_suspend:
-        - mail to ofri - mazkirut
+        - send another email to Ofri
         - papers - account - feb 2013
         - check info regarding a new laptop
         - backup hd to google drive OR else
@@ -98,3 +110,7 @@ resources:
         - http://www.webupd8.org/2013/07/command-line-video-download-tool.html
     shell-menus:
         - http://code.google.com/p/yad/wiki/Examples
+    education:
+        - http://www.hackeru.co.il/index.php?act=page&id=27
+        - http://www.johnbryce.co.il/training-courses/csi-cyber-security-intelligence-%D7%94%D7%9B%D7%A9%D7%A8%D7%AA-hands-%D7%9C%D7%9E%D7%95%D7%9E%D7%97%D7%99-%D7%90%D7%91%D7%98%D7%97%D7%AA-%D7%9E%D7%99%D7%93%D7%A2
+        - http://www.see-security.com/%D7%94%D7%A1%D7%91%D7%A8_%D7%9C%D7%A2%D7%A0%D7%A3_%D7%90%D7%91%D7%98%D7%97%D7%AA_%D7%9E%D7%99%D7%93%D7%A2_%D7%95%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D.html

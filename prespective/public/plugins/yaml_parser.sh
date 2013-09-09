@@ -5,14 +5,15 @@
 #. $TIMERTXT_CFG_FILE
 
 file1=$CFG_DIR/blank.yaml
-tracex "yaml_parser got: 1:$1 2:$2"
-parse_from(){
+trace "yaml_parser got: 1:$1 2:$2"
+#exiting
+parse_from1(){
     parse_from ""
     local location="$1"
 
 
     local msg=`cat $file1 | shyaml get-value $location`
-    tracex "msg: $msg"
+    trace "msg: $msg"
 
 
     local msg1=`cat $file1 | shyaml $msg`
@@ -149,7 +150,7 @@ present(){
     gxmessage $GXMESSAGET "$msg"
 }
 
-fetch(){
+fetch1(){
     local msg=$(parse_from "$1")
     local title="$1"
     trace $msg

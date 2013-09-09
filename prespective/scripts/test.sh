@@ -33,9 +33,11 @@ $tasks_sh "$1" "$2" "$3"
 }
 test_yaml(){
 trace "$tasks_sh"
-local line=$( $tasks_sh fetch 'frame.testing')
+#local line=$( $tasks_sh fetch 'frame.testing')
+local line=`fetching 'frame.testing'`
+trace 'result line' "$line" 
 if [ "$line" != '' ];then
-#tracex "-$line-"
+#trace "-$line-"
 #echo "$res"
 
 route=$( echo "$line" | awk -F '|' '{print $1}' )
@@ -43,7 +45,7 @@ method=$( echo "$line" | awk -F '|' '{print $2}' )
 input=$( echo "$line" | awk -F '|' '{print $3}' )
 expect=$( echo "$line" | awk -F '|' '{print $4}' )
 trace "route: $route"
-result=$(eval $route '"$method" "$input"')
+result=$( eval $route '"$method" "$input"')
 equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
 
 echo -n '' > $file_test
@@ -52,13 +54,13 @@ echo "expect: -$expect-" >> $file_test
 
 local str=`cat $file_test`
 
-#(tracex "$str" "action: $method " "$equality" true &)
-trace "$str" "action: $method " "$equality"
+#(trace "$str" "action: $method " "$equality" true &)
+trace "action: $method " "$str" "$equality"
 echo "$equality"
 
 else
 
-tracex "empty line"
+trace  "empty line" 'error parsing'
 echo "empty line"
 
 fi
@@ -68,7 +70,7 @@ fi
 }
 
 smoke(){
-tracex 'do what serial.sh does'
+trace 'do what serial.sh does'
 
 
 line='show_msg|frame.should|I should do'
@@ -90,7 +92,7 @@ exit
 plugin(){
 
 
-    tracex "think() got: plugin:$1 method:$2 arg:$3"
+    trace "think() got: plugin:$1 method:$2 arg:$3"
 
     local plugin_name="$1"
 local cmd=$PLUGINS_DIR/$plugin_name.sh

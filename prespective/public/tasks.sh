@@ -20,13 +20,13 @@ trace " 2:$2 3:$3 4: $4"
 #    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
 #    $action "$msg" "$title"
 #}
-fetch(){
-    tracex "fetch got: $1 $2"
-    local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
-    
-    echo "$msg"
-}
-
+#fetch(){
+#    trace "fetch got: $1 $2"
+#    local    msg=$($PLUGINS_DIR/yaml_parser.sh fetch "$1")
+#    
+#    echo "$msg"
+#}
+#
 
 show_msg(){
     trace "show_msg $1: $2"
@@ -35,10 +35,15 @@ show_msg(){
     echo "$msg"
 }
 show_msg_entry(){
-    local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entrytext "$1")
+
+    #tracex 'show_msg_entry' "show_msg_entry $1: $2"
+    local msg=$( gxmessage -entry $GXMESSAGET "$1" -title "$2" )
     if [ "$msg" = '' ];then
         motivation glossary
     else
+        trace 'echo 01'
+
+        flite "$msg"
 
         echo01 "$msg"
     fi
@@ -76,6 +81,7 @@ motivation(){
     local file=$CFG_DIR/txt/$file_name.txt
     $PLUGINS_DIR/translation.sh line $file false
 #    (    show_file $file &)
+sleep1 5
    
 }
 scrap(){
