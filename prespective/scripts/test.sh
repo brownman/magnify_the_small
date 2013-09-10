@@ -8,14 +8,8 @@ pushd `dirname $0` > /dev/null
 #reset
 cd ../public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
-
 . $TIMERTXT_CFG_FILE
-
-trace $TIMERTXT_CFG_FILE
-
-#remove_trailing " abc "
-export DEBUG='true'
-
+export VERBOSE=true
      file_test=/tmp/testing
 
 #trace "PWD: $PWD"

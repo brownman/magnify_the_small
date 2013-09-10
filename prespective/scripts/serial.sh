@@ -8,8 +8,6 @@
 trace "serial.sh got: 1:$1 2:$2"
 
 increase_efficiency(){
-
-
     count="$1"
     max="$2"
     task="$3"
@@ -24,33 +22,38 @@ increase_efficiency(){
 }
 execute_line(){
     local line="$1"
-    trace "$line" "1 line"
+    local msg="$2"
+    #trace "$line" "1 line"
     #evaluate_
-    parse_line "$line"
+    #notify-send "" "$msg"
+    parse_line "$line" "$msg"
 }
 
 parse_line(){
-local line="$1"
-local     action=$( echo "$line" | awk -F '|' '{print $1}' )
-local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
- local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
-local    args=''
+    local line="$1"
 
-        args=$( fetching "$args0" )
-    trace "args: $args"
- notify-send "TASK: $desc" "$args"
-        #flite "$desc" true
+    local msg="$2"
 
-$tasks_sh $action "$args" 
-#"$desc" 
+
+    local     action=$( echo "$line" | awk -F '|' '{print $1}' )
+    local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
+    local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
+    local    args=''
+
+    args=$( fetching "$args0" )
+    notify-send "TASK: $msg" "$desc"
+    flite "$desc" true
+
+
+    $tasks_sh $action "$args" 
 
 }
 
 
 read_lines(){
     trace "read_lines() got:  1:$1 2:$2"
-file_guide="$1"
-waiting="$2"
+    local file_guide="$1"
+    waiting="$2"
     local args=''
 
     while read -r line
@@ -72,10 +75,25 @@ waiting="$2"
 
     for line in "${lines[@]}"
     do
-        execute_line "$line"
-        sleep1 $waiting
-        let "count=count+1"
+        #local ans=
+        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
+        local result=$?
+        #tracex 'is 1?' "$result"
+        if [[ $result -eq 1 ]];then
+            local str2="$count of $max"
+            execute_line "$line" "$str2"
+            sleep1 $waiting
+
+            let "count=count+1"
+        else
+            flite 'breaking'
+            break
+        fi
+
     done
+    #flite 'end of workflow'
+
+            sleep1 $waiting
 
     #exec $tasks_sh suspend "regardless workflow"
 }

@@ -8,7 +8,11 @@ pushd `dirname $0` > /dev/null
 cd ../public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 
+
 . $TIMERTXT_CFG_FILE
+  
+export VERBOSE=true
+export DEBUG=false
 #
 #pushd `dirname $0` > /dev/null
 #export TIMERTXT_CFG_FILE=../public/cfg/user.cfg
@@ -22,9 +26,12 @@ waiting=${1:-60}   # Defaults to /tmp dir.
 trace   "waiting  $waiting"
 
 restart(){
-    trace "$DEBUG: DEBUG:"
     while :;do
-        . $TIMERTXT_CFG_FILE
+
+        
+    tracen "DEBUG: $DEBUG:"
+    tracen "VERBOSE: $VERBOSE"
+        #. $TIMERTXT_CFG_FILE
         if [ "$DEBUG" = false ];then
         $tasks_sh motivation glossary
         fi
@@ -42,11 +49,14 @@ restart(){
 
 
 run_workflow(){
-    workflow_file=$CFG_DIR/workflow.cfg 
-    $tasks_sh generate_file workflow $CFG_DIR/workflow.cfg
+    
+    local result=$( parse_subject workflow )
+    echo "$result" > $file_workflow 
+ #'workflow file is:'
+    gxmessage -file $file_workflow $GXMESSAGET -title 'generated workflow:'
+
     sleep1 5
-    #tracex "serial run? $SCRIPTS_DIR/serial.sh"
-    $SCRIPTS_DIR/serial.sh read_lines "$workflow_file" "$waiting"
+    $SCRIPTS_DIR/serial.sh read_lines "$file_workflow" "$waiting"
 }
 unlock(){
     local result1=0

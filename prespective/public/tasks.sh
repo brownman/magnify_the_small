@@ -43,9 +43,11 @@ show_msg_entry(){
     else
         trace 'echo 01'
 
-        flite "$msg"
+
 
         echo01 "$msg"
+
+        flite "$msg"
     fi
 
 }
@@ -81,7 +83,7 @@ motivation(){
     local file=$CFG_DIR/txt/$file_name.txt
     $PLUGINS_DIR/translation.sh line $file false
 #    (    show_file $file &)
-sleep1 5
+sleep1 $motivation_sleeping
    
 }
 scrap(){

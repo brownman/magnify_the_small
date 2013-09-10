@@ -1,5 +1,5 @@
-date: 7.9.13
-day:  Saturday
+date: 10.9.13
+day:  Tue
 frame:
         translate: get-value rules.translate.0 
         doing: get-value on_computer.0 
@@ -8,14 +8,29 @@ frame:
         project: get-value project.0
         imagine: get-value imagine.0
         achievments: get-values achievments
+        fears: get-value fears.0 
+        times: get-values times
 
+times:
+        - until 13:00 - finish to update the glossary
+        - until 14:00 - read edu
+
+feers:
+        - take a lookat your money
+        - call post-office
+        - checkout the sum of Masha
+        - check info regarding a new laptop
+        - papers - account - feb 2013
+        - backup hd to google drive OR else
 
 workflow:
+        - show_msg_entry|frame.times|my time 
         - show_msg_entry|frame.should|I should do
         - show_msg_entry|frame.achievments|I did it
 #        - show_msg|frame.on_computer|I am doing
 #        - show_msg_entry|frame.translate|how to say 
 #        - learn_langs||learn a new language
+
 imagine:
         - I have all the papers I need and I am ready
 
@@ -27,13 +42,8 @@ testing:
         - tasks_sh|show_msg|df|d
         - cfg|fetching|frame.should|a
         - cfg|fetching|frame.achievments|a
+        - cfg|parse_subject|workflow|abc
 
-project:
-        - fix serial.sh
-
-motivation:
-        - don't prospond
-        - check priorities every suspension - and measure the progress
 
 achievments:
         - give Shalva medicine
@@ -42,29 +52,10 @@ achievments:
 
 on_computer:
         - 10.see-security academy
-        - 10.morning - create a new workflow - with listening to mp3
-        - 5.mini website
-        - 10.scrap for language
-        - 10.youtube-sh
-        - 20.mother.shopping.sp
-        - 30.Avshalom start
-        - 30.python koans + youtube quantom
-        - 60.coursera - web course + eran + codenvy + avshalom
-
 
 on_suspend:
-        - send another email to Ofri
-        - papers - account - feb 2013
-        - check info regarding a new laptop
-        - backup hd to google drive OR else
-        - check my accounts
-        - talk to the Binyan
-        - call Sima-gezer?
-        - bank - call Yael
-        - talk to the dentist
-        - talk to noam .g
-        - checkout the sum of Masha
-        - talk with Rotem
+        - read edu documents
+
 
 on_project:
         - use Yad dialogs
@@ -99,18 +90,59 @@ rules:
     background:
             - do python tests
             - create a file of new words and upload it to blogger
-resources:
-    linux-news:
-        - http://www.webupd8.org/2011/02/how-to-start-applications-minimized.html
-        - http://www.wired.co.uk/news/archive/2011-10/24/iris-siri-android
-        - http://lifehacker.com/tag/jobs
-    storage:
-        - http://www.webupd8.org/2013/09/mount-google-drive-in-linux-with-google.html
-    streaming-audio:
-        - http://www.webupd8.org/2013/07/command-line-video-download-tool.html
-    shell-menus:
-        - http://code.google.com/p/yad/wiki/Examples
-    education:
-        - http://www.hackeru.co.il/index.php?act=page&id=27
-        - http://www.johnbryce.co.il/training-courses/csi-cyber-security-intelligence-%D7%94%D7%9B%D7%A9%D7%A8%D7%AA-hands-%D7%9C%D7%9E%D7%95%D7%9E%D7%97%D7%99-%D7%90%D7%91%D7%98%D7%97%D7%AA-%D7%9E%D7%99%D7%93%D7%A2
-        - http://www.see-security.com/%D7%94%D7%A1%D7%91%D7%A8_%D7%9C%D7%A2%D7%A0%D7%A3_%D7%90%D7%91%D7%98%D7%97%D7%AA_%D7%9E%D7%99%D7%93%D7%A2_%D7%95%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D.html
+    resources:
+        linux-news:
+            - http://www.webupd8.org/2011/02/how-to-start-applications-minimized.html
+            - http://www.wired.co.uk/news/archive/2011-10/24/iris-siri-android
+            - http://lifehacker.com/tag/jobs
+        storage:
+            - http://www.webupd8.org/2013/09/mount-google-drive-in-linux-with-google.html
+        streaming-audio:
+            - http://www.webupd8.org/2013/07/command-line-video-download-tool.html
+        shell-menus:
+            - http://code.google.com/p/yad/wiki/Examples
+        education:
+            - http://www.hackeru.co.il/index.php?act=page&id=27
+            - http://www.johnbryce.co.il/training-courses/csi-cyber-security-intelligence-%D7%94%D7%9B%D7%A9%D7%A8%D7%AA-hands-%D7%9C%D7%9E%D7%95%D7%9E%D7%97%D7%99-%D7%90%D7%91%D7%98%D7%97%D7%AA-%D7%9E%D7%99%D7%93%D7%A2
+            - http://www.johnbryce.co.il/training-courses/%D7%9E%D7%94%D7%A0%D7%93%D7%A1-%D7%9E%D7%A2%D7%A8%D7%9B%D7%95%D7%AA-%D7%9C%D7%99%D7%A0%D7%95%D7%A7%D7%A1-%D7%9E%D7%95%D7%A1%D7%9E%D7%9A-%D7%91%D7%A1%D7%91%D7%99%D7%91%D7%95%D7%AA-%D7%90%D7%A0%D7%98%D7%A8%D7%A4%D7%A8%D7%99%D7%99%D7%96-rhel6
+            - http://www.see-security.com/%D7%94%D7%A1%D7%91%D7%A8_%D7%9C%D7%A2%D7%A0%D7%A3_%D7%90%D7%91%D7%98%D7%97%D7%AA_%D7%9E%D7%99%D7%93%D7%A2_%D7%95%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D.html
+        shopping:        
+            - http://iandroid.co.il/forum/forum134.html
+            - buy shalva something moving wind
+
+project:
+    plugins:
+        - sync with google calendar and tasks
+        - plugin shopping - should use its own yaml file
+    mini:
+        - cache - learn_langs - wget the html pages!
+        - youtube-sh
+    must:
+        - effective glossary
+    later:
+        - random quotes
+        - grammer learning
+    dir_structure:
+        - project.yaml
+        - shopping.yaml
+        - yaml editing:
+        - big stones
+        - little stones
+    flow:
+        motivation_first:
+            - glossary update efficiency
+        efficiency:
+            - report efficiency - after suspend
+            - check priorities every suspension - and measure the progress
+        background:       
+            - tdd python 
+            - tdd angular
+
+
+
+
+
+
+
+
+
