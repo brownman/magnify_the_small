@@ -23,7 +23,7 @@ stop_watch1(){
             local msg1="$c/$long:  $msg"
 
             if [ "$show_buttons" = 'true' ];then
-                local res=$( $tasks_sh string_to_buttons step2 "$msg" '-')
+                local res=$( $tasks_sh string_to_buttons "$msg" '-')
 
 
              if [ "$res" = 'Q' ];then

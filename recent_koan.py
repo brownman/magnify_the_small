@@ -1,1 +1,1 @@
-/home/dao01/.magnify_the_small/testing/python2/koans/about_tuples.py
+testing/python2/koans/about_control_statements.py

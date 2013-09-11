@@ -8,14 +8,24 @@ frame:
         project: get-value project.0
         imagine: get-value imagine.0
         achievments: get-values achievments
-        fears: get-value fears.0 
+        fears: get-values fears
         times: get-values times
+        efficiency: get-values efficiency
+
+efficiency:
+        - invite avshalom
+        - give shalva medicine
+       
+
 
 times:
+        - until 9:00  - push forward koans
+        -  10:00  - drive to post-office - and then to r.m
+
         - until 13:00 - finish to update the glossary
         - until 14:00 - read edu
 
-feers:
+fears:
         - take a lookat your money
         - call post-office
         - checkout the sum of Masha
@@ -24,18 +34,21 @@ feers:
         - backup hd to google drive OR else
 
 workflow:
+        - show_msg_entry|frame.efficiency|if I was efficient - I would
         - show_msg_entry|frame.times|my time 
         - show_msg_entry|frame.should|I should do
         - show_msg_entry|frame.achievments|I did it
+        - learn_langs||learn a new language
 #        - show_msg|frame.on_computer|I am doing
 #        - show_msg_entry|frame.translate|how to say 
-#        - learn_langs||learn a new language
+
 
 imagine:
         - I have all the papers I need and I am ready
-
+ 
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|string_to_buttons|the king is smart|a  bc   
         - tasks_sh|learn_langs||success
         - tasks_sh|nothing|ab|ab
         - tasks_sh|fetch|frame.should|a|b
@@ -43,7 +56,7 @@ testing:
         - cfg|fetching|frame.should|a
         - cfg|fetching|frame.achievments|a
         - cfg|parse_subject|workflow|abc
-
+        - tasks_sh|random_quote|a|b
 
 achievments:
         - give Shalva medicine
@@ -60,7 +73,6 @@ on_suspend:
 on_project:
         - use Yad dialogs
         - scrap for language learning
-
 
 rules:
     efficiency: 0

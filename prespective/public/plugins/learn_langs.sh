@@ -8,7 +8,7 @@
 
 #. $TIMERTXT_CFG_FILE
 #file=$TODAY_DIR/txt/report.yaml
-tracex "DEBUG: $DEBUG"
+trace "DEBUG: $DEBUG"
 show_lesson=false #$SHOW_LESSON
 path1=/TORRENTS/AUDIO/LANGS/
 lesson=${2:-10} #$2
@@ -17,7 +17,7 @@ lang=${3:-'RU'} #$2
 play_lesson(){
     trace "learn langs() $1 $2"
 
-    tracex "lang: $lang"
+    trace "lang: $lang"
     gxmessage $GXMESSAGET "lesson $lesson"
 
 

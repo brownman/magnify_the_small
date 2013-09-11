@@ -17,9 +17,9 @@ silent=$SILENT
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 
-    update_file $file_log "-__"    
+update_file $file_log "-__"    
 fetch_html(){
-   is_valid "$file_html"
+    is_valid "$file_html"
     result=$?
     trace 'result is: '
     trace $result
@@ -132,7 +132,7 @@ translate_f(){
     printing1  "$file_txt" "$lang"
 
     ################################# result: html 
- #fetch_html
+    #fetch_html
 
     ################################# result: mp3 
     output=`cat $file_txt | head -1`
@@ -207,33 +207,25 @@ choose4(){
 
     trace "choosen line: "
     trace "$str"
+
     echo4 "$str" 
 }
-echo4(){
-    trace "echo4() got: $1"
-    if [ "$1" = '' ];then
-        error_handler 
+speller(){
+    local ans=$(spell2 "$str")
+    local result=0
+
+
+    if [ "$ans" = "error" ];then
+
+        trace "$ans"
+        notify-send "Mis-spelling:" "$ans"
+        flite 'spelling error'
+        flite 'returning'
+        result=1
     fi
 
-    local lang1="$language_of_the_day"
-    trace "translate to: $lang1"
+    return $result
 
-    if [ "$lang1" = '' ];then
-        random1 4
-        local num=$?
-        #trace "num: $num"
-        lang0="${arr1[$num]}"
-        lang1=$(lower $lang0)
-    fi
-
-    local str="$1"
-    trace "$str"
-
-    translate_f  "$str" "en"
-
-   
-
-    translate_f  "$str" "$lang1"
 }
 
 echo5(){
@@ -250,7 +242,10 @@ echo5(){
         error_handler
         exiting
     else
-
+        speller "$str"
+        if [[ $? -eq 1 ]];then
+            error_handler 
+        fi
         num=`echo "$str" | wc -w`
 
 
@@ -276,6 +271,47 @@ echo5(){
     fi
 }
 
+
+
+echo4(){
+    trace "echo4() got: $1"
+
+
+    if [ "$1" = '' ];then
+        error_handler 
+    fi
+
+    speller "$1"
+
+    if [[ $? -eq 1 ]];then
+        error_handler 
+    fi
+    local lang1="$language_of_the_day"
+    trace "translate to: $lang1"
+
+    if [ "$lang1" = '' ];then
+        random1 4
+        local num=$?
+        #trace "num: $num"
+        lang0="${arr1[$num]}"
+        lang1=$(lower $lang0)
+    fi
+
+    local str="$1"
+    trace "$str"
+
+    translate_f  "$str" "en"
+
+    sleep1 2 
+
+    translate_f  "$str" "$lang1"
+
+    sleep1 2
+    translate_f  "$str" "$lang1"
+
+    $tasks_sh string_to_buttons "$str"
+
+}
 printing1(){
     #local input_ws="$1" 
     local file_txt="$1"
@@ -297,10 +333,10 @@ printing1(){
 
     #cat -n $file_txt 
 
-                #local res=$( $tasks_sh string_to_buttons step2 "$line1" ' ')
+    #local res=$( $tasks_sh string_to_buttons step2 "$line1" ' ')
 
- if [ "$dirty_log" = true ];then
-    update_file $file_log "- $line1 | $line2"    
+    if [ "$dirty_log" = true ];then
+        update_file $file_log "- $line1 | $line2"    
     fi
 }
 

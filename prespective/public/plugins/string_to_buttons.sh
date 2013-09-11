@@ -6,59 +6,14 @@
 trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3" 
 #delimeter='-'
 #delimeter=''
-file_memory=/tmp/memory.txt
+file_memory=$CFG_DIR/memory.txt
+touch $file_memory
 empty='Q'
 arr=()
 declare -a arr=() #=('aa')
 
-show_item() {
-    show_arr 'show item()' 
-    local item=${arr[$1]}
-    #trace "show item: index $1: value: $item"
-    echo "$item"
-}
-
-
-
-pick_one1(){                          
-    trace "pick_one() got: 1:$1 2:$2"
-    local str="$1"
-    string_to_arr "$str"
-
-
-    show_arr1 'done?' 
-   
-    gxmessage $GXMESSAGET -title "title" -buttons "$arr" "$str" 
-
-    local num="$?"
-    trace "$num"
-
-    #local  res=$()
-    if [ "$res" = 'exit' ];then
-        $tasks_sh motivation glossary
-    else
-        notify-send "$res"
-        echo0 "$res"
-        #$tasks_sh scrap "$res"
-
-    fi
-
-    echo "$res"
-
-}
-
-show_arr(){
-echo ''
-}
-
-
-show_arr1(){
-    #local caller1=$(caller 0)
-    local str=`echo ${arr[@]}`
-    trace "show_arr:: $1:  --> $str"
-}
 arr_to_msg(){
-gxmessage -buttons "$1" -file $file_memory $GXMESSAGET
+gxmessage -buttons "$1" -file $file_memory $GXMESSAGET $ICONIC
 local num=$?
 local str="${arr[$num]}"
 trace "$str"
@@ -112,8 +67,8 @@ echo "$str2"
 }
 step2(){
 
-local str="Q-$1"
-delimeter="${2:-'-'}"   # Defaults to /tmp dir.
+local str="Q - $1"
+delimeter="${2:-' '}"   # Defaults to /tmp dir.
 str_to_arr "$str" #create new array
 local str2=$(arr_to_str ) #use array to create buttons-string
 #echo "$str2"trace "$str2"
@@ -121,10 +76,11 @@ local str2=$(arr_to_str ) #use array to create buttons-string
 local str3=$(arr_to_msg "$str2")
 
 local str4=$(remove_trailing "$str3")
-if [ "$str4" != "$empty" ];then
-update_file $file_memory "$str4"
-else
+if [ "$str4" = "$empty" ];then
     trace "choosen: empty string: -$str4-"
+else
+update_file $file_memory "$str4"
+    echo01 "$str4"
 fi
 
 echo "$str4"
@@ -132,6 +88,6 @@ echo "$str4"
 
 }
 
-$1 "$2" "$3"
+step2 "$1" "$2"
 
 

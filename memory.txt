@@ -1,0 +1,1 @@
+prespective/public/cfg/memory.txt

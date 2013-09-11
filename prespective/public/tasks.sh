@@ -27,7 +27,10 @@ trace " 2:$2 3:$3 4: $4"
 #    echo "$msg"
 #}
 #
-
+random_quote(){
+local res=$( $PLUGINS_DIR/random_quote.sh)
+echo "$res"
+}
 show_msg(){
     trace "show_msg $1: $2"
     local msg=$(gxmessage $GXMESSAGET "$1" -title "$2" -entry )
@@ -79,11 +82,13 @@ take_photo(){
 }
 
 motivation(){
+
+sleep1 $motivation_sleeping
     file_name="$1"
     local file=$CFG_DIR/txt/$file_name.txt
     $PLUGINS_DIR/translation.sh line $file false
 #    (    show_file $file &)
-sleep1 $motivation_sleeping
+
    
 }
 scrap(){

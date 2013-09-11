@@ -75,7 +75,7 @@ unlock(){
         result1="$?"
 
         trace "result: $result1"
-        if [[ $result1 -eq 1 ]];then
+        if [[ $result1 -eq 0 ]];then
             echo 'killing'
             `rm $locker`
             `kill -9 $pids1`

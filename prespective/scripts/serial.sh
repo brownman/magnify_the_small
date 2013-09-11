@@ -39,8 +39,10 @@ parse_line(){
     local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
     local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
     local    args=''
-
+if [ "$args0" != '' ];then
     args=$( fetching "$args0" )
+fi
+
     notify-send "TASK: $msg" "$desc"
     flite "$desc" true
 
@@ -76,10 +78,11 @@ read_lines(){
     for line in "${lines[@]}"
     do
         #local ans=
-        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
-        local result=$?
+#        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
+#        local result=$?
+result=0
         #tracex 'is 1?' "$result"
-        if [[ $result -eq 1 ]];then
+        if [[ $result -eq 0 ]];then
             local str2="$count of $max"
             execute_line "$line" "$str2"
             sleep1 $waiting
