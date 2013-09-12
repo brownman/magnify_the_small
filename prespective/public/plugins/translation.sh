@@ -241,10 +241,11 @@ echo5(){
 
         error_handler
         exiting
-    else
+    fi
+
         speller "$str"
         if [[ $? -eq 1 ]];then
-            error_handler 
+            return 
         fi
         num=`echo "$str" | wc -w`
 
@@ -268,7 +269,6 @@ echo5(){
             echo 'more then 4 words -> skip playing hi,tl'
         fi
 
-    fi
 }
 
 
@@ -284,8 +284,9 @@ echo4(){
     speller "$1"
 
     if [[ $? -eq 1 ]];then
-        error_handler 
+        return
     fi
+
     local lang1="$language_of_the_day"
     trace "translate to: $lang1"
 
@@ -300,8 +301,11 @@ echo4(){
     local str="$1"
     trace "$str"
 
+    ( $tasks_sh string_to_buttons "$str" &)
     translate_f  "$str" "en"
 
+
+    
     sleep1 2 
 
     translate_f  "$str" "$lang1"
@@ -309,7 +313,8 @@ echo4(){
     sleep1 2
     translate_f  "$str" "$lang1"
 
-    $tasks_sh string_to_buttons "$str"
+
+
 
 }
 printing1(){

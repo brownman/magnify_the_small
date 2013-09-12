@@ -11,10 +11,12 @@ export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 
 
 
-file=$CFG_DIR/blank.yaml
+file1=$CFG_DIR/blank.yaml
+file2=$CFG_DIR/memory.txt
 
 
 upload(){
+    local file="$1"
     local cmd=$( echo "$PLUGINS_DIR/blogger.sh $file" )
     commander "$cmd"
 }
@@ -30,6 +32,22 @@ upload(){
 
 #eacher upload 'upload file to blogger?'
 #eacher backup 'clean blank.yaml ?'
+
+essay(){
+  local file_name="$1"
+    local cmd=$( echo "$PLUGINS_DIR/free_speak.sh $file_name" )
+    commander "$cmd"
+}
+
+do_upload(){
 echo 'hi'
-upload
+upload $file1
+upload $file2
+}
+
+do_essay(){
+    local name_ws=$(    string_ws "$1" )
+essay "$name_ws"
+}
+$1 "$2"
 popd > /dev/null

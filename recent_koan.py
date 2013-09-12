@@ -1,1 +1,1 @@
-testing/python2/koans/about_control_statements.py
+testing/python2/koans/about_true_and_false.py

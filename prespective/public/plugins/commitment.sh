@@ -29,7 +29,7 @@ stop_watch1(){
              if [ "$res" = 'Q' ];then
                  reminder1
              else
-
+notify-send 'reminder got nothing'
                 echo0 "$res"
              fi
 
@@ -47,7 +47,7 @@ stop_watch1(){
 
 
 reminder1(){
-tracex "reminder got: $1"
+trace "reminder got: $1"
     local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'commitment:' 'add reminder:' )
 
 

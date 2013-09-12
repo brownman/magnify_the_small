@@ -4,14 +4,15 @@
 
 
 #. $TIMERTXT_CFG_FILE
-memory_game(){
-    trace 'memory game'
-    local file=$TODAY_DIR/txt/essay.txt
 
+memory_game(){
+    file_name="$1"
+    trace 'memory game'
+    local file=$CFG_DIR/txt/$file_name.txt
     touch $file
     local str=''
     while :;do
-        str=$( gxmessage  -entry -file $file -title 'Memory:' $GXMESSAGET )
+        str=$( gxmessage  -entry -file $file -title 'Memory:' $GXMESSAGE0 )
         if [ "$str" = '' ];then
             flite 'breaking'
             break
@@ -19,8 +20,8 @@ memory_game(){
             res=$(spell2 "$str")
             
             update_file $file "$res"
-            echo01 "$res"
+            (  echo01 "$res" &)
         fi
     done
 }
-memory_game
+memory_game "$1"

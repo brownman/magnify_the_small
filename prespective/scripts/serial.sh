@@ -77,13 +77,18 @@ read_lines(){
 
     for line in "${lines[@]}"
     do
-        #local ans=
-#        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
-#        local result=$?
-result=0
-        #tracex 'is 1?' "$result"
-        if [[ $result -eq 0 ]];then
+
             local str2="$count of $max"
+        if [[ $count -eq 1 ]];then
+
+            execute_line "$line" "$str2"
+        else
+
+        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
+        local result=$?
+        #tracex 'is 1?' "$result"
+        if [[ $result -eq 1 ]];then
+
             execute_line "$line" "$str2"
             sleep1 $waiting
 
@@ -93,6 +98,7 @@ result=0
             break
         fi
 
+        fi
     done
     #flite 'end of workflow'
 
