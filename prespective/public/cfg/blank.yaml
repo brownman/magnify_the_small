@@ -1,5 +1,5 @@
-date: 12.9.13
-day:  Thu
+date: 15.9.13
+day:  Sun 
 frame:
         translate: get-value rules.translate.0 
         doing: get-value on_computer.0 
@@ -7,42 +7,51 @@ frame:
         testing: get-value testing.0 
         project: get-value project.0
         imagine: get-value imagine.0
-        achievments: get-values achievments
+        breakthrough: get-values breakthrough
         fears: get-values fears
         times: get-values times
         efficiency: get-values efficiency
+        conditions: get-values conditions
+        awesome: get-values awesome
 
-efficiency:
-        - update yaml
+breakthrough:
+        - drink my coffee
+        - I checkout edu options
+        - I push forward koans
+        - I am standing up on suspensions
+        - ask for edu docs
+        - arrange meetings with some edu
+        - search for: work and learn
 
+
+
+
+        
+conditions:
+        - 1. first accomplish koans
+        - 2. then be happy 
+        
 times:
-        - 16:30 - listen to ran levy
+        - 11:00 - 12:00 - create lesson for learning language
+        - 12:00 - 12:15 - go shopping
 
-fears:
-        - call Riki
-        - take a look at your money
-        - call post-office
-        - checkout the sum of Masha
-        - check info regarding a new laptop
-        - papers - account - feb 2013
-        - backup hd to google drive OR else
+
 
 workflow:
-        - commitment||commit through time
-        - show_msg_entry|frame.efficiency|if I was efficient - I would
-        - show_msg_entry|frame.times|my time 
-#        - show_msg_entry|frame.should|I should do
-#        - show_msg_entry|frame.achievments|I did it
+        - show_msg_entry|frame.conditions|I will be happy if
+        - show_msg_entry|frame.breakthrough|here are my breakthrough for today 
+#        - show_msg_entry|frame.conditions|I will be happy if
+#        - show_msg_entry|frame.awesome|what is awesome
+
+#        - show_msg_entry|frame.times|my time 
 #        - learn_langs||learn a new language
+#        - free_speak||your thoughts are unique
+        #- commitment||commit through time
+        #- show_msg_entry|frame.efficiency|if I was efficient - I would
+        #- free_speak||deal with your fears
+#        - show_msg_entry|frame.should|I should do
 #        - show_msg|frame.on_computer|I am doing
 #        - show_msg_entry|frame.translate|how to say 
-
-
-imagine:
-        - I have all the papers I need and I am ready
-        - give shalva medicine
-        - call lion manor
-
 
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
@@ -55,18 +64,52 @@ testing:
         - cfg|fetching|frame.achievments|a
         - cfg|parse_subject|workflow|abc
         - tasks_sh|random_quote|a|b
-
-achievments:
-        - drink my coffee
-      
-
-on_computer:
-        - 10.see-security academy
-
-on_suspend:
-        - read edu documents
+        - tasks_sh|free_speak|a|b
+        - cfg|unlocker|/tmp/1|1
 
 
+details:
+        god:
+                - first python koans - then angular app for searching for android devices - and sign pluses
+        awesome:
+                - avshalom's book
+        week:
+                - ilan - thu - 21:00 
+                - call maor
+        shopping:
+                - lamp cover
+                - recycle bin
+                - kuka perfume
+                - mother shoes
+        questions:
+                - lion's number
+                - phone grasper - can be hunged?
+                - phone charge - 1000 instide of 700 - heat ?
+        mini-tasks:
+                - grab - all iandroid - forum resullt from last 7 days
+        efficiency:
+                - push forward the koans - accomplish python first
+        wishes:
+                - tweet like a bird
+                - make a money out of words
+                - make a program to Adi
+                - make a program to Avi
+        imagine:
+                - I have all the papers I need and I am ready
+                - give shalva medicine
+                - call lion manor
+        fears:
+                - call Riki
+                - take a look at your money
+                - call post-office
+                - checkout the sum of Masha
+                - check info regarding a new laptop
+                - papers - account - feb 2013
+                - backup hd to google drive OR else
+        on_computer:
+                - 10.see-security academy
+        on_suspend:
+                - read edu documents
 
 
 rules:
@@ -116,8 +159,23 @@ rules:
         shopping:        
             - http://iandroid.co.il/forum/forum134.html
             - buy shalva something moving wind
+    email:
+            - https://github.com/joecannatti/Objective-C-Koans
+    simulators:
+            - http://lost-and-found-narihiro.blogspot.co.il/2012/02/linux-mint-12-how-to-install-dynamips.html
+            - http://lost-and-found-narihiro.blogspot.co.il/2013/08/online-dns-visualization-for-free.html
+
+
+
+
+
+
+
 
 project:
+    next:
+        - im afraid of.. essay creation plugin + option to give a name for the file first
+        - free-speak + silent option + give name option
     plugins:
         - sync with google calendar and tasks
         - plugin shopping - should use its own yaml file
@@ -147,11 +205,5 @@ project:
     on_project:
             - use Yad dialogs
             - scrap for language learning
-
-
-
-
-
-
 
 

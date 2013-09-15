@@ -10,9 +10,9 @@
 #file=$TODAY_DIR/txt/report.yaml
 trace "DEBUG: $DEBUG"
 show_lesson=false #$SHOW_LESSON
-path1=/TORRENTS/AUDIO/LANGS/
+path1=/TORRENTS/AUDIO/LANGS
 lesson=${2:-10} #$2
-lang=${3:-'RU'} #$2
+lang=${3:-'AR'} #$2
 
 play_lesson(){
     trace "learn langs() $1 $2"
@@ -33,7 +33,7 @@ play_lesson(){
             result="$?"
             echo -n  "eacher result:"
             trace "$result"
-            if [[ $result -eq 0 ]];then
+            if [[ $result -eq 1 ]];then
                 echo 'breaking'
                 break
             else
@@ -56,9 +56,9 @@ code1(){
 
     local num=$lesson
     num=num+2
-    if [ "$show_lesson" = true ];then
+    #if [ "$show_lesson" = true ];then
         (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
-    fi
+    #fi
 
 
     num=num-2

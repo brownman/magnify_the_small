@@ -19,7 +19,7 @@ show_msg(){
     echo "$msg"
 }
 show_msg_entry(){
-    #tracex 'show_msg_entry' "show_msg_entry $1: $2"
+    trace 'show_msg_entry' "show_msg_entry $1: $2"
     local msg=$( gxmessage -entry $GXMESSAGET "$1" -title "$2" )
     if [ "$msg" = '' ];then
         motivation glossary
@@ -35,7 +35,7 @@ string_to_buttons(){
     echo "$res"
 }
 
-write_essay(){
+free_speak(){
     $PLUGINS_DIR/free_speak.sh
 }
 
@@ -56,9 +56,7 @@ motivation(){
 
     file_name="$1"
     local file=$CFG_DIR/txt/$file_name.txt
-    $PLUGINS_DIR/translation.sh line $file false
-#    (    show_file $file &)
-
+      $PLUGINS_DIR/translation.sh line $file false &  
     fi
 }
 
@@ -178,7 +176,8 @@ game_essay(){
 }
 
 learn_langs(){
-        xterm1 $PLUGINS_DIR/learn_langs.sh play_lesson $LANG_NAME $LANG_NUM
+         $PLUGINS_DIR/learn_langs.sh play_lesson 
+         #$LANG_NAME $LANG_NUM
 }
 
 

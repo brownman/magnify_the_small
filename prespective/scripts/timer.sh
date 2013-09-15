@@ -7,22 +7,20 @@ pushd `dirname $0` > /dev/null
 #reset
 cd ../public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
-
-
 . $TIMERTXT_CFG_FILE
-  
-export VERBOSE=true
-export DEBUG=false
-#
-#pushd `dirname $0` > /dev/null
-#export TIMERTXT_CFG_FILE=../public/cfg/user.cfg
-#. $TIMERTXT_CFG_FILE
+#export VERBOSE=true
+#export DEBUG=false
 export locker=/tmp/lock1
 
 
 workflow=''
 workflow_d=''
+
 waiting=${1:-60}   # Defaults to /tmp dir.
+if [ $DEBUG = true ];then
+ waiting=5
+fi
+
 trace   "waiting  $waiting"
 
 restart(){
@@ -69,13 +67,14 @@ unlock(){
         trace "$pids1"
         msg2="kill running process ?"
 
-        $( messageYN1  "$msg2" )
+        #$( messageYN1  "$msg2" )
 
 
-        result1="$?"
+        #result1="$?"
+        result1=1
 
         trace "result: $result1"
-        if [[ $result1 -eq 0 ]];then
+        if [[ $result1 -eq 1 ]];then
             echo 'killing'
             `rm $locker`
             `kill -9 $pids1`

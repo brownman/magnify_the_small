@@ -47,7 +47,7 @@ fi
     flite "$desc" true
 
 
-    $tasks_sh $action "$args" 
+    $tasks_sh $action "$args" "$desc" 
 
 }
 
@@ -84,25 +84,23 @@ read_lines(){
             execute_line "$line" "$str2"
         else
 
-        $( messageYN1 'continue to next task?' 'workflow efficiency:' )
-        local result=$?
-        #tracex 'is 1?' "$result"
-        if [[ $result -eq 1 ]];then
+            $( messageYN1 'continue to next task?' 'workflow efficiency:' )
+            local result=$?
+            #tracex 'is 1?' "$result"
+            if [[ $result -eq 0 ]];then
 
-            execute_line "$line" "$str2"
-            sleep1 $waiting
+                execute_line "$line" "$str2"
+                sleep1 $waiting
 
-            let "count=count+1"
-        else
-            flite 'breaking'
-            break
-        fi
+                let "count=count+1"
+            else
+                flite 'breaking'
+                break
+            fi
 
         fi
     done
     #flite 'end of workflow'
-
-            sleep1 $waiting
 
     #exec $tasks_sh suspend "regardless workflow"
 }

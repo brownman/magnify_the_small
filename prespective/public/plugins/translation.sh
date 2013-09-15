@@ -3,7 +3,7 @@
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
 #. $TIMERTXT_CFG_FILE
-
+file_locker=/tmp/translation.lock
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
@@ -301,7 +301,7 @@ echo4(){
     local str="$1"
     trace "$str"
 
-    ( $tasks_sh string_to_buttons "$str" &)
+
     translate_f  "$str" "en"
 
 
@@ -312,6 +312,8 @@ echo4(){
 
     sleep1 2
     translate_f  "$str" "$lang1"
+
+    ( $tasks_sh string_to_buttons "$str" &)
 
 
 
@@ -372,11 +374,7 @@ one_line(){
     fi
 
 }
-
-all_lines(){
-    echo ''
-}
-
+run(){
 #motivation "$file"
 if [ "$method" = 'sentence' ];then
     if [ "$multiple_langs" = true ];then
@@ -390,6 +388,26 @@ elif [ "$method" = 'lines' ];then
     all_lines "$from"
 else
     trace   "unknown method:"
-    trace $1
     help1 "$help_options"
 fi
+}
+
+all_lines(){
+    echo ''
+}
+
+ans=$(unlocker "$file_locker")
+if [ "$ans" = '0' ];then
+    trace 'locker already exist'
+    trace 'returning'
+    #exiting 
+else
+    trace 'create locker'
+    touch $file_locker
+    echo $$ >> $file_locker
+    trace 'running'
+    run
+    trace 'remove locker'
+    rm $file_locker
+fi
+

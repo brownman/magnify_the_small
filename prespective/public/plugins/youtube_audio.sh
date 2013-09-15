@@ -55,4 +55,5 @@ mv *.mp3 /TORRENTS/MP3
 
 
 }
-eval "$1" '"$2" "$3"'
+step1
+#eval "$1" '"$2" "$3"'

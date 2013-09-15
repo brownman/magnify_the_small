@@ -1,1 +1,1 @@
-testing/python2/koans/about_true_and_false.py
+testing/python2/koans/about_generators.py

@@ -6,9 +6,10 @@
 #. $TIMERTXT_CFG_FILE
 
 memory_game(){
-    file_name="$1"
+    file_name=${1:-'essay'}
     trace 'memory game'
-    local file=$CFG_DIR/txt/$file_name.txt
+    mkdir -p $CFG_DIR/essay
+    local file=$CFG_DIR/essay/$file_name.txt
     touch $file
     local str=''
     while :;do
@@ -23,5 +24,6 @@ memory_game(){
             (  echo01 "$res" &)
         fi
     done
+    
 }
 memory_game "$1"

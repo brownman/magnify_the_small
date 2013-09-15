@@ -26,3 +26,4 @@ sleep 3
 step2 "$ans1"
 }
 steps
+rm /tmp/translation.lock 
