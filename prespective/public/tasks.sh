@@ -56,9 +56,23 @@ motivation(){
 
     file_name="$1"
     local file=$CFG_DIR/txt/$file_name.txt
-      $PLUGINS_DIR/translation.sh line $file false &  
+      #$PLUGINS_DIR/translation.sh line $file false   
     fi
 }
+motivations(){
+    #echo "hello"
+    if [ $MUTE = false ];then
+#echo "bbb"
+
+    #file_name="$1"
+    local file="$1"
+    #$CFG_DIR/txt/$file_name.txt
+local msg=$( $PLUGINS_DIR/translation.sh lines $file false   )
+echo "$msg"
+    fi
+    #echo 'end'
+}
+
 
 scrap(){
 

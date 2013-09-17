@@ -1,5 +1,5 @@
-date: 15.9.13
-day:  Sun 
+date: 17.9.13
+day:  Tue 
 frame:
         translate: get-value rules.translate.0 
         doing: get-value on_computer.0 
@@ -14,19 +14,14 @@ frame:
         conditions: get-values conditions
         awesome: get-values awesome
 
+ideas: 
+        - android widget - motivation + language learning
+        - create lesson yaml
+
 breakthrough:
         - drink my coffee
-        - I checkout edu options
-        - I push forward koans
-        - I am standing up on suspensions
-        - ask for edu docs
-        - arrange meetings with some edu
-        - search for: work and learn
+        - remove the mouse
 
-
-
-
-        
 conditions:
         - 1. first accomplish koans
         - 2. then be happy 
@@ -55,6 +50,8 @@ workflow:
 
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
+        - cfg|file_to_lines|/tmp/11.txt|a  bc   
+        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
         - tasks_sh|string_to_buttons|the king is smart|a  bc   
         - tasks_sh|learn_langs||success
         - tasks_sh|nothing|ab|ab

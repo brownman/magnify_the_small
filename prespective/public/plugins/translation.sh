@@ -374,7 +374,24 @@ one_line(){
     fi
 
 }
+
+all_lines(){
+    #lines=() 
+    local from="$1"
+    local cmd='echo4'
+    file_to_lines "$from"
+
+   execute_lines
+#local msg=$(    execute_lines )
+    #local msg=$(file_to_lines "$from")
+echo "$msg"
+echo "zz"
+    
+}
+
+
 run(){
+    local result=''
 #motivation "$file"
 if [ "$method" = 'sentence' ];then
     if [ "$multiple_langs" = true ];then
@@ -385,24 +402,24 @@ if [ "$method" = 'sentence' ];then
 elif [ "$method" = 'line' ];then
     one_line "$from"
 elif [ "$method" = 'lines' ];then
+
+    #result=$(
     all_lines "$from"
+    ##result=$(all_lines "$from")
+    echo "$result"
 else
     trace   "unknown method:"
     help1 "$help_options"
 fi
 }
 
-all_lines(){
-    echo ''
-}
-
 ans=$(unlocker "$file_locker")
 if [ "$ans" = '0' ];then
-    trace 'locker already exist'
+    notify-send 'locker already exist'
     trace 'returning'
     #exiting 
 else
-    trace 'create locker'
+    notify-send 'create locker'
     touch $file_locker
     echo $$ >> $file_locker
     trace 'running'
@@ -410,4 +427,8 @@ else
     trace 'remove locker'
     rm $file_locker
 fi
+sleep1 5
+rm $file_locker
+
+
 
