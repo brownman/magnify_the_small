@@ -1,1 +1,1 @@
-testing/python2/koans/about_generators.py
+testing/python2/koans/about_dice_project.py

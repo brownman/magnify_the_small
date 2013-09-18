@@ -26,7 +26,7 @@ show_msg_entry(){
     else
         trace 'echo 01'
         echo01 "$msg"
-        flite "$msg"
+        #flite "$msg"
     fi
 }
 
@@ -56,7 +56,7 @@ motivation(){
 
     file_name="$1"
     local file=$CFG_DIR/txt/$file_name.txt
-      #$PLUGINS_DIR/translation.sh line $file false   
+      $PLUGINS_DIR/translation.sh line $file false   
     fi
 }
 motivations(){

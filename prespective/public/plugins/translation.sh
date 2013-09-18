@@ -9,7 +9,8 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
 #tracex "multiple langs: $multiple_langs"
-silence1=$4
+silence1=${4:-'false'} #"$3" #false #export MULTIPLE_LANGS=true
+
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 silent_fetch=$SILENT_FETCH
@@ -40,7 +41,7 @@ play1(){
     trace "play1() got: "
     trace "$1 | $2"
 
-    if [ "$SILENCE" = false ];then
+    if [ "$silence1" = false ];then
 
         local file="$1"
 
@@ -425,10 +426,10 @@ else
     trace 'running'
     run
     trace 'remove locker'
-    rm $file_locker
+    rmm $file_locker &
 fi
 sleep1 5
-rm $file_locker
+rmm $file_locker &
 
 
 

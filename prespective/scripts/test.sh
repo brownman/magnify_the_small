@@ -39,10 +39,10 @@ method=$( echo "$line" | awk -F '|' '{print $2}' )
 input=$( echo "$line" | awk -F '|' '{print $3}' )
 expect=$( echo "$line" | awk -F '|' '{print $4}' )
 trace "route: $route"
-eval res="$input"
+local res=$(echo "$input")
 #echo "$res"
 input="$res"
-notify-send "$res"
+#notify-send "$res"
 #echo "$res"
 result=$( eval $route '"$method" "$input"')
 equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
