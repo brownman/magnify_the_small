@@ -14,7 +14,7 @@ suspend01(){
     local before=`date +%s`
 
     echo -n "let me sleep timeout -  is:"
-    cyan "$timeout"
+    trace "$timeout"
     #echo0 "you have $timeout seconds to accomplish your task - go !" 
     #reminder
     sleep1 5
@@ -23,15 +23,15 @@ suspend01(){
     local after=`date +%s`
     let elapsed=after-before
     echo -n "slept for: "
-    cyan "$elapsed"
+    trace "$elapsed"
     if [[ $elapsed -lt $timeout ]];then
         echo "let me sleep for at least $timeout seconds"
         sleep1 5
         suspend01
     else
-        green 'you are free now - act wisely'
+        trace 'you are free now - act wisely'
     fi
-    flite 'add a new task'
+    #flite 'add a new task'
 }
 
 

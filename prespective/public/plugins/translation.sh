@@ -302,22 +302,21 @@ echo4(){
     local str="$1"
     trace "$str"
 
+    num=`echo "$str" | wc -w`
+        if [[ $num -gt 1 ]];then
+    ( $tasks_sh string_to_buttons "$str" &)
+        fi
+
 
     translate_f  "$str" "en"
-
 
     
     sleep1 2 
 
     translate_f  "$str" "$lang1"
 
-    sleep1 2
+       sleep1 2
     translate_f  "$str" "$lang1"
-
-    ( $tasks_sh string_to_buttons "$str" &)
-
-
-
 
 }
 printing1(){
@@ -331,17 +330,15 @@ printing1(){
 
     if [ $GUI = true ]
     then
-        if [[ $lang = ru  ||  $lang = hi ]];
+        if [[ $lang = he  ||  $lang = hi ]];
         then
-            notify-send $TIMEOUT_NS "$line1" "$line2"   
+            notify-send $TIMEOUT_NS "$line2" "$line1"   
         else
             notify-send $TIMEOUT_NS "$line1"
         fi
     fi
 
-    #cat -n $file_txt 
 
-    #local res=$( $tasks_sh string_to_buttons step2 "$line1" ' ')
 
     if [ "$dirty_log" = true ];then
         update_file $file_log "- $line1 | $line2"    
@@ -414,22 +411,33 @@ else
 fi
 }
 
-ans=$(unlocker "$file_locker")
-if [ "$ans" = '0' ];then
-    notify-send 'locker already exist'
-    trace 'returning'
+counter=0
+while [[ $counter -lt 5 ]];do
+    trace "count: $counter"
+    ans=$(unlocker "$file_locker")
+    if [ "$ans" = '0' ];then
+        trace 'locker already exist'
+        delay=3
+        trace "translation delay: $delay"
+        sleep1 "$delay"
+    else 
+        break
+
+    fi
+        let counter+=1
+done
+
+
+
+rmm $file_locker &
     #exiting 
-else
-    notify-send 'create locker'
+    trace 'create locker'
     touch $file_locker
     echo $$ >> $file_locker
     trace 'running'
     run
     trace 'remove locker'
     rmm $file_locker &
-fi
-sleep1 5
-rmm $file_locker &
 
 
 

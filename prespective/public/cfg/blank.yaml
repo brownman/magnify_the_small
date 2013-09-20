@@ -1,51 +1,67 @@
-date: 18.9.13
-day:  Wed 
+date: 20.9.13
+day:  Fri 
 frame:
-        translate: get-value rules.translate.0 
-        doing: get-value on_computer.0 
-        should: get-value on_suspend.0 
-        testing: get-value testing.0 
-        project: get-value project.0
-        imagine: get-value imagine.0
         breakthrough: get-values breakthrough
         fears: get-values fears
         times: get-values times
         efficiency: get-values efficiency
         conditions: get-values conditions
         awesome: get-values awesome
+        breath: get-values breath
+        testing: get-values testing 
 
-goals:
-        - create a language lesson
-        - push koans forward X steps
-        - learn physics today from a lecture
+line:        
+        translate: get-value rules.translate.0 
+        doing: get-value on_computer.0 
+        should: get-value on_suspend.0 
+        testing: get-value testing.0 
+        project: get-value project.0
+        imagine: get-value imagine.0
 
-ideas: 
-        - android widget - motivation + language learning
-        - create lesson yaml
-
-breakthrough:
-        - open the notebook
-        - write something nice
+talk_to:
+        - aiman - amir's friend - ask him about QA
 
 conditions:
-        - 1. push koans for 2 minutes before continue 
-        - 2. read more goals
+        - push koans
+        - push project
+        - do some tasks
+        - read physics
+
+tasks:
+        - push koans
+        - buy a battery
+        - talk to Aiman
+
+child_story:
+        - hi|Pini said to his wife
+        - ar|Lubna has taken some time off work
+        - ru|Kuka is preparing meet for the next launch
+        
+breath:
+        - there is time for everything
+        - what is the reason for all other things
+
         
 times:
-        - 11:00 - 12:00 )  koans 
-        - 12:00 - 12:15 )  language learning
-
-
+        - 10:00 - 11:00 )  koans 
 
 workflow:
-        - show_msg_entry|frame.conditions|I will be happy if
-        - show_msg_entry|frame.breakthrough|here are my breakthrough for today 
+        - show_msg_entry|frame.conditions|it is easy
+        #- increase_motivation||
+        #- show_msg_entry|frame.conditions|it is easy
+#        - free_speak||your thoughts are unique
+        #- show_msg_entry|frame.breath|remember the reason for all other things
+
+        #- learn_langs||learn a new language
+        #- commitment||commitment through time
+
+        #- show_msg_entry|frame.conditions|I will be happy if
+        #- show_msg_entry|frame.breakthrough|here are my breakthrough for today 
 #        - show_msg_entry|frame.conditions|I will be happy if
 #        - show_msg_entry|frame.awesome|what is awesome
-
 #        - show_msg_entry|frame.times|my time 
 #        - learn_langs||learn a new language
-#        - free_speak||your thoughts are unique
+
         #- commitment||commit through time
         #- show_msg_entry|frame.efficiency|if I was efficient - I would
         #- free_speak||deal with your fears
@@ -55,6 +71,9 @@ workflow:
 
 testing:
         - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|string_to_buttons|one two|success
+        - tasks_sh|free_speak||success
+        - cfg|fetching|frame.conditions|a
         - cfg|echo01|friend|a  bc   
         - cfg|file_to_lines|/tmp/11.txt|a  bc   
         - tasks_sh|motivations|$CFG_DIR/memory.txt|a
@@ -114,6 +133,21 @@ details:
                 - 10.see-security academy
         on_suspend:
                 - read edu documents
+        motivations:
+                - there is time for everything
+
+        goals:
+                - create a language lesson
+                - push koans forward X steps
+                - learn physics today from a lecture
+
+        ideas: 
+                - android widget - motivation + language learning
+                - create lesson yaml
+
+        breakthrough:
+                - open the notebook
+                - write something nice
 
 
 rules:

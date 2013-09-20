@@ -51,8 +51,9 @@ run_workflow(){
     local result=$( parse_subject workflow )
     echo "$result" > $file_workflow 
  #'workflow file is:'
-    gxmessage -file $file_workflow $GXMESSAGET -title 'generated workflow:'
-
+    #gxmessage -file $file_workflow $GXMESSAGET -title 'generated workflow:'
+    trace 'generated workflow:'
+cat $file_workflow
     sleep1 5
     $SCRIPTS_DIR/serial.sh read_lines "$file_workflow" "$waiting"
 }
@@ -82,8 +83,10 @@ unlock(){
         else
             echo 'skipping'
         fi
+
+    fi
         #./$0
-    else
+    #else
         trace 'create $locker'
         touch $locker
         echo $$ > $locker
@@ -97,7 +100,7 @@ unlock(){
         #
         #        done
         restart
-    fi
+
 
 }
 unlock

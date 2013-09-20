@@ -33,7 +33,7 @@ play_lesson(){
             result="$?"
             echo -n  "eacher result:"
             trace "$result"
-            if [[ $result -eq 1 ]];then
+            if [[ $result -eq 0 ]];then
                 echo 'breaking'
                 break
             else

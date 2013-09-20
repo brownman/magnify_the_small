@@ -20,11 +20,12 @@ show_msg(){
 }
 show_msg_entry(){
     trace 'show_msg_entry' "show_msg_entry $1: $2"
-    local msg=$( gxmessage -entry $GXMESSAGET "$1" -title "$2" )
+    local msg=$( gxmessage -file $file_recent -entry $GXMESSAGET  -title "$2"  )
     if [ "$msg" = '' ];then
         motivation glossary
     else
         trace 'echo 01'
+        echo "$msg" >> $CFG_DIR/txt/easy.txt
         echo01 "$msg"
         #flite "$msg"
     fi
@@ -157,10 +158,15 @@ update(){
 suspend1(){
     #local msg=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
     #flite "should - $msg"
+
+
+
+    $PLUGINS_DIR/suspend.sh
+
+
     flite 'update your notebook'
 
     motivation sport
-    $PLUGINS_DIR/suspend.sh
 
 }
 

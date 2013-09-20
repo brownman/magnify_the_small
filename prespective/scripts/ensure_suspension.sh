@@ -49,7 +49,7 @@ $tasks_sh suspend1
 
 
     trace 'removing $locker2'
-    `rm $locker2`
+    rmm "$locker2"
 
 fi
 

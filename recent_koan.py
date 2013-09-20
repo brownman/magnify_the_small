@@ -1,1 +1,1 @@
-testing/python2/koans/about_dice_project.py
+testing/python2/koans/about_multiple_inheritance.py

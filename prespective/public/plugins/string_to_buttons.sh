@@ -7,18 +7,32 @@ trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3"
 #delimeter='-'
 #delimeter=''
 file_memory=$CFG_DIR/memory.txt
+file_assosiation=$CFG_DIR/txt/assosiation.txt
+touch $file_assosiation
+
 touch $file_memory
 empty='Q'
 arr=()
 declare -a arr=() #=('aa')
 
 arr_to_msg(){
-gxmessage -buttons "$1" -file $file_memory $GXMESSAGET $ICONIC
+gxmessage -buttons "$1" -file $file_memory $GXMESSAGET -iconic
 local num=$?
 local str="${arr[$num]}"
 trace "$str"
 echo "$str"
 }
+
+make_assosiation(){
+    local str="$1"
+    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET )
+    if [ "$ass" != '' ];then
+
+    echo "$ass" >> $file_assosiation
+    fi
+  
+}
+
 str_to_arr(){
     trace "string_to_arr() got:  1:$1 2:$2" 
     #  local item=${arr[1]}`
@@ -76,11 +90,14 @@ local str2=$(arr_to_str ) #use array to create buttons-string
 local str3=$(arr_to_msg "$str2")
 
 local str4=$(remove_trailing "$str3")
-if [ "$str4" = "$empty" ];then
+trace "=$str4="
+if [ "$str4" = "$empty" ] || [ "$str4" = "-" ] 
+then
     trace "choosen: empty string: -$str4-"
 else
 update_file $file_memory "$str4"
     echo01 "$str4"
+    make_assosiation "$str4"
 fi
 
 echo "$str4"
