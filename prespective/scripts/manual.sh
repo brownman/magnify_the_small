@@ -12,7 +12,7 @@ export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 
 
 file1=$CFG_DIR/blank.yaml
-file2=$CFG_DIR/memory.txt
+file2=$CFG_DIR/txt/assosiation.txt
 
 
 upload(){

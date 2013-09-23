@@ -18,6 +18,9 @@ line:
         project: get-value project.0
         imagine: get-value imagine.0
 
+search:
+        - freelance - testing - QA
+
 talk_to:
         - aiman - amir's friend - ask him about QA
 
@@ -43,25 +46,26 @@ breath:
 
         
 times:
-        - 10:00 - 11:00 )  koans 
+        - 9:00->10:00 drive to R.G
 
 workflow:
-        - show_msg_entry|frame.conditions|it is easy
+        - show_msg_entry|frame.times|it is easy to
+        - show_msg_entry|frame.times|it is so crazy that
+        - show_msg_entry|frame.times|it is so interesting that even
+        - show_msg_entry|frame.times|I am enthusiastic to
+        - show_msg_entry|frame.times|my solution is
+        #- free_speak||your thoughts are unique
         #- increase_motivation||
         #- show_msg_entry|frame.conditions|it is easy
-#        - free_speak||your thoughts are unique
         #- show_msg_entry|frame.breath|remember the reason for all other things
-
         #- learn_langs||learn a new language
         #- commitment||commitment through time
-
         #- show_msg_entry|frame.conditions|I will be happy if
         #- show_msg_entry|frame.breakthrough|here are my breakthrough for today 
 #        - show_msg_entry|frame.conditions|I will be happy if
 #        - show_msg_entry|frame.awesome|what is awesome
 #        - show_msg_entry|frame.times|my time 
 #        - learn_langs||learn a new language
-
         #- commitment||commit through time
         #- show_msg_entry|frame.efficiency|if I was efficient - I would
         #- free_speak||deal with your fears
