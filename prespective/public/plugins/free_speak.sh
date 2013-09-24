@@ -22,8 +22,11 @@ memory_game(){
         elif [ "$str" = 'exit' ];then
             flite 'breaking'
             break
-        elif [ "$str" = 'learn_langs' ];then
+        elif [ "$str" = 'listen1' ];then
                $tasks_sh learn_langs & 
+           elif [ "$str" = 'read1' ];then
+local lang=$(higher "$LANG_DEFAULT")
+        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
         else
             res=$(spell2 "$str")
            if [ "$res" = 'error' ];then
@@ -41,21 +44,23 @@ memory_game(){
 }
 change_language(){
 
-local str=$( gxmessage  -entrytext "$LANG_DEFAULT" -title 'change language:' $GXMESSAGE0 'pick a language:' )
+local str=$( gxmessage  -entrytext "$LANG_DEFAULT" -title 'change language:' $GXMESSAGET 'pick a language:' )
 if [ "$str" = '' ];then
     flite 'exiting'
     exiting
 fi
 export LANG_DEFAULT="$str"
 local str1=$(higher "$LANG_DEFAULT")
-export LANG_NAME="$str1"
+#export LANG_NAME="$str1"
 #echo01 'dog'
 #echo "$str1"
 
 }
 
 change_filename(){
-        str=$( gxmessage  -entrytext "person_name" -title 'change file_name:' $GXMESSAGE0 'new filename:' )
+
+    local str1='lesson_about'
+        str=$( gxmessage  -entrytext "$str1" -title 'change file_name:' $GXMESSAGET 'new filename:' )
 if [ "$str" = '' ];then
     flite 'exiting'
     exiting
@@ -63,6 +68,7 @@ fi
         file_essay="$str"
         #echo "$file_essay"
 }
+
 
 
 change_filename

@@ -4,7 +4,8 @@
 # execute: tasks.sh $workflow
 #
 
-
+file_guide="$CFG_DIR/workflow.cfg"
+waiting="$1"
 trace "serial.sh got: 1:$1 2:$2"
 
 increase_efficiency(){
@@ -54,8 +55,8 @@ fi
 
 read_lines(){
     trace "read_lines() got:  1:$1 2:$2"
-    local file_guide="$1"
-    waiting="$2"
+
+
     local args=''
 
     while read -r line
@@ -87,7 +88,7 @@ read_lines(){
             $( messageYN1 'continue to next task?' 'workflow efficiency:' )
             local result=$?
             #tracex 'is 1?' "$result"
-            if [[ $result -eq 0 ]];then
+            if [[ $result -eq 1 ]];then
 
                 execute_line "$line" "$str2"
                 sleep1 $waiting

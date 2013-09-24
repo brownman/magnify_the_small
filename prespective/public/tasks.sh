@@ -7,10 +7,60 @@ trace "tasks.sh got: "
 trace "1: $1"  
 trace " 2:$2 3:$3 4: $4"  
 
+helper(){
+    export DEBUG=true
+    local result=''
+    local str='where do you desire to visit ?'
+    local title='imagine'
+    local file=$file_bake
+    local help="take_photo|"
+
+
+    local line=$(pick_line $file)
+        #local ans=$( gxmessage  -entrytext "$line"  $GXMESSAGET  -title "$title" -file "$file" )
+        #result=$(eval 'think "$ans"')
+    gxmessage "$line" $GXMESSAGET
+    flite "$line"
+}
+think(){
+    local ans="$1"
+    if [ "$ans" = 'help' ];then
+            str="$help" 
+        elif  [ "$ans" = 'exit' ];then
+            flite 'breaking'
+            break
+        elif [ "$ans" = '' ];then
+            #$tasks_sh motivation 
+  flite 'breaking'
+            break
+        else
+
+
+            #result=$(commander "$ans")
+            notify-send "$ans"
+        fi
+        echo "$result"
+}
+cake(){
+
+    $(random1 10)
+
+    local    ans=$?
+    #echo "$ans"
+
+    notify-send "show_line:$ans"
+    local ans1=$(fetching frame.cake)
+
+    local ans2=$(    cat "$file_recent" | head -2 )
+    #echo "$ans1"
+    echo "$ans2"
+
+}
+
 
 random_quote(){
-local res=$( $PLUGINS_DIR/random_quote.sh )
-echo "$res"
+    local res=$( $PLUGINS_DIR/random_quote.sh )
+    echo "$res"
 }
 show_msg(){
     trace "show_msg $1: $2"
@@ -52,24 +102,40 @@ take_photo(){
 }
 
 motivation(){
-    if [ $MUTE = false ];then
-
 
     file_name="$1"
-    local file=$CFG_DIR/txt/$file_name.txt
-      $PLUGINS_DIR/translation.sh line $file false   
+
+
+    if [ $MUTE = false ];then
+        random1 10
+        ans=$?
+        #notify-send "random: $ans"
+        if [[ $ans -gt 3 ]];then
+            local file=$CFG_DIR/txt/$file_name.txt
+            $PLUGINS_DIR/translation.sh line $file false   
+        else
+            file_name="sport"
+            local file=$CFG_DIR/txt/$file_name.txt
+            $PLUGINS_DIR/translation.sh line $file false   
+        fi
+
+
+
+
     fi
 }
+
 motivations(){
+
     #echo "hello"
     if [ $MUTE = false ];then
-#echo "bbb"
+        #echo "bbb"
 
-    #file_name="$1"
-    local file="$1"
-    #$CFG_DIR/txt/$file_name.txt
-local msg=$( $PLUGINS_DIR/translation.sh lines $file false   )
-echo "$msg"
+        #file_name="$1"
+        local file="$1"
+        #$CFG_DIR/txt/$file_name.txt
+        local msg=$( $PLUGINS_DIR/translation.sh lines $file false   )
+        echo "$msg"
     fi
     #echo 'end'
 }
@@ -196,8 +262,7 @@ game_essay(){
 }
 
 learn_langs(){
-         $PLUGINS_DIR/learn_langs.sh play_lesson 
-         #$LANG_NAME $LANG_NUM
+    $PLUGINS_DIR/learn_langs.sh play_lesson 
 }
 
 

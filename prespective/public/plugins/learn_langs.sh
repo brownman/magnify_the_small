@@ -12,8 +12,7 @@ trace "DEBUG: $DEBUG"
 show_lesson=false #$SHOW_LESSON
 path1=/TORRENTS/AUDIO/LANGS
 lesson=${2:-10} #$2
-lang=${3:-'AR'} #$2
-
+lang=$(higher $LANG_DEFAULT)
 play_lesson(){
     trace "learn langs() $1 $2"
 
@@ -58,6 +57,7 @@ code1(){
     num=num+2
     #if [ "$show_lesson" = true ];then
         (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
+        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
     #fi
 
 

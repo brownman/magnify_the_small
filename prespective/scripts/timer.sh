@@ -9,7 +9,7 @@ cd ../public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
 #export VERBOSE=true
-#export DEBUG=false
+#export DEBUG=true
 export locker=/tmp/lock1
 
 
@@ -31,7 +31,7 @@ restart(){
     tracen "VERBOSE: $VERBOSE"
         #. $TIMERTXT_CFG_FILE
         if [ "$DEBUG" = false ];then
-        $tasks_sh motivation glossary
+        $tasks_sh motivation glossary 
         fi
 
         run_workflow
@@ -45,17 +45,26 @@ restart(){
 
 }
 
+generate(){
+    local name=$1
+local file=$CFG_DIR/${name}.cfg
+
+  #local result=$( parse_subject $name )
+    #echo "$result" > $file
+    #trace 'generated file:'
+#cat $file
+parse_subject $name $file
+}
+
 
 run_workflow(){
     
-    local result=$( parse_subject workflow )
-    echo "$result" > $file_workflow 
- #'workflow file is:'
-    #gxmessage -file $file_workflow $GXMESSAGET -title 'generated workflow:'
-    trace 'generated workflow:'
-cat $file_workflow
+  generate workflow
+generate cake
+baking
+
     sleep1 5
-    $SCRIPTS_DIR/serial.sh read_lines "$file_workflow" "$waiting"
+    $SCRIPTS_DIR/serial.sh read_lines "$waiting"
 }
 unlock(){
     local result1=0

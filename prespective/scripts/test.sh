@@ -9,7 +9,9 @@ pushd `dirname $0` > /dev/null
 cd ../public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
 . $TIMERTXT_CFG_FILE
+
 export VERBOSE=true
+#export DEBUG=true
      file_test=/tmp/testing
 
 #trace "PWD: $PWD"
@@ -42,9 +44,14 @@ trace "route: $route"
 local res=$(echo "$input")
 #echo "$res"
 input="$res"
+
+
+
+input1=$( echo "$input" | awk -F ',' '{print $1}' )
+input2=$( echo "$input" | awk -F ',' '{print $2}' )
 #notify-send "$res"
 #echo "$res"
-result=$( eval $route '"$method" "$input"')
+result=$( eval $route '"$method" "$input1" "$input2"')
 equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
 
 echo -n '' > $file_test
