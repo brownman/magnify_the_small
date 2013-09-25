@@ -1,0 +1,7 @@
+ant
+monkey
+lion
+snake
+dog
+cat
+

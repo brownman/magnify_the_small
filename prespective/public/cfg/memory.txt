@@ -1,3 +1,5 @@
+cycles
+about
 step
 exercises
 myself

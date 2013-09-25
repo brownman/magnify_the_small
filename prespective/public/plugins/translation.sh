@@ -8,13 +8,11 @@ help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
-#tracex "multiple langs: $multiple_langs"
-silence1=${4:-'false'} #"$3" #false #export MULTIPLE_LANGS=true
+silence1=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
 
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
-silent_fetch=$SILENT_FETCH
-silent=$SILENT
+silence_fetch=$SILENCE_FETCH
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 
@@ -68,7 +66,7 @@ play1(){
         fi
     else
 
-        trace    'silent is on'
+        trace    'silence is on'
         trace 'skip playing'
     fi
 
@@ -149,7 +147,7 @@ translate_f(){
             trace $output
             #trace "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
         else
-            if [ "$silent_fetch" = true ];then
+            if [ "$silence_fetch" = true ];then
                 trace 'play this mp3 on next run'
                 ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 &) 
             else

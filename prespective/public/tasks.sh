@@ -21,6 +21,7 @@ helper(){
         #result=$(eval 'think "$ans"')
     gxmessage "$line" $GXMESSAGET
     flite "$line"
+    echo01 "$line"
 }
 think(){
     local ans="$1"
@@ -41,21 +42,21 @@ think(){
         fi
         echo "$result"
 }
-cake(){
-
-    $(random1 10)
-
-    local    ans=$?
-    #echo "$ans"
-
-    notify-send "show_line:$ans"
-    local ans1=$(fetching frame.cake)
-
-    local ans2=$(    cat "$file_recent" | head -2 )
-    #echo "$ans1"
-    echo "$ans2"
-
-}
+#cake(){
+#
+#    $(random1 10)
+#
+#    local    ans=$?
+#    #echo "$ans"
+#
+#    notify-send "show_line:$ans"
+#    local ans1=$(fetching frame.cake)
+#
+#    local ans2=$(    cat "$file_recent" | head -2 )
+#    #echo "$ans1"
+#    echo "$ans2"
+#
+#}
 
 
 random_quote(){
@@ -70,7 +71,11 @@ show_msg(){
 }
 show_msg_entry(){
     trace 'show_msg_entry' "show_msg_entry $1: $2"
-    local msg=$( gxmessage -file $file_recent -entry $GXMESSAGET  -title "$2"  )
+    #local str=$(pick_line $CFG_DIR/txt/glossary.txt )
+    local str=$(cat $file_recent | head -1)
+    str1=$( echo $str | awk -F '|' '{print $2}' )
+     
+    local msg=$( gxmessage -file $file_recent -entrytext "$str1" $GXMESSAGET  -title "$2"  )
     if [ "$msg" = '' ];then
         motivation glossary
     else

@@ -4,18 +4,55 @@
 #mkdir -p $CFG_DIR/essay
 file_essay='x'
 
+generate_line(){
+local str=''
+random1 2
+num=$?
+notify-send $num
+if [ $num -eq 0 ];then
+    str+=$(generate_one reason)
+else
+    str+=$(generate_one verb)
+    str+='|'
+    str+=$(generate_one adj)
+    str+='|'
+    str+=$(generate_one noun)
+    str+='|'
+    str+=$(generate_one 'time')
+fi
+
+echo "$str"
+}
+
+
+generate_one(){
+
+file=$CFG_DIR/txt/${1}.txt 
+touch $file
+str=$( pick_line $file)
+echo "$str"
+}
 
 memory_game(){
     file_name=${1:-'essay'}
     trace 'memory game'
 
+            echo01 'how to say' & 
     dir=$CFG_DIR/essay/$LANG_DEFAULT
     mkdir -p $dir
     local file=$dir/$file_essay.txt
     touch $file
     local str=''
+    local res=''
+    local counter=0 
     while :;do
-        str=$( gxmessage  -entry -file $file -title "Memory: $file_essay" $GXMESSAGE0 )
+        let counter+=1
+        if [ $QUIZ = 'true' ];then
+           
+            str=$(generate_line) 
+            
+        fi
+        str=$( gxmessage  -entrytext "$str" -file $file -title "Memory: $file_essay" $GXMESSAGE0 )
         if [ "$str" = '' ];then
             local line1=$(cat $file | head -1)
             echo01 "$line1" &
@@ -59,7 +96,7 @@ local str1=$(higher "$LANG_DEFAULT")
 
 change_filename(){
 
-    local str1='lesson_about'
+    local str1='quiz'
         str=$( gxmessage  -entrytext "$str1" -title 'change file_name:' $GXMESSAGET 'new filename:' )
 if [ "$str" = '' ];then
     flite 'exiting'

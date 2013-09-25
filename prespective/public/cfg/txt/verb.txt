@@ -1,0 +1,9 @@
+eat
+stand
+give
+return
+come
+jump
+smile
+eat
+eat

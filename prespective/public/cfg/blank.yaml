@@ -1,4 +1,4 @@
-date: 20.9.13
+date: 25.9.13
 day:  Fri 
 frame:
         breakthrough: get-values breakthrough
@@ -10,6 +10,8 @@ frame:
         breath: get-values breath
         testing: get-values testing 
         cake: get-values cake 
+        tasks: get-values tasks
+        quiz: get-values quiz 
 
 line:        
         translate: get-value rules.translate.0 
@@ -19,9 +21,27 @@ line:
         project: get-value project.0
         imagine: get-value imagine.0
 
- 
+people:
+        - kuka: car
+        - matan: phone
+        - ima: shoes
+        
+quiz:
+        verb: go
+        adv:  fast
+        adj:  nice
+        none: trip
+        who:  he , you
+        
+
+
+
+tasks:
+        - bring her from the city 
+
 times:
-        - 10:00 - 11:00 - read one's story
+        - 10:00 - 11:00 - increase motivation
+        - 11:00 - 12:00 - increase motivation
 
 cake:
         - 5|increase motivation
@@ -30,13 +50,21 @@ cake:
         - 1|tell a story
         - 1|read about physics
 
+conditions:
+        - 3|I will be happy if I will
+        - 3|push koans forward
+        - 4|make order around - on computer suspension
 
 workflow:
-        - helper||help me to decide
+        - free_speak||your thoughts are unique
+        - show_msg_entry|frame.times|plan your time consuming
+        - show_msg_entry|frame.cake|it is the cake of priorities
+        - show_msg_entry|frame.conditions|I am happy to
         - show_msg_entry|frame.tasks|it is easy to
-        #- free_speak||your thoughts are unique
+        - helper||help me to decide
+
         #- increase_motivation||
-        #- show_msg_entry|frame.conditions|it is easy
+
         #- show_msg_entry|frame.breath|remember the reason for all other things
         #- learn_langs||learn a new language
         #- commitment||commitment through time
@@ -54,6 +82,7 @@ workflow:
 #        - show_msg_entry|frame.translate|how to say 
 
 testing:
+        - tasks_sh|free_speak|i|a   
         - cfg|remove_trailing| a  bc |a  bc   
         - cfg|baking|a|b|
         - cfg|parse_subject|cake,/tmp/1.test|a  bc   
@@ -278,3 +307,5 @@ project:
 
 certifications:
             - http://lpic2.unix.nl/index.html
+mother:
+            - http://www.statman.info/conversions/mens_shoes.html
