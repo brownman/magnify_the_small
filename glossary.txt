@@ -1,1 +1,0 @@
-prespective/public/cfg/txt/glossary.txt

@@ -1,67 +1,10 @@
-date: 25.9.13
-day:  Fri 
-frame:
-        breakthrough: get-values breakthrough
-        fears: get-values fears
-        times: get-values times
-        efficiency: get-values efficiency
-        conditions: get-values conditions
-        awesome: get-values awesome
-        breath: get-values breath
-        testing: get-values testing 
-        cake: get-values cake 
-        tasks: get-values tasks
-        quiz: get-values quiz 
-
-line:        
-        translate: get-value rules.translate.0 
-        doing: get-value on_computer.0 
-        should: get-value on_suspend.0 
-        testing: get-value testing.0 
-        project: get-value project.0
-        imagine: get-value imagine.0
-
-people:
-        - kuka: car
-        - matan: phone
-        - ima: shoes
-        
-quiz:
-        verb: go
-        adv:  fast
-        adj:  nice
-        none: trip
-        who:  he , you
-        
-
-
-
-tasks:
-        - bring her from the city 
-
-times:
-        - 10:00 - 11:00 - increase motivation
-        - 11:00 - 12:00 - increase motivation
-
-cake:
-        - 5|increase motivation
-        - 2|make some order
-        - 1|do shopping
-        - 1|tell a story
-        - 1|read about physics
-
-conditions:
-        - 3|I will be happy if I will
-        - 3|push koans forward
-        - 4|make order around - on computer suspension
-
 workflow:
         - free_speak||your thoughts are unique
-        - show_msg_entry|frame.times|plan your time consuming
-        - show_msg_entry|frame.cake|it is the cake of priorities
-        - show_msg_entry|frame.conditions|I am happy to
-        - show_msg_entry|frame.tasks|it is easy to
-        - helper||help me to decide
+#        - show_msg_entry|frame.times|plan your time consuming
+#        - show_msg_entry|frame.cake|it is the cake of priorities
+#        - show_msg_entry|frame.conditions|I am happy to
+#        - show_msg_entry|frame.tasks|it is easy to
+#        - helper||help me to decide
 
         #- increase_motivation||
 
@@ -81,31 +24,14 @@ workflow:
 #        - show_msg|frame.on_computer|I am doing
 #        - show_msg_entry|frame.translate|how to say 
 
-testing:
-        - tasks_sh|free_speak|i|a   
-        - cfg|remove_trailing| a  bc |a  bc   
-        - cfg|baking|a|b|
-        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
-        - tasks_sh|helper|a|b
-        - tasks_sh|string_to_buttons|one two|success
-        - tasks_sh|free_speak||success
-        - cfg|fetching|frame.conditions|a
-        - cfg|echo01|friend|a  bc   
-        - cfg|file_to_lines|/tmp/11.txt|a  bc   
-        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-        - tasks_sh|string_to_buttons|the king is smart|a  bc   
-        - tasks_sh|learn_langs||success
-        - tasks_sh|nothing|ab|ab
-        - tasks_sh|fetch|frame.should|a|b
-        - tasks_sh|show_msg|df|d
-        - cfg|fetching|frame.should|a
-        - cfg|fetching|frame.achievments|a
-        - cfg|parse_subject|workflow|abc
-        - tasks_sh|random_quote|a|b
-        - tasks_sh|free_speak|a|b
-        - cfg|unlocker|/tmp/1|1
-        - tasks_sh|show_msg_entry|dog|d
 
+line:        
+        translate: get-value rules.translate.0 
+        doing: get-value on_computer.0 
+        should: get-value on_suspend.0 
+        testing: get-value testing.0 
+        project: get-value project.0
+        imagine: get-value imagine.0
 
 details:
         god:
