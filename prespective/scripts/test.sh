@@ -5,10 +5,8 @@
 #
 
 pushd `dirname $0` > /dev/null
-#reset
-cd ../public
-export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
-. $TIMERTXT_CFG_FILE
+
+. loader.sh
 
 export VERBOSE=true
 #export DEBUG=true

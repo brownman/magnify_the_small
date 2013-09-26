@@ -13,6 +13,7 @@ stop_watch1(){
     local msg="$1" 
     local title="$2"
 
+     local msg1="$msg" 
     for (( c=0; c<=$long; c++ ))
     do
 
@@ -20,20 +21,28 @@ stop_watch1(){
 
         m=$((c%every))
         if [[ $m -eq 0  ]];then
-            local msg1="$c/$long:  $msg"
-
-            if [ "$show_buttons" = 'true' ];then
-                local res=$( $tasks_sh string_to_buttons "$msg" '-')
+            local title="commitment"
+            local buttons1="$c/$long"
 
 
-             if [ "$res" = 'Q' ];then
-                 reminder1
-             else
-notify-send 'reminder got nothing'
-                echo0 "$res"
-             fi
-
-            fi
+     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$msg" -entrytext "$msg1")
+     local line="$date1: $msg1"
+     notify-send "$line"
+update_file  "$file_now" "$line" 
+echo01 "$msg1"
+#
+#            if [ "$show_buttons" = 'true' ];then
+#                local res=$( $tasks_sh string_to_buttons "$msg" '-')
+#
+#
+#             if [ "$res" = 'Q' ];then
+#                 reminder1
+#             else
+#notify-send 'reminder got nothing'
+#                echo0 "$res"
+#             fi
+#
+#            fi
         fi
         echo -n "$c "
         sleep 1s

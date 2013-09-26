@@ -47,8 +47,9 @@ workflow:
 #        - helper||help me to decide
 
 testing:
-        - tasks_sh|free_speak|i|a   
+        - tasks_sh|commitment|do something good|0   
         - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|free_speak|i|a   
         - cfg|baking|a|b|
         - cfg|parse_subject|cake,/tmp/1.test|a  bc   
         - tasks_sh|helper|a|b

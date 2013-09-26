@@ -4,8 +4,9 @@
 # execute: tasks.sh $workflow
 #
 
-file_guide="$CFG_DIR/workflow.cfg"
-waiting="$1"
+#file_guide="$CFG_DIR/cfg/workflow.cfg"
+
+
 trace "serial.sh got: 1:$1 2:$2"
 
 increase_efficiency(){
@@ -68,7 +69,7 @@ read_lines(){
             #echo "line: $line"
             lines+=("$line")
         fi
-    done < "$file_guide"
+    done < "$file_workflow"
 
 
     #echo "lines: ${lines}"

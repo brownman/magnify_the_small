@@ -4,10 +4,8 @@
 #
 
 pushd `dirname $0` > /dev/null
-#reset
-cd ../public
-export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
-. $TIMERTXT_CFG_FILE
+. loader.sh
+
 #export VERBOSE=true
 #export DEBUG=true
 export locker=/tmp/lock1
@@ -16,7 +14,7 @@ export locker=/tmp/lock1
 workflow=''
 workflow_d=''
 
-waiting=${1:-60}   # Defaults to /tmp dir.
+export waiting=${1:-60}   # Defaults to /tmp dir.
 if [ $DEBUG = true ];then
  waiting=5
 fi

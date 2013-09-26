@@ -5,10 +5,11 @@
 
 
 pushd `dirname $0` > /dev/null
-export TIMERTXT_CFG_FILE=../public/cfg/user.cfg
-. $TIMERTXT_CFG_FILE
+#export TIMERTXT_CFG_FILE=../public/cfg/cfg/user.cfg
+#. $TIMERTXT_CFG_FILE
+#
 
-
+. loader.sh
 
 help_options='wait for 3m |  suspend'
 help1 "$help_options"

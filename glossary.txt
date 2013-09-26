@@ -1,0 +1,1 @@
+./prespective/public/libs/txt/glossary.txt
