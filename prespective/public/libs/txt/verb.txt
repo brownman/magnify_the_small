@@ -1,4 +1,3 @@
-eat
 stand
 give
 return
@@ -6,4 +5,7 @@ come
 jump
 smile
 eat
-eat
+laugth
+go
+walk
+enter

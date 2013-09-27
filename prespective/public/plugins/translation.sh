@@ -16,7 +16,7 @@ silence_fetch=$SILENCE_FETCH
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 
-update_file $file_log "-__"    
+#update_file $file_log "-__"    
 fetch_html(){
     is_valid "$file_html"
     result=$?
@@ -335,9 +335,9 @@ printing1(){
 
 
 
-    if [ "$dirty_log" = true ];then
-        update_file $file_log "- $line1 | $line2"    
-    fi
+#    if [ "$dirty_log" = true ];then
+#        update_file $file_log "- $line1 | $line2"    
+#    fi
 }
 
 

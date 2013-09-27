@@ -1,4 +1,4 @@
-date: 25.9.13
+date: 27.9.13
 day:  Fri 
 frame:
         breakthrough: get-values breakthrough
@@ -14,9 +14,9 @@ frame:
         quiz: get-values quiz 
 
 people:
-        - kuka: car
-        - matan: phone
-        - ima: shoes
+        kuka: car
+        matan: phone
+        ima: shoes
 
 tasks:
         - bring her from the city 
@@ -33,22 +33,25 @@ cake:
         - 1|read about physics
 
 conditions:
-        - 3|I will be happy if I will
-        - 3|push koans forward
-        - 4|make order around - on computer suspension
-        
+        - if push koans - have confident
+        - if accomplish task - give a present
+        - if courage - make order
+        - if suspend - update notebook
 
 workflow:
         - free_speak||your thoughts are unique
+        - show_msg_entry|frame.conditions|it is easy
+        #- show_msg_entry|frame.cake|I am happy to
+        #- show_msg_entry|frame.cake|it is the cake of priorities
 #        - show_msg_entry|frame.times|plan your time consuming
-#        - show_msg_entry|frame.cake|it is the cake of priorities
 #        - show_msg_entry|frame.conditions|I am happy to
 #        - show_msg_entry|frame.tasks|it is easy to
 #        - helper||help me to decide
 
 testing:
-        - tasks_sh|commitment|do something good|0   
-        - cfg|remove_trailing| a  bc |a  bc   
+        #- cfg|fetching|frame.cake|I am happy to|1
+        #- tasks_sh|conditions|do something good|0   
+        #- cfg|remove_trailing| a  bc |a  bc   
         - tasks_sh|free_speak|i|a   
         - cfg|baking|a|b|
         - cfg|parse_subject|cake,/tmp/1.test|a  bc   

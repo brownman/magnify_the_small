@@ -6,11 +6,7 @@
 trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3" 
 #delimeter='-'
 #delimeter=''
-file_memory=$CFG_DIR/memory.txt
-file_assosiation=$CFG_DIR/txt/assosiation.txt
-touch $file_assosiation
 
-touch $file_memory
 empty='Q'
 arr=()
 declare -a arr=() #=('aa')

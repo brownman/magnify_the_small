@@ -1,3 +1,4 @@
+ant
 the ant is eating 
 he though that the dog will come very fast
 the cat smiled slowly

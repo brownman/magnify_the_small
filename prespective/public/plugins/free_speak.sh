@@ -4,61 +4,81 @@
 #mkdir -p $CFG_DIR/essay
 file_essay='x'
 
-generate_line(){
+random_line(){
 local str=''
-random1 2
+random1 10
 num=$?
-notify-send $num
+#notify-send $num
 if [ $num -eq 0 ];then
-    str+=$(generate_one reason)
+    str+=$(generate_line reason)
+elif [ $num -eq 1 ];then
+    str+=$(generate_line noun)
+elif [ $num -eq 2 ];then
+    str+=$(generate_line adj)
+elif [ $num -eq 3 ];then
+    str+=$(generate_line 'time')
+elif [ $num -eq 4 ];then
+    str+=$(generate_line adv)
+elif [ $num -eq 5 ];then
+    str+=$(generate_line trigger)
+elif [ $num -eq 6 ];then
+    str+=$(generate_line task)
+elif [ $num -eq 7 ];then
+    str+=$(generate_line bake)
 else
-    str+=$(generate_one verb)
-    str+='|'
-    str+=$(generate_one adj)
-    str+='|'
-    str+=$(generate_one noun)
-    str+='|'
-    str+=$(generate_one 'time')
+    str+=$(generate_line verb)
 fi
 
 echo "$str"
 }
 
 
-generate_one(){
 
-file=$CFG_DIR/txt/${1}.txt 
-touch $file
-str=$( pick_line $file)
-echo "$str"
-}
 
 memory_game(){
-    file_name=${1:-'essay'}
+    #file_name=${1:-'essay'}
     trace 'memory game'
-
+    local file=$file_essay
             echo01 'how to say' & 
     dir=$CFG_DIR/essay/$LANG_DEFAULT
     mkdir -p $dir
-    local file=$dir/$file_essay.txt
-    touch $file
+    #local file=$dir/$file_essay.txt
+    #touch $file
     local str=''
-    local res=''
+    local result=0
     local counter=0 
+
+ local line1='' 
+   is_valid "$file"
+    result=$?
+    trace 'result is: '
+    trace $result
+    if [[ $result -eq 1  ]];
+    then
+
+    line1=$(cat $file | head -1)
+else
+    line1=''
+    fi
+
+
     while :;do
         let counter+=1
         if [ $QUIZ = 'true' ];then
-           
-            str=$(generate_line) 
-            
+            str=$(random_line) 
         fi
-        str=$( gxmessage  -entrytext "$str" -file $file -title "Memory: $file_essay" $GXMESSAGE0 )
+        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "Memory: $file" -file "$file")
+
+
+
         if [ "$str" = '' ];then
-            local line1=$(cat $file | head -1)
             echo01 "$line1" &
         elif [ "$str" = 'exit' ];then
             flite 'breaking'
             break
+        elif [ "$str" = 'save!' ];then
+            update_file "$file_glossary" "$line1"
+            flite 'saving'
         elif [ "$str" = 'listen1' ];then
                $tasks_sh learn_langs & 
            elif [ "$str" = 'read1' ];then
@@ -95,14 +115,18 @@ local str1=$(higher "$LANG_DEFAULT")
 }
 
 change_filename(){
+local subject=$(pick_line subject)
 
-    local str1='quiz'
-        str=$( gxmessage  -entrytext "$str1" -title 'change file_name:' $GXMESSAGET 'new filename:' )
+#local str1='quiz'
+local        str=$( gxmessage  -entrytext "$subject" -title 'change file_name:' $GXMESSAGET 'new filename:' )
+file_essay=$(generate_file "$str")
+notify-send $file_essay
 if [ "$str" = '' ];then
     flite 'exiting'
     exiting
 fi
-        file_essay="$str"
+     
+        #file_essay="$str"
         #echo "$file_essay"
 }
 
@@ -110,4 +134,4 @@ fi
 
 change_filename
 change_language
-memory_game 
+memory_game "$file_essay" 

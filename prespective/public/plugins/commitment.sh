@@ -4,7 +4,7 @@
 
 #. $TIMERTXT_CFG_FILE
 long=500
-every=20
+every=60
 show_buttons=$SHOW_BUTTONS
 stop_watch1(){
     trace "stop_watch1() got: 1: $1 2: $2 3: $3 4:$4"
@@ -25,7 +25,7 @@ stop_watch1(){
             local buttons1="$c/$long"
 
 
-     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$msg" -entrytext "$msg1")
+     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "higher self:" -entrytext "I can")
      local line="$date1: $msg1"
      notify-send "$line"
 update_file  "$file_now" "$line" 

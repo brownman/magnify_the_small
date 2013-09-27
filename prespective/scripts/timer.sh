@@ -45,7 +45,7 @@ restart(){
 
 generate(){
     local name=$1
-local file=$CFG_DIR/${name}.cfg
+local file=$CFG_DIR/cfg/${name}.cfg
 
   #local result=$( parse_subject $name )
     #echo "$result" > $file

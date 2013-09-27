@@ -74,6 +74,9 @@ show_msg_entry(){
     #local str=$(pick_line $CFG_DIR/txt/glossary.txt )
     local str=$(cat $file_recent | head -1)
     str1=$( echo $str | awk -F '|' '{print $2}' )
+    if [ "$str1" = '' ];then
+        str1="$str"
+    fi
      
     local msg=$( gxmessage -file $file_recent -entrytext "$str1" $GXMESSAGET  -title "$2"  )
     if [ "$msg" = '' ];then
@@ -107,26 +110,19 @@ take_photo(){
 }
 
 motivation(){
-
     file_name="$1"
-
 
     if [ $MUTE = false ];then
         random1 10
         ans=$?
         #notify-send "random: $ans"
         if [[ $ans -gt 3 ]];then
-            local file=$CFG_DIR/txt/$file_name.txt
+            local file=$(generate_line $file_name)
             $PLUGINS_DIR/translation.sh line $file false   
         else
-            file_name="sport"
-            local file=$CFG_DIR/txt/$file_name.txt
+            local file=$(generate_line sport)
             $PLUGINS_DIR/translation.sh line $file false   
         fi
-
-
-
-
     fi
 }
 
