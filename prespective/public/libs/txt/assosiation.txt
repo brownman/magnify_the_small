@@ -1,1 +1,3 @@
 huge|ru|agromni - there are a huge amount of agricalture among russions
+push|ru|talkat - it is easy to push small (t.a.l) peaces
+your|ru|vash - your bash files or your vash files

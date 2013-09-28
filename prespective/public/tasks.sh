@@ -6,7 +6,7 @@
 trace "tasks.sh got: "  
 trace "1: $1"  
 trace " 2:$2 3:$3 4: $4"  
-
+notify-send "$@"
 helper(){
     export DEBUG=true
     local result=''
@@ -111,16 +111,17 @@ take_photo(){
 
 motivation(){
     file_name="$1"
-
-    if [ $MUTE = false ];then
+notify-send "motivation: $file_name : $MUTE"
+    if [ "$MUTE" = false ];then
         random1 10
         ans=$?
         #notify-send "random: $ans"
         if [[ $ans -gt 3 ]];then
-            local file=$(generate_line $file_name)
+            local file=$(generate_file $file_name)
+            
             $PLUGINS_DIR/translation.sh line $file false   
         else
-            local file=$(generate_line sport)
+            local file=$(generate_file sport)
             $PLUGINS_DIR/translation.sh line $file false   
         fi
     fi
@@ -237,11 +238,11 @@ suspend1(){
 
 }
 
-generate_file(){
-    local subject=$1
-    local file=$2
-    $PLUGINS_DIR/yaml_parser.sh generate_file $subject $file
-}
+#generate_file(){
+#    local subject=$1
+#    local file=$2
+#    $PLUGINS_DIR/yaml_parser.sh generate_file $subject $file
+#}
 
 report(){
     echo 'update google blogger with the score for this cycle'

@@ -1,5 +1,5 @@
-date: 27.9.13
-day:  Fri 
+date: 28.9.13
+day:  Sat 
 frame:
         breakthrough: get-values breakthrough
         fears: get-values fears
@@ -13,6 +13,8 @@ frame:
         tasks: get-values tasks
         quiz: get-values quiz 
 
+priorities:
+
 people:
         kuka: car
         matan: phone
@@ -22,8 +24,8 @@ tasks:
         - bring her from the city 
 
 times:
-        - 10:00 - 11:00 - increase motivation
-        - 11:00 - 12:00 - increase motivation
+        - 15:00 - 16:00 - push koans + increase motivation
+        - 16:00 - 17:00 - tasks
 
 cake:
         - 5|increase motivation
@@ -39,8 +41,8 @@ conditions:
         - if suspend - update notebook
 
 workflow:
-        - free_speak||your thoughts are unique
-        - show_msg_entry|frame.conditions|it is easy
+        #- free_speak||your thoughts are unique
+        - show_msg_entry|frame.times|it is easy
         #- show_msg_entry|frame.cake|I am happy to
         #- show_msg_entry|frame.cake|it is the cake of priorities
 #        - show_msg_entry|frame.times|plan your time consuming
@@ -49,10 +51,11 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|motivation|sport|a
         #- cfg|fetching|frame.cake|I am happy to|1
         #- tasks_sh|conditions|do something good|0   
-        #- cfg|remove_trailing| a  bc |a  bc   
-        - tasks_sh|free_speak|i|a   
+        #- tasks_sh|free_speak|i|a   
         - cfg|baking|a|b|
         - cfg|parse_subject|cake,/tmp/1.test|a  bc   
         - tasks_sh|helper|a|b

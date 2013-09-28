@@ -57,13 +57,13 @@ echo01 "$msg1"
 
 reminder1(){
 trace "reminder got: $1"
-    local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'commitment:' 'add reminder:' )
+    local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'higher-self:' 'I will be happy if' )
 
 
     if [ "$line" != '' ];then
 
 
-local title="commitment reminder"
+#local title="commitment reminder"
 #        local   long=$( echo $line | awk -F '|' '{print $1}' )
 #        local every=$( echo $line | awk -F '|' '{print $2}' )
 #        local   msg=$( echo $line | awk -F '|' '{print $3}' )

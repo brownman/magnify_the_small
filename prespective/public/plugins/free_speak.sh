@@ -2,11 +2,13 @@
 # about file:
 # desc: talk to yourself and translate it
 #mkdir -p $CFG_DIR/essay
+
 file_essay='x'
+subject='x'
 
 random_line(){
 local str=''
-random1 10
+random1 20
 num=$?
 #notify-send $num
 if [ $num -eq 0 ];then
@@ -25,8 +27,11 @@ elif [ $num -eq 6 ];then
     str+=$(generate_line task)
 elif [ $num -eq 7 ];then
     str+=$(generate_line bake)
-else
+elif [ $num -eq 8 ];then
     str+=$(generate_line verb)
+else
+    str+=$(generate_line grammer)
+
 fi
 
 echo "$str"
@@ -67,7 +72,7 @@ else
         if [ $QUIZ = 'true' ];then
             str=$(random_line) 
         fi
-        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "Memory: $file" -file "$file")
+        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "My $subject:" -file "$file")
 
 
 
@@ -115,10 +120,11 @@ local str1=$(higher "$LANG_DEFAULT")
 }
 
 change_filename(){
-local subject=$(pick_line subject)
+subject=$(pick_line subject)
 
 #local str1='quiz'
 local        str=$( gxmessage  -entrytext "$subject" -title 'change file_name:' $GXMESSAGET 'new filename:' )
+subject="$str"
 file_essay=$(generate_file "$str")
 notify-send $file_essay
 if [ "$str" = '' ];then
@@ -134,4 +140,4 @@ fi
 
 change_filename
 change_language
-memory_game "$file_essay" 
+memory_game 

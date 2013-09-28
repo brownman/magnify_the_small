@@ -12,8 +12,9 @@ help1 "$help_options"
 timeout_for_reasoning=${1:-5}   # Defaults to /tmp dir.
 echo "going to run in $timeout_for_reasoning seconds"
 act1(){
-    result=$($tasks_sh fetch 'frame.translate')
-$tasks_sh commitment "$result"
+    #result=$($tasks_sh fetch 'frame.translate')
+$tasks_sh commitment
+#"$result"
 
 
 }

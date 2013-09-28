@@ -7,9 +7,10 @@
 pushd `dirname $0` > /dev/null
 
 . loader.sh
-
+notify-send "test.sh got:" " $1 $2 $3"
 export VERBOSE=true
 #export DEBUG=true
+#$tasks_sh motivation glossary
      file_test=/tmp/testing
 
 #trace "PWD: $PWD"
@@ -22,7 +23,9 @@ cfg(){
 
 }
 tasks_sh(){
+
     trace "tasks_sh run: 1:$1 2:$2 3:$3"
+    notify-send "tasks_sh run: 1:$1 2:$2 3:$3"
 $tasks_sh "$1" "$2" "$3"
 }
 test_yaml(){
