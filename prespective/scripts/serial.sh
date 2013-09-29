@@ -4,10 +4,9 @@
 # execute: tasks.sh $workflow
 #
 
-#file_guide="$CFG_DIR/cfg/workflow.cfg"
 
 
-trace "serial.sh got: 1:$1 2:$2"
+notify-send "serial.sh got: 1:$1 2:$2"
 
 increase_efficiency(){
     count="$1"
@@ -46,7 +45,7 @@ if [ "$args0" != '' ];then
 fi
 
     notify-send "TASK: $msg" "$desc"
-    flite "$desc" true
+   #flite "$desc" true
 
 
     $tasks_sh $action "$args" "$desc" 
@@ -81,10 +80,10 @@ read_lines(){
     do
 
             local str2="$count of $max"
-        if [[ $count -eq 1 ]];then
-
-            execute_line "$line" "$str2"
-        else
+#        if [[ $count -eq 1 ]];then
+#
+#            execute_line "$line" "$str2"
+#        else
 
             $( messageYN1 'continue to next task?' 'workflow efficiency:' )
             local result=$?
@@ -100,7 +99,7 @@ $tasks_sh motivation sport
                 break
             fi
 
-        fi
+#        fi
     done
     #flite 'end of workflow'
 

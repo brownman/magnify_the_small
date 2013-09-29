@@ -2,38 +2,48 @@
 # about file:
 # desc: talk to yourself and translate it
 #mkdir -p $CFG_DIR/essay
-
+#file_locker=/tmp/free_speak.lock
 file_essay='x'
 subject='x'
 
 random_line(){
 local str=''
-random1 20
-num=$?
-#notify-send $num
-if [ $num -eq 0 ];then
-    str+=$(generate_line reason)
-elif [ $num -eq 1 ];then
-    str+=$(generate_line noun)
-elif [ $num -eq 2 ];then
-    str+=$(generate_line adj)
-elif [ $num -eq 3 ];then
-    str+=$(generate_line 'time')
-elif [ $num -eq 4 ];then
-    str+=$(generate_line adv)
-elif [ $num -eq 5 ];then
-    str+=$(generate_line trigger)
-elif [ $num -eq 6 ];then
-    str+=$(generate_line task)
-elif [ $num -eq 7 ];then
-    str+=$(generate_line bake)
-elif [ $num -eq 8 ];then
-    str+=$(generate_line verb)
-else
-    str+=$(generate_line grammer)
+#random1 20
+#num=$?
+##notify-send $num
+#if [ $num -eq 0 ];then
+#    str+=$(generate_line reason)
+#elif [ $num -eq 1 ];then
+#    str+=$(generate_line noun)
+#elif [ $num -eq 2 ];then
+#    str+=$(generate_line adj)
+#elif [ $num -eq 3 ];then
+#    str+=$(generate_line 'time')
+#elif [ $num -eq 4 ];then
+#    str+=$(generate_line adv)
+#elif [ $num -eq 5 ];then
+#    str+=$(generate_line trigger)
+#elif [ $num -eq 6 ];then
+#    str+=$(generate_line task)
+#elif [ $num -eq 7 ];then
+#    str+=$(generate_line bake)
+#elif [ $num -eq 8 ];then
+#    str+=$(generate_line verb)
+#elif [ $num -eq 9 ];then
+#    str+=$(generate_line grammer)
+#elif [ $num -lt 15 ];then
+#    str+=$(generate_line higher_self)
+#else
+#    str+='robot: '
 
-fi
+#fi
 
+
+
+local subject=$(random_from_subject story)
+
+    str+=$(generate_line "$subject")
+#str='what do you want me to do'
 echo "$str"
 }
 
@@ -74,7 +84,7 @@ else
         fi
         str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "My $subject:" -file "$file")
 
-
+helper "$str" "$file"
 
         if [ "$str" = '' ];then
             echo01 "$line1" &
@@ -120,16 +130,19 @@ local str1=$(higher "$LANG_DEFAULT")
 }
 
 change_filename(){
-subject=$(pick_line subject)
+subject='robot'
+notify-send "$(pick_line subject)"
 
 #local str1='quiz'
 local        str=$( gxmessage  -entrytext "$subject" -title 'change file_name:' $GXMESSAGET 'new filename:' )
-subject="$str"
-file_essay=$(generate_file "$str")
-notify-send $file_essay
+
 if [ "$str" = '' ];then
     flite 'exiting'
     exiting
+else
+subject="$str"
+file_essay=$(generate_file "$str")
+notify-send $file_essay
 fi
      
         #file_essay="$str"
@@ -137,7 +150,10 @@ fi
 }
 
 
-
+run(){
 change_filename
 change_language
 memory_game 
+}
+unlocker free_speak
+

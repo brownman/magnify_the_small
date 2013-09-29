@@ -26,6 +26,11 @@ stop_watch1(){
 
 
      msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "higher self:" -entrytext "I can")
+     
+     if [ "$msg1" = 'delete' ];then
+echo -n '' > $file_now
+     fi
+
      local line="$date1: $msg1"
      notify-send "$line"
 update_file  "$file_now" "$line" 
@@ -57,7 +62,7 @@ echo01 "$msg1"
 
 reminder1(){
 trace "reminder got: $1"
-    local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'higher-self:' 'I will be happy if' )
+local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'higher-self:' 'remind to myself:')
 
 
     if [ "$line" != '' ];then

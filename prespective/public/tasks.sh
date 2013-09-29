@@ -6,58 +6,7 @@
 trace "tasks.sh got: "  
 trace "1: $1"  
 trace " 2:$2 3:$3 4: $4"  
-notify-send "$@"
-helper(){
-    export DEBUG=true
-    local result=''
-    local str='where do you desire to visit ?'
-    local title='imagine'
-    local file=$file_bake
-    local help="take_photo|"
-
-
-    local line=$(pick_line $file)
-        #local ans=$( gxmessage  -entrytext "$line"  $GXMESSAGET  -title "$title" -file "$file" )
-        #result=$(eval 'think "$ans"')
-    gxmessage "$line" $GXMESSAGET
-    flite "$line"
-    echo01 "$line"
-}
-think(){
-    local ans="$1"
-    if [ "$ans" = 'help' ];then
-            str="$help" 
-        elif  [ "$ans" = 'exit' ];then
-            flite 'breaking'
-            break
-        elif [ "$ans" = '' ];then
-            #$tasks_sh motivation 
-  flite 'breaking'
-            break
-        else
-
-
-            #result=$(commander "$ans")
-            notify-send "$ans"
-        fi
-        echo "$result"
-}
-#cake(){
-#
-#    $(random1 10)
-#
-#    local    ans=$?
-#    #echo "$ans"
-#
-#    notify-send "show_line:$ans"
-#    local ans1=$(fetching frame.cake)
-#
-#    local ans2=$(    cat "$file_recent" | head -2 )
-#    #echo "$ans1"
-#    echo "$ans2"
-#
-#}
-
+#notify-send "$@"
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -78,7 +27,7 @@ show_msg_entry(){
         str1="$str"
     fi
      
-    local msg=$( gxmessage -file $file_recent -entrytext "$str1" $GXMESSAGET  -title "$2"  )
+    local msg=$( gxmessage -file $file_recent -entrytext "$2" $GXMESSAGET  -title "$2"  )
     if [ "$msg" = '' ];then
         motivation glossary
     else
@@ -87,6 +36,18 @@ show_msg_entry(){
         echo01 "$msg"
         #flite "$msg"
     fi
+}
+regexp(){
+#http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02
+local exp=${1:-'\<c...h\>'}
+local file=/usr/share/dict/words
+local file_tmp=/tmp/regexp
+local res=$(grep "$exp" "$file")
+#gxmessage $GXMESSAGET "$res" -title "$exp"
+
+echo "$res" > $file_tmp
+local str=$(zenity1 "$file_tmp")
+echo01 "$str"
 }
 
 string_to_buttons(){
@@ -111,7 +72,7 @@ take_photo(){
 
 motivation(){
     file_name="$1"
-notify-send "motivation: $file_name : $MUTE"
+trace "motivation: $file_name : $MUTE"
     if [ "$MUTE" = false ];then
         random1 10
         ans=$?

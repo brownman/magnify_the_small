@@ -1,5 +1,5 @@
-date: 28.9.13
-day:  Sat 
+date: 29.9.13
+day:  Sun 
 frame:
         breakthrough: get-values breakthrough
         fears: get-values fears
@@ -12,8 +12,18 @@ frame:
         cake: get-values cake 
         tasks: get-values tasks
         quiz: get-values quiz 
+        story: get-values story 
 
-priorities:
+project:
+        - input field: shared -> use smarter robot
+        - stack trace -> pop-it up
+        - memory - quiz 
+        - tell the robot what to do - instruct or suspend game !
+
+js: 
+    angular:
+        - my searches - store
+        - israelis for other
 
 people:
         kuka: car
@@ -34,6 +44,12 @@ cake:
         - 1|tell a story
         - 1|read about physics
 
+story:
+        - 5|higher_self
+        - 2|grammer
+        - 2|koans
+        - 1|verb
+
 conditions:
         - if push koans - have confident
         - if accomplish task - give a present
@@ -41,8 +57,8 @@ conditions:
         - if suspend - update notebook
 
 workflow:
-        #- free_speak||your thoughts are unique
-        - show_msg_entry|frame.times|it is easy
+        - free_speak||your thoughts are unique
+        #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to
         #- show_msg_entry|frame.cake|it is the cake of priorities
 #        - show_msg_entry|frame.times|plan your time consuming
@@ -51,6 +67,10 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- cfg|random_from_subject|story|b|
+        - cfg|unpack_subject|to,cake|b|
+        #- tasks_sh|regexp|ion|a
+        #- tasks_sh|motivation|sport|a
         - cfg|remove_trailing| a  bc |a  bc   
         - tasks_sh|motivation|sport|a
         #- cfg|fetching|frame.cake|I am happy to|1

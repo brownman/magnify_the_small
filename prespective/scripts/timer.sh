@@ -1,14 +1,13 @@
 # about file:
-# choose a workflow to parse
-# run 
-#
+# choose a workflow , run serial.sh
+
 
 pushd `dirname $0` > /dev/null
 . loader.sh
 
 #export VERBOSE=true
 #export DEBUG=true
-export locker=/tmp/lock1
+#file_locker=/tmp/lock1
 
 
 workflow=''
@@ -21,7 +20,7 @@ fi
 
 trace   "waiting  $waiting"
 
-restart(){
+run(){
     while :;do
 
         
@@ -43,75 +42,23 @@ restart(){
 
 }
 
-generate(){
-    local name=$1
-local file=$CFG_DIR/cfg/${name}.cfg
-
-  #local result=$( parse_subject $name )
-    #echo "$result" > $file
-    #trace 'generated file:'
-#cat $file
-parse_subject $name $file
-}
-
 
 run_workflow(){
     
-  generate workflow
-generate cake
-baking
+  #generate_cfg 
+  unpack_subject from workflow
+  unpack_subject to story
+  unpack_subject to cake 
+  exiting
+
+#generate_cfg cake
+#generate_from_cfg cake
+#baking
 
     sleep1 5
     $SCRIPTS_DIR/serial.sh read_lines "$waiting"
 }
-unlock(){
-    local result1=0
-
-    if [ -e $locker ];then
-        echo -n  "file exist: "
-        red "$locker"
-        echo -n "assume proccess running: "
-        pids1=`cat $locker`
-        trace "$pids1"
-        msg2="kill running process ?"
-
-        #$( messageYN1  "$msg2" )
-
-
-        #result1="$?"
-        result1=1
-
-        trace "result: $result1"
-        if [[ $result1 -eq 1 ]];then
-            echo 'killing'
-            `rm $locker`
-            `kill -9 $pids1`
-            #./$0             #  Script recursively spawns a new instance of itself.
-        else
-            echo 'skipping'
-        fi
-
-    fi
-        #./$0
-    #else
-        trace 'create $locker'
-        touch $locker
-        echo $$ > $locker
-
-        #        while :;do
-        #
-        #           steps 
-        #            #$PROJECT_DIR/test.sh
-        #
-        #            #$PROJECT_DIR/serial.sh read_lines "$workflow_file" "$waiting"
-        #
-        #        done
-        restart
-
-
-}
-unlock
-
+unlocker timer 60
 popd > /dev/null
 exit 0
 

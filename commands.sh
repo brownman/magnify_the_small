@@ -31,6 +31,12 @@ sleep 3
 step2 "$ans1"
 }
 
+do_run_all(){
+xterm -e ./prespective/scripts/timer.sh & 
+xterm -e ./prespective/scripts/ensure_suspension.sh &
+xterm -e ./prespective/scripts/ensure_higher_self.sh & 
+}
+
 do_upload(){
 cd prespective/public
 export TIMERTXT_CFG_FILE=$PWD/cfg/user.cfg
