@@ -8,7 +8,7 @@ pushd `dirname $0` > /dev/null
 . loader.sh
 trace "test.sh got:" " $1 $2 $3"
 export VERBOSE=true
-#export DEBUG=true
+export DEBUG=true
 #$tasks_sh motivation glossary
 file_test=/tmp/testing
 

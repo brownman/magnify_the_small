@@ -68,7 +68,7 @@ workflow:
 
 testing:
         #- cfg|random_from_subject|story|b|
-        - cfg|unpack_subject|to,cake|b|
+        - cfg|unpack_subject|story|b|
         #- tasks_sh|regexp|ion|a
         #- tasks_sh|motivation|sport|a
         - cfg|remove_trailing| a  bc |a  bc   
