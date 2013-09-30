@@ -5,6 +5,7 @@
 #file_locker=/tmp/free_speak.lock
 file_essay='x'
 subject='x'
+file_locker=/tmp/free_speak
 
 random_line(){
 local str=''
@@ -155,5 +156,5 @@ change_filename
 change_language
 memory_game 
 }
-unlocker free_speak
+unlocker 
 

@@ -9,7 +9,7 @@ pushd `dirname $0` > /dev/null
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
 
-#file_locker=/tmp/lock3
+file_locker=/tmp/commitment
 timeout_for_reasoning=${1:-5}   # Defaults to /tmp dir.
 echo "going to run in $timeout_for_reasoning seconds"
 run(){
@@ -18,7 +18,7 @@ $tasks_sh commitment
 }
 
 
-unlocker reminder 60
+unlocker 60
 popd > /dev/null
 exit
 

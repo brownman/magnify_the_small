@@ -33,7 +33,9 @@ step2 "$ans1"
 
 do_run_all(){
 xterm -e ./prespective/scripts/timer.sh & 
+sleep1 5
 xterm -e ./prespective/scripts/ensure_suspension.sh &
+sleep1 5
 xterm -e ./prespective/scripts/ensure_higher_self.sh & 
 }
 

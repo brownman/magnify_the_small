@@ -3,7 +3,7 @@
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
 #. $TIMERTXT_CFG_FILE
-#file_locker=/tmp/translation.lock
+file_locker=/tmp/translation
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
@@ -405,4 +405,4 @@ else
     help1 "$help_options"
 fi
 }
-unlocker translation 5 false 
+unlocker  5 true 

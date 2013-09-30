@@ -19,23 +19,24 @@ show_msg(){
     echo "$msg"
 }
 show_msg_entry(){
-    trace 'show_msg_entry' "show_msg_entry $1: $2"
-    #local str=$(pick_line $CFG_DIR/txt/glossary.txt )
-    local str=$(cat $file_recent | head -1)
-    str1=$( echo $str | awk -F '|' '{print $2}' )
-    if [ "$str1" = '' ];then
-        str1="$str"
-    fi
-     
-    local msg=$( gxmessage -file $file_recent -entrytext "$2" $GXMESSAGET  -title "$2"  )
+
+    trace 'show_msg_entry' "show_msg_entry subject : $1"
+    notify-send 'show_msg_entry' "show_msg_entry - subject: $1"
+    local subject="$1"
+    parse_subject "$subject"
+    local file=$(get_filename $subject)
+    notify-send "FILE RECENT" "$file"
+    local str1=$(cat $file | head -1)
+    local msg=$( gxmessage -file $file -entrytext "$str1" $GXMESSAGET  -title "$subject"  )
     if [ "$msg" = '' ];then
         motivation glossary
     else
         trace 'echo 01'
         echo "$msg" >> $CFG_DIR/txt/easy.txt
-        echo01 "$msg"
+        echo01 "$msg" &
         #flite "$msg"
     fi
+    echo "$msg"
 }
 regexp(){
 #http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02

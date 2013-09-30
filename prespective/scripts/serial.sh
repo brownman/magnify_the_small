@@ -39,16 +39,18 @@ parse_line(){
     local     action=$( echo "$line" | awk -F '|' '{print $1}' )
     local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
     local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
-    local    args=''
+    #local    args=''
 if [ "$args0" != '' ];then
-    args=$( fetching "$args0" )
+    #args=$( fetching "$args0" )
+    parse_subject  "$args0" 
 fi
 
     notify-send "TASK: $msg" "$desc"
    #flite "$desc" true
 
 
-    $tasks_sh $action "$args" "$desc" 
+    $tasks_sh $action "$args0"
+    #"$desc" 
 
 }
 
@@ -80,10 +82,10 @@ read_lines(){
     do
 
             local str2="$count of $max"
-#        if [[ $count -eq 1 ]];then
-#
-#            execute_line "$line" "$str2"
-#        else
+        if [[ $count -eq 1 ]];then
+
+            execute_line "$line" "$str2"
+        else
 
             $( messageYN1 'continue to next task?' 'workflow efficiency:' )
             local result=$?
@@ -99,7 +101,7 @@ $tasks_sh motivation sport
                 break
             fi
 
-#        fi
+        fi
     done
     #flite 'end of workflow'
 

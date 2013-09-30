@@ -20,18 +20,11 @@ project:
         - memory - quiz 
         - tell the robot what to do - instruct or suspend game !
 
-js: 
-    angular:
-        - my searches - store
-        - israelis for other
 
-people:
-        kuka: car
-        matan: phone
-        ima: shoes
 
 tasks:
-        - bring her from the city 
+        - find what is their phone number
+        - call Elia
 
 times:
         - 15:00 - 16:00 - push koans + increase motivation
@@ -45,6 +38,7 @@ cake:
         - 1|read about physics
 
 story:
+        - 10|adj
         - 5|higher_self
         - 2|grammer
         - 2|koans
@@ -57,6 +51,7 @@ conditions:
         - if suspend - update notebook
 
 workflow:
+        - show_msg_entry|tasks|on next suspension I can
         - free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to
@@ -67,6 +62,7 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- tasks_sh|show_msg_entry|tasks|d
         #- cfg|random_from_subject|story|b|
         - cfg|unpack_subject|story|b|
         #- tasks_sh|regexp|ion|a
@@ -96,5 +92,14 @@ testing:
         - tasks_sh|random_quote|a|b
         - tasks_sh|free_speak|a|b
         - cfg|unlocker|/tmp/1|1
-        - tasks_sh|show_msg_entry|dog|d
 
+
+js: 
+    angular:
+        - my searches - store
+        - israelis for other
+
+people:
+        kuka: car
+        matan: phone
+        ima: shoes

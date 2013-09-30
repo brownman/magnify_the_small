@@ -1,15 +1,21 @@
-15:46: 
-15:46: call him
-15:03: 
-15:03: I can
-15:03: I can
-15:03: 
-15:03: 
-15:03: 
-15:03: fix the problem
-14:07: 
-14:07: 
-14:07: I can push the Koans
-12:12: exit
-12:12: I can push Koans for 5 minutes
-12:12: delete
+10:23: bring it now
+10:16: 
+10:16: 
+10:16: bring the phone number
+09:34: 
+09:34: 
+09:34: 
+09:34: what is their number
+08:53: 
+08:53: 
+08:53: 
+08:44: exit
+08:53: 
+08:44: 
+08:53: 
+08:44: check for their number
+08:53: 
+08:44: 
+08:53: do it
+08:44: do the first task
+08:53: delete!

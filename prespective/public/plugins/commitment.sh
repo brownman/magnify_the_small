@@ -21,15 +21,15 @@ stop_watch1(){
 
         m=$((c%every))
         if [[ $m -eq 0  ]];then
-            local title="commitment"
+            local title="easiest task:"
             local buttons1="$c/$long"
 
 
-     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "higher self:" -entrytext "I can")
-     
-     if [ "$msg1" = 'delete' ];then
-echo -n '' > $file_now
-     fi
+     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "$msg1")
+    helper "$msg1" "$file_now"
+#     if [ "$msg1" = 'delete' ];then
+#echo -n '' > $file_now
+#     fi
 
      local line="$date1: $msg1"
      notify-send "$line"
@@ -53,7 +53,7 @@ echo01 "$msg1"
         sleep 1s
     done
 
-    echo0 "$msg"
+    #echo0 "$msg"
 
 
     
@@ -62,7 +62,13 @@ echo01 "$msg1"
 
 reminder1(){
 trace "reminder got: $1"
-local line=$( gxmessage  $GXMESSAGET -entrytext "$1" -title 'higher-self:' 'remind to myself:')
+
+
+local msg="tell the robot"
+
+local title="higher-self"
+local entry1="$1"
+local line=$( gxmessage  $GXMESSAGET -entrytext "$entry1" -title "$title" "$msg" )
 
 
     if [ "$line" != '' ];then

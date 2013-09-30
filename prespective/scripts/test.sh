@@ -8,10 +8,11 @@ pushd `dirname $0` > /dev/null
 . loader.sh
 trace "test.sh got:" " $1 $2 $3"
 export VERBOSE=true
-export DEBUG=true
+#export DEBUG=true
 #$tasks_sh motivation glossary
+result='equal'
 file_test=/tmp/testing
-
+file_locker='/tmp/test'
 #trace "PWD: $PWD"
 plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
@@ -30,8 +31,17 @@ tasks_sh(){
 test_yaml(){
     trace "$tasks_sh"
     #local line=$( $tasks_sh fetch 'frame.testing')
-    local line=`fetching 'frame.testing'`
+
+parse_subject testing
+local filename=$(get_filename testing)
+
+    local line=`cat $filename | head -1`
+
+
+
+
     trace 'result line' "$line" 
+    notify-send 'result line' "$line" 
     if [ "$line" != '' ];then
         #trace "-$line-"
         #echo "$res"
@@ -74,70 +84,81 @@ test_yaml(){
     #http://tldp.org/LDP/abs/html/comparison-ops.html
     #http://stackoverflow.com/questions/3265803/bash-string-equality
 }
+#
+#smoke(){
+#    trace 'do what serial.sh does'
+#
+#
+#    line='show_msg|frame.should|I should do'
+#
+#    echo "$line "
+#    action=$( echo $line | awk -F '|' '{print $1}' )
+#    args0=$( echo $line | awk -F '|' '{print $2}' )
+#    if [ "$arg0" != '' ];then
+#        args=$($tasks_sh fetch "$args0")
+#    else
+#        args=''
+#    fi
+#    echo "$args0"
+#    exit
+#    desc=$( echo $line | awk -F '|' '{print $3}' )
+#    notify-send "TASK: $desc" "$args"
+#    $tasks_sh "$action" "$args" "$desc" 
+##}
+#plugin(){
+#
+#
+#    trace "think() got: plugin:$1 method:$2 arg:$3"
+#
+#    local plugin_name="$1"
+#    local cmd=$PLUGINS_DIR/$plugin_name.sh
+#    local method="$2"
+#    local arg="$3"
+#
+#    local ans=$($cmd  "$method" "$arg")
+#    echo "$ans"
+#
+#    #result=$?
+#    #echo "$result"
+#}
+#
+##test_plugin "$1" "$2" "$3" 
+#test_serial(){
+#    args0='frame.should'
+#    #args=$($PLUGINS_DIR/yaml_parser.sh fetch "$args0")
+#    action='show_msg_entry'
+#    desc='title abc'
+#    $tasks_sh "$action" "$args" "$desc" 
+#}
+#test_task(){
+#    $tasks_sh take_photo
+#    echo 'am i dirty?'
+##}
+#arr=(1 2)
+#
+#make_array(){
+#    #arr=( ${arr[@]/1/} )
+#
+#    arr=($(echo '1 2 3'))
+#}
+#show_array1(){
+#    echo "before: ${arr[@]}"
+#    make_array
+#    echo "after: ${arr[@]}"
+#}
+run(){
 
-smoke(){
-    trace 'do what serial.sh does'
+ result=$(test_yaml)
 
-
-    line='show_msg|frame.should|I should do'
-
-    echo "$line "
-    action=$( echo $line | awk -F '|' '{print $1}' )
-    args0=$( echo $line | awk -F '|' '{print $2}' )
-    if [ "$arg0" != '' ];then
-        args=$($tasks_sh fetch "$args0")
-    else
-        args=''
-    fi
-    echo "$args0"
-    exit
-    desc=$( echo $line | awk -F '|' '{print $3}' )
-    notify-send "TASK: $desc" "$args"
-    $tasks_sh "$action" "$args" "$desc" 
+#echo "$result"
 }
-plugin(){
+unlocker test
+echo "$result"
+
+#echo $(unlocker test)
 
 
-    trace "think() got: plugin:$1 method:$2 arg:$3"
-
-    local plugin_name="$1"
-    local cmd=$PLUGINS_DIR/$plugin_name.sh
-    local method="$2"
-    local arg="$3"
-
-    local ans=$($cmd  "$method" "$arg")
-    echo "$ans"
-
-    #result=$?
-    #echo "$result"
-}
-
-#test_plugin "$1" "$2" "$3" 
-test_serial(){
-    args0='frame.should'
-    args=$($PLUGINS_DIR/yaml_parser.sh fetch "$args0")
-    action='show_msg_entry'
-    desc='title abc'
-    $tasks_sh "$action" "$args" "$desc" 
-}
-test_task(){
-    $tasks_sh take_photo
-    echo 'am i dirty?'
-}
-arr=(1 2)
-
-make_array(){
-    #arr=( ${arr[@]/1/} )
-
-    arr=($(echo '1 2 3'))
-}
-show_array1(){
-    echo "before: ${arr[@]}"
-    make_array
-    echo "after: ${arr[@]}"
-}
-
-eval $1 '"$2" "$3" "$4"'
+#eval $1 '"$2" "$3" "$4"'
 popd > /dev/null
 
 

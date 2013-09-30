@@ -7,13 +7,14 @@ pushd `dirname $0` > /dev/null
 
 #export VERBOSE=true
 #export DEBUG=true
-#file_locker=/tmp/lock1
+file_locker=/tmp/timer
 
 
 workflow=''
 workflow_d=''
 
 export waiting=${1:-60}   # Defaults to /tmp dir.
+export DEBUG=${2:-false}   # Defaults to /tmp dir.
 if [ $DEBUG = true ];then
  waiting=5
 fi
@@ -44,12 +45,13 @@ run(){
 
 
 run_workflow(){
-    
+parse_subject workflow
+parse_subject story
+parse_subject cake
   #generate_cfg 
-  unpack_subject from workflow
-  unpack_subject to story
-  unpack_subject to cake 
-  exiting
+  #unpack_subject  workflow
+  unpack_subject  story
+  unpack_subject  cake 
 
 #generate_cfg cake
 #generate_from_cfg cake
@@ -58,7 +60,7 @@ run_workflow(){
     sleep1 5
     $SCRIPTS_DIR/serial.sh read_lines "$waiting"
 }
-unlocker timer 60
+unlocker 60
 popd > /dev/null
 exit 0
 
