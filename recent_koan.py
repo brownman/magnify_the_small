@@ -1,1 +1,1 @@
-testing/python2/koans/about_modules.py
+testing/python2/koans/about_packages.py

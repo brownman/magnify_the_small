@@ -41,9 +41,25 @@ local str=''
 
 
 
-local subject=$(random_from_subject story)
-
+local subject=''
+subject=$(random_from_subject story)
     str+=$(generate_line "$subject")
+    str+=' '
+    
+ subject=$(random_from_subject story)
+    str+=$(generate_line "$subject")
+    str+=' '
+
+ subject=$(random_from_subject story)
+    str+=$(generate_line "$subject")
+    str+=' '
+
+ subject=$(random_from_subject story)
+    str+=$(generate_line "$subject")
+    str+=' '
+
+
+
 #str='what do you want me to do'
 echo "$str"
 }
@@ -156,5 +172,6 @@ change_filename
 change_language
 memory_game 
 }
-unlocker 
+#unlocker 
+run
 

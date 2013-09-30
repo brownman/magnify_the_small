@@ -15,15 +15,14 @@ frame:
         story: get-values story 
 
 project:
-        - input field: shared -> use smarter robot
-        - stack trace -> pop-it up
-        - memory - quiz 
-        - tell the robot what to do - instruct or suspend game !
-
+        - website - keep searches
 
 
 tasks:
-        - find what is their phone number
+        - parents - printing for scolarship
+        - update tasks
+
+done:
         - call Elia
 
 times:
@@ -38,11 +37,13 @@ cake:
         - 1|read about physics
 
 story:
-        - 10|adj
-        - 5|higher_self
-        - 2|grammer
-        - 2|koans
+        #- 10|adj
+        #- 5|higher_self
+        - 1|person
         - 1|verb
+        - 1|relation
+        #- 2|koans
+
 
 conditions:
         - if push koans - have confident
@@ -64,7 +65,7 @@ workflow:
 testing:
         #- tasks_sh|show_msg_entry|tasks|d
         #- cfg|random_from_subject|story|b|
-        - cfg|unpack_subject|story|b|
+        #- cfg|unpack_subject|story|b|
         #- tasks_sh|regexp|ion|a
         #- tasks_sh|motivation|sport|a
         - cfg|remove_trailing| a  bc |a  bc   

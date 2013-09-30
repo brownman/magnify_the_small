@@ -13,6 +13,7 @@ export VERBOSE=true
 result='equal'
 file_test=/tmp/testing
 file_locker='/tmp/test'
+delay=5
 #trace "PWD: $PWD"
 plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
@@ -152,7 +153,8 @@ run(){
 
 #echo "$result"
 }
-unlocker test
+#unlocker test
+run
 echo "$result"
 
 #echo $(unlocker test)

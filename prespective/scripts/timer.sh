@@ -8,7 +8,7 @@ pushd `dirname $0` > /dev/null
 #export VERBOSE=true
 #export DEBUG=true
 file_locker=/tmp/timer
-
+delay=30
 
 workflow=''
 workflow_d=''
@@ -60,7 +60,7 @@ parse_subject cake
     sleep1 5
     $SCRIPTS_DIR/serial.sh read_lines "$waiting"
 }
-unlocker 60
+unlocker
 popd > /dev/null
 exit 0
 
