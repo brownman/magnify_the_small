@@ -326,11 +326,19 @@ printing1(){
     local line2=`cat $file_txt | head -2 | tail -1`
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
-        if [[ $lang = he  ||  $lang = hi ]];
-        then
-            notify-send $TIMEOUT_NS "$line2" "$line1"   
+   
+        if [ "$SILENT" = false ];then
+                 if [ "$lang" = ru ];then
+                        notify-send $TIMEOUT_NS "$line2" "$line1"   
+                 fi
         else
-            notify-send $TIMEOUT_NS "$line1"
+                 if [[ "$lang" = he  ||  "$lang" = hi ]];
+                then
+                    notify-send $TIMEOUT_NS "$line2" "$line1"   
+                else
+                    notify-send $TIMEOUT_NS "$line1"
+                fi
+
         fi
 
 

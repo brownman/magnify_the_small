@@ -26,7 +26,7 @@ cfg(){
 tasks_sh(){
 
     trace "tasks_sh run: 1:$1 2:$2 3:$3"
-    notify-send "tasks_sh run: 1:$1 2:$2 3:$3"
+    #notify-send "tasks_sh run: 1:$1 2:$2 3:$3"
     $tasks_sh "$1" "$2" "$3"
 }
 test_yaml(){
@@ -42,7 +42,7 @@ local filename=$(get_filename testing)
 
 
     trace 'result line' "$line" 
-    notify-send 'result line' "$line" 
+    #notify-send 'result line' "$line" 
     if [ "$line" != '' ];then
         #trace "-$line-"
         #echo "$res"
