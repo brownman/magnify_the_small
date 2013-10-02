@@ -13,7 +13,7 @@
 website
 .old
 picture
-.cfg
+*.cfg
 ./recent_koan.py
 ./.old/today/website/code/anti_pattern_website/.meteor/local/build/server/node_modules
 ./.old/today/website/code/anti_pattern_website/.meteor/meteorite/packages/angularjs
