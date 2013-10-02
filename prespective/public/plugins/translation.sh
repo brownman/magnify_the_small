@@ -8,7 +8,7 @@ help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
-silence1=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
+silent=${4:-"$SILENT"} #"$3" #false #export MULTIPLE_LANGS=true
 
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
@@ -39,7 +39,7 @@ play1(){
     trace "play1() got: "
     trace "$1 | $2"
 
-    if [ "$silence1" = false ];then
+    if [ "$silent" = false ];then
 
         local file="$1"
 

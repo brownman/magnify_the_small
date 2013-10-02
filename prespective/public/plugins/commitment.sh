@@ -26,28 +26,7 @@ stop_watch1(){
 
 
      msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "$msg1")
-    helper "$msg1" "$file_now"
-#     if [ "$msg1" = 'delete' ];then
-#echo -n '' > $file_now
-#     fi
-
-     local line="$date1: $msg1"
-     notify-send "$line"
-update_file  "$file_now" "$line" 
-echo01 "$msg1"
-#
-#            if [ "$show_buttons" = 'true' ];then
-#                local res=$( $tasks_sh string_to_buttons "$msg" '-')
-#
-#
-#             if [ "$res" = 'Q' ];then
-#                 reminder1
-#             else
-#notify-send 'reminder got nothing'
-#                echo0 "$res"
-#             fi
-#
-#            fi
+    helper0 "$msg1" "$file_now"
         fi
         echo -n "$c "
         sleep 1s

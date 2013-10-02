@@ -131,3 +131,9 @@ find what is their phone number
 call Elia
 call Elia
 call Elia
+motivation time
+open notebook
+open the notebook
+notebook
+update the notebook
+exit!

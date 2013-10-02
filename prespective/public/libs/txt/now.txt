@@ -1,27 +1,10 @@
-13:17: 
-13:17: 
-13:17: lay down and rest for 10 minutes
-12:46: 
-12:46: 
-12:46: do something
-10:23: bring it now
-10:16: 
-10:16: 
-10:16: bring the phone number
-09:34: 
-09:34: 
-09:34: 
-09:34: what is their number
-08:53: 
-08:53: 
-08:53: 
-08:44: exit
-08:53: 
-08:44: 
-08:53: 
-08:44: check for their number
-08:53: 
-08:44: 
-08:53: do it
-08:44: do the first task
-08:53: delete!
+write a new c.v
+write a new c.v
+write a new c.v
+what can I do for you
+go and wash the dishes
+go and wash the dishes
+go and wash the dishes
+go and wash the dishes
+stay happy
+09:24: delete!
