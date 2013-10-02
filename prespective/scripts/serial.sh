@@ -6,7 +6,7 @@
 
 
 
-notify-send "serial.sh got: 1:$1 2:$2"
+trace "serial.sh got: 1:$1 2:$2"
 
 increase_efficiency(){
     count="$1"
