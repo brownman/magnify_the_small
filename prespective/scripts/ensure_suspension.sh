@@ -21,7 +21,8 @@ run(){
 sleep1 $timeout_for_suspension 
 $tasks_sh suspend1
 }
-unlocker 
+#unlockers
+run
 popd > /dev/null
 exit
 
