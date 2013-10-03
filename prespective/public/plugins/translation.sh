@@ -8,7 +8,8 @@ help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
-silent=${4:-"$SILENT"} #"$3" #false #export MULTIPLE_LANGS=true
+silence=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
+notify-send "$silence : silence"
 
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
@@ -39,7 +40,7 @@ play1(){
     trace "play1() got: "
     trace "$1 | $2"
 
-    if [ "$silent" = false ];then
+    if [ "$silence" = false ];then
 
         local file="$1"
 
@@ -327,7 +328,7 @@ printing1(){
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
    
-        if [ "$SILENT" = false ];then
+        if [ "$SILENCE" = false ];then
                  if [ "$lang" = ru ];then
                         notify-send $TIMEOUT_NS "$line2" "$line1"   
                  fi

@@ -45,14 +45,6 @@ run(){
 
 
 run_workflow(){
-parse_subject workflow
-parse_subject story
-parse_subject cake
-  #generate_cfg 
-  #unpack_subject  workflow
-  unpack_subject  story
-  unpack_subject  cake 
-
 #generate_cfg cake
 #generate_from_cfg cake
 #baking

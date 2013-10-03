@@ -2,18 +2,26 @@
 
 # about file:
 # test the first test listen on blank.yaml:testing
-
+#http://www.thegeekstuff.com/2010/10/expect-examples/#more-6218
 pushd `dirname $0` > /dev/null
 
+notify-send 'test.sh'
 . loader.sh
 trace "test.sh got:" " $1 $2 $3"
 export VERBOSE=true
 #export DEBUG=true
-#$tasks_sh motivation glossary
+cmd1='$tasks_sh motivation glossary'
+
+
+
+#exec "$@" &> /dev/null &
+eval "$cmd1" &> /dev/null &
+
+#exiting
 result='equal'
 file_test=/tmp/testing
 file_locker='/tmp/test'
-delay=5
+delay=10
 #trace "PWD: $PWD"
 plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
@@ -31,17 +39,22 @@ tasks_sh(){
 }
 test_yaml(){
     trace "$tasks_sh"
-    #local line=$( $tasks_sh fetch 'frame.testing')
 
-parse_subject testing
-local filename=$(get_filename testing)
+local filename=$(get_filename1 tmp testing )
 
     local line=`cat $filename | head -1`
 
 
 
 
-    trace 'result line' "$line" 
+
+    #breakpoint
+
+
+
+    trace   "$filename" 
+    trace   "$line" 
+    #tracex  'testing.0:' "$line" 
     #notify-send 'result line' "$line" 
     if [ "$line" != '' ];then
         #trace "-$line-"
@@ -152,9 +165,12 @@ run(){
  result=$(test_yaml)
 
 #echo "$result"
+#flite 'sleep 10 seconds'
+#sleep1 4
 }
 #unlocker test
-run
+#run
+unlocker
 echo "$result"
 
 #echo $(unlocker test)

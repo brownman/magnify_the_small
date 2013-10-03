@@ -18,29 +18,33 @@ show_msg(){
     #commitment "$msg"
     echo "$msg"
 }
-show_msg_entry(){
-
-    trace 'show_msg_entry' "show_msg_entry subject : $1"
-    notify-send 'show_msg_entry' "show_msg_entry - subject: $1"
-    local subject="$1"
-    parse_subject "$subject"
-    local file=$(get_filename $subject)
-    notify-send "FILE RECENT" "$file"
-    local str1=$(cat $file | head -1)
-    local msg=$( gxmessage -file $file -entrytext "$str1" $GXMESSAGET  -title "$subject"  )
-    if [ "$msg" = '' ];then
-        motivation glossary
-    else
-        trace 'echo 01'
-        echo "$msg" >> $CFG_DIR/txt/easy.txt
-        echo01 "$msg" &
-        #flite "$msg"
-    fi
-    echo "$msg"
-}
-regexp(){
+#show_msg_entry(){
+#
+#    trace 'show_msg_entry' "show_msg_entry subject : $1"
+#    notify-send 'show_msg_entry' "show_msg_entry - subject: $1"
+#    local subject="$1"
+#    #parse_subject "$subject"
+#    local file=$(get_filename1 $subject)
+#    notify-send "FILE RECENT" "$file"
+#    local str1=$(cat $file | head -1)
+#    local msg=$( gxmessage -file $file -entrytext "$str1" $GXMESSAGET  -title "$subject"  )
+#    if [ "$msg" = '' ];then
+#        motivation glossary
+#    else
+#        trace 'echo 01'
+#        echo "$msg" >> $CFG_DIR/txt/easy.txt
+#        echo01 "$msg" &
+#        #flite "$msg"
+#    fi
+#    echo "$msg"
+#}
+practice_regexp(){
 #http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02
+
 local exp=${1:-'\<c...h\>'}
+
+exp=$(gxmessage $GXMESSAGET -entrytext "$exp" -title 'practice!' 'Enter RegExp:' )
+
 local file=/usr/share/dict/words
 local file_tmp=/tmp/regexp
 local res=$(grep "$exp" "$file")

@@ -1,6 +1,9 @@
 date: 3.10.13
 day:  Thu 
 
+project:
+        - my interpeter.sh
+
 done:
         - call Elia
 
@@ -39,7 +42,8 @@ conditions:
 
 workflow:
         #- regexp|tasks|on next suspension I can
-        - show_msg_entry|tasks|on next suspension I can
+        - practice_regexp||practice
+        #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to

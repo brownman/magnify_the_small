@@ -12,7 +12,7 @@ pushd `dirname $0` > /dev/null
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
 
-timeout_for_suspension=${1:-240}   # Defaults to /tmp dir.
+timeout_for_suspension=${1:-440}   # Defaults to /tmp dir.
 echo "going to sleep in $timeout_for_suspension seconds"
 
 file_locker='/tmp/suspend'

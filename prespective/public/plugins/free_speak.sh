@@ -6,7 +6,7 @@
 file_essay='x'
 subject='x'
 file_locker=/tmp/free_speak
-
+notify-send "free-speak" "$0"
 random_line(){
 local str=''
 random1 20
@@ -61,7 +61,7 @@ memory_game(){
     #file_name=${1:-'essay'}
     trace 'memory game'
     local file=$file_essay
-            echo01 'how to say' & 
+            echo01 "why $subject is so awesome" & 
     dir=$CFG_DIR/essay/$LANG_DEFAULT
     mkdir -p $dir
     #local file=$dir/$file_essay.txt
@@ -113,11 +113,13 @@ local str1=$(higher "$LANG_DEFAULT")
 }
 
 change_filename(){
-subject='robot'
-notify-send "$(pick_line subject)"
+#subject='my_day'
+notify-send 
 
-#local str1='quiz'
-local        str=$( gxmessage  -entrytext "$subject" -title 'change file_name:' $GXMESSAGET 'new filename:' )
+
+subject=$(choose_line1  'subject')
+
+local        str=$( gxmessage  -entrytext "$subject" -title 'pick a subject:' $GXMESSAGET 'new filename:' )
 
 if [ "$str" = '' ];then
     flite 'exiting'
@@ -128,8 +130,6 @@ file_essay=$(generate_file "$str")
 notify-send $file_essay
 fi
      
-        #file_essay="$str"
-        #echo "$file_essay"
 }
 
 
