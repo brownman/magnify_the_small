@@ -1,5 +1,5 @@
-date: 2.10.13
-day:  Wed 
+date: 3.10.13
+day:  Thu 
 
 done:
         - call Elia
@@ -87,7 +87,6 @@ testing:
 
 
 js: 
-    angular:
         - my searches - store
         - israelis for other
 
