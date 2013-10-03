@@ -1,0 +1,13 @@
+#!/bin/bash
+#add focalprice listing
+url1=http://search.focalprice.com/search?keyword=gps&categoryid=&orderby=reviews
+url2=http://search.focalprice.com/search?keyword=android&categoryid=&orderby=reviews
+
+step1(){
+xdg-open $url1
+}
+
+step1
+#add focalprice listing
+#add focalprice listing
+#add focalprice listing

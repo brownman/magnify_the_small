@@ -1,0 +1,13 @@
+#find lenovo stand for the car
+#find lenovo stand for the car
+#find lenovo stand for the car
+- shoping:
+	- url: http://www.bigdeal.co.il/categorycampaigns.aspx?categoryid=3&subcategoryid=-1&sId=69
+	- desc: ynet - deals 27% 
+- search:
+	- android + stand + lenovo + smartphone
+
+- results:
+	- url1=http://search.focalprice.com/search?keyword=gps&categoryid=&orderby=reviews
+	- url2=http://search.focalprice.com/search?keyword=android&categoryid=&orderby=reviews
+#buy android stand

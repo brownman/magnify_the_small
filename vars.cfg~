@@ -1,0 +1,124 @@
+#configuration file
+#kill:
+#http://www.linuxcommand.org/lts0080.php#listing_your_processes
+#user.cfg
+#http://www.grymoire.com/Unix/Regular.html#uh-8
+#http://www.mpi-inf.mpg.de/departments/rg1/teaching/unixffb-ss98/quoting-guide.html#para:sh-golden-rules
+#http://fvue.nl/wiki/Bash:_Why_use_eval_with_variable_expansion%3F
+######################env - important ##########################
+#Before the shell executes a command, it performs the following operations (check the manual for details):
+#Syntax analysis (Parsing)
+#Brace expansion
+#Tilde expansion
+#Parameter and variable expansion
+#Command substitution
+#Arithmetic expansion
+#Word splitting
+#Filename expansion
+#Quote removal
+
+#dir
+
+
+
+#export SILENCE=false
+export SILENCE=false
+
+#export GENTLE=true
+export GENTLE=false
+
+#export COMMANDER=true
+export COMMANDER=false
+export QUIZ=true
+export DEBUG=false 
+export PAUSE=true 
+#export DEBUG=true #commander,sleep 5
+#export LANG_NAME=ru
+export LANG_NUM=10
+export LANG_DEFAULT='ru' #ru
+#export MUTE=true
+export MUTE=false
+export motivation_sleeping=20
+export TIME_STR='0:20 =0:35 -5'
+export TIMEOUT_NS='-t 30000' #for translation.sh|printing
+export REPORT=false
+#export DEBUG=true
+export VERBOSE=false
+export SHOW_BUTTONS=true
+
+##################################  global vars##################
+
+export date1="$(date +%H:%M)"
+export PLAYING_ON=false
+#export LANG_ESSAY=ru
+#export color_arr1=( blue green red black )
+#export GUI='true'
+#audio
+export SILENCE_FETCH=false
+
+export TRANSLATE=true
+#timing
+export TIMEOUT1=20
+export TIMEOUT_LET_ME_SLEEP=60
+#export LESSON=14
+export SLEEP=30
+#export GXMESSAGE1=echo  -ontop -sticky -timeout 10 -buttons \'last task is: "$last_task"\' "message1"
+export GXMESSAGE0='-wrap -ontop -sticky -timeout 60'
+export GXMESSAGET=' -ontop -sticky -timeout 30'
+#GXMESSAGE1="-nofocus -wrap -ontop -sticky -timeout 20"
+#GXMESSAGE0="-nofocus -wrap -ontop -sticky"
+export ICONIC='' 
+#export ICONIC='-iconic'
+#export SLEEPS=15
+
+export SUSPEND=true
+
+#export INPUT_THANKS=true
+
+#install
+
+export PROJECT_DIR=~/.magnify_the_small/prespective
+export SCRIPTS_DIR=$PROJECT_DIR/scripts
+export PUBLIC_DIR=$PROJECT_DIR/public
+
+export PLUGINS_DIR=$PUBLIC_DIR/plugins
+export CFG_DIR=$PUBLIC_DIR/libs
+
+export PRIVATE_DIR=/tmp
+export TODAY_DIR=/tmp
+
+
+
+#sh
+export tasks_sh=$PUBLIC_DIR/tasks.sh
+#yaml
+export file_data=$CFG_DIR/yaml/blank.yaml
+#export file_report=$CFG_DIR/yaml/report.yaml
+export file_log=$CFG_DIR/yaml/log.yaml
+#cfg
+export file_workflow=$CFG_DIR/cfg/workflow.cfg
+#export file_cake=$CFG_DIR/cfg/cake.cfg
+
+#txt
+export file_now=$CFG_DIR/txt/now.txt
+export file_glossary=$CFG_DIR/txt/glossary.txt
+#export file_bake=$CFG_DIR/txt/bake.txt
+export file_memory=$CFG_DIR/txt/memory.txt
+export file_assosiation=$CFG_DIR/txt/assosiation.txt
+
+
+
+
+
+
+#cache
+export dir_html=/TORRENTS/html
+export dir_txt=/TORRENTS/txt
+export dir_mp3=/TORRENTS/mp3
+
+#txt
+#export file_recent=/tmp/recent.txt
+
+
+
+touch $file_now

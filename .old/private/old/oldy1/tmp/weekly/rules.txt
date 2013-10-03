@@ -1,0 +1,37 @@
+motivation:
+-----------
+for maximum focus: restrict yourself !
+I Know What To Do Next !
+
+Product aday:
+----------------
+1  essay with translation -> blogging
+2. code -> github
+
+Order:
+-----------------
+0. eat+medicine | for Shlava
+1. order around house
+2. whiteboard, notebook : publish to blog
+3. schedules - update and send Kuka
+4. run computer with suspension
+5. on suspend - update notebook - do 1 task
+
+
+project structure:
+-----------------
+1. imagine.sh -->  menu.sh			| default my flying to a good path !
+2. suspend -> power on and doing 1 task		| make more points !
+3. facing hard task -> motivation.sh		| have profit !
+
+
+Workflow:
+---------------------
+1. set workflow upon your maturity status: baby/child/grownup..
+
+
+efficiency:
+-----------
+1. measure by scoring
+
+

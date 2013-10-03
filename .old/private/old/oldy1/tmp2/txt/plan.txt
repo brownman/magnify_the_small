@@ -1,0 +1,7 @@
+plan a day:
+--------------------------
+1. make schedules
+2. update people
+3. add ideas
+4. set workflow
+5. update blog from cli

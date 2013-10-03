@@ -1,0 +1,4 @@
+PRIORITIES:
+sync Kuka's phone
+
+

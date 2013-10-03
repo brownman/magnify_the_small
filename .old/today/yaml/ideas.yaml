@@ -1,0 +1,61 @@
+- first_gxmessage:
+	- 1.goal of the day
+
+	- 2.next easy task
+	- 3.words learned today
+	- 4.essay/tweet of the day
+	- questions:
+		- llvm ?
+		- low_level_asm ?
+
+- car_mp3:
+	- ○ → youtube-dl https://www.youtube.com/watch?v=C9PBsVsG_80 --extract-audio
+
+- product_aday:
+	- imagine what you want to c when the day ends.
+
+
+- workflow:
+	- efficiency:
+		- first_task:
+			- show all tasks - as buttons - that can execute the task directly	
+	- tasks:
+		- 1. plugins:
+			- whiteboard:
+				- show a picture of the whiteboard - from Blogger + write on the whiteboard - in past tense - imagine that u already did it.!
+			- learn_a_lesson:
+				- play all mp3 - each lesson couple of seconds
+ 			- refresh_memory:
+				- last questions - per field - eacho field has - recent progress + last question
+
+			- cooperations:
+				- in seperate file
+			- rating:
+				- rate a plugin after it executed
+			- translate_to_all_languages:
+				- show a diagram of the word, in any language - locate words on the languages tree
+
+
+- cooperations:
+	- eran:
+	 	1.-  essay_generator_but_manualy:
+			- input:   a list of words
+			- process: user click on words and make sentences
+			- output:  is this sentence correct?
+			- later:
+				- essay_game:
+					- use:     d3 library
+		- 2. casper.js OR other scraping google translate + language flowChart
+		
+
+- publication:
+		- travis
+		- jsdo.it
+		
+- questions:
+	- food:
+		- falafel
+
+
+#|
+#|

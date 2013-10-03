@@ -1,0 +1,22 @@
+- 1_hour_plan:
+	- from:    14:13
+	- until:   15:13
+	- task:     
+	- 3_routes:
+		- WE: 
+			- fix car
+			- Laptop mother
+
+		- JOB: 
+			- update steps | then:send 5 c.v 
+			- visit oDesk
+
+		- STUDY: 
+			- do java koans + listen to words of peace
+
+- ideas: 
+	- idea.shopping.continouse:
+			- scraping_koans:   use the regexp example
+	- idea.game.essay_generator:
+			-  translation.json: for next translation():arg1:input
+

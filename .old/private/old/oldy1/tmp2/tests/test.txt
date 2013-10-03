@@ -1,0 +1,22 @@
+Your mission, should you choose to accept it, is to create an installation package for a Linux
+distribution (Debian based, or RHEL compatible). The information you use and the process itself
+are of equal importance for us as the end result. Please document your steps, including what you've
+searched for and the results you found useful to complete the task. You're welcome to use whatever
+sources you find as long as you create the end result yourself.
+Beside the documentation of your steps, please provide the following for each task:
+1. binary result (deb or rpm file)
+2. source package
+3. reproduction instructions
+Tasks:
+1. Package ssh2 PECL extension version 0.12 for a Linux distribution. The package should be
+installable and the extension should load whenever PHP is used (e.g. CLI). Bonus if both
+deb and RPM are provided.
+2. The ssh2 PECL extension got a few bugs fixed in it's source control system, not yet release.
+Generate a patch for one of these fixes based on version 0.12 and apply it during the build of
+another set of package(s) as in the previous task.
+Good luck,
+Linux integration team
+Zend
+
+
+

@@ -1,0 +1,40 @@
+#regular expressions
+#http://www.thegeekstuff.com/2010/07/bash-string-manipulation/
+first_char()
+{
+local str="$1"
+local char="$2"
+local result=''
+local res=$(echo "${str:0:1}" | sed s/"${char}"/_/g)
+if [ "$res" = '_' ];then
+result='true'
+else
+result='false'
+fi
+echo $result
+}
+
+last_char(){
+
+local str="$1"
+
+local char="$2"
+local result=''
+
+local num=${#str}
+let "num=num-1"
+local res=$(echo "${str:$num:1}" | sed s/"${char}"/_/g)
+if [ "$res" = '_' ];then
+result='true'
+else
+result='false'
+fi
+echo $result
+}
+
+
+
+
+
+export -f last_char 
+export -f first_char

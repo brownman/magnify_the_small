@@ -1,0 +1,4 @@
+tts-koans project: 
+------------------------
+1. translate.sh - use nicer cli args
+2. call translate.sh - only from 1 function in timer.sh

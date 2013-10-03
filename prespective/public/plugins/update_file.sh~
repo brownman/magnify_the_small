@@ -1,0 +1,49 @@
+
+
+add_line(){
+    echo2 "input line got: file:$1 title:$2 3:$3"
+    #latest modifications: 
+    #pass reference by supplying name of global variable.
+    local file=$1
+    local title="$2"
+    local when="$3"
+
+    #answer=$( gxmessage  -title "$title" -file  "$file" -ontop -timeout 10 -entry )
+    answer=$( gxmessage  "$title" "$file" 10 )
+    if [ "$answer" = exit ]
+    then
+        exiting
+    fi
+    if [ $TRANSLATE = true ]
+    then
+        str=`cat $file | head -1`
+        #echo4 "$answer" 
+    fi
+
+    if [ "$when" = 'true' ];then
+        date1="$(date +%H:%M)"
+        str="$date1 - $answer"
+    else
+        str="$answer"
+    fi
+
+    update_file $file "$str"
+}
+update_file(){
+    echo "update_file got: file: $1 | msg: $2 | $3"
+    local file="$1"
+    local msg="$2"
+    #`echo $2`
+    if [ "$msg" != '' ];then
+        if [  "$PROFIT" = true ];then
+            echo5 "$msg"
+        fi
+        cat $file > /tmp/1.txt 
+        echo "$msg" > $file
+        cat /tmp/1.txt >> $file
+    fi
+}
+
+
+
+

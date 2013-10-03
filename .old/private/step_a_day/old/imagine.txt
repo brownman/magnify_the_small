@@ -1,0 +1,10 @@
+clean project:
+-------------
+
+dir structure:
+    plugins directory:
+        suspend
+        motivation
+    menus:
+        schedule
+

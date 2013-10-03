@@ -1,0 +1,26 @@
+TIMING: 30 min
+FROM: 15:30
+TASK:   study - android - custom rom creation 
+----------------------------
+
+
+NEXT:
+-----
+	study - android - 1 hour
+	study - security - 1 hour
+
+
+AFTER:
+------
+
+visit Hadarim +  7.5 Shekels
+
+
+computer:
+	free more space on the HDD
+	job - sending c.v
+
+rehovot: buy midrasim
+	 change id card - status: married :)
+	 appointment - doctor skeen - from the internet website of Clalit !
+	 shalva - buy pills

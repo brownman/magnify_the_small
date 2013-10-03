@@ -1,0 +1,63 @@
+- ideas:
+    - yaml: 
+    - [here, and]
+    - {it: updates, in: real-time}
+
+
+    - collaborations:
+    - people: [ ran, boaz.ha , eran , ran.ifaat ]
+    - periodic:
+        - [ 
+            {},
+            {}       
+          ]
+
+    
+- questions:
+        - [
+            {
+ person: X,
+ command: Y
+},
+
+            {
+ person: eran,
+ command: run.js "worldwide free shipping"  
+}
+        ]
+        
+    - questions:
+     - [
+            {
+ person: eran,
+ command: run.js "worldwide free shipping" "a789"  #show results
+
+}
+        ]
+        
+            - eran:
+                 - command: run.js "worldwide free shipping" "a789"  #show results
+            - ran: 
+                - command: run.java "vlc menifest - run minimize=yes"
+            - boaz: 
+                - command: run.php "update now.db - 'first mission for today'"
+            - nir:
+                - command: run.sh "get ip address of ussid:NAAN-229" 
+        ]
+        
+    - tests:
+        -[         ]
+
+    - order:
+    - hint: 
+    - statistics:
+
+    - url:
+    - jobs: []
+
+    -ref:
+    - [ http://yaml-online-parser.appspot.com/, http://bl.ocks.org/mbostock/4063269 ]
+
+
+
+

@@ -1,0 +1,8 @@
+back up smartphone:
+from:
+/media/dao01/676E-2B72/WhatsApp/data
+to:
+/TORRENTS/GOOGLE_DRIVE
+
+
+http://danilogiulianelli.blogspot.co.il/2013/01/how-to-build-python-4-android-for-x86.html

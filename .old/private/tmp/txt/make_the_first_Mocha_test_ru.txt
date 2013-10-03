@@ -1,0 +1,2 @@
+сделать первый тест Mocha
+sdelat' pervyy test Mocha

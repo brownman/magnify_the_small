@@ -1,0 +1,9 @@
+lecture 04
+----------
+
+access points
+beacon frame
+connect the card - then create a monitor-mode interface - airmon
+
+questions and answers:
+-----------------------

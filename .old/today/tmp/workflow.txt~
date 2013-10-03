@@ -1,0 +1,7 @@
+publish_report|post report to blog
+update_statistics|report on each cycle
+update_status|update logging file
+motivation|say something good
+#
+ignore:
+

@@ -1,0 +1,10 @@
+0. my first android program
+1. add php koans
+2. add kernel code (and tests?)
+3. update github pages
+4. python-tubes
+5. Marcello - only if tdd manner
+6. use alarm_clock_update - patch it ..
+
+
+

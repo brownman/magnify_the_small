@@ -1,0 +1,35 @@
+#pipes
+
+- motivations:
+	- url:  http://www.youtube.com/watch?v=BN-FU8VPoOc
+	- desc:	Michio Kaku
+
+- resources:
+	- books:
+		- http://en.wikipedia.org/wiki/Unix_philosophy
+- Q: how to use linux pipes ?
+- A:
+	- desc: bash pipes: ;| || && &
+	- url: http://bash.cyberciti.biz/guide/Linking_Commands
+
+
+#|
+- scrap:
+	-ref:  http://www.commandlinefu.com/commands/matching/scrap/c2NyYXA=/sort-by-votes
+		-desc: scrap + html tags
+		-cmd: wget -q -U busybox -O- "http://www.google.com/search?ie=UTF8&q=define%3A$1" | tr '<' '\n' | sed -n 's/^li>\(.*\)/\1\n/p'
+		-desc: remove all html tags from a html page
+		-cmd: awk '{gsub("<[^>]*>", "")}1' file
+#|
+#|
+#|
+- security:
+	- url: http://www.grymoire.com/Security/trojan.pl
+	- desc: check for trojans
+
+- bash:
+	-desc: clear and nice
+	-url: http://www.grymoire.com/Unix/Sh.html
+
+#|
+#|

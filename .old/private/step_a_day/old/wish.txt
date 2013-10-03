@@ -1,0 +1,38 @@
+scoring system: 
+===============
+Day: 		  saturday
+date:  		  27-7-13, 15:17
+obligations: 	  fight intimidating thins
+working time:             3 hours
+motivation:             think -  much much easier !
+workflow: 		imagine,do,report
++questions:		1.networking wifi
+
+
+before all:
+----------
+paper-order
+clinic
+kuka's mother laptop
+
+
+current task:
+--------------
+Task: first android app
+time | mini-task
+================
+20m  | run first time
+20m  | make package
+20m  | install on my phone
+
+
+later tasks:
+-----------------
+kuka - update her
+gezer - sima - email
+noam gefen - phone
+
+
+achivments:
+-----------
+tom-Shalva

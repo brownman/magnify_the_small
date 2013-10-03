@@ -1,0 +1,69 @@
+    
+triggers:
+        buy:      spagetti
+        remind_life_goal:
+            - why_be_optimistic|collaboration
+        words:
+            - his dog, their dogs, our dog
+        breakthrough:
+            - collaboration
+        recent:
+            - update project
+        create_essay_ideas:
+            - to be happy
+            - to do a task
+            - to smile
+            - to take it easy
+        tweets:
+            - today is the history of tomorroe
+            - tomorrow will be changed by today's ideas
+        wish:
+            - start working on Avshalom's website
+        ideas:
+            efficiency:
+                popups:
+                    - multiple choices - like - update stop-watch- timing,txt
+                workflow:
+                    - suspend -> commitment
+                    - error_handler -> tracex popup !
+                system:
+                    - python koan - use for testing - shell scripts
+        mantra:
+                - run only 1 task and increase after suspension
+                - take a breath for atleast 10 minutes
+        achivements:
+                - I did some coding
+                - tried give Shalva food
+        fun:
+                - physics
+                - shopping
+
+        ideas:
+                    - menus like workflows  instide of cfg
+                    - motivation  - silent option
+        routes:
+            project:
+                recent: do_test
+                plugins:
+                    - article_translation
+                    - youtube_downloader
+                    - else
+            study:
+                recent:
+                        - update project - add essay game
+                project:
+                    next:
+                        - plugin: youtube
+                    later:
+                        - file-sync
+                        - article / yaml tranlsation / bin-translate 
+                        - plugin: languages tree - for 1 
+                        - plugin: shopping - scrap
+                later:
+                    - koans - runner
+                    - network questions
+                    - bash examples
+
+
+
+

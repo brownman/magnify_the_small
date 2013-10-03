@@ -1,0 +1,75 @@
+
+        - configuration:
+            desc:           A user settings zone
+            parameters:
+                            timer:           set time period for execution
+                            workflow:        compose a list of tasks to run one after another on a timer's cycle
+                            translation:     on/off
+                            translate to:    set forign languages
+        - story:
+            desc: edit text files:
+                        questions.txt
+                        plan.txt
+                        ideas.txt
+
+        - guidance:
+            desc:       answer a list of questions interactively:
+                        report.txt
+                        commitment.txt
+
+        - plugin system:
+            desc:           A community-interest zone
+            examples:
+                            - record self voice:        set up a new target 
+                            - post a post to your blog: containing a filled up form
+                            - record a screencast:      
+                                                        share a life's episode  
+                                                        publish your intelligence/funny/creativity
+                            - schedules menu:
+                                                        fetch google calendar/tasks
+                                                        
+motivation|increase motivation
+edit|free style
+
+
+report|fill up a form and update google blogger
+
+
+wish|record a timer cycle
+wish|send report to the blog
+wish|long-term planning
+wish|you are here picture map
+wish|command solver - ask something as a koan
+#
+
+edit|free style
+koan|run 1 test
+show|show text files
+update|update text files
+remind|plan of the day
+add_koan|expect greatness
+uml|update workflow diagram
+====================old: ===============================
+next workflow:
+-----------------
+@startuml
+start
+:run: imagine.sh;
+if (need motivation ?) then (yes)
+  :screen: motivation;
+endif
+   if (need breakout ?) then (yes)
+    :screen: breakout;
+endif
+:menu: schedule/versioning;
+stop
+@enduml
+=====================today's: ==============================
+current workflow:
+@startuml
+start
+:run: imagine.sh;
+:suspend;
+
+
+

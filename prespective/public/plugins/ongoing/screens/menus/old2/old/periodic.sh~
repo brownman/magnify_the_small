@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# about file:
+# external timer should run this file
+# tasks must include 'suspend' 
+#
+#
+#. $TIMERTXT_CFG_FILE
+speak1(){
+    max=`cat -b $quotes_txt | wc -l`
+    random1 $max
+    num=$?
+    str=`cat $quotes_txt | head -$num | tail -1`
+    echo4 "$str"
+}
+while 1;do
+    sleep1 3s
+speak1 
+ 
+
+
+done

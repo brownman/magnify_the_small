@@ -1,0 +1,31 @@
+IDEAS
+------
+
+
+
+timer
+------
+ofer.sh - should be able to get parameters to make it silence + a file name to update - such as thanks.txt
+
+kuka
+----
+copy french language mp3 - make her mp3 player fun to use
+
+
+book-splitter 
+-------------
+create a coffeescript project - that works with testing !
+
+android-dev
+-----------
+android-x86 to work on my virtualbox - c youtube of HOWTO do it
+
+
+learn networking 
+----------------
+through challenges OR koans..
+
+buying
+------
+zap - check rating then go to ebay..
+ebay - search replacement parts - check youtube for instructions of how to compose/build from parts.

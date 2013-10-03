@@ -1,0 +1,51 @@
+my commitment is to clean the whiteboard
+my commitment is to step aday should be publicly accesible
+my commitment is to clean the whiteboard
+my commitment is to clean this file
+my commitment is to update this file
+my commitment is to update the workflow: add a morning task
+my commitment is to clean this file
+my commitment is to
+my commitment is to
+my commitment is to
+my commitment is to finish working on updating the workflow procces
+my commitment is to run suspension tasks by parsing a file suspension.txt
+my commitment is to start working on android
+my commitment is to update readme obligations
+my commitment is to finish working with uml for today
+my commitment is to update github readme with uml diagram
+my commitment is to take shalva down
+my commitment is to publish uml to github readme
+my commitment is to finish workflow and send Shalva out
+my commitment is to finish uml
+my commitment is to finish uml update
+my commitment is to
+my commitment is to update first uml
+my commitment is to update uml
+my commitment is to finish to create the first uml
+my commitment is to produce first uml of magnify_the_small project
+my commitment is to run the android example
+my commitment is to make first android app for today
+my commitment is to make first android app in python
+my commitment is to deploy first app
+my commitment is to deploy my first android app
+my commitment is to make first app
+my commitment is to make my first android app
+my commitment is to start learn python for android
+my commitment is to replay dudi
+my commitment is to contact people on linkedin
+my commitment is to run the task series from the command line
+				POINTS:
+-4-
+Shalva - medicines
+irrigate the fields
+family time | when? - 18:00 | what ? - walking
+whiteboard - plan the day
+update blog - hourly
+				MORNING:
+whiteboard - plan the day
+Shalva - medicines 
+family time - when?
+update Kuka with the schedules
+computer - run with suspension
+

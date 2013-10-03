@@ -1,0 +1,24 @@
+IDEAS:
+------
+
+
+ 
+
+
+book-splitter 
+-------------
+create a coffeescript project - that works with testing !
+
+android-dev
+-----------
+find multi-platform game and start working on it - in linux before working on it on android
+
+
+learn networking 
+----------------
+through challenges OR koans..
+
+buying
+------
+zap - check rating then go to ebay..
+ebay - search replacement parts - check youtube for instructions of how to compose/build from parts.

@@ -1,0 +1,1620 @@
+acpi-support - scripts for handling many ACPI events
+backuppc - high-performance, enterprise-grade system for backing up PCs
+bacula - network backup service - metapackage
+bacula-client - network backup service - client metapackage
+bacula-common - network backup service - common support files
+bacula-common-dbg - network backup service - common support files (debugging)
+bacula-common-mysql - network backup service - MySQL common files
+bacula-common-mysql-dbg - network backup service - MySQL common files (debugging)
+bacula-common-pgsql - network backup service - PostgreSQL common files
+bacula-common-pgsql-dbg - network backup service - PostgreSQL common files (debugging)
+bacula-common-sqlite3 - network backup service - SQLite v3 common files
+bacula-common-sqlite3-dbg - network backup service - SQLite v3 common files (debugging)
+bacula-console - network backup service - text console
+bacula-console-dbg - network backup service - text console (debugging)
+bacula-console-qt - network backup service - Bacula Administration Tool
+bacula-console-qt-dbg - network backup service - Bacula Administration Tool (debugging)
+bacula-director-common - network backup service - Director common files
+bacula-director-common-dbg - network backup service - Director common files (debugging)
+bacula-director-mysql - network backup service - MySQL storage for Director
+bacula-director-mysql-dbg - network backup service - MySQL storage for Director (debugging)
+bacula-director-pgsql - network backup service - PostgreSQL storage for Director
+bacula-director-pgsql-dbg - network backup service - PostgreSQL storage for Director (debugging)
+bacula-director-sqlite3 - network backup service - SQLite 3 storage for Director
+bacula-director-sqlite3-dbg - network backup service - SQLite 3 storage for Director (debugging)
+bacula-fd - network backup service - file daemon
+bacula-fd-dbg - network backup service - file daemon (debugging)
+bacula-sd - network backup service - storage daemon
+bacula-sd-dbg - network backup service - storage daemon (debugging)
+bacula-sd-mysql - network backup service - MySQL SD tools
+bacula-sd-mysql-dbg - network backup service - MySQL SD tools (debugging)
+bacula-sd-pgsql - network backup service - PostgreSQL SD tools
+bacula-sd-pgsql-dbg - network backup service - PostgreSQL SD tools (debugging)
+bacula-sd-sqlite3 - network backup service - SQLite 3 SD tools
+bacula-sd-sqlite3-dbg - network backup service - SQLite 3 SD tools (debugging)
+bacula-server - network backup service - server metapackage
+bacula-traymonitor - network backup service - tray monitor
+bacula-traymonitor-dbg - network backup service - tray monitor (debugging)
+cifs-utils - Common Internet File System utilities
+cmake - cross-platform, open-source make system
+dmake - make utility used to build OpenOffice.org
+erlang-inviso - Erlang/OTP trace tool
+erlang-tools - Erlang/OTP various tools
+facter - collect and display facts about the system
+ffmpeg - Multimedia player, server, encoder and transcoder (transitional package)
+ffmpeg-dbg - Debug symbols for Libav related packages (transitional package)
+ffmpeg-doc - Documentation of the Libav API (transitional package)
+fltk1.1-doc - Fast Light Toolkit - documentation
+gir1.2-dbusmenu-glib-0.4 - typelib file for libdbusmenu-glib4
+gir1.2-dbusmenu-gtk-0.4 - typelib file for libdbusmenu-gtk4
+gir1.2-dbusmenu-gtk3-0.4 - typelib file for libdbusmenu-gtk3-4
+grub - GRand Unified Bootloader (Legacy version)
+grub-legacy-doc - Documentation for GRUB Legacy
+icon-naming-utils - script for maintaining backwards compatibility of Tango Project
+irqbalance - Daemon to balance interrupts for SMP systems
+latex2html - LaTeX to HTML translator
+libao-common - Cross Platform Audio Output Library (Common files)
+libao-dbg - Cross Platform Audio Output Library Debug Symbols
+libao-dev - Cross Platform Audio Output Library Development
+libao4 - Cross Platform Audio Output Library
+libav-dbg - Debug symbols for Libav related packages
+libav-doc - Documentation of the Libav API
+libav-tools - Multimedia player, server, encoder and transcoder
+libavcodec-dev - Development files for libavcodec
+libavcodec53 - Libav codec library
+libavdevice-dev - Development files for libavdevice
+libavdevice53 - Libav device handling library
+libavfilter-dev - Development files for libavfilter
+libavfilter2 - Libav video filtering library
+libavformat-dev - Development files for libavformat
+libavformat53 - Libav file format library
+libavutil-dev - Development files for libavutil
+libavutil51 - Libav utility library
+libc-ares-dev - library for asynchronous name resolves (development files)
+libc-ares2 - library for asynchronous name resolves
+libcommons-discovery-java - locates classes that implement a given Java interface
+libcommons-discovery-java-doc - locates classes that implement a given Java interface (documentation)
+libdbusmenu-glib-dev - library for passing menus over DBus - development files
+libdbusmenu-glib-doc - library for passing menus over DBus - documentation
+libdbusmenu-glib4 - library for passing menus over DBus
+libdbusmenu-gtk-dev - library for passing menus over DBus - GTK+ version developement files
+libdbusmenu-gtk-doc - library for passing menus over DBus - GTK+ version documentation
+libdbusmenu-gtk3-4 - library for passing menus over DBus - GTK+ version
+libdbusmenu-gtk3-dev - library for passing menus over DBus - GTK+ version developement files
+libdbusmenu-gtk4 - library for passing menus over DBus - GTK+ version
+libdbusmenu-jsonloader-dev - library for passing menus over DBus - Test lib development files
+libdbusmenu-jsonloader4 - library for passing menus over DBus - Test lib
+libdmx-dev - X11 Distributed Multihead extension library (development headers)
+libdmx1 - X11 Distributed Multihead extension library
+libdmx1-dbg - X11 Distributed Multihead library (debug package)
+libfile-homedir-perl - Perl module for finding user directories across platforms
+libfltk1.1 - Fast Light Toolkit - shared libraries
+libfltk1.1-dbg - Fast Light Toolkit - shared libraries with debugging symbols
+libfltk1.1-dev - Fast Light Toolkit - development files
+libgles1-mesa - free implementation of the OpenGL|ES 1.x API -- runtime
+libgles1-mesa-dbg - free implementation of the OpenGL|ES 1.x API -- debugging symbols
+libgles1-mesa-dev - free implementation of the OpenGL|ES 1.x API -- development files
+libgles2-mesa - free implementation of the OpenGL|ES 2.x API -- runtime
+libgles2-mesa-dbg - free implementation of the OpenGL|ES 2.x API -- debugging symbols
+libgles2-mesa-dev - free implementation of the OpenGL|ES 2.x API -- development files
+libieee1284-3 - cross-platform library for parallel port access
+libieee1284-3-dev - cross-platform library for parallel port access [development files]
+libjaxen-java - Java XPath engine
+libjaxen-java-doc - Java XPath engine - documentation
+libjs-raphael - JavaScript library to work with vector graphics
+libjs-yui3-common - Yahoo User Interface Library v3 (common files)
+liblcms1 - Little CMS color management library
+liblcms1-dev - Litle CMS color management library development headers
+liblog4net-cil-dev - highly configurable logging API for the CLI
+liblog4net1.2-cil - highly configurable logging API for the CLI
+libnet-xwhois-perl - Whois Client Interface for Perl5
+libnetcf1 - cross-platform network configuration library
+libnetcf1-dbg - cross-platform network configuration library
+libnss-winbind - Samba nameservice integration plugins
+libnss3 - Network Security Service libraries
+libnss3-1d - Network Security Service libraries
+libnss3-dbg - Debugging symbols for the Network Security Service libraries
+libnss3-dev - Development files for the Network Security Service libraries
+libossp-uuid-dev - OSSP uuid ISO-C and C++ - headers and static libraries
+libossp-uuid16 - OSSP uuid ISO-C and C++ - shared library
+libpam-winbind - Windows domain authentication integration plugin
+libphonon-dev - multimedia framework from KDE - development files
+libphonon4 - multimedia framework from KDE - core library
+libportaudio2 - Portable audio I/O - shared library
+libportaudiocpp0 - Portable audio I/O C++ bindings - shared library
+libpostproc-dev - Development files for libpostproc
+libpostproc52 - Libav video postprocessing library
+libqca2 - libraries for the Qt Cryptographic Architecture
+libqca2-dbg - debug symbols for the Qt Cryptographic Architecture
+libqca2-dev - development files for the Qt Cryptographic Architecture
+libqca2-doc - API documentation for the Qt Cryptographic Architecture
+libqt4-dbg - Qt 4 library debugging symbols
+libqt4-dbus - Qt 4 D-Bus module
+libqt4-declarative - Qt 4 Declarative module
+libqt4-declarative-gestures - Qt 4 gestures QML plugin
+libqt4-declarative-particles - Qt 4 particles QML plugin
+libqt4-designer - Qt 4 designer module
+libqt4-designer-dbg - Qt 4 designer library debugging symbols
+libqt4-dev - Qt 4 development files
+libqt4-dev-bin - Qt 4 development programs
+libqt4-gui - transitional package for Qt 4 GUI runtime libraries
+libqt4-help - Qt 4 help module
+libqt4-network - Qt 4 network module
+libqt4-opengl - Qt 4 OpenGL module
+libqt4-opengl-dev - Qt 4 OpenGL library development files
+libqt4-private-dev - Qt 4 private development files
+libqt4-qt3support - Qt 3 compatibility library for Qt 4
+libqt4-qt3support-dbg - Qt 3 compatibility library for Qt 4 debugging symbols
+libqt4-script - Qt 4 script module
+libqt4-script-dbg - Qt 4 script library debugging symbols
+libqt4-scripttools - Qt 4 script tools module
+libqt4-sql - Qt 4 SQL module
+libqt4-svg - Qt 4 SVG module
+libqt4-test - Qt 4 test module
+libqt4-webkit-dbg - transitional package for Qt 4 WebKit debugging symbols
+libqt4-xml - Qt 4 XML module
+libqt4-xmlpatterns - Qt 4 XML patterns module
+libqt4-xmlpatterns-dbg - Qt 4 XML patterns library debugging symbols
+libqtassistantclient-dev - Qt Assistant client library (development)
+libqtassistantclient4 - Qt Assistant client library (runtime)
+libqtcore4 - Qt 4 core module
+libqtgui4 - Qt 4 GUI module
+librbd-dev - RADOS block device client library (development files)
+librbd1 - RADOS block device client library
+librbd1-dbg - debugging symbols for librbd1
+libreadline-dev - GNU readline and history libraries, development files
+libreadline-gplv2-dev - GNU readline and history libraries, development files
+libreadline5 - GNU readline and history libraries, run-time libraries
+libreadline5-dbg - GNU readline and history libraries, debugging libraries
+libreadline6 - GNU readline and history libraries, run-time libraries
+libreadline6-dbg - GNU readline and history libraries, debugging libraries
+libreadline6-dev - GNU readline and history libraries, development files
+libstartup-notification0 - library for program launch feedback (shared library)
+libstartup-notification0-dev - library for program launch feedback (development headers)
+libswscale-dev - Development files for libswscale
+libswscale2 - Libav video scaling library
+libunwind8 - library to determine the call-chain of a program - runtime
+libunwind8-dev - library to determine the call-chain of a program - development
+libuuid1 - Universally Unique ID library
+libwbclient-dev - Samba winbind client library - development files
+libwbclient0 - Samba winbind client library
+libxplc0.3.13 - Light weight component system
+libxplc0.3.13-dev - Light weight component system (Development libraries and headers)
+lightdm - Display Manager
+memcached - A high-performance memory object caching system
+netcat-openbsd - TCP/IP swiss army knife
+openvswitch-common - Open vSwitch common components
+openvswitch-controller - Open vSwitch controller implementation
+openvswitch-dbg - Debug symbols for Open vSwitch packages
+openvswitch-ipsec - Open vSwitch GRE-over-IPsec support
+openvswitch-pki - Open vSwitch public key infrastructure dependency package
+openvswitch-switch - Open vSwitch switch implementations
+portaudio19-dev - Portable audio I/O - development files
+portaudio19-doc - Portable audio I/O - documentation
+puppet - Centralized configuration management - agent startup and compatibility scripts
+puppet-common - Centralized configuration management
+puppetmaster - Centralized configuration management - master startup and compatibility scripts
+puppetmaster-common - Puppet master common scripts
+python-lockfile - file locking library for Python
+python-openvswitch - Python bindings for Open vSwitch
+python-passlib - comprehensive password hashing framework
+python-pyao - Python interface to the Audio Output library
+python-pyao-dbg - Python interface to the Audio Output library - debug symbols
+python-sphinx - documentation generator for Python projects (implemented in Python 2)
+python-swift - distributed virtual object store - Python libraries
+python-tz - Python version of the Olson timezone database
+python-urlgrabber - A high-level cross-protocol url-grabber
+qdbus - Qt 4 D-Bus tool
+qt4-bin-dbg - Qt 4 binaries debugging symbols
+qt4-demos - Qt 4 examples and demos
+qt4-demos-dbg - Qt 4 examples and demos debugging symbols
+qt4-designer - graphical designer for Qt 4 applications
+qt4-dev-tools - Qt 4 development tools
+qt4-doc - Qt 4 API documentation
+qt4-linguist-tools - Qt 4 Linguist tools
+qt4-qmake - Qt 4 qmake Makefile generator tool
+readline-common - GNU readline and history libraries, common files
+samba - SMB/CIFS file, print, and login server for Unix
+samba-common - common files used by both the Samba server and client
+samba-common-bin - common files used by both the Samba server and client
+samba-dbg - Samba debugging symbols
+samba-doc - Samba documentation
+samba-doc-pdf - Samba documentation in PDF format
+smbclient - command-line SMB/CIFS clients for Unix
+swift-account - distributed virtual object store - account server
+swift-container - distributed virtual object store - container server
+swift-doc - distributed virtual object store - documentation
+swift-object - distributed virtual object store - object server
+swift-proxy - distributed virtual object store - proxy server
+tcl - The Tool Command Language (default version) - run-time files
+tcl-dev - The Tool Command Language (default version) - development files
+tcl-doc - The Tool Command Language (default version) - manual pages
+tcl8.4 - Tcl (the Tool Command Language) v8.4 - run-time files
+tcl8.4-dev - Tcl (the Tool Command Language) v8.4 - development files
+tcl8.4-doc - Tcl (the Tool Command Language) v8.4 - manual pages
+tcl8.5 - Tcl (the Tool Command Language) v8.5 - run-time files
+tcl8.5-dev - Tcl (the Tool Command Language) v8.5 - development files
+tcl8.5-doc - Tcl (the Tool Command Language) v8.5 - manual pages
+texinfo - Documentation system for on-line information and printed output
+texlive-latex-extra - TeX Live: LaTeX supplementary packages
+texlive-latex-recommended - TeX Live: LaTeX recommended packages
+tk - The Tk toolkit for Tcl and X11 (default version) - run-time files
+tk-dev - The Tk toolkit for Tcl and X11 (default version) - development files
+tk-doc - The Tk toolkit for Tcl and X11 (default version) - manual pages
+tk8.4 - Tk toolkit for Tcl and X11, v8.4 - run-time files
+tk8.4-dev - Tk toolkit for Tcl and X11, v8.4 - development files
+tk8.4-doc - Tk toolkit for Tcl and X11, v8.4 - manual pages
+tk8.5 - Tk toolkit for Tcl and X11, v8.5 - run-time files
+tk8.5-dev - Tk toolkit for Tcl and X11, v8.5 - development files
+tk8.5-doc - Tk toolkit for Tcl and X11, v8.5 - manual pages
+transmission-cli - lightweight BitTorrent client (command line programs)
+transmission-common - lightweight BitTorrent client (common files)
+transmission-daemon - lightweight BitTorrent client (daemon)
+transmission-dbg - lightweight BitTorrent client (debug symbols)
+transmission-gtk - lightweight BitTorrent client (GTK interface)
+transmission-qt - lightweight BitTorrent client (Qt interface)
+unzip - De-archiver for .zip files
+uuid-runtime - runtime components for the Universally Unique ID library
+winbind - Samba nameservice integration server
+lib64readline-gplv2-dev - GNU readline and history libraries, development files (64-bit)
+lib64readline5 - GNU readline and history libraries, run-time libraries (64-bit)
+lib64readline6 - GNU readline and history libraries, run-time libraries (64-bit)
+lib64readline6-dev - GNU readline and history libraries, development files (64-bit)
+amoeba - fast-paced, polished OpenGL demonstration by Excess
+amoeba-data - Fast-paced, polished OpenGL demonstration by Excess (data)
+beast-mcmc - Bayesian MCMC phylogenetic inference
+beast-mcmc-doc - Bayesian MCMC phylogenetic inference - documentation
+beast-mcmc-examples - Bayesian MCMC phylogenetic inference - example data
+beast-mcmc-lib - Bayesian MCMC phylogenetic inference
+chocolate-doom - Doom engine closely-compatible with vanilla doom
+ckermit - serial and network communications package
+dynagen - Cisco 7200 Router Emulator Command Line Interface
+firmware-crystalhd - Crystal HD Video Decoder (firmware)
+frogatto - 2D platformer game starring a quixotic frog
+frogatto-data - 2D platformer game starring a quixotic frog
+idjc - graphical shoutcast/icecast client
+iriverter - converts video for use on various multimedia players
+libsocl-contrib-1.0 - Task scheduler for heterogeneous multicore machines
+libstarpu-contrib-1.0 - Task scheduler for heterogeneous multicore machines
+libstarpu-contrib-dev - Task scheduler for heterogeneous multicore machines - dev
+libstarpu-contribfft-1.0 - Task scheduler for heterogeneous multicore machines
+libstarpu-contribmpi-1.0 - Task scheduler for heterogeneous multicore machines
+lugaru - third-person action game
+lugaru-data - data for the third-person action game lugaru
+nvidia-visual-profiler - NVIDIA Visual Profiler
+starpu-contrib-examples - Task scheduler for heterogeneous multicore machines - exs
+starpu-contrib-tools - Task scheduler for heterogeneous multicore machines - tools
+wolf4sdl - SDL-Port of Wolfenstein 3-D and Spear of Destiny
+0ad - Real-time strategy game of ancient warfare
+0ad-data - Real-time strategy game of ancient warfare (data)
+0ad-dbg - Real-time strategy game of ancient warfare (debug)
+3dchess - Play chess across 3 boards!
+actionaz - emulate human activity through a powerful GUI and JavaScript
+activemq - Java message broker - server
+adplug-utils - free AdLib sound library (utils)
+advene - Annotate DVDs, Exchange on the Net
+akonadi-backend-mysql - MySQL storage backend for Akonadi
+akonadi-backend-postgresql - PostgreSQL storage backend for Akonadi
+akonadi-backend-sqlite - SQLite storage backend for Akonadi
+akonadi-dbg - debugging symbols for the Akonadi PIM storage service
+akonadi-server - Akonadi PIM storage service
+allegro4-doc - documentation for the Allegro library
+alure-doc - AL Utilities REtooled (documentation)
+alure-utils - AL Utilities REtooled (utilities)
+amiga-fdisk-cross - Partition editor for Amiga partitions (cross version)
+arora - simple cross platform web browser
+aspectj - aspect-oriented extension for Java - tools
+aspectj-doc - aspect-oriented extension for Java - documentation
+atlc - Arbitrary Transmission Line Calculator
+audacity - fast, cross-platform audio editor
+audacity-data - fast, cross-platform audio editor (data)
+audacity-dbg - fast, cross-platform audio editor (debug)
+bacula-doc - Documentation for Bacula
+bar - Show information about a data transfer
+basenji - Cross-platform media indexing/search tool
+bauble - biodiversity collection manager software application
+bcrypt - Cross platform file encryption utility using blowfish
+belier - SSH connection generation tool
+ben - toolbox for Debian maintainers
+between - game about consciousness and isolation
+biber - Much-augmented BibTeX replacement for BibLaTeX users
+binutils-arm-linux-gnueabi - GNU binary utilities, for arm-linux-gnueabi target
+binutils-arm-linux-gnueabihf - GNU binary utilities, for arm-linux-gnueabihf target
+binutils-avr - Binary utilities supporting Atmel's AVR targets
+binutils-h8300-hms - The GNU binary utilities, for h8300-hitachi-coff target
+binutils-m68hc1x - binary utilities that support Motorola's 68HC11/12 targets
+binutils-mingw-w64 - Cross-binutils for Win32 and Win64 using MinGW-w64
+binutils-mingw-w64-i686 - Cross-binutils for Win32 (x86) using MinGW-w64
+binutils-mingw-w64-x86-64 - Cross-binutils for Win64 (x64) using MinGW-w64
+binutils-msp430 - Binary utilities supporting TI's MSP430 targets
+binutils-multiarch - Binary utilities that support multi-arch targets
+blacs-mpi-test - Basic Linear Algebra Comm. Subprograms - Test files for MPI
+blacs-pvm-dev - Basic Linear Algebra Comm. Subprograms - Dev. files for PVM
+blacs-pvm-test - Basic Linear Algebra Comm. Subprograms - Test files for PVM
+blacs-test-common - Test data for BLACS testers
+blacs1-pvm - Basic Linear Algebra Comm. Subprograms - Shared libs. for PVM
+blazeblogger - simple to use, command line based, content management system
+boa-constructor - RAD tool for Python and wxWindows application
+bombardier - The GNU Bombing utility
+bundler - Manage Ruby application dependencies
+burp - Simple cross-platform network BackUp and Restore Program
+bve-route-cross-city-south - Birmingham Cross-City South (for OpenBVE rail simulator)
+bve-train-br-class-323 - British Rail Class 323 EMU train (for OpenBVE rail simulator)
+bve-train-br-class-323-3dcab - British Rail Class 323 EMU train 3D cab (for OpenBVE rail simulator)
+ceilometer-agent-central - ceioleter central agent
+ceilometer-agent-compute - ceioleter compute agent
+ceilometer-api - ceioleter api service
+ceilometer-collector - ceioleter collector service
+ceilometer-common - ceilometer common files
+cflow - Analyze control flow in C source files
+cl-bordeaux-threads - Portable shared-state concurrency for Common Lisp
+cl-closer-mop - Cross Implementation AMOP library
+cl-mcclim - Common Lisp graphic user interface toolkit
+cl-mcclim-doc - Graphic user interface package for Common Lisp programs
+cl-mcclim-examples - Common Lisp graphic user interface toolkit
+cl-trivial-features - An abstraction layer for the *features* that implementations use
+cmospwd - decrypt BIOS passwords from CMOS
+coccinella - Communication tool (XMPP/Jabber) with a built-in whiteboard
+codeblocks - Code::Blocks integrated development environment (IDE)
+codeblocks-common - common files for Code::Blocks IDE
+codeblocks-dbg - Code::Blocks debugging libraries
+codeblocks-dev - Code::Blocks development files (SDK)
+compass-layoutgala-plugin - Compass plugin implementing the Layout-gala CSS styles
+condor - distributed workload management system
+condor-dbg - distributed workload management system - debugging symbols
+condor-dev - distributed workload management system - development files
+condor-doc - distributed workload management system - documentation
+courierpassd - Change courier user passwords using poppassd interface
+cpp-arm-linux-gnueabi - The GNU C preprocessor (cpp) for armel architecture
+cpp-arm-linux-gnueabihf - The GNU C preprocessor (cpp) for armhf architecture
+crasm - Cross assembler for 6800/6801/6803/6502/65C02/Z80
+crossfire-client - Client for the multiplayer roguelike Crossfire
+crossfire-client-images - Base crossfire-client images
+crossfire-client-sounds - sound files for playing crossfire
+crossfire-common - Architecture independent common files for Crossfire server
+crossfire-doc - Documentation for Crossfire
+crossfire-maps - Standard set of maps for crossfire
+crossfire-maps-small - Small set of maps for crossfire
+crossfire-server - Server for Crossfire Games
+crosshurd - Install a Debian system
+crossroads - open source load balance and fail over utility for TCP based services
+cryptcat - A lightweight version netcat extended with twofish encryption
+crystalhd-dkms - Crystal HD Video Decoder (Linux kernel driver)
+ctdb - clustered database to store temporary data
+cuba-partview - partition viewer for the Cuba library
+cutycapt - utility to capture WebKit's rendering of a web page
+cxref - Generates LaTeX and HTML documentation for C programs
+cyclist - Utility for converting Max/MSP binary patches to text
+cynthiune.app - Music player for GNUstep
+debian-xcontrol - Extended syntax for debian/control files
+desktop-profiles - framework for setting up desktop profiles
+di - advanced df like disk information utility
+diatheke - command line bible browsing and search tool
+dicompyler - radiation therapy research platform
+dictionary-el - dictionary client for Emacs
+distcc - simple distributed compiler client and server
+distcc-pump - pump mode for distcc a distributed compiler client and server
+distccmon-gnome - GTK+ monitor for distcc a distributed client and server
+dizzy - Graphics demo that makes you dizzy using rotating textures
+dooble - WebKit based browser written is Qt 4
+dpkg-cross - tools for cross compiling Debian packages
+drawxtl - crystal structure viewer
+dvdstyler - cross platform DVD Authoring System for Video DVD Production
+dvdstyler-data - Data files for DVDStyler
+dyndns - dynamic DNS (DDNS) update client implemented in Perl
+edubuntu-wallpapers - wallpapers included in edubuntu
+eiskaltdcpp - EiskaltDC++ meta-package
+eiskaltdcpp-cli - EiskaltDC++ command-line interface
+eiskaltdcpp-common - common files for EiskaltDC++
+eiskaltdcpp-daemon - EiskaltDC++ daemon
+eiskaltdcpp-daemon-dbg - EiskaltDC++ daemon (debug symbols)
+eiskaltdcpp-emoticons - emoticons for EiskaltDC++
+eiskaltdcpp-gtk - EiskaltDC++ GUI on Gtk
+eiskaltdcpp-gtk-data - data files for EiskaltDC++ Gtk
+eiskaltdcpp-gtk-dbg - EiskaltDC++ GUI on Gtk (debug symbols)
+eiskaltdcpp-gtk3 - EiskaltDC++ GUI on Gtk3
+eiskaltdcpp-gtk3-dbg - EiskaltDC++ GUI on Gtk3 (debug symbols)
+eiskaltdcpp-qt - EiskaltDC++ GUI on Qt
+eiskaltdcpp-qt-data - data files for EiskaltDC++ Qt
+eiskaltdcpp-qt-dbg - EiskaltDC++ GUI on Qt (debug symbols)
+eiskaltdcpp-qt-mini - EiskaltDC++ GUI on Qt (stripped-down version)
+eiskaltdcpp-qt-mini-dbg - EiskaltDC++ GUI on Qt (stripped-down version) (debug symbols)
+eiskaltdcpp-scripts - scripts examples for EiskaltDC++
+eiskaltdcpp-sounds - sound files for EiskaltDC++
+emdebian-crush - emdebian crossbuilding helpers
+empire - the war game of the century
+enblend - image blending tool
+epm - Cross-platform package builder by Easy Software Products
+erlang-esdl - Erlang bindings to the Simple Direct Media Library
+esperanza - XMMS2 client which aims to be as feature-full and easy-to-use as possible
+fasttree - phylogenetic trees from alignments of nucleotide or protein sequences
+fceux - Cross platform, NTSC and PAL Famicom/NES emulator
+ffmsindex - Command line tool to create ffms2 index files
+flam3 - render and animate FLAM3s and manipulate their genomes
+flamerobin - graphical database administration tool for Firebird DBMS
+flight-of-the-amazon-queen - a fantasy adventure game
+flmsg - amateur radio forms management editor
+fltk1.1-games - Fast Light Toolkit - example games: checkers, sudoku
+fltk1.3-doc - Fast Light Toolkit - documentation
+fltk1.3-games - Fast Light Toolkit - example games: checkers, sudoku
+fluid - Fast Light Toolkit - user interface designer
+freenect - library for accessing Kinect device -- metapackage
+fs2ram - tools to preserve tmpfs contents across reboots
+ftjam - FreeType version of Jam, a replacement for make
+ftnchek - A semantic checker for Fortran 77 programs
+fusionforge-plugin-globalsearch - Globalsearch plugin for FusionForge
+g++-4.6-arm-linux-gnueabi - GNU C++ compiler
+g++-4.6-arm-linux-gnueabihf - GNU C++ compiler
+g++-4.7-arm-linux-gnueabi - GNU C++ compiler
+g++-4.7-arm-linux-gnueabihf - GNU C++ compiler
+g++-arm-linux-gnueabi - The GNU C++ compiler for armel architecture
+g++-arm-linux-gnueabihf - The GNU C++ compiler for armhf architecture
+g++-mingw-w64 - GNU C++ compiler for MinGW-w64
+g++-mingw-w64-i686 - GNU C++ compiler for MinGW-w64 targeting Win32
+g++-mingw-w64-x86-64 - GNU C++ compiler for MinGW-w64 targeting Win64
+gbrowse - GMOD Generic Genome Browser
+gcc-4.6-arm-linux-gnueabi - GNU C compiler
+gcc-4.6-arm-linux-gnueabihf - GNU C compiler
+gcc-4.7-arm-linux-gnueabi - GNU C compiler
+gcc-4.7-arm-linux-gnueabihf - GNU C compiler
+gcc-arm-linux-gnueabi - The GNU C compiler for armel architecture
+gcc-arm-linux-gnueabihf - The GNU C compiler for armhf architecture
+gcc-avr - The GNU C compiler (cross compiler for avr)
+gcc-h8300-hms - GNU C compiler (cross compiler for h8300-hitachi-coff)
+gcc-m68hc1x - GNU C compiler for the Motorola 68HC11/12 processors
+gcc-mingw-w64 - GNU C compiler for MinGW-w64
+gcc-mingw-w64-i686 - GNU C compiler for MinGW-w64 targeting Win32
+gcc-mingw-w64-x86-64 - GNU C compiler for MinGW-w64 targeting Win64
+gcc-msp430 - GNU C compiler (cross compiler for MSP430)
+gdb-avr - The GNU Debugger for avr
+gdb-mingw-w64 - Cross-debugger for Win32 and Win64 using MinGW-w64
+gdb-mingw-w64-target - Cross-debugger server for Win32 and Win64 using MinGW-w64
+gdb-msp430 - The GNU debugger for MSP430
+geant321-data - [Physics] Data for GEANT 3.21 detector simulator
+gff2aplot - pair-wise alignment-plots for genomic sequences in PostScript
+gfortran-arm-linux-gnueabi - The GNU Fortran 95 compiler for armel architecture
+gfortran-arm-linux-gnueabihf - The GNU Fortran 95 compiler for armhf architecture
+gfortran-mingw-w64 - GNU Fortran compiler for MinGW-w64
+gfortran-mingw-w64-i686 - GNU Fortran compiler for MinGW-w64 targeting Win32
+gfortran-mingw-w64-x86-64 - GNU Fortran compiler for MinGW-w64 targeting Win64
+gjay - An automatic and learning DJ for audacious
+glee-dev - extension loading library for OpenGL - development
+global - Source code search and browse tools
+gnat-mingw-w64 - GNU Ada compiler for MinGW-w64
+gnat-mingw-w64-i686 - GNU Ada compiler for MinGW-w64 targeting Win32
+gnat-mingw-w64-x86-64 - GNU Ada compiler for MinGW-w64 targeting Win64
+gnome-system-tools - Cross-platform configuration utilities for GNOME
+goattracker - C64 music editor
+gobjc++-arm-linux-gnueabi - The GNU Objective-C++ compiler for armel architecture
+gobjc++-arm-linux-gnueabihf - The GNU Objective-C++ compiler for armhf architecture
+gobjc++-mingw-w64 - GNU Objective-C++ compiler for MinGW-w64
+gobjc++-mingw-w64-i686 - GNU Objective-C++ compiler for MinGW-w64 targeting Win32
+gobjc++-mingw-w64-x86-64 - GNU Objective-C++ compiler for MinGW-w64 targeting Win64
+gobjc-arm-linux-gnueabi - The GNU Objective-C compiler for armel architecture
+gobjc-arm-linux-gnueabihf - The GNU Objective-C compiler for armhf architecture
+gobjc-mingw-w64 - GNU Objective-C compiler for MinGW-w64
+gobjc-mingw-w64-i686 - GNU Objective-C compiler for MinGW-w64 targeting Win32
+gobjc-mingw-w64-x86-64 - GNU Objective-C compiler for MinGW-w64 targeting Win64
+google-mock - Google's framework for writing and using C++ mock classes
+gpixpod - Organize photos on your iPod, freely!
+gprompter - intelligent predictive GTK+ text editor
+gprompter-dbg - intelligent predictive GTK+ text editor (debugging symbols)
+grabc - simple program to determine the color string in hex by clicking on a pixel
+grace - XY graphing and plotting tool
+graphicsmagick-dbg - format-independent image processing - debugging symbols
+graphicsmagick-libmagick-dev-compat - image processing libraries providing ImageMagick interface
+gridengine-client - Utilities for Grid Engine queue management
+gridengine-common - Distributed resource management - common files
+gridengine-exec - Distributed resource management - Execution Server
+gridengine-master - Distributed resource management - Master Server
+gridengine-qmon - Graphical utilities for Grid Engine queue management
+gstreamer0.10-crystalhd - Crystal HD Video Decoder (GStreamer plugin)
+gstreamer0.10-pocketsphinx - lightweight speech recognition - GStreamer plugin
+gworldclock - Displays time and date in specified time zones
+gyp - Generate Your Projects
+halibut - yet another free document preparation system
+hannah - pacman-like game, child oriented
+hannah-data - pacman-like game, child oriented - data files
+hexalate - Color matching puzzle
+hpodder - Tool to scan and download podcasts (podcatcher)
+html-xml-utils - HTML and XML manipulation utilities
+html2ps - HTML to PostScript converter
+hv3 - Lightweight web browser
+hwloc - Hierarchical view of the machine - utilities
+hwloc-nox - Hierarchical view of the machine - non-X version of utilities
+ibus-rime - Rime Input Method Engine for IBus
+icicles - emacs library that enhances minibuffer/input completion
+ion - NASA implementation of Delay-Tolerant Networking (DTN)
+ion-doc - Interplanetary Overlay Network - examples and documentation
+jam - Software-build tool, replacement for make
+jclic - Tool for the development & use of multimedia educational activities
+jed - editor for programmers (textmode version)
+jnettop - View hosts/ports taking up the most network traffic
+jquery-jplayer-bluemonday - Blue Monday skin for jPlayer
+jquery-jplayer-pinkflag - Pink Flag skin for jPlayer
+jsmath - TeX equations in HTML documents
+jsxgraph - Interactive Geometry with JavaScript
+juffed - Lightweight Qt 4 text editor
+juffed-dev - Lightweight Qt 4 text editor - development files
+juffed-plugins - Lightweight Qt 4 text editor - plugins
+kbuild - framework for writing simple makefiles for complex tasks
+kchmviewer - CHM viewer for KDE
+keepassx - Cross Platform Password Manager
+keepnote - cross-platform note-taking and organization application
+kexi - integrated database environment for the Calligra Suite
+kontrolpack - network controller
+kwwidgets-doc - Cross-Platform GUI Toolkit - documentation
+kwwidgets-examples - Cross-Platform GUI Toolkit - examples
+lam-runtime - LAM runtime environment for executing parallel programs
+latexmk - Perl script for running LaTeX the correct number of times
+libactivemq-java - Java message broker core libraries
+libactivemq-java-doc - Java message broker core libraries - documentation
+libadplug-2.2.1-0 - free AdLib sound library
+libadplug-dev - free AdLib sound library (development)
+libafsauthent1 - AFS distributed file system runtime library (authentication)
+libafsrpc1 - AFS distributed file system runtime library (RPC layer)
+libakonadi-dev - development files for the Akonadi PIM storage service
+libakonadiprotocolinternals1 - libraries for the Akonadi PIM storage service
+libalglib-2.6.0 - Numerical analysis and data processing library
+libalglib-2.6.0-dbg - Debugging symbols for the alglib library
+libalglib-dev - Development files for the alglib library
+liballeggl4-dev - development files for the allgrogl library
+liballeggl4.4 - library to mix OpenGL graphics with Allegro routines
+liballegro4.2-dev - development files for the Allegro library
+liballegro4.4 - portable library for cross-platform game and multimedia development
+liballegro4.4-plugin-alsa - ALSA audio plugin for the Allegro library
+libalure-dev - AL Utilities REtooled (development files)
+libalure1 - AL Utilities REtooled (shared library)
+libao-ocaml - OCaml bindings for libao -- runtime files
+libao-ocaml-dev - OCaml bindings for libao -- development files
+libao-ruby - cross-platform audio output library bindings for Ruby
+libao-ruby1.8 - cross-platform audio output library bindings for Ruby 1.8
+libapache-session-ldap-perl - LDAP implementation of Apache::Session
+libapache-session-perl - modules for keeping persistent user data across HTTP requests
+libapache2-mod-auth-tkt - lightweight single-sign-on authentication module for Apache
+libapache2-mod-shib2 - Federated web single sign-on system (Apache module)
+libarccommon2 - ARC Grid middleware
+libargtable2-0 - A library for parsing GNU style command line arguments
+libargtable2-dev - A library for parsing GNU style command line arguments
+libasio-dev - cross-platform C++ library for network programming
+libasio-doc - cross-platform C++ library for network programming
+libaspectj-java - aspect-oriented extension for Java - library
+libaspectj-java-doc - aspect-oriented extension for Java - API documentation
+libasync-interrupt-perl - module to allow C/XS libraries to interrupt perl
+libatd-ocaml - syntax for cross-language data types in OCaml
+libatd-ocaml-dev - syntax for cross-language data types in OCaml
+libav-extra-dbg - Debug symbols for Libav related packages
+libav-source - Patched Libav sources
+libavbin0 - cross-platform media decoding library
+libbio-samtools-perl - Perl interface to SamTools library for DNA sequencing
+libblacs-mpi-dev - Basic Linear Algebra Comm. Subprograms - Dev. files for MPI
+libblacs-mpi1 - Basic Linear Algebra Comm. Subprograms - Shared libs. for MPI
+libboost-locale-dev - C++ facilities for localization (default version)
+libboost-locale1.49-dev - C++ facilities for localization
+libboost-locale1.49.0 - C++ facilities for localization
+libboost-locale1.50-dev - C++ facilities for localization
+libboost-locale1.50.0 - C++ facilities for localization
+libbrailleutils-java - cross platform library for embossing/converting PEF-files
+libbrailleutils-java-doc - cross platform library for embossing/converting PEF-files
+libc6-armel-armhf-cross - Dummy package to get libc6:armel installed
+libc6-armel-cross - Embedded GNU C Library: Shared libraries (for cross-compiling)
+libc6-armhf-armel-cross - Dummy package to get libc6:armhf installed
+libc6-armhf-cross - Embedded GNU C Library: Shared libraries (for cross-compiling)
+libc6-dbg-armel-cross - Embedded GNU C Library: detached debugging symbols (for cross-compiling)
+libc6-dbg-armhf-cross - Embedded GNU C Library: detached debugging symbols (for cross-compiling)
+libc6-dev-armel-armhf-cross - Dummy package to get libc6-dev:armel installed
+libc6-dev-armel-cross - Embedded GNU C Library: Development Libraries and Header Files (for cross-compiling)
+libc6-dev-armhf-armel-cross - Dummy package to get libc6-dev:armhf installed
+libc6-dev-armhf-cross - Embedded GNU C Library: Development Libraries and Header Files (for cross-compiling)
+libcgi-application-plugin-protectcsrf-perl - plugin to generate and verify anti-CSRF challenges
+libcgi-session-perl - persistent session data in CGI applications
+libcgi-session-serialize-yaml-perl - YAML and YAML::Syck support for CGI::Session's serializers
+libclass-dbi-perl - convenient abstraction layer to a database
+libcmor-dev - Development files for Climate Model Output Rewriter
+libcmor2 - Climate Model Output Rewriter library
+libcodeblocks0 - Code::Blocks shared library
+libcommons-launcher-java - cross platform java application launcher
+libcoyotl-3.1-4 - portable C++ classes used by acovea
+libcoyotl-dev - portable C++ classes used by acovea -- development files
+libcrystalhd-dev - Crystal HD Video Decoder (development files)
+libcrystalhd3 - Crystal HD Video Decoder (shared library)
+libcsfml-audio1.6 - Libraries for the C Binding of SFML - Audio Part
+libcsfml-dev - Developmentfiles for the C binding of SFML
+libcsfml-doc - Libraries for the C Binding of SFML - Documentation
+libcsfml-graphics1.6 - Libraries for the C Binding of SFML - Graphics Part
+libcsfml-network1.6 - Libraries for the C Binding of SFML - Network Part
+libcsfml-system1.6 - Libraries for the C Binding of SFML - System Part
+libcsfml-window1.6 - Libraries for the C Binding of SFML - Window Part
+libcsfml1.6-dbg - Libraries for the C Binding of SFML - Debug Files
+libcuba-doc - library for multidimensional numerical integration: documentation
+libcuba3 - library for multidimensional numerical integration
+libcuba3-dbg - library for multidimensional numerical integration: debug symbols
+libcuba3-dev - library for multidimensional numerical integration: development files
+libdata-objectdriver-perl - Simple, transparent data interface, with caching
+libdbm-deep-perl - pure perl multi-level hash/array DBM that supports transactions
+libdbusmenu-tools - tools useful during development with libdbusmenu
+libdcerpc-dev - DCE/RPC library
+libdcerpc-server-dev - DCE/RPC server library - development files
+libdcerpc-server0 - DCE/RPC server library
+libdcerpc0 - DCE/RPC client library
+libdebian-dpkgcross-perl - functions to aid cross-compiling Debian packages
+libdevel-nytprof-perl - Perl statement and subroutine code profiler
+libdevil-dev - Cross-platform image loading and manipulation toolkit
+libdevil1c2 - Cross-platform image loading and manipulation toolkit
+libeiskaltdcpp-dev - DC++ kernel from EiskaltDC++ (development files)
+libeiskaltdcpp2.2 - DC++ kernel library from EiskaltDC++
+libeiskaltdcpp2.2-dbg - DC++ kernel from EiskaltDC++ (debug symbols)
+libextutils-cbuilder-perl - module to compile and link C code for Perl modules
+libextutils-f77-perl - module to compile and link FORTRAN 77 code for Perl modules
+libfann-dbg - Debugging symbols for FANN
+libfann-dev - Development libraries and header files for FANN
+libfann-doc - API documentation for FANN
+libfann2 - Fast Artificial Neural Network Library
+libffms2-2 - Cross platform ffmpeg wrapper library
+libffms2-dev - Development files for libffms2
+libfile-cache-perl - File::Cache, a filesystem-based object store
+libfile-changenotify-perl - module to monitor files for changes
+libfile-nfslock-perl - perl module to do NFS (or not) locking
+libfile-spec-perl - collection of tools for working with paths across platforms
+libfixposix-dev - Replacement for inconsistent parts of POSIX (development)
+libfixposix0 - Replacement for inconsistent parts of POSIX (runtime)
+libflaim-dev - Embeddable cross-platform database engine
+libflaim4.1 - Embeddable cross-platform database engine
+libflexdock-java - Swing Java docking framework
+libflexdock-java-demo - Swing Java docking framework - demos and examples
+libflexdock-java-doc - Swing Java docking framework - demos and examples
+libfltk-cairo1.3 - Fast Light Toolkit - Cairo rendering layer support
+libfltk-forms1.3 - Fast Light Toolkit - Forms compatibility layer support
+libfltk-gl1.3 - Fast Light Toolkit - OpenGL rendering support
+libfltk-images1.3 - Fast Light Toolkit - image loading support
+libfltk1.3 - Fast Light Toolkit - main shared library
+libfltk1.3-dbg - Fast Light Toolkit - shared libraries with debugging symbols
+libfltk1.3-dev - Fast Light Toolkit - development files
+libfreeimage-dev - Support library for graphics image formats (development files)
+libfreeimage3 - Support library for graphics image formats (library)
+libfreeimage3-dbg - Support library for graphics image formats (debugging symbols)
+libfreenect-bin - library for accessing Kinect device -- utilities and samples
+libfreenect-demos - library for accessing Kinect device -- dummy package
+libfreenect-dev - library for accessing Kinect device -- development files
+libfreenect-doc - library for accessing Kinect device -- documentation
+libfreenect0.1 - library for accessing Kinect device
+libgcc1-armel-cross - GCC support library
+libgcc1-armhf-cross - GCC support library
+libgcc1-dbg-armel-cross - GCC support library (debug symbols)
+libgcc1-dbg-armhf-cross - GCC support library (debug symbols)
+libgensec-dev - Generic Security Library
+libgensec0 - Generic Security Library
+libgfortran3-armel-cross - Runtime library for GNU Fortran applications
+libgfortran3-armhf-cross - Runtime library for GNU Fortran applications
+libgfortran3-dbg-armel-cross - Runtime library for GNU Fortran applications (debug symbols)
+libgfortran3-dbg-armhf-cross - Runtime library for GNU Fortran applications (debug symbols)
+libghc-configurator-dev - dynamic config file reloading
+libghc-configurator-doc - dynamic config file reloading; documentation
+libghc-configurator-prof - dynamic config file reloading; profiling libraries
+libghc-hamlet-dev - type-safe tool for generating HTML code
+libghc-hamlet-doc - type-safe tool for generating HTML code; documentation
+libghc-hamlet-prof - type-safe tool for generating HTML code; profiling libraries
+libghc-hostname-dev - providing a cross-platform means of determining the hostname
+libghc-hostname-doc - providing a cross-platform means of determining the hostname; documentation
+libghc-hostname-prof - providing a cross-platform means of determining the hostname; profiling lib
+libghc-llvm-dev - Haskell bindings to the LLVM compiler toolkit
+libghc-llvm-doc - Documentation for haskell LLVM bindings
+libghc-llvm-prof - Profiling libraries haskell LLVM bindings
+libghc-openal-dev - Haskell OpenAL binding for GHC
+libghc-openal-doc - Haskell OpenAL binding for GHC; documentation
+libghc-openal-prof - Haskell OpenAL binding for GHC; profiling libraries
+libghc-simple-sendfile-dev - Cross platform library for the sendfile system call
+libghc-simple-sendfile-doc - Cross platform library for the sendfile system call; documentation
+libghc-simple-sendfile-prof - Cross platform library for the sendfile system call; profiling data
+libghc-system-fileio-dev - consistent filesystem interaction across GHC versions
+libghc-system-fileio-doc - consistent filesystem interaction across GHC versions; documentation
+libghc-system-fileio-prof - consistent filesystem interaction across GHC versions; profiling libraries
+libghc-xss-sanitize-dev - Library to sanitize HTML and prevent XSS attacks - GHC libraries
+libghc-xss-sanitize-doc - Library to sanitize HTML and prevent XSS attacks - documentation
+libghc-xss-sanitize-prof - Library to sanitize HTML and prevent XSS attacks - GHC profiling libraries
+libglee0d1 - extension loading library for OpenGL
+libglee0d1-dbg - extension loading library for OpenGL - debugging
+libgnelib-dev - the Game Networking Engine (development headers)
+libgnelib-doc - the Game Networking Engine (Documentation)
+libgnelib0 - the Game Networking Engine
+libgnelib0-dbg - the Game Networking Engine
+libgnome-keyring1.0-cil - CLI library to access the GNOME Keyring daemon
+libgnome-keyring1.0-cil-dev - CLI library to access the GNOME Keyring daemon
+libgo0-armel-cross - Runtime library for GNU Go applications
+libgo0-armhf-cross - Runtime library for GNU Go applications
+libgo0-dbg-armel-cross - Runtime library for GNU Go applications (debug symbols)
+libgo0-dbg-armhf-cross - Runtime library for GNU Go applications (debug symbols)
+libgomp1-armel-cross - GCC OpenMP (GOMP) support library
+libgomp1-armhf-cross - GCC OpenMP (GOMP) support library
+libgomp1-dbg-armel-cross - GCC OpenMP (GOMP) support library (debug symbols)
+libgomp1-dbg-armhf-cross - GCC OpenMP (GOMP) support library (debug symbols)
+libgraphics-magick-perl - format-independent image processing - perl interface
+libgraphicsmagick++1-dev - format-independent image processing - C++ development files
+libgraphicsmagick++3 - format-independent image processing - C++ shared library
+libgraphicsmagick1-dev - format-independent image processing - C development files
+libgraphicsmagick3 - format-independent image processing - C shared library
+libgtkdatabox-0.9.1-1 - Gtk+ library to display large amounts of numerical data
+libgtkdatabox-0.9.1-1-dev - Gtk+ library to display large amounts of numerical data
+libgtkdatabox-0.9.1-1-glade - Gtk+ library to display large amounts of numerical data
+libgtkdatabox-0.9.1-1-libglade - Gtk+ library to display large amounts of numerical data
+libgtkhotkey-dev - Gtk hotkey static libraries and headers
+libgtkhotkey1 - Gtk hotkey shared library
+libha-jdbc-java - JDBC proxy that provides clustering capability to any JDBC driver
+libhamlib++-dev - Development library to control radio transceivers and receivers
+libhamlib-dev - Development library to control radio transceivers and receivers
+libhamlib-doc - Documentation for the hamlib radio control library
+libhamlib-utils - Utilities to support the hamlib radio control library
+libhamlib2 - Run-time library to control radio transceivers and receivers
+libhamlib2++c2 - Run-time library to control radio transceivers and receivers
+libhamlib2-perl - Run-time library to control radio transceivers and receivers
+libhamlib2-tcl - Run-time library to control radio transceivers and receivers
+libhdfeos-dev - Development files for the HDF-EOS4 library
+libhdfeos0 - Earth Observation System extensions to HDF4
+libhe5-hdfeos-dev - Development files for the HDF-EOS5 library
+libhe5-hdfeos0 - Earth Observation System extensions to HDF5
+libhfgcc1-armel-cross - GCC support library (hard float ABI)
+libhfgcc1-dbg-armel-cross - GCC support library (debug symbols)
+libhfgfortran3-armel-cross - Runtime library for GNU Fortran applications (hard float ABI)
+libhfgfortran3-dbg-armel-cross - Runtime library for GNU Fortran applications (hard float ABI debug symbols)
+libhfgomp1-armel-cross - GCC OpenMP (GOMP) support library (hard float ABI)
+libhfgomp1-dbg-armel-cross - GCC OpenMP (GOMP) support library (hard float ABI debug symbols)
+libhfmudflap0-armel-cross - GCC mudflap shared support libraries (hard float)
+libhfmudflap0-dbg-armel-cross - GCC mudflap shared support libraries (hard float debug symbols)
+libhfobjc3-armel-cross - Runtime library for GNU Objective-C applications (hard float ABI)
+libhfobjc3-dbg-armel-cross - Runtime library for GNU Objective-C applications (hard float ABI debug symbols)
+libhfobjc4-armel-cross - Runtime library for GNU Objective-C applications (hard float ABI)
+libhfobjc4-dbg-armel-cross - Runtime library for GNU Objective-C applications (hard float ABI debug symbols)
+libhfstdc++6-4.6-dbg-armel-cross - GNU Standard C++ Library v3 (debugging files)
+libhfstdc++6-4.7-dbg-armel-cross - GNU Standard C++ Library v3 (debugging files)
+libhfstdc++6-armel-cross - GNU Standard C++ Library v3 (hard float ABI)
+libhpdf-2.2.1 - C library for generating pdf files
+libhpdf-dev - C library for generating pdf files (development files)
+libhtml-stripscripts-perl - module for removing scripts from HTML
+libhtml-tagfilter-perl - A fine-grained HTML-filter, XSS-blocker and mailto-obfuscator
+libhtml-widgets-selectlayers-perl - Perl extension for selectable HTML layers
+libhugs-openal-bundled - A binding to the OpenAL cross-platform 3D audio API
+libhwloc-common - Hierarchical view of the machine - common files
+libhwloc-dev - Hierarchical view of the machine - static libs and headers
+libhwloc-doc - Hierarchical view of the machine - documentation
+libhwloc5 - Hierarchical view of the machine - shared libs
+libion-dev - NASA implementation of Delay-Tolerant Networking (DTN) - development files
+libion0 - NASA implementation of Delay-Tolerant Networking (DTN) - main libraries
+libirrlicht-dev - High performance realtime 3D engine development library
+libirrlicht-doc - High performance realtime 3D engine (API documentation)
+libirrlicht1.7a - High performance realtime 3D engine
+libj2ssh-java - Java library for the SSH protocol
+libj2ssh-java-doc - Java library for the SSH protocol - documentation and examples
+libjansi-java - Java library for generating and interpreting ANSI escape sequences
+libjansi-native-java - Java library that allows to use ANSI escape sequences - Native
+libjgromacs-java - library for molecular dynamics trajectory analysis
+libjgromacs-java-doc - library for molecular dynamics trajectory analysis (documentation)
+libjgroups-java - Toolkit for Reliable Multicast Communication
+libjgroups2.6-java - Toolkit for Reliable Multicast Communication
+libjpgalleg4-dev - development files for the JPG loading addon for Allegro 4
+libjpgalleg4.4 - JPG loading addon for Allegro 4
+libjs-dojo-core - Modular JavaScript toolkit
+libjs-dojo-dijit - Modular JavaScript toolkit - Dijit
+libjs-dojo-dojox - Modular JavaScript toolkit - DojoX
+libjs-extjs - a cross-browser JavaScript library
+libjs-extjs-doc - a cross-browser JavaScript library (docs)
+libjs-jquery-jplayer - HTML5 Audio & Video for jQuery with a Flash fallback
+libjs-jquery-mousewheel - jQuery Mousewheel Plugin
+libjs-jquery-tablesorter - Flexible client-side table sorting
+libjs-mootools - compact JavaScript framework
+libjs-underscore.logger - cross-browser and Node empowered logging - browser library
+libjs-yui - Yahoo User Interface Library
+libjsr107cache-java - Java API for caching
+libjthread-dbg - JThread cross-platform threading library debugging symbols
+libjthread-dev - JThread cross-platform library headers
+libjthread-doc - JThread cross-platform threading library documentation
+libjthread1.3.1 - JThread cross-platform threading library
+libkopenafs1 - AFS distributed file system runtime library (PAGs)
+libkqueue0 - cross-platform library for kernel event notification
+libktpcommoninternalsprivate-dbg - KDE Telepathy internal library - debug symbols
+libktpcommoninternalsprivate-dev - KDE Telepathy internal library - Development headers
+libktpcommoninternalsprivate3 - KDE Telepathy internal library
+libkwwidgets1-dev - Cross-Platform GUI Toolkit - development
+libkwwidgets1.0.1009 - Cross-Platform GUI Toolkit - runtime
+liblcms-utils - Little CMS color management library utilities
+liblink-grammar4 - Carnegie Mellon University's link grammar parser (libraries)
+liblink-grammar4-dev - Carnegie Mellon University's link grammar parser (development headers)
+liblink-grammar4-java - Carnegie Mellon University's link grammar parser (JNI library)
+libloadpng4-dev - development files for the PNG loading addon for Allegro 4
+libloadpng4.4 - PNG loading addon for Allegro 4
+liblttng-ctl-dev - LTTng control and utility library (development files)
+liblttng-ctl0 - LTTng control and utility library
+liblwjgl-java - Lightweight Java Game Library
+liblwjgl-java-doc - Lightweight Java Game Library (javadoc)
+liblwjgl-java-jni - Lightweight Java Game Library (jni)
+libmac-widgets-java - collection of Mac style widgets written in Java
+libmarc-crosswalk-dublincore-perl - Convert data between MARC and Dublin Core
+libmath-random-oo-perl - consistent object-oriented interface for generating random numbers
+libmath-vector-real-perl - Perl module for real number vector arithmetic
+libmemcache-dev - development headers for libmemcache C client API
+libmemcache0 - C client API for memcached memory object caching system
+libmercator-0.3-1 - WorldForge terrain library
+libmercator-0.3-1-dbg - WorldForge terrain library - debugging symbols
+libmercator-0.3-dev - WorldForge terrain library - development files
+libmgl-data - library for scientific graphs. (data files)
+libmgl-dev - library for scientific graphs. (development files)
+libmgl-fltk5 - library for scientific graphs. (FLTK runtime library)
+libmgl-glut5 - library for scientific graphs. (GLUT runtime library)
+libmgl-qt5 - library for scientific graphs. (Qt runtime library)
+libmgl-wx5 - library for scientific graphs. (wxWidgets runtime library)
+libmgl5 - library for scientific graphs. (main runtime library)
+libmono-zeroconf-cil-dev - CLI library for multicast DNS service discovery
+libmono-zeroconf1.0-cil - CLI library for multicast DNS service discovery
+libmrpt-base0.9 - Mobile Robot Programming Toolkit - base library
+libmrpt-bayes0.9 - Mobile Robot Programming Toolkit - bayes library
+libmrpt-dbg - Mobile Robot Programming Toolkit - Debug libraries
+libmrpt-detectors0.9 - Mobile Robot Programming Toolkit - detectors library
+libmrpt-dev - Mobile Robot Programming Toolkit - Development headers
+libmrpt-graphs0.9 - Mobile Robot Programming Toolkit - graphs library
+libmrpt-graphslam0.9 - Mobile Robot Programming Toolkit - graphslam library
+libmrpt-gui0.9 - Mobile Robot Programming Toolkit - gui library
+libmrpt-hmtslam0.9 - Mobile Robot Programming Toolkit - hmtslam library
+libmrpt-hwdrivers0.9 - Mobile Robot Programming Toolkit - hwdrivers library
+libmrpt-maps0.9 - Mobile Robot Programming Toolkit - maps library
+libmrpt-obs0.9 - Mobile Robot Programming Toolkit - obs library
+libmrpt-opengl0.9 - Mobile Robot Programming Toolkit - opengl library
+libmrpt-reactivenav0.9 - Mobile Robot Programming Toolkit - reactivenav library
+libmrpt-scanmatching0.9 - Mobile Robot Programming Toolkit - scanmatching library
+libmrpt-slam0.9 - Mobile Robot Programming Toolkit - slam library
+libmrpt-topography0.9 - Mobile Robot Programming Toolkit - topography library
+libmrpt-vision0.9 - Mobile Robot Programming Toolkit - vision library
+libmudflap0-4.6-dev-armel-cross - GCC mudflap support libraries (development files)
+libmudflap0-4.6-dev-armhf-cross - GCC mudflap support libraries (development files)
+libmudflap0-4.7-dev-armel-cross - GCC mudflap support libraries (development files)
+libmudflap0-4.7-dev-armhf-cross - GCC mudflap support libraries (development files)
+libmudflap0-armel-cross - GCC mudflap shared support libraries
+libmudflap0-armhf-cross - GCC mudflap shared support libraries
+libmudflap0-dbg-armel-cross - GCC mudflap shared support libraries (debug symbols)
+libmudflap0-dbg-armhf-cross - GCC mudflap shared support libraries (debug symbols)
+libndr-dev - NDR marshalling library - development files
+libndr-standard-dev - Standard NDR interfaces - development files
+libndr-standard0 - Standard NDR interfaces
+libndr0 - NDR marshalling library
+libnet-proxy-perl - Framework for proxying network connections in many ways
+libobjc3-armel-cross - Runtime library for GNU Objective-C applications
+libobjc3-armhf-cross - Runtime library for GNU Objective-C applications
+libobjc3-dbg-armel-cross - Runtime library for GNU Objective-C applications (debug symbols)
+libobjc3-dbg-armhf-cross - Runtime library for GNU Objective-C applications (debug symbols)
+libobjc4-armel-cross - Runtime library for GNU Objective-C applications
+libobjc4-armhf-cross - Runtime library for GNU Objective-C applications
+libobjc4-dbg-armel-cross - Runtime library for GNU Objective-C applications (debug symbols)
+libobjc4-dbg-armhf-cross - Runtime library for GNU Objective-C applications (debug symbols)
+liboggplay1 - A library for playing OGG multimedia
+liboggplay1-dbg - A library for playing OGG multimedia (debugging symbols)
+liboggplay1-dev - A library for playing OGG multimedia (development files)
+libois-1.3.0 - Object Oriented Input System library (C++)
+libois-dev - Object Oriented Input System library (C++ development headers)
+libois-perl - Perl binding for the OIS C++ input framework
+libopenafs-dev - AFS distributed filesystem development libraries
+libopenal-data - Software implementation of the OpenAL API (data files)
+libopenal-dev - Software implementation of the OpenAL API (development files)
+libopenal1 - Software implementation of the OpenAL API (shared library)
+libossim-dev - The OSSIM library -- development files
+libossim1 - The OSSIM library -- shared library
+libossp-uuid-perl - perl OSSP::UUID - OSSP uuid Perl Binding
+libpam-openafs-kaserver - AFS distributed filesystem kaserver PAM module
+libpar-packer-perl - utility for creating PAR archives and stand-alone executables
+libparse-pidl-perl - IDL compiler written in Perl
+libpath-class-perl - module for cross-platform path specification manipulation
+libpdf-reuse-perl - Reuse and mass produce PDF documents
+libpiano-dev - library to interface with Pandora radio -- development
+libpiano0 - library to interface with Pandora radio -- runtime files
+libplack-middleware-crossorigin-perl - Plack middleware adding headers to allow CORS
+libpocketsphinx-dev - lightweight speech recognition - development files
+libpocketsphinx1 - lightweight speech recognition - library
+libpoe-api-peek-perl - module to peek into the internals of a running POE environment
+libportaudio-dev - Portable audio I/O - development files
+libportaudio-doc - Portable audio I/O - documentation
+libportaudio-ocaml - OCaml bindings for the portaudio library
+libportaudio-ocaml-dev - OCaml bindings for the portaudio library
+libportaudio0 - Portable audio I/O - shared library
+libportsmf-dev - Portable Standard Midi File Library (development files)
+libportsmf0 - Portable Standard Midi File Library
+libpyside-dev - Python bindings for Qt 4 (development files)
+libpyside-py3-1.1 - Python3 bindings for Qt 4 (base files)
+libpyside1.1 - Python bindings for Qt 4 (base files)
+libqca2-plugin-ossl - SSL/TLS support for the Qt Cryptographic Architecture
+libqdjango-db0 - Database library for the QDjango framework
+libqdjango-dev - Development files for the QDjango framework
+libqdjango-doc - Documentation for the QDjango framework
+libqdjango-http0 - HTTP library for the QDjango framework
+libqdjango-script0 - Script library for the QDjango framework
+libqmf-dev - enterprise messaging system - QMF development files
+libqmf1 - enterprise messaging system - QMF libraries
+libqmf2-1 - enterprise messaging system - QMF2 libraries
+libqmf2-dev - enterprise messaging system - QMF2 development files
+libqmfconsole2 - enterprise messaging system - QMF console library
+libqmfconsole2-dev - enterprise messaging system - QMF console development files
+libqmfengine1 - enterprise messaging system - QMF engine libraries
+libqmfengine1-dev - enterprise messaging system - QMF engine development files
+libqpid-perl - enterprise messaging system - Perl bindings
+libqpidbroker2 - enterprise messaging system - broker libraries
+libqpidbroker2-dev - enterprise messaging system - broker development files
+libqpidclient2 - enterprise messaging system - client libraries
+libqpidclient2-dev - enterprise messaging system - client development files
+libqpidcommon2 - enterprise messaging system - common libraries
+libqpidcommon2-dev - enterprise messaging system - common development files
+libqpidmessaging2 - enterprise messaging system - AMQP messaging libraries
+libqpidmessaging2-dev - enterprise messaging system - AMQP messaging development files
+libqpidtypes1 - enterprise messaging system - API libraries
+libqpidtypes1-dev - enterprise messaging system - API development files
+libqt4-assistant - transitional package for Qt 4 assistant module
+libqt4-core - transitional package for Qt 4 core non-GUI runtime libraries
+libqt4-declarative-folderlistmodel - Qt 4 folderlistmodel QML plugin
+libqt4-declarative-shaders - Qt 4 shaders QML plugin
+libqt4-webkit - transitional package for Qt 4 WebKit module
+libqxmpp-dev - Development files for the QXmpp library
+libqxmpp-doc - Documentation for the QXmpp library
+libqxmpp0 - QXmpp library for XMPP client and server applications
+libqxmpp0-dbg - Debugging symbols for the QXmpp library
+libqxrunner-dev - A Qt4-based GUI for running tests - development files
+libqxrunnerd1 - A Qt4-based GUI for running tests
+libqxt-berkeley0 - Berkeley databases module for Qt (LibQxt)
+libqxt-core0 - extensions to Qt core classes (LibQxt)
+libqxt-designer0 - LibQxt extensions to Qt Designer
+libqxt-dev - LibQxt development files
+libqxt-doc - LibQxt reference documentation
+libqxt-gui0 - extensions to Qt GUI classes (LibQxt)
+libqxt-network0 - extensions to Qt network classes (LibQxt)
+libqxt-sql0 - extensions to Qt SQL classes (LibQxt)
+libqxt-web0 - library to create web services using Qt (LibQxt)
+libqxt-zeroconf0 - library to use multicast DNS service discovery in Qt (LibQxt)
+librdmawrap2 - enterprise messaging system - RDMA libraries
+librdmawrap2-dev - enterprise messaging system - RDMA development files
+librime-bin - Rime Input Method Engine - utilities
+librime-data - Rime Input Method Engine, the schema data
+librime-data-bopomofo - RIME schema data - Bopomofo (a.k.a Zhu Yin)
+librime-data-cangjie5 - RIME schema data - Cangjie5
+librime-data-combo-pinyin - RIME schema data - Combo Pinyin (a.k.a Gong Bao Pin Yin)
+librime-data-double-pinyin - RIME schema data - Double Pinyin (a.k.a Zi Ran Ma Shuang Pin)
+librime-data-ipa-xsampa - RIME schema data - X-SAMPA
+librime-data-jyutping - RIME schema data - jyutping (a.k.a Cantonese)
+librime-data-luna-pinyin - RIME schema data - Luna Pinyin
+librime-data-pinyin-simp - RIME schema data - Pinyin Simp (a.k.a Xiu Zheng Jian Hua Pin Yin)
+librime-data-quick5 - RIME schema data - quick5
+librime-data-scj6 - RIME schema data - scj6 (a.k.a Fast Cangjie IM 6)
+librime-data-stenotype - RIME schema data - stenotype
+librime-data-stroke-simp - RIME schema data - Simplified Stroke (hspnz)
+librime-data-stroke5 - RIME schema data - Stroke5
+librime-data-terra-pinyin - RIME schema data - Terra Pinyin (a.k.a Earth Pinyin)
+librime-data-triungkox3p - RIME schema data - triungkox3p (a.k.a Zhong Gu San Pin)
+librime-data-wubi - RIME schema data - Wubi
+librime-data-wugniu - RIME schema data - wugniu (a.k.a Shanghai Native Language)
+librime-data-zyenpheng - RIME schema data - zyenpheng (a.k.a Medieval Chinese)
+librime-dev - Rime Input Method Engine, the core library - development files
+librime0 - Rime Input Method Engine - core library
+librime0-dbg - Rime Input Method Engine, the core library - debugging symbols
+librtaudio-dbg - C++ library for realtime audio input/ouput (debugging symbols)
+librtaudio-dev - C++ library for realtime audio input/ouput (development files)
+librtaudio4 - C++ library for realtime audio input/ouput
+librtmidi-dbg - C++ library for realtime MIDI input/ouput (debugging symbols)
+librtmidi-dev - C++ library for realtime MIDI input/ouput (development files)
+librtmidi1 - C++ library for realtime MIDI input/ouput
+libsamba-credentials-dev - Samba Credentials management - development files
+libsamba-credentials0 - Samba Credentials management library
+libsamba-hostconfig-dev - Samba host configuration library - development files
+libsamba-hostconfig0 - Samba host configuration library
+libsamba-policy-dev - Samba policy management - development files
+libsamba-policy0 - Samba policy management
+libsamba-util-dev - Samba utility function library - development files
+libsamba-util0 - Samba utility function library
+libsamdb-dev - SAM database - development files
+libsamdb0 - SAM database
+libsanlock-client1 - shared storage lock manager (client library)
+libsanlock-dev - shared storage lock manager (development files)
+libscalar-number-perl - module for handling numeric aspects of scalars
+libsdl-net1.2 - Network library for Simple DirectMedia Layer 1.2, libraries
+libsdl-net1.2-dev - Network library for Simple DirectMedia Layer 1.2, development files
+libsdl-ocaml - OCaml bindings for SDL - runtime files
+libsdl-ocaml-dev - OCaml bindings for SDL - development files
+libsfgcc1-armhf-cross - GCC support library (soft float ABI)
+libsfgcc1-dbg-armhf-cross - GCC support library (debug symbols)
+libsfgfortran3-armhf-cross - Runtime library for GNU Fortran applications (soft float ABI)
+libsfgfortran3-dbg-armhf-cross - Runtime library for GNU Fortran applications (hard float ABI debug symbols)
+libsfgomp1-armhf-cross - GCC OpenMP (GOMP) support library (soft float ABI)
+libsfgomp1-dbg-armhf-cross - GCC OpenMP (GOMP) support library (soft float ABI debug symbols)
+libsfml-audio1.6 - Simple and fast cross-platform multimedia library - Audio part
+libsfml-dev - Simple and fast cross-platform multimedia library - Development Files
+libsfml-doc - Simple and fast cross-platform multimedia library - documentation
+libsfml-graphics1.6 - Simple and fast cross-platform multimedia library - Graphics part
+libsfml-network1.6 - Simple and fast cross-platform multimedia library - Network part
+libsfml-system1.6 - Simple and fast cross-platform multimedia library - System part
+libsfml-window1.6 - Simple and fast cross-platform multimedia library - Window part
+libsfml1.6-dbg - Simple and fast cross-platform multimedia library - debug symbols
+libsfmudflap0-armhf-cross - GCC mudflap shared support libraries (soft float)
+libsfmudflap0-dbg-armhf-cross - GCC mudflap shared support libraries (soft float debug symbols)
+libsfobjc3-armhf-cross - Runtime library for GNU Objective-C applications (soft float ABI)
+libsfobjc3-dbg-armhf-cross - Runtime library for GNU Objective-C applications (soft float ABI debug symbols)
+libsfobjc4-armhf-cross - Runtime library for GNU Objective-C applications (soft float ABI)
+libsfobjc4-dbg-armhf-cross - Runtime library for GNU Objective-C applications (soft float ABI debug symbols)
+libsfstdc++6-4.6-dbg-armhf-cross - GNU Standard C++ Library v3 (debugging files)
+libsfstdc++6-4.7-dbg-armhf-cross - GNU Standard C++ Library v3 (debugging files)
+libsfstdc++6-armhf-cross - GNU Standard C++ Library v3 (soft float ABI)
+libshell-command-perl - cross-platform functions emulating common shell commands
+libshibsp-dev - Federated web single sign-on system (development)
+libshibsp-doc - Federated web single sign-on system (API docs)
+libshibsp5 - Federated web single sign-on system (runtime)
+libsmbclient-raw-dev - SMB client library - development files
+libsmbclient-raw0 - SMB client library
+libsmbios-dev - Provide access to (SM)BIOS information - development files
+libsmbios-doc - Access to (SM)BIOS information in an OS-indepent way (docs)
+libsmbios2 - Provide access to (SM)BIOS information -- dynamic library
+libspread-perl - Perl bindings for the Spread messaging service
+libspread1 - C library for the Spread messaging service
+libspread1-dev - Development files for libspread
+libspreadsheet-writeexcel-perl - module to create Excel spreadsheets
+libsslcommon2 - enterprise messaging system - common SSL libraries
+libsslcommon2-dev - enterprise messaging system - common SSL development files
+libstarpu-1.0 - Task scheduler for heterogeneous multicore machines
+libstarpu-dev - Task scheduler for heterogeneous multicore machines - dev
+libstarpufft-1.0 - Task scheduler for heterogeneous multicore machines
+libstarpumpi-1.0 - Task scheduler for heterogeneous multicore machines
+libstdc++6-4.6-dbg-armel-cross - GNU Standard C++ Library v3 (debugging files)
+libstdc++6-4.6-dbg-armhf-cross - GNU Standard C++ Library v3 (debugging files)
+libstdc++6-4.6-dev-armel-cross - GNU Standard C++ Library v3 (development files)
+libstdc++6-4.6-dev-armhf-cross - GNU Standard C++ Library v3 (development files)
+libstdc++6-4.6-pic-armel-cross - GNU Standard C++ Library v3 (shared library subset kit)
+libstdc++6-4.6-pic-armhf-cross - GNU Standard C++ Library v3 (shared library subset kit)
+libstdc++6-4.7-dbg-armel-cross - GNU Standard C++ Library v3 (debugging files)
+libstdc++6-4.7-dbg-armhf-cross - GNU Standard C++ Library v3 (debugging files)
+libstdc++6-4.7-dev-armel-cross - GNU Standard C++ Library v3 (development files)
+libstdc++6-4.7-dev-armhf-cross - GNU Standard C++ Library v3 (development files)
+libstdc++6-4.7-pic-armel-cross - GNU Standard C++ Library v3 (shared library subset kit)
+libstdc++6-4.7-pic-armhf-cross - GNU Standard C++ Library v3 (shared library subset kit)
+libstdc++6-armel-cross - GNU Standard C++ Library v3
+libstdc++6-armhf-cross - GNU Standard C++ Library v3
+libswiften-dev - XMPP library (development files)
+libswiften2 - XMPP library
+libswing-layout-java - Extensions to Swing layout
+libswing-layout-java-doc - Extensions to Swing layout - contains Javadoc API documentation
+libsword-common - common settings and module repository for libsword
+libsword-dbg - API/library for bible software - Debug Files
+libsword-dev - Development files for libsword
+libsword-utils - conversion utilities for bible documents in SWORD supported formats
+libsword9 - API/library for bible software
+libtaoframework-devil-cil-dev - Tao CLI binding for DevIL - development files
+libtaoframework-devil1.6-cil - Tao CLI binding for DevIL
+libtaoframework-ffmpeg-cil-dev - Tao CLI binding for FFmpeg - development files
+libtaoframework-ffmpeg0.4-cil - Tao CLI binding for FFmpeg
+libtaoframework-freeglut-cil-dev - Tao CLI binding for freeglut - development files
+libtaoframework-freeglut2.4-cil - Tao CLI binding for freeglut
+libtaoframework-freetype-cil-dev - Tao CLI binding for FreeType - development files
+libtaoframework-freetype2.3-cil - Tao CLI binding for FreeType
+libtaoframework-ftgl-cil-dev - Tao CLI binding for FTGL - development files
+libtaoframework-ftgl2.1-cil - Tao CLI binding for FTGL
+libtaoframework-lua-cil-dev - Tao CLI binding for Lua - development files
+libtaoframework-lua5.1-cil - Tao CLI binding for Lua
+libtaoframework-ode-cil-dev - Tao CLI binding for ODE - development files
+libtaoframework-ode0.9-cil - Tao CLI binding for ODE
+libtaoframework-openal-cil-dev - Tao CLI binding for OpenAL - development files
+libtaoframework-openal1.1-cil - Tao CLI binding for OpenAL
+libtaoframework-opengl-cil-dev - Tao CLI binding for OpenGL and GLU - development files
+libtaoframework-opengl3.0-cil - Tao CLI binding for OpenGL and GLU
+libtaoframework-physfs-cil-dev - Tao CLI binding for PhysicsFS - development files
+libtaoframework-physfs1.0-cil - Tao CLI binding for PhysicsFS
+libtaoframework-sdl-cil-dev - Tao CLI binding for SDL - development files
+libtaoframework-sdl1.2-cil - Tao CLI binding for SDL
+libtest-portability-files-perl - Perl module to check that file names in a distribution are portable
+libtext-reflow-perl - Perl module for reflowing files using Knuth's algorithm
+libthrift-java - Java bindings for Thrift
+libthrift-java-doc - Documentation for libthrift-java
+libtie-refhash-weak-perl - Tie::RefHash subclass with weakened references in the keys
+libtk-dirselect-perl - cross-platform directory selection widget
+libtorque2 - shared library for Torque client and server
+libtorque2-dev - header files for libtorque2
+libtorture-dev - Library for running unit tests - development files
+libtorture0 - Library for running Samba 4 unit tests
+libu1db-dev - Ubuntu One structured data storage - C API development files
+libu1db1 - Ubuntu One structured data storage - C API
+libvde-dev - Virtual Distributed Ethernet - support libraries development files
+libvde0 - Virtual Distributed Ethernet - support libraries
+libvdeplug-dev - Virtual Distributed Ethernet - Plug development files
+libvdeplug2 - Virtual Distributed Ethernet - Plug library
+libverilog-perl - framework providing Verilog support
+libwx-perl - interface to wxWidgets cross-platform GUI toolkit
+libwxgtk2.8-0 - wxWidgets Cross-platform C++ GUI toolkit (GTK+ runtime)
+libwxgtk2.8-dbg - wxWidgets Cross-platform C++ GUI toolkit (GTK+ debug)
+libwxgtk2.8-dev - wxWidgets Cross-platform C++ GUI toolkit (GTK+ development)
+libwxsmithlib-dev - wxSmith development files (Code::Blocks plugin for RAD GUI editing)
+libwxsmithlib0 - wxSmith shared library (Code::Blocks plugin for RAD GUI editing)
+libxcp-ocaml - Xen Cloud Platform control stack core libraries (runtime)
+libxcp-ocaml-dev - Xen Cloud Platform control stack core libraries (devel)
+libxenapi-ocaml-dev - Xen Cloud Platform - OCaml bindings
+libxr1 - SSL-capable XML-RPC implementation - shared libraries
+libxr1-dbg - SSL-capable XML-RPC implementation - debug symbols
+libxr1-dev - SSL-capable XML-RPC implementation - development files
+libxs-compat-libzmq-dev - Crossroads I/O 'libzmq' compatibility library (header files)
+libxs-compat-libzmq1 - Crossroads I/O 'libzmq' compatibility library (shared library)
+libxs-dev - Crossroads I/O lightweight messaging layer (development files)
+libxs2 - Crossroads I/O lightweight messaging layer (shared library)
+libxs2-dbg - Crossroads I/O lightweight messaging layer (debugging symbols)
+libzen-dev - ZenLib C++ utility library -- development files
+libzen-doc - ZenLib C++ utility library -- documentation
+libzen0 - ZenLib C++ utility library -- runtime
+libzlcore-data - ZLibrary cross-platform development library (support files)
+libzlcore-dev - ZLibrary cross-platform development library (development files)
+libzlcore0.12 - ZLibrary cross-platform development library (shared library)
+libzltext-data - ZLibrary text model/viewer part (support files)
+libzltext-dev - ZLibrary text model/viewer part (development files)
+libzltext0.12 - ZLibrary text model/viewer part (shared library)
+libzlui-gtk - GTK+ interface module for ZLibrary
+libzlui-qt4 - Qt4 interface module for ZLibrary
+link-grammar - Carnegie Mellon University's link grammar parser
+link-grammar-dictionaries-en - Carnegie Mellon University's link grammar parser (English dictionary)
+link-grammar-dictionaries-lt - Carnegie Mellon University's link grammar parser (Lithuanian dictionary)
+linklint - A fast link checker and web site maintenance tool
+linux-libc-dev-armel-cross - Linux Kernel Headers for development (for cross-compiling)
+linux-libc-dev-armhf-cross - Linux Kernel Headers for development (for cross-compiling)
+llk-linux - a mahjongg-like game written in GTK
+lout - Typesetting system, an alternative to (La)TeX
+love - 2D game development framework based on Lua and OpenGL
+love-dbg - 2D game development framework - debugging symbols
+love-doc - 2D game development framework - documentation
+lttng-modules-dkms - Kernel modules for LTTng (DKMS)
+lttng-tools - LTTng control and utility programs
+lua-coxpcall - Protected function calls across coroutines for Lua
+mailutils - GNU mailutils utilities for handling mail
+mapivi - Photo viewer and organizer with emphasis on IPTC fields
+massxpert - linear polymer mass spectrometry software
+massxpert-dbg - linear polymer mass spectrometry software - debugging symbols
+mathgl - library for scientific graphs. (utlities and examples)
+mathgl-doc-en - library for scientific graphs. (English documentation)
+mathgl-doc-ru - library for scientific graphs. (Russian documentation)
+mayavi2 - scientific visualization package for 2-D and 3-D data
+mda-lv2 - Paul Kellett's MDA plugins ported to LV2
+mercurial - easy-to-use, scalable distributed version control system
+mingw-ocaml - OCaml cross-compiler based on mingw
+mingw32 - Minimalist GNU win32 (cross) compiler
+mingw32-binutils - Minimalist GNU win32 (cross) binutils
+mingw32-ocaml - OCaml cross-compiler based on mingw -- dummy transitional package
+mingw32-runtime - Minimalist GNU win32 (cross) runtime
+mixxx - Digital Disc Jockey Interface
+mixxx-data - Digital Disc Jockey Interface -- data files
+mlton-basis - Optimizing compiler for Standard ML - basis library
+mod-gearman-doc - Documentation and examples for Mod-Gearman
+modsecurity-crs - modsecurity's Core Rule Set
+monkeystudio - Qt 4 Integrated Development Environment (IDE)
+monkeystudio-common - Qt 4 Integrated Development Environment (IDE) - common files
+monkeystudio-dbg - Qt 4 Integrated Development Environment (IDE) - debug symbols
+monodoc-gnome-keyring-manual - CLI library to access the GNOME Keyring daemon - manual
+moon-buggy - Drive a car across the moon
+moon-buggy-esd - Drive a car across the moon (version with sound)
+mp3cd - Burns normalized audio CDs from lists of MP3s/WAVs/Oggs/FLACs
+mpd - Music Player Daemon
+mpd-dbg - Music Player Daemon debugging symbols
+mrpt-apps - Mobile Robot Programming Toolkit - Console and GUI applications
+mrpt-doc - Mobile Robot Programming Toolkit - Documentation and examples
+mrpt-libs - Mobile Robot Programming Toolkit - All the libraries
+mrtrix - diffusion-weighted MRI white matter tractography
+mrtrix-doc - documentation for mrtrix
+msp430-libc - Standard C library for TI MSP430 development
+msp430mcu - Spec files, headers and linker scripts for TI's MSP430 targets
+mx44 - polyphonic, multichannel midi realtime software synthesizer
+mzclient - CLI library for multicast DNS service discovery (commandline tool)
+netcat-traditional - TCP/IP swiss army knife
+netcat6 - TCP/IP swiss army knife with IPv6 support
+netpanzer - online multiplayer tactical warfare game
+netpanzer-data - data files for the netPanzer game
+netpanzer-dbg - debugging symbols for netpanzer
+ngrep - grep for network traffic
+ninja-ide - integrated development environment (IDE) for Python
+node-connect - high performance middleware framework for NodeJS
+node-underscore.logger - cross-browser and Node empowered logging - Node module
+node-which - Cross-platform 'which' module for Node.js
+nuttcp - network performance measurement tool
+obnam - online and disk-based backup application
+omins - collection of LADSPA plugins aimed at modular synthesizers
+open-invaders - Space Invaders clone
+open-invaders-data - Space Invaders clone (data package)
+openafs-client - AFS distributed filesystem client support
+openafs-dbg - AFS distributed filesystem debugging information
+openafs-dbserver - AFS distributed filesystem database server
+openafs-doc - AFS distributed filesystem documentation
+openafs-fileserver - AFS distributed filesystem file server
+openafs-fuse - AFS distributed file system experimental FUSE client
+openafs-kpasswd - AFS distributed filesystem old password changing
+openafs-krb5 - AFS distributed filesystem Kerberos 5 integration
+openafs-modules-dkms - AFS distributed filesystem kernel module DKMS source
+openafs-modules-source - AFS distributed filesystem kernel module source
+opendict - computer dictionary for several dictionary formats
+openstereogram - Stereogram ("Magic Eye") generator with GUI
+openvswitch-brcompat - Open vSwitch bridge compatibility support
+openvswitch-datapath-source - Open vSwitch datapath module source - module-assistant version
+openvswitch-test - Open vSwitch test package
+ossim-core - The OSSIM core utilities
+ovaldi - Open Vulnerability and Assessment Language reference interpreter
+ovsdbmonitor - Open vSwitch graphical monitoring tool
+owncloud - cloud storage for files, music, contacts, calendars and many more
+oxref - cross reference utility
+palbart - Enhanced version of the PAL PDP8 assembler
+partimage-server - server to use partimage across a network
+pasmo - easy to use Z80 cross-assembler
+password-gorilla - cross-platform password manager
+pd-comport - Pd object for reading and writing to serial ports
+pd-cyclone - Pd library of clones of Max/MSP 4.5 objects
+pd-hid - Pd object for getting data from USB HID devices
+pdebuild-cross - cross-building support for pbuilder
+pdfcrack - PDF files password cracker
+perdition - POP3 and IMAP4 Proxy server
+petri-foo - MIDI controllable audio sampler - successor of specimen
+petri-foo-dbg - Debugging symbols for petri-foo
+phasex - Phase Harmonic Advanced Synthesis EXperiment
+pianobar - console based player for Pandora radio
+pithos - Pandora Radio client for the GNOME desktop
+pixfrogger - help the frog cross the street
+pkg-config-arm-linux-gnueabi - manage compile and link flags for libraries for armel architecture
+pkg-config-arm-linux-gnueabihf - manage compile and link flags for libraries for armhf architecture
+plee-the-bear - 2D platform game
+plee-the-bear-data - data for Plee the Bear
+pocketsphinx-hmm-tidigits - lightweight speech recognition - TIDIGITS models
+pocketsphinx-hmm-wsj1 - lightweight speech recognition - WSJ1 acoustic model
+pocketsphinx-lm-wsj - lightweight speech recognition - WSJ language model
+pocketsphinx-utils - lightweight speech recognition - command-line tools
+posterazor - splits an image across multiple pages for assembly into a poster
+psi-plus - Qt-based XMPP/Jabber client (basic version)
+psi-plus-common - common files for Psi+
+psi-plus-content-downloader - content downloader plugin for Psi+
+psi-plus-dbg - Qt-based XMPP/Jabber client (basic version) [debug symbols]
+psi-plus-plugins - plugins for Psi+
+psi-plus-plugins-dbg - plugins for Psi+ [debug symbols]
+psi-plus-skins - skins for Psi+
+psi-plus-sounds - sound files for Psi+
+psi-plus-webkit - Qt-based XMPP/Jabber client (WebKit version)
+psi-plus-webkit-dbg - Qt-based XMPP/Jabber client (WebKit version) [debug symbols]
+puppetmaster-passenger - Centralised configuration management - master setup to run under mod passenger
+pybridge - An online contract bridge game. Gtk client
+pybridge-common - Common files for pybridge
+pybridge-server - Server files for pybridge
+pykaraoke - free CDG/MIDI/MPEG karaoke player
+pyprompter - intelligent predictive wxPython text editor
+pyscrabble - multiplayer scrabble implementation written in Python - client part
+pyscrabble-common - multiplayer scrabble implementation - common files
+pyscrabble-server - scrabble implementation written in Python - server part
+pyside-tools - development tools for PySide (uic, rcc, lupdate)
+pyspread - cross-platform Python spreadsheet application
+python-ceilometer - ceilometer python libraries
+python-colorama - Cross-platform colored terminal text in Python
+python-cqmf2 - enterprise messaging system - Python CQMF2 bindings
+python-cqpid - enterprise messaging system - Python CQPID bindings
+python-creoleparser - Parser for the Creole common wiki markup language
+python-cubictemp - small, elegant, Python-specific HTML templating system
+python-enthoughtbase - Core packages for the Enthought Tool Suite
+python-execnet - rapid multi-Python deployment
+python-fife - FIFE is a multi-platform isometric game engine
+python-fltk - Python wrapper for the Fast Light Toolkit
+python-fltk-dbg - Python wrapper for the Fast Light Toolkit - Debugging symbols
+python-fltk-doc - Documentation for pyFltk
+python-freenect - library for accessing Kinect device -- Python bindings
+python-geopy - geocoding toolbox for Python
+python-gpiv - wrapper of libgpiv
+python-ieee1284 - Python bindings to libieee1284
+python-imposm-parser - Python module to parse OpenStreetMap data
+python-iowait - Platform-independent module for I/O completion events
+python-kwwidgets - Cross-Platform GUI Toolkit - Python
+python-libhamlib2 - Run-time library to control radio transceivers and receivers
+python-lightblue - cross-platform Bluetooth API for Python
+python-mathgl - library for scientific graphs. (Python module)
+python-nevow - Web application templating system for Python and Twisted
+python-nipy - Analysis of structural and functional neuroimaging data
+python-opengl - Python bindings to OpenGL
+python-passfd - Python functions to pass file descriptors across UNIX domain
+python-pocketsphinx - lightweight speech recognition - Python module
+python-pocketsphinx-dbg - lightweight speech recognition - Python module (debug version)
+python-pp - parallel and distributed programming toolkit for Python
+python-pyaudio - Python bindings for PortAudio v19
+python-pyfann - Python bindings for FANN
+python-pyfann-dbg - Debugging symbols for FANN Python wrapper
+python-pygame - SDL bindings for games development in Python
+python-pyglet - cross-platform windowing and multimedia library
+python-pygrace - Python bindings for grace
+python-pyjavaproperties - Python implementation of java.util.Properties
+python-pymt - Python multi-touch library
+python-pypm - Python interface to libportmidi
+python-pyside - Python bindings for Qt4 (big metapackage)
+python-pyside.phonon - Qt 4 Phonon module - Python bindings
+python-pyside.qtcore - Qt 4 core module - Python bindings
+python-pyside.qtdeclarative - Qt 4 Declarative module - Python bindings
+python-pyside.qtgui - Qt 4 GUI module - Python bindings
+python-pyside.qthelp - Qt 4 help module - Python bindings
+python-pyside.qtnetwork - Qt 4 network module - Python bindings
+python-pyside.qtopengl - Qt 4 OpenGL module - Python bindings
+python-pyside.qtscript - Qt 4 script module - Python bindings
+python-pyside.qtsql - Qt 4 SQL module - Python bindings
+python-pyside.qtsvg - Qt 4 SVG module - Python bindings
+python-pyside.qttest - Qt 4 test module - Python bindings
+python-pyside.qtuitools - Qt 4 UI tools module - Python bindings
+python-pyside.qtwebkit - Qt 4 WebKit module - Python bindings
+python-pyside.qtxml - Qt 4 XML module - Python bindings
+python-pythoncard - wxPython-based GUI construction framework (underlying Python libraries)
+python-qmf - enterprise messaging system - Python QMF module
+python-qmf2 - enterprise messaging system - Python QMF2 bindings
+python-rgain - Replay Gain volume normalization Python tools
+python-samba - Python bindings for Samba
+python-thrift - Python bindings for Thrift
+python-thrift-dbg - Python bindings for Thrift (debug version)
+python-tofu - high-level network game engine for Python
+python-u1db - Ubuntu One structured data storage - Python API
+python-webunit - Unit testing for web apps with code that acts like a web browser.
+python-wxgtk2.8 - wxWidgets Cross-platform C++ GUI toolkit (wxPython binding)
+python-wxgtk2.8-dbg - wxWidgets Cross-platform C++ GUI toolkit (wxPython binding, debug version)
+python-wxtools - wxWidgets Cross-platform C++ GUI toolkit (wxPython common files)
+python-wxversion - wxWidgets Cross-platform C++ GUI toolkit (wxPython version selector)
+python-xenapi - Xen Cloud Platform - XenAPI Python libraries
+python3-iowait - Platform-independent module for I/O completion events
+python3-passlib - comprehensive password hashing framework
+python3-pyside - Python3 bindings for Qt4 (big metapackage)
+python3-pyside.phonon - Qt 4 Phonon module - Python3 bindings
+python3-pyside.qtcore - Qt 4 core module - Python3 bindings
+python3-pyside.qtdeclarative - Qt 4 Declarative module - Python3 bindings
+python3-pyside.qtgui - Qt 4 GUI module - Python3 bindings
+python3-pyside.qthelp - Qt 4 help module - Python3 bindings
+python3-pyside.qtnetwork - Qt 4 network module - Python3 bindings
+python3-pyside.qtopengl - Qt 4 OpenGL module - Python3 bindings
+python3-pyside.qtscript - Qt 4 script module - Python3 bindings
+python3-pyside.qtsql - Qt 4 SQL module - Python3 bindings
+python3-pyside.qtsvg - Qt 4 SVG module - Python3 bindings
+python3-pyside.qttest - Qt 4 test module - Python3 bindings
+python3-pyside.qtuitools - Qt 4 UI tools module - Python3 bindings
+python3-pyside.qtwebkit - Qt 4 WebKit module - Python3 bindings
+python3-pyside.qtxml - Qt 4 XML module - Python3 bindings
+python3-sphinx - documentation generator for Python projects (implemented in Python 3)
+python3-tz - Python3 version of the Olson timezone database
+pythoncard - wxPython-based GUI construction framework (meta-package)
+pythoncard-doc - wxPython-based GUI construction framework (documentation and samples)
+pythoncard-tools - wxPython-based GUI construction framework (optional development tools)
+pytone - Music jukebox with advanced features for DJs and a text-mode user interface
+qbzr - Graphical interface for Bazaar using the Qt toolkit
+qca2-utils - command line tool for the Qt Cryptographic Architecture
+qchat - a crossplatform LAN chat written using Qt4
+qconf - Nice configure script for your qmake-based project
+qct - GUI commit tool
+qemubuilder - pbuilder using QEMU as backend
+qmfgen - enterprise messaging system - Python QMF interface generator
+qmmp - feature-rich audio player with support of many formats
+qpid-client - enterprise messaging system - AMQP client
+qpid-doc - enterprise messaging system - documentation and examples
+qpidd - enterprise messaging system - AMQP broker
+qpidd-msgstore - enterprise messaging system - AMQP broker persistence module
+qrfcview - viewer for IETF RFCs
+qt-assistant-compat - Qt Assistant compatibility binary (legacy)
+qt4-doc-html - Qt 4 API documentation (HTML format)
+qt4-qmlviewer - Qt 4 QML viewer
+qt4-qtconfig - Qt 4 configuration tool
+qtcreator - lightweight integrated development environment (IDE) for Qt
+qtcreator-dbg - debugging symbols for Qt Creator IDE
+qtcreator-doc - documentation for Qt Creator IDE
+qtiplot - data analysis and scientific plotting
+quantum-espresso - Electronic-Structure and Ab-Initio Molecular Dynamics Suite
+quassel - KDE/Qt-based IRC client
+quassel-client - distributed, KDE/Qt-based IRC client - client component
+quassel-client-qt4 - distributed, Qt based IRC client - client component (no KDE dependencies)
+quassel-core - distributed, KDE/Qt-based IRC client - core/server component
+quassel-data - distributed, KDE/Qt-based IRC client - data files
+quassel-dbg - distributed, KDE/Qt-based IRC client - debugging symbols
+quassel-qt4 - Qt-based IRC client (no KDE dependencies)
+qutecsound - frontend for the csound sound processor
+qxw - advanced interactive crossword construction tool
+r-cran-amelia - GNU R package supporting multiple imputation of missing data
+r-cran-mcmcpack - R routines for Markov chain Monte Carlo model estimation
+r-cran-qtl - GNU R package for genetic marker linkage analysis
+r-cran-rocr - GNU R package to prepare and display ROC curves
+r-other-mott-happy - GNU R package for fine-mapping complex diseases
+randomplay - command-line based shuffle music player that remembers songs between sessions
+rant - Flexible, Ruby based make
+ratproxy - passive web application security assessment tool
+rcov - Code coverage analysis tool for Ruby
+redet - regular expression development and execution tool
+redir - Redirect TCP connections
+redmine - flexible project management web application
+referencer - GNOME Document Organiser
+registry-tools - tools for viewing and manipulating the Windows registry
+ri-li - a toy train simulation game
+ri-li-data - data files for Ri-li, a toy train simulation game
+rig - Random identity generator
+rlwrap - readline feature command line wrapper
+robojournal - cross-platform journal/diary tool
+roffit - convert nroff manual pages into HTML
+ruby-aggregate - Ruby class for accumulating aggregate statistics
+ruby-amazon-ec2 - Ruby library for accessing Amazon EC2
+ruby-bundler - manage your ruby application's dependencies
+ruby-facets - extensive additions and extensions library for Ruby
+ruby-opengl - OpenGL Interface for Ruby
+ruby-popen4 - ruby open4 cross-platform library
+ruby-prof - A fast code profiler for Ruby
+ruby-qpid - enterprise messaging system - Ruby bindings
+ruby-raindrops - Real-time stats for preforking Rack servers
+ruby-sdl - Ruby/SDL interface for Ruby
+ruby-sdl-dbg - Ruby/SDL interface for Ruby (debug symbols)
+ruby-sigar - System Information Gatherer And Reporter
+ruby-whitewash - Whitelist-based HTML filter for Ruby
+salt-common - shared libraries that salt requires for all packages
+salt-doc - additional documentation for salt, the distributed remote execution system
+salt-master - remote manager to administer servers via salt
+salt-minion - client package for salt, the distributed remote execution system
+salt-syndic - master-of-masters for salt, the distributed remote execution system
+samba-dsdb-modules - Samba Directory Services Database
+samba-tools - Samba testing utilities
+samba4 - SMB/CIFS file, NT domain and active directory server (version 4)
+samba4-clients - client utilities from Samba 4
+samba4-common-bin - Samba 4 common files used by both the server and the client
+samba4-dev - tools for extending Samba
+samba4-testsuite - test suite from Samba 4
+sanlock - shared storage lock manager
+sbrsh - Scratchbox Remote Shell client
+sbrshd - Scratchbox Remote Shell daemon
+scratchbox2 - Transparent cross compiling environment
+screenie-qt - fancy screenshot composer
+scribble - Popular crossword game, similar to Scrabble(R)
+sepia - Simple Emacs-Perl InterAction
+shelltestrunner - test command-line programs or arbitrary shell commands
+shibboleth-sp2-schemas - Federated web single sign-on system (schemas)
+shisen.app - Shisen-sho puzzle game for GNUstep
+simpleid - simple OpenID provider implemented in PHP
+simpleid-ldap - simple OpenID provider implemented in PHP - LDAP plugin
+sm - Displays a short text fullscreen
+smuxi - graphical IRC client
+smuxi-engine - Engine library for Smuxi
+smuxi-engine-irc - IRC engine for Smuxi
+smuxi-engine-twitter - Twitter engine for Smuxi
+smuxi-engine-xmpp - XMPP / Jabber / GTalk / Facebook Chat engine for Smuxi
+smuxi-frontend - Frontend library for Smuxi
+smuxi-frontend-gnome - GNOME frontend for Smuxi
+smuxi-frontend-gnome-irc - IRC support for GNOME frontend for Smuxi
+smuxi-frontend-stfl - STFL frontend for Smuxi (experimental)
+smuxi-server - Server application for Smuxi
+sopwith - port of the 1980's side-scrolling WWI dogfighting game
+specimen - MIDI controllable audio sampler for GNU/Linux systems
+speedometer - measure and display the rate of data across a network connection
+spread - The Spread messaging daemon
+squirrelmail - Webmail for nuts
+sra-toolkit - utilities for the NCBI Sequence Read Archive
+sra-toolkit-libs0 - Libraries for the SRA Toolkit
+stardict - International dictionary
+stardict-common - International dictionary - data files
+stardict-gnome - International dictionary for GNOME 2
+stardict-gtk - International dictionary written in GTK+ 2.x
+stardict-plugin - International dictionary - common plugins
+stardict-plugin-espeak - International dictionary - eSpeak TTS plugin
+stardict-plugin-festival - International dictionary - Festival TTS plugin
+stardict-plugin-spell - International dictionary - spell plugin
+stardict-tools - dictionary conversion tools of stardict
+starpu-examples - Task scheduler for heterogeneous multicore machines - exs
+starpu-tools - Task scheduler for heterogeneous multicore machines - tools
+starpu-top - Task scheduler for heterogeneous multicore machines - top
+stx2any - Converter from structured plain text to other formats
+substance - cross-platform look & feel for Swing applications
+substance-doc - cross-platform look & feel for Swing applications - documentation
+sudoku - console based sudoku
+sup - Software Upgrade Protocol implementation
+sup-mail - thread-centric mailer with tagging and fast search
+survex - cave surveying and mapping software
+swat - Samba Web Administration Tool
+swh-lv2 - Steve Harris's SWH plugins ported to LV2
+swift - distributed virtual object store - common files
+sword-comm-scofield - Scofield Reference Notes, 1917 edition for SWORD
+sword-text-arasvd - SWORD module of the Smith & Van Dyke 1865 Arabic Bible
+sword-text-gerlut1545 - SWORD module of Martin Luther's 1545 German Bible
+sword-text-kjv - King James Version with Strongs Numbers for SWORD
+sword-text-wlc - Westminster Leningrad Codex Version with Strong Numbers for SWORD
+sysbench - Cross-platform and multi-threaded benchmark tool
+system-tools-backends - System Tools to manage computer configuration -- scripts
+system-tools-backends-dev - System Tools to manage computer configuration -- development files
+tango-icon-theme - Tango icon theme
+tango-icon-theme-extras - Tango Icon theme Extras
+tao-load - TAO load balancing service
+taoframework-examples - examples for all Tao libraries
+tcl8.5-kwwidgets - Cross-Platform GUI Toolkit - TCL/TK
+tclex - A lexical analyzer generator for Tcl
+tcm - Toolkit for Conceptual Modeling (TCM)
+tcm-doc - Documentation for Toolkit for Conceptual Modeling (TCM)
+teg - Turn based strategy game
+texlive-games - TeX Live: Games typesetting
+texlive-generic-extra - TeX Live: Extra generic packages
+texmaker - cross-platform LaTeX editor
+threadscope - graphical thread profiler for Haskell programs
+thrift-compiler - compiler for Thrift definition files
+ticker - configurable text scroller
+tictactoe-ng - fun, simple, tic tac toe game
+timbl - Tilburg Memory Based Learner
+timps - Transparent Instant Messaging Proxy Server
+tklib - standard Tk Library
+tmake - a cross-platform makefile tool
+tmpreaper - cleans up files in directories based on their age
+topgit - a Git patch queue manager
+torque-client - command line interface to Torque server
+torque-client-x11 - GUI for torque clients
+torque-mom - job execution engine for Torque batch system
+torque-pam - PAM module for PBS MOM nodes
+torque-scheduler - scheduler part of Torque
+torque-server - PBS-derived batch processing server
+touchegg - Multitouch gesture recognizer
+tourney-manager - perl interface to run chess engine tournaments
+transgui - Front-end to remotely control Transmission
+transmission - lightweight BitTorrent client
+traverso - Multitrack audio recorder and editor
+trimage - GUI and command-line interface to optimize image files
+tryton-modules-stock-forecast - Tryton Application Platform (Stock Forecast Module)
+tstools - set of tools for reporting on and manipulating MPEG data
+ttf-aenigma - 465 free TrueType fonts by Brian Kent
+typespeed - Zap words flying across the screen by typing them correctly
+u-boot - A boot loader for embedded systems
+ugene - integrated bioinformatics toolkit
+ugene-data - required data for UGENE - integrated bioinformatics toolkit
+unison - file-synchronization tool for Unix and Windows
+unison-gtk - file-synchronization tool for Unix and Windows with GTK+ interface
+unison2.27.57 - file-synchronization tool for Unix and Windows
+unison2.27.57-gtk - file-synchronization tool for Unix and Windows with GTK+ interface
+unison2.32.52 - file-synchronization tool for Unix and Windows
+unison2.32.52-gtk - file-synchronization tool for Unix and Windows with GTK+ interface
+usepackage - utility to manage environment variables from within dotfiles
+userv - `user services' - program call across trust boundaries
+uuid - the Universally Unique Identifier Command-Line Tool
+vamp-examples - example Vamp plugins and host
+vde2 - Virtual Distributed Ethernet
+vde2-cryptcab - Virtual Distributed Ethernet - CryptCab
+virt-top - show stats of virtualized domains
+visualvm - All-in-One Java Troubleshooting Tool
+vtun - virtual tunnel over TCP/IP networks
+w3af - framework to find and exploit web application vulnerabilities
+w3af-console - framework to find and exploit web application vulnerabilities (CLI only)
+wah-plugins - auto-wah LADSPA plugin
+wapiti - Web application vulnerability scanner
+webissues - network system supporting team collaboration
+webissues-dbg - network system supporting team collaboration (dbg symbols)
+webissues-server - a network system supporting team collaboration (server)
+wesnoth-1.10-dm - "Delfador's Memoirs" official campaign for Wesnoth (branch 1.10)
+wesnoth-1.10-l - "Liberty" official campaign for Wesnoth (branch 1.10)
+wesnoth-1.10-trow - "The Rise of Wesnoth" official campaign for Wesnoth (branch 1.10)
+winbind4 - service to resolve user and group information from Windows NT servers
+woof - share files through HTTP protocol
+wx-common - wxWidgets Cross-platform C++ GUI toolkit (common support files)
+wx2.8-doc - wxWidgets Cross-platform C++ GUI toolkit (documentation)
+wx2.8-examples - wxWidgets Cross-platform C++ GUI toolkit (examples)
+wx2.8-headers - wxWidgets Cross-platform C++ GUI toolkit (header files)
+wx2.8-i18n - wxWidgets Cross-platform C++ GUI toolkit (i18n support)
+xa65 - cross-assembler and utility suite for 65xx/65816 processors
+xapt - retrieve, build and install libraries for cross-compiling
+xcp-eliloader - XenAPI's bootloader for EL-based guests
+xcp-fe - Fork-and-exec daemon for xapi
+xcp-guest-templates - Guest template generator for XCP
+xcp-networkd - Xen Cloud Platform - network configuration daemon
+xcp-squeezed - Xen Cloud Platform - memory ballooning daemon
+xcp-storage-managers - storage backends for XCP
+xcp-v6d - Xen Cloud Platform - feature daemon
+xcp-xapi - Xen Cloud Platform - XenAPI server
+xcp-xapi-debug - Xen Cloud Platform - debugging tools
+xcp-xe - Xen Cloud Platform - command-line utilities
+xdeb - Cross-build tool for Debian packages
+xiphos - environment for Bible reading, study, and research
+xiphos-data - data files for Xiphos Bible study software
+xiphos-dbg - debug symbols for Xiphos Bible study software
+xjed - editor for programmers (x11 version)
+xmoto - 2D motocross platform game
+xmoto-data - 2D motocross platform game - data files
+xmount - tool to crossmount between multiple input and output harddisk images
+xscreensaver-screensaver-dizzy - Graphics demo that makes you dizzy (XScreenSaver hack)
+xsdcxx - XML Data Binding for C++
+xword - Reads and writes crossword puzzles in the Across Lite file format
+z88dk - Z80 processor assembler and SmallC+ cross compiler
+z88dk-bin - executable files for z88dk
+zentyal-objects - Zentyal - Network Objects
+zita-lrx - Command line jack application providing crossover filters
+zorp - Advanced protocol analyzing firewall
+ztex-bmp - universal macro processor
+ecere-sdk - Ecere cross-platform SDK
+libecere0 - Ecere Runtime Library
+libxflaim-dev - An extensible, flexible, adaptable, embeddable XML database engine
+libxflaim3.2 - An extensible, flexible, adaptable, embeddable XML database engine
+openvswitch-datapath-dkms - Open vSwitch datapath module source - DKMS version
+clicompanion - run terminal commands from a GUI storing commands for later use
+python-kivy - Kivy - Multimedia / Multitouch framework in Python
+python-kivy-bin - Kivy - Multimedia / Multitouch framework in Python
+python-kivy-common - Kivy - Multimedia / Multitouch framework in Python
+libdbusmenu-glib3 - library for passing menus over DBus
+adobe-flash-properties-gtk - GTK+ control panel for Adobe Flash Player plugin version 11
+xulrunner-1.9.2 - XUL + XPCOM application runner
+adobe-flashplugin - Adobe Flash Player plugin version 11

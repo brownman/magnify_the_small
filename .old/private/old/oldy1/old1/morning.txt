@@ -1,0 +1,6 @@
+clean yesturday files
+set priorities of todos
+update calendar, tasks
+update today's plans
+update goals: 1 step aday
+set a workflow and run it in loop !

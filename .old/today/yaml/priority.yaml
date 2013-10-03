@@ -1,0 +1,19 @@
+- time: 5:00 - 6:00
+	sum: 60 minutes
+			- first_hour: 12:00 - 13:00
+				- make the project.plugin
+					-task: 	
+						- use play.mp3 slice
+						- add plugin\choose word from sentence by clicking a button
+					-conclusions:
+						- eventhough I didn't finish to work on the plugin - the sense of time control is stronger - when I actualy commit to a time limitation.
+					-late: 
+						- 19 minutes
+
+			- second_hour: 13:19 - 14:00
+				- make java_koans
+			- third_hour:
+				- work on eran's project
+			- fourth_hour:
+				- search for a job
+

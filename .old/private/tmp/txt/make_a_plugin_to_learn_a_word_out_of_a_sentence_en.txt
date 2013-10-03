@@ -1,0 +1,1 @@
+make a plugin to learn a word out of a sentence

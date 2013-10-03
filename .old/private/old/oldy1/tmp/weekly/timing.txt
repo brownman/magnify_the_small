@@ -1,0 +1,10 @@
+				TIMING
+take Shalva to my parents
+				each HOUR:
+save whiteboard/notebook to blog
+				each ./imagine.sh:
+learn a new word 
+read again the glossary of the day
+check memory state
+
+

@@ -1,0 +1,45 @@
+TEST
+
+
+PART 1
+
+In CoffeeScript write these:
+A function that iterates between 1 and 1000, for numbers dividing by 3 it prints "Swifto", by 5 it prints "loves dogs" and for both it prints "Swifto loves dogs". It prints the number itself for all other numbers.
+A function that takes 2 strings and checks if they have the same letters and the same amount of appearances per letter. for example: "cabba" and "ababc" will return true but "abaa" and "bbba" wont
+Create classes that resemble a blog post page and its comments.
+CoffeeScript resources:
+
+You can learn the language here coffeescript.org
+Use http://jsfiddle.net/ (in panels on the left, choose coffeescript over javascript) to run the code, save it and send it to me for testing.
+
+ PART 2
+
+- ad that needed to be inserted in document.write - how to speed it?
+
+- how to track clicks on a website? how to track different locations in the same article? can you do it w/o dirty your URL?
+
+- how to save a lot of info in client-side?
+
+- I want to write instead of this code:
+for (var i=0;i<someArray.length;i++) {
+  var item=someArray[i];
+  alert(item);
+}
+ this code - is it better? in what? is there a problem with it? when I can use the new code? 
+for (var i=0,item;item=someArray[i];i++) {
+  alert(item);
+}
+
+- I want to have auto-complete in my website - how do you recommend to do it? describe the alternatives - when and why you chose every options?
+
+- this is my schema
+authors
+- id
+- user_id
+users
+- id
+- nick
+ I want to have all the user nicks that contain the prefix "Dr." in it and get them as one string (named nicks) with commas between nicks.
+ I want to add "author_id" field to users table and I want to fill this field with the ids of the authors (when user_id = users.id).
+
+- I got this error "Access to restricted URI denied" when I tried to run ajax call to a third-party server. What can I do to solve it?

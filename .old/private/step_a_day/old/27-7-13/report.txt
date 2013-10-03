@@ -1,0 +1,43 @@
+			 
+MASTER-PLAN:
+-----------
+the first python-android version			
+mini-steps:
+		- install cython - 5min
+		- push to device - 5min
+ 
+
+WHERE AM I?
+-----------
+where am I through time prespective? 			1.5/3 hours
+mantra:							imagine easiness
+
+
+TASK-BREAKER
+------------
+current task: 		update language-glossary
+mini-tasks:		open website, scrap some data, copy to .txt
+
+
+PROJECT-NEXT-VERSION:
+---------------------
+			-wifi auto
+			-presentation+voice
+			-cooperation pusher - make it sound nicer to cooperate!
+
+
+IMAGINE
+-------
+imagine 1 year:
+			-f:who is this sweet little child between us ?
+			-w:I recorded many ideas on the road - till i get into the office
+			-m:I am actually can help other people who use this program !
+imagine 1 day:
+			-f:we go for a nice walk after dinner with the Tsipor
+			-w:find a nice job option - and sent a c.v - they better get me before someone else :)
+			-m:the first version of the android app is working !
+			
+Schedules:
+----------
+18:00 - pool
+19:00 - f.t

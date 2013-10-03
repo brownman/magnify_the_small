@@ -1,0 +1,18 @@
+ 
+|ruby-1.9.3-preview1| dao01comp in ~/.magnify_the_small
+± |develop ✗| → ps fg
+  PID TTY      STAT   TIME COMMAND
+  823 pts/4    Ss     0:00 -bash
+21466 pts/4    T      0:00  \_ bash -x ./imagine.sh periodic
+21473 pts/4    T      0:00  |   \_ bash -x ./imagine.sh periodic
+22106 pts/4    R+     0:00  \_ ps fg
+32321 pts/2    Ss     0:00 -bash
+  756 pts/2    S+     0:00  \_ /bin/bash ./imagine.sh
+10643 pts/2    S+     0:00      \_ /bin/bash /home/dao01/.magnify_the_small/public/tasks.sh translate_f good luck it
+10686 pts/2    S+     0:00          \_ wget -U Mozilla -q -O - good luck it translate.google.com/translate_tts?ie=UTF-8&tl=luck&q=good && play
+24491 pts/1    Ss+    0:01 -bash
+23550 pts/0    Ss     0:00 -bash
+24489 pts/0    Sl+    0:30  \_ vi
+21525 pts/5    Ss+    0:00 /bin/bash /home/dao01/.magnify_the_small/imagine.sh periodic
+21532 pts/5    S+     0:00  \_ /bin/bash /home/dao01/.magnify_the_small/imagine.sh periodic
+12544 pts/4    S      0:00 xloadimage /home/dao01/pictures/webcam-07_22_2013_08_55.jpeg

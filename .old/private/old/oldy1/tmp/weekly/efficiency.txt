@@ -1,0 +1,9 @@
+				EFFICIENCY:
+android ssh + wifi
+default wifi connection - to my router
+python + android + tdd
+
+
+study:
+http://www.hat.net/reviews/android/siri_for_android.html
+2 options to run this program - as commandline program or as gui-with gxmessages

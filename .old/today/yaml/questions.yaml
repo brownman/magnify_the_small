@@ -1,0 +1,10 @@
+netstat -lantp | grep ESTABLISHED |awk '{print }' | awk -F: '{print }' | sort -u#show all ip that connect to my machine
+grep many files
+
+https://www.google.co.il/search?q=grep+many+files
+https://www.google.co.il/search?q=grep+many+files&client=ubuntu&channel=cs&oq=grep+many+files&aqs=chrome.0.69i57j69i62l3.8374j0&sourceid=chrome&ie=UTF-8&gws_rd=cr&ei=BHIDUvaZI4eUOP_wgYAG
+|
+http://w3schools.com/dtd/dtd_el_vs_attr.asp|language dtd
+#|
+
+- nir: how to hack myself ?

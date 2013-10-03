@@ -1,0 +1,16 @@
+rules:
+------
+every 1 hour:		     -update the blog	
+every suspension:	     -update notebook
+every timer cycle:	     -update log.txt
+end:     		     -update google calendar
+
+7-8-13
+-------
+breakthrough: 		     -java koans
+
+ideas:
+------
+eran_idea:		     -compose sentences game
+			     -worldwide free shipping scrap
+

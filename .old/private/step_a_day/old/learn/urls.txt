@@ -1,0 +1,4 @@
+http://www.cyberciti.biz/faq/|nice bash blog
+http://www.foodsdictionary.co.il/Recipes/307
+http://bash.cyberciti.biz/desktop/linux-or-unix-record-terminal-desktop-sessions/|what
+is shell scripting

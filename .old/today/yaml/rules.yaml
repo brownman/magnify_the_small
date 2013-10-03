@@ -1,0 +1,5 @@
+- rules:
+	- blog + notebook
+	- timer - suspend 
+	- external watch
+	

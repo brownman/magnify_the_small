@@ -1,0 +1,92 @@
+- recent:
+	- url: http://www.youtube.com/watch?v=5iZ1-csQFUA
+	- java koans
+	- url: http://blog.newrelic.com/2013/07/29/simpler-ui/	
+	- desc: scrap easy with casperjs
+
+- project: 
+	- desc: use remote database for storing: motivation/efficiency value  - monitoring the feeling
+	- url: http://meteorhacks.com/meteor-cluster-introduction-and-how-it-works.html
+- eran:
+	- lecture:
+		- url: https://class.coursera.org/startup-001/lecture/index
+	- meteor.js 
+	- basic
+	- question:
+		- what is the common pattern of translate.json ? and how to scrap it?
+	- project:
+		-  input: list of frequent-words
+		-  output: compose an essay automaticly OR by let the user choose
+	- java_koans: 
+		- do it!
+	- javascript:
+		- now: jquery
+		- later:
+			 - https://github.com/search?l=JavaScript&nwo=stevehorn%2Fjquery-koans&q=koans&ref=cmdform&search_target=global&type=Repositories
+			 - https://github.com/timoxley/express-koans
+			 - https://github.com/bjpbakker/angular-koans
+		- mocha_testing:
+			 -parent:
+				 -https://github.com/search?q=mocha+example&type=Repositories&s=stars
+		 	 -children:
+				 -https://github.com/seejohnrun/htmlcov-example
+				 -https://github.com/jedwood/api-testing-with-node
+				 -https://github.com/substack/mocha-testling-ci-example
+		
+- boaz:
+	- recent_workspace: ~/.magnify_the_small/private/old/oldy1/old/learn/PHPUnit-Koans
+	- question: http://stackoverflow.com/questions/5705028/php-error-call-to-undefined-function-mysqli-connect
+	- ref: http://w3schools.com/php/php_mysql_connect.asp
+
+- android:
+	- lesson-03
+	- java koans
+
+- networking:
+	- faq:
+		- url: http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch04_:_Simple_Network_Troubleshooting
+		- Q: connect to sql service from the internet :
+		- A: run on interface 0.0.0.0:*
+
+		- desc: network simulator gui:
+		- url:  
+			- http://www.cbtnuggets.com/it-training-videos/series/gns3/9784
+			- http://www.gns3.net/video-tutorials/
+
+	- listen:
+		- http://freevideolectures.com/Subject/Networking 
+- db:
+	- mysql:
+		- http://dev.mysql.com/usingmysql/get_started.html
+		- http://dev.mysql.com/doc/refman/5.6/en/batch-mode.html #batch mode
+
+		-ref: http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch34_:_Basic_MySQL_Configuration
+		-Q: to access local .db from the internet? -
+		-A: don't bind .db to loopback device!
+- uml:
+	-executable:
+		- https://code.google.com/p/support/wiki/WikiSyntax
+#run java koans
+#lecture link
+#run java koans
+#run java koans
+#database: redis
+#boaz - php
+#boaz - php
+#Php
+#'start learn for today'
+#where is my php dir
+#where is my php dir
+#using mysql
+#using mysql
+#http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch34_:_Basic_MySQL_Configuration
+
+#|
+#uml|
+#java koans
+#|
+#jquery koans + eran
+#|
+#|
+#|
+#|

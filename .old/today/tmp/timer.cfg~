@@ -1,0 +1,492 @@
+#!/bin/bash
+#cant call back to tasks - its a help file!
+################################### links
+#shift $PWD/public/cfg/lib.trap.sh
+#echo "doing something wrong now .."
+#echo "$foo"
+#exit
+#set -o pipefail  # trace ERR through pipes
+#set -o errtrace  # trace ERR through 'time command' and other functions
+error_handler(){
+    local msg='found error'
+    cyan "$msg"
+    #echo4 "$msg" 
+    #choose4 $STATIC_DIR/exit.txt
+    Backtrace1
+
+    #dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+    #suspension
+    #profit 
+    if [ "$STRICT" = true ];then
+
+        seconds=360
+        echo -n  "going to sleep in: " 
+        red "$seconds seconds"
+        sleep1 $seconds 
+        #suspesion
+    fi
+
+    exiting
+}
+help1(){
+cyan 'help:' 
+echo -n "options: "
+green "$1"
+}
+
+
+
+function error() {
+JOB="$0"              # job name
+LASTLINE="$1"         # line of error occurrence
+LASTERR="$2"          # error code
+echo "ERROR in ${JOB} : line ${LASTLINE} with exit code ${LASTERR}"
+Backtrace1
+exit 1
+}
+
+#trap 'error ${LINENO} ${$?}' ERR
+trap error_handler ERR                                                           # ! ! ! TRAP ERR ! ! !
+#source $PWD/public/cfg/tmp/lib.trap.sh
+
+
+suspension(){
+    dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend
+}
+
+is_valid(){
+    echo -n  "is_valid() got:"
+    cyan "$1"
+
+    if [ "$1" = '' ];then
+        red 'no arg given'
+        error_handler
+    fi
+
+    local file=$1
+    local result=1
+    debug yellow 'check existance'
+    if [ -e $file ];then
+        debug green 'file exist'
+        if  [ -s $file ];then
+            debug green 'file has content'
+            actualsize=$(du -b "$file" | cut -f 1)
+            echo -n 'size: '
+            debug cyan $actualsize
+
+            if [ $actualsize -eq 0 ];then
+                debug red  'file is corrupted'
+                #let "result = 1"
+            else
+                debug green 'file seems ok'
+                let "result = 0"
+            fi
+        else
+            debug red 'file is empty'
+        fi
+    else
+        debug red 'file not exist'
+    fi
+    echo $result
+}
+
+
+export EMPATHIC='true'
+export INSTALL='true'
+export PROFIT='true'
+export VERBOSE='true'
+export STRICT='false'
+export TIMEOUT_NS='-t 10000'
+
+#########url links
+export url_blog="http://thoughts-about-something.blogspot.co.il"
+export url_calendar="https://www.google.com/calendar/render?tab=mc"
+export url_tasks="https://mail.google.com/tasks/ig?pli=1"
+export mm_link='http://drichard.org/mindmaps/'
+
+
+
+#absolute path
+export ABSOLUTE_DIR=~/.magnify_the_small
+#private reports | blogging
+export private_txt=/tmp/private.txt 
+#~/tmp/bash_koans/txt
+export dir_mp3=/tmp
+export blank_txt=/tmp/blank.txt
+export readme_md=$ABSOLUTE_DIR/README.md
+export missions_txt=/tmp/missions.txt
+export schedule_txt=/tmp/gcalcli_agenda_full.txt
+export mind_map_png=/tmp/mm.png
+#relative dirs
+export PUBLIC_DIR=$ABSOLUTE_DIR/public
+export PRIVATE_DIR=$ABSOLUTE_DIR/private
+export TODAY_DIR=$ABSOLUTE_DIR/today
+
+export CFG_DIR=$PUBLIC_DIR/cfg
+export PLUGINS_DIR=$PUBLIC_DIR/plugins
+export STORY_DIR=$PUBLIC_DIR/story
+export STATIC_DIR=$PUBLIC_DIR/story/static
+export TASKS_DIR=$PUBLIC_DIR/tasks 
+#export MENUS_DIR=$PUBLIC_DIR/menus
+#export KOANS_DIR=$PUBLIC_DIR/koans
+export SCREENS_DIR=$PUBLIC_DIR/screens
+
+####### .sh
+export tasks_sh="$PUBLIC_DIR/tasks.sh"
+#export tpng="$TASKS_DIR/txt_to_png.sh"
+################################  language stuff####################
+arr1=( IT AR HI RU )
+#arr2=( )
+export itR=1
+export tlR=1
+export enR=1
+export ruR=1
+export arR=2
+export hiR=3
+#dir_essay=~/tmp/timer2/essays
+##################################  global vars##################
+export NAME1='Ofer'
+date1="$(date +%H:%M)"
+export PLAYING_ON=false
+#export LANG_ESSAY=ru
+export color_arr1=( blue green red black )
+export GUI='true'
+export SILENT_FETCH=false
+export SILENT=false
+export TIMEOUT1=20
+#export LESSON=14
+export TRANSLATE=true
+export SLEEP=30
+#export GXMESSAGE1=echo  -ontop -sticky -timeout 10 -buttons \'last task is: "$last_task"\' "message1"
+
+GXMESSAGET="-wrap -ontop -sticky -timeout 20"
+#GXMESSAGE1="-nofocus -wrap -ontop -sticky -timeout 20"
+#GXMESSAGE0="-nofocus -wrap -ontop -sticky"
+#export ICONIC='' 
+export ICONIC='-iconic'
+export SLEEPS=15
+export SUSPEND=true
+export SILENCE=false
+export INPUT_THANKS=true
+export itR=1
+export tlR=1
+export enR=1
+export ruR=1
+export arR=2
+export hiR=3
+############################ colors
+RESTORE='\033[0m'
+
+RED='\033[00;31m'
+GREEN='\033[00;32m'
+YELLOW='\033[00;33m'
+BLUE='\033[00;34m'
+PURPLE='\033[00;35m'
+CYAN='\033[00;36m'
+LIGHTGRAY='\033[00;37m'
+
+LRED='\033[01;31m'
+LGREEN='\033[01;32m'
+LYELLOW='\033[01;33m'
+LBLUE='\033[01;34m'
+LPURPLE='\033[01;35m'
+LCYAN='\033[01;36m'
+WHITE='\033[01;37m'
+
+#############  .bashrc related
+alias duh="du -h -d 0 [^.]*"
+
+spell1(){
+    aspell -a <<< "$1"
+}
+
+######################################## functions !!!!!!!!!!!!!!!
+cyan() {
+    echo -e "${LCYAN}$1"
+    tput sgr0
+    #fi
+}
+white() {
+    echo -e "${WHITE}$1"
+    tput sgr0
+}
+green() {
+    echo -e "${LGREEN}$1"
+    tput sgr0
+}
+
+red() {
+    echo -e "${LRED}$1"
+    tput sgr0
+}
+yellow() {
+    echo -e "${LYELLOW}$1"
+    tput sgr0
+}
+blue() {
+    echo -e "${LBLUE}$1"
+    tput sgr0
+}
+echo2(){
+    if [ "$VERBOSE" = true ];then
+        echo "verbose: $1"
+    fi
+
+}
+echo22(){
+    echo -n '_'
+}
+random1()
+{
+    local num="$1"
+    if [ $num -eq 0 ];then
+        error_handler
+    fi
+
+    let "r = $RANDOM % $num"
+    #green "r = $r"
+    #counter=$r
+    #let "reminder = $counter % 4"
+    #echo1 "the reminder is: $reminder"
+    return $r
+}
+rainbow(){
+    local line1="$1"
+    random1 4
+    local num=$?
+    #red "num: $num"
+    local color0="${color_arr1[$num]}"
+
+    #gxmessage "$line1" -buttons "$line3" -sticky -timeout 11 -title "$input_ws"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color $ICONIC 
+    gxmessage "$line1" -title "reminder:"  -geometry 600*900 -font "serif bold 18" -wrap -fg $color0 
+
+}
+split2(){
+    echo2 "split2(): $1"
+    while read $1 
+    do
+        eval items=($line)
+        for i in "${items[@]}"
+        do
+            echo $i
+        done
+    done
+}
+
+
+echo3(){
+    #caller 0
+    #red "$1"
+
+    echo -n "_"
+}
+
+echo1(){
+
+
+    echo -n "."
+    #red "$2"
+
+    #green ""
+    #$1"
+
+    #caller 0
+
+
+}
+Backtrace2 () {
+
+    echo "Backtrace is:"
+    i=0
+    while caller $i
+    do
+        i=$((i+1))
+    done
+
+}
+function Backtrace1 
+{
+    local _start_from_=0
+
+    local params=( "$@" )
+    if (( "${#params[@]}" >= "1" ))
+    then
+        _start_from_="$1"
+    fi
+
+    local i=0
+    local first=false
+    while caller $i > /dev/null
+    do
+        if test -n "$_start_from_" && (( "$i" + 1   >= "$_start_from_" ))
+        then
+            if test "$first" == false
+            then
+                red "BACKTRACE IS:"
+                first=true
+            fi
+            caller $i
+        fi
+        let "i=i+1"
+    done
+    echo '_+_+_+_+_+'
+}
+
+exiting()
+{
+    #local file=$STATIC_DIR/exit.txt
+    if [ "$VERBOSE" = true ];then
+        Backtrace1
+    fi
+
+
+    red 'exiting!!'
+    #echo 'exiting' | flite
+    #choose4 $file
+
+    #remind_me_please 
+
+    exit
+}
+sleep1()
+{
+    local sec="$1"
+    local counter=0
+    blue '..'
+#echo -n 'sleep for: '
+#blue "$sec"
+
+    sleep "${sec}s"
+}
+
+
+pids3(){
+#echo "\$$: $$"
+#echo "\$1: $1"
+echo "grep $1"
+ps aux | grep $1 
+echo "grep .sh"
+ps -aux | grep .sh
+}
+pids1(){
+    echo2 "pids() got: $1"
+    echo "$$"
+PIDS=$( pidof -x -o $$ $1 )
+    PIDS=$(pidof sh $1)  # Process IDs of the various instances of this script.
+    #kill $PIDS
+    P_array=( $PIDS )    # Put them in an array (why?).
+    echo "$PIDS"           # Show process IDs of parent and child processes.
+    let "instances = ${#P_array[*]} - 1"  # Count elements, less 1.
+    # Why subtract 1?
+    echo "$instances instance(s) of this script running."
+
+
+    if [ $instances -gt 2 ];then
+        #exiting
+        red 'u may like to kill some..'
+        echo 'too many instances are running' | flite
+        #exiting
+        #suspension
+
+        #exit 1
+    fi
+
+}
+
+random_quote1(){
+    file="$1"
+    max=`cat -b $file | wc -l`
+    random1 $max
+    num=$?
+    str=`cat $file | head -$num | tail -1`
+    echo5 "$str" 
+
+}
+
+lower() { echo ${@,,}; }
+
+higher() { echo ${@^^}; }
+
+split1(){
+    echo '' > /tmp/glossary.txt
+    echo2 'split()'
+    local file=$1
+    #cat $file
+    old_IFS=$IFS
+    IFS=$' · '
+    lines=($(cat $file)) # array
+    IFS=$old_IFS
+    #register signals
+    for line in "${lines[@]}"
+    do
+        if [ "$line" != '' ]
+        then
+            echo  "$line" >> /tmp/glossary.txt
+        fi
+    done
+    cat  /tmp/glossary.txt 
+    ls -l $file
+}
+
+eacher(){
+    echo2  "eacher() got: 1: $1     2: $2"
+    local question="$2"
+    local command="$1"
+    if [ "$EMPATHIC" = true ];then
+        messageYN "y/n question" "$question"
+        answer=$?
+        yellow "$answer"
+        if [[ $answer -eq 2 ]];then
+            echo 'exec command'
+            eval "$command" 
+        fi
+    else
+        echo 'exec command'
+        eval "$command" 
+
+    fi
+}
+
+trap "eval exiting" SIGINT SIGTERM
+
+
+debug(){
+
+    if [ "$VERBOSE" = true ];then
+cmd=$1
+msg="$2"
+eval '$cmd "$msg"'
+fi
+
+#http://www.cyberciti.biz/linux-search.php?q=eval
+}
+#export -f eacher 
+#export -f split1
+#export -f random_quote1
+#export -f log1 
+export -f debug
+export -f help1 
+export -f echo3 
+export -f echo2 
+export -f exiting
+export -f sleep1
+export -f green
+export -f red 
+export -f blue
+export -f yellow
+export -f Backtrace1
+export -f is_valid 
+export -f spell1 
+export -f pids3 
+export -f pids1 
+
+export dir_txt=$PRIVATE_DIR/tmp/txt
+
+if [ "$INSTALL" = true ];then
+
+    mkdir -p $dir_txt
+fi
+
+
+
+

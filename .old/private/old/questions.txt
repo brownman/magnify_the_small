@@ -1,0 +1,1 @@
+idea: grep many .sh files to find answer locally: example: how to use smart args to make gxmessage.sh work ?

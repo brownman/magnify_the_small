@@ -1,0 +1,44 @@
+
+first idea
+use idea bank for storing ideas
+recored my progress
+just continue
+follow debian instructions
+
+
+urls:
+#bash:
+#http://serverfault.com/questions/7503/how-to-determine-if-a-bash-variable-is-empty
+#http://www.tldp.org/LDP/abs/html/comparison-ops.html
+#http://www.deadman.org/bash2.php #{} braces
+
+#remote requests
+#google related
+#file_twitter=~/tmp/timer2/twitter.txt
+#directories size
+#http://connermcd.com/blog/2012/03/29/sync-your-desktop-with-dropbox/
+#https://developers.google.com/google-apps/tasks/firstapp
+#echo 'Links:'
+#echo 'http://bash.cyberciti.biz/guide/Main_Page'
+#echo  'http://www.blackhatlibrary.net/'
+#echo  'http://linuxaria.com/pills/how-to-scan-linux-for-vulnerabilities-with-lynis?lang=en'
+#echo 'Projects:'
+#echo '/TORRENTS/CODE_UNUSED/SOURCE/alarm-clock-applet-0.3.3'
+#echo  "$date"
+##################################  location fs
+
+
+#############   workflows:
+#export workflow="edit,sleep,sleep,sleep,suspend" #speak,input_task
+#export workflow="edit,speak,input_task,sleep"
+#workflow="edit,speak,input_task,sleep,suspend" #,motivation_start,input_task"
+#workflow_morning="delete,input_task"
+##########################
+#export mood='morning'
+#export efficiency="low"
+########################## debug log
+#export VERBOSE='true'
+
+#ls -l  $PWD/cfg/lib.trap.sh
+
+#source $PWD/public/cfg/lib.trap.sh

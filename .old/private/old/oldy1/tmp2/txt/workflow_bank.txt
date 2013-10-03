@@ -1,0 +1,12 @@
+#
+Ignore:
+input_task | don't reach here
+edit | edit .txt
+sleep | dalay X seconds
+scrap_practice | practice scraping websites
+project_reminder | next version plans
+store_ideas | backup ideas and preserve a clear mind
+
+glossary_reminder | choose a word from this list
+motivation_random | say 1 quote from quotes file
+scrap_practice | practice scraping websites

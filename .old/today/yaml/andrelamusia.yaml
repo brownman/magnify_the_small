@@ -1,0 +1,34 @@
+
+
+
+- questions:
+- [
+{
+person: eran,
+            command: run.js "worldwide free shipping" "a789"   
+}
+,
+{
+person: boaz,
+        command: run.php "update now.db - 'first mission for today'"
+
+}
+, 
+
+{
+person: ran.ifaat,
+        command: run.js worldwide free shipping a789
+}
+,
+
+{
+person: ran.sh,
+        command: run.java "vlc menifest - run minimize=yes"
+}
+,
+{
+person: nir,
+        command: run.sh get ip address of ussid NAAN-229
+}
+
+]

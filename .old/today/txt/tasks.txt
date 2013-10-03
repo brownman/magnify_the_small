@@ -1,0 +1,13 @@
+
+TODO:
+------
+self: backup to google drive
+do-for-other-first: Kuka's mother laptop
+                
+
+LATER:
+------
+-wifi auto
+-presentation+voice
+-cooperation pusher - make it sound nicer to cooperate!
+

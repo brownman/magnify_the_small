@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://eweise.github.io/d3-coffeescript/#basic-barchart -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>D3 Coffeescript</title>
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <link rel="stylesheet" href="http://eweise.github.io/d3-coffeescript/codemirror/codemirror.css">
+  <link rel="stylesheet" href="http://eweise.github.io/d3-coffeescript/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://eweise.github.io/d3-coffeescript/bootstrap/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="http://eweise.github.io/d3-coffeescript/bootstrap/css/prettify.css">
+  <link rel="stylesheet" href="http://eweise.github.io/d3-coffeescript/stylesheets/application.css">
+<style type="text/css"></style></head>
+<body data-spy="scroll" data-target="#navigation" data-offset="50">
+
+<div class="container">
+
+<div id="navigation" class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav btn-nav">
+        <li class="active"><a href="http://eweise.github.io/d3-coffeescript/#introduction">Introduction</a></li>
+        <li class=""><a href="./d3_cs_files/d3_cs.html">A Basic Bar Chart</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="introduction">
+  <div class="row"></div>
+  <div class="page-header">
+    <h2>Introduction</h2>
+  </div>
+  <div class="row">
+    <div class="span8">
+      <p>
+        Although, there are a lot of tutorials already on D3, I wanted to show examples in coffeescript with the added benefit of being able to 
+        change the code directly in the browswer. Hopefully, this will allow you to experiment with the examples to get a better understanding 
+        of how D3 works. My focus is on basic business type visualizations such as bar charts, line charts and pie charts.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="basic-barchart">
+  <div class="row"></div>
+  <div class="page-header">
+    <h2>A Basic Bar Chart</h2>
+  </div>
+  <div class="row">
+    <div class="span8">
+      <p> 
+        This first example shows all the basic elements needed to display output in SVG format
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span8">
+      <div id="alert-barchart1"><div class="alert alert-success"><i class="icon-ok"></i> Successfully Compiled</div></div>
+
+<form class="prettyprint"><textarea class="coffeescript" data-alert="#alert-barchart1" style="display: none;"> numbers = [4, 8, 15, 16, 23, 12,4, 8, 15, 16, 23, 12,4, 8, 15, 13, 4, 5]
+ chartHeight = 298
+ 
+ chart = d3.select("#canvas-barchart1")
+  .append("svg")
+     .attr("width", "100%")
+     .attr("height", "100%");
+
+ chart.selectAll("rect").data(numbers).enter()
+ .append("rect")
+   .attr("y", (d, i) -&gt; chartHeight - (d * 10))
+   .attr("x", (d, i) -&gt; (i * 20))
+   .attr("width", 20)
+   .attr("height", (d) -&gt; d * 10);
+  </textarea><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 59.1875px; left: 261.1875px;"><textarea style="position: absolute; padding: 0; width: 1px; height: 1em" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default" tabindex="-1"><div style="position: relative; height: 280px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none;" draggable="false"><div style="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden;"><pre><span class="cm-error"> </span><span class="cm-variable">chart</span> <span class="cm-punctuation">=</span> <span class="cm-variable">d3.select</span><span class="cm-punctuation">(</span><span class="cm-string">"#canvas-barc</span><span id="CodeMirror-temp-5ab6c">h</span></pre></div><pre class="CodeMirror-cursor" style="top: 54px; left: 256px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 0px; right: 0px; height: 18px"></div><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 18px; right: 742px; height: 18px"></div></div><div style=""><pre><span class="cm-indent"> </span><span class="cm-variable">numbers</span> <span class="cm-punctuation">=</span> <span class="cm-punctuation">[</span><span class="cm-number">4</span><span class="cm-punctuation">,</span> <span class="cm-number">88</span><span class="cm-punctuation">,</span> <span class="cm-number">15</span><span class="cm-punctuation">,</span> <span class="cm-number">16</span><span class="cm-punctuation">,</span> <span class="cm-number">23</span><span class="cm-punctuation">,</span> <span class="cm-number">12</span><span class="cm-punctuation">,</span><span class="cm-number">4</span><span class="cm-punctuation">,</span> <span class="cm-number">8</span><span class="cm-punctuation">,</span> <span class="cm-number">15</span><span class="cm-punctuation">,</span> <span class="cm-number">16</span><span class="cm-punctuation">,</span> <span class="cm-number">23</span><span class="cm-punctuation">,</span> <span class="cm-number">12</span><span class="cm-punctuation">,</span><span class="cm-number">4</span><span class="cm-punctuation">,</span> <span class="cm-number">8</span><span class="cm-punctuation">,</span> <span class="cm-number">15</span><span class="cm-punctuation">,</span> <span class="cm-number">13</span><span class="cm-punctuation">,</span> <span class="cm-number">4</span><span class="cm-punctuation">,</span> <span class="cm-number">5</span><span class="cm-punctuation">]</span></pre><pre><span class="cm-error"> </span><span class="cm-variable">chartHeight</span> <span class="cm-punctuation">=</span> <span class="cm-number">298</span></pre><pre><span class="cm-error"> </span></pre><pre><span class="cm-error"> </span><span class="cm-variable">chart</span> <span class="cm-punctuation">=</span> <span class="cm-variable">d3.select</span><span class="cm-punctuation">(</span><span class="cm-string">"#canvas-barchart1"</span><span class="cm-punctuation">)</span></pre><pre>  <span class="cm-variable">.append</span><span class="cm-punctuation">(</span><span class="cm-string">"svg"</span><span class="cm-punctuation">)</span></pre><pre><span class="cm-indent">     </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"width"</span><span class="cm-punctuation">,</span> <span class="cm-string">"100%"</span><span class="cm-punctuation">)</span></pre><pre><span class="cm-indent">     </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"height"</span><span class="cm-punctuation">,</span> <span class="cm-string">"100%"</span><span class="cm-punctuation">);</span></pre><pre> </pre><pre><span class="cm-error"> </span><span class="cm-variable">chart.selectAll</span><span class="cm-punctuation">(</span><span class="cm-string">"rect"</span><span class="cm-punctuation">)</span><span class="cm-variable">.data</span><span class="cm-punctuation">(</span><span class="cm-variable">numbers</span><span class="cm-punctuation">)</span><span class="cm-variable">.enter</span><span class="cm-punctuation">()</span></pre><pre><span class="cm-error"> </span><span class="cm-variable">.append</span><span class="cm-punctuation">(</span><span class="cm-string">"rect"</span><span class="cm-punctuation">)</span></pre><pre><span class="cm-error">   </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"y"</span><span class="cm-punctuation">,</span> <span class="cm-punctuation">(</span><span class="cm-variable">d</span><span class="cm-punctuation">,</span> <span class="cm-variable">i</span><span class="cm-punctuation">)</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">chartHeight</span> <span class="cm-operator">-</span> <span class="cm-punctuation">(</span><span class="cm-variable">d</span> <span class="cm-operator">*</span> <span class="cm-number">10</span><span class="cm-punctuation">))</span></pre><pre><span class="cm-error">   </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"x"</span><span class="cm-punctuation">,</span> <span class="cm-punctuation">(</span><span class="cm-variable">d</span><span class="cm-punctuation">,</span> <span class="cm-variable">i</span><span class="cm-punctuation">)</span> <span class="cm-operator">-&gt;</span> <span class="cm-punctuation">(</span><span class="cm-variable">i</span> <span class="cm-operator">*</span> <span class="cm-number">20</span><span class="cm-punctuation">))</span></pre><pre><span class="cm-error">   </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"width"</span><span class="cm-punctuation">,</span> <span class="cm-number">20</span><span class="cm-punctuation">)</span></pre><pre><span class="cm-error">   </span><span class="cm-variable">.attr</span><span class="cm-punctuation">(</span><span class="cm-string">"height"</span><span class="cm-punctuation">,</span> <span class="cm-punctuation">(</span><span class="cm-variable">d</span><span class="cm-punctuation">)</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">d</span> <span class="cm-operator">*</span> <span class="cm-number">10</span><span class="cm-punctuation">);</span></pre><pre><span class="cm-dedent">  </span></pre></div></div></div></div></div></div></div></form>
+
+    </div>
+    <div class="span4">
+      <div class="alert alert-info">#canvas-barchart1</div>
+      <div id="canvas-barchart1" class="canvas" style="height:298px"><svg width="100%" height="100%"><rect y="258" x="0" width="20" height="40"></rect><rect y="-582" x="20" width="20" height="880"></rect><rect y="148" x="40" width="20" height="150"></rect><rect y="138" x="60" width="20" height="160"></rect><rect y="68" x="80" width="20" height="230"></rect><rect y="178" x="100" width="20" height="120"></rect><rect y="258" x="120" width="20" height="40"></rect><rect y="218" x="140" width="20" height="80"></rect><rect y="148" x="160" width="20" height="150"></rect><rect y="138" x="180" width="20" height="160"></rect><rect y="68" x="200" width="20" height="230"></rect><rect y="178" x="220" width="20" height="120"></rect><rect y="258" x="240" width="20" height="40"></rect><rect y="218" x="260" width="20" height="80"></rect><rect y="148" x="280" width="20" height="150"></rect><rect y="168" x="300" width="20" height="130"></rect><rect y="258" x="320" width="20" height="40"></rect><rect y="248" x="340" width="20" height="50"></rect></svg></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="license">
+  <div class="page-header">
+    <h2>License</h2>
+  </div>
+  <div class="row">
+    <div class="span8">
+This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" rel="dct:type">work</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+    </div>
+    <div class="span4">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="./d3_cs_files/88x31.png"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">&nbsp;</div>
+    <div class="span12">&nbsp;</div>
+    <div class="span12">&nbsp;</div>
+  </div>
+</section>
+
+<script type="text/javascript" src="./d3_cs_files/jquery.js"></script>
+<script type="text/javascript" src="./d3_cs_files/coffee-script.js"></script>
+<script type="text/javascript" src="./d3_cs_files/codemirror.js"></script>
+<script type="text/javascript" src="./d3_cs_files/coffeescript.js"></script>
+<script type="text/javascript" src="./d3_cs_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./d3_cs_files/app.js"></script>
+<script src="./d3_cs_files/d3.v2.js"></script>
+
+</div>
+
+
+
+</body></html>

@@ -1,0 +1,16 @@
+
+
+- TIMES:
+    - 14:00: call orr
+    - 15:30: take reciept from mother -> then pick up Kuka at 16:00
+
+-play:
+	- create a twitter sentence with these words: easy,fun,sun
+	- examples:
+		- the easy part of being under the sun is being fly over the back of the fun bird
+		- the funny sun is easily do her job - we just surounding her
+		- ?
+		
+- recent_steps:
+    - update_meteor_website:
+        - and notify eran|5 minutes|fun and easy

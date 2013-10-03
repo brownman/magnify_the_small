@@ -1,0 +1,7 @@
+
+first_char_is_space()
+{
+str="$1"
+echo "${str:0:1}" | sed s/' '/_/g
+}
+

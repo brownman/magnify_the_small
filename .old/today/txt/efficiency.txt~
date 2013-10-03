@@ -1,0 +1,50 @@
+instide of writing many conditions - use parsing a file with all the options
+
+
+
+#find new series: 
+xdg-open http://torrentz.eu/search?f=S01E01
+
+
+xdg-open http://thepiratebay.sx/torrent/8610744/Under_the_Dome_S01E01_HDTV_x264-LOL_[eztv]
+#>find subtitles:
+xdg-open http://www.correctsubs.com/Under.the.Dome.S01E01.HDTV.x264-LOL.srt
+
+
+
+
+
+
+2
+0
+0
+0
+1
+commitment:0
+commitment:1
+commitment:0
+commitment:2
+edit_fear:0
+edit_motivations:0
+commitment:1
+edit_fear:0
+edit_motivations:0
+commitment:1
+edit_fear:0
+edit_motivations:0
+show_self:0
+show_achievements:0
+edit_prespective:0
+edit_txt:0
+commitment:2
+update_glossary:0
+edit_fear:0
+motivation:0
+edit_motivations:0
+show_self:1
+record_for_later:1
+commitment:1
+commitment:1
+commitment:2
+edit_wish:2
+commitment:0

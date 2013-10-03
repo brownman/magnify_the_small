@@ -1,0 +1,1 @@
+run timer when computer starts

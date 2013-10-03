@@ -1,0 +1,3 @@
+ps fg|show proccess inheritance
+killall -9 imagine.sh|kill all instances of a script|http://www.unix.com/shell-programming-scripting/110425-shift-array-element.html
+
