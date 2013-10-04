@@ -1,4 +1,4 @@
-cd ../public
+#cd ../public
 
 file1=$PWD/libs/cfg/vars.cfg
 file2=$PWD/libs/cfg/funcs.cfg
