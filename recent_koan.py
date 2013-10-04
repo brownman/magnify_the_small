@@ -1,1 +1,0 @@
-testing/python2/koans/about_class_attributes.py
