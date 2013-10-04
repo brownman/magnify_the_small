@@ -14,6 +14,7 @@ notify-send "$silence : silence"
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 silence_fetch=$SILENCE_FETCH
+delay=5
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 
@@ -328,7 +329,7 @@ printing1(){
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
    
-        if [ "$SILENCE" = false ];then
+        if [ "$SILENCE" = true ];then
                  if [ "$lang" = ru ];then
                         notify-send $TIMEOUT_NS "$line2" "$line1"   
                  fi
@@ -414,4 +415,5 @@ else
     help1 "$help_options"
 fi
 }
-unlocker  5 true 
+unlocker true
+#5 true 

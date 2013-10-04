@@ -1,5 +1,5 @@
-date: 3.10.13
-day:  Thu 
+date: 4.10.13
+day:  Fri
 
 project:
         - my interpeter.sh
@@ -32,7 +32,10 @@ story:
         - 1|verb
         - 1|relation
         #- 2|koans
-
+priorities:
+        - 1 interpreter - to rule them all
+        - meteor - todo+sign
+        - meteor - game idea
 
 conditions:
         - if push koans - have confident
