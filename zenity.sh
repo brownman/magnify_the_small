@@ -1,1 +1,0 @@
-./prespective/scripts/zenity.sh
