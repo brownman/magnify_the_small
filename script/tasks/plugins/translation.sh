@@ -14,7 +14,10 @@ notify-send "$silence : silence"
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
 silence_fetch=$SILENCE_FETCH
-delay=5
+
+delay=3
+gentle=true
+
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 

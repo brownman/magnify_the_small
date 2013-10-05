@@ -1,7 +1,8 @@
-files=$(ls -1 $PWD/script/cfg/*.cfg)
+notify-send 'loader.sh'
+files=$(ls -1 $ROOT_DIR/script/cfg/*.cfg)
 for file in $files
 do
-    notify-send "$file"
+    #echo "$file"
     . $file
 done
 #exit

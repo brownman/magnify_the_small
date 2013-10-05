@@ -43,7 +43,8 @@ reminder1(){
 trace "reminder got: $1"
 
 
-local msg="tell the robot"
+local msg="commitment in time"
+#iemtell the robot"
 
 local title="higher-self"
 local entry1="$1"
