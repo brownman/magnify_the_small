@@ -1,1 +1,0 @@
-./script/new/zenity.sh
