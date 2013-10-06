@@ -308,6 +308,10 @@ echo4(){
     num=`echo "$str" | wc -w`
         if [[ $num -gt 1 ]];then
     ( $tasks_sh string_to_buttons "$str" &)
+else
+    notify-send 'scrap here..'
+
+    fetch_html
         fi
 
 

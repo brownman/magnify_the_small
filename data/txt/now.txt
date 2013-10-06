@@ -1,3 +1,5 @@
+exit
+do something good
 commitment in time
 update the c.v
 write a new c.v

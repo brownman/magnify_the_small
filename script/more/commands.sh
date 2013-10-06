@@ -7,13 +7,17 @@ newer=recent_koan.py
 
 
 
-step1(){
+step1_old(){
 #local str="$1"
 ans1=$(gxmessage "grep for:" -entry)
 #echo "$ans1"
 res=$(ls -1 $dir | grep "$ans1")
 #echo "$res"
 ans=$(gxmessage "$res" -entrytext "$ans1" )
+echo "$ans"
+}
+step1(){
+local ans=$(list_dir $dir true) #true-use grep
 echo "$ans"
 }
 

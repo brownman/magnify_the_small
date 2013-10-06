@@ -4,10 +4,7 @@
 # description:   separate the proccess running the suspend.sh
 
 
-pushd `dirname $0` > /dev/null
 
-
-. loader.sh
 
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
@@ -23,6 +20,4 @@ $tasks_sh suspend1
 }
 #unlockers
 run
-popd > /dev/null
-exit
 

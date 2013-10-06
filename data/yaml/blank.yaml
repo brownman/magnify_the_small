@@ -47,7 +47,7 @@ workflow:
         #- regexp|tasks|on next suspension I can
         - practice_regexp||practice
         #- show_msg_entry|tasks|on next suspension I can
-        #- free_speak||your thoughts are unique
+        - free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to
         #- show_msg_entry|frame.cake|it is the cake of priorities
@@ -63,6 +63,8 @@ testing:
         #- tasks_sh|regexp|ion|a
         #- tasks_sh|motivation|sport|a
         #
+        #
+        #- tasks_sh|practice_regexp||practice
         #- tasks_sh|free_speak|sport|a
         #- cfg|last_char|c pp , |a  bc   
         #- cfg|first_char|c p ,p|a  bc   

@@ -3,9 +3,7 @@
 # name:        ensure I have only 1 reason to act and not many !
 
 
-pushd `dirname $0` > /dev/null
 
-. loader.sh
 help_options='wait for 3m |  suspend'
 help1 "$help_options"
 
@@ -22,6 +20,4 @@ $tasks_sh commitment
 
 
 unlocker 
-popd > /dev/null
-exit
 

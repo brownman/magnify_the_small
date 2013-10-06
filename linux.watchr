@@ -1,5 +1,4 @@
 #!/bin/bash
-#pushd `dirname $0` > /dev/null
 
 
 
@@ -15,21 +14,10 @@
 #watch('src\/.*\.sh') {|match| system "./meditate.sh"}
 
 
-
-
-
-watch('prespective/public/libs/yaml/blank.yaml') {|match| system "./prespective/scripts/yaml.sh"}
-watch('prespective/public/libs/tmp/testing.tmp') {|match| system  "./testing/python2/run.sh"}
-
-#watch('prespective/public/libs/yaml/blank.yaml') {|match| system  "./testing/python2/run.sh"}
-watch('testing/python2/koans\/.*\.py') {|match| system "./testing/python2/run.sh"}
-
-watch('testing/python2/runner\/.*\.py') {|match| system "./testing/python2/run.sh"}
-
 #watch('prespective/public/libs/tmp/testing.tmp') { |match| system "./testing/python2/run.sh"}
 
 
-watch('prespective\/.*\.sh') {|match| system "./testing/python2/run.sh"}
+
 #
 #watch('prespective/public/libs/yaml/blank.yaml') {|match| system "./testing/python2/run.sh"}
 
@@ -37,7 +25,7 @@ watch('prespective\/.*\.sh') {|match| system "./testing/python2/run.sh"}
 
 #watch('prespective/public/libs/tmp/testing.tmp') {|match| system "./prespective/scripts/test.sh"}
 
-watch('prespective/public/libs/cfg\/.*\.cfg') {|match| system "./testing/python2/run.sh"}
+
 
 #watch('website\/.*\.js') {|match| system "./testing/python2/run.sh"}
 #
@@ -51,5 +39,19 @@ watch('prespective/public/libs/cfg\/.*\.cfg') {|match| system "./testing/python2
 
 
 
-#popd > /dev/null
-#exit
+
+watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+
+
+
+
+
+
+watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
+##watch('script\/.*\.sh') {|match| system "./1/testing/python2/run.sh"}
+watch('data/yaml/blank.yaml') {|match| system "./genius.sh yaml"}
+
+watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
+
+#watch('prespective/public/libs/cfg\/.*\.cfg') {|match| system "./testing/python2/run.sh"}

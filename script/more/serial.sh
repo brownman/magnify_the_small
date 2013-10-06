@@ -94,7 +94,7 @@ read_lines(){
 
                 execute_line "$line" "$str2"
                 sleep1 $waiting
-$tasks_sh motivation sport
+                    $tasks_sh motivation sport
                 let "count=count+1"
             else
                 flite 'breaking'

@@ -6,7 +6,7 @@
 trace "tasks.sh got: "  
 trace "1: $1"  
 trace " 2:$2 3:$3 4: $4"  
-#notify-send "$@"
+notify-send "$@"
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -77,6 +77,10 @@ take_photo(){
 
 motivation(){
     file_name="$1"
+
+   reason='push: learning new language'
+
+    reasoning 
 trace "motivation: $file_name : $MUTE"
     if [ "$MUTE" = false ];then
         random1 10

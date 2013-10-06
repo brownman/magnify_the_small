@@ -1,12 +1,8 @@
+#!/bin/bash 
 # about file:
 # choose a workflow , run serial.sh
-
-
-pushd `dirname $0` > /dev/null
-. loader.sh
-
 #export VERBOSE=true
-#export DEBUG=true
+trace "$*"
 file_locker=/tmp/timer
 delay=30
 
@@ -15,6 +11,8 @@ workflow_d=''
 
 export waiting=${1:-60}   # Defaults to /tmp dir.
 export DEBUG=${2:-false}   # Defaults to /tmp dir.
+
+#export DEBUG=true
 if [ $DEBUG = true ];then
  waiting=5
 fi
@@ -25,14 +23,14 @@ run(){
     while :;do
 
         
-    tracen "DEBUG: $DEBUG:"
-    tracen "VERBOSE: $VERBOSE"
-        #. $TIMERTXT_CFG_FILE
+    notify-send "DEBUG: $DEBUG:"
+    notify-send "VERBOSE: $VERBOSE"
         if [ "$DEBUG" = false ];then
         $tasks_sh motivation glossary 
         fi
 
-        run_workflow
+                run_workflow
+
         sleep1 $waiting
         if [ "$DEBUG" = false ];then
             random_quote_before  
@@ -50,11 +48,12 @@ run_workflow(){
 #baking
 
     sleep1 5
-    $SCRIPTS_DIR/serial.sh read_lines "$waiting"
+    $SCRIPT_DIR/more/serial.sh read_lines "$waiting"
 }
-unlocker
-popd > /dev/null
-exit 0
+#unlocker
+run
+#popd > /dev/null
+#exit 0
 
 
 
