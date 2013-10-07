@@ -27,8 +27,8 @@ stop_watch1(){
             local buttons1="$c/$long"
 
 
-     msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "$msg1")
-    helper0 "$msg1" "$file_now"
+            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "$msg1")
+            helper0 "$msg1" "$file_now"
         fi
         echo -n "$c "
         sleep 1s

@@ -25,8 +25,8 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        - tasks_sh|string_to_buttons|the king is smart|a  bc   
         #- tasks_sh|show_msg_entry|tasks|d
-
         #- cfg|random_from_subject|story|b|
         #- cfg|is_valid|/tmp/1.txt|b|
         #- cfg|unpack_subject|story|b|
@@ -53,7 +53,7 @@ testing:
         - cfg|echo01|friend|a  bc   
         - cfg|file_to_lines|/tmp/11.txt|a  bc   
         - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-        - tasks_sh|string_to_buttons|the king is smart|a  bc   
+
         - tasks_sh|learn_langs||success
         - tasks_sh|nothing|ab|ab
         - tasks_sh|fetch|frame.should|a|b

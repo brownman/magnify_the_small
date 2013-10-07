@@ -23,3 +23,4 @@ animal|ru|ja-vot-na-ya: ja-god vot-here na-on ya-wow
 above|ru|vi-she: above Vishi regim were the germans
 anything|ru|vce - 
 required|ru|tre-boot-sa: it is required to boot the computer 3 times before the sa.n rises again
+here|ru|

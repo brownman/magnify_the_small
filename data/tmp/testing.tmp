@@ -1,3 +1,4 @@
+tasks_sh|string_to_buttons|the king is smart|a  bc
 tasks_sh|commitment||a
 cfg|remove_trailing| a  bc |a  bc
 tasks_sh|motivation|sport|a
@@ -10,7 +11,6 @@ cfg|fetching|frame.conditions|a
 cfg|echo01|friend|a  bc
 cfg|file_to_lines|/tmp/11.txt|a  bc
 tasks_sh|motivations|$CFG_DIR/memory.txt|a
-tasks_sh|string_to_buttons|the king is smart|a  bc
 tasks_sh|learn_langs||success
 tasks_sh|nothing|ab|ab
 tasks_sh|fetch|frame.should|a|b
