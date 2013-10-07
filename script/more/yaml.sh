@@ -32,7 +32,9 @@ local file=$DATA_DIR/tmp/${subject}.tmp
 parse_subject workflow
 #parse_subject story
 #parse_subject cake
+
 parse_subject testing 
+parse_subject tasks 
 #
 #unpack_subject  story
 #unpack_subject  cake 

@@ -7,7 +7,9 @@
     #http://tldp.org/LDP/abs/html/comparison-ops.html
     #http://stackoverflow.com/questions/3265803/bash-string-equality
 cmd1='$tasks_sh motivation glossary'
-eval "$cmd1" &> /dev/null &
+#eval "$cmd1" &> /dev/null &
+run_silently "$cmd1"
+
 
 result='equal'
 file_test=/tmp/testing
@@ -24,8 +26,10 @@ cfg(){
 }
 tasks_sh(){
 
-    trace "tasks_sh run: 1:$1 2:$2 3:$3"
-    $tasks_sh "$1" "$2" "$3"
+    trace "tasks_sh run: $*"
+    #1:$1 2:$2 3:$3"
+    $tasks_sh "$*" 
+    #"$1" "$2" "$3"
 }
 test_yaml(){
     trace "$tasks_sh"
@@ -37,14 +41,12 @@ local filename=$(get_filename1 tmp testing )
     trace   "$filename" 
     trace   "$line" 
     #tracex  'testing.0:' "$line" 
-    #notify-send 'result line' "$line" 
     if [ "$line" != '' ];then
-        #trace "-$line-"
-        #echo "$res"
         route=$( echo "$line" | awk -F '|' '{print $1}' )
         method=$( echo "$line" | awk -F '|' '{print $2}' )
         input=$( echo "$line" | awk -F '|' '{print $3}' )
         expect=$( echo "$line" | awk -F '|' '{print $4}' )
+
         trace "route: $route"
         local res=$(echo "$input")
         #echo "$res"
@@ -54,9 +56,11 @@ local filename=$(get_filename1 tmp testing )
 
         input1=$( echo "$input" | awk -F ',' '{print $1}' )
         input2=$( echo "$input" | awk -F ',' '{print $2}' )
-        #notify-send "$res"
         #echo "$res"
+       ################### eval 
         result=$( eval $route '"$method" "$input1" "$input2"')
+        ########################
+
         equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
 
         echo -n '' > $file_test
@@ -68,7 +72,6 @@ local filename=$(get_filename1 tmp testing )
         #(trace "$str" "action: $method " "$equality" true &)
         trace "action: $method " "$str" "$equality"
         echo "$equality"
-        notify-send "$equality" "test.sh"  
     else
 
         trace  "empty line" 'error parsing'

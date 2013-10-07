@@ -48,9 +48,11 @@ watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/r
 
 
 
+
 watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
+watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}
 ##watch('script\/.*\.sh') {|match| system "./1/testing/python2/run.sh"}
-watch('data/yaml/blank.yaml') {|match| system "./genius.sh yaml"}
+watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 
 watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
 

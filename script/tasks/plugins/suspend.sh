@@ -5,21 +5,20 @@
 # unlock: https://bugs.launchpad.net/ubuntu/+source/dbus/+bug/811441
 # progress bar: http://bash.cyberciti.biz/guide/A_progress_bar_(gauge_box)
 #. $TIMERTXT_CFG_FILE
-timeout=$TIMEOUT_LET_ME_SLEEP
+timeout=30
+#$TIMEOUT_LET_ME_SLEEP
 
-
+notify-send 'suspend!'
 suspend01(){
-    echo2 "suspend01().."
+    trace "suspend01().."
     local elapsed=0
     local before=`date +%s`
 
     echo -n "let me sleep timeout -  is:"
     trace "$timeout"
-    #echo0 "you have $timeout seconds to accomplish your task - go !" 
-    #reminder
     sleep1 5
     res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
-    echo2 "res:  $res"
+    trace "res:  $res"
     local after=`date +%s`
     let elapsed=after-before
     echo -n "slept for: "
@@ -31,7 +30,6 @@ suspend01(){
     else
         trace 'you are free now - act wisely'
     fi
-    #flite 'add a new task'
 }
 
 

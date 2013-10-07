@@ -90,11 +90,12 @@ else
             str=$(random_line) 
         fi
         str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "My $subject:" -file "$file")
-
 helper0 "$str" "$file"
 
 
+
     done
+    
     
 }
 change_language(){
@@ -139,5 +140,42 @@ change_language
 memory_game 
 }
 #unlocker 
+#
+#first_dialog(){
+##'what do you want to do next ?'
+#local str=''
+#local res=0
+#
+#
+#while [ "$str" != 'exit' ];do
+#
+#    str=$(gxmessage -entrytext "$str" -title 'simplest log'  -file $file_log )
+#
+#    if [ "$str" != '' ];then
+#      
+#    is_command "$str"
+#    res=$?
+#
+#
+#        if [[ $res -eq 1 ]];then
+#
+#        update_file $file_log "$str"
+#        try "$str"
+#        else
+#            #helper
+#
+#helper0 "$str" "$file_log"
+#        #update_file $file_log "+$str"
+#        fi
+#
+#    fi
+#
+#
+#done
+#
+#}
+#
+#first_dialog
+
 run
 

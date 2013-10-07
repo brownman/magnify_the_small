@@ -9,7 +9,8 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
 silence=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
-notify-send "$silence : silence"
+#notify-send
+#trace "$silence : silence"
 
 language_of_the_day=$LANG_DEFAULT
 dirty_log=true #export DIRTY_LOG=true
@@ -309,9 +310,11 @@ echo4(){
         if [[ $num -gt 1 ]];then
     ( $tasks_sh string_to_buttons "$str" &)
 else
-    notify-send 'scrap here..'
 
-    fetch_html
+    #notify-send 'scrap here..'
+    trace 'scrap here..'
+
+    #fetch_html
         fi
 
 

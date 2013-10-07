@@ -3,10 +3,10 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-trace "tasks.sh got: "  
-trace "1: $1"  
-trace " 2:$2 3:$3 4: $4"  
-notify-send "$@"
+trace "tasks.sh got: $*"  
+#trace "1: $1"  
+#trace " 2:$2 3:$3 4: $4"  
+notify-send "tasker.sh:" "$@"
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -74,6 +74,41 @@ nothing(){
 take_photo(){
     xterm1 $PLUGINS_DIR/take_photo.sh
 }
+
+
+menu(){
+
+notify-send 'show the menu'
+
+local dir1=$SCRIPT_DIR/time
+    local title='execute:'
+    local text='list dir:'
+
+
+
+
+    local file=$( list_dir $dir1 "$title" "$text" false )
+    local choose=${dir1}/${file}
+    local res=0
+     
+    if [ "$choose" != '' ];then
+        
+        #messageYN1 "$file"
+      local  res=1
+        #$?
+        
+        if [[ $res -eq 1 ]];then
+         /usr/bin/xterm -e "$choose"
+        sleep1 3 
+    fi
+
+       
+    fi
+    echo 'end'
+}
+
+
+
 
 motivation(){
     file_name="$1"
@@ -225,7 +260,8 @@ collaboration(){
 }
 
 commitment(){
-    $PLUGINS_DIR/commitment.sh "$1"  
+    $PLUGINS_DIR/commitment.sh
+    #"$1"  
     #$PLUGINS_DIR/stop_watch.sh 
 }
 
@@ -238,7 +274,7 @@ learn_langs(){
 }
 
 
-
-eval "$1" '"$2" "$3"'
+eval "$*"
+#eval "$1" '"$2" "$3"'
 
 

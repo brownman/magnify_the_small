@@ -1,0 +1,50 @@
+
+
+
+js: 
+        - my searches - store
+        - israelis for other
+        - meteor - todo+sign
+        - meteor - game idea
+
+people:
+        kuka: car
+        matan: phone
+        ima: shoes
+
+project:
+
+        - my interpeter.sh
+        - 1 interpreter - to rule them all
+
+done:
+        - call Elia
+
+products:
+        - website - keep searches
+
+tasks:
+        - open notebook
+        - update tasks
+
+
+
+fun:
+        - increase motivation
+        - make some order
+        - do some shopping
+        - tell a story
+        - listen to physics
+story:
+        - 10|adj
+        - 5|higher_self
+        - 1|person
+        - 1|verb
+        - 1|relation
+        #- 2|koans
+conditions:
+        - if push koans - have confident
+        - if accomplish task - give a present
+        - if courage - make order
+        - if suspend - update notebook
+

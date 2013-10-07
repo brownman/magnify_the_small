@@ -1,0 +1,68 @@
+date: 7.10.13
+day:  Mon
+
+tasks:
+        - do X
+        - do Y
+bugs:
+        - Invalid number of options.
+
+times:
+        - 15:00 - 16:00 - push koans + increase motivation
+        - 16:00 - 17:00 - tasks
+
+workflow:
+        #- regexp|tasks|on next suspension I can
+        - practice_regexp||practice
+        #- show_msg_entry|tasks|on next suspension I can
+        - free_speak||your thoughts are unique
+        #- show_msg_entry|frame.times|on next suspension I can
+        #- show_msg_entry|frame.cake|I am happy to
+        #- show_msg_entry|frame.cake|it is the cake of priorities
+#        - show_msg_entry|frame.times|plan your time consuming
+#        - show_msg_entry|frame.conditions|I am happy to
+#        - show_msg_entry|frame.tasks|it is easy to
+#        - helper||help me to decide
+
+testing:
+        #- tasks_sh|show_msg_entry|tasks|d
+
+        #- cfg|random_from_subject|story|b|
+        #- cfg|is_valid|/tmp/1.txt|b|
+        #- cfg|unpack_subject|story|b|
+        #- tasks_sh|regexp|ion|a
+        #- tasks_sh|motivation|sport|a
+        #
+        #
+        #- tasks_sh|practice_regexp||practice
+        #- tasks_sh|free_speak|sport|a
+        #- cfg|last_char|c pp , |a  bc   
+        #- cfg|first_char|c p ,p|a  bc   
+        - tasks_sh|commitment||a
+        - cfg|remove_trailing| a  bc |a  bc   
+        - tasks_sh|motivation|sport|a
+        #- cfg|fetching|frame.cake|I am happy to|1
+        #- tasks_sh|conditions|do something good|0   
+        #- tasks_sh|free_speak|i|a   
+        - cfg|baking|a|b|
+        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
+        - tasks_sh|helper|a|b
+        - tasks_sh|string_to_buttons|one two|success
+        - tasks_sh|free_speak||success
+        - cfg|fetching|frame.conditions|a
+        - cfg|echo01|friend|a  bc   
+        - cfg|file_to_lines|/tmp/11.txt|a  bc   
+        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
+        - tasks_sh|string_to_buttons|the king is smart|a  bc   
+        - tasks_sh|learn_langs||success
+        - tasks_sh|nothing|ab|ab
+        - tasks_sh|fetch|frame.should|a|b
+        - tasks_sh|show_msg|df|d
+        - cfg|fetching|frame.should|a
+        - cfg|fetching|frame.achievments|a
+        - cfg|parse_subject|workflow|abc
+        - tasks_sh|random_quote|a|b
+        - tasks_sh|free_speak|a|b
+        - cfg|unlocker|/tmp/1|1
+
+

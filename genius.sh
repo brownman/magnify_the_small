@@ -1,75 +1,43 @@
 #!/bin/bash
+#http://subsignal.org/doc/AliensBashTutorial.html#4_e
+#http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
+#chmod +w time
+#ls -d -l time
 
-
-
-#echo 'zz'
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader
 
-export COMMANDER=false
 input="$1"
+
 
 dir1=$SCRIPT_DIR/time
 dir2=$SCRIPT_DIR/more
+
+file_locker=/tmp/genius
+delay=20
 result='equal'
-
-menu(){
-    local title='execute:'
-    local text='list dir:'
-
-
-
-
-    local file=$( list_dir $dir1 "$title" "$text" false )
-    local choose=${dir1}/${file}
-    local res=0
-     
-    if [ "$choose" != '' ];then
-        
-        messageYN1 "$file"
-        res=$?
-        
-        if [[ $res -eq 1 ]];then
-         /usr/bin/xterm -e "$choose"
-        sleep1 3 
-
-        else
-            notify-send 'escape'
-
-        $tasks_sh motivation glossary
-        fi
+shit(){
+    file=$1
+    is_valid $file
+    res=$?
+    trace 'res' $res
+    if [ $res -eq 1 ];then
+        result=$( $file )
     fi
-    echo 'end'
+
 }
-
-
-
-loop(){
-while :;do
- once 
-. $file_loader
-done
-}
-once(){
-  menu
-    sleep1 5
-}
-
-run(){
-      loop
-}
-
 if [ "$input" = '' ];then
     notify-send 'run:' 'menu'
-    run
+#    unlocker
 else
-
-    result=$( $dir2/${input}.sh )
+    
+    file11=$dir1/${input}.sh
+    file22=$dir2/${input}.sh
+  shit $file11 
+  shit $file22 
 fi
-
-    #echo "res: $result"
 
 echo "$result"
 popd > /dev/null
