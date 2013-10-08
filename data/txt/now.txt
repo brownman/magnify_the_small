@@ -1,3 +1,6 @@
+call P.O
+push Koans
+accomplish koans
 do Y
 do Y
 do Y

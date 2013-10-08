@@ -3,7 +3,8 @@
 # string to buttons -> choose -> echo -> say
 
 #http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
-trace "string_to_buttons.sh got:  method:$1 arg:$2 3:$3" 
+trace "string_to_buttons.sh got:  $1 "
+#arg:$2 3:$3" 
 #delimeter='-'
 #delimeter=''
 

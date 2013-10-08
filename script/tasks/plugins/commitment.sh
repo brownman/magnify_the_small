@@ -15,7 +15,7 @@ stop_watch1(){
     local title="$2"
 
 
-     local msg1="$msg" 
+    local msg1="$msg" 
     for (( c=0; c<=$long; c++ ))
     do
 
@@ -37,29 +37,29 @@ stop_watch1(){
     #echo0 "$msg"
 
 
-    
+
 }
 
 
 reminder1(){
-trace "reminder got: $1"
+    trace "reminder got: $1"
 
 
-local msg="commitment in time"
-#iemtell the robot"
+    local msg="commitment in time"
+    #iemtell the robot"
 
-local title="higher-self"
-local entry1="$1"
-local line=$( gxmessage  $GXMESSAGET -entrytext "$entry1" -title "$title" "$msg" )
+    local title="higher-self"
+    local entry1="$1"
+    local line=$( gxmessage  $GXMESSAGET -entrytext "$entry1" -title "$title" "$msg" )
 
 
     if [ "$line" != '' ];then
 
 
-#local title="commitment reminder"
-#        local   long=$( echo $line | awk -F '|' '{print $1}' )
-#        local every=$( echo $line | awk -F '|' '{print $2}' )
-#        local   msg=$( echo $line | awk -F '|' '{print $3}' )
+        #local title="commitment reminder"
+        #        local   long=$( echo $line | awk -F '|' '{print $1}' )
+        #        local every=$( echo $line | awk -F '|' '{print $2}' )
+        #        local   msg=$( echo $line | awk -F '|' '{print $3}' )
 
         stop_watch1  "$line" "$title" 
     else
@@ -70,40 +70,70 @@ local line=$( gxmessage  $GXMESSAGET -entrytext "$entry1" -title "$title" "$msg"
     fi
 
 }
+update_timing(){
+    local line=$(zenity --forms --title="Commitment:" --text="snoozing:" \
+        --add-entry="long:" \
+        --add-entry="every:" \
+        )
+
+    local tmp=$( echo $line | awk -F '|' '{print $2}' )
+    if [ "$tmp" != '' ];then
+        long=$tmp
+    fi
+    local tmp=$( echo $line | awk -F '|' '{print $3}' )
+    if [ "$tmp" != '' ];then
+        every=$tmp
+    fi
+}
 commit1(){
-local task="$1"
-#variable=$(zenity --entry --text "Please enter some text" --entry-text "Hello world!")
+    local task="$1"
+    #variable=$(zenity --entry --text "Please enter some text" --entry-text "Hello world!")
 
-  local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
-      --entry-text "$task" ) 
-  local line=$(zenity --forms --title="Commitment:" --text="snoozing:" \
-   --add-entry="long:" \
-   --add-entry="every:" \
-   )
-  
-         local tmp=$( echo $line | awk -F '|' '{print $2}' )
-         if [ "$tmp" != '' ];then
-            long=$tmp
-         fi
-   local tmp=$( echo $line | awk -F '|' '{print $3}' )
-         if [ "$tmp" != '' ];then
-            every=$tmp
-         fi
+    local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
+        --entry-text "$task" ) 
 
-         local title="($long/$every)-$msg"
+
+    local title="($long/$every)-$msg"
+    if [ "$msg" = '' ];then
+        flite 'no commitment'
+    else
         stop_watch1  "$msg" "$title" 
+    fi
+
 }
 
 pick_one_task(){
-local file=$(get_filename1 tmp tasks)
-local res=$(zenity1 $file)
-#gxmessage "$res" $GXMESSAGET
-commit1 "$res"
+
+    #local file=$(get_filename1 tmp tasks)
+    local file=$(get_filename1 tmp times)
+    local res=$(zenity1 $file)
+    #gxmessage "$res" $GXMESSAGET
+    commit1 "$res"
 }
 
+update_notebook(){
+    local line=$(zenity --forms --title="notebook:" --text="currently:" \
+        --add-entry="doing:" \
+        --add-entry="should:" \
+        --add-entry="sport:" \
+        )
+ file_db=$SQL_DIR/ex1.db 
+ query=$SQL_DIR/select_from_table.sql
+ table1='notebook'
+
+
+    insert_row "$line"
+
+show_table 
+   #store
+
+
+#gxmessage "$line" $GXMESSAGET
+}
+update_notebook
 #reminder1 "$1" 
 #commit1 
-pick_one_task
+#pick_one_task
 #"$1"
 #exit 
 

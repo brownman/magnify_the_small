@@ -1,5 +1,8 @@
-tasks_sh|string_to_buttons|the king is smart|a  bc
-tasks_sh|commitment||a
+tasks_sh|commitment||d
+cfg|insert_row||d
+cfg|update_table||ff
+cfg|create_relations||ff
+cfg|create_db||ff
 cfg|remove_trailing| a  bc |a  bc
 tasks_sh|motivation|sport|a
 cfg|baking|a|b|

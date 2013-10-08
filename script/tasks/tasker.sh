@@ -3,10 +3,14 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-trace "tasks.sh got: $*"  
+#trace "tasks.sh got: $*"  
 #trace "1: $1"  
+
 #trace " 2:$2 3:$3 4: $4"  
-notify-send "tasker.sh:" "$@"
+notify-send 'tasker.sh' "1:$1 2:$2 3:$3 4: $4"  
+#notify-send "tasker.sh:" "$@"
+
+#notify-send "tasker.sh:" "$*"
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -78,7 +82,7 @@ take_photo(){
 
 menu(){
 
-notify-send 'show the menu'
+#notify-send 'show the menu'
 
 local dir1=$SCRIPT_DIR/time
     local title='execute:'

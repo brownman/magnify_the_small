@@ -1,15 +1,16 @@
-date: 7.10.13
-day:  Mon
-
+date: 8.10.13
+day:  Tue
+url:
+    - https://mail.google.com/tasks/ig?pli=1
 tasks:
-        - do X
-        - do Y
+        - complain paypal
+        
 bugs:
         - Invalid number of options.
 
 times:
-        - 15:00 - 16:00 - push koans + increase motivation
-        - 16:00 - 17:00 - tasks
+        - 12:00 - 13:00 - sql
+        - 21:00 - 22:00 - ilan rav
 
 workflow:
         #- regexp|tasks|on next suspension I can
@@ -25,7 +26,7 @@ workflow:
 #        - helper||help me to decide
 
 testing:
-        - tasks_sh|string_to_buttons|the king is smart|a  bc   
+        #- tasks_sh|string_to_buttons|the king is smart|a  bc   
         #- tasks_sh|show_msg_entry|tasks|d
         #- cfg|random_from_subject|story|b|
         #- cfg|is_valid|/tmp/1.txt|b|
@@ -38,7 +39,16 @@ testing:
         #- tasks_sh|free_speak|sport|a
         #- cfg|last_char|c pp , |a  bc   
         #- cfg|first_char|c p ,p|a  bc   
-        - tasks_sh|commitment||a
+        #- tasks_sh|commitment||a
+        #
+        #
+        #- cfg|store||d
+        #- cfg|select_table||d
+        - tasks_sh|commitment||d
+        - cfg|insert_row||d
+        - cfg|update_table||ff
+        - cfg|create_relations||ff
+        - cfg|create_db||ff
         - cfg|remove_trailing| a  bc |a  bc   
         - tasks_sh|motivation|sport|a
         #- cfg|fetching|frame.cake|I am happy to|1

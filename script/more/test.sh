@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash -e
+#-x
+
+#set -o errexit
 
 # about file:
 # test the first test listen on blank.yaml:testing
@@ -11,6 +14,8 @@ cmd1='$tasks_sh motivation glossary'
 run_silently "$cmd1"
 
 
+export DEBUG=true
+export VERBOSE=false
 result='equal'
 file_test=/tmp/testing
 file_locker='/tmp/test'
@@ -28,7 +33,7 @@ tasks_sh(){
 
     trace "tasks_sh run: $*"
     #1:$1 2:$2 3:$3"
-    $tasks_sh "$*" 
+    $tasks_sh "$@" 
     #"$1" "$2" "$3"
 }
 test_yaml(){
