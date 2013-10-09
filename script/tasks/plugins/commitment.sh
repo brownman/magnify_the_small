@@ -121,10 +121,12 @@ update_notebook(){
  query=$SQL_DIR/select_from_table.sql
  table1='notebook'
 
-
+if [ $line != '' ];then
     insert_row "$line"
-
-show_table 
+    show_table 
+fi
+ 
+echo "$0"
    #store
 
 

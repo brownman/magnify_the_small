@@ -40,6 +40,15 @@ fetch_html(){
         trace "cache copy"
     fi
 }
+make_assosiation(){
+    local str="$1"
+    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET )
+    if [ "$ass" != '' ];then
+
+    echo "$ass" >> $file_assosiation
+    fi
+  
+}
 play1(){
 
     trace "play1() got: "
@@ -308,7 +317,18 @@ echo4(){
 
     num=`echo "$str" | wc -w`
         if [[ $num -gt 1 ]];then
-    ( $tasks_sh string_to_buttons "$str" &)
+    local pick_word=$( $tasks_sh string_to_buttons "$str" )
+    if [ $pick_word != '' ];then
+
+#    gxmessage $GXMESSAGET "say: $pick_word"
+ echo01 "$pick_word"
+    make_assosiation "$pick_word"
+    else
+
+    gxmessage $GXMESSAGET "say: NULL"
+
+    fi
+
 else
 
     #notify-send 'scrap here..'

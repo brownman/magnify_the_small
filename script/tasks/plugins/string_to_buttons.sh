@@ -20,15 +20,7 @@ trace "$str"
 echo "$str"
 }
 
-make_assosiation(){
-    local str="$1"
-    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET )
-    if [ "$ass" != '' ];then
 
-    echo "$ass" >> $file_assosiation
-    fi
-  
-}
 
 str_to_arr(){
     trace "string_to_arr() got:  1:$1 2:$2" 
@@ -77,7 +69,7 @@ local str2=$(arr_to_str ) #use array to create buttons-string
 echo "$str2"
 }
 step2(){
-
+local res=''
 local str="Q - $1"
 delimeter="${2:-' '}"   # Defaults to /tmp dir.
 str_to_arr "$str" #create new array
@@ -92,12 +84,15 @@ if [ "$str4" = "$empty" ] || [ "$str4" = "-" ]
 then
     trace "choosen: empty string: -$str4-"
 else
-update_file $file_memory "$str4"
-    echo01 "$str4"
-    make_assosiation "$str4"
+#update_file $file_memory "$str4"
+   
+    trace "choosen: $str4"
+    res="$str4"
+
 fi
 
-echo "$str4"
+
+echo "$res"
 
 
 }

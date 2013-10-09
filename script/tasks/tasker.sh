@@ -264,7 +264,8 @@ collaboration(){
 }
 
 commitment(){
-    $PLUGINS_DIR/commitment.sh
+    local res=$($PLUGINS_DIR/commitment.sh)
+    echo "$res"
     #"$1"  
     #$PLUGINS_DIR/stop_watch.sh 
 }
