@@ -19,13 +19,23 @@ file_locker=/tmp/genius
 delay=20
 result='equal'
 shit(){
-    file=$1
+    local file="$1"
+
     is_valid $file
     res=$?
     trace 'res' $res
+#notify-send "$file"
     if [ $res -eq 1 ];then
-        result=$( $file )
+
+        trace 'execution'
+
+        #sleep1 5
+        result=$( exec $file )
+    else
+        trace 'skip execution'
     fi
+
+
 
 }
 if [ "$input" = '' ];then
@@ -35,6 +45,11 @@ else
     
     file11=$dir1/${input}.sh
     file22=$dir2/${input}.sh
+  #shit $file11 
+
+  trace "$file22"
+  trace "$file11"
+
   shit $file11 
   shit $file22 
 fi

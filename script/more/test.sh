@@ -26,8 +26,9 @@ plugin(){
 
 }
 cfg(){
+    notify-send 'cfg test'
     "$1" "$2" "$3"
-
+#echo 'cfg'
 }
 tasks_sh(){
 

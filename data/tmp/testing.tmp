@@ -3,7 +3,6 @@ cfg|insert_row||d
 cfg|update_table||ff
 cfg|create_relations||ff
 cfg|create_db||ff
-cfg|remove_trailing| a  bc |a  bc
 tasks_sh|motivation|sport|a
 cfg|baking|a|b|
 cfg|parse_subject|cake,/tmp/1.test|a  bc

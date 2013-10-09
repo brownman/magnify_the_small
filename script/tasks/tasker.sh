@@ -7,7 +7,8 @@
 #trace "1: $1"  
 
 #trace " 2:$2 3:$3 4: $4"  
-notify-send 'tasker.sh' "1:$1 2:$2 3:$3 4: $4"  
+#notify-send
+trace 'tasker.sh' "1:$1 2:$2 3:$3 4: $4"  
 #notify-send "tasker.sh:" "$@"
 
 #notify-send "tasker.sh:" "$*"

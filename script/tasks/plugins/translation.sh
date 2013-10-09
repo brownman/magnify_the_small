@@ -45,9 +45,9 @@ make_assosiation(){
     local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET )
     if [ "$ass" != '' ];then
 
-    echo "$ass" >> $file_assosiation
+        echo "$ass" >> $file_assosiation
     fi
-  
+
 }
 play1(){
 
@@ -257,31 +257,31 @@ echo5(){
         exiting
     fi
 
-        speller "$str"
-        if [[ $? -eq 1 ]];then
-            return 
-        fi
-        num=`echo "$str" | wc -w`
+    speller "$str"
+    if [[ $? -eq 1 ]];then
+        return 
+    fi
+    num=`echo "$str" | wc -w`
 
 
 
-        translate_f  "$str" en 
-        #echo "$str" | flite
+    translate_f  "$str" en 
+    #echo "$str" | flite
+    sleep1 2
+    translate_f  "$str" it 
+    sleep1 2
+    translate_f  "$str" ru 
+    sleep1 2
+    translate_f  "$str" ar 
+    if [ $num -lt 4 ];then
         sleep1 2
-        translate_f  "$str" it 
-        sleep1 2
-        translate_f  "$str" ru 
-        sleep1 2
-        translate_f  "$str" ar 
-        if [ $num -lt 4 ];then
-            sleep1 2
-            translate_f  "$str" hi 
+        translate_f  "$str" hi 
 
-            sleep1 2
-            translate_f  "$str" tl 
-        else
-            echo 'more then 4 words -> skip playing hi,tl'
-        fi
+        sleep1 2
+        translate_f  "$str" tl 
+    else
+        echo 'more then 4 words -> skip playing hi,tl'
+    fi
 
 }
 
@@ -316,36 +316,30 @@ echo4(){
     trace "$str"
 
     num=`echo "$str" | wc -w`
-        if [[ $num -gt 1 ]];then
-    local pick_word=$( $tasks_sh string_to_buttons "$str" )
-    if [ $pick_word != '' ];then
+    if [[ $num -gt 1 ]];then
+        local pick_word=$( $tasks_sh string_to_buttons "$str" )
+        if [ $pick_word != '' ];then
+            translate_f  "$pick_word" "$lang1"
+            make_assosiation "$pick_word"
+        fi
 
-#    gxmessage $GXMESSAGET "say: $pick_word"
- echo01 "$pick_word"
-    make_assosiation "$pick_word"
     else
 
-    gxmessage $GXMESSAGET "say: NULL"
+        #notify-send 'scrap here..'
+        trace 'scrap here..'
 
+        #fetch_html
     fi
-
-else
-
-    #notify-send 'scrap here..'
-    trace 'scrap here..'
-
-    #fetch_html
-        fi
 
 
     translate_f  "$str" "en"
 
-    
+
     sleep1 2 
 
     translate_f  "$str" "$lang1"
 
-       sleep1 2
+    sleep1 2
     translate_f  "$str" "$lang1"
 
 }
@@ -358,26 +352,26 @@ printing1(){
     local line2=`cat $file_txt | head -2 | tail -1`
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
-   
-        if [ "$SILENCE" = true ];then
-                 if [ "$lang" = ru ];then
-                        notify-send $TIMEOUT_NS "$line2" "$line1"   
-                 fi
-        else
-                 if [[ "$lang" = he  ||  "$lang" = hi ]];
-                then
-                    notify-send $TIMEOUT_NS "$line2" "$line1"   
-                else
-                    notify-send $TIMEOUT_NS "$line1"
-                fi
 
+    if [ "$SILENCE" = true ];then
+        if [ "$lang" = ru ];then
+            notify-send $TIMEOUT_NS "$line2" "$line1"   
+        fi
+    else
+        if [[ "$lang" = he  ||  "$lang" = hi ]];
+        then
+            notify-send $TIMEOUT_NS "$line2" "$line1"   
+        else
+            notify-send $TIMEOUT_NS "$line1"
         fi
 
+    fi
 
 
-#    if [ "$dirty_log" = true ];then
-#        update_file $file_log "- $line1 | $line2"    
-#    fi
+
+    #    if [ "$dirty_log" = true ];then
+    #        update_file $file_log "- $line1 | $line2"    
+    #    fi
 }
 
 
@@ -414,36 +408,36 @@ all_lines(){
     local cmd='echo4'
     file_to_lines "$from"
 
-   execute_lines
-#local msg=$(    execute_lines )
+    execute_lines
+    #local msg=$(    execute_lines )
     #local msg=$(file_to_lines "$from")
-echo "$msg"
-echo "zz"
-    
+    echo "$msg"
+    echo "zz"
+
 }
 
 
 run(){
     local result=''
-#motivation "$file"
-if [ "$method" = 'sentence' ];then
-    if [ "$multiple_langs" = true ];then
-        echo5 "$from" 
-    else
-        echo4 "$from" 
-    fi
-elif [ "$method" = 'line' ];then
-    one_line "$from"
-elif [ "$method" = 'lines' ];then
+    #motivation "$file"
+    if [ "$method" = 'sentence' ];then
+        if [ "$multiple_langs" = true ];then
+            echo5 "$from" 
+        else
+            echo4 "$from" 
+        fi
+    elif [ "$method" = 'line' ];then
+        one_line "$from"
+    elif [ "$method" = 'lines' ];then
 
-    #result=$(
-    all_lines "$from"
-    ##result=$(all_lines "$from")
-    echo "$result"
-else
-    trace   "unknown method:"
-    help1 "$help_options"
-fi
+        #result=$(
+        all_lines "$from"
+        ##result=$(all_lines "$from")
+        echo "$result"
+    else
+        trace   "unknown method:"
+        help1 "$help_options"
+    fi
 }
 unlocker true
 #5 true 

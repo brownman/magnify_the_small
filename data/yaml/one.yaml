@@ -1,7 +1,8 @@
-date: 8.10.13
-day:  Tue
+date: 9.10.13
+day:  Wed
 url:
     - https://mail.google.com/tasks/ig?pli=1
+
 tasks:
         - complain paypal
         
@@ -44,12 +45,13 @@ testing:
         #
         #- cfg|store||d
         #- cfg|select_table||d
+        #
+        #- cfg|remove_trailing| a  bc |a  bc   
         - tasks_sh|commitment||d
         - cfg|insert_row||d
         - cfg|update_table||ff
         - cfg|create_relations||ff
         - cfg|create_db||ff
-        - cfg|remove_trailing| a  bc |a  bc   
         - tasks_sh|motivation|sport|a
         #- cfg|fetching|frame.cake|I am happy to|1
         #- tasks_sh|conditions|do something good|0   

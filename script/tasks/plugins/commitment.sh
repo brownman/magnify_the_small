@@ -112,7 +112,7 @@ pick_one_task(){
 }
 
 update_notebook(){
-    local line=$(zenity --forms --title="notebook:" --text="currently:" \
+    local line=$(zenity $timeout1 --forms --title="notebook:" --text="currently:" \
         --add-entry="doing:" \
         --add-entry="should:" \
         --add-entry="sport:" \
@@ -120,14 +120,22 @@ update_notebook(){
  file_db=$SQL_DIR/ex1.db 
  query=$SQL_DIR/select_from_table.sql
  table1='notebook'
+#gxmessage "-$line-"
+if [ "$line" = '' ] || [ "$line" = '||' ]
+then
+    notify-send 'skip insert row!'
 
-if [ $line != '' ];then
+else
+    notify-send 'insert row!'
     insert_row "$line"
-    show_table 
+    #show_table 
 fi
  
-echo "$0"
-   #store
+#echo "$0"
+
+   store
+
+echo 'z'
 
 
 #gxmessage "$line" $GXMESSAGET

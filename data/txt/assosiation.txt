@@ -36,3 +36,6 @@ even|ru|da-ja: even if you don't believe in god - say da - to j.a
 reason|ru|pri-chinya: the reason for your good health is that you have bought your p.r.i from china
 nobody|ru|ni-kto: no - (who or one)
 today|ru|si-vod-nia: yes, all day you've watched v.o.d, m.a - n.i.i.y.a ?
+reach|ru|das-ti-get:Dastin reach whatever goal he set to himself
+starting|ru|at-prav-noi:  it is easy to start look at private n.o.i
+exercises|ru|ubraghnenye
