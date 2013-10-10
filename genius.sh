@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
+#-v
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
@@ -31,6 +32,7 @@ shit(){
 
         #sleep1 5
         result=$( exec $file )
+        #$file
     else
         trace 'skip execution'
     fi

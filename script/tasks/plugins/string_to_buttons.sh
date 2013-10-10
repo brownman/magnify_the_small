@@ -13,7 +13,7 @@ arr=()
 declare -a arr=() #=('aa')
 
 arr_to_msg(){
-gxmessage -buttons "$1" -file $file_memory $GXMESSAGET -iconic
+gxmessage -buttons "$1" "$str" $GXMESSAGET 
 local num=$?
 local str="${arr[$num]}"
 trace "$str"

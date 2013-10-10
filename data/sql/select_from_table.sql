@@ -7,4 +7,5 @@
 
 --SELECT * FROM tag WHERE  word != "this";
 
-SELECT * FROM notebook; 
+SELECT * FROM notebook ORDER BY id DESC; 
+--ORDER BY rank DESC

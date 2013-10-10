@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash 
+#-e
 #-x
 
 #set -o errexit

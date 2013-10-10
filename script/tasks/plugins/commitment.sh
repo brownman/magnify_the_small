@@ -133,9 +133,10 @@ fi
  
 #echo "$0"
 
-   store
+#local res=$( store2)
 
-echo 'z'
+
+#echo 'z'
 
 
 #gxmessage "$line" $GXMESSAGET
@@ -143,7 +144,7 @@ echo 'z'
 update_notebook
 #reminder1 "$1" 
 #commit1 
-#pick_one_task
+pick_one_task
 #"$1"
 #exit 
 

@@ -42,7 +42,8 @@ fetch_html(){
 }
 make_assosiation(){
     local str="$1"
-    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET )
+
+    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
     if [ "$ass" != '' ];then
 
         echo "$ass" >> $file_assosiation
@@ -286,6 +287,22 @@ echo5(){
 }
 
 
+random_language(){
+
+    random1 10
+    local ans=$?
+    if [ $ans -eq 0 ];then
+        language_of_the_day="AR"
+    elif [ $ans -eq 1 ];then
+        language_of_the_day="HI"
+    elif [ $ans -eq 2 ];then
+        language_of_the_day="IT"
+    elif [ $ans -eq 3 ];then
+        language_of_the_day="TA"
+    fi
+
+}
+
 
 echo4(){
     trace "echo4() got: $1"
@@ -301,6 +318,9 @@ echo4(){
         return
     fi
 
+#random_language
+
+#    notify-send 'random lang?'  "$?"
     local lang1="$language_of_the_day"
     trace "translate to: $lang1"
 
