@@ -27,7 +27,7 @@
 
 
 
-#watch('website\/.*\.js') {|match| system "./testing/python2/run.sh"}
+watch('1/website\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
 #
 #watch('prespective/public\/.*\.sh') {|match| system "./testing/python2/run.sh"}
 

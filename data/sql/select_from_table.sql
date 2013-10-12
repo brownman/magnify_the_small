@@ -9,3 +9,6 @@
 
 SELECT * FROM notebook ORDER BY id DESC; 
 --ORDER BY rank DESC
+
+SELECT * FROM task ORDER BY id DESC; 
+--ORDER BY rank DESC

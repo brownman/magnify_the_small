@@ -11,8 +11,9 @@ trace "string_to_buttons.sh got:  $1 "
 empty='Q'
 arr=()
 declare -a arr=() #=('aa')
-
+:
 arr_to_msg(){
+local str=$(pick_line $file_assosiation)
 gxmessage -buttons "$1" "$str" $GXMESSAGET 
 local num=$?
 local str="${arr[$num]}"
@@ -24,8 +25,6 @@ echo "$str"
 
 str_to_arr(){
     trace "string_to_arr() got:  1:$1 2:$2" 
-    #  local item=${arr[1]}`
-    #    gxmessage "res1: $item"
     str="$1" 
 
     old_IFS=$IFS

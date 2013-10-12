@@ -19,6 +19,6 @@ $tasks_sh commitment
 }
 
 
-unlocker 
-#run
+#unlocker 
+run
 

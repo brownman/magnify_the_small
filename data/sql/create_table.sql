@@ -6,6 +6,15 @@ CREATE TABLE notebook (
     sport INTEGER
 );
 
+CREATE TABLE task(
+    id INTEGER PRIMARY KEY,
+    time TEXT,
+    frame INTEGER,
+    task TEXT,
+    mini TEXT
+
+);
+
 CREATE TABLE memos(
     id INTEGER PRIMARY KEY,
     priority INTEGER,

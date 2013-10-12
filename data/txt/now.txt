@@ -1,40 +1,4 @@
-call P.O
-push Koans
-accomplish koans
-do Y
-do Y
-do Y
-do Y
-do Y
-do something
-do something
-do it
-do X
-do something
-do something
-how to suspend the computer
-suspend
-suspend
-I have to send the dog outside
-I have to send the dog outside
-present
-beauty
-short
-they love me because
-lion
-ant
-now is the best time to act
-exit
-do something good
-commitment in time
-update the c.v
-write a new c.v
-write a new c.v
-write a new c.v
-what can I do for you
-go and wash the dishes
-go and wash the dishes
-go and wash the dishes
-go and wash the dishes
-stay happy
-09:24: delete!
+do it now
+create a website
+create a website
+a website

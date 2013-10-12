@@ -11,5 +11,8 @@
     --VALUES ("this is a sentence");
 
 
-INSERT INTO notebook ( doing , should, sport)
-    VALUES ("doing programming", "drive to the city",4);
+INSERT INTO task ( time,frame, task, mini)
+    VALUES ('11:44' ,4, 'task1','mini-task 1.1' );
+
+INSERT INTO notebook ( doing , should, sport )
+    VALUES ("open the browser", "give madicine", 0);

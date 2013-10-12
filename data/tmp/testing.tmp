@@ -1,4 +1,5 @@
-tasks_sh|commitment||d
+tasks_sh|commitment|show_table,notebook|d
+tasks_sh|commitment|update_table,notebook|d
 cfg|insert_row||d
 cfg|update_table||ff
 cfg|create_relations||ff

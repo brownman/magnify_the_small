@@ -3,6 +3,7 @@
 # plugin:       stop-watch 
 
 #. $TIMERTXT_CFG_FILE
+notify-send "$@"
 long=500
 every=60
 show_buttons=$SHOW_BUTTONS
@@ -111,40 +112,24 @@ pick_one_task(){
     commit1 "$res"
 }
 
-update_notebook(){
-    local line=$(zenity $timeout1 --forms --title="notebook:" --text="currently:" \
-        --add-entry="doing:" \
-        --add-entry="should:" \
-        --add-entry="sport:" \
-        )
- file_db=$SQL_DIR/ex1.db 
- query=$SQL_DIR/select_from_table.sql
- table1='notebook'
-#gxmessage "-$line-"
-if [ "$line" = '' ] || [ "$line" = '||' ]
-then
-    notify-send 'skip insert row!'
-
-else
-    notify-send 'insert row!'
-    insert_row "$line"
-    #show_table 
-fi
- 
-#echo "$0"
-
-#local res=$( store2)
-
-
-#echo 'z'
-
-
-#gxmessage "$line" $GXMESSAGET
+update_table(){
+    
+local  table1="$1"
+update_selected_table "$table1"
 }
-update_notebook
+show_table(){
+    
+local  table1="$1"
+show_selected_table "$table1"
+}
+
+
+#show_table
+#update_notebook
+#show_table
 #reminder1 "$1" 
 #commit1 
-pick_one_task
+#pick_one_task
 #"$1"
 #exit 
-
+$1 "$2" 

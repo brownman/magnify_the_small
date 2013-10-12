@@ -10,8 +10,8 @@ bugs:
         - Invalid number of options.
 
 times:
-        - 12:00 - 13:00 - sql
-        - 21:00 - 22:00 - ilan rav
+        - 12:00 - update db
+        - 13:00 - kuka 
 
 workflow:
         #- regexp|tasks|on next suspension I can
@@ -47,7 +47,8 @@ testing:
         #- cfg|select_table||d
         #
         #- cfg|remove_trailing| a  bc |a  bc   
-        - tasks_sh|commitment||d
+        - tasks_sh|commitment|show_table,notebook|d
+        - tasks_sh|commitment|update_table,notebook|d
         - cfg|insert_row||d
         - cfg|update_table||ff
         - cfg|create_relations||ff
