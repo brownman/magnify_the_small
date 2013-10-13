@@ -1,4 +1,5 @@
 #!/bin/bash 
+#-x 
 #-v
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/

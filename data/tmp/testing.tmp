@@ -1,9 +1,5 @@
-tasks_sh|commitment|show_table,notebook|d
-tasks_sh|commitment|update_table,notebook|d
-cfg|insert_row||d
-cfg|update_table||ff
-cfg|create_relations||ff
-cfg|create_db||ff
+cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+tasks_sh|commitment|assosiation|d
 tasks_sh|motivation|sport|a
 cfg|baking|a|b|
 cfg|parse_subject|cake,/tmp/1.test|a  bc

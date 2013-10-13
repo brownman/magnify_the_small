@@ -28,7 +28,9 @@ plugin(){
 }
 cfg(){
     notify-send 'cfg test'
-    "$1" "$2" "$3"
+    local cmd=$(eval "$1 $2 $3 $4 $5")
+    #assert_equal_str $cmd
+    commander "$cmd"
 #echo 'cfg'
 }
 tasks_sh(){
@@ -54,18 +56,21 @@ local filename=$(get_filename1 tmp testing )
         input=$( echo "$line" | awk -F '|' '{print $3}' )
         expect=$( echo "$line" | awk -F '|' '{print $4}' )
 
-        trace "route: $route"
-        local res=$(echo "$input")
+        #trace "route: $route"
+        local res=$(echo $input)
+        #res=$(ls -l  $res)
+        #assert_equal_str "$res"
         #echo "$res"
         input="$res"
 
 
 
-        input1=$( echo "$input" | awk -F ',' '{print $1}' )
-        input2=$( echo "$input" | awk -F ',' '{print $2}' )
+        input1=$( echo "$input" | sed 's/,/ /g' ) 
+        #awk -F ',' '{print $1}' )
+        #input2=$( echo "$input" | awk -F ',' '{print $2}' )
         #echo "$res"
        ################### eval 
-        result=$( eval $route '"$method" "$input1" "$input2"')
+       result=$( eval '$route "$method" "$input1"' )
         ########################
 
         equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")

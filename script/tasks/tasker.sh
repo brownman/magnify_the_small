@@ -1,15 +1,11 @@
 #!/bin/bash
+#-e
 # about file:
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-#trace "tasks.sh got: $*"  
-#trace "1: $1"  
 
-#trace " 2:$2 3:$3 4: $4"  
-#notify-send
-trace 'tasker.sh' "1:$1 2:$2 3:$3 4: $4"  
-#notify-send "tasker.sh:" "$@"
+notify-send "tasker.sh:" "$*"
 
 #notify-send "tasker.sh:" "$*"
 
@@ -61,7 +57,12 @@ echo01 "$str"
 }
 
 string_to_buttons(){
-    local res=$($PLUGINS_DIR/string_to_buttons.sh "$1" "$2" "$3")
+local str="$@"
+local str1="${FUNCNAME[0]}"
+    #assert_equal_str "$str" "$str1" 
+    local delimeter=' '
+    local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
+    #1" "$2" "$3")
     echo "$res"
 }
 
@@ -77,7 +78,7 @@ nothing(){
 
 
 take_photo(){
-    xterm1 $PLUGINS_DIR/take_photo.sh
+     $PLUGINS_DIR/take_photo.sh
 }
 
 
@@ -265,10 +266,8 @@ collaboration(){
 }
 
 commitment(){
-    local res=$($PLUGINS_DIR/commitment.sh "$1" "$2")
+    local res=$($PLUGINS_DIR/commitment.sh "$1" )
     echo "$res"
-    #"$1"  
-    #$PLUGINS_DIR/stop_watch.sh 
 }
 
 game_essay(){
@@ -280,7 +279,25 @@ learn_langs(){
 }
 
 
-#eval "$*"
-eval "$1" '"$2" "$3"'
+update_row(){
 
+    #export COMMANDER=true
+local name="$1"
+local cmd=$(echo "zenity1 $DATA_DIR/txt/${name}.txt $name 'be smarter' " )
+local str=$(eval $cmd   )
+#local str=$(commander "$cmd")
+        #- cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+        #echo01 "$str"
+
+    echo "update_row: $str"
+    } 
+    
+
+############################### proxy for execution #####################
+#export COMMANDER=true
+cmd1="$@"
+res1=$(commander "$cmd1")
+echo "$res1"
+
+############################### proxy for execution #####################
 

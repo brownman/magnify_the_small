@@ -12,3 +12,10 @@ SELECT * FROM notebook ORDER BY id DESC;
 
 SELECT * FROM task ORDER BY id DESC; 
 --ORDER BY rank DESC
+
+SELECT * FROM assosiation ORDER BY id DESC; 
+--ORDER BY rank DESC
+
+SELECT * FROM priority ORDER BY id DESC; 
+--ORDER BY rank DESC
+

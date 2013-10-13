@@ -112,16 +112,27 @@ pick_one_task(){
     commit1 "$res"
 }
 
-update_table(){
-    
-local  table1="$1"
-update_selected_table "$table1"
-}
+#update_table(){
+#    
+#local  table1="$1"
+#update_selected_table "$table1"
+#}
 show_table(){
     
+
 local  table1="$1"
-show_selected_table "$table1"
+if [ "$table1" = '' ];then
+table1=$(pick_db)
+fi
+local choose=$(show_selected_table "$table1")
+commit1 "$choose"
 }
+pick_db(){
+local str=$(zenity1 "$DATA_DIR/txt/db.txt")
+echo "$str"
+
+}
+
 
 
 #show_table
@@ -132,4 +143,6 @@ show_selected_table "$table1"
 #pick_one_task
 #"$1"
 #exit 
-$1 "$2" 
+#$1
+#"$2" 
+show_table "$1"

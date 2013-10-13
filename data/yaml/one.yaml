@@ -15,9 +15,10 @@ times:
 
 workflow:
         #- regexp|tasks|on next suspension I can
-        - practice_regexp||practice
+        - commitment|task|update your state
+        #- practice_regexp||practice
         #- show_msg_entry|tasks|on next suspension I can
-        - free_speak||your thoughts are unique
+        #- free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to
         #- show_msg_entry|frame.cake|it is the cake of priorities
@@ -36,7 +37,7 @@ testing:
         #- tasks_sh|motivation|sport|a
         #
         #
-        #- tasks_sh|practice_regexp||practice
+        #- tasks_sh|practice_rege:xp||practice
         #- tasks_sh|free_speak|sport|a
         #- cfg|last_char|c pp , |a  bc   
         #- cfg|first_char|c p ,p|a  bc   
@@ -47,12 +48,10 @@ testing:
         #- cfg|select_table||d
         #
         #- cfg|remove_trailing| a  bc |a  bc   
-        - tasks_sh|commitment|show_table,notebook|d
-        - tasks_sh|commitment|update_table,notebook|d
-        - cfg|insert_row||d
-        - cfg|update_table||ff
-        - cfg|create_relations||ff
-        - cfg|create_db||ff
+        #- tasks_sh|string_to_buttons|'i have a dog'|a
+        #- tasks_sh|update_row|glossary|a
+        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+        - tasks_sh|commitment|assosiation|d
         - tasks_sh|motivation|sport|a
         #- cfg|fetching|frame.cake|I am happy to|1
         #- tasks_sh|conditions|do something good|0   
@@ -78,4 +77,5 @@ testing:
         - tasks_sh|free_speak|a|b
         - cfg|unlocker|/tmp/1|1
 
-
+ideas:
+        - python ntlp: the word 'sit' is part-of-speach 'x' so suggest group options
