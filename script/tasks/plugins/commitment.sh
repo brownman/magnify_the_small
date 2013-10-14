@@ -109,7 +109,7 @@ pick_one_task(){
     local file=$(get_filename1 tmp times)
     local res=$(zenity1 $file)
     #gxmessage "$res" $GXMESSAGET
-    commit1 "$res"
+    #commit1 "$res"
 }
 
 #update_table(){
