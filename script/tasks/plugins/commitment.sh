@@ -125,7 +125,10 @@ if [ "$table1" = '' ];then
 table1=$(pick_db)
 fi
 local choose=$(show_selected_table "$table1")
-commit1 "$choose"
+#local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
+#local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
+commit1
+#"$str"
 }
 pick_db(){
 local str=$(zenity1 "$DATA_DIR/txt/db.txt")
