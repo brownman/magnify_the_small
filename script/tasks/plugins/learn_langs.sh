@@ -14,13 +14,13 @@ path1=/TORRENTS/AUDIO/LANGS
 lesson=${2:-10} #$2
 lang=$(higher $LANG_DEFAULT)
 play_lesson(){
-    trace "learn langs() $1 $2"
-
-    trace "lang: $lang"
-    gxmessage $GXMESSAGET "lesson $lesson"
-
+    #trace "learn langs() $1 $2"
+    #trace "lang: $lang"
+    #gxmessage $GXMESSAGET "lesson $lesson"
 
 
+
+    lang=$( gxmessage -title "Lang: $lang" 'choose a language :' -entrytext "$lang" $GXMESSAGET -buttons "ok" )
 
     lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
 

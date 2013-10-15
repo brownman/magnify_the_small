@@ -5,7 +5,7 @@
 # no gui here - remove gxmessage 
 # 
 
-notify-send "tasker.sh:" "$*"
+notify-send "tasker.sh:" "$@"
 
 #notify-send "tasker.sh:" "$*"
 

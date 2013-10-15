@@ -13,14 +13,18 @@ export file_loader=$ROOT_DIR/script/loader.sh
 
 input="$1"
 
+arg1="$2"
+
+arg2="$3"
+
 
 dir1=$SCRIPT_DIR/time
-dir2=$SCRIPT_DIR/more
+#dir2=$SCRIPT_DIR/more
 
 file_locker=/tmp/genius
 delay=20
 result='equal'
-shit(){
+run1(){
     local file="$1"
 
     is_valid $file
@@ -45,16 +49,9 @@ if [ "$input" = '' ];then
     notify-send 'run:' 'menu'
 #    unlocker
 else
-    
     file11=$dir1/${input}.sh
-    file22=$dir2/${input}.sh
-  #shit $file11 
+    exec "$file11" "$arg1" "$arg2"
 
-  trace "$file22"
-  trace "$file11"
-
-  shit $file11 
-  shit $file22 
 fi
 
 echo "$result"
