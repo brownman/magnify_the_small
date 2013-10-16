@@ -7,9 +7,10 @@ file_essay='x'
 subject='x'
 file_locker=/tmp/free_speak
 notify-send "free-speak" "$0"
+export STRING_TO_BUTTONS=false
 random_line(){
-local str=''
-random1 20
+local str=' '
+random1 120
 num=$?
 #notify-send $num
 if [ $num -eq 0 ];then
@@ -28,15 +29,23 @@ elif [ $num -eq 6 ];then
     str+=$(generate_line task)
 elif [ $num -eq 7 ];then
     str+=$(generate_line bake)
-elif [ $num -eq 8 ];then
-    str+=$(generate_line verb)
-elif [ $num -eq 9 ];then
-    str+=$(generate_line grammer)
+
+
 elif [ $num -lt 15 ];then
     str+=$(generate_line higher_self)
 else
+    str+=$(generate_line 'time')
 
+    str+="|"
+    str+=$(generate_line verb)
+
+    str+="|"
     str+=$(generate_line noun)
+
+    str+="|"
+    str+=$(generate_line adv)
+
+  
 
 fi
 
@@ -83,23 +92,17 @@ else
     line1='start'
     fi
 
-
     while :;do
         let counter+=1
         if [ $QUIZ = 'true' ];then
             str=$(random_line) 
         fi
-        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "My $subject:" -file "$file")
-helper0 "$str" "$file"
-
-
-
+        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "children story: $subject" -file "$file")
+        helper0 "$str" "$file"
     done
-    
-    
 }
 change_language(){
-
+notify-send "change language got:" "$1"
 local str=$( gxmessage  -entrytext "$LANG_DEFAULT" -title 'change language:' $GXMESSAGET 'pick a language:' )
 if [ "$str" = '' ];then
     flite 'exiting'
@@ -115,10 +118,13 @@ local str1=$(higher "$LANG_DEFAULT")
 
 change_filename(){
 #subject='my_day'
-notify-send 
+#notify-send 
 
+subject="$1"
+if [ "$subject" = '' ];then
+    subject=$(choose_line1  'subject')
+fi
 
-subject=$(choose_line1  'subject')
 
 local        str=$( gxmessage  -entrytext "$subject" -title 'pick a subject:' $GXMESSAGET 'new filename:' )
 
@@ -135,8 +141,8 @@ fi
 
 
 run(){
-change_filename
-change_language
+change_filename "$1"
+change_language "$2"
 memory_game 
 }
 #unlocker 
@@ -177,5 +183,5 @@ memory_game
 #
 #first_dialog
 
-run
+run "$1" "$2"
 

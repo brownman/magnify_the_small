@@ -47,7 +47,8 @@ testing:
         #- cfg|store||d
         #- cfg|select_table||d
         #
-        #- cfg|remove_trailing| a  bc |a  bc   
+        - cfg|remove_trailing|a|a   
+        - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a
         #- tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
@@ -65,7 +66,6 @@ testing:
         - cfg|echo01|friend|a  bc   
         - cfg|file_to_lines|/tmp/11.txt|a  bc   
         - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-
         - tasks_sh|learn_langs||success
         - tasks_sh|nothing|ab|ab
         - tasks_sh|fetch|frame.should|a|b
@@ -80,6 +80,18 @@ testing:
 ideas:
         - python ntlp: the word 'sit' is part-of-speach 'x' so suggest group options
         - ~/magnify_the_small/1/others/RegexKoans
+        - phone-rington -> play a language lesson
+
+notes:
+        - alt-f1
+        - show all options
+        - order 
+        - do for others first
 
 
-
+activity:
+        - rules
+        - commitment
+        - recent_video
+        - learn_langs
+        - free_speak

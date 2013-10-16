@@ -337,14 +337,14 @@ echo4(){
 
     num=`echo "$str" | wc -w`
     if [[ $num -gt 1 ]];then
-        local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
-        if [ $pick_word != '' ];then
-            translate_f  "$pick_word" "$lang1"
-            make_assosiation "$pick_word"
-        fi
-
+        if [ "$STRING_TO_BUTTONS" = true ];then
+                local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
+                if [ $pick_word != '' ];then
+                    translate_f  "$pick_word" "$lang1"
+                    make_assosiation "$pick_word"
+                fi
+            fi
     else
-
         #notify-send 'scrap here..'
         trace 'scrap here..'
 

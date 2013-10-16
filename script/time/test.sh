@@ -27,8 +27,10 @@ plugin(){
 
 }
 cfg(){
+    COMMANDER=true
     notify-send 'cfg test'
-    local cmd=$(eval "$1 $2 $3 $4 $5")
+    #local cmd=$(eval "$1 $2 $3 $4 $5")
+    local cmd="$@"
     #assert_equal_str $cmd
     commander "$cmd"
 #echo 'cfg'

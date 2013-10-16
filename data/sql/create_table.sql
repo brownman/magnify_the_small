@@ -1,27 +1,24 @@
 --ex1
 CREATE TABLE notebook (
     id INTEGER PRIMARY KEY,
+    date TEXT,
     time TEXT,
-    doing TEXT,
-    should TEXT,
+    frame INTEGER,
+    goal TEXT,
+    mini_task TEXT,
+    remind TEXT,
     sport INTEGER
 );
 
-CREATE TABLE task(
-    id INTEGER PRIMARY KEY,
-    time TEXT,
-    frame INTEGER,
-    task TEXT,
-    mini TEXT
-);
 
-
-CREATE TABLE priority(
+CREATE TABLE idea(
     id INTEGER PRIMARY KEY,
-    urgency INTEGER,
+    priority INTEGER,
+    title TEXT,
+    description TEXT,
     person TEXT,
-    task TEXT,
-    description TEXT
+    url TEXT,
+    tags TEXT
 );
 
 CREATE TABLE assosiation(
@@ -31,6 +28,7 @@ CREATE TABLE assosiation(
     phonetics TEXT,
     image TEXT
 );
+
 
 
 

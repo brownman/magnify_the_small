@@ -1,3 +1,5 @@
+cfg|remove_trailing|a|a
+cfg|remove_trailing|" a    bc "|"a  bc"
 cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
 tasks_sh|commitment|assosiation|d
 tasks_sh|motivation|sport|a

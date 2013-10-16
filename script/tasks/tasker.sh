@@ -67,7 +67,7 @@ local str1="${FUNCNAME[0]}"
 }
 
 free_speak(){
-    $PLUGINS_DIR/free_speak.sh
+    $PLUGINS_DIR/free_speak.sh "$1" "$2"
 }
 
 nothing(){
@@ -75,7 +75,17 @@ nothing(){
     echo "$1"
 }
 
+rules(){
+    #gxmessage $GXMESSAGET -file 
+    zenity1 $DATA_DIR/tmp/notes.tmp
 
+}
+
+recent_video(){
+export COMMANDER=true
+str='vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v'
+commander "$str"
+}
 
 take_photo(){
      $PLUGINS_DIR/take_photo.sh

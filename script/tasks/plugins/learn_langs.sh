@@ -8,9 +8,8 @@
 
 #. $TIMERTXT_CFG_FILE
 #file=$TODAY_DIR/txt/report.yaml
-trace "DEBUG: $DEBUG"
-show_lesson=false #$SHOW_LESSON
-path1=/TORRENTS/AUDIO/LANGS
+path1=$DIR_LEARN_LANGS
+
 lesson=${2:-10} #$2
 lang=$(higher $LANG_DEFAULT)
 play_lesson(){
@@ -19,16 +18,17 @@ play_lesson(){
     #gxmessage $GXMESSAGET "lesson $lesson"
 
 
+$tasks_sh free_speak learn_langs &
+
+        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
 
     lang=$( gxmessage -title "Lang: $lang" 'choose a language :' -entrytext "$lang" $GXMESSAGET -buttons "ok" )
 
     lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
 
-    if [ "$DEBUG" = true ];then
-        code1
-    else
+
         while :;do
-            messageYN1 'continue to next lesson ?'
+            messageYN1 "continue to lesson -$lesson- ?"
             result="$?"
             echo -n  "eacher result:"
             trace "$result"
@@ -37,16 +37,16 @@ play_lesson(){
                 break
             else
                 code1
+
+    let "lesson=$lesson+1"
             fi
         done
-
-    fi
 }
 
 code1(){
     #xterm1 $PLUGINS_DIR/free_speak.sh
     declare -i num
-    let "lesson=$lesson+1"
+
 
     if [[ $lesson -eq 0 ]];then
         flite 'finish the lesson' 
@@ -55,10 +55,7 @@ code1(){
 
     local num=$lesson
     num=num+2
-    #if [ "$show_lesson" = true ];then
         (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
-        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
-    #fi
 
 
     num=num-2
@@ -76,7 +73,8 @@ code1(){
     else
         trace 'success'
 
-        play "$infile" trim ${time_str}
+        play "$infile" 
+        #trim ${time_str}
         echo 'success'
     fi
 
