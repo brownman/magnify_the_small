@@ -47,6 +47,7 @@ testing:
         #- cfg|store||d
         #- cfg|select_table||d
         #
+        - tasks_sh|string_to_buttons|'ad-fBdfBd','-'|a   
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a
@@ -81,6 +82,7 @@ ideas:
         - python ntlp: the word 'sit' is part-of-speach 'x' so suggest group options
         - ~/magnify_the_small/1/others/RegexKoans
         - phone-rington -> play a language lesson
+        - parse next koan to gui 
 
 notes:
         - alt-f1
@@ -90,8 +92,10 @@ notes:
 
 
 activity:
-        - rules
-        - commitment
-        - recent_video
-        - learn_langs
-        - free_speak
+        - update_db thanks 
+        - update_db dream 
+        - update_db did_for_others 
+        - update_db background 
+#        - recent_video
+#        - learn_langs
+#        - free_speak

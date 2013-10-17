@@ -57,11 +57,15 @@ echo01 "$str"
 }
 
 string_to_buttons(){
-local str="$@"
+notify-send 'string_to_buttons'
 local str1="${FUNCNAME[0]}"
+
+local str="$1"
     #assert_equal_str "$str" "$str1" 
-    local delimeter=' '
-    local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
+    local delimeter="$2"
+    local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
+    res=$(commander "$cmd")
+    #local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
     #1" "$2" "$3")
     echo "$res"
 }
@@ -89,6 +93,20 @@ commander "$str"
 
 take_photo(){
      $PLUGINS_DIR/take_photo.sh
+}
+
+
+update_db(){
+local  table1="$1"
+update_db_list
+if [ "$table1" = '' ];then
+table1=$(zenity1 "$DATA_DIR/txt/db.txt")
+fi
+local choose=$(show_selected_table "$table1")
+#local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
+#local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
+#"$str"
+echo "$choose"
 }
 
 
@@ -306,7 +324,7 @@ local str=$(eval $cmd   )
 ############################### proxy for execution #####################
 #export COMMANDER=true
 cmd1="$@"
-res1=$(commander "$cmd1")
+res1=$(eval "$cmd1")
 echo "$res1"
 
 ############################### proxy for execution #####################

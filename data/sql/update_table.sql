@@ -1,23 +1,21 @@
---ex2
---INSERT INTO tag (id, word)
-    --VALUES (4, "this is" );
 
---INSERT INTO sentence (id, words)
-    --VALUES (5, "this is a sentence");
+--motivation
+INSERT INTO thanks VALUES (1,1);
+INSERT INTO dream VALUES (1,1);
+INSERT INTO did_for_others VALUES (1,1,1);
 
---INSERT INTO pet VALUES (1, "Gigantor", "Robot", 1, 1);
+--efficiency
+INSERT INTO koan VALUES (1,1,1,1,1);
+INSERT INTO background VALUES (1,1,1,1);
 
---INSERT INTO memos ( task )
-    --VALUES ("this is a sentence");
-
-INSERT INTO assosiation VALUES (1,1,1,1,1);
-INSERT INTO notebook VALUES (1,1,1,1,1,1,1,1);
-INSERT INTO idea VALUES (1,1,1,1,1,1,1);
-
-INSERT INTO assosiation ( word, lang , phonetics, image )
-    VALUES ("hello", "he", "sha-lom", "sha la la - lom pom pom");
+--time
+INSERT INTO frame VALUES (1,1,1,1);
+INSERT INTO priority VALUES (1,1,1,1);
 
 
+--learn
+INSERT INTO assosiation VALUES (1,1,1,1);
+INSERT INTO grammer VALUES (1,1,1,1,1);
 
 
 

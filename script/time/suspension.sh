@@ -20,5 +20,5 @@ sleep1 $timeout_for_suspension
 $tasks_sh suspend1
 }
 unlocker
-#run
+run
 exit

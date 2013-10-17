@@ -14,7 +14,8 @@ cmd1='$tasks_sh motivation glossary'
 #eval "$cmd1" &> /dev/null &
 run_silently "$cmd1"
 
-
+notify-send "Restart Test"
+export  COMMANDER=true
 export DEBUG=true
 export VERBOSE=false
 result='equal'
@@ -27,20 +28,21 @@ plugin(){
 
 }
 cfg(){
-    COMMANDER=true
+
     notify-send 'cfg test'
-    #local cmd=$(eval "$1 $2 $3 $4 $5")
     local cmd="$@"
     #assert_equal_str $cmd
     commander "$cmd"
-#echo 'cfg'
 }
 tasks_sh(){
 
     trace "tasks_sh run: $*"
-    #1:$1 2:$2 3:$3"
     $tasks_sh "$@" 
-    #"$1" "$2" "$3"
+    COMMANDER=true
+    notify-send 'cfg test'
+    local cmd="$@"
+    #assert_equal_str $cmd
+    commander "$tasks_sh $cmd"
 }
 test_yaml(){
     trace "$tasks_sh"
@@ -105,6 +107,7 @@ run(){
 }
 #run
 unlocker
+run
 echo "$result"
 
 

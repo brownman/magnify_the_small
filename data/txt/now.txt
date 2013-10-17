@@ -1,3 +1,16 @@
+activities update
+remove locker
+push koans
+do
+do
+read lines
+read lines
+pick line
+push Koans forward
+push Koans
+push Koans
+push regexp game
+push regexp game
 go to my parents
 take a rest
 I should put Deodorant

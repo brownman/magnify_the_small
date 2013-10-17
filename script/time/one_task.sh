@@ -4,40 +4,44 @@
 
 
 
-#help_options=''
-#help1 "$help_options"
 notify-send 'one task:'  "no args"
 #$1 $2"
-
-#file_locker=/tmp/$1
-#commitment
-
-delay=30
+name="one_task"
+file_locker=/tmp/$name
+delay=6
 
 timeout_for_reasoning=${1:-5}   # Defaults to /tmp dir.
 echo "going to run in $timeout_for_reasoning seconds"
+
+#COMMANDER=true
+
+file=$DATA_DIR/tmp/activity.tmp
+
+lines=()
 run(){
 
-    #unlocker 
-    if [ "$1" != '' ];then
+    local num=$1
+    local str=''
 
-        local cmd="$tasks_sh $1 $2"
+    if [ "$num" = '' ];then
 
-        #COMMANDER=true
+        str=$(zenity1 $file)
+        local cmd="$tasks_sh $str"
     else
-        local   file=$DATA_DIR/tmp/activity.tmp
-        local str=$(zenity1 $file)
+        notify-send "pick line:" "$num"
+        file_to_lines "$file"
 
+        local str=${line[@]}
+
+        str="${lines[$num]}"
         local cmd="$tasks_sh $str"
     fi
 
-
     commander "$cmd"
-    #1" "$2"
 }
 
 
-
-run "$1" "$2"
-sleep1 10
+#unlocker false 
+run "$1"
+#"$2"
 

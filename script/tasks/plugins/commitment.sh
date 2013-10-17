@@ -87,11 +87,12 @@ update_timing(){
     fi
 }
 commit1(){
-    local task="$1"
+    #local task="$1"
     #variable=$(zenity --entry --text "Please enter some text" --entry-text "Hello world!")
 
-    local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
-        --entry-text "$task" ) 
+    #local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
+        #--entry-text "$task" --timeout 5 ) 
+    local  msg=$(gxmessage $GXMESSAGET -entry 'add reminder:' -title 'commitment')
 
 
     local title="($long/$every)-$msg"
@@ -103,27 +104,29 @@ commit1(){
 
 }
 
-pick_one_task(){
-
-    #local file=$(get_filename1 tmp tasks)
-    local file=$(get_filename1 tmp times)
-    local res=$(zenity1 $file)
-    #gxmessage "$res" $GXMESSAGET
-    #commit1 "$res"
-}
-
-
-show_table(){
-    
-
-local  table1="$1"
-if [ "$table1" = '' ];then
-table1=$(zenity1 "$DATA_DIR/txt/db.txt")
-fi
-local choose=$(show_selected_table "$table1")
-#local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
-#local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
+#pick_one_task(){
+#
+#    #local file=$(get_filename1 tmp tasks)
+#    local file=$(get_filename1 tmp times)
+#    local res=$(zenity1 $file)
+#    #gxmessage "$res" $GXMESSAGET
+#    #commit1 "$res"
+#}
+#
+#
+#show_table(){
+#    
+#
+#local  table1="$1"
+#if [ "$table1" = '' ];then
+#table1=$(zenity1 "$DATA_DIR/txt/db.txt")
+#fi
+#local choose=$(show_selected_table "$table1")
+##local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
+##local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
+#commit1
+##"$str"
+#}
+#update_db_list
+#show_table "$1"
 commit1
-#"$str"
-}
-show_table "$1"

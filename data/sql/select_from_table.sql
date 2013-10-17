@@ -7,9 +7,9 @@
 
 --SELECT * FROM tag WHERE  word != "this";
 
-SELECT * FROM notebook ORDER BY id DESC; 
-
+--SELECT * FROM notebook ORDER BY id DESC; 
 SELECT * FROM assosiation ORDER BY id DESC; 
-
-SELECT * FROM idea ORDER BY id DESC; 
+--SELECT * FROM idea ORDER BY id DESC; 
+--SELECT * FROM task ORDER BY id DESC; 
+--SELECT * FROM priority ORDER BY id DESC; 
 

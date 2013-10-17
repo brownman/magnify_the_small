@@ -1,3 +1,9 @@
-priority
 assosiation
-notebook
+did_for_others
+frame
+koan
+thanks
+background
+dream
+grammer
+priority

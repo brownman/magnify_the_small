@@ -1,33 +1,74 @@
---ex1
-CREATE TABLE notebook (
+-- motivation 3
+CREATE TABLE thanks(
     id INTEGER PRIMARY KEY,
-    date TEXT,
-    time TEXT,
-    frame INTEGER,
-    goal TEXT,
-    mini_task TEXT,
-    remind TEXT,
-    sport INTEGER
+    content TEXT
+  );
+
+CREATE TABLE dream(
+    id INTEGER PRIMARY KEY,
+    content TEXT
+  );
+
+CREATE TABLE did_for_others(
+    id INTEGER PRIMARY KEY,
+    person CHAR(10),
+    description TEXT
+);
+
+-- efficiency 2
+CREATE TABLE koan(
+    id INTEGER PRIMARY KEY,
+    proto TEXT,
+    input CHAR(10),
+    expect  CHAR(10),
+    snippet TEXT
+);
+
+CREATE TABLE background (
+    id INTEGER PRIMARY KEY,
+    title CHAR(10),
+    feeling CHAR(20),
+    command TEXT
 );
 
 
-CREATE TABLE idea(
+
+------------- ground 2
+CREATE TABLE frame (
+    id INTEGER PRIMARY KEY,
+    until CHAR(10),
+    goal CHAR(20),
+    mini_task TEXT
+);
+
+CREATE TABLE priority(
     id INTEGER PRIMARY KEY,
     priority INTEGER,
-    title TEXT,
-    description TEXT,
-    person TEXT,
-    url TEXT,
-    tags TEXT
+    title CHAR(10),
+    description TEXT
 );
+
+
+
+--------------learn 2
 
 CREATE TABLE assosiation(
     id INTEGER PRIMARY KEY,
-    word TEXT,
-    lang TEXT,
-    phonetics TEXT,
-    image TEXT
+    word CHAR(10),
+    lang CHAR(2),
+    phonetics CHAR(30)
 );
+
+CREATE TABLE grammer(
+    id INTEGER PRIMARY KEY,
+    tweet TEXT,
+    question TEXT,
+    answer TEXT,
+    url TEXT
+);
+
+
+
 
 
 

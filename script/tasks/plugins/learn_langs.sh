@@ -18,7 +18,7 @@ play_lesson(){
     #gxmessage $GXMESSAGET "lesson $lesson"
 
 
-$tasks_sh free_speak learn_langs &
+#$tasks_sh free_speak learn_langs &
 
         (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
 
