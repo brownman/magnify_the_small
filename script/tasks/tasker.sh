@@ -1,5 +1,4 @@
 #!/bin/bash
-#-e
 # about file:
 # collection of system tasks
 # no gui here - remove gxmessage 
@@ -8,6 +7,15 @@
 notify-send "tasker.sh:" "$@"
 
 #notify-send "tasker.sh:" "$*"
+task_from(){
+    notify-send "picker got" "$@"
+    local name="$1" #background
+    local file1=$DATA_DIR/tmp/${name}.tmp
+     local  str=$(zenity1 $file1)
+        local cmd="$tasks_sh $str"
+       eval "$cmd" 
+}
+
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -19,6 +27,7 @@ show_msg(){
     #commitment "$msg"
     echo "$msg"
 }
+
 #show_msg_entry(){
 #
 #    trace 'show_msg_entry' "show_msg_entry subject : $1"
@@ -57,14 +66,14 @@ echo01 "$str"
 }
 
 string_to_buttons(){
-notify-send 'string_to_buttons'
+#notify-send 'string_to_buttons'
 local str1="${FUNCNAME[0]}"
 
 local str="$1"
     #assert_equal_str "$str" "$str1" 
     local delimeter="$2"
     local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
-    res=$(commander "$cmd")
+    res=$(eval "$cmd")
     #local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
     #1" "$2" "$3")
     echo "$res"
@@ -98,7 +107,7 @@ take_photo(){
 
 update_db(){
 local  table1="$1"
-update_db_list
+#update_db_list
 if [ "$table1" = '' ];then
 table1=$(zenity1 "$DATA_DIR/txt/db.txt")
 fi
@@ -106,42 +115,45 @@ local choose=$(show_selected_table "$table1")
 #local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
 #local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
 #"$str"
-echo "$choose"
+#assert_equal_str "$choose"
+local res=$(string_to_buttons "$choose" '-')
+echo01 "$res"
+echo "$res"
 }
 
-
-menu(){
-
-#notify-send 'show the menu'
-
-local dir1=$SCRIPT_DIR/time
-    local title='execute:'
-    local text='list dir:'
-
-
-
-
-    local file=$( list_dir $dir1 "$title" "$text" false )
-    local choose=${dir1}/${file}
-    local res=0
-     
-    if [ "$choose" != '' ];then
-        
-        #messageYN1 "$file"
-      local  res=1
-        #$?
-        
-        if [[ $res -eq 1 ]];then
-         /usr/bin/xterm -e "$choose"
-        sleep1 3 
-    fi
-
-       
-    fi
-    echo 'end'
-}
-
-
+#
+#menu(){
+#
+##notify-send 'show the menu'
+#
+#local dir1=$SCRIPT_DIR/time
+#    local title='execute:'
+#    local text='list dir:'
+#
+#
+#
+#
+#    local file=$( list_dir $dir1 "$title" "$text" false )
+#    local choose=${dir1}/${file}
+#    local res=0
+#     
+#    if [ "$choose" != '' ];then
+#        
+#        #messageYN1 "$file"
+#      local  res=1
+#        #$?
+#        
+#        if [[ $res -eq 1 ]];then
+#         /usr/bin/xterm -e "$choose"
+#        sleep1 3 
+#    fi
+#
+#       
+#    fi
+#    echo 'end'
+#}
+#
+#
 
 
 motivation(){
@@ -190,7 +202,7 @@ scrap(){
     trace "word: $word"
 
 
-    word1=`echo "$word"`
+    word1=$(echo "$word") 
     $PLUGINS_DIR/scrap.sh translate $lang "$word1" 
 
 
@@ -263,7 +275,6 @@ update(){
 
 
 suspend1(){
-    #local msg=`cat public/cfg/blank.yaml | shyaml get-value frame.should`
     #flite "should - $msg"
 
 

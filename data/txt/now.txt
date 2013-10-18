@@ -1,3 +1,14 @@
+continue the game
+continue the game
+start the game
+task - build depend - search deals
+make it clean
+do something
+be happy
+be happy
+be happy
+check why it is not working
+fix hot keys
 activities update
 remove locker
 push koans

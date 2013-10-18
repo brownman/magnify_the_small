@@ -13,6 +13,8 @@ silence=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
 #trace "$silence : silence"
 
 language_of_the_day=$LANG_DEFAULT
+
+
 dirty_log=true #export DIRTY_LOG=true
 silence_fetch=$SILENCE_FETCH
 
@@ -82,8 +84,9 @@ play1(){
         fi
     else
 
-        trace    'silence is on'
+        mantion  'silence is on' 5
         trace 'skip playing'
+      
     fi
 
 }
@@ -291,6 +294,7 @@ random_language(){
 
     random1 10
     local ans=$?
+
     if [ $ans -eq 0 ];then
         language_of_the_day="AR"
     elif [ $ans -eq 1 ];then
@@ -301,11 +305,14 @@ random_language(){
         language_of_the_day="TA"
     fi
 
+    notify-send "switch language to:" "$language_of_the_day"
+
 }
 
 
 echo4(){
     trace "echo4() got: $1"
+
 
 
     if [ "$1" = '' ];then
@@ -318,12 +325,13 @@ echo4(){
         return
     fi
 
-#random_language
+
 
 #    notify-send 'random lang?'  "$?"
     local lang1="$language_of_the_day"
     trace "translate to: $lang1"
 
+random_language
     if [ "$lang1" = '' ];then
         random1 4
         local num=$?
@@ -459,5 +467,6 @@ run(){
         help1 "$help_options"
     fi
 }
-unlocker true
-#5 true 
+
+#unlocker true
+unlocker 

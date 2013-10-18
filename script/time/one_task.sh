@@ -5,43 +5,48 @@
 
 
 notify-send 'one task:'  "no args"
-#$1 $2"
-name="one_task"
-file_locker=/tmp/$name
+file_locker=/tmp/one_task
 delay=6
+#help="number should be "
 
 timeout_for_reasoning=${1:-5}   # Defaults to /tmp dir.
 echo "going to run in $timeout_for_reasoning seconds"
-
 #COMMANDER=true
 
 file=$DATA_DIR/tmp/activity.tmp
-
+#file1=$DATA_DIR/tmp/background.tmp
+#$(gxmessage -file $file $GXMESSAGET -iconic) &
+mantion_file $file
 lines=()
 run(){
 
-    local num=$1
+    local num="$args"
     local str=''
-
-    if [ "$num" = '' ];then
+    local str1=''
+    local str=''
 
         str=$(zenity1 $file)
         local cmd="$tasks_sh $str"
+    #$(messageYN1 "_${cmd}_"  "2nd param :")
+    #$?
+    local res=1
+
+
+    if [[ $res -eq 1 ]];then
+        notify-send "continue!"
+        eval "$cmd"
     else
-        notify-send "pick line:" "$num"
-        file_to_lines "$file"
 
-        local str=${line[@]}
+        notify-send "cancel!"
 
-        str="${lines[$num]}"
-        local cmd="$tasks_sh $str"
+        #breakpoint
     fi
 
-    commander "$cmd"
 }
 
-
-#unlocker false 
-run "$1"
+args="$1"
+#unlocker 
+run
+#"$1"
 #"$2"
 

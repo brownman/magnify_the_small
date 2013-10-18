@@ -14,8 +14,8 @@ cmd1='$tasks_sh motivation glossary'
 #eval "$cmd1" &> /dev/null &
 run_silently "$cmd1"
 
-notify-send "Restart Test"
-export  COMMANDER=true
+#notify-send "Restart Test"
+#export  COMMANDER=true
 export DEBUG=true
 export VERBOSE=false
 result='equal'
@@ -38,8 +38,7 @@ tasks_sh(){
 
     trace "tasks_sh run: $*"
     $tasks_sh "$@" 
-    COMMANDER=true
-    notify-send 'cfg test'
+    notify-send 'tasks_sh test'
     local cmd="$@"
     #assert_equal_str $cmd
     commander "$tasks_sh $cmd"
@@ -107,7 +106,6 @@ run(){
 }
 #run
 unlocker
-run
 echo "$result"
 
 

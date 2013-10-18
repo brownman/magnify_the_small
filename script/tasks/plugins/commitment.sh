@@ -4,6 +4,7 @@
 
 #. $TIMERTXT_CFG_FILE
 notify-send "$@"
+
 long=500
 every=60
 show_buttons=$SHOW_BUTTONS
@@ -87,6 +88,8 @@ update_timing(){
     fi
 }
 commit1(){
+
+breakpoint
     #local task="$1"
     #variable=$(zenity --entry --text "Please enter some text" --entry-text "Hello world!")
 

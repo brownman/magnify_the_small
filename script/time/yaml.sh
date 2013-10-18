@@ -36,17 +36,36 @@ parse_subject workflow
 #parse_subject story
 #parse_subject cake
 
+
+parse_subject recent 
 parse_subject testing 
 
 parse_subject tasks 
 
+
 parse_subject 'times'
+parse_subject dbs
+
 parse_subject notes 
+parse_subject background 
 
 parse_subject activity 
 #assert_equal_str 
 flite 'activity file'
-gxmessage $GXMESSAGET -file "$DATA_DIR/tmp/activity.tmp" -title 'activity.tmp:'
+file="$DATA_DIR/tmp/activity.tmp"
+
+#mantion_file "$file"
+file="$DATA_DIR/tmp/testing.tmp"
+
+#mantion_file "$file"
+
+file="$DATA_DIR/tmp/background.tmp"
+mantion_file "$file" 9
+file="$DATA_DIR/tmp/recent.tmp"
+#mantion_file "$file" 0
+
+update_db_list
+
 
 #
 #unpack_subject  story

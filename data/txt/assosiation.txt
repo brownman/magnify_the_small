@@ -100,3 +100,4 @@ meaning|ru|smi-sel
 king|ru|karov
 awesome|ru|ustra-shaii-shi
 put|ru|stavit
+it|ru|tl:eto

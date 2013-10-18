@@ -6,7 +6,7 @@
 pushd `dirname $0` > /dev/null
 #chmod +w time
 #ls -d -l time
-
+notify-send "genius:" "$@"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader

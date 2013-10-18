@@ -1,4 +1,3 @@
-update_db thanks
-update_db dream
-update_db did_for_others
-update_db background
+task_from dbs
+task_from background
+task_from recent

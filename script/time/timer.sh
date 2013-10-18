@@ -51,7 +51,7 @@ run_workflow(){
     $SCRIPT_DIR/more/serial.sh read_lines "$waiting"
 }
 unlocker
-run
+#run
 #run
 #popd > /dev/null
 #exit 0

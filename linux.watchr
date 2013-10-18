@@ -57,3 +57,4 @@ watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
 
 #watch('prespective/public/libs/cfg\/.*\.cfg') {|match| system "./testing/python2/run.sh"}
+#~/magnify_the_small/1/others/CODE/devscripts-2.13.1/test
