@@ -97,7 +97,7 @@ else
         if [ $QUIZ = 'true' ];then
             str=$(random_line) 
         fi
-        str=$( gxmessage $GXMESSAGET  -entrytext "$str"  -title "children story: $subject" -file "$file")
+        str=$( gxmessage   -entrytext "$str"  -title "children story: $subject" -file "$file")
         helper0 "$str" "$file"
     done
 }

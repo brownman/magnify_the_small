@@ -13,7 +13,7 @@ task_from(){
     local file1=$DATA_DIR/tmp/${name}.tmp
      local  str=$(zenity1 $file1)
         local cmd="$tasks_sh $str"
-       eval "$cmd" 
+       xterm1 "$cmd" 
 }
 
 
@@ -305,7 +305,7 @@ collaboration(){
 }
 
 commitment(){
-    local res=$($PLUGINS_DIR/commitment.sh "$1" )
+    local res=$($PLUGINS_DIR/commitment.sh  )
     echo "$res"
 }
 

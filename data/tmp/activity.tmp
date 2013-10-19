@@ -1,3 +1,7 @@
-task_from dbs
+commitment
+update_db thanks
+update_db doings
+update_db dream
+update_db karma
 task_from background
 task_from recent

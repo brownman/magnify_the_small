@@ -95,7 +95,7 @@ breakpoint
 
     #local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
         #--entry-text "$task" --timeout 5 ) 
-    local  msg=$(gxmessage $GXMESSAGET -entry 'add reminder:' -title 'commitment')
+    local  msg=$(gxmessage $GXMESSAGET -entrytext 'continue on - ' 'add reminder:' -title 'commitment')
 
 
     local title="($long/$every)-$msg"

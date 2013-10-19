@@ -9,11 +9,7 @@ CREATE TABLE dream(
     content TEXT
   );
 
-CREATE TABLE did_for_others(
-    id INTEGER PRIMARY KEY,
-    person CHAR(10),
-    description TEXT
-);
+
 
 -- efficiency 2
 CREATE TABLE koan(
@@ -24,7 +20,7 @@ CREATE TABLE koan(
     snippet TEXT
 );
 
-CREATE TABLE background (
+CREATE TABLE karma (
     id INTEGER PRIMARY KEY,
     title CHAR(10),
     feeling CHAR(20),
@@ -41,11 +37,11 @@ CREATE TABLE frame (
     mini_task TEXT
 );
 
-CREATE TABLE priority(
+CREATE TABLE doings(
     id INTEGER PRIMARY KEY,
     priority INTEGER,
-    title CHAR(10),
-    description TEXT
+    person CHAR(10),
+    give TEXT
 );
 
 

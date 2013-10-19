@@ -80,7 +80,11 @@ order:
         - phone-rington -> play a language lesson
 
 activity:
-        - task_from dbs 
+        - commitment
+        - update_db thanks 
+        - update_db doings 
+        - update_db dream 
+        - update_db karma 
         - task_from background 
         - task_from recent
 
@@ -91,20 +95,13 @@ background:
 
 
 
-        
-dbs:
-        - update_db thanks 
-        - update_db dream 
-        - update_db did_for_others 
-        - update_db background 
-
-
 
 recent:
     - exo-open https://mail.google.com/tasks/ig?pli=1
     - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v
     - clicompanion
     - vlc /TORRENTS/feynman_slit.mp3
+    - exo-open http://plnkr.co/edit/6T5XDS7zb5tgr5yrfzVM?p=preview
 
 urls:
     - http://www.webupd8.org/2010/08/display-google-calendar-on-your-desktop.html
@@ -113,3 +110,6 @@ urls:
 koans:
     - ~/magnify_the_small/1/others/CODE/devscripts-2.13.1/test
     - ~/magnify_the_small/1/others/CODE/txt2regex-0.8/test-suite
+
+bash:
+    - http://www.gnu.org/software/bash/manual/html_node/Builtin-Index.html#Builtin-Index

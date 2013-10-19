@@ -9,6 +9,9 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
 silence=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
+if [ "$silence" != true ];then
+notify-send "noise !" "$0"
+fi
 #notify-send
 #trace "$silence : silence"
 
@@ -83,7 +86,7 @@ play1(){
             Backtrace1
         fi
     else
-
+notify-send "silence" "$1 : $2"
         mantion  'silence is on' 5
         trace 'skip playing'
       
@@ -327,11 +330,12 @@ echo4(){
 
 
 
+random_language
 #    notify-send 'random lang?'  "$?"
     local lang1="$language_of_the_day"
     trace "translate to: $lang1"
 
-random_language
+
     if [ "$lang1" = '' ];then
         random1 4
         local num=$?
@@ -347,7 +351,7 @@ random_language
     if [[ $num -gt 1 ]];then
         if [ "$STRING_TO_BUTTONS" = true ];then
                 local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
-                if [ $pick_word != '' ];then
+                if [ "$pick_word" != '' ];then
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
                 fi
