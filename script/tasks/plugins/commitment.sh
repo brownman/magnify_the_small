@@ -5,14 +5,14 @@
 #. $TIMERTXT_CFG_FILE
 notify-send "$@"
 
-long=500
-every=60
+long=$LONG #500
+every=$EVERY #60
 show_buttons=$SHOW_BUTTONS
 stop_watch1(){
     trace "stop_watch1() got: $?"
     #1: $1 2: $2 " #3: $3 4:$4"
 
-
+flite 'I am your robot'
     local msg="$1" 
     local title="$2"
 
@@ -29,17 +29,12 @@ stop_watch1(){
             local buttons1="$c/$long"
 
 
-            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "$msg1")
+            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "!$tasks_sh free_speak fear")
             helper0 "$msg1" "$file_now"
         fi
-        echo -n "$c "
-        sleep 1s
+       tracen "$c "
+        sleep1 1
     done
-
-    #echo0 "$msg"
-
-
-
 }
 
 
@@ -87,49 +82,14 @@ update_timing(){
         every=$tmp
     fi
 }
+
 commit1(){
+    local  goal=$(gxmessage $GXMESSAGET -entrytext 'GOAL -  ' 'add reminder:' -title 'your only robot:')
+    local title="($long/$every)-$goal"
+    stop_watch1  "$goal" "$title" 
 
-breakpoint
-    #local task="$1"
-    #variable=$(zenity --entry --text "Please enter some text" --entry-text "Hello world!")
-
-    #local msg=$(zenity --entry --title="Commitment:" --text="Add new task" \
-        #--entry-text "$task" --timeout 5 ) 
-    local  msg=$(gxmessage $GXMESSAGET -entrytext 'continue on - ' 'add reminder:' -title 'commitment')
-
-
-    local title="($long/$every)-$msg"
-    if [ "$msg" = '' ];then
-        flite 'no commitment'
-    else
-        stop_watch1  "$msg" "$title" 
-    fi
 
 }
 
-#pick_one_task(){
-#
-#    #local file=$(get_filename1 tmp tasks)
-#    local file=$(get_filename1 tmp times)
-#    local res=$(zenity1 $file)
-#    #gxmessage "$res" $GXMESSAGET
-#    #commit1 "$res"
-#}
-#
-#
-#show_table(){
-#    
-#
-#local  table1="$1"
-#if [ "$table1" = '' ];then
-#table1=$(zenity1 "$DATA_DIR/txt/db.txt")
-#fi
-#local choose=$(show_selected_table "$table1")
-##local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
-##local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
-#commit1
-##"$str"
-#}
-#update_db_list
-#show_table "$1"
+
 commit1

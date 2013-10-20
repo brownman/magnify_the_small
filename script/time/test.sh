@@ -10,9 +10,9 @@
     #args=$($tasks_sh fetch "$args0")
     #http://tldp.org/LDP/abs/html/comparison-ops.html
     #http://stackoverflow.com/questions/3265803/bash-string-equality
-cmd1='$tasks_sh motivation glossary'
+#cmd1='$tasks_sh motivation glossary'
 #eval "$cmd1" &> /dev/null &
-run_silently "$cmd1"
+#run_silently "$cmd1"
 
 #notify-send "Restart Test"
 #export  COMMANDER=true
@@ -21,7 +21,7 @@ export VERBOSE=false
 result='equal'
 file_test=/tmp/testing
 file_locker='/tmp/test'
-delay=10
+delay=1
 
 plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
@@ -32,7 +32,7 @@ cfg(){
     notify-send 'cfg test'
     local cmd="$@"
     #assert_equal_str $cmd
-    commander "$cmd"
+    eval "$cmd"
 }
 tasks_sh(){
 

@@ -80,7 +80,8 @@ local str="$1"
 }
 
 free_speak(){
-    $PLUGINS_DIR/free_speak.sh "$1" "$2"
+    $PLUGINS_DIR/free_speak.sh "$1" 
+    #"$2"
 }
 
 nothing(){
@@ -112,10 +113,7 @@ if [ "$table1" = '' ];then
 table1=$(zenity1 "$DATA_DIR/txt/db.txt")
 fi
 local choose=$(show_selected_table "$table1")
-#local choose1=$(echo "$choose" | awk -F '|' '{print $4}')
-#local str=$(gxmessage $GXMESSAGET -entry -title 'commitment:' 'Add reminder')
-#"$str"
-#assert_equal_str "$choose"
+
 local res=$(string_to_buttons "$choose" '-')
 echo01 "$res"
 echo "$res"
@@ -277,6 +275,8 @@ update(){
 suspend1(){
     #flite "should - $msg"
 
+local timeout=440
+sleep1 $timeout
 
 
     $PLUGINS_DIR/suspend.sh

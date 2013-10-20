@@ -1,44 +1,5 @@
-15:15
-question - 13:00 - indestructable
-on popup - ask a question regarding the video
-continue on - do something
-continue on pushing testing forward
-make it easy
-continue the game
-continue the game
-start the game
-task - build depend - search deals
-make it clean
-do something
-be happy
-be happy
-be happy
-check why it is not working
-fix hot keys
-activities update
-remove locker
-push koans
-do
-do
-read lines
-read lines
-pick line
-push Koans forward
-push Koans
-push Koans
-push regexp game
-push regexp game
-go to my parents
-take a rest
-I should put Deodorant
-play his audio
-open the browser
-move
-what is this
-start working now
-start working
-the little person
-do it now
-create a website
-create a website
-a website
+continue on - listen to audio
+continue on - 
+continue on - 
+listen in the background
+good morning

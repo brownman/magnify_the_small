@@ -1,5 +1,12 @@
-date: 18.10.13
-day:  Fri 
+date: 20.10.13
+day:  Sun 
+
+timer:
+    - exo-open https://www.google.com/calendar/b/1/render
+    - exo-open https://mail.google.com/tasks/ig?pli=1
+    - xterm -e "~/magnify_the_small/genius.sh single suspend1"
+    - xterm -e "~/magnify_the_small/genius.sh single commitment"
+     
 
 
 
@@ -40,6 +47,7 @@ testing:
         #
         #- tasks_sh|string_to_buttons|'ad-fBdfBd','-'|a   
         #- tasks_sh|update_db|thanks|a
+        #- cfg|show_keys||a   
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a
@@ -94,10 +102,7 @@ background:
         - push_koans
 
 
-
-
 recent:
-    - exo-open https://mail.google.com/tasks/ig?pli=1
     - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v
     - clicompanion
     - vlc /TORRENTS/feynman_slit.mp3
@@ -106,6 +111,7 @@ recent:
 urls:
     - http://www.webupd8.org/2010/08/display-google-calendar-on-your-desktop.html
     - http://www.linuxjournal.com/content/bash-command-not-found
+    - http://madewith.meteor.com/
     
 koans:
     - ~/magnify_the_small/1/others/CODE/devscripts-2.13.1/test
@@ -113,3 +119,4 @@ koans:
 
 bash:
     - http://www.gnu.org/software/bash/manual/html_node/Builtin-Index.html#Builtin-Index
+

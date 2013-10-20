@@ -47,6 +47,7 @@ run(){
 args="$1"
 #unlocker 
 run
+exit
 #"$1"
 #"$2"
 

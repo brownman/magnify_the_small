@@ -31,38 +31,26 @@ local file=$DATA_DIR/tmp/${subject}.tmp
     execute_lines 
 }
 
+show_keys(){
+local keys1=$(cat $file_data | shyaml keys)
+#echo ${keys1} | xargs notify-send
+#"show_keys:"
 
-parse_subject workflow
-#parse_subject story
-#parse_subject cake
+        IFS='|' read -a columns <<< "$keys1"
+
+        count=0
+        for key in ${keys1[@]}; do
+
+        trace "parse subject: $key" 
+parse_subject "$key"
+
+##mantion_file "$file"
+            done
 
 
-parse_subject recent 
-parse_subject testing 
-
-parse_subject tasks 
-
-
-parse_subject 'times'
-
-parse_subject notes 
-parse_subject background 
-
-parse_subject activity 
-#assert_equal_str 
-flite 'activity file'
-file="$DATA_DIR/tmp/activity.tmp"
-
-#mantion_file "$file"
-file="$DATA_DIR/tmp/testing.tmp"
-
-#mantion_file "$file"
-
-file="$DATA_DIR/tmp/background.tmp"
-mantion_file "$file" 9
-file="$DATA_DIR/tmp/recent.tmp"
-#mantion_file "$file" 0
-
+echo "show keys: $keys1"
+}
+show_keys
 update_db_list
 
 

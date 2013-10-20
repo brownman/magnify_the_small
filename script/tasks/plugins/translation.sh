@@ -2,25 +2,19 @@
 # about file:
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
-#. $TIMERTXT_CFG_FILE
-file_locker=/tmp/translation
+
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
-silence=${4:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
-if [ "$silence" != true ];then
-notify-send "noise !" "$0"
-fi
-#notify-send
-#trace "$silence : silence"
-
+silence=$SILENCE
 language_of_the_day=$LANG_DEFAULT
 
+silence_fetch=$SILENCE_FETCH #if no tts is needed
 
-dirty_log=true #export DIRTY_LOG=true
-silence_fetch=$SILENCE_FETCH
 
+#unlocker?
+file_locker=/tmp/translation
 delay=3
 gentle=true
 
@@ -399,11 +393,6 @@ printing1(){
 
     fi
 
-
-
-    #    if [ "$dirty_log" = true ];then
-    #        update_file $file_log "- $line1 | $line2"    
-    #    fi
 }
 
 
