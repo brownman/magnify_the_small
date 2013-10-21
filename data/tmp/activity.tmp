@@ -1,7 +1,8 @@
-commitment
-update_db thanks
-update_db doings
-update_db dream
-update_db karma
+reminder
+update_db achieved
 task_from background
 task_from recent
+ask_a_question
+record_a_thanks
+backup_db
+write_a_child_story

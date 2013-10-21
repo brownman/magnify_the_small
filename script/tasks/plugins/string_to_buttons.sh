@@ -14,7 +14,12 @@ declare -a arr=() #=('aa')
 :
 arr_to_msg(){
 local str=$(pick_line $file_assosiation)
-gxmessage -buttons "$1" "$str" $GXMESSAGET 
+if [ "$STRING_TO_BUTTONS" = true ];then
+    gxmessage -buttons "$1" "$str" $GXMESSAGET 
+else
+    gxmessage -buttons "$1" "$str" $GXMESSAGET -iconic 
+fi
+
 local num=$?
 local str="${arr[$num]}"
 trace "$str"

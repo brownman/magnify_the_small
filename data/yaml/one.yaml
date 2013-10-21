@@ -88,13 +88,14 @@ order:
         - phone-rington -> play a language lesson
 
 activity:
-        - commitment
-        - update_db thanks 
-        - update_db doings 
-        - update_db dream 
-        - update_db karma 
+        - reminder 
+        - update_db achieved
         - task_from background 
         - task_from recent
+        - ask_a_question
+        - record_a_thanks
+        - backup_db
+        - write_a_child_story
 
 background:
         - learn_langs 
@@ -120,3 +121,5 @@ koans:
 bash:
     - http://www.gnu.org/software/bash/manual/html_node/Builtin-Index.html#Builtin-Index
 
+remind:
+    - listen to Feynman and work on avi website

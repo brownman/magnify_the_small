@@ -9,13 +9,28 @@ notify-send "tasker.sh:" "$@"
 #notify-send "tasker.sh:" "$*"
 task_from(){
     notify-send "picker got" "$@"
-    local name="$1" #background
+
+    local name="$1" #
+    local num="$2" #
     local file1=$DATA_DIR/tmp/${name}.tmp
-     local  str=$(zenity1 $file1)
+    local str=''
+    if [ "$num"  = '' ];then
+       str=$(zenity1 $file1)
+    else
+        lines=()
+        file_to_lines $file1 
+        str=$(echo ${lines[$num]})
+        
+    fi
+
         local cmd="$tasks_sh $str"
+        assert_equal_str "$cmd"
        xterm1 "$cmd" 
 }
 
+ask_a_question(){
+notify-send 'ask! and learn!'
+}
 
 random_quote(){
     local res=$( $PLUGINS_DIR/random_quote.sh )
@@ -80,7 +95,8 @@ local str="$1"
 }
 
 free_speak(){
-    $PLUGINS_DIR/free_speak.sh "$1" 
+    $PLUGINS_DIR/free_speak.sh 
+    #"$1" 
     #"$2"
 }
 
@@ -113,7 +129,7 @@ if [ "$table1" = '' ];then
 table1=$(zenity1 "$DATA_DIR/txt/db.txt")
 fi
 local choose=$(show_selected_table "$table1")
-
+export STRING_TO_BUTTONS=false
 local res=$(string_to_buttons "$choose" '-')
 echo01 "$res"
 echo "$res"
@@ -304,7 +320,7 @@ collaboration(){
     #sleep1 30
 }
 
-commitment(){
+reminder(){
     local res=$($PLUGINS_DIR/commitment.sh  )
     echo "$res"
 }

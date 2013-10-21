@@ -1,6 +1,5 @@
-quiz
 physics
 shopping
-koans
-motivations
 grammer
+postpond
+funny

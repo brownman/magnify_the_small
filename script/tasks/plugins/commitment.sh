@@ -4,7 +4,8 @@
 
 #. $TIMERTXT_CFG_FILE
 notify-send "$@"
-
+delay=5
+file_locker=/tmp/commitment
 long=$LONG #500
 every=$EVERY #60
 show_buttons=$SHOW_BUTTONS
@@ -16,7 +17,7 @@ flite 'I am your robot'
     local msg="$1" 
     local title="$2"
 
-
+local str=''
     local msg1="$msg" 
     for (( c=0; c<=$long; c++ ))
     do
@@ -28,8 +29,8 @@ flite 'I am your robot'
             #local title="easiest task:"
             local buttons1="$c/$long"
 
-
-            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "$title" -entrytext "!$tasks_sh free_speak fear")
+            str=$(random_command)
+            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "time frame: $EVERY " -entrytext "$str" )
             helper0 "$msg1" "$file_now"
         fi
        tracen "$c "
@@ -84,12 +85,16 @@ update_timing(){
 }
 
 commit1(){
-    local  goal=$(gxmessage $GXMESSAGET -entrytext 'GOAL -  ' 'add reminder:' -title 'your only robot:')
+    local  goal=$(gxmessage $GXMESSAGET -entrytext 'wish_a_command' 'add reminder:' -title 'your only robot:')
     local title="($long/$every)-$goal"
     stop_watch1  "$goal" "$title" 
 
 
 }
 
+run(){
 
 commit1
+}
+unlocker
+

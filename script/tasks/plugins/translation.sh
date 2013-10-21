@@ -8,20 +8,39 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
 silence=$SILENCE
-language_of_the_day=$LANG_DEFAULT
+lang_target=$LANG_DEFAULT
 
-silence_fetch=$SILENCE_FETCH #if no tts is needed
+#silence_fetch=$SILENCE_FETCH #if no tts is needed
+silence_fetch=$silence
 
 
 #unlocker?
 file_locker=/tmp/translation
-delay=3
+delay=5
 gentle=true
 
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
 
 #update_file $file_log "-__"    
+random_language_changer(){
+
+    random1 10
+    local ans=$?
+
+    if [ $ans -eq 0 ];then
+        lang_target="ar"
+    elif [ $ans -eq 1 ];then
+        lang_target="hi"
+    elif [ $ans -eq 2 ];then
+        lang_target="it"
+    elif [ $ans -eq 3 ];then
+        lang_target="tl"
+    fi
+
+    trace "switch language to:" "$lang_target"
+
+}
 fetch_html(){
     is_valid "$file_html"
     result=$?
@@ -42,9 +61,8 @@ fetch_html(){
 make_assosiation(){
     local str="$1"
 
-    local ass=$(gxmessage -entrytext "$str|$LANG_DEFAULT|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
+    local ass=$(gxmessage -entrytext "$str|$lang_target|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
     if [ "$ass" != '' ];then
-
         echo "$ass" >> $file_assosiation
     fi
 
@@ -80,8 +98,7 @@ play1(){
             Backtrace1
         fi
     else
-notify-send "silence" "$1 : $2"
-        mantion  'silence is on' 5
+        mantion  'silence is on' 15
         trace 'skip playing'
       
     fi
@@ -143,7 +160,6 @@ translate_f(){
         trace "cache copy"
 
     fi
-
     printing1  "$file_txt" "$lang"
 
     ################################# result: html 
@@ -287,30 +303,14 @@ echo5(){
 }
 
 
-random_language(){
 
-    random1 10
-    local ans=$?
-
-    if [ $ans -eq 0 ];then
-        language_of_the_day="AR"
-    elif [ $ans -eq 1 ];then
-        language_of_the_day="HI"
-    elif [ $ans -eq 2 ];then
-        language_of_the_day="IT"
-    elif [ $ans -eq 3 ];then
-        language_of_the_day="TA"
-    fi
-
-    notify-send "switch language to:" "$language_of_the_day"
-
-}
 
 
 echo4(){
     trace "echo4() got: $1"
 
 
+random_language_changer
 
     if [ "$1" = '' ];then
         error_handler 
@@ -324,9 +324,9 @@ echo4(){
 
 
 
-random_language
+
 #    notify-send 'random lang?'  "$?"
-    local lang1="$language_of_the_day"
+    local lang1="$lang_target"
     trace "translate to: $lang1"
 
 
@@ -343,13 +343,11 @@ random_language
 
     num=`echo "$str" | wc -w`
     if [[ $num -gt 1 ]];then
-        if [ "$STRING_TO_BUTTONS" = true ];then
                 local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
                 if [ "$pick_word" != '' ];then
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
                 fi
-            fi
     else
         #notify-send 'scrap here..'
         trace 'scrap here..'
@@ -461,5 +459,6 @@ run(){
     fi
 }
 
-#unlocker true
-unlocker 
+unlocker true
+#unlocker 
+#run
