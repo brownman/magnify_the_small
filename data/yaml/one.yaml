@@ -1,5 +1,5 @@
-date: 20.10.13
-day:  Sun 
+date: 21.10.13
+day:  Mon 
 
 timer:
     - exo-open https://www.google.com/calendar/b/1/render
@@ -87,15 +87,19 @@ order:
         - ~/magnify_the_small/1/others/RegexKoans
         - phone-rington -> play a language lesson
 
-activity:
+hotkeys:
         - reminder 
         - update_db achieved
         - task_from background 
         - task_from recent
-        - ask_a_question
-        - record_a_thanks
-        - backup_db
-        - write_a_child_story
+        - ask_a_question #how to make good rise?
+        - record_a_thanks #much better than just write it - rington!
+        - backup_db #push to database.com
+        - write_a_child_story #once upon a time there was an animal story 
+        - record_desktop_and_publish_the_video_to_cv #commandlinefu
+        - make_easy_money #throw and watch
+        - push_a_koan #open last failed koan
+
 
 background:
         - learn_langs 
@@ -104,10 +108,10 @@ background:
 
 
 recent:
-    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v
-    - clicompanion
+    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v #use scrapy
+    - clicompanion #random quote
     - vlc /TORRENTS/feynman_slit.mp3
-    - exo-open http://plnkr.co/edit/6T5XDS7zb5tgr5yrfzVM?p=preview
+    - exo-open http://plnkr.co/edit/6T5XDS7zb5tgr5yrfzVM?p=preview #angular+avshalom
 
 urls:
     - http://www.webupd8.org/2010/08/display-google-calendar-on-your-desktop.html
@@ -121,5 +125,7 @@ koans:
 bash:
     - http://www.gnu.org/software/bash/manual/html_node/Builtin-Index.html#Builtin-Index
 
-remind:
-    - listen to Feynman and work on avi website
+currently:
+    - listen to Feynman
+    - work on avi website
+    - be happy

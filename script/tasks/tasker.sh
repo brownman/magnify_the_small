@@ -13,6 +13,7 @@ task_from(){
     local name="$1" #
     local num="$2" #
     local file1=$DATA_DIR/tmp/${name}.tmp
+mantion_file $file1
     local str=''
     if [ "$num"  = '' ];then
        str=$(zenity1 $file1)
@@ -24,8 +25,9 @@ task_from(){
     fi
 
         local cmd="$tasks_sh $str"
-        assert_equal_str "$cmd"
-       xterm1 "$cmd" 
+        
+        #assert_equal_str "$cmd"
+       xterm1 "$cmd" & 
 }
 
 ask_a_question(){
@@ -321,7 +323,7 @@ collaboration(){
 }
 
 reminder(){
-    local res=$($PLUGINS_DIR/commitment.sh  )
+    local res=$($PLUGINS_DIR/commitment.sh )
     echo "$res"
 }
 

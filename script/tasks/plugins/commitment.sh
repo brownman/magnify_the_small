@@ -14,11 +14,12 @@ stop_watch1(){
     #1: $1 2: $2 " #3: $3 4:$4"
 
 flite 'I am your robot'
-    local msg="$1" 
-    local title="$2"
+    #local msg="$1" 
+    local goal="$1"
 
 local str=''
-    local msg1="$msg" 
+    local msg1=""
+#$msg" 
     for (( c=0; c<=$long; c++ ))
     do
 
@@ -30,7 +31,8 @@ local str=''
             local buttons1="$c/$long"
 
             str=$(random_command)
-            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "time frame: $EVERY " -entrytext "$str" )
+
+            msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "reminder: $goal"  -entrytext "$str" -buttons "$buttons1" )
             helper0 "$msg1" "$file_now"
         fi
        tracen "$c "
@@ -85,11 +87,9 @@ update_timing(){
 }
 
 commit1(){
-    local  goal=$(gxmessage $GXMESSAGET -entrytext 'wish_a_command' 'add reminder:' -title 'your only robot:')
-    local title="($long/$every)-$goal"
-    stop_watch1  "$goal" "$title" 
-
-
+    local file=$DATA_DIR/tmp/currently.tmp
+    local goal=$(zenity1 $file)
+    stop_watch1  "$goal" 
 }
 
 run(){
