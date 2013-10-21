@@ -97,4 +97,4 @@ run(){
 commit1
 }
 unlocker
-
+exit
