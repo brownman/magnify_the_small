@@ -1,3 +1,11 @@
+17:32 - future|jump|
+17:32 - start|have|snake
+17:15 - start|have|cat
+14:45 - present|start|dog
+14:45 - start|work|snake
+14:45 - monkey
+14:45 - present|work|start
+14:45 - past|go|monkey
 the ant is going
 postpond everything
 focus on

@@ -131,9 +131,16 @@ if [ "$table1" = '' ];then
 table1=$(zenity1 "$DATA_DIR/txt/db.txt")
 fi
 local choose=$(show_selected_table "$table1")
-export STRING_TO_BUTTONS=false
-local res=$(string_to_buttons "$choose" '-')
-echo01 "$res"
+
+#local res=$(echo "$last" | sed 's/|/-/g')
+#export STRING_TO_BUTTONS=false
+
+local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
+
+#assert_equal_str "$choose1"
+#local res=$(string_to_buttons "$choose1" '-')
+
+echo01 "$choose1"
 echo "$res"
 }
 
@@ -195,17 +202,20 @@ trace "motivation: $file_name : $MUTE"
 }
 
 motivations(){
-
+notify-send 'motivations!'
     #echo "hello"
-    if [ $MUTE = false ];then
+    #if [ $MUTE = false ];then
         #echo "bbb"
 
         #file_name="$1"
-        local file="$1"
+        local file_name=${1:-'glossary'}
+        local file=$(generate_file $file_name)
         #$CFG_DIR/txt/$file_name.txt
-        local msg=$( $PLUGINS_DIR/translation.sh lines $file false   )
-        echo "$msg"
-    fi
+        local cmd="$PLUGINS_DIR/translation.sh lines $file false"
+        COMMANDER=true
+        commander "$cmd"
+        echo "$motivations"
+    #fi
     #echo 'end'
 }
 
@@ -334,7 +344,7 @@ game_essay(){
 learn_langs(){
     $PLUGINS_DIR/learn_langs.sh play_lesson 
 }
-
+ 
 
 update_row(){
 

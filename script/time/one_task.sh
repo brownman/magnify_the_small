@@ -15,5 +15,4 @@ run(){
 
 args="$1"
 run
-exit
 

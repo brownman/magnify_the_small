@@ -313,7 +313,8 @@ echo4(){
 random_language_changer
 
     if [ "$1" = '' ];then
-        error_handler 
+        trace 'empty string'
+        return
     fi
 
     speller "$1"
@@ -422,6 +423,7 @@ one_line(){
 }
 
 all_lines(){
+    notify-send 'speak all lines'
     #lines=() 
     local from="$1"
     local cmd='echo4'
@@ -459,6 +461,4 @@ run(){
     fi
 }
 
-unlocker true
-#unlocker 
-#run
+#unlocker true

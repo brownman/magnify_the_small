@@ -16,4 +16,3 @@ run(){
 $tasks_sh $name
 }
 unlocker
-exit
