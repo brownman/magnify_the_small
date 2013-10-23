@@ -5,7 +5,7 @@
 
 notify-send "free-speak" "$0"
 file_essay='x'
-subject="story_aday"
+subject=${1:-'story_a_day'}
 
 delay=5
 file_locker=/tmp/free_speak
@@ -19,7 +19,6 @@ memory_game(){
     local file=$file_essay
  
 
-    echo01 "why $subject is so awesome" & 
   
     local str=''
     local result=0

@@ -6,7 +6,7 @@
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
-multiple_langs=${3:-'true'} #"$3" #false #export MULTIPLE_LANGS=true
+multiple_langs=${3:-'false'} #"$3" #false #export MULTIPLE_LANGS=true
 silence=$SILENCE
 lang_target=$LANG_DEFAULT
 
@@ -461,4 +461,4 @@ run(){
     fi
 }
 
-#unlocker true
+unlocker true

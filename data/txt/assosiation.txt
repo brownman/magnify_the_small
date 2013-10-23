@@ -101,3 +101,4 @@ king|ru|karov
 awesome|ru|ustra-shaii-shi
 put|ru|stavit
 it|ru|tl:eto
+going|ru|idu-she

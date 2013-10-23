@@ -26,6 +26,7 @@ mantion_file $file1
 
         local cmd="$tasks_sh $str"
         
+#assert_equal_str "$cmd"
         #assert_equal_str "$cmd"
        xterm1 "$cmd" & 
 }
@@ -333,8 +334,8 @@ collaboration(){
 }
 
 reminder(){
-    local res=$($PLUGINS_DIR/commitment.sh )
-    echo "$res"
+    notify-send1 'reminder'
+$PLUGINS_DIR/commitment.sh 
 }
 
 game_essay(){

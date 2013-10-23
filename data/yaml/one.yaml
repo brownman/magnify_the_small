@@ -89,7 +89,8 @@ order:
 
 hotkeys:
         - update_db achieved
-        - reminder 
+        - free_speak 
+        - reminder
         - task_from background 
         - task_from recent
         - ask_a_question #how to make good rise?
@@ -104,6 +105,7 @@ hotkeys:
 background:
         - learn_langs 
         - free_speak
+        - reminder 
         - push_koans
         - motivations
 
