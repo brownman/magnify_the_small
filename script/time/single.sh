@@ -15,4 +15,4 @@ delay=5
 run(){
 $tasks_sh $name
 }
-unlocker
+run

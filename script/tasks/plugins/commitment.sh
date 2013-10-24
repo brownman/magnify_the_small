@@ -7,7 +7,7 @@
 notify-send1 "commitment" "$@"
 
 delay=5
-file_locker=/tmp/commitment1
+file_locker=/tmp/commitment
 #long=$LONG #500
 #every=$EVERY #60
 
@@ -63,22 +63,25 @@ stop_watch1(){
 
 
 run(){
-
+    local goal='my commitment'
+    local answer=''
+    local str=''
+    local res=0
     while :;do
-        $( messageYN1 "tell me something good" "fun or funnier?")
-        local res=$?
+
+        $( messageYN1 "$goal" "reminder" '' 9)
+        res=$?
+
         if [ $res -eq 0 ];then
-            #random_grammer
-            helper0 "peace!"
+            str=$(random_grammer)
+            answer=$(gxmessage -entrytext 'becuase'  -title 'reason:' "$str" )
         else
-            local goal=$(gxmessage -entry -title 'remind me to:' "add your goal:")
-            if [ "$goal" != '' ];then
-                #helper0 "$goal"
-                stop_watch1 "$goal" 
-            fi
+            answer=$(gxmessage -entrytext "$goal" -title 'remind me to:' "update your goal:" $GXMESSAGET)
+            goal="$answer"
         fi
+
+            helper0 "$answer"
     done
 }
-
 
 unlocker

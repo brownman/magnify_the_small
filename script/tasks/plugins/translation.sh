@@ -16,12 +16,12 @@ silence_fetch=$silence
 
 #unlocker?
 file_locker=/tmp/translation
-delay=5
+delay=2
 gentle=true
 
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
-
+notify-send1 'TranslatE:' "$@"
 #update_file $file_log "-__"    
 random_language_changer(){
 
@@ -380,14 +380,14 @@ printing1(){
 
     if [ "$SILENCE" = true ];then
         if [ "$lang" = ru ];then
-            notify-send $TIMEOUT_NS "$line2" "$line1"   
+            notify-send1 "$line2" "$line1"   
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];
         then
-            notify-send $TIMEOUT_NS "$line2" "$line1"   
+            notify-send1  "$line2" "$line1"   
         else
-            notify-send $TIMEOUT_NS "$line1"
+            notify-send1  "$line1"
         fi
 
     fi
@@ -424,11 +424,13 @@ one_line(){
 
 all_lines(){
     notify-send 'speak all lines'
-    #lines=() 
+    lines=() 
     local from="$1"
-    local cmd='echo4'
-    file_to_lines "$from"
 
+    #local cmd='echo4'
+    local cmd='notify-send1'
+    file_to_lines "$from"
+assert_equal_str "${lines[1]}"
     execute_lines
     #local msg=$(    execute_lines )
     #local msg=$(file_to_lines "$from")

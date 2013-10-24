@@ -15,9 +15,9 @@ declare -a arr=() #=('aa')
 arr_to_msg(){
 local str=$(pick_line $file_assosiation)
 if [ "$STRING_TO_BUTTONS" = true ];then
-    gxmessage -buttons "$1" "$str" $GXMESSAGET 
+    gxmessage -buttons "$1" "$str" -timeout 5
 else
-    gxmessage -buttons "$1" "$str" $GXMESSAGET -iconic 
+    gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
 fi
 
 local num=$?

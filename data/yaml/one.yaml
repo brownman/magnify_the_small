@@ -1,5 +1,7 @@
-date: 21.10.13
-day:  Mon 
+date: 
+    - 21.10.13
+day:
+    - Mon 
 
 timer:
     - exo-open https://www.google.com/calendar/b/1/render
@@ -109,8 +111,15 @@ background:
         - push_koans
         - motivations
 
-
+find_a_deal:
+    - https://github.com/search?q=focalprice&ref=searchresults&type=Code
+    - http://dx.com/s/sd%2bcard?Sort=ReviewsCount
+    - https://www.google.co.il/search?q=Pet+Dog+Puppy+Clothes+Coat+Fleece+Cute+Bear+Shirt+Winter+Warm+Jacket+XS/S/M/L&newwindow=1&source=lnms&tbm=isch&sa=X&ei=8sxoUrHvNY-Z0AXI-IDoAQ&ved=0CAkQ_AUoAQ&biw=1163&bih=602
+    - https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&ie=UTF-8#newwindow=1&q='worldwide+free+shipping'+'android'+'t.v'&tbm=vid
+    - http://www.ebay.com/sch/i.html?LH_FS=1&LH_BIN=1&_sop=15&_from=R40&_sacat=0&_nkw=collar+reflective&_pgn=2&_skc=25&rt=nc
+    
 recent:
+    - https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&ie=UTF-8#newwindow=1&q=deal%20earphones
     - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v #use scrapy
     - clicompanion #random quote
     - vlc /TORRENTS/feynman_slit.mp3
@@ -129,6 +138,7 @@ bash:
     - http://www.gnu.org/software/bash/manual/html_node/Builtin-Index.html#Builtin-Index
 
 currently:
-    - 14:10 - 14:30 : work on avi website
+    #- 14:10 - 14:30 : work on avi website
     - listen to Feynman
     - be happy
+
