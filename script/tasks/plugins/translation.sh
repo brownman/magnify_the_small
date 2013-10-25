@@ -16,7 +16,7 @@ silence_fetch=$silence
 
 #unlocker?
 file_locker=/tmp/translation
-delay=2
+delay=6
 gentle=true
 
 trace 'translate.sh got:'
@@ -46,7 +46,7 @@ fetch_html(){
     result=$?
     trace 'result is: '
     trace $result
-    if [[ $result -eq 0  ]];
+    if [[ $result -ne 1  ]];
     then
         trace "fetch html"
         if [ "$lang" = 'ru' ]|[ "$lang" = 'ar' ];then
@@ -132,7 +132,7 @@ translate_f(){
     result=$?
     trace 'result is: '
     trace $result
-    if [[ $result -eq 0  ]];
+    if [[ $result -ne 1  ]];
     then
         trace "fetch txt"
         result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
@@ -172,7 +172,7 @@ translate_f(){
     output_ws=$(echo "$output"|sed 's/ /_/g');
     is_valid $file_mp3
     result=$?
-    if [[ $result -eq 0 ]];then
+    if [[ $result -ne 1 ]];then
         trace 'fetch sound'
         if [ "$lang" = 'tl' ]
         then
@@ -249,7 +249,7 @@ speller(){
     if [ "$ans" = "error" ];then
 
         trace "$ans"
-        notify-send "Mis-spelling:" "$ans"
+        notify-send1 "Mis-spelling:" "$ans"
         flite 'spelling error'
         flite 'returning'
         result=1

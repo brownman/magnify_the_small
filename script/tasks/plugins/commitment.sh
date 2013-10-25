@@ -63,24 +63,37 @@ stop_watch1(){
 
 
 run(){
+
     local goal='my commitment'
+    local motivation=''
     local answer=''
     local str=''
     local res=0
     while :;do
 
-        $( messageYN1 "$goal" "reminder" '' 9)
+        $( messageYN1 "$goal" "reminder" '' 15 )
         res=$?
 
-        if [ $res -eq 0 ];then
-            str=$(random_grammer)
-            answer=$(gxmessage -entrytext 'becuase'  -title 'reason:' "$str" )
-        else
-            answer=$(gxmessage -entrytext "$goal" -title 'remind me to:' "update your goal:" $GXMESSAGET)
-            goal="$answer"
+        if [ $res -eq 1 ];then
+            goal=$(gxmessage -entrytext "$goal" -title 'remind me:' "easiest :" $GXMESSAGET)
         fi
 
-            helper0 "$answer"
+
+random1 5
+res=$?
+       if [ $res -eq 0 ];then
+            
+            str=$(random_grammer)
+            echo01 "$str"
+            motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
+        fi
+
+
+            helper0 "$goal"
+            helper0 "$motivation"
+
+
+
     done
 }
 
