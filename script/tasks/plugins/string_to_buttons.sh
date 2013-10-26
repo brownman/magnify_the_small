@@ -11,20 +11,26 @@ trace "string_to_buttons.sh got:  $1 "
 empty='Q'
 arr=()
 declare -a arr=() #=('aa')
-:
 arr_to_msg(){
-local str=$(pick_line $file_assosiation)
-i
-if [ "$STRING_TO_BUTTONS" = true ];then
-    gxmessage -buttons "$1" "$str" -timeout 5
-else
-    gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
-fi
+    local str=$(pick_line $file_assosiation)
+    if [ "$STRING_TO_BUTTONS" = true ];then
+        random1 5
+        res=$?
+        if [ $res -eq 0 ];then
+            gxmessage -buttons "$1" "$str" -timeout 5
+        else
+            gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
+        fi
 
-local num=$?
-local str="${arr[$num]}"
-trace "$str"
-echo "$str"
+    else
+        mantion 'string to buttons is off'
+        gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
+    fi
+
+    local num=$?
+    local str="${arr[$num]}"
+    trace "$str"
+    echo "$str"
 }
 
 
@@ -45,59 +51,59 @@ str_to_arr(){
 }
 arr_to_str(){
 
-#local str1="$1"
-local item=''
-local item1=''
+    #local str1="$1"
+    local item=''
+    local item1=''
     for i in "${!arr[@]}"; do
-item=${arr[$i]}
-#item1=$(remove_trailing "$item")
+        item=${arr[$i]}
+        #item1=$(remove_trailing "$item")
         if [ "$str1" = '' ];then
             str1="$item:$i"
         else
             str1="$str1,$item:$i"
         fi
     done
-#
-#    show_arr1 'string_to_arr() 1' 
-#
-#
-#
-#    trace "$str"
+    #
+    #    show_arr1 'string_to_arr() 1' 
+    #
+    #
+    #
+    #    trace "$str"
     echo "$str1"
 
 }
 step1(){
-local str="$1"
-delimeter="${2:-'-'}"   # Defaults to /tmp dir.
-str_to_arr "$1" #create new array
-local str2=$(arr_to_str ) #use array to create buttons-string
-echo "$str2"
+    local str="$1"
+    delimeter="${2:-'-'}"   # Defaults to /tmp dir.
+    str_to_arr "$1" #create new array
+    local str2=$(arr_to_str ) #use array to create buttons-string
+    echo "$str2"
 }
 step2(){
-local res=''
-local str="Q - $1"
-delimeter="${2:-' '}"   # Defaults to /tmp dir.
-str_to_arr "$str" #create new array
-local str2=$(arr_to_str ) #use array to create buttons-string
-#echo "$str2"trace "$str2"
-#trace "arr: ${arr[@]}"
-local str3=$(arr_to_msg "$str2")
+    local res=''
+    local str="Q - $1"
+    delimeter="${2:-' '}"   # Defaults to /tmp dir.
+    str_to_arr "$str" #create new array
+    local str2=$(arr_to_str ) #use array to create buttons-string
+    #echo "$str2"trace "$str2"
+    #trace "arr: ${arr[@]}"
+    local str3=$(arr_to_msg "$str2")
 
-local str4=$(remove_trailing "$str3")
-trace "=$str4="
-if [ "$str4" = "$empty" ] || [ "$str4" = "-" ] 
-then
-    trace "choosen: empty string: -$str4-"
-else
-#update_file $file_memory "$str4"
-   
-    trace "choosen: $str4"
-    res="$str4"
+    local str4=$(remove_trailing "$str3")
+    trace "=$str4="
+    if [ "$str4" = "$empty" ] || [ "$str4" = "-" ] 
+    then
+        trace "choosen: empty string: -$str4-"
+    else
+        #update_file $file_memory "$str4"
 
-fi
+        trace "choosen: $str4"
+        res="$str4"
+
+    fi
 
 
-echo "$res"
+    echo "$res"
 
 
 }

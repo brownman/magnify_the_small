@@ -64,7 +64,7 @@ stop_watch1(){
 
 run(){
 
-    local goal='my commitment'
+    local goal="If I could I would"
     local motivation=''
     local answer=''
     local str=''
@@ -75,7 +75,7 @@ run(){
         res=$?
 
         if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'remind me:' "easiest :" $GXMESSAGET)
+            goal=$(gxmessage -entrytext "$goal" -title 'I can' "If I could I would" $GXMESSAGET)
         fi
 
 
@@ -86,11 +86,13 @@ res=$?
             str=$(random_grammer)
             echo01 "$str"
             motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
+
+            helper0 "$motivation"
         fi
 
 
             helper0 "$goal"
-            helper0 "$motivation"
+
 
 
 

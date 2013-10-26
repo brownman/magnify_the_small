@@ -50,6 +50,7 @@ testing:
         #- tasks_sh|string_to_buttons|'ad-fBdfBd','-'|a   
         #- tasks_sh|update_db|thanks|a
         #- cfg|show_keys||a   
+        #- cfg|cp_file1|/tmp/1.txt|1
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a

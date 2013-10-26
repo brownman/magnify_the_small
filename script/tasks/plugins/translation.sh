@@ -16,13 +16,15 @@ silence_fetch=$silence
 
 #unlocker?
 file_locker=/tmp/translation
-delay=6
+delay=3
+loops=10
 gentle=true
 
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
-notify-send1 'TranslatE:' "$@"
-#update_file $file_log "-__"    
+notify-send 'TranslatE:' "$@"
+
+
 random_language_changer(){
 
     random1 10
@@ -441,6 +443,8 @@ assert_equal_str "${lines[1]}"
 
 
 run(){
+#assert_equal_file $file_log
+
     local result=''
     #motivation "$file"
     if [ "$method" = 'sentence' ];then
