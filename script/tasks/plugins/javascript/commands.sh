@@ -22,6 +22,7 @@ $path1/bin/casperjs $script_js --target="$lang" "$str" > $file_html
 
 sleep 5
 #(exo-open $file_html  &) 
+google-chrome $file_html &
 #cp $file_html "$file_html1"
 sleep 25
 

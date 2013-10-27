@@ -7,32 +7,43 @@
 notify-send "tasker.sh:" "$@"
 
 #notify-send "tasker.sh:" "$*"
+article(){
+
+    local file="$1"
+    $PLUGINS_DIR/article/commands.sh "$file"
+}
+
+google(){
+    $PLUGINS_DIR/google.sh "$1"
+}
+
+
 task_from(){
     notify-send "picker got" "$@"
 
     local name="$1" #
     local num="$2" #
     local file1=$DATA_DIR/tmp/${name}.tmp
-mantion_file $file1
+    mantion_file $file1
     local str=''
     if [ "$num"  = '' ];then
-       str=$(zenity1 $file1)
+        str=$(zenity1 $file1)
     else
         lines=()
         file_to_lines $file1 
         str=$(echo ${lines[$num]})
-        
+
     fi
 
-        local cmd="$tasks_sh $str"
-        
-#assert_equal_str "$cmd"
-        #assert_equal_str "$cmd"
-       xterm1 "$cmd" & 
+    local cmd="$tasks_sh $str"
+
+    #assert_equal_str "$cmd"
+    #assert_equal_str "$cmd"
+    xterm1 "$cmd" & 
 }
 
 ask_a_question(){
-notify-send 'ask! and learn!'
+    notify-send 'ask! and learn!'
 }
 
 random_quote(){
@@ -67,27 +78,27 @@ show_msg(){
 #    echo "$msg"
 #}
 practice_regexp(){
-#http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02
+    #http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02
 
-local exp=${1:-'\<c...h\>'}
+    local exp=${1:-'\<c...h\>'}
 
-exp=$(gxmessage $GXMESSAGET -entrytext "$exp" -title 'practice!' 'Enter RegExp:' )
+    exp=$(gxmessage $GXMESSAGET -entrytext "$exp" -title 'practice!' 'Enter RegExp:' )
 
-local file=/usr/share/dict/words
-local file_tmp=/tmp/regexp
-local res=$(grep "$exp" "$file")
-#gxmessage $GXMESSAGET "$res" -title "$exp"
+    local file=/usr/share/dict/words
+    local file_tmp=/tmp/regexp
+    local res=$(grep "$exp" "$file")
+    #gxmessage $GXMESSAGET "$res" -title "$exp"
 
-echo "$res" > $file_tmp
-local str=$(zenity1 "$file_tmp")
-echo01 "$str"
+    echo "$res" > $file_tmp
+    local str=$(zenity1 "$file_tmp")
+    echo01 "$str"
 }
 
 string_to_buttons(){
-#notify-send 'string_to_buttons'
-local str1="${FUNCNAME[0]}"
+    #notify-send 'string_to_buttons'
+    local str1="${FUNCNAME[0]}"
 
-local str="$1"
+    local str="$1"
     #assert_equal_str "$str" "$str1" 
     local delimeter="$2"
     local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
@@ -115,34 +126,34 @@ rules(){
 }
 
 recent_video(){
-export COMMANDER=true
-str='vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v'
-commander "$str"
+    export COMMANDER=true
+    str='vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v'
+    commander "$str"
 }
 
 take_photo(){
-     $PLUGINS_DIR/take_photo.sh
+    $PLUGINS_DIR/take_photo.sh
 }
 
 
 update_db(){
-local  table1="$1"
-#update_db_list
-if [ "$table1" = '' ];then
-table1=$(zenity1 "$DATA_DIR/txt/db.txt")
-fi
-local choose=$(show_selected_table "$table1")
+    local  table1="$1"
+    #update_db_list
+    if [ "$table1" = '' ];then
+        table1=$(zenity1 "$DATA_DIR/txt/db.txt")
+    fi
+    local choose=$(show_selected_table "$table1")
 
-#local res=$(echo "$last" | sed 's/|/-/g')
-#export STRING_TO_BUTTONS=false
+    #local res=$(echo "$last" | sed 's/|/-/g')
+    #export STRING_TO_BUTTONS=false
 
-local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
+    local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
 
-#assert_equal_str "$choose1"
-#local res=$(string_to_buttons "$choose1" '-')
+    #assert_equal_str "$choose1"
+    #local res=$(string_to_buttons "$choose1" '-')
 
-echo01 "$choose1"
-echo "$res"
+    echo01 "$choose1"
+    echo "$res"
 }
 
 #
@@ -183,17 +194,17 @@ echo "$res"
 motivation(){
     file_name="$1"
 
-   reason='push: learning new language'
+    reason='push: learning new language'
 
     reasoning 
-trace "motivation: $file_name : $MUTE"
+    trace "motivation: $file_name : $MUTE"
     if [ "$MUTE" = false ];then
         random1 10
         ans=$?
         #notify-send "random: $ans"
         if [[ $ans -gt 3 ]];then
             local file=$(generate_file $file_name)
-            
+
             $PLUGINS_DIR/translation.sh line $file false   
         else
             local file=$(generate_file sport)
@@ -203,19 +214,19 @@ trace "motivation: $file_name : $MUTE"
 }
 
 motivations(){
-notify-send 'motivations!'
+    notify-send 'motivations!'
     #echo "hello"
     #if [ $MUTE = false ];then
-        #echo "bbb"
+    #echo "bbb"
 
-        #file_name="$1"
-        local file_name=${1:-'glossary'}
-        local file=$(generate_file $file_name)
-        #$CFG_DIR/txt/$file_name.txt
-        local cmd="$PLUGINS_DIR/translation.sh lines $file false"
-        COMMANDER=true
-        commander "$cmd"
-        echo "$motivations"
+    #file_name="$1"
+    local file_name=${1:-'glossary'}
+    local file=$(generate_file $file_name)
+    #$CFG_DIR/txt/$file_name.txt
+    local cmd="$PLUGINS_DIR/translation.sh lines $file false"
+    COMMANDER=true
+    commander "$cmd"
+    echo "$motivations"
     #fi
     #echo 'end'
 }
@@ -231,6 +242,7 @@ scrap(){
 
     word1=$(echo "$word") 
     $PLUGINS_DIR/scrap.sh translate $lang "$word1" 
+    #exo-open /TORRENTS/html/
 
 
 }
@@ -304,8 +316,8 @@ update(){
 suspend1(){
     #flite "should - $msg"
 
-local timeout=440
-sleep1 $timeout
+    local timeout=440
+    sleep1 $timeout
 
 
     $PLUGINS_DIR/suspend.sh
@@ -314,6 +326,23 @@ sleep1 $timeout
     flite 'update your notebook'
 
     motivation sport
+
+    after_suspension
+}
+after_suspension(){
+
+    local file=$DATA_DIR/txt/easy_for_robot.txt
+    #gedit $DATA_DIR/priorities.txt
+    #gedit $DATE_DIR/easy_for_robot.txt
+    random1 3
+    local res=$?
+    if [ $res -eq 0 ];then
+        google-chrome $DATA_DIR/html/all.html
+    else
+        gedit $file
+        article $file
+    fi
+
 
 }
 
@@ -335,7 +364,7 @@ collaboration(){
 
 reminder(){
     notify-send1 'reminder'
-$PLUGINS_DIR/commitment.sh 
+    $PLUGINS_DIR/reminder.sh 
 }
 
 game_essay(){
@@ -345,21 +374,21 @@ game_essay(){
 learn_langs(){
     $PLUGINS_DIR/learn_langs.sh play_lesson 
 }
- 
+
 
 update_row(){
 
     #export COMMANDER=true
-local name="$1"
-local cmd=$(echo "zenity1 $DATA_DIR/txt/${name}.txt $name 'be smarter' " )
-local str=$(eval $cmd   )
-#local str=$(commander "$cmd")
-        #- cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
-        #echo01 "$str"
+    local name="$1"
+    local cmd=$(echo "zenity1 $DATA_DIR/txt/${name}.txt $name 'be smarter' " )
+    local str=$(eval $cmd   )
+    #local str=$(commander "$cmd")
+    #- cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+    #echo01 "$str"
 
     echo "update_row: $str"
-    } 
-    
+} 
+
 
 ############################### proxy for execution #####################
 #export COMMANDER=true
@@ -368,4 +397,5 @@ res1=$(eval "$cmd1")
 echo "$res1"
 
 ############################### proxy for execution #####################
+
 

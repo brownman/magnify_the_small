@@ -5,7 +5,7 @@
 
 notify-send "free-speak" "$0"
 file_essay='x'
-subject=${1:-'story_a_day'}
+subject=${1:-'essay_generator|story_a_day|funny'}
 
 delay=5
 file_locker=/tmp/free_speak
@@ -30,7 +30,7 @@ memory_game(){
         let counter+=1
         sleep1 5
         trace "loop $counter"
-        str=$(random_grammer) 
+        str=$(random_story) 
         str=$( gxmessage   $GXMESSAGET -entrytext "$str"  -title "$subject" -file "$file")
         helper0 "$str" "$file"
     done

@@ -71,31 +71,27 @@ run(){
     local res=0
     while :;do
 
-        $( messageYN1 "$goal" "reminder" '' 15 )
+        $( messageYN1 "$goal" "reminder" '' 45 )
         res=$?
 
         if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'I can' "If I could I would" $GXMESSAGET)
+            goal=$(gxmessage -entrytext "$goal" -title 'I can' -file $file_log $GXMESSAGET)
+           helper0 "$goal" $file_log
         fi
 
 
-random1 5
+random1 2
 res=$?
        if [ $res -eq 0 ];then
-            
             str=$(random_grammer)
             echo01 "$str"
             motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
-
-            helper0 "$motivation"
         fi
 
-
             helper0 "$goal"
-
-
-
-
+sleep1 30
+            helper0 "$motivation"
+sleep1 30
     done
 }
 
