@@ -74,7 +74,7 @@ play1(){
 
     trace "play1() got: "
     trace "$1 | $2"
-
+    update_logger "$@"
     if [ "$silence" = false ];then
 
         local file="$1"
@@ -83,12 +83,13 @@ play1(){
             export PLAYING_ON=true
             local lang="$2"
             local lang_repeat=\$"$lang"R   # Name of variable (not value!).
-            local times=`eval "expr \"$lang_repeat\" "`
-            if [ "$timer" != '' ];then
+            local times1=`eval "expr \"$lang_repeat\" "`
+            notify-send "times: $times1 for $lang"
+            if [ "$times1" != '' ];then
 
                 #declare  -i  counter
                 local counter=0
-                while [[  $counter -lt  $times ]]; do
+                while [[  $counter -lt  $times1 ]]; do
                     play -V1 -q  "$1"
                     (( counter++ ))
                 done
@@ -433,7 +434,7 @@ all_lines(){
     #local cmd='echo4'
     local cmd='notify-send1'
     file_to_lines "$from"
-assert_equal_str "${lines[1]}"
+#assert_equal_str "${lines[1]}"
     execute_lines
     #local msg=$(    execute_lines )
     #local msg=$(file_to_lines "$from")

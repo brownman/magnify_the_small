@@ -92,7 +92,8 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        - update_db achieved
+        #- update_db achieved
+        - update_db logger 
         - scrap ru dog
         #google mbt
         - reminder
@@ -124,3 +125,6 @@ recent:
     - exo-open http://plnkr.co/edit/6T5XDS7zb5tgr5yrfzVM?p=preview #angular+avshalom
     - exo-open https://drive.google.com/templates?category=17&sort=hottest&view=public
     - exo-open file:///home/dao01/Desktop/Screenshot%20-%20271013%20-%2016:45:33.png
+
+cli_tools:
+    - http://www.pythonforbeginners.com/code-snippets-source-code/commandlinefu-with-python/

@@ -1,3 +1,14 @@
+
+Avshalom
+--------
+0.use eran's explanation
+1.build a website for him
+2.tell him you have good news for him
+3.add it to 'bare-minimum' code snippets
+4.angular menu.json
+5.unhide components - dropdown - float:left
+
+
 Shirli
 ------
 1. write: when I finished the last job
@@ -15,20 +26,25 @@ Roi
 4. send it back to Roi
 
 
-
-
-Avshalom
---------
-0.use eran's explanation  
-1.build a website for him
-2.tell him you have good news for him
-
-
-
-
 Doron
 -----
 1. write to him a question
 2. send him email
 
 
+City
+----
+0. start on 16:00
+1. make a sandwich 
+2. drive the car
+
+
+android
+-------
+1. create an hello world program
+2. use it to load 1.txt
+
+project
+-------
+1. create a logger
+2. create a progress bar

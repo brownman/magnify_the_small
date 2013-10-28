@@ -1,8 +1,9 @@
 
-CREATE TABLE achieved (
+CREATE TABLE logger (
     id INTEGER PRIMARY KEY,
-    title CHAR(10),
-    content CHAR(30)
+    time CHAR(10),
+    command CHAR(30),
+    args CHAR(60)
 );
 
 

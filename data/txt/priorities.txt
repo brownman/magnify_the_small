@@ -1,4 +1,17 @@
-11:00-11:30 - buy shoes
-shirli
-roy
+next:
+-----
+reminder-zenity progress bar
+avshalom
+buy shoes
+dir-structure: bare-minimume-code\android  , \avshalom
 
+
+
+
+
+done-step1
+----
+freefax - send - !
+roy
+shirli
+sqlite-create a simple logger

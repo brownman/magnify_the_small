@@ -137,21 +137,16 @@ take_photo(){
 
 
 update_db(){
-    local  table1="$1"
+    local name="$1"
+    local  table1="$name"
+
+
     #update_db_list
     if [ "$table1" = '' ];then
         table1=$(zenity1 "$DATA_DIR/txt/db.txt")
     fi
-    local choose=$(show_selected_table "$table1")
-
-    #local res=$(echo "$last" | sed 's/|/-/g')
-    #export STRING_TO_BUTTONS=false
-
+    local choose=$(show_selected_table "$name")
     local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
-
-    #assert_equal_str "$choose1"
-    #local res=$(string_to_buttons "$choose1" '-')
-
     echo01 "$choose1"
     echo "$res"
 }
@@ -329,22 +324,25 @@ suspend1(){
 
     after_suspension
 }
-after_suspension(){
 
+after_suspension(){
     local file=$DATA_DIR/txt/easy_for_robot.txt
-    #gedit $DATA_DIR/priorities.txt
-    #gedit $DATE_DIR/easy_for_robot.txt
+    local file1=$DATA_DIR/txt/priorities.txt
+    local file2=$DATA_DIR/html/all.html
+
+
+
+    gedit $file1 &
+
     random1 3
     local res=$?
     if [ $res -eq 0 ];then
-        google-chrome $DATA_DIR/html/all.html
+        google-chrome $file2 &
     else
-        gedit $file
-        article $file
+        gedit $file &
+        article $file #use file2 to open
     fi
-
-
-}
+   }
 
 #generate_file(){
 #    local subject=$1
@@ -389,7 +387,10 @@ update_row(){
     echo "update_row: $str"
 } 
 
+android(){
 
+    $PLUGINS_DIR/android.sh 
+}
 ############################### proxy for execution #####################
 #export COMMANDER=true
 cmd1="$@"
