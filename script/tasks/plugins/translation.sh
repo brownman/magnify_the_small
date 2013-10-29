@@ -245,23 +245,23 @@ choose4(){
 
     echo4 "$str" 
 }
-speller(){
-    local ans=$(spell2 "$str")
-    local result=0
-
-
-    if [ "$ans" = "error" ];then
-
-        trace "$ans"
-        notify-send1 "Mis-spelling:" "$ans"
-        flite 'spelling error'
-        flite 'returning'
-        result=1
-    fi
-
-    return $result
-
-}
+#speller(){
+#    local ans=$(spell2 "$str")
+#    local result=0
+#
+#
+#    if [ "$ans" = "error" ];then
+#
+#        trace "$ans"
+#        notify-send1 "Mis-spelling:" "$ans"
+#        flite 'spelling error'
+#        flite 'returning'
+#        result=1
+#    fi
+#assert_equal_result $result
+#    return $result
+#
+#}
 
 echo5(){
 
@@ -450,6 +450,7 @@ run(){
     local result=''
     #motivation "$file"
     if [ "$method" = 'sentence' ];then
+        speller "$from"
         if [ "$multiple_langs" = true ];then
             echo5 "$from" 
         else

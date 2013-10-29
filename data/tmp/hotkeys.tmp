@@ -1,5 +1,5 @@
 update_db logger
-scrap ru dog
+after_suspension
 reminder
 task_from background
 task_from recent

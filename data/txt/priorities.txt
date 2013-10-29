@@ -1,17 +1,13 @@
-next:
------
-reminder-zenity progress bar
-avshalom
-buy shoes
-dir-structure: bare-minimume-code\android  , \avshalom
+open the book.pdf - linux security cli
+android simple file load
+google hacking -> buy shoes
+screenshot option -> dir-structure: bare-minimume-code\android  , \avshalom
+progress bar - reminder-zenity progress bar
+python tube - ask 1 question a day
+essay generator - make it funny
+avshalom -> menu.json + angular + eran
 
 
 
-
-
-done-step1
-----
-freefax - send - !
-roy
-shirli
-sqlite-create a simple logger
+fix - mispelling executione
+mind map notebook
