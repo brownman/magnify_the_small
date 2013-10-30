@@ -77,41 +77,52 @@ run(){
 
 
 
+            goal=$(zenity2  txt priorities )
     while :;do
 
-        goal=$(zenity2  txt priorities )
-        if [ "$goal" ];then
-            cmd="sleep2 $time_limit '$goal' '$title'" 
-            eval "$cmd" &
-            update_logger "commitment" "$goal"
-        fi
+
+
+
+
         $( messageYN1 "$goal" "reminder" '' 45 )
 
 
         #update goal
         res=$?
         if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'I can' -file $file_log $GXMESSAGET)
+            goal=$(gxmessage -entrytext "$goal" -title 'add new goal' -file $file_log $GXMESSAGET)
 
+    if [ "$goal" ];then
+        echo "$goal" >> $DATA_DIR/txt/priorities.txt
+    fi
+
+        else
+            goal=$(zenity2  txt priorities )
         fi
 
 
+    if [ "$goal" ];then
+        cmd="sleep2 $time_limit '$goal' '$title'" 
+        eval "$cmd" &
+        update_logger "commitment" "$goal"
+    fi
 
-        random1 2
-        res=$?
-        if [ $res -eq 0 ];then
-            str=$(random_grammer)
-            echo01 "$str"
-            motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
 
-            update_logger "motivation" "$motivation"
-        fi
+    random1 2
+    res=$?
+    if [ $res -eq 0 ];then
+        str=$(random_grammer)
+        echo01 "$str"
+        motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
 
-        helper0 "$goal" $file_log
-        sleep1 30
-        helper0 "$motivation" $file_log
-        sleep1 30
-    done
+        update_logger "motivation" "$motivation"
+    fi
+
+    helper0 "$goal" $file_log
+    sleep1 30
+    helper0 "$motivation" $file_log
+    sleep1 30
+done
 }
 
 unlocker

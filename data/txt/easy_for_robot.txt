@@ -1,6 +1,6 @@
 this is the story aday:
 --=-=-=-----
-and the product is angular website which present this story
+and the product is - angular - website which present this story
 
 
 
@@ -35,6 +35,8 @@ Shirli
 
 Roi
 ---
+0. remind him
+
 1. open the document example
 2. save it to your drive
 3. change the format of your c.v
