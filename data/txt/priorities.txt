@@ -1,13 +1,9 @@
+ran - code together
 open the book.pdf - linux security cli
 android simple file load
-google hacking -> buy shoes
-screenshot option -> dir-structure: bare-minimume-code\android  , \avshalom
-progress bar - reminder-zenity progress bar
-python tube - ask 1 question a day
 essay generator - make it funny
-avshalom -> menu.json + angular + eran
+avshalom - menu.json + angular + eran
+periodic gui popup: add git commit command
+screenshot option -> dir-structure: bare-minimume-code\android  , \avshalom
 
 
-
-fix - mispelling executione
-mind map notebook

@@ -1,7 +1,15 @@
+this is the story aday:
+--=-=-=-----
+and the product is angular website which present this story
+
+
+
 imagine the best things
 ---------------------
 I am getting the best job
 learning scada
+
+
 
 Tamar
 -----
@@ -12,15 +20,18 @@ Secretary
 ---------
 1.send the Rentgen photes
 
+
 Doctor
 ------
 1.made an appointment to skin check
+
 
 Shirli
 ------
 1. write: when I finished the last job
 2. ask: how to caclculate the compansation amount
 3. ask: if the calculation is changing along time
+
 
 Roi
 ---

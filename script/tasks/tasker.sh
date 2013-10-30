@@ -321,9 +321,16 @@ suspend1(){
     flite 'update your notebook'
 
     motivation sport
-
+#xterm1 reminder &
     after_suspension
+    
 }
+
+show_progress(){
+local cmd="sleep2 '$1' '$2' '$3'"
+"$cmd"
+}
+
 
 after_suspension(){
     local file=$DATA_DIR/txt/easy_for_robot.txt

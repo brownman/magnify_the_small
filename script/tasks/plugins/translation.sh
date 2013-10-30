@@ -74,7 +74,7 @@ play1(){
 
     trace "play1() got: "
     trace "$1 | $2"
-    update_logger "$@"
+
     if [ "$silence" = false ];then
 
         local file="$1"

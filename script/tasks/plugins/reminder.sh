@@ -63,42 +63,54 @@ stop_watch1(){
 
 
 run(){
-    
- 
-    local goal="If I could I would"
+
+
+
+    local title="time frame"
     local motivation=''
+    local time_limit=60
     local answer=''
     local str=''
     local res=0
-   local str1=$(zenity2  txt priorities )
-   #assert_equal_str "$str1"
-progress_bar "$str1" &
+    load goal=''
+    local cmd=''
+
+
 
     while :;do
 
+        goal=$(zenity2  txt priorities )
+        if [ "$goal" ];then
+            cmd="sleep2 $time_limit '$goal' '$title'" 
+            eval "$cmd" &
+            update_logger "commitment" "$goal"
+        fi
         $( messageYN1 "$goal" "reminder" '' 45 )
-        res=$?
 
+
+        #update goal
+        res=$?
         if [ $res -eq 1 ];then
             goal=$(gxmessage -entrytext "$goal" -title 'I can' -file $file_log $GXMESSAGET)
-           helper0 "$goal" $file_log
+
         fi
-      #str=$( get_random_message )
-      #assert_equal_str "$str"
 
 
-random1 2
-res=$?
-       if [ $res -eq 0 ];then
+
+        random1 2
+        res=$?
+        if [ $res -eq 0 ];then
             str=$(random_grammer)
             echo01 "$str"
             motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
+
+            update_logger "motivation" "$motivation"
         fi
 
-            helper0 "$goal"
-sleep1 30
-            helper0 "$motivation"
-sleep1 30
+        helper0 "$goal" $file_log
+        sleep1 30
+        helper0 "$motivation" $file_log
+        sleep1 30
     done
 }
 
