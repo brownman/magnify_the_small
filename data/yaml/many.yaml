@@ -72,3 +72,16 @@ find_a_deal:
     - https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&ie=UTF-8#newwindow=1&q='worldwide+free+shipping'+'android'+'t.v'&tbm=vid
     - http://www.ebay.com/sch/i.html?LH_FS=1&LH_BIN=1&_sop=15&_from=R40&_sacat=0&_nkw=collar+reflective&_pgn=2&_skc=25&rt=nc
     
+
+search:
+    - https://www.google.co.il/search?q=shellcode+game&newwindow=1&source=lnms&tbm=isch&sa=X&ei=67BwUsimC8bCswb484CYBQ&ved=0CAcQ_AUoAQ&biw=1280&bih=663 #hacking simulation game
+    - http://developer.android.com/training/basics/data-storage/files.html#WriteInternalStorage
+    - https://support.google.com/websearch/answer/136861
+
+
+cli_tools:
+    - http://www.pythonforbeginners.com/code-snippets-source-code/commandlinefu-with-python/
+
+
+nice:
+    - http://asciinema.org/browse/popular

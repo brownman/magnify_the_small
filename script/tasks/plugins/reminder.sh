@@ -68,7 +68,7 @@ run(){
 
     local title="time frame"
     local motivation=''
-    local time_limit=60
+    local time_limit=300
     local answer=''
     local str=''
     local res=0
@@ -77,52 +77,52 @@ run(){
 
 
 
-            goal=$(zenity2  txt priorities )
+    goal=$(zenity2  txt priorities )
     while :;do
 
 
+#. $CFG_DIR/vars.cfg
 
-
+#assert_equal_str "$date2"
 
         $( messageYN1 "$goal" "reminder" '' 45 )
 
 
         #update goal
         res=$?
+
+            #assert_equal_str $res
         if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'add new goal' -file $file_log $GXMESSAGET)
+            goal=$(gxmessage -entrytext "$goal" -title 'new goal' -file $file_log $GXMESSAGET)
+            if [ "$goal" ];then
+                cmd="sleep2 $time_limit '$date1-$date2 :: $goal' '$title'" 
+                eval "$cmd" &
+               update_file $file_log "$date1: $goal"
 
-    if [ "$goal" ];then
-        echo "$goal" >> $DATA_DIR/txt/priorities.txt
-    fi
 
-        else
-            goal=$(zenity2  txt priorities )
+            fi
         fi
 
 
-    if [ "$goal" ];then
-        cmd="sleep2 $time_limit '$goal' '$title'" 
-        eval "$cmd" &
-        update_logger "commitment" "$goal"
-    fi
+#        random1 2
+#        res=$?
+#        if [ $res -eq 0 ];then
+#
+            str=$(random_reason)
+            
+            echo01 "$str"
+            motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
 
 
-    random1 2
-    res=$?
-    if [ $res -eq 0 ];then
-        str=$(random_grammer)
-        echo01 "$str"
-        motivation=$(gxmessage -entrytext "$motivation"  -title 'reason:' "$str" $GXMESSAGET )
+#        fi
 
-        update_logger "motivation" "$motivation"
-    fi
-
-    helper0 "$goal" $file_log
-    sleep1 30
-    helper0 "$motivation" $file_log
-    sleep1 30
-done
+        helper0 "$goal" $file_log
+        sleep1 30
+        helper0 "$motivation" $file_log
+        sleep1 30
+update_logger 'goal' "$goal"
+update_logger 'motivation' "$motivation"
+    done
 }
 
 unlocker

@@ -2,3 +2,4 @@ reminder
 task_from recent
 after_suspension
 task_from background
+task_from publish

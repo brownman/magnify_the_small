@@ -1,10 +1,31 @@
-ran - code together
-open the book.pdf - linux security cli
-android simple file load
-essay generator - make it funny
-avshalom - menu.json + angular + eran
-periodic gui popup: add git commit command
-screenshot option -> dir-structure: bare-minimume-code\android  , \avshalom
-learn python
+CURRENTLY
+focuse on - watch python
 
-learn python
+
+COMPUTER
+learn python 
+copy the database to the phone
+collect new words - save it to a database - move it to android
+use the showcase folder - avshalom - menu.json + angular + eran
+periodic gui popup: add git commit command
+essay generator - make it funny
+
+
+
+TODO
+talk to shahar edu
+ran - android simple file load - code together
+kuka  -
+roi - 
+shirli - 
+
+
+QUESTIONS-TECHNICAL
+can I get signals from a child process - using bash?
+
+DONE
+make coffee
+open new notebook
+take a deep breath
+finish to make the time frame
+call the Noi

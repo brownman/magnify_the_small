@@ -6,7 +6,8 @@
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
-multiple_langs=false
+multiple_langs=true
+#false
 #${3:-'false'} #"$3" #false #export MULTIPLE_LANGS=true
 silence=$SILENCE
 lang_target=$LANG_DEFAULT
@@ -67,6 +68,7 @@ make_assosiation(){
     local ass=$(gxmessage -entrytext "$str|$lang_target|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
     if [ "$ass" != '' ];then
         echo "$ass" >> $file_assosiation
+            update_logger "make_assosiation" "$ass"
     fi
 
 }

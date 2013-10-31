@@ -39,7 +39,7 @@ task_from(){
 
     #assert_equal_str "$cmd"
     #assert_equal_str "$cmd"
-    xterm1 "$cmd" & 
+    eval "$cmd" & 
 }
 
 ask_a_question(){
@@ -341,13 +341,13 @@ after_suspension(){
 
     gedit $file1 &
 
-    random1 3
+    random1 9
     local res=$?
     if [ $res -eq 0 ];then
+        article $file #use file2 to open
         google-chrome $file2 &
     else
         gedit $file &
-        article $file #use file2 to open
     fi
    }
 
@@ -394,7 +394,7 @@ update_row(){
     echo "update_row: $str"
 } 
 
-android(){
+scp_android(){
 
     $PLUGINS_DIR/android.sh 
 }
