@@ -102,3 +102,6 @@ awesome|ru|ustra-shaii-shi
 put|ru|stavit
 it|ru|tl:eto
 going|ru|idu-she
+generous|ru|one who help others
+simple|ru|prosta
+reason|ru|pri-chin-ya

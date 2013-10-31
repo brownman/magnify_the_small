@@ -1,11 +1,12 @@
 CURRENTLY
+work on his website 
 focuse on - watch python
 
 
 COMPUTER
 learn python 
 copy the database to the phone
-collect new words - save it to a database - move it to android
+
 use the showcase folder - avshalom - menu.json + angular + eran
 periodic gui popup: add git commit command
 essay generator - make it funny
@@ -29,3 +30,4 @@ open new notebook
 take a deep breath
 finish to make the time frame
 call the Noi
+collect new words - save it to a database - move it to android

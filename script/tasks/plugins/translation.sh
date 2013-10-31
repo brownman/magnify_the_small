@@ -284,9 +284,10 @@ echo5(){
     if [[ $? -eq 1 ]];then
         return 
     fi
-    num=`echo "$str" | wc -w`
+  local  num=`echo "$str" | wc -w`
 
 
+  collect_new_words "$lang_target" "$str"
 
     translate_f  "$str" en 
     #echo "$str" | flite
@@ -309,14 +310,31 @@ echo5(){
 }
 
 
+collect_new_words(){
 
+local lang1="$1"
+local str="$2"
+ local num=$(echo "$str" | wc -w)
+    if [[ $num -gt 1 ]];then
+                local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
+                if [ "$pick_word" != '' ];then
+                    translate_f  "$pick_word" "$lang1"
+                    make_assosiation "$pick_word"
+                fi
+    else
+        #notify-send 'scrap here..'
+        trace 'scrap here..'
+
+        #fetch_html
+    fi
+}
 
 
 echo4(){
     trace "echo4() got: $1"
 
 
-random_language_changer
+
 
     if [ "$1" = '' ];then
         trace 'empty string'
@@ -332,35 +350,24 @@ random_language_changer
 
 
 
-#    notify-send 'random lang?'  "$?"
+
+random_language_changer
     local lang1="$lang_target"
     trace "translate to: $lang1"
 
 
-    if [ "$lang1" = '' ];then
-        random1 4
-        local num=$?
-        #trace "num: $num"
-        lang0="${arr1[$num]}"
-        lang1=$(lower $lang0)
-    fi
+#    if [ "$lang1" = '' ];then
+#        random1 4
+#        local num=$?
+#        #trace "num: $num"
+#        lang0="${arr1[$num]}"
+#        lang1=$(lower $lang0)
+#    fi
 
     local str="$1"
     trace "$str"
 
-    num=`echo "$str" | wc -w`
-    if [[ $num -gt 1 ]];then
-                local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
-                if [ "$pick_word" != '' ];then
-                    translate_f  "$pick_word" "$lang1"
-                    make_assosiation "$pick_word"
-                fi
-    else
-        #notify-send 'scrap here..'
-        trace 'scrap here..'
-
-        #fetch_html
-    fi
+  collect_new_words "$lang1" "$str"
 
 
     translate_f  "$str" "en"
