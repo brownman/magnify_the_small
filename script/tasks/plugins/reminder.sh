@@ -8,8 +8,35 @@ notify-send1 "commitment" "$@"
 
 delay=5
 file_locker=/tmp/commitment
-#long=$LONG #500
-#every=$EVERY #60
+sleep2(){
+
+
+    local text="$1"
+    local title="$2"
+    local sec="$3"
+    
+    local time2=$(get_time "$sec")
+
+    text="$date1-$time2: $text"
+    local num=0
+
+    ( 
+    trace "sleep ${sec}s"
+    for (( c=1; c<=$sec; c++ ))
+    do
+        #tracen  "$c "
+        num=$((c*100/sec))
+        #assert_equal_str "$num"
+        echo "$num" ;            sleep 1s
+    done
+    ) | yad --progress --percentage=10 \
+        --progress-text="$text" \
+        --title="$title" \
+        --sticky --on-top \
+        --auto-close
+
+}
+
 
 stop_watch1(){
     trace "stop_watch1() got: $?"
@@ -33,88 +60,53 @@ stop_watch1(){
 
 
 }
-#    for (( c=0; c<=$long; c++ ))
-#    do
-#
-#        #let "m = $c % 60"
-#
-#        m=$((c%every))
-#        if [[ $m -eq 0  ]];then
-#            #local title="easiest task:"
-#            local buttons1="$c/$long"
-#
-#            str=$goal
-#          
-#            messageYN1 "" "continue reminding"
-#            res=$?
-#            if [ $res -eq 1 ];then
-#                notify-send1 'continue to remind' "buttons1"
-#            else
-#                break
-#            fi
-#            
-#        fi
-#       tracen "$c "
-#        sleep1 1
-#    done
-#$(random_command)
-#msg1=$(gxmessage $GXMESSAGET -file "$file_now" -title "reminder: $goal"  -entrytext "$str" -buttons "$buttons1" )
-#helper0 "$msg1" "$file_now"
-
+increase_motivation(){
+    local  str=$(random_reason)
+    helper0 "$str"
+    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
+    helper0 "$motivation" $file_log
+    echo "$motivation"
+}
 
 run(){
 
-
-
+    
     local title="time frame"
+    local type1="goal"
+    load goal=''
     local motivation=''
-    local time_limit=300
-    local answer=''
+
+    local cmd=''
+
+    #local answer=''
     local str=''
     local res=0
-    load goal=''
-    local cmd=''
 
 
 
     goal=$(zenity2  txt priorities )
-    while :;do
-        $( messageYN1 "$goal" "reminder" '' 45 )
-        #update goal
-        res=$?
+    delay=$(gxmessage -entrytext "$delay" -title 'new' 'delay' $GXMESSAGET)
+    title=$(gxmessage -entrytext "$title" -title 'new' 'title' $GXMESSAGET)
 
-        #assert_equal_str $res
-        if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'new goal' -file $file_log $GXMESSAGET)
+    type1=$(gxmessage -entrytext "$type" -title 'new' 'type' $GXMESSAGET)
             
-        helper0 "$goal" $file_log
-            if [ "$goal" ];then
-                cmd="sleep2 $time_limit '$date1-$date2 :: $goal' '$title'" 
-                ( eval "$cmd" &)
-                update_file $file_log "$date1: $goal"
-            fi
+       
+    while :;do
+        $( messageYN1 "$goal" "reminder" '' 15 )
+        res=$?
+        if [ $res -eq 1 ];then
+            goal=$(gxmessage -entrytext "$goal" -title 'update goal' 'new goal' $GXMESSAGET)
+            update_logger "$type1" "$goal"
         fi
-
-
-        str=$(random_reason)
-        echo01 "$str"
-        motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
-
-
         helper0 "$goal" $file_log
-        sleep1 30
+        cmd="sleep2 '$goal' '$title' '$delay'" 
+        eval "$cmd" 
+
+   cmd='increase_motivation'
+   motivation=$( every 5 "$cmd")
         helper0 "$motivation" $file_log
-        sleep1 30
-        if [ "$goal" ];then
-            update_logger 'goal' "$goal"
-        fi
-        if [ "$motivation" ];then
-            update_logger 'motivation' "$motivation"
-        fi
-
-
-
+   
     done
 }
 
-unlocker
+run

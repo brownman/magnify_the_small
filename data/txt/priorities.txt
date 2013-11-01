@@ -1,4 +1,8 @@
 CURRENTLY
+update the mind map
+
+LATER
+loop a question - vlc run from point A to point B 
 work on his website 
 focuse on - watch python
 

@@ -320,6 +320,8 @@ local str="$2"
                 if [ "$pick_word" != '' ];then
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
+
+            update_logger "word" "$pick_word"
                 fi
     else
         #notify-send 'scrap here..'
@@ -391,6 +393,7 @@ printing1(){
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
 
+    update_logger "translation" "$lang| $line2|  $line1"
     if [ "$SILENCE" = true ];then
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
@@ -399,6 +402,7 @@ printing1(){
         if [[ "$lang" = he  ||  "$lang" = hi ]];
         then
             notify-send1  "$line2" "$line1"   
+
         else
             notify-send1  "$line1"
         fi
