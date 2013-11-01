@@ -147,7 +147,7 @@ update_db(){
     fi
     local choose=$(show_selected_table "$name")
     local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
-    echo01 "$choose1"
+    #echo01 "$choose1"
     echo "$res"
 }
 

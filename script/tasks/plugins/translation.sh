@@ -166,7 +166,7 @@ translate_f(){
         trace "cache copy"
 
     fi
-    printing1  "$file_txt" "$lang"
+    printing1  "$file_txt" "$lang" "$input"
 
     ################################# result: html 
     #fetch_html
@@ -247,23 +247,7 @@ choose4(){
 
     echo4 "$str" 
 }
-#speller(){
-#    local ans=$(spell2 "$str")
-#    local result=0
-#
-#
-#    if [ "$ans" = "error" ];then
-#
-#        trace "$ans"
-#        notify-send1 "Mis-spelling:" "$ans"
-#        flite 'spelling error'
-#        flite 'returning'
-#        result=1
-#    fi
-#assert_equal_result $result
-#    return $result
-#
-#}
+
 
 echo5(){
 
@@ -280,10 +264,10 @@ echo5(){
         exiting
     fi
 
-    speller "$str"
-    if [[ $? -eq 1 ]];then
-        return 
-    fi
+#    speller "$str"
+#    if [[ $? -eq 1 ]];then
+#        return 
+#    fi
   local  num=`echo "$str" | wc -w`
 
 
@@ -321,7 +305,7 @@ local str="$2"
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
 
-            update_logger "word" "$pick_word"
+            #update_logger "word" "$pick_word"
                 fi
     else
         #notify-send 'scrap here..'
@@ -386,17 +370,21 @@ random_language_changer
 printing1(){
     #local input_ws="$1" 
     local file_txt="$1"
+
     local lang="$2"
+    local input="$3"
 
     local line1=`cat $file_txt | head -1`
     local line2=`cat $file_txt | head -2 | tail -1`
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
 
-    update_logger "translation" "$lang| $line2|  $line1"
+
     if [ "$SILENCE" = true ];then
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
+
+    update_logger "translate" "$input > $lang > $line2 >  $line1"
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];
@@ -463,7 +451,7 @@ run(){
     local result=''
     #motivation "$file"
     if [ "$method" = 'sentence' ];then
-        speller "$from"
+        #speller "$from"
         if [ "$multiple_langs" = true ];then
             echo5 "$from" 
         else

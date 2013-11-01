@@ -14,10 +14,14 @@ sleep2(){
     local text="$1"
     local title="$2"
     local sec="$3"
-    
+
+    local min=$((sec/60))
+
     local time2=$(get_time "$sec")
 
+
     text="$date1-$time2: $text"
+    title="$title |${min}m"
     local num=0
 
     ( 
@@ -42,15 +46,15 @@ stop_watch1(){
     trace "stop_watch1() got: $?"
 
 
-    local goal="$1"
+    local content="$1"
 
     local res=1
     while :;do
-        $(messageYN1 "$date1: $goal" "remind?")
+        $(messageYN1 "$date1: $content" "remind?")
         res=$?
         if [ $res -eq 1 ];then
-            #( flite "$goal" &)
-            notify-send1 "$goal"
+            #( flite "$content" &)
+            notify-send1 "$content"
             sleep1 10
         else
             break
@@ -63,50 +67,53 @@ stop_watch1(){
 increase_motivation(){
     local  str=$(random_reason)
     helper0 "$str"
-    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
+    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' -file "$file_log" $GXMESSAGET )
     helper0 "$motivation" $file_log
     echo "$motivation"
 }
 
 run(){
 
-    
-    local title="time frame"
-    local type1="goal"
-    load goal=''
+    local delay=60 
     local motivation=''
-
     local cmd=''
-
-    #local answer=''
-    local str=''
+    #local str=''
     local res=0
 
 
 
-    goal=$(zenity2  txt priorities )
-    delay=$(gxmessage -entrytext "$delay" -title 'new' 'delay' $GXMESSAGET)
-    title=$(gxmessage -entrytext "$title" -title 'new' 'title' $GXMESSAGET)
+   local  title=$(zenity2  txt priorities )
+    #    delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
+    #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
+    #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
+   local raw=$( zenity --forms --title="Add a progress bar" \
+        --text="supply:" \
+        --separator="," \
+        --add-entry="delay" \
+        --add-entry="mini-task" )
 
-    type1=$(gxmessage -entrytext "$type" -title 'new' 'type' $GXMESSAGET)
-            
-       
-    while :;do
-        $( messageYN1 "$goal" "reminder" '' 15 )
-        res=$?
-        if [ $res -eq 1 ];then
-            goal=$(gxmessage -entrytext "$goal" -title 'update goal' 'new goal' $GXMESSAGET)
-            update_logger "$type1" "$goal"
-        fi
-        helper0 "$goal" $file_log
-        cmd="sleep2 '$goal' '$title' '$delay'" 
-        eval "$cmd" 
+  local delay=$(echo "$raw" | awk -F ',' '{print $1}')
+  local text1=$(echo "$raw" | awk -F ',' '{print $3}')
+   #assert_equal_str "$title"
+    
 
-   cmd='increase_motivation'
-   motivation=$( every 5 "$cmd")
-        helper0 "$motivation" $file_log
-   
-    done
-}
+        while :;do
+            $( messageYN1 "$text1" "reminder" '' 15 )
+            res=$?
+            if [ $res -eq 1 ];then
+                text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
+                helper0 "$text1" $file_log
+                update_logger "reminder" "$text1"
+            fi
+            helper0 "$text1" $file_log
+            cmd="sleep2 '$text1' '$title' '$delay'" 
+            eval "$cmd" 
 
-run
+            cmd='increase_motivation'
+            motivation=$( every 5 "$cmd")
+            helper0 "$motivation" $file_log
+
+        done
+    }
+
+    run

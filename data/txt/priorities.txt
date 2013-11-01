@@ -1,5 +1,6 @@
 CURRENTLY
-update the mind map
+watch security tube
+ask a question
 
 LATER
 loop a question - vlc run from point A to point B 
@@ -10,7 +11,6 @@ focuse on - watch python
 COMPUTER
 learn python 
 copy the database to the phone
-
 use the showcase folder - avshalom - menu.json + angular + eran
 periodic gui popup: add git commit command
 essay generator - make it funny
@@ -35,3 +35,4 @@ take a deep breath
 finish to make the time frame
 call the Noi
 collect new words - save it to a database - move it to android
+update the mind map
