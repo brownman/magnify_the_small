@@ -54,6 +54,8 @@ testing:
         #- tasks_sh|google|nike|1
         #- cfg|progress_bar|'do something'|a   
         #- cfg|sleep2|10,'text more',title|10  
+        #- cfg|ex1|a|a   
+        #- tasks_sh|increase_motivation|a|a   
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a
@@ -95,8 +97,9 @@ order:
 
 hotkeys:
         - reminder
+        - increase_motivation 
+        - free_speak 
         - task_from recent
-        #- free_speak 
         - after_suspension
         - task_from background 
         - task_from publish

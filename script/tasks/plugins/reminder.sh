@@ -8,39 +8,6 @@ notify-send1 "commitment" "$@"
 
 delay=5
 file_locker=/tmp/commitment
-sleep2(){
-
-
-    local text="$1"
-    local title="$2"
-    local sec="$3"
-
-    local min=$((sec/60))
-
-    local time2=$(get_time "$sec")
-
-
-    text="$date1-$time2: $text"
-    title="$title |${min}m"
-    local num=0
-
-    ( 
-    trace "sleep ${sec}s"
-    for (( c=1; c<=$sec; c++ ))
-    do
-        #tracen  "$c "
-        num=$((c*100/sec))
-        #assert_equal_str "$num"
-        echo "$num" ;            sleep 1s
-    done
-    ) | yad --progress --percentage=10 \
-        --progress-text="$text" \
-        --title="$title" \
-        --sticky --on-top \
-        --auto-close
-
-}
-
 
 stop_watch1(){
     trace "stop_watch1() got: $?"
@@ -64,13 +31,13 @@ stop_watch1(){
 
 
 }
-increase_motivation(){
-    local  str=$(random_reason)
-    helper0 "$str"
-    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' -file "$file_log" $GXMESSAGET )
-    helper0 "$motivation" $file_log
-    echo "$motivation"
-}
+#increase_motivation(){
+#    local  str=$(random_reason)
+#    helper0 "$str"
+#    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
+#    helper0 "$motivation" $file_log
+#    echo "$motivation"
+#}
 
 run(){
 
@@ -83,20 +50,22 @@ run(){
 
 
    local  title=$(zenity2  txt priorities )
-    #    delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
+        delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
     #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
     #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
-   local raw=$( zenity --forms --title="Add a progress bar" \
-        --text="supply:" \
-        --separator="," \
-        --add-entry="delay" \
-        --add-entry="mini-task" )
-
-  local delay=$(echo "$raw" | awk -F ',' '{print $1}')
-  local text1=$(echo "$raw" | awk -F ',' '{print $3}')
+#   local raw=$( zenity --forms --title="Add a progress bar" \
+#        --text="supply:" \
+#        --separator="," \
+#        --add-entry="delay" \
+#        --add-entry="mini-task" )
+#
+#  local delay=$(echo "$raw" | awk -F ',' '{print $1}')
+#  local text1=$(echo "$raw" | awk -F ',' '{print $3}')
    #assert_equal_str "$title"
-    
-
+   if [ !  "$delay" ];then
+exiting
+   fi
+local text1="$title" 
         while :;do
             $( messageYN1 "$text1" "reminder" '' 15 )
             res=$?

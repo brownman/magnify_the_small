@@ -135,6 +135,11 @@ take_photo(){
     $PLUGINS_DIR/take_photo.sh
 }
 
+increase_motivation(){
+    $PLUGINS_DIR/increase_motivation.sh
+}
+
+
 
 update_db(){
     local name="$1"
@@ -322,7 +327,8 @@ suspend1(){
 
     motivation sport
 #xterm1 reminder &
-    after_suspension
+    local cmd='after_suspension'
+    every 5 "$cmd"
     
 }
 
@@ -347,7 +353,8 @@ after_suspension(){
         article $file #use file2 to open
         google-chrome $file2 &
     else
-        gedit $file &
+        #gedit $file &
+        trace ''
     fi
    }
 

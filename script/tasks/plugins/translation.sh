@@ -68,7 +68,7 @@ make_assosiation(){
     local ass=$(gxmessage -entrytext "$str|$lang_target|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
     if [ "$ass" != '' ];then
         echo "$ass" >> $file_assosiation
-            update_logger "make_assosiation" "$ass"
+            #update_logger "make_assosiation" "$ass"
     fi
 
 }
@@ -384,7 +384,7 @@ printing1(){
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
 
-    update_logger "translate" "$input > $lang > $line2 >  $line1"
+    update_logger "translate" "$input ! $lang ! $line2 !  $line1"
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];
