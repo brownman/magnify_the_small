@@ -49,40 +49,40 @@ run(){
 
 
 
-   local  title=$(zenity2  txt priorities )
-        delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
-    #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
-    #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
+    local  title=$(zenity2  txt priorities )
+    delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
+
+    if [ !  "$delay" ];then
+        exiting
+    fi
+    local text1="$title" 
+    while :;do
+        $( messageYN1 "$text1" "reminder" '' 15 )
+        res=$?
+        if [ $res -eq 1 ];then
+            text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
+            helper0 "$text1" $file_log
+            update_table logger "$date1" "reminder" "$text1"
+
+        fi
+        helper0 "$text1" $file_log
+        cmd="sleep2 '$text1' '$title' '$delay'" 
+        eval "$cmd" 
+
+
+
+    done
+}
+
+run
+#    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
+#    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
 #   local raw=$( zenity --forms --title="Add a progress bar" \
-#        --text="supply:" \
-#        --separator="," \
-#        --add-entry="delay" \
-#        --add-entry="mini-task" )
+    #        --text="supply:" \
+    #        --separator="," \
+    #        --add-entry="delay" \
+    #        --add-entry="mini-task" )
 #
 #  local delay=$(echo "$raw" | awk -F ',' '{print $1}')
 #  local text1=$(echo "$raw" | awk -F ',' '{print $3}')
-   #assert_equal_str "$title"
-   if [ !  "$delay" ];then
-exiting
-   fi
-local text1="$title" 
-        while :;do
-            $( messageYN1 "$text1" "reminder" '' 15 )
-            res=$?
-            if [ $res -eq 1 ];then
-                text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
-                helper0 "$text1" $file_log
-                update_logger "reminder" "$text1"
-            fi
-            helper0 "$text1" $file_log
-            cmd="sleep2 '$text1' '$title' '$delay'" 
-            eval "$cmd" 
-
-            cmd='increase_motivation'
-            motivation=$( every 5 "$cmd")
-            helper0 "$motivation" $file_log
-
-        done
-    }
-
-    run
+#assert_equal_str "$title"

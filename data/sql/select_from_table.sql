@@ -16,7 +16,9 @@
 
 
 --SELECT * FROM achieved ORDER BY id DESC; 
+
 SELECT * FROM logger ORDER BY id DESC; 
+SELECT * FROM words ORDER BY id DESC; 
 
 
 

@@ -384,7 +384,9 @@ printing1(){
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
 
-    update_logger "translate" "$input ! $lang ! $line2 !  $line1"
+    #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
+
+    update_table 'words' "$input" "$lang" "$line2" "$line1"
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];

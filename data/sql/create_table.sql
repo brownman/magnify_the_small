@@ -7,4 +7,13 @@ CREATE TABLE logger (
 );
 
 
+CREATE TABLE words (
+    id INTEGER PRIMARY KEY,
+    lang CHAR(30),
+    input CHAR(30),
+    output CHAR(60),
+    assosiation CHAR(60)
+);
+
+
 

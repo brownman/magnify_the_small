@@ -142,18 +142,17 @@ increase_motivation(){
 
 
 update_db(){
-    local name="$1"
-    local  table1="$name"
+    local  table1="$1"
 
 
     #update_db_list
     if [ "$table1" = '' ];then
         table1=$(zenity1 "$DATA_DIR/txt/db.txt")
     fi
-    local choose=$(show_selected_table "$name")
+    local choose=$(show_selected_table "$table1")
     local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
     #echo01 "$choose1"
-    echo "$res"
+    echo "$choose1"
 }
 
 #
@@ -354,8 +353,10 @@ after_suspension(){
         google-chrome $file2 &
     else
         #gedit $file &
+        gedit pro*/progress.txt & 
         trace ''
     fi
+    sleep1 7
    }
 
 #generate_file(){

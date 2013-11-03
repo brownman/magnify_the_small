@@ -56,6 +56,12 @@ testing:
         #- cfg|sleep2|10,'text more',title|10  
         #- cfg|ex1|a|a   
         #- tasks_sh|increase_motivation|a|a   
+        #- cfg|update_table|words,ru,'some input', 'some output2','some assosiation'|1
+        #- cfg|update_table|logger,'10:00','command','arg'|1
+        #- cfg|update_table|words|1
+        #- cfg|show_selected_table|words|1
+        #- cfg|update_db_list1|$DATA_DIR/sql/logger.db|a   
+        #- tasks_sh|update_db|logger|1
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         #- tasks_sh|string_to_buttons|'i have a dog'|a
@@ -98,6 +104,7 @@ order:
 hotkeys:
         - reminder
         - increase_motivation 
+        - update_db
         - free_speak 
         - task_from recent
         - after_suspension

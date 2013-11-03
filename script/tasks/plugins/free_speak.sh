@@ -30,8 +30,8 @@ memory_game(){
         let counter+=1
         trace "loop $counter"
         str=$(random_grammer) 
-        str=$( gxmessage   $GXMESSAGET -entrytext "$str"  -title "$subject" -file "$file")
-        eval 'helper0 "$str" "$file"'
+        str=$( gxmessage   $GXMESSAGE0 -entrytext "$str"  -title "$subject" -file "$file")
+        eval 'helper0 "$str" "$file"' 
     done
 }
 
