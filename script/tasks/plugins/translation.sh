@@ -375,12 +375,18 @@ printing1(){
     local input="$3"
 
     local line1=`cat $file_txt | head -1`
-    local line2=`cat $file_txt | head -2 | tail -1`
+
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
-
+local line2=''
+local max=$(cat $file_txt | wc -l)
+if [  $max -eq 2 ];then
+    line2=`cat $file_txt | head -2 | tail -1`
+fi
+#assert_equal_str "$line2"
+ 
 if [ "$lang" != 'en' ];then
-    update_table 'words' "$input" "$lang" "$line2" "$line1"
+    update_table 'words' "$lang" "$input" "$line1" "$line2"
 fi
 
     #assert_equal_str "abc"
