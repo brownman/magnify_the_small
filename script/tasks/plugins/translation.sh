@@ -379,14 +379,18 @@ printing1(){
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
 
+if [ "$lang" != 'en' ];then
+    update_table 'words' "$input" "$lang" "$line2" "$line1"
+fi
 
+    #assert_equal_str "abc"
     if [ "$SILENCE" = true ];then
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
 
     #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
 
-    update_table 'words' "$input" "$lang" "$line2" "$line1"
+
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];
