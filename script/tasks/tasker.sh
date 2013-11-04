@@ -403,8 +403,17 @@ update_row(){
 } 
 
 scp_android(){
+    $(messageYN1 'backup db to android device ?' 'backup'  )
+    answer=$?
 
-    $PLUGINS_DIR/android.sh 
+    if [[ $answer -eq 1 ]];then
+        $PLUGINS_DIR/android.sh 
+    else
+        echo 'skip backup'
+    fi
+
+
+
 }
 ############################### proxy for execution #####################
 #export COMMANDER=true

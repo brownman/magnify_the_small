@@ -16,4 +16,4 @@ CREATE TABLE words (
 );
 
 
-
+CREATE UNIQUE INDEX output ON words(output ASC);
