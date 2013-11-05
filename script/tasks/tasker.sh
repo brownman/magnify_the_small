@@ -433,16 +433,17 @@ git_commit(){
         git commit -am "$answer"
 
     fi
-        $(messageYN1 'push to remote?' 'github' )
+    $(messageYN1 'push to remote?' 'github' )
     answer=$?
 
     if [[ $answer -eq 1 ]];then
-
         git push origin develop 
+        exo-open 'https://github.com/brownman/magnify_the_small'
     else
         echo 'skip pushing'
         
     fi
+
 
 }
 push_order_forward(){
