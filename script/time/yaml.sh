@@ -51,7 +51,7 @@ parse_subject "$key"
 echo "show keys: $keys1"
 }
 show_keys
-#update_db_list
+update_db_list
  
 
 #

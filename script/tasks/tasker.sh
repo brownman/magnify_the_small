@@ -144,15 +144,25 @@ increase_motivation(){
 update_db(){
     local  table1="$1"
 
-
+  local choose=''
+  local choose1=''
     #update_db_list
     if [ "$table1" = '' ];then
         table1=$(zenity1 "$DATA_DIR/txt/db.txt")
     fi
-    local choose=$(show_selected_table "$table1")
-    local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
+
+    if [ "$table1" ];then
+   choose=$(show_selected_table "$table1")
+    #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
     #echo01 "$choose1"
-    echo "$choose1"
+ choose1=$(string_to_buttons "$choose" '|')
+    fi
+    #assert_equal_str "$choose1"
+    echo01 "$choose1" &
+
+    echo "$choose"
+
+  
 }
 
 #
@@ -325,15 +335,15 @@ suspend1(){
     flite 'update your notebook'
 
     motivation sport
-#xterm1 reminder &
+    #xterm1 reminder &
     local cmd='after_suspension'
     every 5 "$cmd"
-    
+
 }
 
 show_progress(){
-local cmd="sleep2 '$1' '$2' '$3'"
-"$cmd"
+    local cmd="sleep2 '$1' '$2' '$3'"
+    "$cmd"
 }
 
 
@@ -357,7 +367,7 @@ after_suspension(){
         trace ''
     fi
     sleep1 7
-   }
+}
 
 #generate_file(){
 #    local subject=$1
@@ -413,6 +423,15 @@ scp_android(){
     fi
 
 
+
+}
+git_commit(){
+    local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
+    if [ "$answer" ];then
+        git add .
+        git commit -am "$answer"
+        #git push origin develop 
+    fi
 
 }
 ############################### proxy for execution #####################

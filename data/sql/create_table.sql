@@ -17,3 +17,15 @@ CREATE TABLE words (
 
 
 CREATE UNIQUE INDEX output ON words(output ASC);
+
+CREATE TABLE tasks (
+    id INTEGER PRIMARY KEY,
+    title CHAR(10),
+    content CHAR(60),
+    priority INTEGER
+);
+
+CREATE TABLE tweets (
+    id INTEGER PRIMARY KEY,
+    content CHAR(120)
+);

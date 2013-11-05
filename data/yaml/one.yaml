@@ -104,6 +104,7 @@ order:
 hotkeys:
         - reminder
         - increase_motivation 
+        - git_commit
         - update_db
         - free_speak 
         - task_from recent

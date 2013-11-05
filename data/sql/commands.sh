@@ -1,12 +1,13 @@
-
+#echo 'logger.db'
 
 if [ ! "$1" ];then
     echo 'no args'
     exit
 
 fi
-name1="$1"
-file_name="$name1.db"
+#name1="$1"
+#file_name="$1"
+file_name="logger.db"
 
 #touch $file_name
 #dir1=$PWD/backup

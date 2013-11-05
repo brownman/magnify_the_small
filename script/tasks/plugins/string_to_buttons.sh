@@ -14,14 +14,8 @@ declare -a arr=() #=('aa')
 arr_to_msg(){
     local str=$(pick_line $file_assosiation)
     if [ "$STRING_TO_BUTTONS" = true ];then
-        random1 5
-        res=$?
-        if [ $res -eq 0 ];then
-            gxmessage -buttons "$1" "$str" -timeout 5
-        else
-            gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
-        fi
 
+            gxmessage -buttons "$1" "$str" -timeout 7 
     else
         mantion 'string to buttons is off'
         gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
@@ -81,8 +75,10 @@ step1(){
 }
 step2(){
     local res=''
-    local str="Q - $1"
+
     delimeter="${2:-' '}"   # Defaults to /tmp dir.
+
+    local str="Q${delimeter}$1"
     str_to_arr "$str" #create new array
     local str2=$(arr_to_str ) #use array to create buttons-string
     #echo "$str2"trace "$str2"
@@ -91,7 +87,7 @@ step2(){
 
     local str4=$(remove_trailing "$str3")
     trace "=$str4="
-    if [ "$str4" = "$empty" ] || [ "$str4" = "-" ] 
+    if [ "$str4" = "$empty" ] 
     then
         trace "choosen: empty string: -$str4-"
     else

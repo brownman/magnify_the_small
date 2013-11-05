@@ -6,4 +6,7 @@
 INSERT INTO logger VALUES (1,1,1,1);
 INSERT INTO words VALUES (1,1,1,1,1);
 
+INSERT INTO tasks VALUES (1,1,1,1);
+INSERT INTO tweets VALUES (1,1);
+
 

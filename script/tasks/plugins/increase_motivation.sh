@@ -5,11 +5,11 @@ loop(){
     local delay=60
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
-    local answer="because"
+    local answer=""
 
     while :;do
 
-        local  trigger=$(random_reason)
+        local  trigger=$(random_trigger)
         helper0 "$trigger" $file_log  
         local answer=$(gxmessage -entrytext ""  -title 'new reason:' "$trigger" $GXMESSAGET )
 
