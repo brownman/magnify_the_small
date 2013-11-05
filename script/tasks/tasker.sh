@@ -429,6 +429,7 @@ scp_android(){
 git_commit(){
     local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
     if [ "$answer" ];then
+git rm -r --cached .
         git add .
         git commit -am "$answer"
 
