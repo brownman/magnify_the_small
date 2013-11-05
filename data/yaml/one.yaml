@@ -105,7 +105,7 @@ hotkeys:
         - reminder
         - increase_motivation 
         - git_commit
-        - update_db
+        - push_order_forward 
         - free_speak 
         - task_from recent
         - after_suspension

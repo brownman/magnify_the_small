@@ -348,25 +348,26 @@ show_progress(){
 
 
 after_suspension(){
-    local file=$DATA_DIR/txt/easy_for_robot.txt
-    local file1=$DATA_DIR/txt/priorities.txt
-    local file2=$DATA_DIR/html/all.html
-
-
-
-    gedit $file1 &
-
-    random1 9
-    local res=$?
-    if [ $res -eq 0 ];then
-        article $file #use file2 to open
-        google-chrome $file2 &
-    else
-        #gedit $file &
-        gedit pro*/progress.txt & 
-        trace ''
-    fi
-    sleep1 7
+   push_order_forward 
+#    local file=$DATA_DIR/txt/easy_for_robot.txt
+#    local file1=$DATA_DIR/txt/priorities.txt
+#    local file2=$DATA_DIR/html/all.html
+#
+#
+#
+#    gedit $file1 &
+#
+#    random1 9
+#    local res=$?
+#    if [ $res -eq 0 ];then
+#        article $file #use file2 to open
+#        google-chrome $file2 &
+#    else
+#        #gedit $file &
+#        gedit pro*/progress.txt & 
+#        trace ''
+#    fi
+#    sleep1 7
 }
 
 #generate_file(){
@@ -430,10 +431,24 @@ git_commit(){
     if [ "$answer" ];then
         git add .
         git commit -am "$answer"
-        #git push origin develop 
+
+    fi
+        $(messageYN1 'push to remote?' 'github' )
+    answer=$?
+
+    if [[ $answer -eq 1 ]];then
+
+        git push origin develop 
+    else
+        echo 'skip pushing'
+        
     fi
 
 }
+push_order_forward(){
+    update_db "tasks"
+}
+
 ############################### proxy for execution #####################
 #export COMMANDER=true
 cmd1="$@"
