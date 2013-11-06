@@ -6,6 +6,8 @@ loop(){
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
     local answer=""
+if [ "$delay" ];then
+    
 
     while :;do
 
@@ -20,6 +22,8 @@ loop(){
         res=$(commander "$cmd")
         #silently_run "$cmd"
     done
+
+fi
 
 }
 
