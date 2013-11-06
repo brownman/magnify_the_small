@@ -104,13 +104,17 @@ order:
 hotkeys:
         - reminder
         - increase_motivation 
-        - git_commit
+        - task_from publish
         - push_order_forward 
         - free_speak 
         - task_from recent
         - after_suspension
         - task_from background 
-        - task_from publish
+
+
+
+
+
 #        - ask_a_question #how to make good rise?
 #        - record_a_thanks #much better than just write it - rington!
 #        - backup_db #push to database.com
@@ -153,4 +157,4 @@ publish:
     - git_commit
     - screencast
     - screenshot
-
+    - git_commit

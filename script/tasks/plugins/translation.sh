@@ -327,7 +327,7 @@ echo4(){
         return
     fi
 
-    speller "$1"
+    #speller "$1"
 
     if [[ $? -eq 1 ]];then
         return
@@ -463,13 +463,16 @@ run(){
     local result=''
     #motivation "$file"
     if [ "$method" = 'sentence' ];then
-        #speller "$from"
+        speller "$from"
+        #assert_equal_str "$from"
         if [ "$multiple_langs" = true ];then
             echo5 "$from" 
         else
             echo4 "$from" 
         fi
     elif [ "$method" = 'line' ];then
+
+        speller "$from"
         one_line "$from"
     elif [ "$method" = 'lines' ];then
 

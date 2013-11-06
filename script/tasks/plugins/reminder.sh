@@ -67,6 +67,7 @@ run(){
         fi
         helper0 "$text1" $file_log
         cmd="sleep2 '$text1' '$title' '$delay'" 
+        #assert_equal_str "$cmd"
         eval "$cmd" 
 
 
