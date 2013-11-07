@@ -57,7 +57,7 @@ run(){
     fi
     local text1="$title" 
     while :;do
-        $( messageYN1 "$text1" "reminder" '' 15 )
+        $( messageYN1 "$text1" "reminder" '' 35 )
         res=$?
         if [ $res -eq 1 ];then
             text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
