@@ -106,8 +106,8 @@ hotkeys:
         - increase_motivation 
         - task_from publish
         - push_order_forward 
-        - free_speak 
         - task_from recent
+        - free_speak 
         - after_suspension
         - task_from background 
 
@@ -147,6 +147,7 @@ recent:
     - exo-open file:///home/dao01/Desktop/Screenshot%20-%20271013%20-%2016:45:33.png
     - exo-open http://www.compileonline.com/execute_bash_online.php
     - exo-open http://drichard.org/mindmaps/#
+    - exo-open http://www.btl.gov.il/benefits/Unemployment/rates/Pages/Calculator.aspx
 
 angular-vids:
     - http://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm

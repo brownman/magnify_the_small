@@ -15,10 +15,10 @@ arr_to_msg(){
     local str=$(pick_line $file_assosiation)
     if [ "$STRING_TO_BUTTONS" = true ];then
 
-            gxmessage -buttons "$1" "$str" -timeout 7 
+            gxmessage -buttons "$1" "$str" -timeout 27 
     else
         mantion 'string to buttons is off'
-        gxmessage -buttons "$1" "$str" -timeout 5 -iconic 
+        gxmessage -buttons "$1" "$str" -timeout 9 -iconic 
     fi
 
     local num=$?
