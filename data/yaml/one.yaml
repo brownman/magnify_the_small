@@ -15,7 +15,8 @@ timer:
 workflow:
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
-        - practice_regexp||practice
+        #- practice_regexp||practice
+         - do_abs
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
@@ -27,6 +28,37 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- tasks_sh|do_abs||b
+        #- cfg|list_dir2|/tmp/,er|b
+        - cfg|remove_trailing|a|a   
+        - cfg|remove_trailing|" a    bc "|"a  bc"   
+        #- tasks_sh|string_to_buttons|'i have a dog'|a
+        - tasks_sh|update_row|glossary|a
+        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+        - tasks_sh|commitment|assosiation|d
+        - tasks_sh|motivation|sport|a
+        #- cfg|fetching|frame.cake|I am happy to|1
+        #- tasks_sh|conditions|do something good|0   
+        #- tasks_sh|free_speak|i|a   
+        - cfg|baking|a|b|
+        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
+        - tasks_sh|helper|a|b
+        - tasks_sh|string_to_buttons|one two|success
+        - tasks_sh|free_speak||success
+        - cfg|fetching|frame.conditions|a
+        - cfg|echo01|friend|a  bc   
+        - cfg|file_to_lines|/tmp/11.txt|a  bc   
+        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
+        - tasks_sh|learn_langs||success
+        - tasks_sh|nothing|ab|ab
+        - tasks_sh|fetch|frame.should|a|b
+        - tasks_sh|show_msg|df|d
+        - cfg|fetching|frame.should|a
+        - cfg|fetching|frame.achievments|a
+        - cfg|parse_subject|workflow|abc
+        - tasks_sh|random_quote|a|b
+        - tasks_sh|free_speak|a|b
+        - cfg|unlocker|/tmp/1|1
         #- tasks_sh|string_to_buttons|the king is smart|a  bc   
         #- tasks_sh|show_msg_entry|tasks|d
         #- cfg|random_from_subject|story|b|
@@ -62,35 +94,7 @@ testing:
         #- cfg|show_selected_table|words|1
         #- cfg|update_db_list1|$DATA_DIR/sql/logger.db|a   
         #- tasks_sh|update_db|logger|1
-        - cfg|remove_trailing|a|a   
-        - cfg|remove_trailing|" a    bc "|"a  bc"   
-        #- tasks_sh|string_to_buttons|'i have a dog'|a
-        - tasks_sh|update_row|glossary|a
-        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
-        - tasks_sh|commitment|assosiation|d
-        - tasks_sh|motivation|sport|a
-        #- cfg|fetching|frame.cake|I am happy to|1
-        #- tasks_sh|conditions|do something good|0   
-        #- tasks_sh|free_speak|i|a   
-        - cfg|baking|a|b|
-        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
-        - tasks_sh|helper|a|b
-        - tasks_sh|string_to_buttons|one two|success
-        - tasks_sh|free_speak||success
-        - cfg|fetching|frame.conditions|a
-        - cfg|echo01|friend|a  bc   
-        - cfg|file_to_lines|/tmp/11.txt|a  bc   
-        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-        - tasks_sh|learn_langs||success
-        - tasks_sh|nothing|ab|ab
-        - tasks_sh|fetch|frame.should|a|b
-        - tasks_sh|show_msg|df|d
-        - cfg|fetching|frame.should|a
-        - cfg|fetching|frame.achievments|a
-        - cfg|parse_subject|workflow|abc
-        - tasks_sh|random_quote|a|b
-        - tasks_sh|free_speak|a|b
-        - cfg|unlocker|/tmp/1|1
+
 
 
 

@@ -48,7 +48,7 @@ parse_subject "$key"
             done
 
 
-echo "show keys: $keys1"
+trace "show keys: $keys1"
 }
 show_keys
 update_db_list

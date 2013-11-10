@@ -81,7 +81,7 @@ play1(){
 
         local file="$1"
 
-        if [ $PLAYING_ON = false ];then
+        if [ "$PLAYING_ON" = false ];then
             export PLAYING_ON=true
             local lang="$2"
             local lang_repeat=\$"$lang"R   # Name of variable (not value!).
@@ -101,7 +101,7 @@ play1(){
             export PLAYING_ON=false
         else
             trace 'playing is already on'
-            Backtrace1
+            #Backtrace1
         fi
     else
         mantion  'silence is on' 15

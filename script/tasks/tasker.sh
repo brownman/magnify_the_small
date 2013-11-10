@@ -6,6 +6,30 @@
 
 notify-send "tasker.sh:" "$@"
 
+
+
+
+do_koan(){
+#local dir_source=$PWD/1/testing/python2/koans
+
+local dir_source=$dir_koans
+local file_name_target="recent_koan.py" 
+update_recent_link "$dir_source" "$file_name_target"
+}
+
+do_abs(){
+#local dir_source=$PWD/1/testing/python2/koans
+
+
+local dir_source=$dir_abs
+local file_name_target="recent_abs.sh" 
+update_recent_link "$dir_source" "$file_name_target"
+
+#assert_equal_str "$1"
+gedit $LINKS_DIR/$file_name_target
+
+}
+
 #notify-send "tasker.sh:" "$*"
 article(){
 
@@ -201,10 +225,11 @@ update_db(){
 
 
 motivation(){
+    return
     file_name="$1"
 
     reason='push: learning new language'
-
+local line=''
     reasoning 
     trace "motivation: $file_name : $MUTE"
     if [ "$MUTE" = false ];then
@@ -212,13 +237,18 @@ motivation(){
         ans=$?
         #notify-send "random: $ans"
         if [[ $ans -gt 3 ]];then
-            local file=$(generate_file $file_name)
+             line=$(generate_line motivation)
+            #assert_equal_str "$file"
 
-            $PLUGINS_DIR/translation.sh line $file false   
+            #$PLUGINS_DIR/translation.sh line $file false   
         else
-            local file=$(generate_file sport)
-            $PLUGINS_DIR/translation.sh line $file false   
+             line=$(generate_file sport)
+
+            #assert_equal_str "$file"
+            #$PLUGINS_DIR/translation.sh line $file false   
         fi
+
+echo01 "$line"
     fi
 }
 
@@ -230,9 +260,9 @@ motivations(){
 
     #file_name="$1"
     local file_name=${1:-'glossary'}
-    local file=$(generate_file $file_name)
+    local line=$(generate_line $file_name)
     #$CFG_DIR/txt/$file_name.txt
-    local cmd="$PLUGINS_DIR/translation.sh lines $file false"
+    local cmd="$PLUGINS_DIR/translation.sh lines $line false"
     COMMANDER=true
     commander "$cmd"
     echo "$motivations"
@@ -444,9 +474,8 @@ git rm -r --cached .
         echo 'skip pushing'
         
     fi
-
-
 }
+
 push_order_forward(){
     update_db "tasks"
 }

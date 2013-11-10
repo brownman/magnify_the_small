@@ -29,3 +29,7 @@ CREATE TABLE tweets (
     id INTEGER PRIMARY KEY,
     content CHAR(120)
 );
+CREATE TABLE tweets (
+    id INTEGER PRIMARY KEY,
+    content CHAR(120)
+);
