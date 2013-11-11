@@ -12,7 +12,7 @@
     #http://stackoverflow.com/questions/3265803/bash-string-equality
 cry
 #notify-send "Restart Test"
-#export  COMMANDER=true
+export  COMMANDER=false
 export DEBUG=true
 export VERBOSE=false
 result='equal'

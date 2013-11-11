@@ -20,7 +20,7 @@
 SELECT * FROM logger ORDER BY id DESC; 
 SELECT * FROM words ORDER BY id DESC; 
 
-SELECT * FROM tasks ORDER BY id DESC; 
+SELECT * FROM priorities ORDER BY id DESC; 
 
 SELECT * FROM tweets ORDER BY id DESC; 
 

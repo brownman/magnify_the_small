@@ -18,7 +18,7 @@ CREATE TABLE words (
 
 CREATE UNIQUE INDEX output ON words(output ASC);
 
-CREATE TABLE tasks (
+CREATE TABLE priorities (
     id INTEGER PRIMARY KEY,
     title CHAR(10),
     content CHAR(60),

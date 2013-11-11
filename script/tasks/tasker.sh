@@ -19,14 +19,19 @@ update_recent_link "$dir_source" "$file_name_target"
 
 do_abs(){
 #local dir_source=$PWD/1/testing/python2/koans
+local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
+local line=$(generate_line 'abs')
+local res="$dir/$line"
+
+    COMMANDER=true
 
 
-local dir_source=$dir_abs
-local file_name_target="recent_abs.sh" 
-update_recent_link "$dir_source" "$file_name_target"
+#commander  "exec $res"
 
-#assert_equal_str "$1"
-gedit $LINKS_DIR/$file_name_target
+cmd="gedit $res"
+commander "$cmd" 
+
+echo 'z'
 
 }
 
@@ -225,7 +230,7 @@ update_db(){
 
 
 motivation(){
-    return
+    #return
     file_name="$1"
 
     reason='push: learning new language'
@@ -240,12 +245,12 @@ local line=''
              line=$(generate_line motivation)
             #assert_equal_str "$file"
 
-            #$PLUGINS_DIR/translation.sh line $file false   
+            #$PLUGINS_DIR/translation.sh line $line false   
         else
              line=$(generate_file sport)
 
             #assert_equal_str "$file"
-            #$PLUGINS_DIR/translation.sh line $file false   
+            #$PLUGINS_DIR/translation.sh line $line false   
         fi
 
 echo01 "$line"
@@ -259,11 +264,11 @@ motivations(){
     #echo "bbb"
 
     #file_name="$1"
-    local file_name=${1:-'glossary'}
-    local line=$(generate_line $file_name)
+    #local file_name=${1:-'glossary'}
+    #local line=$(generate_line $file_name)
     #$CFG_DIR/txt/$file_name.txt
-    local cmd="$PLUGINS_DIR/translation.sh lines $line false"
-    COMMANDER=true
+    local cmd="$PLUGINS_DIR/translation.sh lines $DATA_DIR/txt/glossary.txt true"
+    #COMMANDER=true
     commander "$cmd"
     echo "$motivations"
     #fi
@@ -477,8 +482,12 @@ git rm -r --cached .
 }
 
 push_order_forward(){
-    update_db "tasks"
+    update_db "priorities"
 }
+deal_comparison(){
+$PLUGINS_DIR/deals.sh
+}
+
 
 ############################### proxy for execution #####################
 #export COMMANDER=true

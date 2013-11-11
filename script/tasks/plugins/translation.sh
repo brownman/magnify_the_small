@@ -368,6 +368,7 @@ random_language_changer
 
 }
 printing1(){
+    #notify-send1 "printing1"
     #local input_ws="$1" 
     local file_txt="$1"
 
@@ -444,11 +445,13 @@ all_lines(){
     lines=() 
     local from="$1"
 
-    #local cmd='echo4'
-    local cmd='notify-send1'
+    local cmd='echo5'
+    #local cmd='notify-send1'
     file_to_lines "$from"
-#assert_equal_str "${lines[1]}"
+
     execute_lines
+
+#assert_equal_str "${lines[1]}"
     #local msg=$(    execute_lines )
     #local msg=$(file_to_lines "$from")
     echo "$msg"

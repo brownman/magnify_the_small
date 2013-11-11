@@ -1,4 +1,4 @@
 logger
-tasks
+priorities
 tweets
 words

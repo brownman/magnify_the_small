@@ -1,5 +1,5 @@
 date: 
-    - 30.10.13
+    - 10.11.13
 day:
     - Wed 
 
@@ -28,6 +28,8 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- tasks_sh|deal_comparison|a|a
+        #- tasks_sh|motivations|a|a
         #- tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
         - cfg|remove_trailing|a|a   
@@ -106,10 +108,10 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
+        - push_order_forward 
         - reminder
         - increase_motivation 
         - task_from publish
-        - push_order_forward 
         - task_from recent
         - free_speak 
         - after_suspension
@@ -152,6 +154,8 @@ recent:
     - exo-open http://www.compileonline.com/execute_bash_online.php
     - exo-open http://drichard.org/mindmaps/#
     - exo-open http://www.btl.gov.il/benefits/Unemployment/rates/Pages/Calculator.aspx
+    - gedit $CFG_DIR/cfg/vars.cfg
+    - exo-open http://egghead.io/lessons
 
 angular-vids:
     - http://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm
@@ -163,3 +167,12 @@ publish:
     - screencast
     - screenshot
     - git_commit
+
+deals:
+    # israel phones
+    - http://www.zap.co.il/models.aspx?sog=e-cellphone&filter=188396
+    # many sites
+    - http://www.storeswithfreeshipping.net/free-shipping-stores-list.php
+    # daily deal
+    - http://www.pandawill.com/happy-hour/?current=monday
+#

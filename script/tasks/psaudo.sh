@@ -3,7 +3,31 @@
 # collection of system tasks
 
 notify-send "psaudo.sh:" "$@"
+presentation_plugin_take_screenshot(){
+echo 
+}
+better_usage_of_assosiation(){
+trace ''
+}
 
+create_big_mp3(){
+export_translations "$file_txt"
+}
+
+presentation_colorful(){
+    show_all_translations "ru"
+}
+
+
+arabic_phonetics(){
+
+    to_eng "$arabic"
+}
+
+cake_of_time(){
+use_xcowsay "cake" "1.2%" "current goal: X"
+
+}
 funny_motivation(){
     line=$(generate_line "although")
     #although by accident.. I had succeeded doing: X
