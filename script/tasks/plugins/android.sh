@@ -4,7 +4,7 @@ file_name=logger.db
 dir1=$DATA_DIR/sql
 #/tmp/1.txt
 #file_from=/tmp/1.txt
-host="root@192.168.1.4"
+
 
 
 gui1(){

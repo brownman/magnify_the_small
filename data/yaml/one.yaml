@@ -108,14 +108,14 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        - push_order_forward 
+        - update_db the_big_picture 
         - reminder
         - increase_motivation 
         - task_from publish
         - task_from recent
         - free_speak 
         - after_suspension
-        - task_from background 
+
 
 
 
@@ -136,7 +136,7 @@ background:
         - reminder 
         - push_koans
         - motivations
-        #- update_db achieved
+        - update_db the_big_picture 
         #- update_db logger 
 
         #- scrap ru dog

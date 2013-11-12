@@ -29,7 +29,27 @@ CREATE TABLE tweets (
     id INTEGER PRIMARY KEY,
     content CHAR(120)
 );
-CREATE TABLE tweets (
+
+
+CREATE TABLE associations (
     id INTEGER PRIMARY KEY,
-    content CHAR(120)
+    word CHAR(30),
+    lang CHAR(2),
+    phonetics CHAR(30),
+    content CHAR(60)
 );
+CREATE TABLE the_big_picture (
+    id INTEGER PRIMARY KEY,
+    breakthrough CHAR(40),
+    goal CHAR(30),
+    estimate CHAR(30),
+    mini_task CHAR(30),
+    on_suspend CHAR(30),
+    do_for_others_first CHAR(40),
+    breath CHAR(40),
+    funny CHAR(40)
+);
+
+
+
+

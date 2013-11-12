@@ -70,6 +70,7 @@ make_assosiation(){
         echo "$ass" >> $file_assosiation
             #update_logger "make_assosiation" "$ass"
     fi
+    
 
 }
 play1(){
@@ -304,6 +305,7 @@ local str="$2"
                 if [ "$pick_word" != '' ];then
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
+                    $tasks_sh add_association
 
             #update_logger "word" "$pick_word"
                 fi
@@ -466,7 +468,7 @@ run(){
     local result=''
     #motivation "$file"
     if [ "$method" = 'sentence' ];then
-        speller "$from"
+        #speller "$from"
         #assert_equal_str "$from"
         if [ "$multiple_langs" = true ];then
             echo5 "$from" 
@@ -475,7 +477,7 @@ run(){
         fi
     elif [ "$method" = 'line' ];then
 
-        speller "$from"
+        #speller "$from"
         one_line "$from"
     elif [ "$method" = 'lines' ];then
 

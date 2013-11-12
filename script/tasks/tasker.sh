@@ -230,31 +230,21 @@ update_db(){
 
 
 motivation(){
-    #return
     file_name="$1"
 
     reason='push: learning new language'
 local line=''
     reasoning 
     trace "motivation: $file_name : $MUTE"
-    if [ "$MUTE" = false ];then
         random1 10
         ans=$?
-        #notify-send "random: $ans"
-        if [[ $ans -gt 3 ]];then
+        if [ $ans -gt 3 ];then
              line=$(generate_line motivation)
-            #assert_equal_str "$file"
-
-            #$PLUGINS_DIR/translation.sh line $line false   
         else
-             line=$(generate_file sport)
-
-            #assert_equal_str "$file"
-            #$PLUGINS_DIR/translation.sh line $line false   
+             line=$(generate_line sport)
         fi
 
 echo01 "$line"
-    fi
 }
 
 motivations(){
@@ -372,8 +362,8 @@ suspend1(){
     motivation sport
     #xterm1 reminder &
     local cmd='after_suspension'
-    every 5 "$cmd"
-
+   "$cmd" &
+   notify-send1 'exiting func' 'suspend()'
 }
 
 show_progress(){
@@ -381,9 +371,14 @@ show_progress(){
     "$cmd"
 }
 
+add_association(){
+update_db associations
+}
 
 after_suspension(){
    push_order_forward 
+   #free_speak 
+   update_db the_big_picture
 #    local file=$DATA_DIR/txt/easy_for_robot.txt
 #    local file1=$DATA_DIR/txt/priorities.txt
 #    local file2=$DATA_DIR/html/all.html

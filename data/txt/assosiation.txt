@@ -105,3 +105,4 @@ going|ru|idu-she
 generous|ru|one who help others
 simple|ru|prosta
 reason|ru|pri-chin-ya
+dishes|ru|pasuda - pass me the Soda

@@ -57,6 +57,7 @@ run(){
     fi
     local text1="$title" 
     while :;do
+reload_cfg
         $( messageYN1 "$text1" "reminder" '' 35 )
         res=$?
         if [ $res -eq 1 ];then
