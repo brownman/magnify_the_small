@@ -18,29 +18,35 @@ play_lesson(){
     #gxmessage $GXMESSAGET "lesson $lesson"
 
 
-#$tasks_sh free_speak learn_langs &
+    #$tasks_sh free_speak learn_langs &
 
-        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
+    (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
 
     lang=$( gxmessage -title "Lang: $lang" 'choose a language :' -entrytext "$lang" $GXMESSAGET -buttons "ok" )
 
     lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
 
+    if [ !  "$lang" ];then
+        exiting
+    fi
+    if [ !  "$lesson" ];then
+        exiting
+    fi
 
-        while :;do
-            messageYN1 "continue to lesson -$lesson- ?"
-            result="$?"
-            echo -n  "eacher result:"
-            trace "$result"
-            if [[ $result -eq 0 ]];then
-                echo 'breaking'
-                break
-            else
-                code1
+    while :;do
+        messageYN1 "continue to lesson -$lesson- ?"
+        result="$?"
+        echo -n  "eacher result:"
+        trace "$result"
+        if [[ $result -eq 0 ]];then
+            echo 'breaking'
+            break
+        else
+            code1
 
-    let "lesson=$lesson+1"
-            fi
-        done
+            let "lesson=$lesson+1"
+        fi
+    done
 }
 
 code1(){
@@ -55,7 +61,7 @@ code1(){
 
     local num=$lesson
     num=num+2
-        (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
+    (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}0${num}.HTM" &)
 
 
     num=num-2

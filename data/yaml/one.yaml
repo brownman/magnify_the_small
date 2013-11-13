@@ -16,7 +16,9 @@ workflow:
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
-         - do_abs
+        - do_abs
+        - free_speak
+        - learn_langs
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
         #- show_msg_entry|frame.times|on next suspension I can
@@ -28,6 +30,7 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- tasks_sh|motivation|||
         #- tasks_sh|deal_comparison|a|a
         #- tasks_sh|motivations|a|a
         #- tasks_sh|do_abs||b

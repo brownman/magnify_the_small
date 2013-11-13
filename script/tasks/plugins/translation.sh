@@ -305,7 +305,7 @@ local str="$2"
                 if [ "$pick_word" != '' ];then
                     translate_f  "$pick_word" "$lang1"
                     make_assosiation "$pick_word"
-                    $tasks_sh add_association
+                    #$tasks_sh add_association
 
             #update_logger "word" "$pick_word"
                 fi

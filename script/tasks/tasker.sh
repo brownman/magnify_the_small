@@ -227,24 +227,35 @@ update_db(){
 #}
 #
 #
+cow_report(){
+local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
+xcowsay "associations: $num"
+}
 
 
 motivation(){
+notify-send1 'motivation'
+caller1
     file_name="$1"
-
+cmd=cow_report
+every "$cmd" 10
     reason='push: learning new language'
 local line=''
-    reasoning 
-    trace "motivation: $file_name : $MUTE"
+
         random1 10
         ans=$?
         if [ $ans -gt 3 ];then
-             line=$(generate_line motivation)
+             line=$(generate_line glossary)
         else
              line=$(generate_line sport)
         fi
 
 echo01 "$line"
+
+    #assert_equal_str "$line"
+    reasoning 
+
+
 }
 
 motivations(){
@@ -346,9 +357,23 @@ update(){
     add_line $file "$title"
 }
 
+before_suspension(){
+notify-send1 'before_suspension'
+flite 'think smaller'
+sleep1 5
+motivation
+
+cmd=free_speak
+every "$cmd" 10
+
+cmd=learn_langs
+every "$cmd" 15
+}
 
 suspend1(){
     #flite "should - $msg"
+
+   before_suspension 
 
     local timeout=440
     sleep1 $timeout
@@ -359,11 +384,15 @@ suspend1(){
 
     flite 'update your notebook'
 
-    motivation sport
+    #motivation 
     #xterm1 reminder &
-    local cmd='after_suspension'
-   "$cmd" &
+    #local cmd='after_suspension'
+   #"$cmd" &
+   after_suspension 
+
+
    notify-send1 'exiting func' 'suspend()'
+   breakpoint
 }
 
 show_progress(){
@@ -379,32 +408,10 @@ after_suspension(){
    push_order_forward 
    #free_speak 
    update_db the_big_picture
-#    local file=$DATA_DIR/txt/easy_for_robot.txt
-#    local file1=$DATA_DIR/txt/priorities.txt
-#    local file2=$DATA_DIR/html/all.html
-#
-#
-#
-#    gedit $file1 &
-#
-#    random1 9
-#    local res=$?
-#    if [ $res -eq 0 ];then
-#        article $file #use file2 to open
-#        google-chrome $file2 &
-#    else
-#        #gedit $file &
-#        gedit pro*/progress.txt & 
-#        trace ''
-#    fi
-#    sleep1 7
-}
 
-#generate_file(){
-#    local subject=$1
-#    local file=$2
-#    $PLUGINS_DIR/yaml_parser.sh generate_file $subject $file
-#}
+   gedit $DATA_DIR/yaml/priorities.yaml & 
+
+}
 
 report(){
     echo 'update google blogger with the score for this cycle'

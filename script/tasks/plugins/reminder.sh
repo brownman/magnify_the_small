@@ -49,7 +49,7 @@ run(){
 
 
 
-    local  title=$(zenity2  txt priorities )
+    local  title=$(zenity2  yaml priorities )
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
 
     if [ !  "$delay" ];then
