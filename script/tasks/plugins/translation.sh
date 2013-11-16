@@ -86,7 +86,7 @@ play1(){
             export PLAYING_ON=true
             local lang="$2"
             local lang_repeat=\$"$lang"R   # Name of variable (not value!).
-            local times1=`eval "expr \"$lang_repeat\" "`
+            local times1=$(eval "expr \"$lang_repeat\" ")
             notify-send "times: $times1 for $lang"
             if [ "$times1" != '' ];then
 
@@ -173,7 +173,7 @@ translate_f(){
     #fetch_html
 
     ################################# result: mp3 
-    output=`cat $file_txt | head -1`
+    output=$(cat $file_txt | head -1)
     #blue "fetch for: $output"
     output_wsp=$(echo "$output"|sed 's/ /+/g');
     output_ws=$(echo "$output"|sed 's/ /_/g');
@@ -224,7 +224,7 @@ choose5(){
     fi
 
 
-    local str=`cat $file | sort --random-sort | head -n 1`
+    local str=$(cat $file | sort --random-sort | head -n 1)
 
     trace "choosen line: "
     trace "$str"
@@ -241,7 +241,7 @@ choose4(){
         error_handler 
     fi
 
-    local str=`cat $file | sort --random-sort | head -n 1`
+    local str=$(cat $file | sort --random-sort | head -n 1)
 
     trace "choosen line: "
     trace "$str"
@@ -269,7 +269,7 @@ echo5(){
 #    if [[ $? -eq 1 ]];then
 #        return 
 #    fi
-  local  num=`echo "$str" | wc -w`
+  local  num=$(echo "$str" | wc -w)
 
 
   collect_new_words "$lang_target" "$str"
@@ -377,14 +377,14 @@ printing1(){
     local lang="$2"
     local input="$3"
 
-    local line1=`cat $file_txt | head -1`
+    local line1=$(cat $file_txt | head -1)
 
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
 local line2=''
 local max=$(cat $file_txt | wc -l)
 if [  $max -eq 2 ];then
-    line2=`cat $file_txt | head -2 | tail -1`
+    line2=$(cat $file_txt | head -2 | tail -1)
 fi
 #assert_equal_str "$line2"
  

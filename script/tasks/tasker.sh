@@ -4,11 +4,13 @@
 # no gui here - remove gxmessage 
 # 
 
-notify-send "tasker.sh:" "$@"
+cmd="notify-send1 'tasker.sh:' '$@'"
+every "$cmd" 10
 
 free_imagination(){
     file=$DATA_DIR/txt/free_imagination.txt
-zenity_editable "$file"
+
+$PLUGINS_DIR/free_imagination.sh "$file"
 }
 
 do_koan(){
@@ -55,7 +57,7 @@ task_from(){
     local name="$1" #
     local num="$2" #
     local file1=$DATA_DIR/tmp/${name}.tmp
-    mantion_file $file1
+    #mantion_file $file1
     local str=''
     if [ "$num"  = '' ];then
         str=$(zenity1 $file1)
@@ -260,7 +262,7 @@ echo01 "$line"
     #assert_equal_str "$line"
     reasoning 
 
-every breakpoint 5
+every breakpoint 15
 }
 
 motivations(){
@@ -398,7 +400,7 @@ suspend1(){
 #   every "$cmd" 5
    #cmd=after_suspension 
    #every "$cmd" 1 
-   after_suspension &
+   #after_suspension &
    notify-send1 'exiting func' 'suspend()'
 }
 planning(){
