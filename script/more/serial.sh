@@ -63,6 +63,8 @@ read_lines(){
 
     while read -r line
     do
+
+
         [[ $line = \#* ]] && continue
         #echo "$line"
         #lines=("${lines[@]}" "$line")
@@ -94,7 +96,7 @@ read_lines(){
 
                 execute_line "$line" "$str2"
                 sleep1 $waiting
-                    $tasks_sh motivation sport
+                    $tasks_sh motivation 
                 let "count=count+1"
             else
                 flite 'breaking'

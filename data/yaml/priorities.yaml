@@ -1,70 +1,79 @@
-    PROGRESS-BAR-TITLE
-next goal
-on suspension
-done recently
-say good things
+PROGRESS-BAR-TITLE:
+    - next goal
+    - on suspension
+    - done recently
+    - say good things
 
-    LONG
-I am doing ok because
-if I could do anything - I would ask 
-if I was a genius
-one focus
-if everything was easy
-if the word was much nicer
-if I was blessed
-if I would take my life in 2 hands - I would  
-if one tell he is happy - god says
-life is too short
-easy for robot
-children story
-do for other first
-fight
-there is only 1 true thing to do next
+LONG:
+    - I am doing ok because
+    - if I could do anything - I would ask 
+    - if I was a genius
+    - one focus
+    - if everything was easy
+    - if the word was much nicer
+    - if I was blessed
+    - if I would take my life in 2 hands - I would  
+    - if one tell he is happy - god says
+    - life is too short
+    - easy for robot
+    - children story
+    - do for other first
+    - fight
+    - there is only 1 true thing to do next
 
-CURRENTLY
-watch security tube
-ask a question
+CURRENTLY:
+    - watch security tube
+    - ask a question
 
-LATER
-loop a question - vlc run from point A to point B 
-work on his website 
-focuse on - watch python
-
-
-COMPUTER
-learn python 
-copy the database to the phone
-use the showcase folder - avshalom - menu.json + angular + eran
-periodic gui popup: add git commit command
-essay generator - make it funny
+LATER:
+    - loop a question - vlc run from point A to point B 
+    - work on his website 
+    - focuse on - watch python
 
 
-
-TODO
-talk to shahar edu
-ran - android simple file load - code together
-kuka  -
-roi - 
-shirli - 
-
-
-QUESTIONS-TECHNICAL
-can I get signals from a child process - using bash?
-
-DONE
-make coffee
-open new notebook
-take a deep breath
-finish to make the time frame
-call the Noi
-collect new words - save it to a database - move it to android
-update the mind map
+COMPUTER:
+    - learn python 
+    - copy the database to the phone
+    - use the showcase folder - avshalom - menu.json + angular + eran
+    - periodic gui popup: add git commit command
+    - essay generator - make it funny
 
 
-PROJECT
-do x
-todo list - web+gui: interface + portable db
-say : motivation - sport
-cowsay - remind of good stuff | sum progress
-eval - override SILENCE
-zenity - with dropbox
+
+TODO:
+    - talk to shahar edu
+    - ran - android simple file load - code together
+    - kuka  -
+    - roi - 
+    - shirli - 
+
+
+QUESTIONS-TECHNICAL:
+    - can I get signals from a child process - using bash?
+
+DONE:
+    - make coffee
+    - open new notebook
+    - take a deep breath
+    - finish to make the time frame
+    - call the Noi
+    - collect new words - save it to a database - move it to android
+    - update the mind map
+
+
+PROJECT:
+    - do x
+    - todo list - web+gui: interface + portable db
+    - say - motivation - sport
+    - cowsay - remind of good stuff | sum progress
+    - eval - override SILENCE
+    - zenity - with dropbox
+
+WISH:
+- angular video
+- security video
+- mindmap - class
+- meteor - shopping
+- burning cds
+- give shalva food
+- be possible to install this project in the class

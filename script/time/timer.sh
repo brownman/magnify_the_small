@@ -20,9 +20,13 @@ fi
 trace   "waiting  $waiting"
 
 run(){
+
+        local count1=0
     while :;do
 
-        
+
+                let "count1=count1+1"
+notify-send3 "wow! rounds: $count1"
     notify-send "DEBUG: $DEBUG:"
     notify-send "VERBOSE: $VERBOSE"
         if [ "$DEBUG" = false ];then

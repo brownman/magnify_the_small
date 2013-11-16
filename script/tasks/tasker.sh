@@ -6,8 +6,10 @@
 
 notify-send "tasker.sh:" "$@"
 
-
-
+free_imagination(){
+    file=$DATA_DIR/txt/free_imagination.txt
+zenity_editable "$file"
+}
 
 do_koan(){
 #local dir_source=$PWD/1/testing/python2/koans
@@ -230,6 +232,9 @@ update_db(){
 cow_report(){
 local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
 xcowsay "associations: $num"
+
+
+
 }
 
 
@@ -255,11 +260,11 @@ echo01 "$line"
     #assert_equal_str "$line"
     reasoning 
 
-
+every breakpoint 5
 }
 
 motivations(){
-    notify-send 'motivations!'
+    notify-send3 'motivationsssss!'
     #echo "hello"
     #if [ $MUTE = false ];then
     #echo "bbb"
@@ -373,7 +378,7 @@ every "$cmd" 15
 suspend1(){
     #flite "should - $msg"
 
-   before_suspension 
+
 
     local timeout=440
     sleep1 $timeout
@@ -384,17 +389,22 @@ suspend1(){
 
     flite 'update your notebook'
 
-    #motivation 
+    motivation & 
     #xterm1 reminder &
     #local cmd='after_suspension'
    #"$cmd" &
-   after_suspension 
 
-
+#   cmd=before_suspension 
+#   every "$cmd" 5
+   #cmd=after_suspension 
+   #every "$cmd" 1 
+   after_suspension &
    notify-send1 'exiting func' 'suspend()'
-   breakpoint
 }
+planning(){
 
+   update_db the_big_picture
+}
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
     "$cmd"
@@ -405,11 +415,16 @@ update_db associations
 }
 
 after_suspension(){
-   push_order_forward 
+    notify-send 'after_suspension()'
+   #push_order_forward 
    #free_speak 
-   update_db the_big_picture
 
    gedit $DATA_DIR/yaml/priorities.yaml & 
+   update_db the_big_picture
+
+
+   notify-send1 'sleep 10 sec' ' - exit suspend'
+   sleep1 10
 
 }
 

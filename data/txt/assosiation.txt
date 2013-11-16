@@ -106,3 +106,4 @@ generous|ru|one who help others
 simple|ru|prosta
 reason|ru|pri-chin-ya
 dishes|ru|pasuda - pass me the Soda
+move|ru|dvi gats a - it requires 2 kidnyes to move yourself

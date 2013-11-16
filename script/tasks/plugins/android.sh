@@ -13,7 +13,8 @@ nautilus sftp://$host:2222
 
 ssh01(){
 
-ssh -p 2222 $host
+host=46.210.221.38
+ssh -p $port $host
 }
 
 scp1(){
@@ -24,6 +25,9 @@ local cmd="scp  -P 2222 $dir1/$file_name $file_to"
 commander "$cmd"
 #local str=$(ls -l $file_to )
 #gxmessage $GXMESSAGET "$str" -title 'file exist ?'
+}
+menu(){
+echo 'choose the operation'
 }
 
 scp1

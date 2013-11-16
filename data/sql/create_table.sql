@@ -50,6 +50,13 @@ CREATE TABLE the_big_picture (
     funny CHAR(40)
 );
 
+CREATE TABLE bookmarks (
+    id INTEGER PRIMARY KEY,
+    subject CHAR(120),
+    tags CHAR(300),
+    url CHAR(200)
+);
+
 
 
 

@@ -10,3 +10,5 @@ exo-open http://drichard.org/mindmaps/#
 exo-open http://www.btl.gov.il/benefits/Unemployment/rates/Pages/Calculator.aspx
 gedit $CFG_DIR/cfg/vars.cfg
 exo-open http://egghead.io/lessons
+exo-open https://www.google.com/calendar/b/1/render
+exo-open https://mail.google.com/tasks/ig?pli=1

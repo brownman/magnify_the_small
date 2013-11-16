@@ -1,26 +1,18 @@
 date: 
-    - 10.11.13
-day:
-    - Wed 
-
-timer:
-    - exo-open https://www.google.com/calendar/b/1/render
-    - exo-open https://mail.google.com/tasks/ig?pli=1
-    - xterm -e "~/magnify_the_small/genius.sh single suspend1"
-    - xterm -e "~/magnify_the_small/genius.sh single commitment"
-     
-
+    - 15.11.13
 
 
 workflow:
+        - free_imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
-        - do_abs
-        - free_speak
-        - learn_langs
+        #- cow_report||summery
+        #- planning||the big picture
+        - do_abs||learn 1 thing
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
+        #- learn_langs
         #- show_msg_entry|frame.times|on next suspension I can
         #- show_msg_entry|frame.cake|I am happy to
         #- show_msg_entry|frame.cake|it is the cake of priorities
@@ -30,6 +22,7 @@ workflow:
 #        - helper||help me to decide
 
 testing:
+        #- tasks_sh|free_imagination|/tmp/1.txt|d
         #- tasks_sh|motivation|||
         #- tasks_sh|deal_comparison|a|a
         #- tasks_sh|motivations|a|a
@@ -111,7 +104,8 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        - update_db the_big_picture 
+        - update_db  
+        #- update_db the_big_picture 
         - reminder
         - increase_motivation 
         - task_from publish
@@ -159,6 +153,8 @@ recent:
     - exo-open http://www.btl.gov.il/benefits/Unemployment/rates/Pages/Calculator.aspx
     - gedit $CFG_DIR/cfg/vars.cfg
     - exo-open http://egghead.io/lessons
+    - exo-open https://www.google.com/calendar/b/1/render
+    - exo-open https://mail.google.com/tasks/ig?pli=1
 
 angular-vids:
     - http://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm
