@@ -158,13 +158,7 @@ recent:
     - exo-open https://www.google.com/calendar/b/1/render
     - exo-open https://mail.google.com/tasks/ig?pli=1
 
-suspend:
-    - tasks_sh learn_langs
-    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
-    #- exo-open http://egghead.io/lessons
-    #https://www.youtube.com/watch?v=O9iVkfQJauQ
-    - minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
-    - tasks_sh random_task
+
 
 angular-vids:
     - http://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm
@@ -190,3 +184,12 @@ task:
     - burn photos on a cd
     - check bank account
     - push shopping forward
+
+suspend:
+    - tasks_sh learn_langs
+    - tasks_sh learn_langs
+    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
+    #- exo-open http://egghead.io/lessons
+    #https://www.youtube.com/watch?v=O9iVkfQJauQ
+    - minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
+    - tasks_sh random_task
