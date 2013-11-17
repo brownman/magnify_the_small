@@ -10,8 +10,8 @@
     #args=$($tasks_sh fetch "$args0")
     #http://tldp.org/LDP/abs/html/comparison-ops.html
     #http://stackoverflow.com/questions/3265803/bash-string-equality
-cry
-#notify-send "Restart Test"
+#cry
+notify-send1 "Restart Test"
 export  COMMANDER=false
 export DEBUG=true
 export VERBOSE=false

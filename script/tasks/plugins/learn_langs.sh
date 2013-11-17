@@ -44,13 +44,14 @@ play_lesson(){
         else
             code1
 
+    xterm1 $PLUGINS_DIR/free_speak.sh
             let "lesson=$lesson+1"
         fi
     done
 }
 
 code1(){
-    #xterm1 $PLUGINS_DIR/free_speak.sh
+
     declare -i num
 
 

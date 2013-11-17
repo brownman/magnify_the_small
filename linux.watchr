@@ -1,4 +1,3 @@
-#!/bin/bash
 
 
 
@@ -27,7 +26,7 @@
 
 
 
-watch('1/website\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
+#watch('1/website\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
 #
 #watch('prespective/public\/.*\.sh') {|match| system "./testing/python2/run.sh"}
 
@@ -37,24 +36,7 @@ watch('1/website\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
 
 #watch('tmp/word1.txt') {|match| system "./meditate"}
 
-
-
-
-watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
-watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
-
-
-
-
-
-
-
-watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
-watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}
 ##watch('script\/.*\.sh') {|match| system "./1/testing/python2/run.sh"}
-watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
-
-watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
 
 #watch('prespective/public/libs/cfg\/.*\.cfg') {|match| system "./testing/python2/run.sh"}
 #~/magnify_the_small/1/others/CODE/devscripts-2.13.1/test
@@ -62,4 +44,21 @@ watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
 
 #watch('**/.*\.js') {|match| system "./script/single.sh motivation"}
 
-watch('1/*\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
+
+
+watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
+
+#watch('data/yaml/one.yaml') {|match| system "./1/testing/python2/run.sh"}
+#
+#watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+#watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+#
+watch('genius.sh') {|match| system "./1/testing/python2/run.sh"}
+
+#watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
+#watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}
+#
+#watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
+
+#watch('1/*\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
+#watch('./*\/.*\.sh') {|match| system "./1/testing/python2/run.sh"}

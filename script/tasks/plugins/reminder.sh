@@ -8,7 +8,7 @@ notify-send1 "commitment" "$@"
 
 delay=5
 file_locker=/tmp/commitment
-
+line="$1"
 stop_watch1(){
     trace "stop_watch1() got: $?"
 
@@ -49,7 +49,16 @@ run(){
 
 
 
-    local  title=$(zenity2  yaml priorities )
+    local  title=''
+
+    if [ "$line" ];then
+
+    title="$line"
+else
+
+    title=$(zenity2  yaml priorities )
+    fi
+
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
 
     if [ !  "$delay" ];then

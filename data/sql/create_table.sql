@@ -25,10 +25,7 @@ CREATE TABLE priorities (
     priority INTEGER
 );
 
-CREATE TABLE tweets (
-    id INTEGER PRIMARY KEY,
-    content CHAR(120)
-);
+
 
 
 CREATE TABLE associations (
@@ -56,6 +53,16 @@ CREATE TABLE bookmarks (
     tags CHAR(300),
     url CHAR(200)
 );
+CREATE TABLE push_forward (
+    id INTEGER PRIMARY KEY,
+    time CHAR(22),
+    func CHAR(22),
+    details CHAR(200)
+);
+
+
+
+
 
 
 

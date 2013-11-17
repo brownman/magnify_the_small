@@ -10,32 +10,38 @@ every "$cmd" 10
 free_imagination(){
     file=$DATA_DIR/txt/free_imagination.txt
 
-$PLUGINS_DIR/free_imagination.sh "$file"
+    $PLUGINS_DIR/free_imagination.sh "$file"
 }
 
 do_koan(){
-#local dir_source=$PWD/1/testing/python2/koans
+    #local dir_source=$PWD/1/testing/python2/koans
 
-local dir_source=$dir_koans
-local file_name_target="recent_koan.py" 
-update_recent_link "$dir_source" "$file_name_target"
+    local dir_source=$dir_koans
+    local file_name_target="recent_koan.py" 
+    update_recent_link "$dir_source" "$file_name_target"
 }
 
 do_abs(){
-#local dir_source=$PWD/1/testing/python2/koans
-local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
-local line=$(generate_line 'abs')
-local res="$dir/$line"
+    #local dir_source=$PWD/1/testing/python2/koans
+    #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
+    local dir=$SCRIPT_DIR/tasks/abs/source
+    local line=$(generate_line 'abs')
+    local res="$dir/$line"
 
     COMMANDER=true
 
 
-#commander  "exec $res"
+    #commander  "exec $res"
 
-cmd="gedit $res"
-commander "$cmd" 
+    cmd="gedit $res"
+    commander "$cmd" 
+       cmd="exec $res"
+    commander "$cmd" 
 
-echo 'z'
+
+
+    echo 'do_abs'
+    #assert_equal_str "do abs"
 
 }
 
@@ -177,25 +183,25 @@ increase_motivation(){
 update_db(){
     local  table1="$1"
 
-  local choose=''
-  local choose1=''
+    local choose=''
+    local choose1=''
     #update_db_list
     if [ "$table1" = '' ];then
         table1=$(zenity1 "$DATA_DIR/txt/db.txt")
     fi
 
     if [ "$table1" ];then
-   choose=$(show_selected_table "$table1")
-    #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
-    #echo01 "$choose1"
- choose1=$(string_to_buttons "$choose" '|')
+        choose=$(show_selected_table "$table1")
+        #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
+        #echo01 "$choose1"
+        choose1=$(string_to_buttons "$choose" '|')
     fi
     #assert_equal_str "$choose1"
     echo01 "$choose1" &
 
     echo "$choose"
 
-  
+
 }
 
 #
@@ -232,8 +238,8 @@ update_db(){
 #
 #
 cow_report(){
-local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
-xcowsay "associations: $num"
+    local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
+    xcowsay "associations: $num"
 
 
 
@@ -241,28 +247,28 @@ xcowsay "associations: $num"
 
 
 motivation(){
-notify-send1 'motivation'
-caller1
+    notify-send1 'motivation'
+    caller1
     file_name="$1"
-cmd=cow_report
-every "$cmd" 10
+    cmd=cow_report
+    every "$cmd" 10
     reason='push: learning new language'
-local line=''
+    local line=''
 
-        random1 10
-        ans=$?
-        if [ $ans -gt 3 ];then
-             line=$(generate_line glossary)
-        else
-             line=$(generate_line sport)
-        fi
+    random1 10
+    ans=$?
+    if [ $ans -gt 3 ];then
+        line=$(generate_line glossary)
+    else
+        line=$(generate_line sport)
+    fi
 
-echo01 "$line"
+    echo01 "$line"
 
     #assert_equal_str "$line"
     reasoning 
 
-every breakpoint 15
+    every breakpoint 15
 }
 
 motivations(){
@@ -365,16 +371,29 @@ update(){
 }
 
 before_suspension(){
-notify-send1 'before_suspension'
-flite 'think smaller'
-sleep1 5
-motivation
+    notify-send1 'before_suspension'
+    flite 'think smaller'
+    sleep1 5
+    motivation
 
-cmd=free_speak
-every "$cmd" 10
+    cmd=free_speak
+    every "$cmd" 10
 
-cmd=learn_langs
-every "$cmd" 15
+    cmd=learn_langs
+    every "$cmd" 15
+}
+play_recent(){
+    local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
+    COMMANDER=true
+    commander "$line"
+
+            update_table logger "$date1" "play_recent" "$line1"
+}
+random_task(){
+    line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
+    gxmessage "$line" $GXMESSAGET
+    reminder "$line"
+    echo 'random task'
 }
 
 suspend1(){
@@ -385,27 +404,47 @@ suspend1(){
     local timeout=440
     sleep1 $timeout
 
+    $(messageYN1 '2 ways' 'learn a new language ?')
+    res=$?
 
-    $PLUGINS_DIR/suspend.sh
+    if [ $res -eq 1 ];then
+
+        random1 2
+        res=$?
+        if [ $res -eq 0 ];then
+            $PLUGINS_DIR/suspend.sh
+        else
+            notify-send1 'skip suspension' 'language learning'
+            play_recent 
+        fi
+    else
+
+        $PLUGINS_DIR/suspend.sh
+    fi
+
+
+
+
+    motivation & 
 
 
     flite 'update your notebook'
 
-    motivation & 
+
     #xterm1 reminder &
     #local cmd='after_suspension'
-   #"$cmd" &
+    #"$cmd" &
 
-#   cmd=before_suspension 
-#   every "$cmd" 5
-   #cmd=after_suspension 
-   #every "$cmd" 1 
-   #after_suspension &
-   notify-send1 'exiting func' 'suspend()'
+    #   cmd=before_suspension 
+    #   every "$cmd" 5
+    #cmd=after_suspension 
+    #every "$cmd" 1 
+    #after_suspension &
+    notify-send1 'exiting func' 'suspend()'
 }
 planning(){
 
-   update_db the_big_picture
+    update_db the_big_picture
 }
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
@@ -413,20 +452,20 @@ show_progress(){
 }
 
 add_association(){
-update_db associations
+    update_db associations
 }
 
 after_suspension(){
     notify-send 'after_suspension()'
-   #push_order_forward 
-   #free_speak 
+    #push_order_forward 
+    #free_speak 
 
-   gedit $DATA_DIR/yaml/priorities.yaml & 
-   update_db the_big_picture
+    gedit $DATA_DIR/yaml/priorities.yaml & 
+    update_db the_big_picture
 
 
-   notify-send1 'sleep 10 sec' ' - exit suspend'
-   sleep1 10
+    notify-send1 'sleep 10 sec' ' - exit suspend'
+    sleep1 10
 
 }
 
@@ -442,7 +481,8 @@ collaboration(){
 
 reminder(){
     notify-send1 'reminder'
-    $PLUGINS_DIR/reminder.sh 
+    local line="$1"
+    $PLUGINS_DIR/reminder.sh "$line" 
 }
 
 game_essay(){
@@ -483,7 +523,7 @@ scp_android(){
 git_commit(){
     local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
     if [ "$answer" ];then
-git rm -r --cached .
+        git rm -r --cached .
         git add .
         git commit -am "$answer"
 
@@ -496,7 +536,7 @@ git rm -r --cached .
         exo-open 'https://github.com/brownman/magnify_the_small'
     else
         echo 'skip pushing'
-        
+
     fi
 }
 
@@ -504,7 +544,7 @@ push_order_forward(){
     update_db "priorities"
 }
 deal_comparison(){
-$PLUGINS_DIR/deals.sh
+    $PLUGINS_DIR/deals.sh
 }
 
 

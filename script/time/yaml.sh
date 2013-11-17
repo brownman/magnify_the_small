@@ -4,7 +4,7 @@
 # extruct yaml to dirs: tmp OR cfg 
 
 
-notify-send 'yaml.sh'
+notify-send1 'yaml.sh' 'start'
 
 #export COMMANDER=true
 
@@ -62,3 +62,4 @@ update_db_list
 
 
 
+notify-send1 'yaml.sh' 'end'

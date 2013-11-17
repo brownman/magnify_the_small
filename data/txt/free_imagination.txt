@@ -1,10 +1,1 @@
-
-correct order of tasks:
-1. update the mind map
-2. learn js
-3. learn  security
-dd
-
-
-later:
-make the cow - count the timer activities - and log the   progress of push..X..forward
+be happy and laugh as much as you can

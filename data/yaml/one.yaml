@@ -1,5 +1,5 @@
 date: 
-    - 15.11.13
+    - 17.11.13
 
 
 workflow:
@@ -26,7 +26,9 @@ testing:
         #- tasks_sh|motivation|||
         #- tasks_sh|deal_comparison|a|a
         #- tasks_sh|motivations|a|a
-        #- tasks_sh|do_abs||b
+        #- tasks_sh|random_task|a|a
+        #- cfg|pick_random_line|$DATA_DIR/tmp/suspend.tmp|d
+        - tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
@@ -104,14 +106,14 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        #- update_db  
         - free_imagination
         - reminder
         - increase_motivation 
         - task_from publish
-        - task_from recent
-        - free_speak 
-        - after_suspension
+        - update_db  
+        #- task_from recent
+        #- free_speak 
+        #- after_suspension
 
 
 
@@ -156,16 +158,24 @@ recent:
     - exo-open https://www.google.com/calendar/b/1/render
     - exo-open https://mail.google.com/tasks/ig?pli=1
 
+suspend:
+    - tasks_sh learn_langs
+    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
+    #- exo-open http://egghead.io/lessons
+    #https://www.youtube.com/watch?v=O9iVkfQJauQ
+    - minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
+    - tasks_sh random_task
+
 angular-vids:
     - http://www.bennadel.com/blog/2452-Mixing-Static-And-Dynamic-Data-In-An-AngularJS-Select-Menu.htm
     - http://egghead.io/lessons
 
 publish:
-    - scp_android
     - git_commit
+    - scp_android
     - screencast
     - screenshot
-    - git_commit
+
 
 deals:
     # israel phones
@@ -174,4 +184,9 @@ deals:
     - http://www.storeswithfreeshipping.net/free-shipping-stores-list.php
     # daily deal
     - http://www.pandawill.com/happy-hour/?current=monday
-#
+    
+task:
+    - give Shalva to eat
+    - burn photos on a cd
+    - check bank account
+    - push shopping forward

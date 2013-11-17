@@ -17,7 +17,7 @@ arr_to_msg(){
 
             gxmessage -buttons "$1" "$str" -timeout 27 
     else
-        mantion 'string to buttons is off'
+        #mantion 'string to buttons is off'
         gxmessage -buttons "$1" "$str" -timeout 9 -iconic 
     fi
 
@@ -73,7 +73,7 @@ step1(){
     local str2=$(arr_to_str ) #use array to create buttons-string
     echo "$str2"
 }
-step2(){
+act(){
     local res=''
 
     delimeter="${2:-' '}"   # Defaults to /tmp dir.
@@ -104,6 +104,6 @@ step2(){
 
 }
 
-step2 "$1" "$2"
+act "$1" "$2"
 
 
