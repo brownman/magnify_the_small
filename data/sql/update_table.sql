@@ -14,7 +14,9 @@ INSERT INTO the_big_picture VALUES (1,1,1,1,1,1,1,1,1);
 INSERT INTO associations VALUES (1,1,1,1,1);
 
 INSERT INTO bookmarks VALUES (1,1,1,1);
+
 INSERT INTO push_forward VALUES (1,1,1,1);
+INSERT INTO koan VALUES (1,1,1,1,1);
 
 
 

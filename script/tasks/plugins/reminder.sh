@@ -4,10 +4,10 @@
 
 #. $TIMERTXT_CFG_FILE
 
-notify-send1 "commitment" "$@"
+notify-send1 "reminder" "$@"
 
 delay=5
-file_locker=/tmp/commitment
+file_locker=/tmp/reminder
 line="$1"
 stop_watch1(){
     trace "stop_watch1() got: $?"
@@ -53,10 +53,10 @@ run(){
 
     if [ "$line" ];then
 
-    title="$line"
-else
+        title="$line"
+    else
 
-    title=$(zenity2  yaml priorities )
+        title=$(zenity2  yaml priorities )
     fi
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
@@ -66,7 +66,7 @@ else
     fi
     local text1="$title" 
     while :;do
-reload_cfg
+        reload_cfg
         $( messageYN1 "$text1" "reminder" '' 35 )
         res=$?
         if [ $res -eq 1 ];then

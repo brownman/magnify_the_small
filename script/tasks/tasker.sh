@@ -19,6 +19,8 @@ do_koan(){
     local dir_source=$dir_koans
     local file_name_target="recent_koan.py" 
     update_recent_link "$dir_source" "$file_name_target"
+
+ cat $LINKS_DIR/recent_koan.py | head -10
 }
 
 do_abs(){
@@ -135,13 +137,17 @@ practice_regexp(){
 
 string_to_buttons(){
     #notify-send 'string_to_buttons'
-    local str1="${FUNCNAME[0]}"
+    #local str1="${FUNCNAME[0]}"
 
     local str="$1"
-    #assert_equal_str "$str" "$str1" 
+
     local delimeter="$2"
+    #assert_equal_str "$str"
     local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
-    res=$(eval "$cmd")
+    #COMMANDER=true
+    local res=$(commander "$cmd")
+
+
     #local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
     #1" "$2" "$3")
     echo "$res"
@@ -384,7 +390,7 @@ before_suspension(){
 }
 play_recent(){
     local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
-    COMMANDER=true
+    #COMMANDER=true
     commander "$line"
 
             update_table logger "$date1" "play_recent" "$line1"
@@ -400,22 +406,23 @@ suspend1(){
     #flite "should - $msg"
 
 
+    motivation & 
 
     local timeout=440
     sleep1 $timeout
 
     $(messageYN1 '2 ways' 'learn a new language ?')
     res=$?
+if [ "$DICE" = true ];then
+   if [ $res -eq 1 ];then
 
-    if [ $res -eq 1 ];then
-
-        random1 2
+        random1 5
         res=$?
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
         else
-            notify-send1 'skip suspension' 'language learning'
-            play_recent 
+            notify-send1 'skip suspension' '..'
+            play_recent  
         fi
     else
 
@@ -424,8 +431,14 @@ suspend1(){
 
 
 
+    
+else
+    
+        $PLUGINS_DIR/suspend.sh
+fi
+ 
 
-    motivation & 
+
 
 
     flite 'update your notebook'
@@ -482,7 +495,7 @@ collaboration(){
 reminder(){
     notify-send1 'reminder'
     local line="$1"
-    $PLUGINS_DIR/reminder.sh "$line" 
+    $PLUGINS_DIR/reminder.sh "$line"
 }
 
 game_essay(){
@@ -550,9 +563,14 @@ deal_comparison(){
 
 ############################### proxy for execution #####################
 #export COMMANDER=true
-cmd1="$@"
-res1=$(eval "$cmd1")
-echo "$res1"
+act=$1
+shift
+args=( "$@" )
+res1=$( $act "${args[@]}" )
+
+    #assert_equal_str "res1: !$res1!" 
+echo "$res1" #must echo for testing to work
+
 
 ############################### proxy for execution #####################
 

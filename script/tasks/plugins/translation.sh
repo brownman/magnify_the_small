@@ -105,7 +105,8 @@ play1(){
             #Backtrace1
         fi
     else
-        mantion  'silence is on' 15
+        cmd='notify-send1 "silence is on"'
+        every "$cmd" 15
         trace 'skip playing'
       
     fi
@@ -301,9 +302,17 @@ local lang1="$1"
 local str="$2"
  local num=$(echo "$str" | wc -w)
     if [[ $num -gt 1 ]];then
-                local pick_word=$( $tasks_sh string_to_buttons "'$str'" )
+                local pick_word=$( $tasks_sh string_to_buttons "$str" )
                 if [ "$pick_word" != '' ];then
-                    translate_f  "$pick_word" "$lang1"
+
+
+                    assert_equal_str  "$pick_word"
+cmd="translate_f '$pick_word' $lang1"
+
+
+COMMANDER=true
+commander "$cmd"
+
                     make_assosiation "$pick_word"
                     #$tasks_sh add_association
 
@@ -398,8 +407,9 @@ fi
             notify-send1 "$line2" "$line1"   
 
     #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
+        else
 
-
+            notify-send1  "$line1"
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];

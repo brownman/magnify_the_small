@@ -61,6 +61,15 @@ CREATE TABLE push_forward (
 );
 
 
+CREATE TABLE koan (
+    id INTEGER PRIMARY KEY,
+    code CHAR(400),
+    args CHAR(200),
+    expect CHAR(200),
+    result CHAR(100)
+);
+
+
 
 
 

@@ -1,4 +1,4 @@
-tasks_sh|do_abs||b
+tasks_sh|string_to_buttons|'i have a dog'|dog1
 cfg|remove_trailing|a|a
 cfg|remove_trailing|" a    bc "|"a  bc"
 tasks_sh|update_row|glossary|a

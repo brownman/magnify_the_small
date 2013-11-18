@@ -50,10 +50,15 @@ watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 
 #watch('data/yaml/one.yaml') {|match| system "./1/testing/python2/run.sh"}
 #
-#watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+
+watch('script/time/test.sh') {|match| system "./1/testing/python2/run.sh"}
 #watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
 #
+
+
 watch('genius.sh') {|match| system "./1/testing/python2/run.sh"}
+#watch('.\/*\.sh') {|match| system "./1/testing/python2/run.sh"}
 
 #watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
 #watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}

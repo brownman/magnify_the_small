@@ -4,15 +4,26 @@
 # description:   separate the proccess running the suspend.sh
 
 #notify-send 'ensure suspension'
-show_vars
+
+#assert_equal_str "$@"
+#show_vars
 name="$1"
+shift
+args=( "$@" )
+#echo "$args"
+#exiting
 
 notify-send 'single process' "$name"
 
-file_locker=/tmp/$name
-delay=5
+#file_locker=/tmp/$name
+#delay=5
 
 run(){
-$tasks_sh $name
+
+cmd="$tasks_sh $name '${args[@]}'"
+
+#cmd="$tasks_sh "$name" "${args[@]}"
+#COMMANDER=true
+commander "$cmd"
 }
 run

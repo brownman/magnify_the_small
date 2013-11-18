@@ -3,13 +3,14 @@ date:
 
 
 workflow:
+        - free_speak||learn one word
         - free_imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
         #- cow_report||summery
         #- planning||the big picture
-        - do_abs||learn 1 thing
+        - do_abs||edit this file
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
         #- learn_langs
@@ -28,11 +29,12 @@ testing:
         #- tasks_sh|motivations|a|a
         #- tasks_sh|random_task|a|a
         #- cfg|pick_random_line|$DATA_DIR/tmp/suspend.tmp|d
-        - tasks_sh|do_abs||b
+        #- tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
+        #
+        - tasks_sh|string_to_buttons|'i have a dog'|dog1
         - cfg|remove_trailing|a|a   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
-        #- tasks_sh|string_to_buttons|'i have a dog'|a
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
         - tasks_sh|commitment|assosiation|d
@@ -109,9 +111,9 @@ hotkeys:
         - free_imagination
         - reminder
         - increase_motivation 
-        - task_from publish
+        #- task_from publish
         - update_db  
-        #- task_from recent
+        - task_from recent
         #- free_speak 
         #- after_suspension
 
@@ -157,6 +159,7 @@ recent:
     - exo-open http://egghead.io/lessons
     - exo-open https://www.google.com/calendar/b/1/render
     - exo-open https://mail.google.com/tasks/ig?pli=1
+    - exo-open http://www.compileonline.com/execute_bash_online.php
 
 
 
@@ -178,18 +181,29 @@ deals:
     - http://www.storeswithfreeshipping.net/free-shipping-stores-list.php
     # daily deal
     - http://www.pandawill.com/happy-hour/?current=monday
-    
-task:
-    - give Shalva to eat
-    - burn photos on a cd
-    - check bank account
-    - push shopping forward
+
+    #https://www.youtube.com/watch?v=O9iVkfQJauQ
 
 suspend:
-    - tasks_sh learn_langs
-    - tasks_sh learn_langs
-    - vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
+    - learn_langs
+    - learn_langs
+    - learn_langs
+    #- tasks_sh learn_langs
+    #- vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
+    #- minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
+    - random_task
     #- exo-open http://egghead.io/lessons
-    #https://www.youtube.com/watch?v=O9iVkfQJauQ
-    - minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
-    - tasks_sh random_task
+     #- tasks_sh free_imagination
+
+    
+task:
+    - burn photos on a cd
+    - try remembering the last lesson
+    - push shopping forward
+    - add test through gui - db has to contain last koan to run
+
+done:
+    - give Shalva to eat
+    - check bank account
+    - send email to Eti
+    - brush Shalva's teeth

@@ -25,27 +25,37 @@ plugin(){
 
 }
 cfg(){
-
     notify-send 'cfg test'
     local cmd="$@"
     #assert_equal_str $cmd
     eval "$cmd"
 }
 tasks_sh(){
+#exiting
+    #trace "tasks_sh run: $*"
+    #$tasks_sh "$@" 
+    notify-send1 'tasks_sh test'
 
-    trace "tasks_sh run: $*"
-    $tasks_sh "$@" 
-    notify-send 'tasks_sh test'
-    local cmd="$@"
-    #assert_equal_str $cmd
-    commander "$tasks_sh $cmd"
+    #local cmd="$@"
+    local args=( "$@" )
+    
+
+local cmd="$tasks_sh ${args[@]}"
+
+
+    #assert_equal_str "$cmd"
+    COMMANDER=true
+    local res1=$( commander "$cmd" )
+
+    assert_equal_str "=$res1="
+    echo  "$res1"
 }
 test_yaml(){
     trace "$tasks_sh"
 
 local filename=$(get_filename1 tmp testing )
 
-    local line=`cat $filename | head -1`
+    local line=$(cat $filename | head -1)
     #breakpoint
     trace   "$filename" 
     trace   "$line" 
@@ -57,7 +67,7 @@ local filename=$(get_filename1 tmp testing )
         expect=$( echo "$line" | awk -F '|' '{print $4}' )
 
         #trace "route: $route"
-        local res=$(echo $input)
+        local res=$(echo "$input")
         #res=$(ls -l  $res)
         #assert_equal_str "$res"
         #echo "$res"
@@ -70,7 +80,7 @@ local filename=$(get_filename1 tmp testing )
         #input2=$( echo "$input" | awk -F ',' '{print $2}' )
         #echo "$res"
        ################### eval 
-       result=$( eval '$route "$method" "$input1"' )
+       result=$( $route "$method" "$input1" )
         ########################
 
         equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
@@ -79,7 +89,7 @@ local filename=$(get_filename1 tmp testing )
         echo "input:   -$input-" >> $file_test
         echo "expect: -$expect-" >> $file_test
 
-        local str=`cat $file_test`
+        local str=$(cat $file_test)
 
         #(trace "$str" "action: $method " "$equality" true &)
         trace "action: $method " "$str" "$equality"
