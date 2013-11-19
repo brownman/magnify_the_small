@@ -98,7 +98,7 @@ act(){
 
     fi
 
-
+#assert_equal_str "$res" 'dog'
     echo "$res"
 
 

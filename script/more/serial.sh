@@ -45,7 +45,7 @@ if [ "$args0" != '' ];then
     parse_subject  "$args0" 
 fi
 
-    notify-send3 "TASK: $msg" "$desc"
+    notify-send1 "TASK: $msg" "$desc"
    #flite "$desc" true
 
 

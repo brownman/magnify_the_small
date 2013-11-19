@@ -1,17 +1,3 @@
-#http://sql.learncodethehardway.org/book/
-#http://www.tutorialspoint.com/sqlite/sqlite_indexes.htm
-#http://www.compileonline.com/execute_bash_online.php
-#http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
-#http://stackoverflow.com/questions/13470413/bash-array-to-delimited-string?rq=1
-
-
-#http://sql.learncodethehardway.org/book/ex0.html
-#file_db=/tmp/test.db
-#table1=memos
-#file_db=$dir/test.db 
-
-
-#
 
 
 insert_row(){
@@ -103,7 +89,6 @@ show_selected_table(){
         let 'count=count+1'
     done
 
-local cmd="yad --title 'pmp play' --form --separator='|'   --text ' In Box'     --field=Box1 '/root'   --field=Box2  '.mp3'"
 
     local tmp=$(echo "zenity $timeout1 --forms --title=$table1 --text=currently: "$zen2" ")
     if [ "$gui" = true ];then
@@ -177,34 +162,11 @@ update_table(){
         assert_equal_str "num:$num max:$max values:$values"
     fi
 }
-update_table_gui(){
-    local table="$1"
-    shift
-    local ids=("$@")
-    local values=$( IFS='|'; echo "${ids[*]}" ); 
-    local num=${#ids[@]}
-    get_column_number "$table"
-    local max=$?
 
-    if [ $num -eq $max ];then
 
-        show_selected_table "$table" "$values" 
-    else
-
-        assert_equal_str "num:$num max:$max values:$values"
-    fi
+run(){
+local res=$($tasks_sh update_db koan)
+assert_equal_str "$res"
 }
-#show_again(){
-#local input="$1"
-#update_table "$input"
-#}
 
-export -f get_column_number
-export -f update_table
-export -f show_selected_table
-export -f insert_row 
-export -f update_db_list
-#export -f only_show
-
-#export -f only_pi
-export -f update_table_gui
+run

@@ -3,6 +3,7 @@ PROGRESS-BAR-TITLE:
     - on suspension
     - done recently
     - say good things
+    - last bug
 
 LONG:
     - I am doing ok because
@@ -70,14 +71,15 @@ PROJECT:
     - zenity - with dropbox
 
 WISH:
-- angular video
-- security video
-- mindmap - class
-- meteor - shopping
-- burning cds
-- give shalva food
-- be possible to install this project in the class
+    - angular video
+    - security video
+    - mindmap - class
+    - meteor - shopping
+    - burning cds
+    - give shalva food
+    - be possible to install this project in the class
+    - iandroid  - gui - easy to find through cli
 
 url:
-linux:
-http://www.youtube.com/playlist?list=PLC25DE7677D2DCC66
+#linux:
+    - http://www.youtube.com/playlist?list=PLC25DE7677D2DCC66

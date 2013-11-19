@@ -63,12 +63,14 @@ CREATE TABLE push_forward (
 
 CREATE TABLE koan (
     id INTEGER PRIMARY KEY,
-    code CHAR(400),
-    args CHAR(200),
-    expect CHAR(200),
-    result CHAR(100)
+    route CHAR(10),
+    method CHAR(20),
+    input CHAR(100),
+    expect CHAR(20),
+    result CHAR(30)
 );
 
+CREATE UNIQUE INDEX expect ON koan(id ASC);
 
 
 

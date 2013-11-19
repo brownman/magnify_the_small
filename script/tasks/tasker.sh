@@ -6,6 +6,11 @@
 
 cmd="notify-send1 'tasker.sh:' '$@'"
 every "$cmd" 10
+add_koan(){
+local res=$( $PLUGINS_DIR/add_koan.sh )
+echo "$res"
+}
+
 
 free_imagination(){
     file=$DATA_DIR/txt/free_imagination.txt
@@ -36,7 +41,8 @@ do_abs(){
     #commander  "exec $res"
 
     cmd="gedit $res"
-    commander "$cmd" 
+    commander "$cmd" & 
+    sleep1 5
        cmd="exec $res"
     commander "$cmd" 
 
@@ -135,7 +141,11 @@ practice_regexp(){
     echo01 "$str"
 }
 
+
 string_to_buttons(){
+echo hi
+}
+string_to_buttons1(){
     #notify-send 'string_to_buttons'
     #local str1="${FUNCNAME[0]}"
 
@@ -145,7 +155,7 @@ string_to_buttons(){
     #assert_equal_str "$str"
     local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
     #COMMANDER=true
-    local res=$(commander "$cmd")
+    local res=$( commander "$cmd" )
 
 
     #local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
@@ -154,9 +164,8 @@ string_to_buttons(){
 }
 
 free_speak(){
-    $PLUGINS_DIR/free_speak.sh 
-    #"$1" 
-    #"$2"
+    local subject="$1"
+    $PLUGINS_DIR/free_speak.sh "$subject" 
 }
 
 nothing(){
@@ -200,10 +209,10 @@ update_db(){
         choose=$(show_selected_table "$table1")
         #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
         #echo01 "$choose1"
-        choose1=$(string_to_buttons "$choose" '|')
+        #choose1=$(string_to_buttons "$choose" '|')
     fi
     #assert_equal_str "$choose1"
-    echo01 "$choose1" &
+    #echo01 "$choose1" &
 
     echo "$choose"
 
@@ -390,16 +399,19 @@ before_suspension(){
 }
 play_recent(){
     local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
+   parse_line1 "$line" 
     #COMMANDER=true
-    commander "$line"
+    #commander "$line"
 
             update_table logger "$date1" "play_recent" "$line1"
 }
-random_task(){
+remind_1_task(){
+    notify-send1 'funniest story ever !'
     line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
     gxmessage "$line" $GXMESSAGET
-    reminder "$line"
-    echo 'random task'
+    local subject=$(string_ws "$line")
+    free_speak "$subject"
+    #echo 'random task'
 }
 
 suspend1(){
@@ -416,11 +428,12 @@ suspend1(){
 if [ "$DICE" = true ];then
    if [ $res -eq 1 ];then
 
-        random1 5
+        random1 2
         res=$?
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
         else
+            learn_langs &
             notify-send1 'skip suspension' '..'
             play_recent  
         fi
@@ -563,13 +576,14 @@ deal_comparison(){
 
 ############################### proxy for execution #####################
 #export COMMANDER=true
-act=$1
-shift
-args=( "$@" )
-res1=$( $act "${args[@]}" )
-
+#act=$1
+#shift
+#args=( "$@" )
+#res1=$( $act ${args[@]} )
+#
     #assert_equal_str "res1: !$res1!" 
-echo "$res1" #must echo for testing to work
+#echo "$res1" #must echo for testing to work
+echo 'zz'
 
 
 ############################### proxy for execution #####################

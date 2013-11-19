@@ -3,8 +3,11 @@
 # collection of system tasks
 
 notify-send "psaudo.sh:" "$@"
+record_desktop(){
+echo 'use the plugin'
+}
 presentation_plugin_take_screenshot(){
-echo 
+echo '' 
 }
 better_usage_of_assosiation(){
 trace ''

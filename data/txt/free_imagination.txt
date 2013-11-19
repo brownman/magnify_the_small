@@ -5,6 +5,9 @@ I love my loving wife
 I am safe 
 I can give
 I can smile
+----
+
+
 
 ---story:--
 it is a story about focusing...
@@ -17,3 +20,4 @@ screen scraper
 ---unfocus:
 I let go angular
 burning cds
+no meteor

@@ -1,6 +1,4 @@
 #!/bin/bash 
-#-e
-#-x
 
 #set -o errexit
 
@@ -15,7 +13,7 @@ notify-send1 "Restart Test"
 export  COMMANDER=false
 export DEBUG=true
 export VERBOSE=false
-result='equal'
+result_g='equal'
 file_test=/tmp/testing
 file_locker='/tmp/test'
 delay=1
@@ -28,26 +26,20 @@ cfg(){
     notify-send 'cfg test'
     local cmd="$@"
     #assert_equal_str $cmd
-    eval "$cmd"
+local res=$(    commander "$cmd")
+echo "$res"
 }
 tasks_sh(){
+    assert_equal_str a b
 #exiting
     #trace "tasks_sh run: $*"
     #$tasks_sh "$@" 
     notify-send1 'tasks_sh test'
-
     #local cmd="$@"
     local args=( "$@" )
-    
-
-local cmd="$tasks_sh ${args[@]}"
-
-
-    #assert_equal_str "$cmd"
+    local cmd=$(echo "$tasks_sh ${args[@]}")
     COMMANDER=true
     local res1=$( commander "$cmd" )
-
-    assert_equal_str "=$res1="
     echo  "$res1"
 }
 test_yaml(){
@@ -61,10 +53,10 @@ local filename=$(get_filename1 tmp testing )
     trace   "$line" 
     #tracex  'testing.0:' "$line" 
     if [ "$line" != '' ];then
-        route=$( echo "$line" | awk -F '|' '{print $1}' )
-        method=$( echo "$line" | awk -F '|' '{print $2}' )
-        input=$( echo "$line" | awk -F '|' '{print $3}' )
-        expect=$( echo "$line" | awk -F '|' '{print $4}' )
+        local route=$( echo "$line" | awk -F '|' '{print $1}' )
+        local method=$( echo "$line" | awk -F '|' '{print $2}' )
+        local input=$( echo "$line" | awk -F '|' '{print $3}' )
+        local expect=$( echo "$line" | awk -F '|' '{print $4}' )
 
         #trace "route: $route"
         local res=$(echo "$input")
@@ -75,24 +67,37 @@ local filename=$(get_filename1 tmp testing )
 
 
 
-        input1=$( echo "$input" | sed 's/,/ /g' ) 
+        local input1=$( echo "$input" | sed 's/,/ /g' ) 
         #awk -F ',' '{print $1}' )
         #input2=$( echo "$input" | awk -F ',' '{print $2}' )
         #echo "$res"
        ################### eval 
-       result=$( $route "$method" "$input1" )
-        ########################
+       local result=$( $route $method $input1 )
+if [ ! "$result" ];then
+    
+       assert_equal_str "-$result" "empty"
+   else
 
-        equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
+       assert_equal_str "-$result" "not empty"
 
-        echo -n '' > $file_test
-        echo "input:   -$input-" >> $file_test
-        echo "expect: -$expect-" >> $file_test
+fi
 
-        local str=$(cat $file_test)
+ 
 
-        #(trace "$str" "action: $method " "$equality" true &)
-        trace "action: $method " "$str" "$equality"
+        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "but got:-$result-")
+      $(update_table koan "$route" "$method" "$input1" "$expect" "$equality" )
+       $( show_selected_table koan )
+#
+#        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
+#
+#        echo -n '' > $file_test
+#        echo "input:   -$input-" >> $file_test
+#        echo "expect: -$expect-" >> $file_test
+#
+#        local str=$(cat $file_test)
+#
+#        #(trace "$str" "action: $method " "$equality" true &)
+#        trace "action: $method $str $equality"
         echo "$equality"
     else
 
@@ -104,16 +109,11 @@ local filename=$(get_filename1 tmp testing )
 }
 
 run(){
-
- result=$(test_yaml)
-
-#echo "$result"
-#flite 'sleep 10 seconds'
-#sleep1 4
+    result_g=$(test_yaml)
 }
 #run
 unlocker
-echo "$result"
+echo "$result_g"
 
 
 

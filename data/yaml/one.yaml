@@ -1,10 +1,11 @@
 date: 
-    - 17.11.13
+    - 19.11.13
 
 
 workflow:
+        - update_db|koan|last bug was
         - free_speak||learn one word
-        - free_imagination
+        - free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
@@ -31,9 +32,11 @@ testing:
         #- cfg|pick_random_line|$DATA_DIR/tmp/suspend.tmp|d
         #- tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
-        #
-        - tasks_sh|string_to_buttons|'i have a dog'|dog1
-        - cfg|remove_trailing|a|a   
+        #- tasks_sh|add_koan||b
+        - tasks_sh|string_to_buttons|'i have a dog'|'have'
+        #- cfg|messageYN1|a,b|1
+        #- cfg|update_table_gui|koan,a,b,c|1
+        - cfg|remove_trailing|c|c   
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
@@ -185,22 +188,30 @@ deals:
     #https://www.youtube.com/watch?v=O9iVkfQJauQ
 
 suspend:
-    - learn_langs
-    - learn_langs
-    - learn_langs
+        - remind_1_task 
+        - update_db|koan|last bug was
+        - free_speak||learn one word
+        - free_imagination||free imagination
+        #- regexp|tasks|on next suspension I can
+        #- commitment|task|update your state
+        #- practice_regexp||practice
+        #- cow_report||summery
+        #- planning||the big picture
+        - do_abs||edit this file
     #- tasks_sh learn_langs
     #- vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
     #- minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
-    - random_task
+
     #- exo-open http://egghead.io/lessons
      #- tasks_sh free_imagination
 
     
 task:
-    - burn photos on a cd
-    - try remembering the last lesson
-    - push shopping forward
-    - add test through gui - db has to contain last koan to run
+    -  paypal website visit
+    -  burn photos on a cd
+    -  try remembering the last lesson
+    -  push shopping forward
+    -  add test through gui - db has to contain last koan to run
 
 done:
     - give Shalva to eat

@@ -69,7 +69,8 @@ run(){
         reload_cfg
         $( messageYN1 "$text1" "reminder" '' 35 )
         res=$?
-        if [ $res -eq 1 ];then
+        assert_equal_str "$res" '1 or 0'
+        if [[ $res -eq 1 ]];then
             text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
             helper0 "$text1" $file_log
             update_table logger "$date1" "reminder" "$text1"

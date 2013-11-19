@@ -6,7 +6,7 @@
 notify-send "free-speak" "$0"
 
 #${1:-'essay_generator|story_a_day|funny'}
-
+subject="$1"
 delay=5
 file_locker=/tmp/free_speak
 
@@ -16,7 +16,7 @@ export STRING_TO_BUTTONS=false
 memory_game(){
     #file_name=${1:-'essay'}
     notify-send 'memory game'
-    local file=$1
+    local file="$1"
  
 
   
@@ -37,10 +37,11 @@ memory_game(){
 
 run(){
 
-local subject='essay'
-local file=$DATA_DIR/txt/$subject.txt 
+local subject1=${"$subject":-'essay'}
+local file=$DATA_DIR/txt/$subject1.txt 
 touch $file
 memory_game $file 
 }
 
-unlocker
+#unlocker
+run

@@ -18,7 +18,6 @@
 --SELECT * FROM priorities ORDER BY id DESC; 
 
 
-SELECT * FROM tweets ORDER BY id DESC; 
 SELECT * FROM associations ORDER BY id DESC; 
 SELECT * FROM the_big_picture ORDER BY id DESC; 
 
