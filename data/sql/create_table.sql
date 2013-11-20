@@ -67,10 +67,10 @@ CREATE TABLE koan (
     method CHAR(20),
     input CHAR(100),
     expect CHAR(20),
-    result CHAR(30)
+    result CHAR(10)
 );
 
-CREATE UNIQUE INDEX expect ON koan(id ASC);
+CREATE UNIQUE INDEX result ON koan(id ASC);
 
 
 

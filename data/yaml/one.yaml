@@ -33,7 +33,8 @@ testing:
         #- tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
         #- tasks_sh|add_koan||b
-        - task|simple|'a c'|'1:a b'
+        #- task|simple|a|1:a
+        - task|simple|'a c'|'1:a c'
         - tasks_sh|string_to_buttons|'i have a dog'|have
         #- cfg|messageYN1|a,b|1
         #- cfg|update_table_gui|koan,a,b,c|1

@@ -13,18 +13,22 @@ echo "$res"
 simple(){
 #local first="$1"
 
+
 #local arg="$1"
 #assert_equal_str "$arg"
 $(eval show_args "$1" "$2" "$3")
+
+local res=$(echo "$1")
 #assert_equal_str "$res"
     #args=(a),
     #show_args "${@}"
 #local arg=$( echo  "$1")
 
-
+#echo "$res"
+echo "a b"
 #echo "$first"
 
-echo "1:$1"
+
 }
 
 free_imagination(){
@@ -450,7 +454,7 @@ suspend1(){
 
     motivation & 
 
-            learn_langs &
+
     local timeout=440
     sleep1 $timeout
 
@@ -461,10 +465,14 @@ if [ "$DICE" = true ];then
 
         random1 2
         res=$?
+        echo01 'go away from the computer and let me to decide what to do now'
+        sleep1 5
+        
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
         else
 
+            learn_langs &
             notify-send1 'skip suspension for deal my fears:' '..'
             play_recent  
             

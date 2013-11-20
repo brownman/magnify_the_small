@@ -1,4 +1,4 @@
-task|simple|'a c'|'1:a b'
+task|simple|'a c'|'1:a c'
 tasks_sh|string_to_buttons|'i have a dog'|have
 cfg|remove_trailing|cc|c
 cfg|remove_trailing|" a    bc "|"a  bc"

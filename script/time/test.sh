@@ -22,12 +22,12 @@ cfg(){
     notify-send1 'cfg test'
     local cmd="$@"
     #assert_equal_str $cmd
-local res=$(    commander "$cmd")
-echo "$res"
+    local res=$(    commander "$cmd")
+    echo "$res"
 }
 task(){
     #assert_equal_str 'a b' 'a b' 'something went wrong'
-#exiting
+    #exiting
     #trace "tasks_sh run: $*"
     #$tasks_sh "$@" 
     notify-send1 'tasks_sh test'
@@ -43,7 +43,7 @@ task(){
 test_yaml(){
     trace "$tasks_sh"
 
-local filename=$(get_filename1 tmp testing )
+    local filename=$(get_filename1 tmp testing )
 
     local line=$(cat $filename | head -1)
     #breakpoint
@@ -69,35 +69,42 @@ local filename=$(get_filename1 tmp testing )
         #awk -F ',' '{print $1}' )
         #input2=$( echo "$input" | awk -F ',' '{print $2}' )
         #echo "$res"
-       ################### eval 
-       local cmd=$( echo "$route $method $input1" )
-       #COMMANDER=true
-       local result=$(commander "$cmd")
-       
-       #assert_not_equal_str "$result" "" 'must not be empty'
-       
+        ################### eval 
+        local cmd=$( echo "$route $method $input1" )
+        #COMMANDER=true
+        local result=$(commander "$cmd")
 
- 
+        #assert_not_equal_str "$result" "" 'must not be empty'
+
+
+
+
 
         local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=$expect")
+
+        $(update_table koan "$route" "$method" "$input1" "$expect" "$equality" )
         if [ "$equality" = 'equal' ];then
-notify-send3 'test ok!'
-else
-    notify-send1 'test failed'
+            notify-send3 'test ok!'
+
+            $( show_selected_table koan )
+        else
+            notify-send1 'test failed'
+            cmd="gxmessage $GXMESSAGET 'google is a friend' -entry;xargs google-chrome"
+            (every "$cmd" 5  &)
         fi
-      #$(update_table koan "$route" "$method" "$input1" "$expect" "$equality" )
-       #$( show_selected_table koan )
-#
-#        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
-#
-#        echo -n '' > $file_test
-#        echo "input:   -$input-" >> $file_test
-#        echo "expect: -$expect-" >> $file_test
-#
-#        local str=$(cat $file_test)
-#
-#        #(trace "$str" "action: $method " "$equality" true &)
-#        trace "action: $method $str $equality"
+
+
+        #
+        #        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
+        #
+        #        echo -n '' > $file_test
+        #        echo "input:   -$input-" >> $file_test
+        #        echo "expect: -$expect-" >> $file_test
+        #
+        #        local str=$(cat $file_test)
+        #
+        #        #(trace "$str" "action: $method " "$equality" true &)
+        #        trace "action: $method $str $equality"
         echo "$equality"
     else
 
