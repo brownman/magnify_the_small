@@ -12,7 +12,7 @@ I can smile
 ---story:--
 it is a story about focusing...
 once upon a time there was a queen
-
+ 
 ---focus:
 screen scraper
 

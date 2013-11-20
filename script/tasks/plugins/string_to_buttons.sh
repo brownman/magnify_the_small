@@ -10,7 +10,8 @@ trace "string_to_buttons.sh got:  $1 "
 
 empty='Q'
 arr=()
-declare -a arr=() #=('aa')
+declare -a arr=() 
+#=('aa')
 arr_to_msg(){
     local str=$(pick_line $file_assosiation)
     if [ "$STRING_TO_BUTTONS" = true ];then
@@ -74,11 +75,15 @@ step1(){
     echo "$str2"
 }
 act(){
+    #local   args=( "$@" )
+#local args_str="${args[@]}"
+    #assert_equal_str "$args_str" "z"
     local res=''
 
     delimeter="${2:-' '}"   # Defaults to /tmp dir.
 
-    local str="Q${delimeter}$1"
+    local str="Q${delimeter}$1}"
+
     str_to_arr "$str" #create new array
     local str2=$(arr_to_str ) #use array to create buttons-string
     #echo "$str2"trace "$str2"
@@ -103,7 +108,21 @@ act(){
 
 
 }
-
+#
+#COMMANDER=true
+#args=( "$@" )
+#
+#assert_equal_str "$args"
+#
+##arg1="${args[0]}"
+##arg2="${args[1]}"
+#arg1=$(echo "$1")
+#
+##cmd=$(echo "act $1 $2")
+##cmd=$(echo "act ${args[@]}")
+##cmd=$(echo act "$arg1" "$arg2")
+#res=$(commander "$cmd" )
+#echo "$res"
+#
 act "$1" "$2"
-
 

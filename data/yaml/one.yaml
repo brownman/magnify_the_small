@@ -1,5 +1,5 @@
 date: 
-    - 19.11.13
+    - 20.11.13
 
 
 workflow:
@@ -33,10 +33,11 @@ testing:
         #- tasks_sh|do_abs||b
         #- cfg|list_dir2|/tmp/,er|b
         #- tasks_sh|add_koan||b
-        - tasks_sh|string_to_buttons|'i have a dog'|'have'
+        - task|simple|'a c'|'1:a b'
+        - tasks_sh|string_to_buttons|'i have a dog'|have
         #- cfg|messageYN1|a,b|1
         #- cfg|update_table_gui|koan,a,b,c|1
-        - cfg|remove_trailing|c|c   
+        - cfg|remove_trailing|cc|c 
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
@@ -207,13 +208,13 @@ suspend:
 
     
 task:
-    -  paypal website visit
     -  burn photos on a cd
     -  try remembering the last lesson
     -  push shopping forward
     -  add test through gui - db has to contain last koan to run
 
 done:
+    -  paypal website visit
     - give Shalva to eat
     - check bank account
     - send email to Eti

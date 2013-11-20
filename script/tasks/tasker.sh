@@ -4,13 +4,28 @@
 # no gui here - remove gxmessage 
 # 
 
-cmd="notify-send1 'tasker.sh:' '$@'"
-every "$cmd" 10
+#cmd="notify-send1 'tasker.sh:' '$@'"
+#every "$cmd" 10
 add_koan(){
 local res=$( $PLUGINS_DIR/add_koan.sh )
 echo "$res"
 }
+simple(){
+#local first="$1"
 
+#local arg="$1"
+#assert_equal_str "$arg"
+$(eval show_args "$1" "$2" "$3")
+#assert_equal_str "$res"
+    #args=(a),
+    #show_args "${@}"
+#local arg=$( echo  "$1")
+
+
+#echo "$first"
+
+echo "1:$1"
+}
 
 free_imagination(){
     file=$DATA_DIR/txt/free_imagination.txt
@@ -35,7 +50,7 @@ do_abs(){
     local line=$(generate_line 'abs')
     local res="$dir/$line"
 
-    COMMANDER=true
+    #COMMANDER=true
 
 
     #commander  "exec $res"
@@ -142,23 +157,36 @@ practice_regexp(){
 }
 
 
-string_to_buttons(){
+string_to_buttons1(){
 echo hi
 }
-string_to_buttons1(){
-    #notify-send 'string_to_buttons'
+string_to_buttons0(){
+    notify-send1 'string_to_buttons'
     #local str1="${FUNCNAME[0]}"
 
-    local str="$1"
+
+#eval 'show_args "$1" "$2"'
+
+
+local str="$1"
+#$(eval echo $1)
+assert_equal_str "$str"
+#( echo "$1")
 
     local delimeter="$2"
+
+eval 'show_args "$str" '
+
+    #local args=( "$@" )
     #assert_equal_str "$str"
-    local cmd="$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'"
+
+    #local cmd=$(echo "$PLUGINS_DIR/string_to_buttons.sh $1 $2")
+    #local cmd=$(echo "$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'")
     #COMMANDER=true
-    local res=$( commander "$cmd" )
+    #local res=$( commander "$cmd" )
 
 
-    #local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
+    local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
     #1" "$2" "$3")
     echo "$res"
 }
@@ -180,7 +208,7 @@ rules(){
 }
 
 recent_video(){
-    export COMMANDER=true
+    #export COMMANDER=true
     str='vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-01/02.m4v'
     commander "$str"
 }
@@ -263,7 +291,7 @@ cow_report(){
 
 motivation(){
     notify-send1 'motivation'
-    caller1
+    #caller1
     file_name="$1"
     cmd=cow_report
     every "$cmd" 10
@@ -407,7 +435,9 @@ play_recent(){
 }
 remind_1_task(){
     notify-send1 'funniest story ever !'
-    line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
+
+    #line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
+    line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
     gxmessage "$line" $GXMESSAGET
     local subject=$(string_ws "$line")
     free_speak "$subject"
@@ -420,10 +450,11 @@ suspend1(){
 
     motivation & 
 
+            learn_langs &
     local timeout=440
     sleep1 $timeout
 
-    $(messageYN1 '2 ways' 'learn a new language ?')
+    $(messageYN1 '2 ways' 'push 1 fear forward ?')
     res=$?
 if [ "$DICE" = true ];then
    if [ $res -eq 1 ];then
@@ -433,9 +464,11 @@ if [ "$DICE" = true ];then
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
         else
-            learn_langs &
-            notify-send1 'skip suspension' '..'
+
+            notify-send1 'skip suspension for deal my fears:' '..'
             play_recent  
+            
+
         fi
     else
 
@@ -452,6 +485,7 @@ fi
  
 
 
+remind_1_task
 
 
     flite 'update your notebook'
@@ -467,6 +501,7 @@ fi
     #every "$cmd" 1 
     #after_suspension &
     notify-send1 'exiting func' 'suspend()'
+    sleep1 5
 }
 planning(){
 
@@ -575,16 +610,23 @@ deal_comparison(){
 
 
 ############################### proxy for execution #####################
-#export COMMANDER=true
-#act=$1
-#shift
-#args=( "$@" )
-#res1=$( $act ${args[@]} )
-#
-    #assert_equal_str "res1: !$res1!" 
-#echo "$res1" #must echo for testing to work
-echo 'zz'
 
+
+#export COMMANDER=true
+#show_args ${}"$@"
+
+ #show_args 'a a' 'b' 'cc c' 
+ #show_args "$1" "$2" "$3"
+
+args=( "$@" )
+#eval show_args "${args[0]}" "${args[1]}" "${args[2]}"
+eval show_args "${args[@]}"
+#cmd=$(eval show_args "${args[@]}")
+cmd=$( echo "${args[@]}")
+
+#res1=$( commander "$cmd" )
+res1=$( commander "$cmd" )
+echo "$res1" #must echo for testing to work
 
 ############################### proxy for execution #####################
 

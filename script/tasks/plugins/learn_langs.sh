@@ -12,7 +12,14 @@ path1=$DIR_LEARN_LANGS
 
 lesson=${2:-10} #$2
 lang=$(higher $LANG_DEFAULT)
-play_lesson(){
+
+#notify-send "free-speak" "$0"
+
+delay=5
+file_locker=/tmp/learn_langs
+
+
+run(){
     #trace "learn langs() $1 $2"
     #trace "lang: $lang"
     #gxmessage $GXMESSAGET "lesson $lesson"
@@ -89,7 +96,7 @@ code1(){
 
 
 }
-
-
-$@
+trace "$@"
+unlocker
+#$@
 #learn_lang "$1" "$2"
