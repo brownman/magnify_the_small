@@ -68,9 +68,9 @@ make_assosiation(){
     local ass=$(gxmessage -entrytext "$str|$lang_target|" -title "sound like:"  -file $file_assosiation $GXMESSAGET -iconic )
     if [ "$ass" != '' ];then
         echo "$ass" >> $file_assosiation
-            #update_logger "make_assosiation" "$ass"
+        #update_logger "make_assosiation" "$ass"
     fi
-    
+
 
 }
 play1(){
@@ -108,7 +108,7 @@ play1(){
         cmd='notify-send1 "silence is on"'
         every "$cmd" 15
         trace 'skip playing'
-      
+
     fi
 
 }
@@ -266,14 +266,14 @@ echo5(){
         exiting
     fi
 
-#    speller "$str"
-#    if [[ $? -eq 1 ]];then
-#        return 
-#    fi
-  local  num=$(echo "$str" | wc -w)
+    #    speller "$str"
+    #    if [[ $? -eq 1 ]];then
+    #        return 
+    #    fi
+    local  num=$(echo "$str" | wc -w)
 
 
-  collect_new_words "$lang_target" "$str"
+    collect_new_words "$lang_target" "$str"
 
     translate_f  "$str" en 
     #echo "$str" | flite
@@ -298,26 +298,25 @@ echo5(){
 
 collect_new_words(){
 
-local lang1="$1"
-local str="$2"
- local num=$(echo "$str" | wc -w)
+    local lang1="$1"
+    local str="$2"
+    local num=$(echo "$str" | wc -w)
     if [[ $num -gt 1 ]];then
-                local pick_word=$( $tasks_sh string_to_buttons "$str" )
-                if [ "$pick_word" != '' ];then
+        cmd="$tasks_sh string_to_buttons \"$str\""
+        local pick_word=$( commander   "$cmd")
+        if [ "$pick_word" != '' ];then
 
 
-                    assert_equal_str  "$pick_word"
-cmd="translate_f '$pick_word' $lang1"
+            cmd="translate_f \"$pick_word\" $lang1"
 
 
-COMMANDER=true
-commander "$cmd"
+            commander "$cmd"
 
-                    make_assosiation "$pick_word"
-                    #$tasks_sh add_association
+            make_assosiation "$pick_word"
+            #$tasks_sh add_association
 
             #update_logger "word" "$pick_word"
-                fi
+        fi
     else
         #notify-send 'scrap here..'
         trace 'scrap here..'
@@ -348,23 +347,23 @@ echo4(){
 
 
 
-random_language_changer
+    random_language_changer
     local lang1="$lang_target"
     trace "translate to: $lang1"
 
 
-#    if [ "$lang1" = '' ];then
-#        random1 4
-#        local num=$?
-#        #trace "num: $num"
-#        lang0="${arr1[$num]}"
-#        lang1=$(lower $lang0)
-#    fi
+    #    if [ "$lang1" = '' ];then
+    #        random1 4
+    #        local num=$?
+    #        #trace "num: $num"
+    #        lang0="${arr1[$num]}"
+    #        lang1=$(lower $lang0)
+    #    fi
 
     local str="$1"
     trace "$str"
 
-  collect_new_words "$lang1" "$str"
+    collect_new_words "$lang1" "$str"
 
 
     translate_f  "$str" "en"
@@ -390,23 +389,23 @@ printing1(){
 
     #local line3=$(echo "$line2"|sed 's/ /:1,/g');
 
-local line2=''
-local max=$(cat $file_txt | wc -l)
-if [  $max -eq 2 ];then
-    line2=$(cat $file_txt | head -2 | tail -1)
-fi
-#assert_equal_str "$line2"
- 
-if [ "$lang" != 'en' ];then
-    update_table 'words' "$lang" "$input" "$line1" "$line2"
-fi
+    local line2=''
+    local max=$(cat $file_txt | wc -l)
+    if [  $max -eq 2 ];then
+        line2=$(cat $file_txt | head -2 | tail -1)
+    fi
+    #assert_equal_str "$line2"
+
+    if [ "$lang" != 'en' ];then
+        update_table 'words' "$lang" "$input" "$line1" "$line2"
+    fi
 
     #assert_equal_str "abc"
     if [ "$SILENCE" = true ];then
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
 
-    #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
+            #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
         else
 
             notify-send1  "$line1"
@@ -463,7 +462,7 @@ all_lines(){
 
     execute_lines
 
-#assert_equal_str "${lines[1]}"
+    #assert_equal_str "${lines[1]}"
     #local msg=$(    execute_lines )
     #local msg=$(file_to_lines "$from")
     echo "$msg"
@@ -473,7 +472,7 @@ all_lines(){
 
 
 run(){
-#assert_equal_file $file_log
+    #assert_equal_file $file_log
 
     local result=''
     #motivation "$file"

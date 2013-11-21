@@ -4,7 +4,7 @@
 pushd `dirname $0` > /dev/null
 #chmod +w time
 #ls -d -l time
-notify-send1 "genius:" "$@"
+notify-send "genius:" "$@"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader
@@ -46,7 +46,7 @@ result='equal'
 #}
 
 if [ "$input" = '' ];then
-    notify-send1 'run:' 'menu'
+    notify-send 'run:' 'menu'
 #    unlocker
 else
     file11=$dir1/${input}.sh

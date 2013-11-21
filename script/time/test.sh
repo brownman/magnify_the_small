@@ -25,7 +25,7 @@ cfg(){
     local res=$(    commander "$cmd")
     echo "$res"
 }
-task(){
+tasks_sh(){
     #assert_equal_str 'a b' 'a b' 'something went wrong'
     #exiting
     #trace "tasks_sh run: $*"
@@ -36,7 +36,6 @@ task(){
 
     #local cmd=$(echo "$tasks_sh ${args[@]}")
     local cmd="$tasks_sh ${args[@]}"
-    #COMMANDER=true
     local res1=$( commander "$cmd" )
     echo  "$res1"
 }
@@ -55,6 +54,8 @@ test_yaml(){
         local method=$( echo "$line" | awk -F '|' '{print $2}' )
         local input=$( echo "$line" | awk -F '|' '{print $3}' )
         local expect=$( echo "$line" | awk -F '|' '{print $4}' )
+        local question=$( echo "$line" | awk -F '|' '{print $5}' )
+        local solution=$( echo "$line" | awk -F '|' '{print $6}' )
 
         #trace "route: $route"
         #local res=$(echo "$input")
@@ -71,7 +72,6 @@ test_yaml(){
         #echo "$res"
         ################### eval 
         local cmd=$( echo "$route $method $input1" )
-        #COMMANDER=true
         local result=$(commander "$cmd")
 
         #assert_not_equal_str "$result" "" 'must not be empty'
@@ -82,14 +82,20 @@ test_yaml(){
 
         local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=$expect")
 
-        $(update_table koan "$route" "$method" "$input1" "$expect" "$equality" )
+        $(update_table_gui koan "$question" "$solution" "$route" "$method" "$input1" "$expect" "$equality" )
+
+            $( show_selected_table koan )
         if [ "$equality" = 'equal' ];then
             notify-send3 'test ok!'
 
-            $( show_selected_table koan )
+
         else
-            notify-send1 'test failed'
-            cmd="gxmessage $GXMESSAGET 'google is a friend' -entry;xargs google-chrome"
+            #notify-send1 'test failed'
+notify-send1 'google is a friend'
+#local url=http://wiki.bash-hackers.org/rcwatson
+#cmd="echo $(gxmessage $GXMESSAGET 'google is a friend' -entrytext $url);#xargs google-chrome"
+            #(every "$cmd" 15  &)
+            cmd='notify-send3 " must document the new tests"'
             (every "$cmd" 5  &)
         fi
 

@@ -9,7 +9,7 @@ CREATE TABLE logger (
 
 CREATE TABLE words (
     id INTEGER PRIMARY KEY,
-    lang CHAR(30),
+    lang CHAR(3),
     input CHAR(30),
     output CHAR(60),
     phonetics CHAR(60)
@@ -63,14 +63,16 @@ CREATE TABLE push_forward (
 
 CREATE TABLE koan (
     id INTEGER PRIMARY KEY,
+    question CHAR(90),
+    solution CHAR(90),
     route CHAR(10),
-    method CHAR(20),
-    input CHAR(100),
+    method CHAR(15),
+    input CHAR(30),
     expect CHAR(20),
     result CHAR(10)
 );
 
-CREATE UNIQUE INDEX result ON koan(id ASC);
+CREATE UNIQUE INDEX solution ON koan(id ASC);
 
 
 

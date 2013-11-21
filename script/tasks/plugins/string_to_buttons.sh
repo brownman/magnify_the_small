@@ -82,7 +82,7 @@ act(){
 
     delimeter="${2:-' '}"   # Defaults to /tmp dir.
 
-    local str="Q${delimeter}$1}"
+    local str="Q${delimeter}$1"
 
     str_to_arr "$str" #create new array
     local str2=$(arr_to_str ) #use array to create buttons-string

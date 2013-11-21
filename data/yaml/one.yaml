@@ -34,11 +34,14 @@ testing:
         #- cfg|list_dir2|/tmp/,er|b
         #- tasks_sh|add_koan||b
         #- task|simple|a|1:a
-        - task|simple|'a c'|'1:a c'
-        - tasks_sh|string_to_buttons|'i have a dog'|have
+        #- cfg|update_row_yad|x|x|x|x|x
+        #- cfg|update_row_yad|x|x|'how to use yad instide of zenity ?'|'?'
+        #- task|simple|'a d'|'1:a d'|'how to use eval'|'?'
+        #- tasks_sh|string_to_buttons|'i have a dog'|dog
         #- cfg|messageYN1|a,b|1
-        #- cfg|update_table_gui|koan,a,b,c|1
-        - cfg|remove_trailing|cc|c 
+        #- cfg|update_table|koan,question,solution,route,method,input,expect,result|1
+        #- cfg|update_table_gui|koan,question,solution,route,method,input,expect,result2|1
+        - cfg|remove_trailing|cc|c|question|answer 
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
@@ -209,7 +212,7 @@ suspend:
 
     
 task:
-    -  burn photos on a cd
+    -  if collect 50 new words I will burn photos on a cd -
     -  try remembering the last lesson
     -  push shopping forward
     -  add test through gui - db has to contain last koan to run
@@ -220,3 +223,6 @@ done:
     - check bank account
     - send email to Eti
     - brush Shalva's teeth
+
+url:
+    - http://wiki.bash-hackers.org/rcwatson

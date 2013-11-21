@@ -1,6 +1,4 @@
-task|simple|'a c'|'1:a c'
-tasks_sh|string_to_buttons|'i have a dog'|have
-cfg|remove_trailing|cc|c
+cfg|remove_trailing|cc|c|question|answer
 cfg|remove_trailing|" a    bc "|"a  bc"
 tasks_sh|update_row|glossary|a
 cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
