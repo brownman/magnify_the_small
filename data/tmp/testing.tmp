@@ -1,3 +1,4 @@
+snippet|eval|eval echo hi i|www.google.com
 cfg|remove_trailing|cc|c|question|answer
 cfg|remove_trailing|" a    bc "|"a  bc"
 tasks_sh|update_row|glossary|a

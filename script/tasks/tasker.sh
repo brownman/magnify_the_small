@@ -236,7 +236,9 @@ update_db(){
     fi
 
     if [ "$table1" ];then
-        choose=$(show_selected_table "$table1")
+
+        choose=$(update_table_gui "$table1")
+        #choose=$(show_selected_table "$table1")
         #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
         #echo01 "$choose1"
         #choose1=$(string_to_buttons "$choose" '|')
@@ -461,7 +463,8 @@ if [ "$DICE" = true ];then
 
         random1 2
         res=$?
-        echo01 'go away from the computer and let me to decide what to do now'
+        local strr='go away from the computer and let me to decide what to do now'
+        notify-send3 "$strr"
         sleep1 5
         
         if [ $res -eq 0 ];then
@@ -509,7 +512,7 @@ remind_1_task
 }
 planning(){
 
-    update_db the_big_picture
+    update_db_gui the_big_picture
 }
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
@@ -630,7 +633,7 @@ deal_comparison(){
 
 ##works:
 args=( "$@" )
-$(show_args "${args[@]}")
+#$(show_args "${args[@]}")
 res1=$( "${args[@]}")
 echo "$res1" #must echo for testing to work
 

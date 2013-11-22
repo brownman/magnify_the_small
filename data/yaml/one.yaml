@@ -41,6 +41,7 @@ testing:
         #- cfg|messageYN1|a,b|1
         #- cfg|update_table|koan,question,solution,route,method,input,expect,result|1
         #- cfg|update_table_gui|koan,question,solution,route,method,input,expect,result2|1
+        - snippet|eval|eval echo hi i|www.google.com
         - cfg|remove_trailing|cc|c|question|answer 
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a

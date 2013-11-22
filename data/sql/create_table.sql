@@ -72,7 +72,17 @@ CREATE TABLE koan (
     result CHAR(10)
 );
 
+CREATE TABLE snippet (
+    id INTEGER PRIMARY KEY,
+    tags CHAR(35),
+    code CHAR(190),
+    result CHAR(190),
+    url CHAR(190)
+);
+
 CREATE UNIQUE INDEX solution ON koan(id ASC);
+
+CREATE UNIQUE INDEX code ON snippet(id ASC);
 
 
 

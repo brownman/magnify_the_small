@@ -24,7 +24,9 @@ SELECT * FROM the_big_picture ORDER BY id DESC;
 SELECT * FROM bookmarks ORDER BY id DESC; 
 
 SELECT * FROM push_forward ORDER BY id DESC; 
+
 SELECT * FROM koan ORDER BY id DESC; 
+SELECT * FROM snippet ORDER BY id DESC; 
 
 
 

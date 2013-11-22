@@ -25,6 +25,13 @@ cfg(){
     local res=$(    commander "$cmd")
     echo "$res"
 }
+snippet(){
+    notify-send1 'cfg test'
+    local cmd="$@"
+    #assert_equal_str $cmd
+    local res=$(    commander "$cmd")
+    echo "$res"
+}
 tasks_sh(){
     #assert_equal_str 'a b' 'a b' 'something went wrong'
     #exiting
@@ -82,9 +89,9 @@ test_yaml(){
 
         local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=$expect")
 
-        $(update_table_gui koan "$question" "$solution" "$route" "$method" "$input1" "$expect" "$equality" )
+        #$(update_table_gui koan "$question" "$solution" "$route" "$method" "$input1" "$expect" "$equality" )
 
-            $( show_selected_table koan )
+            #$( show_selected_table koan )
         if [ "$equality" = 'equal' ];then
             notify-send3 'test ok!'
 

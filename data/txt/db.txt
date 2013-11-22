@@ -1,8 +1,9 @@
 associations
-koan
+logger
+snippet
+bookmarks
 priorities
 the_big_picture
-bookmarks
-logger
+koan
 push_forward
 words
