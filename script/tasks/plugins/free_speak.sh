@@ -31,13 +31,14 @@ memory_game(){
         trace "loop $counter"
         str=$(random_grammer) 
         str=$( gxmessage   $GXMESSAGE0 -entrytext "$str"  -title "$subject" -file "$file")
-        eval 'helper0 "$str" "$file"' 
+        #eval 'helper0 "$str" "$file"' 
+        helper0 "$str" "$file"
     done
 }
 
 run(){
 
-local subject1=${"$subject":-'essay'}
+local subject1=${subject:-essay}
 local file=$DATA_DIR/txt/$subject1.txt 
 touch $file
 memory_game $file 

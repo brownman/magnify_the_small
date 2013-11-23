@@ -250,7 +250,9 @@ update_db(){
 
 
 }
-
+menu(){
+breakpoint
+}
 #
 #menu(){
 #
@@ -315,7 +317,14 @@ motivation(){
     #assert_equal_str "$line"
     reasoning 
 
-    every breakpoint 15
+    #every breakpoint 15
+local cmd=''
+     cmd="gedit $DATA_DIR/txt/sport.txt"
+
+every "$cmd" 15
+    cmd="gedit $DATA_DIR/txt/glossary.txt"
+
+every "$cmd" 15
 }
 
 motivations(){
@@ -463,9 +472,14 @@ if [ "$DICE" = true ];then
 
         random1 2
         res=$?
-        local strr='go away from the computer and let me to decide what to do now'
-        notify-send3 "$strr"
-        sleep1 5
+        #local strr='go away from the computer and let me to decide what to do now'
+        #notify-send3 "$strr"
+        flite 'collect new words!'
+        ( exo-open http://www.google.com &)
+        #cmd="xterm1 free_speak new_words"
+        #(eval "$cmd" &)
+        (free_speak new_words &)
+        sleep1 65
         
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
@@ -636,7 +650,7 @@ args=( "$@" )
 #$(show_args "${args[@]}")
 res1=$( "${args[@]}")
 echo "$res1" #must echo for testing to work
-
+#assert_equal_str "$res1"
 ############################### proxy for execution #####################
 
 

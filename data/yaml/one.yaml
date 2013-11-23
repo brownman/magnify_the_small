@@ -5,7 +5,7 @@ date:
 workflow:
         - update_db|koan|last bug was
         - free_speak||learn one word
-        - free_imagination||free imagination
+        #- free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
@@ -41,8 +41,9 @@ testing:
         #- cfg|messageYN1|a,b|1
         #- cfg|update_table|koan,question,solution,route,method,input,expect,result|1
         #- cfg|update_table_gui|koan,question,solution,route,method,input,expect,result2|1
-        - snippet|eval|eval echo hi i|www.google.com
-        - cfg|remove_trailing|cc|c|question|answer 
+        #- cfg|update_table_gui|snippet,1,2,3,4|1
+        #- snippet|eval|eval echo hi i|www.google.com
+        - cfg|remove_trailing|"c d "|'c d'
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
@@ -117,13 +118,14 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        - free_imagination
+        #- free_imagination
         - reminder
         - increase_motivation 
         #- task_from publish
-        - update_db  
+        - update_db snippet 
+        #- update_db  
         - task_from recent
-        #- free_speak 
+        - free_speak 
         #- after_suspension
 
 
@@ -197,7 +199,7 @@ suspend:
         - remind_1_task 
         - update_db|koan|last bug was
         - free_speak||learn one word
-        - free_imagination||free imagination
+        #- free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice

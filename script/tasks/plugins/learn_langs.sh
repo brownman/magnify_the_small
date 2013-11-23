@@ -51,7 +51,7 @@ run(){
         else
             code1
 
-    xterm1 $PLUGINS_DIR/free_speak.sh
+    #xterm1 $PLUGINS_DIR/free_speak.sh
             let "lesson=$lesson+1"
         fi
     done

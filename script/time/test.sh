@@ -20,10 +20,14 @@ plugin(){
 }
 cfg(){
     notify-send1 'cfg test'
-    local cmd="$@"
+    #local cmd="$@"
     #assert_equal_str $cmd
-    local res=$(    commander "$cmd")
-    echo "$res"
+    #local res=$(    commander "$cmd")
+    #echo "$res"
+local args=( "$@" )
+#$(show_args "${args[@]}")
+local res1=$( "${args[@]}")
+echo "$res1"
 }
 snippet(){
     notify-send1 'cfg test'
@@ -56,6 +60,7 @@ test_yaml(){
     trace   "$filename" 
     trace   "$line" 
     #tracex  'testing.0:' "$line" 
+    #update_table_gui ""
     if [ "$line" != '' ];then
         local route=$( echo "$line" | awk -F '|' '{print $1}' )
         local method=$( echo "$line" | awk -F '|' '{print $2}' )
@@ -87,13 +92,16 @@ test_yaml(){
 
 
 
-        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=$expect")
+        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+        #assert_equal_str "$equality"
 
-        #$(update_table_gui koan "$question" "$solution" "$route" "$method" "$input1" "$expect" "$equality" )
+
+        $(update_table_gui koan "$route" "$method" "$input1" "$expect" "$equality" )
 
             #$( show_selected_table koan )
         if [ "$equality" = 'equal' ];then
             notify-send3 'test ok!'
+
 
 
         else
