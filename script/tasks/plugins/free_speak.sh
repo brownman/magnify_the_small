@@ -44,5 +44,5 @@ touch $file
 memory_game $file 
 }
 
-#unlocker
-run
+unlocker
+#run

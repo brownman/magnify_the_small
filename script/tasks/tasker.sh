@@ -448,10 +448,11 @@ remind_1_task(){
     notify-send1 'funniest story ever !'
 
     #line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
-    line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
-    gxmessage "$line" $GXMESSAGET
-    local subject=$(string_ws "$line")
-    free_speak "$subject"
+    local line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
+    local line1=$(gxmessage "$line" $GXMESSAGET)
+    notify-send1 "$line1"
+    #local subject=$(string_ws "$line")
+    #free_speak "$subject"
     #echo 'random task'
 }
 

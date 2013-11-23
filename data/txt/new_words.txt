@@ -1,3 +1,5 @@
+give
+stand
  swim
 swimming
 swim

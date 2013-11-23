@@ -107,3 +107,4 @@ simple|ru|prosta
 reason|ru|pri-chin-ya
 dishes|ru|pasuda - pass me the Soda
 move|ru|dvi gats a - it requires 2 kidnyes to move yourself
+solution|ru|ri-shen-ya: one who has r.i.shayon has a good solution for how to reach from point A to point B
