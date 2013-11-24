@@ -24,10 +24,10 @@ cfg(){
     #assert_equal_str $cmd
     #local res=$(    commander "$cmd")
     #echo "$res"
-local args=( "$@" )
-#$(show_args "${args[@]}")
-local res1=$( "${args[@]}")
-echo "$res1"
+    local args=( "$@" )
+    #$(show_args "${args[@]}")
+    local res1=$( "${args[@]}")
+    echo "$res1"
 }
 snippet(){
     notify-send1 'cfg test'
@@ -50,90 +50,105 @@ tasks_sh(){
     local res1=$( commander "$cmd" )
     echo  "$res1"
 }
+update_line(){
+    IFS='|' read -a args <<< "$line"
+local line1=$(show_args2 "${args[@]}")
+#line="$line1"
+echo "$line1"
+}
+
+
 test_yaml(){
     trace "$tasks_sh"
+        local filename=$(get_filename1 tmp testing )
+        local line=$(cat $filename | head -1)
+        
+        line=$(         update_line "$line" )
+#assert_equal_str "$line1" "$line"
+    
+        #breakpoint
+        trace   "$filename" 
+        trace   "$line" 
+        #tracex  'testing.0:' "$line" 
+        #update_table_gui ""
+        if [ "$line" != '' ];then
+            local route=$( echo "$line" | awk -F '|' '{print $1}' )
+            local method=$( echo "$line" | awk -F '|' '{print $2}' )
+            local input=$( echo "$line" | awk -F '|' '{print $3}' )
+            local expect=$( echo "$line" | awk -F '|' '{print $4}' )
+            local question=$( echo "$line" | awk -F '|' '{print $5}' )
+            local solution=$( echo "$line" | awk -F '|' '{print $6}' )
 
-    local filename=$(get_filename1 tmp testing )
-
-    local line=$(cat $filename | head -1)
-    #breakpoint
-    trace   "$filename" 
-    trace   "$line" 
-    #tracex  'testing.0:' "$line" 
-    #update_table_gui ""
-    if [ "$line" != '' ];then
-        local route=$( echo "$line" | awk -F '|' '{print $1}' )
-        local method=$( echo "$line" | awk -F '|' '{print $2}' )
-        local input=$( echo "$line" | awk -F '|' '{print $3}' )
-        local expect=$( echo "$line" | awk -F '|' '{print $4}' )
-        local question=$( echo "$line" | awk -F '|' '{print $5}' )
-        local solution=$( echo "$line" | awk -F '|' '{print $6}' )
-
-        #trace "route: $route"
-        #local res=$(echo "$input")
-        #res=$(ls -l  $res)
-        #assert_equal_str "$res"
-        #echo "$res"
-        #input="$res"
-
-
-
-        local input1=$( echo "$input" | sed 's/,/ /g' ) 
-        #awk -F ',' '{print $1}' )
-        #input2=$( echo "$input" | awk -F ',' '{print $2}' )
-        #echo "$res"
-        ################### eval 
-        local cmd=$( echo "$route $method $input1" )
-        local result=$(commander "$cmd")
-
-        #assert_not_equal_str "$result" "" 'must not be empty'
+            #trace "route: $route"
+            #local res=$(echo "$input")
+            #res=$(ls -l  $res)
+            #assert_equal_str "$res"
+            #echo "$res"
+            #input="$res"
 
 
 
 
+            local input1=$( echo "$input" | sed 's/,/ /g' ) 
 
-        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
-        #assert_equal_str "$equality"
+            #local ans=$(update_table_gui koan "$route" "$method" "$input1" "$expect" "$equality" )
+            #assert_equal_str "$ans"
+            #awk -F ',' '{print $1}' )
+            #input2=$( echo "$input" | awk -F ',' '{print $2}' )
+            #echo "$res"
+            ################### eval 
+            local cmd=$( echo "$route $method $input1" )
+            local result=$(commander "$cmd")
+
+            #assert_not_equal_str "$result" "" 'must not be empty'
 
 
-        $(update_table_gui koan "$route" "$method" "$input1" "$expect" "$equality" )
-
-            #$( show_selected_table koan )
-        if [ "$equality" = 'equal' ];then
-            notify-send3 'test ok!'
 
 
 
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+            #assert_equal_str "$equality"
+
+
+
+
+            #assert_equal_str "$expect"
+            $( show_selected_table1 koan )
+            if [ "$equality" = 'equal' ];then
+                notify-send3 'test ok!'
+
+
+
+            else
+                #notify-send1 'test failed'
+                notify-send1 'google is a friend'
+                #local url=http://wiki.bash-hackers.org/rcwatson
+                #cmd="echo $(gxmessage $GXMESSAGET 'google is a friend' -entrytext $url);#xargs google-chrome"
+                #(every "$cmd" 15  &)
+                cmd='notify-send3 " must document the new tests"'
+                (every "$cmd" 5  &)
+            fi
+
+
+            #
+            #        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
+            #
+            #        echo -n '' > $file_test
+            #        echo "input:   -$input-" >> $file_test
+            #        echo "expect: -$expect-" >> $file_test
+            #
+            #        local str=$(cat $file_test)
+            #
+            #        #(trace "$str" "action: $method " "$equality" true &)
+            #        trace "action: $method $str $equality"
+            echo "$equality"
         else
-            #notify-send1 'test failed'
-notify-send1 'google is a friend'
-#local url=http://wiki.bash-hackers.org/rcwatson
-#cmd="echo $(gxmessage $GXMESSAGET 'google is a friend' -entrytext $url);#xargs google-chrome"
-            #(every "$cmd" 15  &)
-            cmd='notify-send3 " must document the new tests"'
-            (every "$cmd" 5  &)
+
+            trace  "empty line" 'error parsing'
+            echo "empty line"
+
         fi
-
-
-        #
-        #        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
-        #
-        #        echo -n '' > $file_test
-        #        echo "input:   -$input-" >> $file_test
-        #        echo "expect: -$expect-" >> $file_test
-        #
-        #        local str=$(cat $file_test)
-        #
-        #        #(trace "$str" "action: $method " "$equality" true &)
-        #        trace "action: $method $str $equality"
-        echo "$equality"
-    else
-
-        trace  "empty line" 'error parsing'
-        echo "empty line"
-
-    fi
-
+  
 }
 
 run(){

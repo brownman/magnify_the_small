@@ -43,7 +43,7 @@ testing:
         #- cfg|update_table_gui|koan,question,solution,route,method,input,expect,result2|1
         #- cfg|update_table_gui|snippet,1,2,3,4|1
         #- snippet|eval|eval echo hi i|www.google.com
-        - cfg|remove_trailing|"c d "|'c d'
+        - cfg|remove_trailing|'c v '|'c v'|
         - cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd

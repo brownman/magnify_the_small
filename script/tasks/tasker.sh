@@ -425,36 +425,36 @@ update(){
     add_line $file "$title"
 }
 
-before_suspension(){
-    notify-send1 'before_suspension'
-    flite 'think smaller'
-    sleep1 5
-    motivation
-
-    cmd=free_speak
-    every "$cmd" 10
-
-    cmd=learn_langs
-    every "$cmd" 15
-}
-play_recent(){
-    local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
-   parse_line1 "$line" 
-    #commander "$line"
-
-            update_table logger "$date1" "play_recent" "$line1"
-}
-remind_1_task(){
-    notify-send1 'funniest story ever !'
-
-    #line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
-    local line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
-    local line1=$(gxmessage "$line" $GXMESSAGET)
-    notify-send1 "$line1"
-    #local subject=$(string_ws "$line")
-    #free_speak "$subject"
-    #echo 'random task'
-}
+#before_suspension(){
+#    notify-send1 'before_suspension'
+#    flite 'think smaller'
+#    sleep1 5
+#    motivation
+#
+#    cmd=free_speak
+#    every "$cmd" 10
+#
+#    cmd=learn_langs
+#    every "$cmd" 15
+#}
+#play_recent(){
+#    local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
+#   parse_line1 "$line" 
+#    #commander "$line"
+#
+#            update_table logger "$date1" "play_recent" "$line1"
+#}
+#remind_1_task(){
+#    notify-send1 'funniest story ever !'
+#
+#    #line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
+#    local line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
+#    local line1=$(gxmessage "$line" $GXMESSAGET)
+#    notify-send1 "$line1"
+#    #local subject=$(string_ws "$line")
+#    #free_speak "$subject"
+#    #echo 'random task'
+#}
 
 suspend1(){
     #flite "should - $msg"
@@ -475,20 +475,32 @@ if [ "$DICE" = true ];then
         res=$?
         #local strr='go away from the computer and let me to decide what to do now'
         #notify-send3 "$strr"
-        flite 'collect new words!'
-        ( exo-open http://www.google.com &)
-        #cmd="xterm1 free_speak new_words"
-        #(eval "$cmd" &)
-        (free_speak new_words &)
-        sleep1 65
+     
         
         if [ $res -eq 0 ];then
             $PLUGINS_DIR/suspend.sh
         else
 
             learn_langs &
+sleep1 5
+
+
+   flite 'collect new words!'
+        ( free_speak new_words &)
+
+
+        ( exo-open http://www.google.com &)
+
+   flite 'take 30 seconds'
+        sleep1 31
+        #cmd="xterm1 free_speak new_words"
+        #(eval "$cmd" &)
+
+
             notify-send1 'skip suspension for deal my fears:' '..'
-            play_recent  
+            #play_recent  
+
+            $PLUGINS_DIR/suspend.sh
             
 
         fi

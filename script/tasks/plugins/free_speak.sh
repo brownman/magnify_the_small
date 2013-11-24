@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # about file:
 # desc: talk to yourself and translate it
 
@@ -29,10 +30,12 @@ memory_game(){
     while :;do
         let counter+=1
         trace "loop $counter"
-        str=$(random_grammer) 
+        #str=$(random_grammer) 
+        #str=''
         str=$( gxmessage   $GXMESSAGE0 -entrytext "$str"  -title "$subject" -file "$file")
         #eval 'helper0 "$str" "$file"' 
         helper0 "$str" "$file"
+        #echo01 "$str"
     done
 }
 
@@ -44,5 +47,5 @@ touch $file
 memory_game $file 
 }
 
-unlocker
-#run
+#unlocker
+run

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 # about file:
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
@@ -19,7 +19,7 @@ silence_fetch=$silence
 #unlocker?
 file_locker=/tmp/translation
 delay=3
-loops=10
+loops=2
 gentle=true
 
 trace 'translate.sh got:'
@@ -273,7 +273,7 @@ echo5(){
     local  num=$(echo "$str" | wc -w)
 
 
-    collect_new_words "$lang_target" "$str"
+    collect_new_words "$lang_target" "$str" &
 
     translate_f  "$str" en 
     #echo "$str" | flite
@@ -363,7 +363,7 @@ echo4(){
     local str="$1"
     trace "$str"
 
-    collect_new_words "$lang1" "$str"
+    collect_new_words "$lang1" "$str" &
 
 
     translate_f  "$str" "en"
