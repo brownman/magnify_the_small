@@ -76,8 +76,6 @@ test_yaml(){
             local method=$( echo "$line" | awk -F '|' '{print $2}' )
             local input=$( echo "$line" | awk -F '|' '{print $3}' )
             local expect=$( echo "$line" | awk -F '|' '{print $4}' )
-            local question=$( echo "$line" | awk -F '|' '{print $5}' )
-            local solution=$( echo "$line" | awk -F '|' '{print $6}' )
 
             #trace "route: $route"
             #local res=$(echo "$input")
@@ -99,6 +97,7 @@ test_yaml(){
             ################### eval 
             local cmd=$( echo "$route $method $input1" )
             local result=$(commander "$cmd")
+            result="'$result'"
 
             #assert_not_equal_str "$result" "" 'must not be empty'
 
@@ -106,7 +105,9 @@ test_yaml(){
 
 
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
+            #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
 
 
