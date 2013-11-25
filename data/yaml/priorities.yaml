@@ -86,3 +86,19 @@ WISH:
 url:
 #linux:
     - http://www.youtube.com/playlist?list=PLC25DE7677D2DCC66
+
+
+ideas:
+    - each plugin should be stand-alone , and shouldn't contain GLOBAL vars. - only on the file's top
+    - workflow evaluator - accessable as .cfg
+    - child story - plugin
+    - test your language skills - plugin
+    - cake of time - plugin
+    - shopping - plugin
+    - test-suite vs single test
+    - python + travis + security
+    - cfg- visual collector + xcow + icon 
+    - updatable db table
+
+
+

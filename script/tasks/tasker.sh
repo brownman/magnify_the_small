@@ -52,7 +52,9 @@ do_abs(){
     #local dir_source=$PWD/1/testing/python2/koans
     #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
     local dir=$SCRIPT_DIR/tasks/abs/source
-    local line=$(generate_line 'abs')
+    #local line=$(random_line 'abs')
+
+     local    line=$(random_from_subject1 abs)
     local res="$dir/$line"
 
 
@@ -123,26 +125,7 @@ show_msg(){
     echo "$msg"
 }
 
-#show_msg_entry(){
-#
-#    trace 'show_msg_entry' "show_msg_entry subject : $1"
-#    notify-send 'show_msg_entry' "show_msg_entry - subject: $1"
-#    local subject="$1"
-#    #parse_subject "$subject"
-#    local file=$(get_filename1 $subject)
-#    notify-send "FILE RECENT" "$file"
-#    local str1=$(cat $file | head -1)
-#    local msg=$( gxmessage -file $file -entrytext "$str1" $GXMESSAGET  -title "$subject"  )
-#    if [ "$msg" = '' ];then
-#        motivation glossary
-#    else
-#        trace 'echo 01'
-#        echo "$msg" >> $CFG_DIR/txt/easy.txt
-#        echo01 "$msg" &
-#        #flite "$msg"
-#    fi
-#    echo "$msg"
-#}
+
 practice_regexp(){
     #http://linux.die.net/Bash-Beginners-Guide/sect_04_02.html#sect_04_02_02
 
@@ -287,6 +270,7 @@ breakpoint
 #
 #
 cow_report(){
+    #local file=
     local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
     xcowsay "associations: $num"
 
@@ -296,35 +280,39 @@ cow_report(){
 
 
 motivation(){
+
     notify-send1 'motivation'
     #caller1
-    file_name="$1"
+    subject="$1"
     cmd=cow_report
     every "$cmd" 10
     reason='push: learning new language'
     local line=''
 
+if [ "$subject" = '' ];then
     random1 10
     ans=$?
     if [ $ans -gt 3 ];then
-        line=$(generate_line glossary)
+        line=$(random_from_subject1 glossary)
     else
-        line=$(generate_line sport)
+        line=$(random_from_subject1 sport)
     fi
 
-    echo01 "$line"
 
+else
+
+    line=$(random_from_subject1 "$subject")
+#assert_equal_str "$line"
+
+fi
+
+
+    echo01 "$line" &
     #assert_equal_str "$line"
-    reasoning 
 
-    #every breakpoint 15
-local cmd=''
-     cmd="gedit $DATA_DIR/txt/sport.txt"
 
-every "$cmd" 15
-    cmd="gedit $DATA_DIR/txt/glossary.txt"
-
-every "$cmd" 15
+  #show_file "$file_name" &
+  echo "line: $line"
 }
 
 motivations(){
@@ -371,20 +359,7 @@ record_for_later(){
 }
 
 
-show_file(){
 
-    local    file="$1"
-
-    $(messageYN1 'edit file ?' 'show_file' '-iconic' )
-    answer=$?
-
-    if [[ $answer -eq 1 ]];then
-        gedit $file
-    else
-        echo 'skip editing'
-    fi
-
-}
 
 show_file_html(){
     local    file="$1"
@@ -437,13 +412,13 @@ update(){
 #    cmd=learn_langs
 #    every "$cmd" 15
 #}
-#play_recent(){
-#    local line=$(        pick_random_line $DATA_DIR/tmp/suspend.tmp )
-#   parse_line1 "$line" 
-#    #commander "$line"
-#
-#            update_table logger "$date1" "play_recent" "$line1"
-#}
+play_recent(){
+    local line=$(        random_line $DATA_DIR/tmp/workflow.tmp )
+   parse_line1 "$line" 
+    #commander "$line"
+
+            #update_table logger "$date1" "play_recent" "$line1"
+}
 #remind_1_task(){
 #    notify-send1 'funniest story ever !'
 #
@@ -460,6 +435,8 @@ suspend1(){
     #flite "should - $msg"
 
 
+            play_recent & 
+            sleep1 10
     motivation & 
 
 
@@ -486,7 +463,7 @@ sleep1 5
 
 
    flite 'collect new words!'
-        ( free_speak new_words &)
+
 
 
         ( exo-open http://www.google.com &)
@@ -498,9 +475,11 @@ sleep1 5
 
 
             notify-send1 'skip suspension for deal my fears:' '..'
-            #play_recent  
+
 
             $PLUGINS_DIR/suspend.sh
+
+        ( free_speak new_words &)
             
 
         fi

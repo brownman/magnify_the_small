@@ -8,12 +8,14 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=false
 #false
-#${3:-'false'} #"$3" #false #export MULTIPLE_LANGS=true
-silence=$SILENCE
+silence2=${3:-true} #"$3" #false #export MULTIPLE_LANGS=true
+#assert_equal_str "$silence2" 'false'
+#silence2=$silence2
 lang_target=$LANG_DEFAULT
 
-#silence_fetch=$SILENCE_FETCH #if no tts is needed
-silence_fetch=$silence
+#silence2_fetch=$silence2_FETCH #if no tts is needed
+silence2_fetch=false
+#$silence2
 
 
 #unlocker?
@@ -74,11 +76,11 @@ make_assosiation(){
 
 }
 play1(){
-
+    #assert_equal_str "play: silence2 is:$silence2"
     trace "play1() got: "
     trace "$1 | $2"
 
-    if [ "$silence" = false ];then
+    if [ "$silence2" = 'false' ];then
 
         local file="$1"
 
@@ -105,8 +107,9 @@ play1(){
             #Backtrace1
         fi
     else
-        cmd='notify-send1 "silence is on"'
+        cmd="notify-send1 silence_on"
         every "$cmd" 15
+        #notify-send1 'silence2 is on'
         trace 'skip playing'
 
     fi
@@ -187,7 +190,7 @@ translate_f(){
             trace $output
             #trace "$output" | text2wave -o "$file_mp3" #/tmp/1.wav | lame /tmp/1.wav  $file_mp3 
         else
-            if [ "$silence_fetch" = true ];then
+            if [ "$silence2_fetch" = true ];then
                 trace 'play this mp3 on next run'
                 ( wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 &) 
             else
@@ -401,7 +404,7 @@ printing1(){
     fi
 
     #assert_equal_str "abc"
-    if [ "$SILENCE" = true ];then
+    if [ "$silence2" = true ];then
         if [ "$lang" = ru ];then
             notify-send1 "$line2" "$line1"   
 

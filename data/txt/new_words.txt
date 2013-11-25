@@ -1,3 +1,25 @@
+golf
+shopping
+flight
+bathroom
+room
+exit
+ true
+ silence
+ silence
+ silence
+fun
+ fun
+ silence
+bring
+ bring
+bring
+ fun
+ fun
+fun
+ when
+when
+when
 it is awesome
 your are the best
 it is missing

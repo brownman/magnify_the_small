@@ -60,7 +60,7 @@ echo "$line1"
 
 test_yaml(){
     trace "$tasks_sh"
-        local filename=$(get_filename1 tmp testing )
+        local filename=$(get_filename 'tmp' 'testing' )
         local line=$(cat $filename | head -1)
         
         line=$(         update_line "$line" )
@@ -89,8 +89,7 @@ test_yaml(){
 
             local input1=$( echo "$input" | sed 's/,/ /g' ) 
 
-            #local ans=$(update_table_gui koan "$route" "$method" "$input1" "$expect" "$equality" )
-            #assert_equal_str "$ans"
+           
             #awk -F ',' '{print $1}' )
             #input2=$( echo "$input" | awk -F ',' '{print $2}' )
             #echo "$res"
@@ -109,12 +108,13 @@ test_yaml(){
             local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
-
+ #local ans=$(update_table_gui1 koan "$route" "$method" "$input1" "$expect" "$equality" )
+            #assert_equal_str "$ans"
 
 
 
             #assert_equal_str "$expect"
-            $( show_selected_table1 koan )
+            #$( show_selected_table1 koan )
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
 
