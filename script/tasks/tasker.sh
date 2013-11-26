@@ -208,8 +208,18 @@ increase_motivation(){
 }
 
 db(){
+notify-send1 'db' "$@"
 
-    $PLUGINS_DIR/increase_motivation.sh "$@" 
+##works:
+local args=( "$@" )
+#$(show_args "${args[@]}")
+local res1=$(   $PLUGINS_DIR/db.sh   "${args[@]}")
+echo "$res1" #must echo for testing to work
+#assert_equal_str "$res1"
+############################### proxy for execution #####################
+
+
+  
 }
 
 #update_db(){

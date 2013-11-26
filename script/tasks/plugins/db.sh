@@ -28,7 +28,7 @@ insert_row(){
     #local fields1='(doing,should,sport)'
     #local values1="('a a','b','1')"
     #local cmd=$(echo "sqlite3 $file_db  \"insert into $table1 $fields values $fields\";")
-    update_commander
+    #update_commander
     local cmd=$(echo "sqlite3 $file_db  \"insert into $table1 $fields values $values\";")
     #COMMANDER=true
     local res=$(   commander "$cmd")
@@ -39,7 +39,7 @@ update_db_list(){
 
     local file_db=$file_db
     local file_new=$DATA_DIR/txt/db.txt
-    notify-send 'update_db_list'
+    notify-send1 'update_db_list'
     #local str=$(sqlite3 -header -list ex1.db ".tables" | xargs echo | sed 's/ /|/g')
     local str=$(sqlite3 -header -list $file_db ".tables" | tr -s ' ' '\n')
     echo "$str" > $file_new
@@ -151,36 +151,49 @@ get_column_number(){
     return $max
 }
 
-update_table2(){
+#update_table2(){
+#    local table="$1"
+#    shift
+#    local ids=("$@")
+#    local values=$( IFS='|'; echo "${ids[*]}" ); 
+#    local num=${#ids[@]}
+#    get_column_number "$table"
+#    local max=$?
+#
+#    if [ $num -eq $max ];then
+#trace ''
+#        #show_selected_table "$table" "$values" 
+#
+#        cmd="insert_row '$table' '$fields' '$values'"
+##        update_commander
+#        command "$cmd"
+#    else
+#
+#        assert_equal_str "num:$num max:$max values:$values"
+#    fi
+#}
+update_table(){
+
+
+
     local table="$1"
+
+    local gui="${2:-true}"
+    
+
+
+
     shift
-    local ids=("$@")
-    local values=$( IFS='|'; echo "${ids[*]}" ); 
-    local num=${#ids[@]}
-    get_column_number "$table"
-    local max=$?
-
-    if [ $num -eq $max ];then
-
-        #show_selected_table "$table" "$values" 
-    else
-
-        assert_equal_str "num:$num max:$max values:$values"
-    fi
-}
-update_table_gui1(){
-
-
-
-    local table="$1"
-
-
     shift
 
 
     local values_arr=("$@")
+local tmp="${values_arr[@]}"
 
-$(show_args "${values_arr[@]}")
+#assert_equal_str "$3"
+#assert_equal_str "$tmp"
+
+#$(show_args "${values_arr[@]}")
     local values=''
     local num=0
     local max=0
@@ -194,9 +207,6 @@ $(show_args "${values_arr[@]}")
     fields="${fields[@]}"
     max=${#columns[@]}
 
-#{values_arr[@]}"
-
-#assert_equal_str "$1"
     if [ "$1" ];then
         values=$( IFS='|'; echo "${values_arr[*]}" ); 
         #assert_equal_str "$values"
@@ -207,6 +217,8 @@ $(show_args "${values_arr[@]}")
     fi
 
     if [ $num -eq $max ];then
+
+        notify-send1 should-update
         local cmd=""
         cmd="yad --timeout 20 --title "$table" --form --separator='|'   --text 'table columns:'  "  
 
@@ -215,17 +227,26 @@ $(show_args "${values_arr[@]}")
             cmd="$cmd --field=\"${columns[c]}\"   \"${values_arr[c]}\" "
         done
 
-        #COMMANDER=true
-        values=$(commander "$cmd")
+        update_commander
+        if [ "$gui" = true];then
+    values=$(commander "$cmd")
         values=$(remove_last_char "$values")
+        fi
+    
 
         cmd="insert_row '$table' '$fields' '$values'"
 
-        commander "$cmd"
+
+
+
     else
+
+        notify-send1 dont-update
         assert_equal_str "num:$num max:$max values:$values"
     fi
     
+
+
 
 
 }
