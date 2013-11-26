@@ -230,18 +230,23 @@ $(show_args "${values_arr[@]}")
 
 }
 
-#show_selected_table2(){
-#    breakpoint
-#}
-#show_selected_table(){
-#   trace 'skip: show db ' 
-#}
-export -f get_column_number
-export -f update_table2
+#
+#export -f get_column_number
+#export -f update_table2
+#
+#export -f show_selected_table
+#export -f insert_row 
+#export -f update_db_list
+#
+#export -f update_table_gui1
 
-#export -f show_selected_table1
-export -f show_selected_table
-export -f insert_row 
-export -f update_db_list
 
-export -f update_table_gui1
+##works:
+args=( "$@" )
+#$(show_args "${args[@]}")
+res1=$( "${args[@]}")
+echo "$res1" #must echo for testing to work
+#assert_equal_str "$res1"
+############################### proxy for execution #####################
+
+

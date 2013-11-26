@@ -203,10 +203,14 @@ take_photo(){
 }
 
 increase_motivation(){
+
     $PLUGINS_DIR/increase_motivation.sh
 }
 
+db(){
 
+    $PLUGINS_DIR/increase_motivation.sh "$@" 
+}
 
 #update_db(){
 #    local  table1="$1"
