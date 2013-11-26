@@ -400,7 +400,7 @@ printing1(){
     #assert_equal_str "$line2"
 
     if [ "$lang" != 'en' ];then
-        update_table 'words' "$lang" "$input" "$line1" "$line2"
+        update_table_gui 'words' "$lang" "$input" "$line1" "$line2"
     fi
 
     #assert_equal_str "abc"
