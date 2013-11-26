@@ -114,7 +114,7 @@ test_yaml(){
 
 
 
- #local ans=$($tasks_sh db update_table koan true "$route" "$method" "$input1" "$expect" "$equality" )
+ local ans=$($tasks_sh db update_table koan true "$route" "$method" "$input1" "$expect" "$equality" )
 
             #assert_equal_str "$expect"
 

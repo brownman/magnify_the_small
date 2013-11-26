@@ -28,7 +28,6 @@ insert_row(){
     #local fields1='(doing,should,sport)'
     #local values1="('a a','b','1')"
     #local cmd=$(echo "sqlite3 $file_db  \"insert into $table1 $fields values $fields\";")
-    #update_commander
     local cmd=$(echo "sqlite3 $file_db  \"insert into $table1 $fields values $values\";")
     #COMMANDER=true
     local res=$(   commander "$cmd")
@@ -56,7 +55,6 @@ update_db_list(){
 
 show_selected_table(){
 
-    #update_commander
     local cmd=''
     local gui=true
  
@@ -101,7 +99,6 @@ show_selected_table(){
     local pipe2=" tr '\n' ' ' "
     local str_sql1="sqlite3 -csv $file_db $str1 | $pipe1 | $pipe2"
     local cmd_sql1=$(echo "$str_sql1")
-    #update_commander
     local res_sql1=$(commander "$cmd_sql1")
     local str_zen1="xargs zenity $zen1 $timeout1 --print-column=ALL"
 #    commander "$str_zen1"
@@ -165,7 +162,6 @@ get_column_number(){
 #        #show_selected_table "$table" "$values" 
 #
 #        cmd="insert_row '$table' '$fields' '$values'"
-##        update_commander
 #        command "$cmd"
 #    else
 #
@@ -227,15 +223,14 @@ local tmp="${values_arr[@]}"
             cmd="$cmd --field=\"${columns[c]}\"   \"${values_arr[c]}\" "
         done
 
-        update_commander
-        if [ "$gui" = true];then
+        if [ "$gui" = true ];then
     values=$(commander "$cmd")
         values=$(remove_last_char "$values")
         fi
     
 
         cmd="insert_row '$table' '$fields' '$values'"
-
+commander  "$cmd"
 
 
 
@@ -246,7 +241,7 @@ local tmp="${values_arr[@]}"
     fi
     
 
-
+show_selected_table "$table"
 
 
 }
