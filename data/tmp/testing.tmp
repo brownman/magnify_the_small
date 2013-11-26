@@ -1,4 +1,3 @@
-cfg|show_selected_table|koan|1
 cfg|remove_trailing|'c x '|'c x'
 cfg|remove_trailing|" a    bc "|"a  bc"
 tasks_sh|update_row|glossary|a

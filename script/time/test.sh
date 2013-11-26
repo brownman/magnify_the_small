@@ -108,16 +108,18 @@ test_yaml(){
             local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
- #local ans=$(update_table_gui1 koan "$route" "$method" "$input1" "$expect" "$equality" )
+ local ans=$(update_table_gui1 koan "$route" "$method" "$input1" "$expect" "$equality" )
             #assert_equal_str "$ans"
 
 
 
             #assert_equal_str "$expect"
-            #$( show_selected_table1 koan )
+
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
 
+            #local choose_line=$( show_selected_table koan )
+          #update_line  "$choose_line"
 
 
             else

@@ -89,16 +89,27 @@ url:
 
 
 ideas:
-    - each plugin should be stand-alone , and shouldn't contain GLOBAL vars. - only on the file's top
-    - workflow evaluator - accessable as .cfg
-    - child story - plugin
-    - test your language skills - plugin
-    - cake of time - plugin
-    - shopping - plugin
-    - test-suite vs single test
-    - python + travis + security
-    - cfg- visual collector + xcow + icon 
-    - updatable db table
+    rules:
+        - each plugin should be stand-alone , and shouldn't contain GLOBAL vars. - only on the file's top
+    plugins:
+        - child story - 
+        - test your language skills - 
+        - cake of time - 
+        - shopping - 
+        - linux - homework 
+
+    testing:
+        - test-suite
+    motivation:
+        - xcowsay - only 1 task after suspension
+        - desktop picture + scrapping - randomly change by a webpage screenshot
+    db:
+        - updatable db table
+
+
+    - project - share a snippet push/pull
+
+    
 
 
 

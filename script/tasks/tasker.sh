@@ -208,31 +208,31 @@ increase_motivation(){
 
 
 
-update_db(){
-    local  table1="$1"
-
-    local choose=''
-    local choose1=''
-    #update_db_list
-    if [ "$table1" = '' ];then
-        table1=$(zenity1 "$DATA_DIR/txt/db.txt")
-    fi
-
-    if [ "$table1" ];then
-
-        choose=$(update_table_gui "$table1")
-        #choose=$(show_selected_table "$table1")
-        #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
-        #echo01 "$choose1"
-        #choose1=$(string_to_buttons "$choose" '|')
-    fi
-    #assert_equal_str "$choose1"
-    #echo01 "$choose1" &
-
-    echo "$choose"
-
-
-}
+#update_db(){
+#    local  table1="$1"
+#
+#    local choose=''
+#    local choose1=''
+#    #update_db_list
+#    if [ "$table1" = '' ];then
+#        table1=$(zenity1 "$DATA_DIR/txt/db.txt")
+#    fi
+#
+#    if [ "$table1" ];then
+#
+#        choose=$(update_table_gui1 "$table1")
+#        #choose=$(show_selected_table "$table1")
+#        #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
+#        #echo01 "$choose1"
+#        #choose1=$(string_to_buttons "$choose" '|')
+#    fi
+#    #assert_equal_str "$choose1"
+#    #echo01 "$choose1" &
+#
+#    echo "$choose"
+#
+#
+#}
 menu(){
 breakpoint
 }
@@ -516,33 +516,33 @@ remind_1_task
     notify-send1 'exiting func' 'suspend()'
     sleep1 5
 }
-planning(){
-
-    update_db_gui the_big_picture
-}
+#planning(){
+#
+#    update_db_gui the_big_picture
+#}
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
     "$cmd"
 }
 
-add_association(){
-    update_db associations
-}
-
-after_suspension(){
-    notify-send 'after_suspension()'
-    #push_order_forward 
-    #free_speak 
-
-    gedit $DATA_DIR/yaml/priorities.yaml & 
-    update_db the_big_picture
-
-
-    notify-send1 'sleep 10 sec' ' - exit suspend'
-    sleep1 10
-
-}
-
+#add_association(){
+#    update_db associations
+#}
+#
+#after_suspension(){
+#    notify-send 'after_suspension()'
+#    #push_order_forward 
+#    #free_speak 
+#
+#    gedit $DATA_DIR/yaml/priorities.yaml & 
+#    #update_db the_big_picture
+#
+#
+#    notify-send1 'sleep 10 sec' ' - exit suspend'
+#    sleep1 10
+#
+#}
+#
 report(){
     echo 'update google blogger with the score for this cycle'
 }
@@ -600,15 +600,17 @@ git_commit(){
         git add .
         git commit -am "$answer"
 
-    fi
-    $(messageYN1 'push to remote?' 'github' )
-    answer=$?
 
-    if [[ $answer -eq 1 ]];then
-        git push origin develop 
-        exo-open 'https://github.com/brownman/magnify_the_small'
-    else
-        echo 'skip pushing'
+        $(messageYN1 'push to remote?' 'github' )
+        answer=$?
+
+        if [[ $answer -eq 1 ]];then
+            git push origin develop 
+            exo-open 'https://github.com/brownman/magnify_the_small'
+        else
+            echo 'skip pushing'
+
+        fi
 
     fi
 }

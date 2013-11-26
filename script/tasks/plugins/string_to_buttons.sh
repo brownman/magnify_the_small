@@ -13,7 +13,7 @@ arr=()
 declare -a arr=() 
 #=('aa')
 arr_to_msg(){
-    local str=$(pick_line $file_assosiation)
+    local str=$(random_line $file_assosiation)
     if [ "$STRING_TO_BUTTONS" = true ];then
 
             gxmessage -buttons "$1" "$str" -timeout 27 
