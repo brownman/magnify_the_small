@@ -105,7 +105,7 @@ test_yaml(){
 
 
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
 
@@ -113,10 +113,10 @@ test_yaml(){
             #assert_equal_str "$ans"
 
 
+#update_commander
+ local ans=$($tasks_sh db update_table koan true "$time1" "$route" "$method" "$input1" "$expect" "$equality" )
 
- local ans=$($tasks_sh db update_table koan true "$route" "$method" "$input1" "$expect" "$equality" )
-
-            #assert_equal_str "$expect"
+            #assert_equal_str "$ans"
 
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
@@ -128,7 +128,7 @@ test_yaml(){
 
             else
                 #notify-send1 'test failed'
-                notify-send1 'google is a friend'
+                notify-send1 'google is a friend ?'
                 #local url=http://wiki.bash-hackers.org/rcwatson
                 #cmd="echo $(gxmessage $GXMESSAGET 'google is a friend' -entrytext $url);#xargs google-chrome"
                 #(every "$cmd" 15  &)
@@ -136,7 +136,7 @@ test_yaml(){
                 (every "$cmd" 5  &)
             fi
 
-            #local choose_line=$( $tasks_sh db show_selected_table koan )
+            local choose_line=$( $tasks_sh db show_selected_table koan )
 
 
             #

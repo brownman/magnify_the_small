@@ -15,7 +15,7 @@
 
 
 insert_row(){
-
+update_commander
     notify-send 'insert row' "$1 | $2"
     local name="$1"
     local table1="$name"
@@ -174,7 +174,7 @@ update_table(){
 
     local table="$1"
 
-    local gui="${2:-true}"
+    local gui=${2:-'true'}
     
 
 
@@ -207,9 +207,9 @@ local tmp="${values_arr[@]}"
         values=$( IFS='|'; echo "${values_arr[*]}" ); 
         #assert_equal_str "$values"
         num=${#values_arr[@]}
-    else
-        values="${columns[@]}" #removed the 1st element
-        num=$max
+#    else
+#        values="${columns[@]}" #removed the 1st element
+#        num=$max
     fi
 
     if [ $num -eq $max ];then
@@ -227,9 +227,9 @@ local tmp="${values_arr[@]}"
     values=$(commander "$cmd")
         values=$(remove_last_char "$values")
         fi
-    
-
-        cmd="insert_row '$table' '$fields' '$values'"
+   #assert_equal_str "$values" 
+update_commander
+        cmd="insert_row \'$table\' \'$fields\' \'$values\'"
 commander  "$cmd"
 
 
@@ -241,7 +241,7 @@ commander  "$cmd"
     fi
     
 
-show_selected_table "$table"
+#show_selected_table "$table"
 
 
 }

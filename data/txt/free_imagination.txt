@@ -1,10 +1,7 @@
- 
- 
----focus:
-screen scraper
+ideas (as priorities)
+----=-=-=-=-=-=-=-=-=-=-
+ testing - abs
+black friday - scrapping 
 
-
----unfocus:
-I let go angular
-burning cds
-no meteor
+zenity -  like - notify-send button
+for show-file or edit line

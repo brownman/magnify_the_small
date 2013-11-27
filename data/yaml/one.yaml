@@ -1,11 +1,11 @@
 date: 
-    - 20.11.13
+    - 27.11.13
 
 
 workflow:
-        - update_db|koan|last bug was
+        #- update_db|koan|last bug was
         - git_commit||update the repo
-        - free_speak||learn one word
+        - free_speak||say few thanks
         #- free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
@@ -31,9 +31,10 @@ testing:
         #- tasks_sh|motivation|sport|x
         #- cfg|show_selected_table|koan|1
         #- tasks_sh|db|update_db_list|1|"
-        - tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
+        #- tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
+        #- cfg|remove_trailing|c|c
         - cfg|remove_trailing|'c xx '|'c xx'
-        - cfg|remove_trailing|" a    bc "|"a  bc"   
+        #- cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
         - tasks_sh|commitment|assosiation|d
@@ -124,7 +125,7 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        #- free_imagination
+        - free_imagination
         - reminder
         - increase_motivation 
         #- task_from publish

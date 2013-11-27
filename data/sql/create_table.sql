@@ -63,6 +63,7 @@ CREATE TABLE push_forward (
 
 CREATE TABLE koan (
     id INTEGER PRIMARY KEY,
+    time CHAR(10),
     route CHAR(10),
     method CHAR(15),
     input CHAR(30),
