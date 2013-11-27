@@ -15,7 +15,7 @@
 
 
 insert_row(){
-update_commander
+#update_commander
     notify-send 'insert row' "$1 | $2"
     local name="$1"
     local table1="$name"
@@ -24,7 +24,11 @@ update_commander
 
     local fields=$(echo "($2)" | sed 's/ /,/g')
     #assert_equal_str "$fields"
-    local values=$(echo "('$3')" | sed "s/|/','/g")
+    #local tmp3=$(echo "$3" | sed "s/'/\\\'/g" )
+    local tmp3=$(add_backslash "$3")
+    #assert_equal_str "$tmp3"
+    local values=$(echo "('$tmp3')" | sed "s/|/','/g")
+    #local values=$(echo "('$values')" | sed "s/'/\\\'/g")
     #local fields1='(doing,should,sport)'
     #local values1="('a a','b','1')"
     #local cmd=$(echo "sqlite3 $file_db  \"insert into $table1 $fields values $fields\";")

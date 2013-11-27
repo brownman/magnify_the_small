@@ -33,7 +33,8 @@ testing:
         #- tasks_sh|db|update_db_list|1|"
         #- tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
         #- cfg|remove_trailing|c|c
-        - cfg|remove_trailing|c xx |c xx|
+        #- cfg|add_backslash||vv
+        - cfg|remove_trailing|'c xx '|c xx|
         #- cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
         - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd

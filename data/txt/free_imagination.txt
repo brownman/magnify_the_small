@@ -1,7 +1,9 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
+
+black friday - scrapping +securitytube
  testing - abs
-black friday - scrapping 
+
 
 zenity -  like - notify-send button
 for show-file or edit line
