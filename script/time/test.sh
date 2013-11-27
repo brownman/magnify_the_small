@@ -96,7 +96,7 @@ test_yaml(){
             ################### eval 
             local cmd=$( echo "$route $method $input1" )
             local result=$(commander "$cmd")
-            result="'$result'"
+            #result="$result"
 
             #assert_not_equal_str "$result" "" 'must not be empty'
 
@@ -105,7 +105,7 @@ test_yaml(){
 
 
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo 'failed')
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
 

@@ -229,7 +229,7 @@ local tmp="${values_arr[@]}"
         fi
    #assert_equal_str "$values" 
 update_commander
-        cmd="insert_row \'$table\' \'$fields\' \'$values\'"
+        cmd="insert_row \"$table\" \"$fields\" \"$values\""
 commander  "$cmd"
 
 
