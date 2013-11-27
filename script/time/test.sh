@@ -122,7 +122,7 @@ test_yaml(){
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
 
- local ans=$($tasks_sh db update_table koan true "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+
 
 
           #update_line  "$choose_line"
@@ -139,7 +139,8 @@ assert_equal_str "-$result-!=-$expect-"
                 (every "$cmd" 5  &)
             fi
 
-            local choose_line=$( $tasks_sh db show_selected_table koan )
+ local ans=$($tasks_sh db update_table koan true "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+            #local choose_line=$( $tasks_sh db show_selected_table koan )
 
 
             #

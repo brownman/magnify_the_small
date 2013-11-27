@@ -14,7 +14,7 @@ silence2=${3:-true} #"$3" #false #export MULTIPLE_LANGS=true
 lang_target=$LANG_DEFAULT
 
 #silence2_fetch=$silence2_FETCH #if no tts is needed
-silence2_fetch=false
+silence2_fetch=true
 #$silence2
 
 
@@ -400,7 +400,7 @@ printing1(){
     #assert_equal_str "$line2"
 
     if [ "$lang" != 'en' ];then
-        update_table_gui 'words' "$lang" "$input" "$line1" "$line2"
+        (  $tasks_sh db update_table 'words' false "$lang" "$input" "$line1" "$line2" &)
     fi
 
     #assert_equal_str "abc"

@@ -25,9 +25,14 @@ insert_row(){
     local fields=$(echo "($2)" | sed 's/ /,/g')
     #assert_equal_str "$fields"
     #local tmp3=$(echo "$3" | sed "s/'/\\\'/g" )
-    local tmp3=$(add_backslash "$3")
+
+    #local tmp3=$(add_backslash "$3")
+local values="$3"
+
+    local values=$(remove_char "$values" "'")
+    #local values=$(remove_char "$values" \")
     #assert_equal_str "$tmp3"
-    local values=$(echo "('$tmp3')" | sed "s/|/','/g")
+    local values=$(echo "('$values')" | sed "s/|/','/g")
     #local values=$(echo "('$values')" | sed "s/'/\\\'/g")
     #local fields1='(doing,should,sport)'
     #local values1="('a a','b','1')"
@@ -232,7 +237,7 @@ local tmp="${values_arr[@]}"
         values=$(remove_last_char "$values")
         fi
    #assert_equal_str "$values" 
-update_commander
+#update_commander
         cmd="insert_row \"$table\" \"$fields\" \"$values\""
 commander  "$cmd"
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 # about file:
 # desc: talk to yourself and translate it
 
@@ -41,7 +41,7 @@ memory_game(){
 
 run(){
 
-local subject1=${subject:-essay}
+local subject1=${subject:-'essay'}
 local file=$DATA_DIR/txt/$subject1.txt 
 touch $file
 memory_game $file 
