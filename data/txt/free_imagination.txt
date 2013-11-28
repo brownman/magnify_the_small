@@ -4,7 +4,7 @@ plugin - abs - testing + document it
 black friday - scrapping +securitytube
 zenity -  like - notify-send button 
 translate - regular + random language
-
+max columns = 0 - ??!
 
 - for show file or edit line
 - for deciding realtime - wether to also speak the translation

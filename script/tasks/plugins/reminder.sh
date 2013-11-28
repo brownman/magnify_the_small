@@ -88,7 +88,8 @@ run(){
     done
 }
 
-run
+#run
+unlocker
 #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
 #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
 #   local raw=$( zenity --forms --title="Add a progress bar" \
