@@ -15,7 +15,7 @@ if [ "$delay" ];then
 
     while :;do
 reload_cfg
-        local  trigger=$(random_trigger)
+        local  trigger=$( random_from_subject1 trigger)
         helper0 "$trigger" $file_log  
         local answer=$(gxmessage -entrytext ""  -title 'new reason:' "$trigger" $GXMESSAGET )
 

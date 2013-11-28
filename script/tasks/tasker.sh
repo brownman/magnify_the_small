@@ -7,6 +7,48 @@ notify-send 'tasker.sh'
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+children_story(){
+notify-send1 'children story'
+
+    url1='http://teaching-tales.org/'
+url2='http://www.mamalisa.com/'
+
+
+    exo-open "$url1" &
+    exo-open "$url2" &
+free_speak child &
+}
+add_a_riddle(){
+    #local dir_source=$PWD/1/testing/python2/koans
+    #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
+    local dir=$SCRIPT_DIR/tasks/abs/source
+    #local line=$(random_line 'abs')
+
+     local    line=$(random_from_subject1 abs)
+    local res="$dir/$line"
+
+
+
+    #commander  "exec $res"
+
+    cmd="gedit $res"
+    commander "$cmd" & 
+sleep1 10
+db update_table riddle true '?' '?' "$line"
+    sleep1 10
+       cmd="exec $res"
+       update_commander
+    commander "$cmd!" & 
+
+
+
+    echo 'do_abs'
+    #assert_equal_str "do abs"
+
+}
+
+
+
 add_koan(){
 local res=$( $PLUGINS_DIR/add_koan.sh )
 echo "$res"
@@ -46,32 +88,6 @@ do_koan(){
     update_recent_link "$dir_source" "$file_name_target"
 
  cat $LINKS_DIR/recent_koan.py | head -10
-}
-
-do_abs(){
-    #local dir_source=$PWD/1/testing/python2/koans
-    #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
-    local dir=$SCRIPT_DIR/tasks/abs/source
-    #local line=$(random_line 'abs')
-
-     local    line=$(random_from_subject1 abs)
-    local res="$dir/$line"
-
-
-
-    #commander  "exec $res"
-
-    cmd="gedit $res"
-    commander "$cmd" & 
-    sleep1 5
-       cmd="exec $res"
-    commander "$cmd" 
-
-
-
-    echo 'do_abs'
-    #assert_equal_str "do abs"
-
 }
 
 #notify-send "tasker.sh:" "$*"
@@ -449,6 +465,9 @@ suspend1(){
     #flite "should - $msg"
 
 
+cmd='git_commit'
+
+every "$cmd" 
             play_recent & 
             sleep1 10
     motivation & 
@@ -493,7 +512,7 @@ sleep1 5
 
             $PLUGINS_DIR/suspend.sh
 
-        ( free_speak new_words &)
+        #( free_speak new_words &)
             
 
         fi

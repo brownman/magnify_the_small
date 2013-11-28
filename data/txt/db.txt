@@ -1,6 +1,6 @@
 associations
 logger
-snippet
+riddle
 bookmarks
 priorities
 the_big_picture

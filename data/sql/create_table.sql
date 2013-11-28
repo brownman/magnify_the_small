@@ -71,17 +71,16 @@ CREATE TABLE koan (
     result CHAR(10)
 );
 
-CREATE TABLE snippet (
+CREATE TABLE riddle (
     id INTEGER PRIMARY KEY,
-    tags CHAR(35),
-    code CHAR(190),
-    result CHAR(190),
-    url CHAR(190)
+    question CHAR(100),
+    answer CHAR(100),
+    link CHAR(101)
 );
 
 CREATE UNIQUE INDEX solution ON koan(id ASC);
 
-CREATE UNIQUE INDEX code ON snippet(id ASC);
+CREATE UNIQUE INDEX question ON riddle(id ASC);
 
 
 

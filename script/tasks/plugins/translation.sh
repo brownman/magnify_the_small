@@ -11,7 +11,7 @@ multiple_langs=false
 #assert_equal_str "$3"
 silence2=${3:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
 if [ "$silence2" = 'false' ];then
-breakpoint
+breakpoint 3
 fi
 #cmd="notify-send1 'silence request?' '$silence2'"
 #every "$cmd" 9

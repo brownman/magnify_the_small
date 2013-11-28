@@ -1,11 +1,12 @@
 date: 
-    - 27.11.13
+    - 28.11.13
 
 
 workflow:
         #- update_db|koan|last bug was
+        - children_story||an awesome children story
         - reminder||my next task
-        - git_commit||update the repo
+        #- git_commit||update the repo
         - free_speak|children_story|a children story
         - increase_motivation||increase motivation reminder
         - motivations|glossary|increase motivation reminder
@@ -15,6 +16,7 @@ workflow:
         #- practice_regexp||practice
         #- cow_report||summery
         #- planning||the big picture
+        - add_a_riddle||add a riddle
         - do_abs||edit this file
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
@@ -37,6 +39,7 @@ testing:
         #- tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
         #- cfg|remove_trailing|c|c
         #- cfg|add_backslash||vv
+        #- tasks_sh|add_a_riddle|x|x
         - cfg|remove_trailing|'c xx '|c xx|
         #- cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
@@ -206,17 +209,17 @@ deals:
 
     #https://www.youtube.com/watch?v=O9iVkfQJauQ
 
-suspend:
-        - remind_1_task 
-        - update_db|koan|last bug was
-        - free_speak||learn one word
-        #- free_imagination||free imagination
-        #- regexp|tasks|on next suspension I can
-        #- commitment|task|update your state
-        #- practice_regexp||practice
-        #- cow_report||summery
-        #- planning||the big picture
-        - do_abs||edit this file
+#suspend:
+#        - remind_1_task 
+#        - update_db|koan|last bug was
+#        - free_speak||learn one word
+#        #- free_imagination||free imagination
+#        #- regexp|tasks|on next suspension I can
+#        #- commitment|task|update your state
+#        #- practice_regexp||practice
+#        #- cow_report||summery
+#        #- planning||the big picture
+#        - do_abs||edit this file
     #- tasks_sh learn_langs
     #- vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
     #- minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs

@@ -216,9 +216,9 @@ update_table(){
         values=$( IFS='|'; echo "${values_arr[*]}" ); 
         #assert_equal_str "$values"
         num=${#values_arr[@]}
-        #    else
-        #        values="${columns[@]}" #removed the 1st element
-        #        num=$max
+#            else
+#                values="${columns[@]}" #removed the 1st element
+#                num=$max
     fi
 
     if [ $num -eq $max ];then
@@ -252,7 +252,8 @@ update_table(){
     fi
 
 
-    #show_selected_table "$table"
+cmd="show_selected_table $table"
+every "$cmd"
 
 
 }
