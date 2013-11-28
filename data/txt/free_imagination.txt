@@ -1,16 +1,13 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
-abs - testing + document it
+plugin - abs - testing + document it
 black friday - scrapping +securitytube
- testing - abs
-
-
-zenity -  like - notify-send button
- - for show-file or edit line
-- for deciding realtime - wether to also speak the translation
-
+zenity -  like - notify-send button 
 translate - regular + random language
 
+
+- for show file or edit line
+- for deciding realtime - wether to also speak the translation
 
 
 outside

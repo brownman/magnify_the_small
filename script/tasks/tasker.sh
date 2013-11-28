@@ -3,7 +3,7 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-notify-send1 'tasker.sh'
+notify-send 'tasker.sh'
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
@@ -148,7 +148,7 @@ string_to_buttons1(){
 echo hi
 }
 string_to_buttons(){
-    notify-send1 'string_to_buttons'
+    #notify-send1 'string_to_buttons'
     #local str1="${FUNCNAME[0]}"
 
 
@@ -208,7 +208,7 @@ increase_motivation(){
 }
 
 db(){
-notify-send1 'db' "$@"
+#notify-send1 'db' "$@"
 
 ##works:
 local args=( "$@" )
@@ -295,7 +295,7 @@ cow_report(){
 
 motivation(){
 
-    notify-send1 'motivation'
+    #notify-send1 'motivation'
     #caller1
     subject="$1"
     cmd=cow_report

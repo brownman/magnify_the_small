@@ -56,7 +56,9 @@ run(){
         title="$line"
     else
 
-        title=$(zenity2  yaml priorities )
+
+        #title=$(zenity2  yaml priorities )
+        title=$(zenity2  txt free_imagination )
     fi
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)

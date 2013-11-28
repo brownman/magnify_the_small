@@ -5,7 +5,9 @@ date:
 workflow:
         #- update_db|koan|last bug was
         - git_commit||update the repo
-        - free_speak||say few thanks
+        - free_speak|children_story|a children story
+        - increase_motivation||increase motivation reminder
+        - motivations|glossary|increase motivation reminder
         #- free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state

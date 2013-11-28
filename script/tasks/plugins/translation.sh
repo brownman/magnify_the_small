@@ -8,7 +8,9 @@ method="$1" #sentance, line, lines
 from="$2" #file or sentance
 multiple_langs=false
 #false
-silence2=${3:-true} #"$3" #false #export MULTIPLE_LANGS=true
+silence2=${3:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
+cmd="notify-send1 'silence request?' '$silence2'"
+every "$cmd" 4
 #assert_equal_str "$silence2" 'false'
 #silence2=$silence2
 lang_target=$LANG_DEFAULT

@@ -15,7 +15,7 @@
 
 
 insert_row(){
-#update_commander
+    #update_commander
     notify-send 'insert row' "$1 | $2"
     local name="$1"
     local table1="$name"
@@ -27,7 +27,7 @@ insert_row(){
     #local tmp3=$(echo "$3" | sed "s/'/\\\'/g" )
 
     #local tmp3=$(add_backslash "$3")
-local values="$3"
+    local values="$3"
 
     local values=$(remove_char "$values" "'")
     #local values=$(remove_char "$values" \")
@@ -66,7 +66,7 @@ show_selected_table(){
 
     local cmd=''
     local gui=true
- 
+
 
     local table1="$1"
     local name="$1"
@@ -110,10 +110,10 @@ show_selected_table(){
     local cmd_sql1=$(echo "$str_sql1")
     local res_sql1=$(commander "$cmd_sql1")
     local str_zen1="xargs zenity $zen1 $timeout1 --print-column=ALL"
-#    commander "$str_zen1"
-        res=$(echo "$res_sql1" |   eval "$str_zen1")
-   
- 
+    #    commander "$str_zen1"
+    res=$(echo "$res_sql1" |   eval "$str_zen1")
+
+
     echo "$res"
 
 }
@@ -137,15 +137,15 @@ show_selected_table(){
 #    fi
 
 
-   #cmd="$tasks_sh scp_android"
-    #every "$cmd" 40
+#cmd="$tasks_sh scp_android"
+#every "$cmd" 40
 
 
-    #notify-send1 "res: $res"
-    #local last=$(sqlite3 $file_db "select * from $table1 order by id desc" | head -1)
+#notify-send1 "res: $res"
+#local last=$(sqlite3 $file_db "select * from $table1 order by id desc" | head -1)
 
 
-    #echo "$last"
+#echo "$last"
 
 get_column_number(){
     local table1="$1"
@@ -184,7 +184,7 @@ update_table(){
     local table="$1"
 
     local gui=${2:-'true'}
-    
+
 
 
 
@@ -193,12 +193,12 @@ update_table(){
 
 
     local values_arr=("$@")
-local tmp="${values_arr[@]}"
+    local tmp="${values_arr[@]}"
 
-#assert_equal_str "$3"
-#assert_equal_str "$tmp"
+    #assert_equal_str "$3"
+    #assert_equal_str "$tmp"
 
-#$(show_args "${values_arr[@]}")
+    #$(show_args "${values_arr[@]}")
     local values=''
     local num=0
     local max=0
@@ -216,15 +216,17 @@ local tmp="${values_arr[@]}"
         values=$( IFS='|'; echo "${values_arr[*]}" ); 
         #assert_equal_str "$values"
         num=${#values_arr[@]}
-#    else
-#        values="${columns[@]}" #removed the 1st element
-#        num=$max
+        #    else
+        #        values="${columns[@]}" #removed the 1st element
+        #        num=$max
     fi
 
     if [ $num -eq $max ];then
 
-        notify-send1 should-update
         local cmd=""
+        cmd='notify-send1 should-update'
+        every "$cmd" 15
+
         cmd="yad --timeout 20 --title "$table" --form --separator='|'   --text 'table columns:'  "  
 
         for (( c=0; c<$max; c++ ))
@@ -233,13 +235,13 @@ local tmp="${values_arr[@]}"
         done
 
         if [ "$gui" = true ];then
-    values=$(commander "$cmd")
-        values=$(remove_last_char "$values")
+            values=$(commander "$cmd")
+            values=$(remove_last_char "$values")
         fi
-   #assert_equal_str "$values" 
-#update_commander
+        #assert_equal_str "$values" 
+        #update_commander
         cmd="insert_row \"$table\" \"$fields\" \"$values\""
-commander  "$cmd"
+        commander  "$cmd"
 
 
 
@@ -248,9 +250,9 @@ commander  "$cmd"
         notify-send1 dont-update
         assert_equal_str "num:$num max:$max values:$values"
     fi
-    
 
-#show_selected_table "$table"
+
+    #show_selected_table "$table"
 
 
 }
