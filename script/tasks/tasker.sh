@@ -22,11 +22,16 @@ riddle(){
     #local dir_source=$PWD/1/testing/python2/koans
     #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
     local dir=$SCRIPT_DIR/tasks/abs/source
-    
+   local res1=0 
+   local res=''
+   local line=''
+   local cmd=''
     #local line=$(random_line 'abs')
+while :;do
 
-     local    line=$(random_from_subject1 abs)
-    local res="$dir/$line"
+
+         line=$(random_from_subject1 abs)
+     res="$dir/$line"
 
 
 
@@ -34,9 +39,15 @@ riddle(){
 
     cmd="gedit $res"
     commander "$cmd" & 
-sleep1 10
+    messageYN1 'break ?' 
+    res1=$?
+    
+    if [ $res1 -eq 1 ];then
+        break
+    fi
+
+done
 db update_table riddle true '?' '?' "$line"
-    sleep1 10
        cmd="exec $res"
        update_commander
     commander "$cmd!" & 
