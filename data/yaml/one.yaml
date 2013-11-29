@@ -5,19 +5,19 @@ date:
 workflow:
         #- update_db|koan|last bug was
         - children_story||an awesome children story
-        - reminder||my next task
+        #- reminder||my next task
         #- git_commit||update the repo
-        - free_speak|children_story|a children story
+        #- free_speak|children_story|a children story
         - increase_motivation||increase motivation reminder
-        - motivations|glossary|increase motivation reminder
+        #- motivations|glossary|increase motivation reminder
         #- free_imagination||free imagination
         #- regexp|tasks|on next suspension I can
         #- commitment|task|update your state
         #- practice_regexp||practice
         #- cow_report||summery
         #- planning||the big picture
-        - add_a_riddle||add a riddle
-        - do_abs||edit this file
+        #- riddle||add a riddle
+        #- do_abs||edit this file
         #- show_msg_entry|tasks|on next suspension I can
         #- free_speak||your thoughts are unique
         #- learn_langs
@@ -39,7 +39,8 @@ testing:
         #- tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
         #- cfg|remove_trailing|c|c
         #- cfg|add_backslash||vv
-        #- tasks_sh|add_a_riddle|x|x
+        #- tasks_sh|free_imagination|x|x
+        #- tasks_sh|riddle|x|x
         - cfg|remove_trailing|'c xx '|c xx|
         #- cfg|remove_trailing|" a    bc "|"a  bc"   
         - tasks_sh|update_row|glossary|a
@@ -132,7 +133,7 @@ order:
         - phone-rington -> play a language lesson
 
 hotkeys:
-        - free_imagination
+        #- free_imagination
         - reminder
         - increase_motivation 
         #- task_from publish

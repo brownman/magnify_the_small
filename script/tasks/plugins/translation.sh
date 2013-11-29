@@ -113,7 +113,7 @@ play1(){
             #Backtrace1
         fi
     else
-        cmd="notify-send1 silence_on"
+        cmd="notify-send1 'silence' 'on'"
         every "$cmd" 15
         #notify-send1 'silence2 is on'
         trace 'skip playing'
@@ -464,8 +464,8 @@ all_lines(){
     notify-send 'speak all lines'
     lines=() 
     local from="$1"
-
-    local cmd='echo5'
+local delay=4
+    local cmd='echo4'
     #local cmd='notify-send1'
     file_to_lines "$from"
 

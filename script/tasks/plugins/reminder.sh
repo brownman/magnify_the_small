@@ -56,7 +56,7 @@ run(){
         title="$line"
     else
 
-
+$tasks_sh free_imagination
         #title=$(zenity2  yaml priorities )
         title=$(zenity2  txt free_imagination )
     fi

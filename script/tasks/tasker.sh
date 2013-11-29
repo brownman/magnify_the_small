@@ -3,7 +3,7 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-notify-send 'tasker.sh'
+notify-send 'tasker.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
@@ -18,10 +18,11 @@ url2='http://www.mamalisa.com/'
     exo-open "$url2" &
 free_speak child &
 }
-add_a_riddle(){
+riddle(){
     #local dir_source=$PWD/1/testing/python2/koans
     #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
     local dir=$SCRIPT_DIR/tasks/abs/source
+    
     #local line=$(random_line 'abs')
 
      local    line=$(random_from_subject1 abs)
@@ -500,6 +501,7 @@ sleep1 5
 
 
         ( exo-open http://www.google.com &)
+        (        every children_story 5 &) 
 
    flite 'take 30 seconds'
         sleep1 31
@@ -531,7 +533,7 @@ fi
  
 
 
-remind_1_task
+#remind_1_task
 
 
     flite 'update your notebook'
@@ -546,8 +548,10 @@ remind_1_task
     #cmd=after_suspension 
     #every "$cmd" 1 
     #after_suspension &
+    reminder &
     notify-send1 'exiting func' 'suspend()'
     sleep1 5
+    
 }
 #planning(){
 #

@@ -20,7 +20,7 @@ args=( "$@" )
 dir1=$SCRIPT_DIR/time
 #dir2=$SCRIPT_DIR/more
 
-file_locker=/tmp/genius
+#file_locker=/tmp/genius
 delay=20
 result='equal'
 #run2(){

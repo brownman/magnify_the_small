@@ -24,6 +24,7 @@ cmd="$tasks_sh $name '${args[@]}'"
 
 #cmd="$tasks_sh "$name" "${args[@]}"
 #COMMANDER=true
+#update_commander
 commander "$cmd"
 }
 run

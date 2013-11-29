@@ -1,5 +1,7 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
+zenity-editable list --> then show all abs files - and be able to update on click every row.
+
 meteor - chat - for linux group
 plugin - abs - testing + document it
 black friday - scrapping +securitytube
