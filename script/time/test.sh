@@ -72,11 +72,13 @@ test_yaml(){
         #tracex  'testing.0:' "$line" 
         #update_table_gui ""
         if [ "$line" != '' ];then
-            local route=$( echo "$line" | awk -F '|' '{print $1}' )
-            local method=$( echo "$line" | awk -F '|' '{print $2}' )
-            local inputs=$( echo "$line" | awk -F '|' '{print $3}' )
-            local expect=$( echo "$line" | awk -F '|' '{print $4}' )
 
+            local desc=$( echo "$line" | awk -F '|' '{print $1}' )
+            local route=$( echo "$line" | awk -F '|' '{print $2}' )
+            local method=$( echo "$line" | awk -F '|' '{print $3}' )
+            local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
+            local expect=$( echo "$line" | awk -F '|' '{print $5}' )
+flite "$desc"
             #trace "route: $route"
             #local res=$(echo "$inputs")
             #res=$(ls -l  $res)
@@ -129,7 +131,7 @@ test_yaml(){
 
 
             else
-assert_equal_str "-$result-!=-$expect-"
+#trace "-$result-!=-$expect-"
                 #notify-send1 'test failed'
                 notify-send1 'google is a friend ?'
                 #local url=http://wiki.bash-hackers.org/rcwatson
@@ -139,8 +141,9 @@ assert_equal_str "-$result-!=-$expect-"
                 (every "$cmd" 5  &)
             fi
 
- local ans=$($tasks_sh db update_table koan true "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
-            #local choose_line=$( $tasks_sh db show_selected_table koan )
+ local ans=$($tasks_sh db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+
+            local choose_line=$( $tasks_sh db show_selected_table koan )
 
 
             #

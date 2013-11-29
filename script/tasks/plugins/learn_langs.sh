@@ -10,9 +10,9 @@
 #file=$TODAY_DIR/txt/report.yaml
 path1=$DIR_LEARN_LANGS
 
-lesson=${2:-10} #$2
+lesson=${2:-"$LESSON_NUM"} #$2
 lang=$(higher $LANG_DEFAULT)
-
+assert_equal_str "$lesson"
 #notify-send "free-speak" "$0"
 
 delay=5

@@ -253,7 +253,7 @@ update_table(){
 
 
 cmd="show_selected_table $table"
-every "$cmd"
+every "$cmd" 20
 
 
 }

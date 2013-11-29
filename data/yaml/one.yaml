@@ -41,38 +41,40 @@ testing:
         #- cfg|add_backslash||vv
         #- tasks_sh|free_imagination|x|x
         #- tasks_sh|riddle|x|x
-        - cfg|remove_trailing|'c xx '|c xx|
-        #- cfg|remove_trailing|" a    bc "|"a  bc"   
-        - tasks_sh|update_row|glossary|a
-        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
-        - tasks_sh|commitment|assosiation|d
-        - tasks_sh|motivation|sport|a
-        #- cfg|fetching|frame.cake|I am happy to|1
-        #- tasks_sh|conditions|do something good|0   
-        #- tasks_sh|free_speak|i|a   
-        - cfg|baking|a|b|
-        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
-        - tasks_sh|helper|a|b
-        - tasks_sh|string_to_buttons|one two|success
-        - tasks_sh|free_speak||success
-        - cfg|fetching|frame.conditions|a
-        - cfg|echo01|friend|a  bc   
-        - cfg|file_to_lines|/tmp/11.txt|a  bc   
-        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-        - tasks_sh|learn_langs||success
-        - tasks_sh|nothing|ab|ab
-        - tasks_sh|fetch|frame.should|a|b
-        - tasks_sh|show_msg|df|d
-        - cfg|fetching|frame.should|a
-        - cfg|fetching|frame.achievments|a
-        - cfg|parse_subject|workflow|abc
-        - tasks_sh|random_quote|a|b
-        - tasks_sh|free_speak|a|b
-        - cfg|unlocker|/tmp/1|1
-        #- tasks_sh|string_to_buttons|the king is smart|a  bc   
-        #- tasks_sh|show_msg_entry|tasks|d
-        #- cfg|random_from_subject|story|b|
-        #- cfg|is_valid|/tmp/1.txt|b|
+        #- should remove trailing|cfg|remove_trailing|'c xx '|c xx|
+        - create a new riddle|tasks_sh|riddle|x|x
+        - editable list|cfg|zenity11|/tmp/1.txt|x
+#        #- cfg|remove_trailing|" a    bc "|"a  bc"   
+#        - tasks_sh|update_row|glossary|a
+#        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
+#        - tasks_sh|commitment|assosiation|d
+#        - tasks_sh|motivation|sport|a
+#        #- cfg|fetching|frame.cake|I am happy to|1
+#        #- tasks_sh|conditions|do something good|0   
+#        #- tasks_sh|free_speak|i|a   
+#        - cfg|baking|a|b|
+#        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
+#        - tasks_sh|helper|a|b
+#        - tasks_sh|string_to_buttons|one two|success
+#        - tasks_sh|free_speak||success
+#        - cfg|fetching|frame.conditions|a
+#        - cfg|echo01|friend|a  bc   
+#        - cfg|file_to_lines|/tmp/11.txt|a  bc   
+#        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
+#        - tasks_sh|learn_langs||success
+#        - tasks_sh|nothing|ab|ab
+#        - tasks_sh|fetch|frame.should|a|b
+#        - tasks_sh|show_msg|df|d
+#        - cfg|fetching|frame.should|a
+#        - cfg|fetching|frame.achievments|a
+#        - cfg|parse_subject|workflow|abc
+#        - tasks_sh|random_quote|a|b
+#        - tasks_sh|free_speak|a|b
+#        - cfg|unlocker|/tmp/1|1
+#        #- tasks_sh|string_to_buttons|the king is smart|a  bc   
+#        #- tasks_sh|show_msg_entry|tasks|d
+#        #- cfg|random_from_subject|story|b|
+#        #- cfg|is_valid|/tmp/1.txt|b|
         #- cfg|unpack_subject|story|b|
         #- tasks_sh|regexp|ion|a
         #- tasks_sh|motivation|sport|a

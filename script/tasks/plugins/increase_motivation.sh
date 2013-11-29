@@ -6,7 +6,7 @@ file_locker=/tmp/increase_motivation
 
 loop(){
 
-    local delay=60
+    local delay=180
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
     local answer=""
