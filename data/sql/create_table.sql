@@ -74,8 +74,8 @@ CREATE TABLE koan (
 
 CREATE TABLE riddle (
     id INTEGER PRIMARY KEY,
-    question CHAR(100),
-    answer CHAR(100),
+    notice CHAR(100),
+    usage CHAR(100),
     link CHAR(101)
 );
 

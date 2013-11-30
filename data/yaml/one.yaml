@@ -7,118 +7,13 @@ workflow:
         - git_commit||update the repo
         - increase_motivation||increase motivation reminder
         - regexp|tasks|on next suspension I can
-        #- commitment|task|update your state
-        #- practice_regexp||practice
-        #- cow_report||summery
-        #- planning||the big picture
         - riddle||add a riddle
-        #- do_abs||edit this file
-        #- show_msg_entry|tasks|on next suspension I can
-        #- free_speak||your thoughts are unique
-        #- learn_langs
-        #- show_msg_entry|frame.times|on next suspension I can
-        #- show_msg_entry|frame.cake|I am happy to
-        #- show_msg_entry|frame.cake|it is the cake of priorities
-#        - show_msg_entry|frame.times|plan your time consuming
-#        - show_msg_entry|frame.conditions|I am happy to
-#        - show_msg_entry|frame.tasks|it is easy to
-#        - helper||help me to decide
+
 
 testing:
-        #- tasks_sh|free_imagination|/tmp/1.txt|d
-        #- cfg|get_filename|txt,sport|x
-        #- cfg|random_from_subject1|sport|x
-        #- tasks_sh|motivation|sport|x
-        #- cfg|show_selected_table|koan|1
-        #- tasks_sh|db|update_db_list|1|"
-        #- tasks_sh|db|update_table,snippet,false,1,1,1,1|twee
-        #- cfg|remove_trailing|c|c
-        #- cfg|add_backslash||vv
-        #- tasks_sh|free_imagination|x|x
-        #- tasks_sh|riddle|x|x
-        #- should remove trailing|cfg|remove_trailing|'c xx '|c xx|
         - create a new riddle|tasks_sh|riddle|x|x
         - editable list|cfg|zenity11|/tmp/1.txt|x
-#        #- cfg|remove_trailing|" a    bc "|"a  bc"   
-#        - tasks_sh|update_row|glossary|a
-#        - cfg|zenity1|$DATA_DIR/txt/glossary.txt,'glossary','be smarter','--editable'|dd
-#        - tasks_sh|commitment|assosiation|d
-#        - tasks_sh|motivation|sport|a
-#        #- cfg|fetching|frame.cake|I am happy to|1
-#        #- tasks_sh|conditions|do something good|0   
-#        #- tasks_sh|free_speak|i|a   
-#        - cfg|baking|a|b|
-#        - cfg|parse_subject|cake,/tmp/1.test|a  bc   
-#        - tasks_sh|helper|a|b
-#        - tasks_sh|string_to_buttons|one two|success
-#        - tasks_sh|free_speak||success
-#        - cfg|fetching|frame.conditions|a
-#        - cfg|echo01|friend|a  bc   
-#        - cfg|file_to_lines|/tmp/11.txt|a  bc   
-#        - tasks_sh|motivations|$CFG_DIR/memory.txt|a
-#        - tasks_sh|learn_langs||success
-#        - tasks_sh|nothing|ab|ab
-#        - tasks_sh|fetch|frame.should|a|b
-#        - tasks_sh|show_msg|df|d
-#        - cfg|fetching|frame.should|a
-#        - cfg|fetching|frame.achievments|a
-#        - cfg|parse_subject|workflow|abc
-#        - tasks_sh|random_quote|a|b
-#        - tasks_sh|free_speak|a|b
-#        - cfg|unlocker|/tmp/1|1
-#        #- tasks_sh|string_to_buttons|the king is smart|a  bc   
-#        #- tasks_sh|show_msg_entry|tasks|d
-#        #- cfg|random_from_subject|story|b|
-#        #- cfg|is_valid|/tmp/1.txt|b|
-        #- cfg|unpack_subject|story|b|
-        #- tasks_sh|regexp|ion|a
-        #- tasks_sh|motivation|sport|a
-        #
-        #
-        #- tasks_sh|practice_rege:xp||practice
-        #- tasks_sh|free_speak|sport|a
-        #- cfg|last_char|c pp , |a  bc   
-        #- cfg|first_char|c p ,p|a  bc   
-        #- tasks_sh|commitment||a
-        #
-        #
-        #- cfg|store||d
-        #- cfg|select_table||d
-        #
-        #
-        #- tasks_sh|string_to_buttons|'ad-fBdfBd','-'|a   
-        #- tasks_sh|update_db|thanks|a
-        #- cfg|show_keys||a   
-        #- cfg|cp_file1|/tmp/1.txt|1
-        #- tasks_sh|google|nike|1
-        #- cfg|progress_bar|'do something'|a   
-        #- cfg|sleep2|10,'text more',title|10  
-        #- cfg|ex1|a|a   
-        #- tasks_sh|increase_motivation|a|a   
-        #- cfg|update_table|words,ru,'some input', 'some output2','some assosiation'|1
-        #- cfg|update_table|logger,'10:00','command','arg'|1
-        #- cfg|update_table|words|1
-        #- cfg|show_selected_table|words|1
-        #- cfg|update_db_list1|$DATA_DIR/sql/logger.db|a   
-        #- tasks_sh|update_db|logger|1
-  #- tasks_sh|deal_comparison|a|a
-        #- tasks_sh|motivations|a|a
-        #- tasks_sh|random_task|a|a
-        #- cfg|pick_random_line|$DATA_DIR/tmp/suspend.tmp|d
-        #- tasks_sh|do_abs||b
-        #- cfg|list_dir2|/tmp/,er|b
-        #- tasks_sh|add_koan||b
-        #- task|simple|a|1:a
-        #- cfg|update_row_yad|x|x|x|x|x
-        #- cfg|update_row_yad|x|x|'how to use yad instide of zenity ?'|'?'
-        #- task|simple|'a d'|'1:a d'|'how to use eval'|'?'
-        #- tasks_sh|string_to_buttons|'i have a dog'|dog
-        #- cfg|messageYN1|a,b|1
-        #- cfg|update_table|koan,question,solution,route,method,input,expect,result|1
-        #- cfg|update_table_gui|koan,question,solution,route,method,input,expect,result2|1
-        #- cfg|update_table_gui|snippet,1,2,3,4|1
-        #- snippet|eval|eval echo hi i|www.google.com
-        #- cfg|show_file|/tmp/1.txt|x
+
 
 
 
@@ -139,22 +34,7 @@ hotkeys:
         #- update_db  
         - task_from recent
         - free_speak 
-        #- after_suspension
 
-
-
-
-
-
-#        - ask_a_question #how to make good rise?
-#        - record_a_thanks #much better than just write it - rington!
-#        - backup_db #push to database.com
-#        - write_a_child_story #once upon a time there was an animal story 
-#        - record_desktop_and_publish_the_video_to_cv #commandlinefu
-#        - make_easy_money #throw and watch
-#        - push_a_koan #open last failed koan
-#
-#
 background:
         - learn_langs 
         - free_speak
@@ -162,11 +42,6 @@ background:
         - push_koans
         - motivations
         - update_db the_big_picture 
-        #- update_db logger 
-
-        #- scrap ru dog
-        #google mbt
-
 
 recent:
     - https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&ie=UTF-8#newwindow=1&q=deal%20earphones
@@ -205,27 +80,6 @@ deals:
     - http://www.storeswithfreeshipping.net/free-shipping-stores-list.php
     # daily deal
     - http://www.pandawill.com/happy-hour/?current=monday
-
-    #https://www.youtube.com/watch?v=O9iVkfQJauQ
-
-#suspend:
-#        - remind_1_task 
-#        - update_db|koan|last bug was
-#        - free_speak||learn one word
-#        #- free_imagination||free imagination
-#        #- regexp|tasks|on next suspension I can
-#        #- commitment|task|update your state
-#        #- practice_regexp||practice
-#        #- cow_report||summery
-#        #- planning||the big picture
-#        - do_abs||edit this file
-    #- tasks_sh learn_langs
-    #- vlc /TORRENTS/VIDEO1/SecurityTube.Python.Scripting.Expert/Module-04/06.m4v #use scrapy
-    #- minitube https://www.youtube.com/watch?v=7X5vx-n7Nxs
-
-    #- exo-open http://egghead.io/lessons
-     #- tasks_sh free_imagination
-
     
 task:
     -  if collect 50 new words I will burn photos on a cd -
