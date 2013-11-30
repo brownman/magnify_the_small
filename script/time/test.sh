@@ -80,7 +80,7 @@ test_yaml(){
         local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
         local expect=$( echo "$line" | awk -F '|' '{print $5}' )
         flite "$desc"
-        messageYN1 'contine' 'y/n' 
+        messageYN1 "$desc" 'push forward testing' 
         local res=$?
         if [ $res -eq 1 ];then
 

@@ -112,13 +112,13 @@ news:
 - koan
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
-but she was still happy
-but she was stil happy
-the ant had a small brain
-the ant had a small brain
-about his good friend - the ant
-exit
-and he was happy to hear the good news
-there was also an elephant though
-there was a little ant
-once upon a time
+     1	but she was still happy
+     2	but she was stil happy
+     3	the ant had a small brain
+     4	the ant had a small brain
+     5	about his good friend - the ant
+     6	exit
+     7	and he was happy to hear the good news
+     8	there was also an elephant though
+     9	there was a little ant
+    10	once upon a time

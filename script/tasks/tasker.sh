@@ -622,7 +622,7 @@ echo '- koan' >> $file
 local res=$(db select_from_table koan)
 echo "$res" >>  $file
 
-cat $DATA_DIR/txt/child.txt >> $file
+cat -n $DATA_DIR/txt/child.txt >> $file
 
 
 
