@@ -52,33 +52,40 @@ tasks_sh(){
 }
 update_line(){
     IFS='|' read -a args <<< "$line"
-local line1=$(show_args2 "${args[@]}")
-#line="$line1"
-echo "$line1"
+    local line1=$(show_args2 "${args[@]}")
+    #line="$line1"
+    echo "$line1"
 }
 
 
 test_yaml(){
     trace "$tasks_sh"
-        local filename=$(get_filename 'tmp' 'testing' )
-        local line=$(cat $filename | head -1)
-        
-        line=$(         update_line "$line" )
-#assert_equal_str "$line1" "$line"
-    
-        #breakpoint
-        trace   "$filename" 
-        trace   "$line" 
-        #tracex  'testing.0:' "$line" 
-        #update_table_gui ""
-        if [ "$line" != '' ];then
+    flite 'the next feature'
+    local filename=$(get_filename 'tmp' 'testing' )
+    local line=$(cat $filename | head -1)
 
-            local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-            local route=$( echo "$line" | awk -F '|' '{print $2}' )
-            local method=$( echo "$line" | awk -F '|' '{print $3}' )
-            local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
-            local expect=$( echo "$line" | awk -F '|' '{print $5}' )
-flite "$desc"
+    line=$(         update_line "$line" )
+    #assert_equal_str "$line1" "$line"
+
+    #breakpoint
+    trace   "$filename" 
+    trace   "$line" 
+    #tracex  'testing.0:' "$line" 
+    #update_table_gui ""
+    if [ "$line" != '' ];then
+
+        local desc=$( echo "$line" | awk -F '|' '{print $1}' )
+        local route=$( echo "$line" | awk -F '|' '{print $2}' )
+        local method=$( echo "$line" | awk -F '|' '{print $3}' )
+        local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
+        local expect=$( echo "$line" | awk -F '|' '{print $5}' )
+        flite "$desc"
+        messageYN1 'contine' 'y/n' 
+        local res=$?
+        if [ $res -eq 1 ];then
+
+
+
             #trace "route: $route"
             #local res=$(echo "$inputs")
             #res=$(ls -l  $res)
@@ -91,7 +98,7 @@ flite "$desc"
 
             local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
 
-          #assert_equal_str "$inputs1"
+            #assert_equal_str "$inputs1"
             #awk -F ',' '{print $1}' )
             #inputs2=$( echo "$inputs" | awk -F ',' '{print $2}' )
             #echo "$res"
@@ -112,11 +119,11 @@ flite "$desc"
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
 
- 
+
             #assert_equal_str "$ans"
 
 
-#update_commander
+            #update_commander
 
 
             #assert_equal_str "$ans"
@@ -127,11 +134,11 @@ flite "$desc"
 
 
 
-          #update_line  "$choose_line"
+                #update_line  "$choose_line"
 
 
             else
-#trace "-$result-!=-$expect-"
+                #trace "-$result-!=-$expect-"
                 #notify-send1 'test failed'
                 notify-send1 'google is a friend ?'
                 #local url=http://wiki.bash-hackers.org/rcwatson
@@ -141,7 +148,7 @@ flite "$desc"
                 (every "$cmd" 5  &)
             fi
 
- local ans=$($tasks_sh db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+            local ans=$($tasks_sh db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
 
             local choose_line=$( $tasks_sh db show_selected_table koan )
 
@@ -158,13 +165,17 @@ flite "$desc"
             #        #(trace "$str" "action: $method " "$equality" true &)
             #        trace "action: $method $str $equality"
             echo "$equality"
-        else
-
-            trace  "empty line" 'error parsing'
-            echo "empty line"
 
         fi
-  
+    else
+
+        trace  "empty line" 'error parsing'
+        echo "empty line"
+
+    fi
+
+
+
 }
 
 run(){

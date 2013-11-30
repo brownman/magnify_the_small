@@ -21,11 +21,11 @@ memory_game(){
  
 
   
-    local str=''
     local result=0
     local counter=0 
 
 
+local  str=$(cat $file | head -1)
 
     while :;do
         let counter+=1

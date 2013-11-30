@@ -11,11 +11,27 @@ workflow:
 
 
 testing:
-        - create a new riddle|tasks_sh|riddle|x|x
+        #- delay with a progress bar|cfg|sleep1|5,true|1|1
+        #- create a new riddle|tasks_sh|riddle|x|x
+        - update the readme file|tasks_sh|update_readme||x
+        - cow will sum up|tasks_sh|db|sum_it_up|x
         - editable list|cfg|zenity11|/tmp/1.txt|x
 
-
-
+#zenity-editable list --> then show all abs files - and be able to update on click every row.
+#
+#meteor - chat - for linux group
+#plugin - abs - testing + document it
+#black friday - scrapping +securitytube
+#zenity -  like - notify-send button 
+#translate - regular + random language
+#max columns = 0 - ??!
+#workflow-task-random description-!story_subject --> random_line from subject.txt
+#reminder - escape if not choosed
+#suspend - git commit - every 4
+#
+#- for show file or edit line
+#- for deciding realtime - wether to also speak the translation
+#
 
 order:
         - add push koans to watchr

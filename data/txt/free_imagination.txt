@@ -1,6 +1,7 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
 update tasks
+update readme
 
 zenity-editable list --> then show all abs files - and be able to update on click every row.
 

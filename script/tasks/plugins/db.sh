@@ -12,6 +12,12 @@
 
 
 #
+select_from_table(){
+local    table=$1 
+local res=$(sqlite3 -csv $file_db "select * from $table order by id desc;")
+echo "$res"
+
+}
 
 
 insert_row(){

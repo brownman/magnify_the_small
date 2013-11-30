@@ -475,7 +475,6 @@ sleep1 5
 
 
         ( exo-open http://www.google.com &)
-        (        every children_story 5 &) 
 
    flite 'take 30 seconds'
         sleep1 31
@@ -604,10 +603,38 @@ scp_android(){
 
 
 }
+update_readme(){
+local file=$DATA_DIR/txt/dump.txt
+#$PROJECT_DIR/README.md
+echo '' > $file
+
+
+cat $DATA_DIR/md/README.md >> $file
+echo "RECENT_DUMP:"
+
+
+echo 'riddle:'
+local res=$(db select_from_table riddle)
+echo "$res" >>  $file
+
+#
+echo 'koan'
+local res=$(db select_from_table koan)
+echo "$res" >>  $file
+
+cat $DATA_DIR/txt/child.txt >> $file
+
+
+
+
+gedit $file &
+}
+
 git_commit(){
     local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
     if [ "$answer" ];then
         git rm -r --cached .
+        update_readme
         git add .
         git commit -am "$answer"
 
