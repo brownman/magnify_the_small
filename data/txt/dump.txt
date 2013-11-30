@@ -106,7 +106,10 @@ news:
     - invite yourself tomorrow to deal again with your fears - make them smaller and smaller 
     - entertain yourself with a picture which is creative warm and inspiring
 
+- RECENT_DUMP:
+- riddle:
 1,1,1,1
+- koan
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
 but she was still happy

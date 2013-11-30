@@ -3,6 +3,7 @@ date:
 
 
 workflow:
+        - howework||lpi homework
         - children_story||an awesome children story
         - git_commit||update the repo
         - increase_motivation||increase motivation reminder
@@ -13,6 +14,7 @@ workflow:
 testing:
         #- delay with a progress bar|cfg|sleep1|5,true|1|1
         #- create a new riddle|tasks_sh|riddle|x|x
+        - push md file|tasks_sh|git_commit||x
         - update the readme file|tasks_sh|update_readme||x
         - cow will sum up|tasks_sh|db|sum_it_up|x
         - editable list|cfg|zenity11|/tmp/1.txt|x

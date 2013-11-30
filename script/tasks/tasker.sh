@@ -610,15 +610,15 @@ echo '' > $file
 
 
 cat $DATA_DIR/md/README.md >> $file
-echo "RECENT_DUMP:"
+echo "- RECENT_DUMP:" >> $file
 
 
-echo 'riddle:'
+echo '- riddle:' >> $file
 local res=$(db select_from_table riddle)
 echo "$res" >>  $file
 
 #
-echo 'koan'
+echo '- koan' >> $file
 local res=$(db select_from_table koan)
 echo "$res" >>  $file
 
@@ -628,6 +628,11 @@ cat $DATA_DIR/txt/child.txt >> $file
 
 
 gedit $file &
+}
+homework(){
+    file_pdf=$PROJECT_DIR/1/class/1.pdf
+xdg-open $file_pdf
+breakpoint
 }
 
 git_commit(){
