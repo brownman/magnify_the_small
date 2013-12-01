@@ -292,7 +292,7 @@ motivation(){
     #caller1
     subject="$1"
     cmd=cow_report
-    every "$cmd" 10
+    every "$cmd" 3 
     reason='push: learning new language'
     local line=''
 
@@ -616,7 +616,7 @@ echo '' > $file
 
 
 cat $DATA_DIR/md/README.md >> $file
-echo "- RECENT_DUMP:" >> $file
+#echo "- RECENT_DUMP:" >> $file
 
 
 echo '- riddle:' >> $file

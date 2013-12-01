@@ -3,6 +3,7 @@ ideas (as priorities)
 minimal debian packaging
 update tasks
 update readme
+last test
 
 zenity-editable list --> then show all abs files - and be able to update on click every row.
 

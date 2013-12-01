@@ -105,3 +105,6 @@ news:
     - invite yourself tomorrow to deal again with your fears - make them smaller and smaller 
     - entertain yourself with a picture which is creative warm and inspiring
 
+
+recent db dump:
+------------
