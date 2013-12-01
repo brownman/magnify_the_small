@@ -629,11 +629,11 @@ cat -n $DATA_DIR/txt/child.txt >> $file
 cat $file > $readme
 
 
-gedit $file &
+#gedit $file &
 }
 homework(){
     file_pdf=$PROJECT_DIR/1/class/1.pdf
-xdg-open $file_pdf
+pdf1 $file_pdf
 breakpoint
 }
 

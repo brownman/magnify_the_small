@@ -12,10 +12,22 @@
 
 
 #
+counter(){
+    local table=$1
+   local res=$(select_from_table $table)
+   #local num=$?
+   #echo "$res"
+local num=$(echo "$res" | wc -l)
+echo $num
+   #assert_equal_str "$res"
+}
+
+
 select_from_table(){
 local    table=$1 
 local res=$(sqlite3 -csv $file_db "select * from $table order by id desc;")
 echo "$res"
+
 
 }
 

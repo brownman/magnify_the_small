@@ -6,7 +6,7 @@
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
-multiple_langs=false
+multiple_langs=true
 #false
 #assert_equal_str "$3"
 silence2=${3:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
@@ -22,7 +22,6 @@ lang_target=$LANG_DEFAULT
 #silence2_fetch=$silence2_FETCH #if no tts is needed
 silence2_fetch=true
 #$silence2
-
 
 #unlocker?
 file_locker=/tmp/translation
@@ -292,7 +291,7 @@ echo5(){
     translate_f  "$str" ru 
     sleep1 2
     translate_f  "$str" ar 
-    if [ $num -lt 4 ];then
+    if [ $num -lt 3 ];then
         sleep1 2
         translate_f  "$str" hi 
 
@@ -443,16 +442,16 @@ one_line(){
     if [ "$multiple_langs" = true ];then
         if [ "$file" != '' ];then
             choose5 "$file"
-        else
-            choose5 $CFG_DIR/quotes.txt
+        #else
+            #choose5 $CFG_DIR/quotes.txt
         fi
 
         #one_tip
     else
         if [ "$file" != '' ];then
             choose4 "$file"
-        else
-            choose4 $CFG_DIR/quotes.txt
+        #else
+            #choose4 $CFG_DIR/quotes.txt
         fi
 
         #one_tip

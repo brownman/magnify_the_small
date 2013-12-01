@@ -64,7 +64,7 @@ test_yaml(){
     local filename=$(get_filename 'tmp' 'testing' )
     local line=$(cat $filename | head -1)
 
-    line=$(         update_line "$line" )
+
     #assert_equal_str "$line1" "$line"
 
     #breakpoint
@@ -74,16 +74,23 @@ test_yaml(){
     #update_table_gui ""
     if [ "$line" != '' ];then
 
+
         local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-        local route=$( echo "$line" | awk -F '|' '{print $2}' )
-        local method=$( echo "$line" | awk -F '|' '{print $3}' )
-        local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
-        local expect=$( echo "$line" | awk -F '|' '{print $5}' )
+
         flite "$desc"
-        messageYN1 "$desc" 'push forward testing' 
+        messageYN1 "$desc" 'recent koan' 
         local res=$?
         if [ $res -eq 1 ];then
 
+
+
+
+            line=$(         update_line "$line" )
+            local desc=$( echo "$line" | awk -F '|' '{print $1}' )
+            local route=$( echo "$line" | awk -F '|' '{print $2}' )
+            local method=$( echo "$line" | awk -F '|' '{print $3}' )
+            local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
+            local expect=$( echo "$line" | awk -F '|' '{print $5}' )
 
 
             #trace "route: $route"
@@ -115,7 +122,7 @@ test_yaml(){
 
 
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo 'failed')
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
             #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
             #assert_equal_str "$equality"
 
@@ -165,7 +172,8 @@ test_yaml(){
             #        #(trace "$str" "action: $method " "$equality" true &)
             #        trace "action: $method $str $equality"
             echo "$equality"
-
+        else
+            notify-send1 'skip' 'pushing test forward'
         fi
     else
 

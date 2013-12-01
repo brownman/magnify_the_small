@@ -110,15 +110,25 @@ news:
 - riddle:
 1,1,1,1
 - koan
+9,"count new records",10:35,tasks_sh,db,"counter koan",3,8
+8,"count new records",10:35,tasks_sh,db,"counter koan",3,7
+7,"count new records",10:26,tasks_sh,db,"counter koan",3,""
+6,"count new records",10:09,tasks_sh,db,"counter,koan",3,"0 #file_db=/test.db assert_equal_str res1="
+5,"count new records",10:09,tasks_sh,db,"counter koan",3,""
+4,"count new records",09:55,tasks_sh,db,"counter koan",x,failed
+3,"count new records",09:54,tasks_sh,db,"counter koan",x,failed
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
-     1	but she was still happy
-     2	but she was stil happy
-     3	the ant had a small brain
-     4	the ant had a small brain
-     5	about his good friend - the ant
-     6	exit
-     7	and he was happy to hear the good news
-     8	there was also an elephant though
-     9	there was a little ant
-    10	once upon a time
+     1	she had a good company
+     2	but she was still happy
+     3	but she was still happy
+     4	but she was still happy
+     5	but she was stil happy
+     6	the ant had a small brain
+     7	the ant had a small brain
+     8	about his good friend - the ant
+     9	exit
+    10	and he was happy to hear the good news
+    11	there was also an elephant though
+    12	there was a little ant
+    13	once upon a time

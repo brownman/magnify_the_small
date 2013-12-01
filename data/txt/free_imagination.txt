@@ -1,5 +1,6 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
+minimal debian packaging
 update tasks
 update readme
 
