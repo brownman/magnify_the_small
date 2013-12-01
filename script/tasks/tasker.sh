@@ -50,7 +50,7 @@ echo "a b"
 }
 
 free_imagination(){
-    file=$DATA_DIR/txt/free_imagination.txt
+    file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
 
     $PLUGINS_DIR/free_imagination.sh "$file"
 }
@@ -279,6 +279,8 @@ cow_report(){
     local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
     xcowsay "associations: $num"
 
+    num=$( db counter riddle)
+    xcowsay "riddles: $num"
 
 
 }
@@ -574,6 +576,8 @@ game_essay(){
 }
 
 learn_langs(){
+    local file=$DATA_DIR/txt/conversation.txt
+    free_imagination $file &
     $PLUGINS_DIR/learn_langs.sh play_lesson 
 }
 
@@ -629,7 +633,7 @@ cat -n $DATA_DIR/txt/child.txt >> $file
 cat $file > $readme
 
 
-#gedit $file &
+gedit $file &
 }
 homework(){
     file_pdf=$PROJECT_DIR/1/class/1.pdf

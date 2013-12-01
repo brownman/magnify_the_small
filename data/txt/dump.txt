@@ -110,6 +110,8 @@ news:
 - riddle:
 1,1,1,1
 - koan
+11,"editable list",11:43,cfg,zenity11,/tmp/1.txt,x,"did I do it so good"
+10,"count new records",10:40,tasks_sh,db,"counter koan",3,9
 9,"count new records",10:35,tasks_sh,db,"counter koan",3,8
 8,"count new records",10:35,tasks_sh,db,"counter koan",3,7
 7,"count new records",10:26,tasks_sh,db,"counter koan",3,""
@@ -119,16 +121,18 @@ news:
 3,"count new records",09:54,tasks_sh,db,"counter koan",x,failed
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
-     1	she had a good company
-     2	but she was still happy
-     3	but she was still happy
+     1	but she could always call her friend
+     2	she had herself to talk to
+     3	she had a good company
      4	but she was still happy
-     5	but she was stil happy
-     6	the ant had a small brain
-     7	the ant had a small brain
-     8	about his good friend - the ant
-     9	exit
-    10	and he was happy to hear the good news
-    11	there was also an elephant though
-    12	there was a little ant
-    13	once upon a time
+     5	but she was still happy
+     6	but she was still happy
+     7	but she was stil happy
+     8	the ant had a small brain
+     9	the ant had a small brain
+    10	about his good friend - the ant
+    11	exit
+    12	and he was happy to hear the good news
+    13	there was also an elephant though
+    14	there was a little ant
+    15	once upon a time
