@@ -16,13 +16,15 @@ run(){
     while :;do
 
 
-        line=$(random_from_subject1 abs)
-        res="$dir/$line"
+        #line=$(random_from_subject1 abs)
+        #res="$dir/$line"
+local res=$(pick_file        $dir)
+
 
 
 
         #commander  "exec $res"
-
+update_commander
         cmd="gedit $res"
         commander "$cmd" & 
         messageYN1 'break ?' 'y/n' '' 60 

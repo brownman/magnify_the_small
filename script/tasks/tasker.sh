@@ -640,14 +640,11 @@ gedit $file &
 }
 homework(){
     local dir=$DATA_DIR/homework/linux-edu
-local    file_list=/tmp/list1
-    list=$(ls -1 $dir)
-    echo "$list" > $file_list
-local item=$( zenity1 "$file_list" )
+local res=$(pick_file "$dir" )
+xdg-open "$res"
 
-local choose="$dir/$item"
-xdg-open $choose
 }
+
 
 git_commit(){
     local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
