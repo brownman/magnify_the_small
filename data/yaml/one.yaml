@@ -12,20 +12,10 @@ workflow:
 
 
 testing:
-        #- delay with a progress bar|cfg|sleep1|5,true|1|1
-        #- create a new riddle|tasks_sh|riddle|x|x
-        #- count new records|tasks_sh|db|counter,koan|3
-        #- report|tasks_sh|cow_report|||
-        #
-        #
-        #
-        #- notification editable|tasks_sh|motivation|glossary|||
         - homework plugin|tasks_sh|homework|||
         - editable list|cfg|zenity11|/tmp/1.txt|x
         - find recent iandroid records
-        - editable list - abs list
         - virtual environment
-
         - update the readme file|tasks_sh|update_readme||x
         - cow will sum up|tasks_sh|db|sum_it_up|x
 

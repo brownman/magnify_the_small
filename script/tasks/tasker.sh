@@ -23,11 +23,11 @@ $PLUGINS_DIR/riddle.sh
 }
 
 
-
-add_koan(){
-local res=$( $PLUGINS_DIR/add_koan.sh )
-echo "$res"
-}
+#
+#add_koan(){
+#local res=$( $PLUGINS_DIR/add_koan.sh )
+#echo "$res"
+#}
 simple(){
 #local first="$1"
 
@@ -275,9 +275,10 @@ breakpoint
 #
 #
 cow_report(){
+    #flite 'riddl'
     #local file=
-    local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
-    xcowsay "associations: $num"
+    #local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
+    #xcowsay "associations: $num"
 
     num=$( db counter riddle)
     xcowsay "riddles: $num"
@@ -320,6 +321,8 @@ fi
 
   #show_file "$file_name" &
   echo "line: $line"
+    cmd=cow_report
+    every "$cmd" 2 
 }
 
 motivations(){
@@ -636,9 +639,14 @@ cat $file > $readme
 gedit $file &
 }
 homework(){
-    file_pdf=$PROJECT_DIR/1/class/1.pdf
-pdf1 $file_pdf
-breakpoint
+    local dir=$DATA_DIR/homework/linux-edu
+local    file_list=/tmp/list1
+    list=$(ls -1 $dir)
+    echo "$list" > $file_list
+local item=$( zenity1 "$file_list" )
+
+local choose="$dir/$item"
+xdg-open $choose
 }
 
 git_commit(){
