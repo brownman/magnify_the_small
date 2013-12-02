@@ -15,7 +15,7 @@ run(){
     #local line=$(random_line 'abs')
     while :;do
         line=$(random_from_subject1 abs)
-        assert_equal_str "$line"
+        #assert_equal_str "$line"
         res=$dir/$line
         #res=$(pick_file        $dir)
         notify-send1 "res" "$res"
@@ -24,6 +24,7 @@ run(){
             update_commander
             cmd="gedit $res"
             commander "$cmd" & 
+remove_commander
         fi
         messageYN1 'break ?' 'y/n' '' 60 
         res1=$?
