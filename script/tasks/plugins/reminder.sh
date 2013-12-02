@@ -47,19 +47,23 @@ run(){
     #local str=''
     local res=0
 
+    line=$(gxmessage -entrytext "$line" -title 'enter new' 'goal' $GXMESSAGET)
 
+    local  title="$line"
 
-    local  title=''
+    #''
 
-    if [ "$line" ];then
-
-        title="$line"
-    else
-
-$tasks_sh free_imagination
-        #title=$(zenity2  yaml priorities )
-        title=$(zenity2  txt free_imagination )
-    fi
+#    if [ "$line" ];then
+#
+#        title="$line"
+#    else
+#
+##$tasks_sh free_imagination
+#        #title=$(zenity2  yaml priorities )
+#        line=$(zenity2  txt testing )
+#    local desc=$( echo "$line" | awk -F '|' '{print $1}' )
+#        title="$desc"
+#    fi
 
     delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
 

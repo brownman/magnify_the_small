@@ -77,8 +77,11 @@ test_yaml(){
 
         local desc=$( echo "$line" | awk -F '|' '{print $1}' )
 
+
         flite "$desc"
-        $tasks_sh motivation &
+#local cmd="$tasks_sh reminder '$desc'"
+#optional "$cmd" &
+        #$tasks_sh motivation &
         messageYN1 "$desc" 'recent koan' 
         local res=$?
         if [ $res -eq 1 ];then

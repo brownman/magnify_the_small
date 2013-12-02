@@ -9,35 +9,35 @@ notify-send 'tasker.sh' "$@"
 #every "$cmd" 10
 efficiency_report(){
 
-local res=$(    level)
-local res=$(    check-boxes)
-notify-send1 'efficiency level:' "$res"
+    local res=$(    level)
+    local res=$(    check-boxes)
+    notify-send1 'efficiency level:' "$res"
 }
 
 
 impulse(){
- local   file=$DATA_DIR/txt/testing.txt 
 
-free_imagination $file
-local line=$(cat $file | head -1)
-local cmd="$tasks_sh reminder "
-optional "$cmd"
+    local   file=$DATA_DIR/txt/testing.txt 
+
+    free_imagination $file
+    #local line=$(cat $file | head -1)
+
 }
 
 
 children_story(){
-notify-send1 'children story'
+    notify-send1 'children story'
 
     url1='http://teaching-tales.org/'
-url2='http://www.mamalisa.com/'
+    url2='http://www.mamalisa.com/'
 
 
     exo-open "$url1" &
     exo-open "$url2" &
-free_speak child &
+    free_speak child &
 }
 riddle(){
-$PLUGINS_DIR/riddle.sh 
+    $PLUGINS_DIR/riddle.sh 
 }
 
 
@@ -47,28 +47,28 @@ $PLUGINS_DIR/riddle.sh
 #echo "$res"
 #}
 simple(){
-#local first="$1"
+    #local first="$1"
 
 
-#local arg="$1"
-#assert_equal_str "$arg"
-$(eval show_args "$1" "$2" "$3")
+    #local arg="$1"
+    #assert_equal_str "$arg"
+    $(eval show_args "$1" "$2" "$3")
 
-local res=$(echo "$1")
-#assert_equal_str "$res"
+    local res=$(echo "$1")
+    #assert_equal_str "$res"
     #args=(a),
     #show_args "${@}"
-#local arg=$( echo  "$1")
+    #local arg=$( echo  "$1")
 
-#echo "$res"
-echo "a b"
-#echo "$first"
+    #echo "$res"
+    echo "a b"
+    #echo "$first"
 
 
 }
 
 free_imagination(){
-   local file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
+    local file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
 
     $PLUGINS_DIR/free_imagination.sh "$file"
 }
@@ -80,7 +80,7 @@ do_koan(){
     local file_name_target="recent_koan.py" 
     update_recent_link "$dir_source" "$file_name_target"
 
- cat $LINKS_DIR/recent_koan.py | head -10
+    cat $LINKS_DIR/recent_koan.py | head -10
 }
 
 #notify-send "tasker.sh:" "$*"
@@ -154,24 +154,24 @@ practice_regexp(){
 
 
 string_to_buttons1(){
-echo hi
+    echo hi
 }
 string_to_buttons(){
     #notify-send1 'string_to_buttons'
     #local str1="${FUNCNAME[0]}"
 
 
-#eval 'show_args "$1" "$2"'
+    #eval 'show_args "$1" "$2"'
 
 
-local str="$1"
-#$(eval echo $1)
-#assert_equal_str "$str"
-#( echo "$1")
+    local str="$1"
+    #$(eval echo $1)
+    #assert_equal_str "$str"
+    #( echo "$1")
 
     local delimeter="$2"
 
-#eval 'show_args "$str" '
+    #eval 'show_args "$str" '
 
     #local args=( "$@" )
     #assert_equal_str "$str"
@@ -217,18 +217,18 @@ increase_motivation(){
 }
 
 db(){
-#notify-send1 'db' "$@"
+    #notify-send1 'db' "$@"
 
-##works:
-local args=( "$@" )
-#$(show_args "${args[@]}")
-local res1=$(   $PLUGINS_DIR/db.sh   "${args[@]}")
-echo "$res1" #must echo for testing to work
-#assert_equal_str "$res1"
-############################### proxy for execution #####################
+    ##works:
+    local args=( "$@" )
+    #$(show_args "${args[@]}")
+    local res1=$(   $PLUGINS_DIR/db.sh   "${args[@]}")
+    echo "$res1" #must echo for testing to work
+    #assert_equal_str "$res1"
+    ############################### proxy for execution #####################
 
 
-  
+
 }
 
 #update_db(){
@@ -257,7 +257,7 @@ echo "$res1" #must echo for testing to work
 #
 #}
 menu(){
-breakpoint
+    breakpoint
 }
 #
 #menu(){
@@ -315,30 +315,30 @@ motivation(){
     reason='push: learning new language'
     local line=''
 
-if [ "$subject" = '' ];then
-    random1 10
-    ans=$?
-    if [ $ans -gt 3 ];then
-        line=$(random_from_subject1 glossary)
+    if [ "$subject" = '' ];then
+        random1 10
+        ans=$?
+        if [ $ans -gt 3 ];then
+            line=$(random_from_subject1 glossary)
+        else
+            line=$(random_from_subject1 sport)
+        fi
+
+
     else
-        line=$(random_from_subject1 sport)
+
+        line=$(random_from_subject1 "$subject")
+        #assert_equal_str "$line"
+
     fi
-
-
-else
-
-    line=$(random_from_subject1 "$subject")
-#assert_equal_str "$line"
-
-fi
 
 
     echo01 "$line" &
     #assert_equal_str "$line"
 
 
-  #show_file "$file_name" &
-  echo "line: $line"
+    #show_file "$file_name" &
+    echo "line: $line"
     cmd=cow_report
     every "$cmd" 2 
 }
@@ -442,10 +442,10 @@ update(){
 #}
 play_recent(){
     local line=$(        random_line $DATA_DIR/tmp/workflow.tmp )
-   parse_line1 "$line" 
+    parse_line1 "$line" 
     #commander "$line"
 
-            #update_table logger "$date1" "play_recent" "$line1"
+    #update_table logger "$date1" "play_recent" "$line1"
 }
 #remind_1_task(){
 #    notify-send1 'funniest story ever !'
@@ -461,13 +461,13 @@ play_recent(){
 
 suspend1(){
     #flite "should - $msg"
-efficiency_report
+    #efficiency_report
 
-cmd='git_commit'
+    cmd='git_commit'
 
-every "$cmd" 
-            play_recent & 
-            sleep1 10
+    every "$cmd" 
+    play_recent & 
+    sleep1 10
     motivation & 
 
 
@@ -476,44 +476,30 @@ every "$cmd"
 
     $(messageYN1 '2 ways' 'push 1 fear forward ?')
     res=$?
-if [ "$DICE" = true ];then
-   if [ $res -eq 1 ];then
-
-        random1 2
-        res=$?
-        #local strr='go away from the computer and let me to decide what to do now'
-        #notify-send3 "$strr"
-     
-        
-        if [ $res -eq 0 ];then
-            $PLUGINS_DIR/suspend.sh
+    if [ "$DICE" = true ];then
+        if [ $res -eq 1 ];then
+            random1 2
+            res=$?
+            if [ $res -eq 0 ];then
+                $PLUGINS_DIR/suspend.sh
+            else
+                learn_langs &
+                sleep1 5
+                flite 'collect new words!'
+                ( exo-open http://www.google.com &)
+                flite 'take 30 seconds'
+                sleep1 31
+                notify-send1 'skip suspension for deal my fears:' '..'
+                $PLUGINS_DIR/suspend.sh
+            fi
         else
 
-            learn_langs &
-sleep1 5
-
-
-   flite 'collect new words!'
-
-
-
-        ( exo-open http://www.google.com &)
-
-   flite 'take 30 seconds'
-        sleep1 31
-        #cmd="xterm1 free_speak new_words"
-        #(eval "$cmd" &)
-
-
-            notify-send1 'skip suspension for deal my fears:' '..'
-
-
             $PLUGINS_DIR/suspend.sh
-
-        #( free_speak new_words &)
-            
-
         fi
+
+
+
+
     else
 
         $PLUGINS_DIR/suspend.sh
@@ -521,15 +507,7 @@ sleep1 5
 
 
 
-    
-else
-    
-        $PLUGINS_DIR/suspend.sh
-fi
- 
-
-
-#remind_1_task
+    #remind_1_task
 
 
     flite 'update your notebook'
@@ -547,7 +525,7 @@ fi
     reminder &
     notify-send1 'exiting func' 'suspend()'
     sleep1 5
-    
+
 }
 #planning(){
 #
@@ -629,37 +607,37 @@ scp_android(){
 
 }
 update_readme(){
-local file=$DATA_DIR/txt/dump.txt
-local readme=$PROJECT_DIR/README.md
+    local file=$DATA_DIR/txt/dump.txt
+    local readme=$PROJECT_DIR/README.md
 
-#$PROJECT_DIR/README.md
-echo '' > $file
-
-
-cat $DATA_DIR/md/README.md >> $file
-#echo "- RECENT_DUMP:" >> $file
+    #$PROJECT_DIR/README.md
+    echo '' > $file
 
 
-echo '- riddle:' >> $file
-local res=$(db select_from_table riddle)
-echo "$res" >>  $file
-
-#
-echo '- koan' >> $file
-local res=$(db select_from_table koan)
-echo "$res" >>  $file
-
-cat -n $DATA_DIR/txt/child.txt >> $file
-
-cat $file > $readme
+    cat $DATA_DIR/md/README.md >> $file
+    #echo "- RECENT_DUMP:" >> $file
 
 
-gedit $file &
+    echo '- riddle:' >> $file
+    local res=$(db select_from_table riddle)
+    echo "$res" >>  $file
+
+    #
+    echo '- koan' >> $file
+    local res=$(db select_from_table koan)
+    echo "$res" >>  $file
+
+    cat -n $DATA_DIR/txt/child.txt >> $file
+
+    cat $file > $readme
+
+
+    gedit $file &
 }
 homework(){
     local dir=$DATA_DIR/homework/linux-edu
-local res=$(pick_file "$dir" )
-xdg-open "$res"
+    local res=$(pick_file "$dir" )
+    xdg-open "$res"
 
 }
 
@@ -700,8 +678,8 @@ deal_comparison(){
 
 #show_args ${}"$@"
 
- #show_args 'a a' 'b' 'cc c' 
- #show_args "$1" "$2" "$3"
+#show_args 'a a' 'b' 'cc c' 
+#show_args "$1" "$2" "$3"
 #COMMANDER=false
 #eval show_args "${args[0]}" "${args[1]}" "${args[2]}"
 #cmd=$(eval show_args "${args[@]}")

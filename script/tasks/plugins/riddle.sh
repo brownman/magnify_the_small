@@ -15,12 +15,13 @@ run(){
     #local line=$(random_line 'abs')
     while :;do
         line=$(random_from_subject1 abs)
-        res="$dir/$line"
+        assert_equal_str "$line"
+        res=$dir/$line
         #res=$(pick_file        $dir)
         notify-send1 "res" "$res"
         #commander  "exec $res"
         if [ "$res" ];then
-            #update_commander
+            update_commander
             cmd="gedit $res"
             commander "$cmd" & 
         fi
