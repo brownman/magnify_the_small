@@ -106,10 +106,16 @@ news:
     - invite yourself tomorrow to deal again with your fears - make them smaller and smaller 
     - entertain yourself with a picture which is creative warm and inspiring
 
-- RECENT_DUMP:
+
+recent db dump:
+------------
 - riddle:
 1,1,1,1
 - koan
+15,"editable list",12:11,cfg,zenity11,/tmp/1.txt,x,""
+14,"mind map",12:10,"","","","",equal
+13,"homework plugin",16:03,tasks_sh,homework,"","",equal
+12,"notification editable",14:20,tasks_sh,motivation,glossary,"",""
 11,"editable list",11:43,cfg,zenity11,/tmp/1.txt,x,"did I do it so good"
 10,"count new records",10:40,tasks_sh,db,"counter koan",3,9
 9,"count new records",10:35,tasks_sh,db,"counter koan",3,8
@@ -121,18 +127,21 @@ news:
 3,"count new records",09:54,tasks_sh,db,"counter koan",x,failed
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
-     1	but she could always call her friend
-     2	she had herself to talk to
-     3	she had a good company
-     4	but she was still happy
-     5	but she was still happy
-     6	but she was still happy
-     7	but she was stil happy
-     8	the ant had a small brain
-     9	the ant had a small brain
-    10	about his good friend - the ant
-    11	exit
-    12	and he was happy to hear the good news
-    13	there was also an elephant though
-    14	there was a little ant
-    15	once upon a time
+     1	although there was  a big tree beside him
+     2	he hided behind the bush
+     3	where was he
+     4	but she could always call her friend
+     5	she had herself to talk to
+     6	she had a good company
+     7	but she was still happy
+     8	but she was still happy
+     9	but she was still happy
+    10	but she was stil happy
+    11	the ant had a small brain
+    12	the ant had a small brain
+    13	about his good friend - the ant
+    14	exit
+    15	and he was happy to hear the good news
+    16	there was also an elephant though
+    17	there was a little ant
+    18	once upon a time

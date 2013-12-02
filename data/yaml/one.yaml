@@ -3,18 +3,15 @@ date:
 
 
 workflow:
-        - howework||lpi homework
+        - homework||lpi homework
         - children_story||an awesome children story
         - git_commit||update the repo
         - increase_motivation||increase motivation reminder
         - regexp|tasks|on next suspension I can
-        - riddle||add a riddle
+        #- riddle||add a riddle
 
 
-testing:
-        - editable list|cfg|zenity11|/tmp/1.txt|x
-        - find recent iandroid records
-        - python - virtual environment
+
 
 order:
         - add push koans to watchr
@@ -25,6 +22,7 @@ order:
 
 hotkeys:
         #- free_imagination
+        - impulse
         - riddle
         - reminder
         - increase_motivation 

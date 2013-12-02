@@ -1,8 +1,10 @@
 editable list|cfg|zenity11|/tmp/1.txt|x
+mind map|||||
+optional notification 2
+editable list 4|cfg|zenity11|/tmp/1.txt|x
 find recent iandroid records
 python - virtual environment
 homework plugin|tasks_sh|homework|||
-editable list|cfg|zenity11|/tmp/1.txt|x
 find recent iandroid records
 virtual environment
 update the readme file|tasks_sh|update_readme||x

@@ -1,5 +1,6 @@
 ideas (as priorities)
 ----=-=-=-=-=-=-=-=-=-=-
+updatable db
 minimal debian packaging
 update tasks
 update readme

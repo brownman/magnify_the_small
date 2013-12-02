@@ -9,6 +9,7 @@ file=${1:-$DATA_DIR/txt/free.txt}
 
 
 run(){
+    notify-send1 'edit' "$file"
 zenity_editable "$file"
 }
 unlocker

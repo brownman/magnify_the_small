@@ -65,7 +65,7 @@ watch('genius.sh') {|match| system "./1/testing/python2/run.sh"}
 #watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
 watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}
 #
-#watch('data/tmp/testing.tmp') {|match| system  "./1/testing/python2/run.sh"}
+watch('data/txt/testing.txt') {|match| system  "./1/testing/python2/run.sh"}
 
 #watch('1/*\/.*\.js') {|match| system "./1/testing/python2/run.sh"}
 #watch('./*\/.*\.sh') {|match| system "./1/testing/python2/run.sh"}

@@ -14,26 +14,21 @@ run(){
     local cmd=''
     #local line=$(random_line 'abs')
     while :;do
-
-
-        #line=$(random_from_subject1 abs)
-        #res="$dir/$line"
-local res=$(pick_file        $dir)
-
-
-
-
+        line=$(random_from_subject1 abs)
+        res="$dir/$line"
+        #res=$(pick_file        $dir)
+        notify-send1 "res" "$res"
         #commander  "exec $res"
-update_commander
-        cmd="gedit $res"
-        commander "$cmd" & 
+        if [ "$res" ];then
+            #update_commander
+            cmd="gedit $res"
+            commander "$cmd" & 
+        fi
         messageYN1 'break ?' 'y/n' '' 60 
         res1=$?
-
         if [ $res1 -eq 1 ];then
             break
         fi
-
     done
     db update_table riddle true '?' '?' "$line"
     cmd="exec $res"

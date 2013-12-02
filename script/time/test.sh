@@ -61,7 +61,7 @@ update_line(){
 test_yaml(){
     trace "$tasks_sh"
     flite 'the next feature'
-    local filename=$(get_filename 'tmp' 'testing' )
+    local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
 
 
@@ -78,6 +78,7 @@ test_yaml(){
         local desc=$( echo "$line" | awk -F '|' '{print $1}' )
 
         flite "$desc"
+        $tasks_sh motivation &
         messageYN1 "$desc" 'recent koan' 
         local res=$?
         if [ $res -eq 1 ];then

@@ -7,6 +7,24 @@ notify-send 'tasker.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+efficiency_report(){
+
+local res=$(    level)
+local res=$(    check-boxes)
+notify-send1 'efficiency level:' "$res"
+}
+
+
+impulse(){
+ local   file=$DATA_DIR/txt/testing.txt 
+
+free_imagination $file
+local line=$(cat $file | head -1)
+local cmd="$tasks_sh reminder "
+optional "$cmd"
+}
+
+
 children_story(){
 notify-send1 'children story'
 
@@ -50,7 +68,7 @@ echo "a b"
 }
 
 free_imagination(){
-    file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
+   local file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
 
     $PLUGINS_DIR/free_imagination.sh "$file"
 }
@@ -443,7 +461,7 @@ play_recent(){
 
 suspend1(){
     #flite "should - $msg"
-
+efficiency_report
 
 cmd='git_commit'
 
