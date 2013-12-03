@@ -303,8 +303,9 @@ cow_report(){
     #local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
     #xcowsay "associations: $num"
 
-    num=$( db counter riddle)
-    xcowsay "riddles: $num"
+    local table=$1
+    local num=$( db counter $table)
+    xcowsay "$table: $num"
 
 
 }
@@ -493,11 +494,11 @@ suspend1(){
             else
                 learn_langs &
                
-               cmd="limit collect_new_words 30"
+               cmd="limit '$tasks_sh collect_new_words' 30"
                every "$cmd" 1
 
-               cmd="limit play_recent 60"
-               every "$cmd" 3
+               #cmd="limit play_recent 60"
+               #every "$cmd" 3
 
                 notify-send1 'skip suspension for deal my fears:' '..'
                 $PLUGINS_DIR/suspend.sh

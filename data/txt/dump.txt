@@ -112,6 +112,8 @@ recent db dump:
 - riddle:
 1,1,1,1
 - koan
+23,"play new file",13:23,tasks_sh,motivation,koan,x,"line: empty line"
+22,"play new file",13:23,tasks_sh,motivation,koan,x,line:
 21,riddle,15:37,tasks_sh,riddle,x,x,""
 20,riddle,15:35,tasks_sh,riddle,x,x,""
 19,"what is this char",15:25,cfg,random_from_subject1,abs,x,tree.sh

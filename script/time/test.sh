@@ -63,10 +63,9 @@ test_yaml(){
     flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
-
-
-    #assert_equal_str "$line1" "$line"
-
+cow_report koan
+$tasks_sh motivation koan &
+    assert_equal_str "koan file"
     #breakpoint
     trace   "$filename" 
     trace   "$line" 
