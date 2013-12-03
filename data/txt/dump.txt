@@ -112,6 +112,12 @@ recent db dump:
 - riddle:
 1,1,1,1
 - koan
+21,riddle,15:37,tasks_sh,riddle,x,x,""
+20,riddle,15:35,tasks_sh,riddle,x,x,""
+19,"what is this char",15:25,cfg,random_from_subject1,abs,x,tree.sh
+18,"what is this char",15:21,cfg,random_from_subject1,abs,x,self-source.sh
+17,cfg,15:07,cfg,random_from_subject,abs,x,""
+16,"mind map",12:57,"","","","",equal
 15,"editable list",12:11,cfg,zenity11,/tmp/1.txt,x,""
 14,"mind map",12:10,"","","","",equal
 13,"homework plugin",16:03,tasks_sh,homework,"","",equal
@@ -128,20 +134,21 @@ recent db dump:
 2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
 1,1,1,1,1,1,1,1
      1	although there was  a big tree beside him
-     2	he hided behind the bush
-     3	where was he
-     4	but she could always call her friend
-     5	she had herself to talk to
-     6	she had a good company
-     7	but she was still happy
+     2	although there was  a big tree beside him
+     3	he hided behind the bush
+     4	where was he
+     5	but she could always call her friend
+     6	she had herself to talk to
+     7	she had a good company
      8	but she was still happy
      9	but she was still happy
-    10	but she was stil happy
-    11	the ant had a small brain
+    10	but she was still happy
+    11	but she was stil happy
     12	the ant had a small brain
-    13	about his good friend - the ant
-    14	exit
-    15	and he was happy to hear the good news
-    16	there was also an elephant though
-    17	there was a little ant
-    18	once upon a time
+    13	the ant had a small brain
+    14	about his good friend - the ant
+    15	exit
+    16	and he was happy to hear the good news
+    17	there was also an elephant though
+    18	there was a little ant
+    19	once upon a time

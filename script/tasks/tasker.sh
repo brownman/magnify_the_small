@@ -7,6 +7,11 @@ notify-send 'tasker.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+collect_new_words(){
+   flite 'collect new words!'
+                ( exo-open http://www.google.com &)
+}
+
 efficiency_report(){
 
     local res=$(    level)
@@ -466,7 +471,7 @@ suspend1(){
     cmd='git_commit'
 
     every "$cmd" 
-    play_recent & 
+
     sleep1 10
     motivation & 
 
@@ -485,9 +490,11 @@ suspend1(){
             else
                 learn_langs &
                 sleep1 5
-                flite 'collect new words!'
-                ( exo-open http://www.google.com &)
-                flite 'take 30 seconds'
+
+    play_recent & 
+                flite 'take 60 seconds'
+                
+
                 sleep1 31
                 notify-send1 'skip suspension for deal my fears:' '..'
                 $PLUGINS_DIR/suspend.sh
