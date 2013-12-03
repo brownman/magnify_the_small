@@ -65,7 +65,7 @@ test_yaml(){
     local line=$(cat $filename | head -1)
 cow_report koan
 $tasks_sh motivation koan &
-    assert_equal_str "koan file"
+    #assert_equal_str "koan file"
     #breakpoint
     trace   "$filename" 
     trace   "$line" 

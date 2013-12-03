@@ -497,8 +497,8 @@ suspend1(){
                cmd="limit '$tasks_sh collect_new_words' 30"
                every "$cmd" 1
 
-               #cmd="limit play_recent 60"
-               #every "$cmd" 3
+               cmd="limit play_recent 60"
+               every "$cmd" 5
 
                 notify-send1 'skip suspension for deal my fears:' '..'
                 $PLUGINS_DIR/suspend.sh
