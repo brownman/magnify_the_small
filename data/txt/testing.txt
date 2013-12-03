@@ -1,3 +1,6 @@
+recent_task - use with eacher
+koans - as  new soldiers
+random_line - create in not exist - i.e:koan.txt
 riddle|tasks_sh|riddle|x|x
 what is this char|cfg|random_from_subject1|abs|x
 mind map|||||

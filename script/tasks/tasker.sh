@@ -464,6 +464,9 @@ play_recent(){
 #    #echo 'random task'
 #}
 
+
+
+
 suspend1(){
     #flite "should - $msg"
     #efficiency_report
@@ -489,13 +492,13 @@ suspend1(){
                 $PLUGINS_DIR/suspend.sh
             else
                 learn_langs &
-                sleep1 5
+               
+               cmd="limit collect_new_words 30"
+               every "$cmd" 1
 
-    play_recent & 
-                flite 'take 60 seconds'
-                
+               cmd="limit play_recent 60"
+               every "$cmd" 3
 
-                sleep1 31
                 notify-send1 'skip suspension for deal my fears:' '..'
                 $PLUGINS_DIR/suspend.sh
             fi

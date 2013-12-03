@@ -267,7 +267,7 @@ echo5(){
 
     local str="$1"
 
-
+    local cmd=''
     if [ "$str" = '' ];then
 
         error_handler
@@ -294,9 +294,13 @@ echo5(){
     if [ $num -lt 3 ];then
         sleep1 2
         translate_f  "$str" hi 
+        cmd="flite 'tell to Pini'"
+        every "$cmd" 20
 
         sleep1 2
         translate_f  "$str" tl 
+        cmd="flite 'tell to Alice'"
+        every "$cmd" 20
     else
         echo 'more then 4 words -> skip playing hi,tl'
     fi
@@ -442,7 +446,7 @@ one_line(){
     if [ "$multiple_langs" = true ];then
         if [ "$file" != '' ];then
             choose5 "$file"
-        #else
+            #else
             #choose5 $CFG_DIR/quotes.txt
         fi
 
@@ -450,7 +454,7 @@ one_line(){
     else
         if [ "$file" != '' ];then
             choose4 "$file"
-        #else
+            #else
             #choose4 $CFG_DIR/quotes.txt
         fi
 
@@ -463,7 +467,7 @@ all_lines(){
     notify-send 'speak all lines'
     lines=() 
     local from="$1"
-local delay=4
+    local delay=4
     local cmd='echo4'
     #local cmd='notify-send1'
     file_to_lines "$from"
