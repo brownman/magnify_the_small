@@ -63,14 +63,10 @@ test_yaml(){
     flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
-cow_report koan
-$tasks_sh motivation koan &
-    #assert_equal_str "koan file"
-    #breakpoint
+tasker cow_report koan &
+tasker motivation koan &
     trace   "$filename" 
     trace   "$line" 
-    #tracex  'testing.0:' "$line" 
-    #update_table_gui ""
     if [ "$line" != '' ];then
 
 
@@ -78,9 +74,6 @@ $tasks_sh motivation koan &
 
 
         flite "$desc"
-#local cmd="$tasks_sh reminder '$desc'"
-#optional "$cmd" &
-        #$tasks_sh motivation &
         messageYN1 "$desc" 'recent koan' 
         local res=$?
         if [ $res -eq 1 ];then
@@ -96,23 +89,11 @@ $tasks_sh motivation koan &
             local expect=$( echo "$line" | awk -F '|' '{print $5}' )
 
 
-            #trace "route: $route"
-            #local res=$(echo "$inputs")
-            #res=$(ls -l  $res)
-            #assert_equal_str "$res"
-            #echo "$res"
-            #inputs="$res"
-
-
+      
 
 
             local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
 
-            #assert_equal_str "$inputs1"
-            #awk -F ',' '{print $1}' )
-            #inputs2=$( echo "$inputs" | awk -F ',' '{print $2}' )
-            #echo "$res"
-            ################### eval 
             local cmd=$( echo "$route $method $inputs1" )
             #update_commander
             local result=$(commander "$cmd")
@@ -126,54 +107,19 @@ $tasks_sh motivation koan &
 
 
             local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
-            #local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "-$result-!=-$expect-")
-            #assert_equal_str "$equality"
-
-
-            #assert_equal_str "$ans"
-
-
-            #update_commander
-
-
-            #assert_equal_str "$ans"
+          
 
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
-
-
-
-
-                #update_line  "$choose_line"
-
-
             else
-                #trace "-$result-!=-$expect-"
-                #notify-send1 'test failed'
                 notify-send1 'google is a friend ?'
-                #local url=http://wiki.bash-hackers.org/rcwatson
-                #cmd="echo $(gxmessage $GXMESSAGET 'google is a friend' -entrytext $url);#xargs google-chrome"
-                #(every "$cmd" 15  &)
                 cmd='notify-send3 " must document the new tests"'
                 (every "$cmd" 5  &)
             fi
 
             local ans=$($tasks_sh db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
-
             local choose_line=$( $tasks_sh db show_selected_table koan )
 
-
-            #
-            #        local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "result:-$result-")
-            #
-            #        echo -n '' > $file_test
-            #        echo "inputs:   -$inputs-" >> $file_test
-            #        echo "expect: -$expect-" >> $file_test
-            #
-            #        local str=$(cat $file_test)
-            #
-            #        #(trace "$str" "action: $method " "$equality" true &)
-            #        trace "action: $method $str $equality"
             echo "$equality"
         else
             notify-send1 'skip' 'pushing test forward'

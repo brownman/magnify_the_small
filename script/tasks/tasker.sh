@@ -8,8 +8,8 @@ notify-send 'tasker.sh' "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 collect_new_words(){
-   flite 'collect new words!'
-                ( exo-open http://www.google.com &)
+    flite 'collect new words!'
+    ( exo-open http://www.google.com &)
 }
 
 efficiency_report(){
@@ -329,13 +329,9 @@ motivation(){
         else
             line=$(random_from_subject1 sport)
         fi
-
-
     else
-
         line=$(random_from_subject1 "$subject")
         #assert_equal_str "$line"
-
     fi
 
 
@@ -473,7 +469,6 @@ suspend1(){
     #efficiency_report
 
     cmd='git_commit'
-
     every "$cmd" 
 
     sleep1 10
@@ -493,12 +488,18 @@ suspend1(){
                 $PLUGINS_DIR/suspend.sh
             else
                 learn_langs &
-               
-               cmd="limit '$tasks_sh collect_new_words' 30"
-               every "$cmd" 1
 
-               cmd="limit play_recent 60"
-               every "$cmd" 5
+                limit "tasker collect_new_words" 30
+
+                random1 2
+
+                res=$?
+                if [ $res -eq 1 ];then
+
+                    limit 'tasker play_recent' 60
+                fi
+
+
 
                 notify-send1 'skip suspension for deal my fears:' '..'
                 $PLUGINS_DIR/suspend.sh

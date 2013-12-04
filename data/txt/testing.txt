@@ -1,6 +1,5 @@
-play new file|tasks_sh|motivation|koan|x
-if motivation file empty - create one and add 'empty line'
-bin4ry - android rooting
+plugin: add koan - dialog - update a text  box - print it to file - and eval it - update result
+plugin - root your android + bin4ry - android rooting
 recent_task - use with eacher
 koans - as  new soldiers
 meteor - chat with tts

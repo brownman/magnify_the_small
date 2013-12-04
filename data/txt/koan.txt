@@ -1,4 +1,4 @@
 empty line
 add more tests
 push tests forward
-you have many succesful tests
+you have many successful tests
