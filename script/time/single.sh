@@ -25,6 +25,8 @@ cmd="tasker $name '${args[@]}'"
 #cmd="tasker "$name" "${args[@]}"
 #COMMANDER=true
 #update_commander
-commander "$cmd"
+res=$( commander "$cmd" )
+#remove_commander
 }
 run
+echo "$res"

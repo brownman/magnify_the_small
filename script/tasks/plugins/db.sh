@@ -14,19 +14,19 @@
 #
 counter(){
     local table=$1
-   local res=$(select_from_table $table)
-   #local num=$?
-   #echo "$res"
-local num=$(echo "$res" | wc -l)
-echo $num
-   #assert_equal_str "$res"
+    local res=$(select_from_table $table)
+    #local num=$?
+    #echo "$res"
+    local num=$(echo "$res" | wc -l)
+    echo $num
+    #assert_equal_str "$res"
 }
 
 
 select_from_table(){
-local    table=$1 
-local res=$(sqlite3 -csv $file_db "select * from $table order by id desc;")
-echo "$res"
+    local    table=$1 
+    local res=$(sqlite3 -csv $file_db "select * from $table order by id desc;")
+    echo "$res"
 
 
 }
@@ -130,40 +130,8 @@ show_selected_table(){
     local str_zen1="xargs zenity $zen1 $timeout1 --print-column=ALL"
     #    commander "$str_zen1"
     res=$(echo "$res_sql1" |   eval "$str_zen1")
-
-
     echo "$res"
-
 }
-
-#    local tmp=$(echo "zenity $timeout1 --forms --title=$table1 --text=currently: "$zen2" ")
-#    if [ "$gui" = true ];then
-#
-#        values=$(eval $tmp)
-#    fi
-#
-
-#    local tmp1=$(echo "$values" | sed 's/|//g' | sed 's/ //g')
-
-#    if [ "$tmp1" != '' ];then
-#        #assert_equal_str "$fields"
-#        cmd="insert_row '$name' '$fields' '$values'"
-#
-#
-#        commander "$cmd"
-#        #insert_row "$name" "$fields" "$values"
-#    fi
-
-
-#cmd="$tasks_sh scp_android"
-#every "$cmd" 40
-
-
-#notify-send1 "res: $res"
-#local last=$(sqlite3 $file_db "select * from $table1 order by id desc" | head -1)
-
-
-#echo "$last"
 
 get_column_number(){
     local table1="$1"
@@ -175,49 +143,17 @@ get_column_number(){
     return $max
 }
 
-#update_table2(){
-#    local table="$1"
-#    shift
-#    local ids=("$@")
-#    local values=$( IFS='|'; echo "${ids[*]}" ); 
-#    local num=${#ids[@]}
-#    get_column_number "$table"
-#    local max=$?
-#
-#    if [ $num -eq $max ];then
-#trace ''
-#        #show_selected_table "$table" "$values" 
-#
-#        cmd="insert_row '$table' '$fields' '$values'"
-#        command "$cmd"
-#    else
-#
-#        assert_equal_str "num:$num max:$max values:$values"
-#    fi
-#}
 update_table1(){
-
-
-
+    notify-send1 'update_table1' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
+    local row="$4"
 
-
-
-
-    shift
-    shift
-    shift
-
-
-    local values_arr=("$@")
+     local values_arr=()
+    IFS='|' read -a values_arr <<< "$row"
     local tmp="${values_arr[@]}"
 
-    #assert_equal_str "$3"
-    #assert_equal_str "$tmp"
-
-    #$(show_args "${values_arr[@]}")
     local values=''
     local num=0
     local max=0
@@ -233,15 +169,12 @@ update_table1(){
 
     if [ "$1" ];then
         values=$( IFS='|'; echo "${values_arr[*]}" ); 
-        #assert_equal_str "$values"
         num=${#values_arr[@]}
-#            else
-#                values="${columns[@]}" #removed the 1st element
-#                num=$max
+
     fi
-    
-if [ "$gui" = true ];then
-      cmd="yad --timeout 20 --title "$table" --form --separator='|'   --text 'table columns:'  "  
+
+    if [ "$gui" = true ];then
+        cmd="yad --timeout 200 --title "$table" --form --separator='|'   --text 'table columns:'  "  
         for (( c=0; c<$max; c++ ))
         do
             cmd="$cmd --field=\"${columns[c]}\"   \"${values_arr[c]}\" "
@@ -252,45 +185,33 @@ if [ "$gui" = true ];then
         fi
         #assert_equal_str "$values" 
         #update_commander
-fi
- if [ "$update" = true ];then
-    if [ $num -eq $max ];then
-       cmd="insert_row \"$table\" \"$fields\" \"$values\""
-        commander  "$cmd"
+    fi
+    if [ "$update" = true ];then
+        if [ $num -eq $max ];then
+            cmd="insert_row \"$table\" \"$fields\" \"$values\""
+            commander  "$cmd"
+            cmd="show_selected_table $table"
+            every "$cmd" 1
+        else
+            notify-send1 dont-update
+            assert_equal_str "num:$num max:$max values:$values"
+        fi
+
+
     else
-        notify-send1 dont-update
-        assert_equal_str "num:$num max:$max values:$values"
+        echo "$values"
+        #assert_equal_str "$values" 
     fi
 
-else
-    echo "$values"
-        assert_equal_str "$values" 
-fi
 
 
-cmd="show_selected_table $table"
-every "$cmd" 20
 
 
 }
 
-#
-#export -f get_column_number
-#export -f update_table2
-#
-#export -f show_selected_table
-#export -f insert_row 
-#export -f update_db_list
-#
-#export -f update_table_gui1
-
-
-##works:
 args=( "$@" )
-#$(show_args "${args[@]}")
-res1=$( "${args[@]}")
+$(show_args "${args[@]}")
+res1=$( "${args[@]}" )
 echo "$res1" #must echo for testing to work
-#assert_equal_str "$res1"
-############################### proxy for execution #####################
 
 

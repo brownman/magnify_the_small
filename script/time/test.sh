@@ -5,7 +5,7 @@
 
 notify-send1 "Restart Test"
 export  COMMANDER=false
-export DEBUG=true
+#export DEBUG=true
 export VERBOSE=false
 result_g='equal'
 
@@ -18,17 +18,17 @@ plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
 
 }
-cfg(){
-    notify-send1 'cfg test'
-    #local cmd="$@"
-    #assert_equal_str $cmd
-    #local res=$(    commander "$cmd")
-    #echo "$res"
-    local args=( "$@" )
-    #$(show_args "${args[@]}")
-    local res1=$( "${args[@]}")
-    echo "$res1"
-}
+#cfg(){
+#    notify-send1 'cfg test'
+#    #local cmd="$@"
+#    #assert_equal_str $cmd
+#    #local res=$(    commander "$cmd")
+#    #echo "$res"
+#    local args=( "$@" )
+#    #$(show_args "${args[@]}")
+#    local res1=$( "${args[@]}")
+#    echo "$res1"
+#}
 snippet(){
     notify-send1 'cfg test'
     local cmd="$@"
@@ -59,6 +59,8 @@ update_line(){
 
 
 test_yaml(){
+
+cow_report koan & 
     trace "tasker"
     flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
@@ -72,15 +74,20 @@ test_yaml(){
         if [ $res -eq 1 ];then
 
             line=$(  tasker db update_table1 koan true false )
-            assert_equal_line "$line"
+
+
             local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-            local route=$( echo "$line" | awk -F '|' '{print $2}' )
-            local method=$( echo "$line" | awk -F '|' '{print $3}' )
-            local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
-            local expect=$( echo "$line" | awk -F '|' '{print $5}' )
+            local time=$( echo "$line" | awk -F '|' '{print $2}' )
+            local route=$( echo "$line" | awk -F '|' '{print $3}' )
+            local method=$( echo "$line" | awk -F '|' '{print $4}' )
+            local inputs=$( echo "$line" | awk -F '|' '{print $5}' )
+            local expect=$( echo "$line" | awk -F '|' '{print $6}' )
 
+#assert_equal_str "$line" 'desc|time|route|method|input|expect?'
+
+            #assert_equal_str "$inputs" "inputs"
             local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
-
+route='tasks_sh'
             local cmd=$( echo "$route $method $inputs1" )
             update_commander
             local result=$(commander "$cmd")
@@ -96,7 +103,10 @@ test_yaml(){
 
             local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
           
-
+            #tasker db update_table1 koan true true 
+            local data="$desc|$time1|$route|$method|$inputs|$expect|$result"
+            
+            local ans=$(tasker db update_table1 koan true true "$data" )
             if [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
             else
@@ -119,7 +129,7 @@ test_yaml(){
 
     fi
 
-
+sleep1 5
 
 }
 

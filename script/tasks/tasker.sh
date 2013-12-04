@@ -3,10 +3,23 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-notify-send 'tasker.sh' "$@"
+notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+cfg(){
+    export DEBUG=true
+    notify-send1 'cfg-test' 'unit..' 
+args=( "$@" )
+$(show_args "${args[@]}")
+res1=$(  ${args[@]} )
+echo "$res1" #must echo for testing to work
+#assert_equal_str "$res1"
+
+
+}
+
+
 collect_new_words(){
     flite 'collect new words!'
     ( exo-open http://www.google.com &)
@@ -362,7 +375,7 @@ before_suspend(){
         fi
 }
 after_suspend(){
-cow_report koan & 
+
     sleep1 5
     cow_report words &
     sleep1 5
@@ -510,7 +523,7 @@ deal_comparison(){
 ##works:
 args=( "$@" )
 #$(show_args "${args[@]}")
-res1=$( "${args[@]}")
+res1=$(  "${args[@]}" )
 echo "$res1" #must echo for testing to work
 #assert_equal_str "$res1"
 ############################### proxy for execution #####################
