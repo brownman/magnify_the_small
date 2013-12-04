@@ -13,7 +13,7 @@ file_test=/tmp/testing
 file_locker='/tmp/test'
 delay=1
 
-#($tasks_sh motivation &)
+#(tasker motivation &)
 plugin(){
     $PLUGINS_DIR/$1.sh "$2" "$3"
 
@@ -40,63 +40,51 @@ tasks_sh(){
     #assert_equal_str 'a b' 'a b' 'something went wrong'
     #exiting
     #trace "tasks_sh run: $*"
-    #$tasks_sh "$@" 
+    #tasker "$@" 
     notify-send1 'tasks_sh test'
     #local cmd="$@"
     local args=( "$@" )
 
-    #local cmd=$(echo "$tasks_sh ${args[@]}")
-    local cmd="$tasks_sh ${args[@]}"
+    #local cmd=$(echo "tasker ${args[@]}")
+    local cmd="tasker ${args[@]}"
     local res1=$( commander "$cmd" )
     echo  "$res1"
 }
 update_line(){
     IFS='|' read -a args <<< "$line"
-    local line1=$(show_args2 "${args[@]}")
+    local line1=$(show_args "${args[@]}")
     #line="$line1"
     echo "$line1"
 }
 
 
 test_yaml(){
-    trace "$tasks_sh"
+    trace "tasker"
     flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
-tasker cow_report koan &
-tasker motivation koan &
     trace   "$filename" 
     trace   "$line" 
     if [ "$line" != '' ];then
-
-
-        local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-
-
-        flite "$desc"
-        messageYN1 "$desc" 'recent koan' 
+        flite "$line"
+        messageYN1 "$line" 'run test ?' 
         local res=$?
         if [ $res -eq 1 ];then
 
-
-
-
-            line=$(         update_line "$line" )
+            line=$(  tasker db update_table1 koan true false )
+            assert_equal_line "$line"
             local desc=$( echo "$line" | awk -F '|' '{print $1}' )
             local route=$( echo "$line" | awk -F '|' '{print $2}' )
             local method=$( echo "$line" | awk -F '|' '{print $3}' )
             local inputs=$( echo "$line" | awk -F '|' '{print $4}' )
             local expect=$( echo "$line" | awk -F '|' '{print $5}' )
 
-
-      
-
-
             local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
 
             local cmd=$( echo "$route $method $inputs1" )
-            #update_commander
+            update_commander
             local result=$(commander "$cmd")
+            remove_commander
             result="$result"
 
             #assert_not_equal_str "$result" "" 'must not be empty'
@@ -117,8 +105,8 @@ tasker motivation koan &
                 (every "$cmd" 5  &)
             fi
 
-            local ans=$($tasks_sh db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
-            local choose_line=$( $tasks_sh db show_selected_table koan )
+            #local ans=$(tasker db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+            #local choose_line=$( tasker db show_selected_table koan )
 
             echo "$equality"
         else

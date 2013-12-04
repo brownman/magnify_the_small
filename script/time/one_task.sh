@@ -11,7 +11,7 @@ notify-send 'one task:'  "$1"
 args="$1"
 run(){
     local num="$args"
-        local cmd="$tasks_sh task_from hotkeys $num"
+        local cmd="tasker task_from hotkeys $num"
         eval "$cmd"
 }
 

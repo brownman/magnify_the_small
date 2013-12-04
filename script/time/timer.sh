@@ -19,7 +19,7 @@ run(){
         notify-send3 "wow! rounds: $count1"
      
         if [ "$DEBUG" = false ];then
-            $tasks_sh motivation glossary 
+            tasker motivation glossary 
         fi
         run_workflow
         sleep1 $waiting

@@ -51,7 +51,7 @@ parse_subject "$key"
 trace "show keys: $keys1"
 }
 show_keys
-$tasks_sh db update_db_list
+tasker db update_db_list
 touch $PROJECT_DIR/genius.sh
 
  

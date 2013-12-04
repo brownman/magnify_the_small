@@ -1,19 +1,20 @@
-plugin: add koan - dialog - update a text  box - print it to file - and eval it - update result
+limit
+efficiency_report
+gedit  a file
+plugin: add koan 
 plugin - root your android + bin4ry - android rooting
 recent_task - use with eacher
 koans - as  new soldiers
 meteor - chat with tts
 random_line - create in not exist - i.e:koan.txt
-riddle|tasks_sh|riddle|x|x
-what is this char|cfg|random_from_subject1|abs|x
-mind map|||||
-editable list|cfg|zenity11|/tmp/1.txt|x
+riddle
+editable list
 optional notification 2
-editable list 4|cfg|zenity11|/tmp/1.txt|x
+editable list 4
 find recent iandroid records
 python - virtual environment
-homework plugin|tasks_sh|homework|||
+homework plugin
 find recent iandroid records
 virtual environment
-update the readme file|tasks_sh|update_readme||x
-cow will sum up|tasks_sh|db|sum_it_up|x
+update the readme file
+cow will sum up

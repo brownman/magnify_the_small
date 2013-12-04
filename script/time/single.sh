@@ -20,9 +20,9 @@ notify-send 'single process' "$name"
 
 run(){
 
-cmd="$tasks_sh $name '${args[@]}'"
+cmd="tasker $name '${args[@]}'"
 
-#cmd="$tasks_sh "$name" "${args[@]}"
+#cmd="tasker "$name" "${args[@]}"
 #COMMANDER=true
 #update_commander
 commander "$cmd"

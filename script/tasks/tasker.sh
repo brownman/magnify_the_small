@@ -13,7 +13,7 @@ collect_new_words(){
 }
 
 efficiency_report(){
-
+notify-send1 'efficiency report:' 'words,snippets,order'
     local res=$(    level)
     local res=$(    check-boxes)
     notify-send1 'efficiency level:' "$res"
@@ -45,32 +45,6 @@ riddle(){
     $PLUGINS_DIR/riddle.sh 
 }
 
-
-#
-#add_koan(){
-#local res=$( $PLUGINS_DIR/add_koan.sh )
-#echo "$res"
-#}
-simple(){
-    #local first="$1"
-
-
-    #local arg="$1"
-    #assert_equal_str "$arg"
-    $(eval show_args "$1" "$2" "$3")
-
-    local res=$(echo "$1")
-    #assert_equal_str "$res"
-    #args=(a),
-    #show_args "${@}"
-    #local arg=$( echo  "$1")
-
-    #echo "$res"
-    echo "a b"
-    #echo "$first"
-
-
-}
 
 free_imagination(){
     local file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
@@ -117,7 +91,7 @@ task_from(){
 
     fi
 
-    local cmd="$tasks_sh $str"
+    local cmd="tasker $str"
 
     #assert_equal_str "$cmd"
     #assert_equal_str "$cmd"
@@ -162,32 +136,10 @@ string_to_buttons1(){
     echo hi
 }
 string_to_buttons(){
-    #notify-send1 'string_to_buttons'
-    #local str1="${FUNCNAME[0]}"
-
-
-    #eval 'show_args "$1" "$2"'
-
-
+ 
     local str="$1"
-    #$(eval echo $1)
-    #assert_equal_str "$str"
-    #( echo "$1")
-
     local delimeter="$2"
-
-    #eval 'show_args "$str" '
-
-    #local args=( "$@" )
-    #assert_equal_str "$str"
-
-    #local cmd=$(echo "$PLUGINS_DIR/string_to_buttons.sh $1 $2")
-    #local cmd=$(echo "$PLUGINS_DIR/string_to_buttons.sh '$str' '$delimeter'")
-    #local res=$( commander "$cmd" )
-
-
     local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
-    #1" "$2" "$3")
     echo "$res"
 }
 
@@ -236,78 +188,21 @@ db(){
 
 }
 
-#update_db(){
-#    local  table1="$1"
-#
-#    local choose=''
-#    local choose1=''
-#    #update_db_list
-#    if [ "$table1" = '' ];then
-#        table1=$(zenity1 "$DATA_DIR/txt/db.txt")
-#    fi
-#
-#    if [ "$table1" ];then
-#
-#        choose=$(update_table_gui1 "$table1")
-#        #choose=$(show_selected_table "$table1")
-#        #local choose1=$(echo "$choose" | awk -F '|' '{print $3}')
-#        #echo01 "$choose1"
-#        #choose1=$(string_to_buttons "$choose" '|')
-#    fi
-#    #assert_equal_str "$choose1"
-#    #echo01 "$choose1" &
-#
-#    echo "$choose"
-#
-#
-#}
 menu(){
     breakpoint
 }
-#
-#menu(){
-#
-##notify-send 'show the menu'
-#
-#local dir1=$SCRIPT_DIR/time
-#    local title='execute:'
-#    local text='list dir:'
-#
-#
-#
-#
-#    local file=$( list_dir $dir1 "$title" "$text" false )
-#    local choose=${dir1}/${file}
-#    local res=0
-#     
-#    if [ "$choose" != '' ];then
-#        
-#        #messageYN1 "$file"
-#      local  res=1
-#        #$?
-#        
-#        if [[ $res -eq 1 ]];then
-#         /usr/bin/xterm -e "$choose"
-#        sleep1 3 
-#    fi
-#
-#       
-#    fi
-#    echo 'end'
-#}
-#
-#
+
 cow_report(){
+    local table=$1
+    local num=$( db counter $table)
+    notify-send3 "$table.db: ++$num "
+}
+cow_report_txt(){
     #flite 'riddl'
     #local file=
     #local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
     #xcowsay "associations: $num"
-
-    local table=$1
-    local num=$( db counter $table)
-    xcowsay "$table: $num"
-
-
+trace ''
 }
 
 
@@ -335,26 +230,19 @@ motivation(){
     fi
 
 
-    echo01 "$line" &
+    helper0 "$line" & 
     #assert_equal_str "$line"
 
 
-    #show_file "$file_name" &
-    echo "line: $line"
-    cmd=cow_report
-    every "$cmd" 2 
+#    #show_file "$file_name" &
+#    echo "line: $line"
+#    cmd=cow_report
+#    every "$cmd" 2 
 }
 
 motivations(){
     notify-send3 'motivationsssss!'
-    #echo "hello"
-    #if [ $MUTE = false ];then
-    #echo "bbb"
 
-    #file_name="$1"
-    #local file_name=${1:-'glossary'}
-    #local line=$(generate_line $file_name)
-    #$CFG_DIR/txt/$file_name.txt
     local cmd="$PLUGINS_DIR/translation.sh lines $DATA_DIR/txt/glossary.txt true"
     commander "$cmd"
     echo "$motivations"
@@ -449,123 +337,55 @@ play_recent(){
 
     #update_table logger "$date1" "play_recent" "$line1"
 }
-#remind_1_task(){
-#    notify-send1 'funniest story ever !'
-#
-#    #line=$(pick_random_line $DATA_DIR/tmp/task.tmp)
-#    local line=$(cat  $DATA_DIR/tmp/task.tmp | head -1)
-#    local line1=$(gxmessage "$line" $GXMESSAGET)
-#    notify-send1 "$line1"
-#    #local subject=$(string_ws "$line")
-#    #free_speak "$subject"
-#    #echo 'random task'
-#}
 
 
-
-
-suspend1(){
-    #flite "should - $msg"
-    #efficiency_report
-
-    cmd='git_commit'
-    every "$cmd" 
-
-    sleep1 10
-    motivation & 
-
-
-    local timeout=440
-    sleep1 $timeout
+before_suspend(){
 
     $(messageYN1 '2 ways' 'push 1 fear forward ?')
+            random1 2
     res=$?
-    if [ "$DICE" = true ];then
         if [ $res -eq 1 ];then
             random1 2
             res=$?
-            if [ $res -eq 0 ];then
-                $PLUGINS_DIR/suspend.sh
-            else
-                learn_langs &
+            if [ $res -eq 1 ];then
 
+                #riddle &
+                #learn_langs &
                 limit "tasker collect_new_words" 30
-
                 random1 2
-
                 res=$?
                 if [ $res -eq 1 ];then
-
                     limit 'tasker play_recent' 60
                 fi
-
-
-
                 notify-send1 'skip suspension for deal my fears:' '..'
-                $PLUGINS_DIR/suspend.sh
             fi
-        else
-
-            $PLUGINS_DIR/suspend.sh
         fi
-
-
-
-
-    else
-
-        $PLUGINS_DIR/suspend.sh
-    fi
-
-
-
-    #remind_1_task
-
-
-    flite 'update your notebook'
-
-
-    #xterm1 reminder &
-    #local cmd='after_suspension'
-    #"$cmd" &
-
-    #   cmd=before_suspension 
-    #   every "$cmd" 5
-    #cmd=after_suspension 
-    #every "$cmd" 1 
-    #after_suspension &
-    reminder &
-    notify-send1 'exiting func' 'suspend()'
-    sleep1 5
-
 }
-#planning(){
-#
-#    update_db_gui the_big_picture
-#}
+after_suspend(){
+cow_report koan & 
+    sleep1 5
+    cow_report words &
+    sleep1 5
+    motivation & 
+    sleep1 5
+    reminder &
+}
+
+
+suspend1(){
+    local timeout=440
+    sleep1 $timeout
+    #before_suspend #use it with checkboxes
+    $PLUGINS_DIR/suspend.sh
+    #after_suspend #use it with checkboxes
+    
+}
+
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
     "$cmd"
 }
 
-#add_association(){
-#    update_db associations
-#}
-#
-#after_suspension(){
-#    notify-send 'after_suspension()'
-#    #push_order_forward 
-#    #free_speak 
-#
-#    gedit $DATA_DIR/yaml/priorities.yaml & 
-#    #update_db the_big_picture
-#
-#
-#    notify-send1 'sleep 10 sec' ' - exit suspend'
-#    sleep1 10
-#
-#}
-#
 report(){
     echo 'update google blogger with the score for this cycle'
 }
@@ -686,20 +506,6 @@ deal_comparison(){
 
 
 ############################### proxy for execution #####################
-
-
-#show_args ${}"$@"
-
-#show_args 'a a' 'b' 'cc c' 
-#show_args "$1" "$2" "$3"
-#COMMANDER=false
-#eval show_args "${args[0]}" "${args[1]}" "${args[2]}"
-#cmd=$(eval show_args "${args[@]}")
-#res1=$(commander "$cmd")
-#cmd=$( eval echo "${args[@]}")
-#cmd="$@"
-#$(echo "$@")
-#res1=$( commander "$cmd" )
 
 ##works:
 args=( "$@" )

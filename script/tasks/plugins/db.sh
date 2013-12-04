@@ -195,17 +195,18 @@ get_column_number(){
 #        assert_equal_str "num:$num max:$max values:$values"
 #    fi
 #}
-update_table(){
+update_table1(){
 
 
 
     local table="$1"
-
     local gui=${2:-'true'}
+    local update=${3:-'true'}
 
 
 
 
+    shift
     shift
     shift
 
@@ -238,36 +239,33 @@ update_table(){
 #                values="${columns[@]}" #removed the 1st element
 #                num=$max
     fi
-
-    if [ $num -eq $max ];then
-
-        local cmd=""
-        cmd='notify-send1 should-update'
-        every "$cmd" 15
-
-        cmd="yad --timeout 20 --title "$table" --form --separator='|'   --text 'table columns:'  "  
-
+    
+if [ "$gui" = true ];then
+      cmd="yad --timeout 20 --title "$table" --form --separator='|'   --text 'table columns:'  "  
         for (( c=0; c<$max; c++ ))
         do
             cmd="$cmd --field=\"${columns[c]}\"   \"${values_arr[c]}\" "
         done
-
         if [ "$gui" = true ];then
             values=$(commander "$cmd")
             values=$(remove_last_char "$values")
         fi
         #assert_equal_str "$values" 
         #update_commander
-        cmd="insert_row \"$table\" \"$fields\" \"$values\""
+fi
+ if [ "$update" = true ];then
+    if [ $num -eq $max ];then
+       cmd="insert_row \"$table\" \"$fields\" \"$values\""
         commander  "$cmd"
-
-
-
     else
-
         notify-send1 dont-update
         assert_equal_str "num:$num max:$max values:$values"
     fi
+
+else
+    echo "$values"
+        assert_equal_str "$values" 
+fi
 
 
 cmd="show_selected_table $table"
