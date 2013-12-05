@@ -60,7 +60,7 @@ update_line(){
 
 test_yaml(){
 
-cow_report koan & 
+tasker cow_report koan  
     trace "tasker"
     flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
@@ -69,13 +69,15 @@ cow_report koan &
     trace   "$line" 
     if [ "$line" != '' ];then
         flite "$line"
-        messageYN1 "$line" 'run test ?' 
-        local res=$?
+        #messageYN1 "$line" 'run test ?' 
+        notify-sen1 'running:' 'test.sh'
+        local res=1
+        #$?
         if [ $res -eq 1 ];then
 
             line=$(  tasker db update_table1 koan true false )
 
-
+assert_equal_str "$line" 'line'
             local desc=$( echo "$line" | awk -F '|' '{print $1}' )
             local time=$( echo "$line" | awk -F '|' '{print $2}' )
             local route=$( echo "$line" | awk -F '|' '{print $3}' )
@@ -89,9 +91,9 @@ cow_report koan &
             local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
 route='tasks_sh'
             local cmd=$( echo "$route $method $inputs1" )
-            update_commander
+            #update_commander
             local result=$(commander "$cmd")
-            remove_commander
+            #remove_commander
             result="$result"
 
             #assert_not_equal_str "$result" "" 'must not be empty'
@@ -101,10 +103,10 @@ route='tasks_sh'
 
 
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "failed")
           
             #tasker db update_table1 koan true true 
-            local data="$desc|$time1|$route|$method|$inputs|$expect|$result"
+            local data="$desc|$time1|$route|$method|$inputs|$expect|$equality"
             
             local ans=$(tasker db update_table1 koan true true "$data" )
             if [ "$equality" = 'equal' ];then

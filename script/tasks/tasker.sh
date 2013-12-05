@@ -10,11 +10,11 @@ notify-send 'db.sh' "$@"
 cfg(){
     export DEBUG=true
     notify-send1 'cfg-test' 'unit..' 
-args=( "$@" )
-$(show_args "${args[@]}")
-res1=$(  ${args[@]} )
-echo "$res1" #must echo for testing to work
-#assert_equal_str "$res1"
+    args=( "$@" )
+    $(show_args "${args[@]}")
+    res1=$(  ${args[@]} )
+    echo "$res1" #must echo for testing to work
+    #assert_equal_str "$res1"
 
 
 }
@@ -26,7 +26,7 @@ collect_new_words(){
 }
 
 efficiency_report(){
-notify-send1 'efficiency report:' 'words,snippets,order'
+    notify-send1 'efficiency report:' 'words,snippets,order'
     local res=$(    level)
     local res=$(    check-boxes)
     notify-send1 'efficiency level:' "$res"
@@ -149,7 +149,7 @@ string_to_buttons1(){
     echo hi
 }
 string_to_buttons(){
- 
+
     local str="$1"
     local delimeter="$2"
     local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
@@ -215,7 +215,7 @@ cow_report_txt(){
     #local file=
     #local num=$( cat $DATA_DIR/txt/assosiation.txt | wc -l )
     #xcowsay "associations: $num"
-trace ''
+    trace ''
 }
 
 
@@ -247,10 +247,10 @@ motivation(){
     #assert_equal_str "$line"
 
 
-#    #show_file "$file_name" &
-#    echo "line: $line"
-#    cmd=cow_report
-#    every "$cmd" 2 
+    #    #show_file "$file_name" &
+    #    echo "line: $line"
+    #    cmd=cow_report
+    #    every "$cmd" 2 
 }
 
 motivations(){
@@ -351,47 +351,61 @@ play_recent(){
     #update_table logger "$date1" "play_recent" "$line1"
 }
 
-
 before_suspend(){
 
     $(messageYN1 '2 ways' 'push 1 fear forward ?')
-            random1 2
     res=$?
-        if [ $res -eq 1 ];then
-            random1 2
-            res=$?
-            if [ $res -eq 1 ];then
 
-                #riddle &
-                #learn_langs &
-                limit "tasker collect_new_words" 30
-                random1 2
-                res=$?
-                if [ $res -eq 1 ];then
-                    limit 'tasker play_recent' 60
-                fi
-                notify-send1 'skip suspension for deal my fears:' '..'
-            fi
-        fi
+    if [ $res -eq 1 ];then
+        cmd='limit "tasker collect_new_words" 30'
+        every "$cmd" 2
+#        res=$?
+#        if [ $res -eq 0 ];then
+#
+#            limit 'tasker children_story' 60
+#        else
+#            trace 'didnt run'
+#        fi
+
+        notify-send1 'skip suspension for deal my fears:' '..'
+
+    fi
+    flite 'white board is awesome'
 }
+
 after_suspend(){
 
+   flite "collect more koans - don't waste your time" 
     sleep1 5
-    cow_report words &
-    sleep1 5
+    #cow_report words &
+    #sleep1 5
     motivation & 
     sleep1 5
-    reminder &
+
+    #limit 'tasker lpi' 60
+    #reminder &
 }
 
+must(){
+
+    learn_langs &
+    #riddle &
+}
+lpi(){
+    xdg-open /home/dao01/Desktop/linux-edu/LPIC1.pdf
+}
 
 suspend1(){
     local timeout=440
+    must &
+
+
     sleep1 $timeout
-    #before_suspend #use it with checkboxes
+    before_suspend #use it with checkboxes
     $PLUGINS_DIR/suspend.sh
-    #after_suspend #use it with checkboxes
-    
+
+    after_suspend #use it with checkboxes
+
 }
 
 show_progress(){
@@ -421,7 +435,8 @@ game_essay(){
 
 learn_langs(){
     local file=$DATA_DIR/txt/conversation.txt
-    free_imagination $file &
+    local    cmd='tasker free_imagination $file'
+    optional "$cmd" &
     $PLUGINS_DIR/learn_langs.sh play_lesson 
 }
 

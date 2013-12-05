@@ -9,7 +9,7 @@ workflow_d=''
 
 export DEBUG=${2:-false}
 waiting="$CYCLE"
-notify-send2 'timer.sh waiting is ' "$waiting"
+notify-send1 'timer.sh waiting is ' "$waiting"
 
 
 run(){

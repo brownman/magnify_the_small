@@ -1,4 +1,13 @@
-limit
+gedit
+homework dir path
+motivation is working ?
+direct errors - to a /tmp/error - make watchr trigger a gui dialog
+touch concept: testing shell script --> meteor  +  tts
+sleep + progress bar
+update picture from blgger
+dont run lpi if productivity is low - use something like: timer workflow 
+riddle
+limi
 nested quotes
 efficiency_report
 gedit  a file

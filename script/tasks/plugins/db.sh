@@ -32,9 +32,9 @@ select_from_table(){
 }
 
 
-insert_row(){
-    #update_commander
-    notify-send 'insert row' "$1 | $2"
+insert_values_str(){
+    update_commander
+    notify-send 'insert values_str' "$1 | $2"
     local name="$1"
     local table1="$name"
     local  file_db=$file_db
@@ -133,74 +133,81 @@ show_selected_table(){
     echo "$res"
 }
 
-get_column_number(){
-    local table1="$1"
-    local header=$(sqlite3 -header -list $file_db "select * from $table1;" | head -n 1)
-    IFS='|' read -a columns <<< "$header"
-    trace "${columns[@]}"
-    max=${#columns[@]}
-    let 'max=max-1'
-    return $max
-}
+#get_column_number(){
+#    local table1="$1"
+#    local header=$(sqlite3 -header -list $file_db "select * from $table1;" | head -n 1)
+#    IFS='|' read -a columns <<< "$header"
+#    trace "${columns[@]}"
+#    max=${#columns[@]}
+#    let 'max=max-1'
+#    return $max
+#}
 
 update_table1(){
     notify-send1 'update_table1' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
-    local row="$4"
+    local values_str="$4"
+    local values_arr=()
 
-     local values_arr=()
-    IFS='|' read -a values_arr <<< "$row"
-    local tmp="${values_arr[@]}"
-
-    local values=''
+notify-send1 "gui" "$gui"
+notify-send1 "update" "$update"
     local num=0
     local max=0
-    local tmp=()
     local header=''
+    if [  ! "$values_str" ];then
+        values_str=$(sqlite3 -header -list $file_db "select * from $table;" |  tail -1 )
+        IFS='|' read -a values_arr <<< "$values_str"
+        values_arr=("${values_arr[@]:1}") #removed the 1st element
+    else
+        IFS='|' read -a values_arr <<< "$values_str"
+    fi
+
+
+
+
+
 
     header=$(sqlite3 -header -list $file_db "select * from $table;" | head -n 1)
-    IFS='|' read -a columns <<< "$header"
-    columns=("${columns[@]:1}") #removed the 1st element
-    fields=(${columns[@]})
-    fields="${fields[@]}"
-    max=${#columns[@]}
+    IFS='|' read -a columns_arr <<< "$header"
+    columns_arr=("${columns_arr[@]:1}") #removed the 1st element
+    columns_str="${columns_arr[@]}"
 
-    if [ "$1" ];then
-        values=$( IFS='|'; echo "${values_arr[*]}" ); 
-        num=${#values_arr[@]}
-
-    fi
 
     if [ "$gui" = true ];then
-        cmd="yad --timeout 200 --title "$table" --form --separator='|'   --text 'table columns:'  "  
-        for (( c=0; c<$max; c++ ))
-        do
-            cmd="$cmd --field=\"${columns[c]}\"   \"${values_arr[c]}\" "
-        done
-        if [ "$gui" = true ];then
-            values=$(commander "$cmd")
-            values=$(remove_last_char "$values")
-        fi
-        #assert_equal_str "$values" 
-        #update_commander
+        values_str=$(show_entry)
+        #values_str=$(remove_last_char "$values_str")
+    else
+        delimeter='|'
+        arr=("${values_arr[@]}") #removed the 1st element
+        values_str=$(    arr_to_str  )
     fi
+
     if [ "$update" = true ];then
+        max=${#columns_arr[@]}
+        num=${#values_arr[@]}
+        assert_equal_str "$values_str" 'values str'
+        assert_equal_str "$num $max" 'num'
         if [ $num -eq $max ];then
-            cmd="insert_row \"$table\" \"$fields\" \"$values\""
+            #update_commander
+            cmd="insert_values_str \"$table\" \"$columns_str\" \"$values_str\""
             commander  "$cmd"
             cmd="show_selected_table $table"
             every "$cmd" 1
         else
-            notify-send1 dont-update
-            assert_equal_str "num:$num max:$max values:$values"
+            #            notify-send1 'dont-update' '!'
+            #            #update_commander
+            #
+            gxmessage $GXMESSAGET -title 'predict: error' "num:$num max:$max values_str:$values_Str"
+            #            cmd="insert_values_str \"$table\" \"$columns_str\" \"$values_str\""
+            #            commander  "$cmd"
+            breakpoint
         fi
 
 
     else
-        echo "$values"
-        #assert_equal_str "$values" 
+        echo "$values_str"
     fi
 
 

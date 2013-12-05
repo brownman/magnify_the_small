@@ -8,6 +8,7 @@ notify-send "genius:" "$@"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader
+cat $DATA_DIR/txt/history.txt & 
 input="$1"
 shift
 args=( "$@" )
