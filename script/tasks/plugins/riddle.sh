@@ -21,10 +21,10 @@ run(){
         notify-send1 "res" "$res"
         #commander  "exec $res"
         if [ "$res" ];then
-            update_commander
+          #update_commander
             cmd="gedit $res"
             commander "$cmd" & 
-remove_commander
+#remove_commander
         fi
         messageYN1 'break ?' 'y/n' '' 60 
         res1=$?
@@ -32,9 +32,9 @@ remove_commander
             break
         fi
     done
-    db update_table riddle true '?' '?' "$line"
+    #db update_table riddle true '?' '?' "$line"
     cmd="exec $res"
-    update_commander
+    #update_commander
     commander "$cmd?" & 
 
 

@@ -10,6 +10,9 @@ workflow:
         #- regexp|tasks|on next suspension I can
         - riddle||add a riddle
 
+limit:
+        - learn_langs 30 3
+        - lpi 60 5
 
 
 

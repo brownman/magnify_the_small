@@ -61,23 +61,25 @@ update_line(){
 test_yaml(){
 
 tasker cow_report koan  
+reload_cfg
     trace "tasker"
-    flite 'the next feature'
+    #flite 'the next feature'
     local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
     trace   "$filename" 
     trace   "$line" 
     if [ "$line" != '' ];then
         flite "$line"
-        #messageYN1 "$line" 'run test ?' 
-        notify-sen1 'running:' 'test.sh'
-        local res=1
-        #$?
+
+        notify-send1 'running:' 'test.sh'
+        messageYN1  'add this feature ?' "$line"
+
+        local res=$?
         if [ $res -eq 1 ];then
 
             line=$(  tasker db update_table1 koan true false )
-
-assert_equal_str "$line" 'line'
+#return
+#assert_equal_str "$line" 'line'
             local desc=$( echo "$line" | awk -F '|' '{print $1}' )
             local time=$( echo "$line" | awk -F '|' '{print $2}' )
             local route=$( echo "$line" | awk -F '|' '{print $3}' )
@@ -108,8 +110,8 @@ route='tasks_sh'
             #tasker db update_table1 koan true true 
             local data="$desc|$time1|$route|$method|$inputs|$expect|$equality"
             
-            local ans=$(tasker db update_table1 koan true true "$data" )
-            if [ "$equality" = 'equal' ];then
+            local ans=$(tasker db update_table1 koan false true "$data" )
+            if  [ "$equality" ] && [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
             else
                 notify-send1 'google is a friend ?'
@@ -131,7 +133,7 @@ route='tasks_sh'
 
     fi
 
-sleep1 5
+#sleep1 5
 
 }
 

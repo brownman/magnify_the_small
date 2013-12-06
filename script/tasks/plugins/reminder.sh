@@ -79,7 +79,7 @@ run(){
         if [[ $res -eq 1 ]];then
             text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
             helper0 "$text1" $file_log
-            update_table logger "$date1" "reminder" "$text1"
+            #update_table logger "$date1" "reminder" "$text1"
 
         fi
         helper0 "$text1" $file_log

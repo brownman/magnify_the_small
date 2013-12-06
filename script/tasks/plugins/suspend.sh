@@ -30,7 +30,7 @@ suspend01(){
     else
         trace 'you are free now - act wisely'
     fi
-    $tasks_sh commitment notebook
+    #$tasks_sh commitment notebook
     #$tasks_sh commitment task 
 }
 

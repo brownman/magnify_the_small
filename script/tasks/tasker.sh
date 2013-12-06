@@ -7,7 +7,7 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
-cfg(){
+cfg1(){
     export DEBUG=true
     notify-send1 'cfg-test' 'unit..' 
     args=( "$@" )
@@ -350,31 +350,18 @@ play_recent(){
 
     #update_table logger "$date1" "play_recent" "$line1"
 }
+play_recent2(){
+    notify-send1 'play_recent2'
+    local line=$(        random_line $DATA_DIR/tmp/limit.tmp )
+cmd="     limit $line "
+#update_commander
+    commander "$cmd"
 
-before_suspend(){
-
-    $(messageYN1 '2 ways' 'push 1 fear forward ?')
-    res=$?
-
-    if [ $res -eq 1 ];then
-        cmd='limit "tasker collect_new_words" 30'
-        every "$cmd" 2
-#        res=$?
-#        if [ $res -eq 0 ];then
-#
-#            limit 'tasker children_story' 60
-#        else
-#            trace 'didnt run'
-#        fi
-
-        notify-send1 'skip suspension for deal my fears:' '..'
-
-    fi
-    flite 'white board is awesome'
+    #update_table logger "$date1" "play_recent" "$line1"
 }
 
-after_suspend(){
-
+after_suspend2(){
+notify-send3 'chase your fear and they will run away from you'
    flite "collect more koans - don't waste your time" 
     sleep1 5
     #cow_report words &
@@ -401,10 +388,21 @@ suspend1(){
 
 
     sleep1 $timeout
-    before_suspend #use it with checkboxes
+
+
+play_recent2
+    notify-send1 'skip suspension for deal my fears:' '..'
+    flite 'white board is awesome'
     $PLUGINS_DIR/suspend.sh
 
-    after_suspend #use it with checkboxes
+
+
+#limit 'tasker collect_new_words' 30 5
+
+#limit 'tasker lpi' 60 5
+
+    after_suspend2 #use it with checkboxes
+
 
 }
 

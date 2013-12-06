@@ -33,7 +33,6 @@ select_from_table(){
 
 
 insert_values_str(){
-    update_commander
     notify-send 'insert values_str' "$1 | $2"
     local name="$1"
     local table1="$name"
@@ -144,15 +143,15 @@ show_selected_table(){
 #}
 
 update_table1(){
-    notify-send1 'update_table1' '!'
+    notify-send 'update_table1' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
     local values_str="$4"
     local values_arr=()
 
-notify-send1 "gui" "$gui"
-notify-send1 "update" "$update"
+notify-send "gui" "$gui"
+notify-send "update" "$update"
     local num=0
     local max=0
     local header=''
@@ -177,7 +176,7 @@ notify-send1 "update" "$update"
 
     if [ "$gui" = true ];then
         values_str=$(show_entry)
-        #values_str=$(remove_last_char "$values_str")
+        values_str=$(remove_last_char "$values_str")
     else
         delimeter='|'
         arr=("${values_arr[@]}") #removed the 1st element
@@ -187,21 +186,15 @@ notify-send1 "update" "$update"
     if [ "$update" = true ];then
         max=${#columns_arr[@]}
         num=${#values_arr[@]}
-        assert_equal_str "$values_str" 'values str'
-        assert_equal_str "$num $max" 'num'
+        #assert_equal_str "$values_str" 'values str'
+        #assert_equal_str "$num $max" 'num'
         if [ $num -eq $max ];then
-            #update_commander
             cmd="insert_values_str \"$table\" \"$columns_str\" \"$values_str\""
             commander  "$cmd"
             cmd="show_selected_table $table"
             every "$cmd" 1
         else
-            #            notify-send1 'dont-update' '!'
-            #            #update_commander
-            #
             gxmessage $GXMESSAGET -title 'predict: error' "num:$num max:$max values_str:$values_Str"
-            #            cmd="insert_values_str \"$table\" \"$columns_str\" \"$values_str\""
-            #            commander  "$cmd"
             breakpoint
         fi
 

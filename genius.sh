@@ -8,7 +8,7 @@ notify-send "genius:" "$@"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader
-cat $DATA_DIR/txt/history.txt & 
+
 input="$1"
 shift
 args=( "$@" )
@@ -16,7 +16,9 @@ dir1=$SCRIPT_DIR/time
 result='equal'
 
 if [ "$input" = '' ];then
-    notify-send 'run:' 'menu'
+    #notify-send 'run:' 'menu'
+
+cat $DATA_DIR/txt/history.txt & 
 #    unlocker
 else
     file11=$dir1/${input}.sh
