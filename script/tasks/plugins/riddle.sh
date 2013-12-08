@@ -26,16 +26,17 @@ run(){
             commander "$cmd" & 
 #remove_commander
         fi
-        messageYN1 'break ?' 'y/n' '' 60 
-        res1=$?
-        if [ $res1 -eq 1 ];then
-            break
-        fi
+#        messageYN1 'break ?' 'y/n' '' 60 
+#        res1=$?
+#        if [ $res1 -eq 1 ];then
+#            break
+#        fi
+        sleep1 60
     done
     #db update_table riddle true '?' '?' "$line"
-    cmd="exec $res"
+    #cmd="exec $res"
     #update_commander
-    commander "$cmd?" & 
+    #commander "$cmd?" & 
 
 
 

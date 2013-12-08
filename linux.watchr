@@ -54,7 +54,9 @@ watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/ru
 
 
 watch('script/time/test.sh') {|match| system "./1/testing/python2/run.sh"}
+
 watch('script/tasks/tasker.sh') {|match| system "./1/testing/python2/run.sh"}
+watch('script/tasks/plugins/db.sh') {|match| system "./1/testing/python2/run.sh"}
 #watch('1/testing/python2/runner\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
 #
 

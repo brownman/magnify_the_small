@@ -11,8 +11,9 @@ workflow:
         - riddle||add a riddle
 
 limit:
-        - learn_langs 30 3
-        - lpi 60 5
+        - collect_new_words 60 8
+        - lpi 60 8
+        #- easiest_task 60 8
 
 
 

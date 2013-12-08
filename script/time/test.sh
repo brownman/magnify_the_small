@@ -72,12 +72,12 @@ reload_cfg
         flite "$line"
 
         notify-send1 'running:' 'test.sh'
-        messageYN1  'add this feature ?' "$line"
+        messageYN1 "$line" 'add a soldier ?' 
 
         local res=$?
         if [ $res -eq 1 ];then
 
-            line=$(  tasker db update_table1 koan true false )
+            line=$(  tasker db get koan true false )
 #return
 #assert_equal_str "$line" 'line'
             local desc=$( echo "$line" | awk -F '|' '{print $1}' )
@@ -103,18 +103,23 @@ route='tasks_sh'
 
 
 
+local equality=''
+if [ "$result" != '' ];then
 
+             equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+        else
+            equality='empty'
+fi
 
-            local equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "failed")
           
             #tasker db update_table1 koan true true 
             local data="$desc|$time1|$route|$method|$inputs|$expect|$equality"
             
-            local ans=$(tasker db update_table1 koan false true "$data" )
+            local ans=$(tasker db set koan false true "$data" )
             if  [ "$equality" ] && [ "$equality" = 'equal' ];then
                 notify-send3 'test ok!'
             else
-                notify-send1 'google is a friend ?'
+                notify-send1 'google is a friend ?' 'test failed'
                 cmd='notify-send3 " must document the new tests"'
                 (every "$cmd" 5  &)
             fi
@@ -125,6 +130,7 @@ route='tasks_sh'
             echo "$equality"
         else
             notify-send1 'skip' 'pushing test forward'
+            tasker motivation smaller &
         fi
     else
 

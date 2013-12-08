@@ -1,32 +1,25 @@
-sleep 2
-random command
-gedit
-homework dir path
-motivation is working ?
+Biniyan - visit thier website
+Bankat -money
+backup movies
+mind map
+Gila -  charged me ?
+Masha - call Eti
+
+array pairs
+abs-questions
+fix translation limitation 
 direct errors - to a /tmp/error - make watchr trigger a gui dialog
-touch concept: testing shell script --> meteor  +  tts
-sleep + progress bar
-update picture from blgger
-dont run lpi if productivity is low - use something like: timer workflow 
-riddle
-limi
+update picture from blgger 
 nested quotes
-efficiency_report
-gedit  a file
-plugin: add koan 
 plugin - root your android + bin4ry - android rooting
-recent_task - use with eacher
-koans - as  new soldiers
-meteor - chat with tts
-random_line - create in not exist - i.e:koan.txt
-riddle
-editable list
-optional notification 2
-editable list 4
 find recent iandroid records
 python - virtual environment
-homework plugin
-find recent iandroid records
-virtual environment
-update the readme file
-cow will sum up
+meteor tts
+
+paprika
+shalva - collar & coat
+ahil
+grabage
+cable - phone
+kumkum
+sd card / ssd/ western digital

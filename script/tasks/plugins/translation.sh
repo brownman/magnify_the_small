@@ -2,7 +2,21 @@
 # about file:
 # plugin:      translation
 # description: translate 1 line of text to many languages by choice
-
+declare -A repeater
+repeater["it"]=1
+repeater["en"]=1
+repeater["ru"]=2
+repeater["ar"]=1
+repeater["hi"]=1
+repeater["tl"]=1
+declare -A amount 
+#amount["it"]=1
+#amount["en"]=1
+#amount["ru"]=2
+amount["ar"]=3
+amount["hi"]=2
+amount["tl"]=1
+#export repeater
 help_options="sentance/ line/ lines"
 method="$1" #sentance, line, lines
 from="$2" #file or sentance
@@ -61,11 +75,11 @@ fetch_html(){
     then
         trace "fetch html"
         if [ "$lang" = 'ru' ]|[ "$lang" = 'ar' ];then
-            $tasks_sh scrap "$lang" "$input"
-            $tasks_sh show_file_html $file_html
+            tasker scrap "$lang" "$input"
+            tasker show_file_html $file_html
         fi
     else
-        $tasks_sh show_file_html $file_html
+        tasker show_file_html $file_html
         trace "cache copy"
     fi
 }
@@ -92,8 +106,11 @@ play1(){
         if [ "$PLAYING_ON" = false ];then
             export PLAYING_ON=true
             local lang="$2"
-            local lang_repeat=\$"$lang"R   # Name of variable (not value!).
-            local times1=$(eval "expr \"$lang_repeat\" ")
+            #local lang_repeat=\$"$lang"R   # Name of variable (not value!).
+            #local times1=$(eval "expr \"$lang_repeat\" ")
+            times1=${repeater[$lang]} 
+            times1=${times1:-1}
+
             notify-send "times: $times1 for $lang"
             if [ "$times1" != '' ];then
 
@@ -264,7 +281,7 @@ echo5(){
     #sleep1 3
 
     #count words in sentence - if lower then 4 - translate_f also to: ar, hi
-
+    local max1=0
     local str="$1"
 
     local cmd=''
@@ -278,33 +295,43 @@ echo5(){
     #    if [[ $? -eq 1 ]];then
     #        return 
     #    fi
-    local  num=$(echo "$str" | wc -w)
+    local  current=$(echo "$str" | wc -w)
 
 
     collect_new_words "$lang_target" "$str" &
-
-    translate_f  "$str" en 
-    #echo "$str" | flite
-    sleep1 2
-    translate_f  "$str" it 
-    sleep1 2
-    translate_f  "$str" ru 
-    sleep1 2
-    translate_f  "$str" ar 
-    if [ $num -lt 3 ];then
-        sleep1 2
-        translate_f  "$str" hi 
-        cmd="flite 'tell to Pini'"
-        every "$cmd" 20
-
-        sleep1 2
-        translate_f  "$str" tl 
-        cmd="flite 'tell to Alice'"
-        every "$cmd" 20
-    else
-        echo 'more then 4 words -> skip playing hi,tl'
-    fi
-
+    #
+    #    translate_fb  "$str" en 
+    #    #echo "$str" | flite
+    #    sleep1 2
+    #    translate_fb  "$str" it 
+    #    sleep1 2
+    #    translate_fb  "$str" ru 
+    #    sleep1 2
+    #    translate_f  "$str" ar 
+    #    if [ $num -lt 3 ];then
+    #        sleep1 2
+    #        translate_f  "$str" hi 
+    #        #cmd="flite 'tell to Pini'"
+    #        #every "$cmd" 20
+    #
+    #        sleep1 2
+    #        translate_f  "$str" tl 
+    #        #cmd="flite 'tell to Alice'"
+    #        #every "$cmd" 20
+    #    else
+    #        echo 'more then 4 words -> skip playing hi,tl'
+    #    fi
+    for lang in "${!amount[@]}"
+    do
+        max_for_lang=${amount[$lang]}
+        max_for_lang=${max_for_lang:-1}
+        if [ $current -gt $max_for_lang ];then
+            trace 'nothing'
+        else
+            notify-send1 "    $lang : $str"
+            translate_f  "$str" $lang 
+        fi
+    done
 }
 
 
@@ -314,7 +341,7 @@ collect_new_words(){
     local str="$2"
     local num=$(echo "$str" | wc -w)
     if [[ $num -gt 1 ]];then
-        cmd="$tasks_sh string_to_buttons \"$str\""
+        cmd="tasker string_to_buttons \"$str\""
         local pick_word=$( commander   "$cmd")
         if [ "$pick_word" != '' ];then
 
@@ -325,7 +352,7 @@ collect_new_words(){
             commander "$cmd"
 
             make_assosiation "$pick_word"
-            #$tasks_sh add_association
+            #tasker add_association
 
             #update_logger "word" "$pick_word"
         fi
@@ -409,7 +436,8 @@ printing1(){
     #assert_equal_str "$line2"
 
     if [ "$lang" != 'en' ];then
-        (  $tasks_sh db update_table 'words' false "$lang" "$input" "$line1" "$line2" &)
+        local tmp1="$lang|$input|$line1|$line2" 
+        (  tasker db update_table1 'words' true true "$tmp1" &)
     fi
 
     #assert_equal_str "abc"

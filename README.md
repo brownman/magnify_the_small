@@ -112,28 +112,72 @@ recent db dump:
 - riddle:
 1,1,1,1
 - koan
-23,"play new file",13:23,tasks_sh,motivation,koan,x,"line: empty line"
-22,"play new file",13:23,tasks_sh,motivation,koan,x,line:
-21,riddle,15:37,tasks_sh,riddle,x,x,""
-20,riddle,15:35,tasks_sh,riddle,x,x,""
-19,"what is this char",15:25,cfg,random_from_subject1,abs,x,tree.sh
-18,"what is this char",15:21,cfg,random_from_subject1,abs,x,self-source.sh
-17,cfg,15:07,cfg,random_from_subject,abs,x,""
-16,"mind map",12:57,"","","","",equal
-15,"editable list",12:11,cfg,zenity11,/tmp/1.txt,x,""
-14,"mind map",12:10,"","","","",equal
-13,"homework plugin",16:03,tasks_sh,homework,"","",equal
-12,"notification editable",14:20,tasks_sh,motivation,glossary,"",""
-11,"editable list",11:43,cfg,zenity11,/tmp/1.txt,x,"did I do it so good"
-10,"count new records",10:40,tasks_sh,db,"counter koan",3,9
-9,"count new records",10:35,tasks_sh,db,"counter koan",3,8
-8,"count new records",10:35,tasks_sh,db,"counter koan",3,7
-7,"count new records",10:26,tasks_sh,db,"counter koan",3,""
-6,"count new records",10:09,tasks_sh,db,"counter,koan",3,"0 #file_db=/test.db assert_equal_str res1="
-5,"count new records",10:09,tasks_sh,db,"counter koan",3,""
-4,"count new records",09:55,tasks_sh,db,"counter koan",x,failed
-3,"count new records",09:54,tasks_sh,db,"counter koan",x,failed
-2,"update the readme file",15:03,tasks_sh,update_readme,"",x,failed
+67,"",14:55,tasks_sh,"","","",empty
+66,"",12:02,tasks_sh,cfg1,pairs3,"",empty
+65,"",11:25,tasks_sh,cfg1,pairs3,"",empty
+64,"",11:24,tasks_sh,pairs3,"","",empty
+63,"",11:21,tasks_sh,"","","",empty
+62,"",11:09,tasks_sh,"","","",empty
+61,"",11:01,tasks_sh,"","","",empty
+60,"array pairs",10:56,tasks_sh,cfg1,pairs,", key : it, value: ac",", key  : it, value: ac"
+59,"array pairs",10:56,tasks_sh,cfg1,pairs,", key : it, value: ac",", key  : it, value: ac"
+58,"array pairs",10:55,tasks_sh,cfg1,pairs,"",", key  : it, value: ac"
+57,"array pairs",10:54,tasks_sh,cfg1,pairs,"",", key  : it, value: ac"
+56,"array pairs",10:53,tasks_sh,cfg1,pairs,"",empty
+55,"array pairs",10:52,tasks_sh,cfg1,pairs,"",empty
+54,"array pairs",10:52,tasks_sh,cfg1,pairs,"",empty
+53,"array pairs",10:51,tasks_sh,cfg1,pairs,"",empty
+52,"array pairs",10:50,tasks_sh,cfg1,pairs,"",", key  : it, value: ac"
+51,"array pairs",10:50,tasks_sh,cfg1,pairs,"",empty
+50,"array pairs",10:49,tasks_sh,cfg1,pairs,"",empty
+49,"array pairs",10:49,tasks_sh,cfg1,pairs1,"","str:  User: greycat, full name: Greg Wooledge."
+48,"array pairs",10:49,tasks_sh,cfg1,pairs1,"",hi
+47,"array pairs",10:48,tasks_sh,cfg1,pairs1,"",empty
+46,"array pairs",10:47,tasks_sh,cfg1,pairs1,"",empty
+45,"array pairs",10:46,tasks_sh,cfg1,pairs,"",empty
+44,"array pairs",10:45,tasks_sh,cfg1,pairs,"",empty
+43,"array pairs",10:44,tasks_sh,cfg1,pairs,"",empty
+42,"array pairs",10:43,tasks_sh,cfg1,pairs,"",empty
+41,"array pairs",10:41,tasks_sh,cfg1,pairs,jjj,empty
+40,"array pairs",10:40,tasks_sh,cfg1,pairs,jjj,empty
+39,"array pairs",10:38,tasks_sh,cfg1,pairs,jjj,empty
+38,"array pairs",10:37,tasks_sh,cfg1,pairs,jjj,empty
+37,"array pairs",10:33,tasks_sh,cfg1,pairs,jjj,"str: , key  : 0, value: ac"
+36,"array pairs",10:25,tasks_sh,cfg1,pairs,jjj,"str: , key  : 0, value: 1"
+35,"array pairs",10:24,tasks_sh,cfg1,pairs,jjj,"str: "
+34,"array pairs",10:23,tasks_sh,cfg1,pairs,jjj,"str: "
+33,"array pairs",10:23,tasks_sh,cfg1,pairs,jjj,empty
+32,"array pairs",10:22,tasks_sh,cfg1,pairs,jjj,empty
+31,"array pairs",10:22,tasks_sh,cfg1,pairs,2,empty
+30,"array pairs",10:20,tasks_sh,cfg1,pairs,2,empty
+29,"array pairs",10:17,tasks_sh,cfg1,pairs,2,empty
+28,"array pairs",10:16,tasks_sh,cfg1,pairs,2,empty
+27,"array pairs",10:16,tasks_sh,cfg1,pairs,2,empty
+26,"array pairs",10:16,tasks_sh,cfg1,pairs,2,empty
+25,"array pairs",10:16,tasks_sh,cfg1,pairs,2,"key  : 0"
+24,"array pairs",10:14,tasks_sh,cfg1,pairs,2,"key  : 0"
+23,"array pairs",10:14,tasks_sh,cfg1,pairs,2,empty
+22,"array pairs",10:13,tasks_sh,cfg1,pairs,2,empty
+21,"array pairs",10:11,tasks_sh,cfg1,pairs,2,empty
+20,"",10:10,tasks_sh,cfg1,pairs,2,empty
+19,"",10:10,tasks_sh,cfg1,pairs,2,failed
+18,"",10:09,tasks_sh,cfg1,pairs,2,failed
+17,"",10:08,tasks_sh,cfg1,pairs,2,failed
+16,"",09:34,tasks_sh,"","","",equal
+15,"",09:33,tasks_sh,cfg1,meteor,"",equal
+14,"",08:54,tasks_sh,cfg1,"sleep2 ab cd 4","",equal
+13,"",08:53,tasks_sh,cfg1,"sleep2 ab cd 4","",equal
+12,"",08:53,tasks_sh,cfg1,"sleep2 ab cd 4","",equal
+11,"",15:12,tasks_sh,cfg1,"sleep2 ab cd 4","",equal
+10,"",14:29,tasks_sh,motivation,sport,"",equal
+9,1,14:19,tasks_sh,1,1,1,failed
+8,1,14:19,tasks_sh,1,1,1,failed
+7,1,12:13,tasks_sh,1,1,1,v
+6,1,12:13,tasks_sh,1,1,1,v
+5,1,12:13,tasks_sh,1,1,1,v
+4,1,12:13,tasks_sh,1,1,1,v
+3,1,12:13,tasks_sh,1,1,1,v
+2,1,12:13,tasks_sh,1,1,1,v
 1,1,1,1,1,1,1,1
      1	although there was  a big tree beside him
      2	although there was  a big tree beside him

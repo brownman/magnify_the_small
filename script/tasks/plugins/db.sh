@@ -33,6 +33,7 @@ select_from_table(){
 
 
 insert_values_str(){
+    #update_commander
     notify-send 'insert values_str' "$1 | $2"
     local name="$1"
     local table1="$name"
@@ -141,27 +142,46 @@ show_selected_table(){
 #    let 'max=max-1'
 #    return $max
 #}
-
-update_table1(){
-    notify-send 'update_table1' '!'
+get(){
+    notify-send 'get last record' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
     local values_str="$4"
     local values_arr=()
 
-notify-send "gui" "$gui"
-notify-send "update" "$update"
+    notify-send "gui" "$gui"
+    notify-send "update" "$update"
     local num=0
     local max=0
     local header=''
     if [  ! "$values_str" ];then
         values_str=$(sqlite3 -header -list $file_db "select * from $table;" |  tail -1 )
-        IFS='|' read -a values_arr <<< "$values_str"
-        values_arr=("${values_arr[@]:1}") #removed the 1st element
-    else
-        IFS='|' read -a values_arr <<< "$values_str"
     fi
+
+echo "$values_str"
+
+
+
+
+
+}
+
+set(){
+    notify-send 'add new row' '!'
+    local table="$1"
+    local gui=${2:-'true'}
+    local update=${3:-'true'}
+    local values_str="$4"
+    local values_arr=()
+
+    notify-send "gui" "$gui"
+    notify-send "update" "$update"
+    local num=0
+    local max=0
+    local header=''
+
+
 
 
 
@@ -177,22 +197,26 @@ notify-send "update" "$update"
     if [ "$gui" = true ];then
         values_str=$(show_entry)
         values_str=$(remove_last_char "$values_str")
+        IFS='|' read -a values_arr <<< "$values_str"
     else
         delimeter='|'
         arr=("${values_arr[@]}") #removed the 1st element
         values_str=$(    arr_to_str  )
+        #IFS='|' read -a values_arr <<< "$values_str"
     fi
 
     if [ "$update" = true ];then
-        max=${#columns_arr[@]}
+
         num=${#values_arr[@]}
-        #assert_equal_str "$values_str" 'values str'
-        #assert_equal_str "$num $max" 'num'
+        max=${#columns_arr[@]}
+
+        #assert_equal_str "$values_str" #'values str'
+        #assert_equal_str "$num $max" 'num max'
         if [ $num -eq $max ];then
             cmd="insert_values_str \"$table\" \"$columns_str\" \"$values_str\""
             commander  "$cmd"
             cmd="show_selected_table $table"
-            every "$cmd" 1
+            ( every "$cmd" 1 &)
         else
             gxmessage $GXMESSAGET -title 'predict: error' "num:$num max:$max values_str:$values_Str"
             breakpoint

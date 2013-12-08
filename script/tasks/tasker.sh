@@ -9,9 +9,9 @@ notify-send 'db.sh' "$@"
 #every "$cmd" 10
 cfg1(){
     export DEBUG=true
-    notify-send1 'cfg-test' 'unit..' 
+    notify-send 'cfg-test' 'unit..' 
     args=( "$@" )
-    $(show_args "${args[@]}")
+    #$(show_args "${args[@]}") &
     res1=$(  ${args[@]} )
     echo "$res1" #must echo for testing to work
     #assert_equal_str "$res1"
@@ -21,7 +21,9 @@ cfg1(){
 
 
 collect_new_words(){
-    flite 'collect new words!'
+    #flite 'collect new words!'
+    flite 'create your own conversation'
+    optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
     ( exo-open http://www.google.com &)
 }
 
@@ -362,7 +364,10 @@ cmd="     limit $line "
 
 after_suspend2(){
 notify-send3 'chase your fear and they will run away from you'
-   flite "collect more koans - don't waste your time" 
+   #flite "collect more koans " 
+
+    sleep1 5
+   flite 'sharing sharing sharing'
     sleep1 5
     #cow_report words &
     #sleep1 5
@@ -372,18 +377,27 @@ notify-send3 'chase your fear and they will run away from you'
     #limit 'tasker lpi' 60
     #reminder &
 }
+#easiest_task(){
+#local file=$DATA_DIR/txt/easiest.txt
+#touch $file
+#gedit $file &
+#local  str=$(cat $file | head -1)
+#flite "$str"
+#}
+
 
 must(){
-
     learn_langs &
-    #riddle &
+    riddle &
+    increase_motivation &
+    git_commit &
 }
 lpi(){
     xdg-open /home/dao01/Desktop/linux-edu/LPIC1.pdf
 }
 
 suspend1(){
-    local timeout=440
+    local timeout=500
     must &
 
 
