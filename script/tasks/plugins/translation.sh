@@ -10,9 +10,9 @@ repeater["ar"]=1
 repeater["hi"]=1
 repeater["tl"]=1
 declare -A amount 
-#amount["it"]=1
-#amount["en"]=1
-#amount["ru"]=2
+amount["it"]=11
+amount["en"]=11
+amount["ru"]=12
 amount["ar"]=3
 amount["hi"]=2
 amount["tl"]=1
@@ -279,6 +279,7 @@ choose4(){
 echo5(){
 
     #sleep1 3
+    notify-send1 'echo5'
 
     #count words in sentence - if lower then 4 - translate_f also to: ar, hi
     local max1=0
@@ -298,40 +299,23 @@ echo5(){
     local  current=$(echo "$str" | wc -w)
 
 
-    collect_new_words "$lang_target" "$str" &
-    #
-    #    translate_fb  "$str" en 
-    #    #echo "$str" | flite
-    #    sleep1 2
-    #    translate_fb  "$str" it 
-    #    sleep1 2
-    #    translate_fb  "$str" ru 
-    #    sleep1 2
-    #    translate_f  "$str" ar 
-    #    if [ $num -lt 3 ];then
-    #        sleep1 2
-    #        translate_f  "$str" hi 
-    #        #cmd="flite 'tell to Pini'"
-    #        #every "$cmd" 20
-    #
-    #        sleep1 2
-    #        translate_f  "$str" tl 
-    #        #cmd="flite 'tell to Alice'"
-    #        #every "$cmd" 20
-    #    else
-    #        echo 'more then 4 words -> skip playing hi,tl'
-    #    fi
+
+
     for lang in "${!amount[@]}"
     do
+        #notify-send1 ""
         max_for_lang=${amount[$lang]}
-        max_for_lang=${max_for_lang:-1}
-        if [ $current -gt $max_for_lang ];then
-            trace 'nothing'
-        else
-            notify-send1 "    $lang : $str"
-            translate_f  "$str" $lang 
+        max_for_lang=${max_for_lang:-12}
+notify-send1        "$max_for_lang -gt $current ?"
+        if [ $current -lt $max_for_lang ];then
+         
+            notify-send1 "  translate:  $lang : $str"
+            #translate_f  "$str" $lang 
+            sleep1 2
         fi
     done
+
+    collect_new_words "$lang_target" "$str" &
 }
 
 
@@ -437,7 +421,7 @@ printing1(){
 
     if [ "$lang" != 'en' ];then
         local tmp1="$lang|$input|$line1|$line2" 
-        (  tasker db update_table1 'words' true true "$tmp1" &)
+        #(  tasker db set 'words' true true "$tmp1" &)
     fi
 
     #assert_equal_str "abc"
