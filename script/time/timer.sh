@@ -4,11 +4,11 @@
 file_locker=/tmp/timer
 delay=30
 
-workflow=''
-workflow_d=''
+#workflow=''
+#workflow_d=''
 
 export DEBUG=${2:-false}
-waiting="$CYCLE"
+#waiting="$CYCLE"
 notify-send1 'timer.sh waiting is ' "$waiting"
 
 
@@ -19,21 +19,23 @@ run(){
         notify-send3 "wow! rounds: $count1"
      
         if [ "$DEBUG" = false ];then
-            tasker motivation glossary 
+            #tasker motivation glossary 
+            trace ''
         fi
         run_workflow
-        sleep1 $waiting
-        if [ "$DEBUG" = false ];then
-            random_quote_before  
-        fi
+        #sleep1 $waiting
+#        if [ "$DEBUG" = false ];then
+#            random_quote_before  
+#        fi
     done
-    random_quote_after    
+    #random_quote_after    
 }
 
 
 run_workflow(){
     sleep1 5
-    $SCRIPT_DIR/more/serial.sh read_lines "$waiting"
+    $SCRIPT_DIR/more/serial.sh read_lines 
+    #"$waiting"
 }
 unlocker
 

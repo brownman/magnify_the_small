@@ -306,11 +306,11 @@ echo5(){
         #notify-send1 ""
         max_for_lang=${amount[$lang]}
         max_for_lang=${max_for_lang:-12}
-notify-send1        "$max_for_lang -gt $current ?"
-        if [ $current -lt $max_for_lang ];then
+#notify-send1        "$max_for_lang -gt $current ?"
+        if [ $current -le $max_for_lang ];then
          
-            notify-send1 "  translate:  $lang : $str"
-            #translate_f  "$str" $lang 
+            #notify-send1 "  translate:  $lang : $str"
+            translate_f  "$str" $lang 
             sleep1 2
         fi
     done

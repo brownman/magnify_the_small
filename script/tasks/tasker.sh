@@ -387,9 +387,11 @@ notify-send3 'chase your fear and they will run away from you'
 
 
 must(){
-    learn_langs &
-    riddle &
-    increase_motivation &
+    optional learn_langs &
+    optional riddle &
+    optional increase_motivation &
+    reminder &
+
     git_commit &
 }
 lpi(){
@@ -401,12 +403,13 @@ suspend1(){
     must &
 
 
-    sleep1 $timeout
+    sleep2 suspend suspend $timeout
 
 
 play_recent2
     notify-send1 'skip suspension for deal my fears:' '..'
     flite 'white board is awesome'
+    flite 'go away - and thanks for '
     $PLUGINS_DIR/suspend.sh
 
 
@@ -437,6 +440,7 @@ collaboration(){
 
 reminder(){
     notify-send1 'reminder'
+    flite 'update  every cicle'
     local line="$1"
     $PLUGINS_DIR/reminder.sh "$line"
 }

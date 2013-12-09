@@ -41,7 +41,7 @@ stop_watch1(){
 
 run(){
 
-    local delay=600 
+    local delay=60 
     local motivation=''
     local cmd=''
     #local str=''

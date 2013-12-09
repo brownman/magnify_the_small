@@ -8,48 +8,50 @@
 
 trace "serial.sh got: 1:$1 2:$2"
 
-increase_efficiency(){
-    count="$1"
-    max="$2"
-    task="$3"
-    local str2="$count of $max"
-    gxmessage "$str2" -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  
-    local level="$?"
-    local file1=$4
-    #CFG_DIR/txt/efficiency.txt
-    echo "level: $level"
-    echo "##$task:$level" >> $file1
-    #gedit $file1
-}
+#increase_efficiency(){
+#    count="$1"
+#    max="$2"
+#    task="$3"
+#    local str2="$count of $max"
+#    gxmessage "$str2" -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  
+#    local level="$?"
+#    local file1=$4
+#    #CFG_DIR/txt/efficiency.txt
+#    echo "level: $level"
+#    echo "##$task:$level" >> $file1
+#    #gedit $file1
+#}
 execute_line(){
     local line="$1"
-    local msg="$2"
+    #local msg="$2"
     #trace "$line" "1 line"
     #evaluate_
     #notify-send "" "$msg"
-    parse_line "$line" "$msg"
+    parse_line1 "$line"
+    #"$msg"
 }
 
-parse_line(){
+parse_line1(){
     local line="$1"
 
-    local msg="$2"
+    #local msg="$2"
 
 
     local     action=$( echo "$line" | awk -F '|' '{print $1}' )
-    local     args0=$( echo "$line" | awk -F '|' '{print $2}' )
-    local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
+    local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
+    #local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
     #local    args=''
-if [ "$args0" != '' ];then
-    #args=$( fetching "$args0" )
-    parse_subject  "$args0" 
-fi
+#if [ "$args0" != '' ];then
+#    #args=$( fetching "$args0" )
+#    parse_subject  "$args0" 
+#fi
+#
+    notify-send3 "TASK: $desc"
+   flite "$desc" true
 
-    notify-send1 "TASK: $msg" "$desc"
-   #flite "$desc" true
 
-
-    $tasks_sh $action "$args0"
+    tasker "$action"
+    #"$args0"
     #"$desc" 
 
 }
@@ -72,10 +74,9 @@ read_lines(){
             #echo "line: $line"
             lines+=("$line")
         fi
-    done < "$file_workflow"
+    done < $DATA_DIR/tmp/workflow.tmp 
 
 
-    #echo "lines: ${lines}"
 
     max=${#lines[@]}
     count=1
@@ -83,31 +84,26 @@ read_lines(){
     for line in "${lines[@]}"
     do
 
+notify-send1 'continue on moving your ass around'
             local str2="$count of $max"
-        if [[ $count -eq 1 ]];then
 
-            execute_line "$line" "$str2"
-        else
 
             $( messageYN1 'continue to next task?' 'workflow efficiency:' )
             local result=$?
-            #tracex 'is 1?' "$result"
             if [[ $result -eq 1 ]];then
 
-                execute_line "$line" "$str2"
-                sleep1 $waiting
-                    $tasks_sh motivation 
+
+                notify-send1 "$str2"
+
+                execute_line "$line" 
+                sleep1 8
                 let "count=count+1"
             else
                 flite 'breaking'
                 break
             fi
-
-        fi
     done
-    #flite 'end of workflow'
 
-    #exec $tasks_sh suspend "regardless workflow"
 }
-eval $1 '"$2" "$3" "$4"'
+read_lines
 

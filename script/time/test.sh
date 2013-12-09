@@ -60,77 +60,33 @@ update_line(){
 
 test_yaml(){
 
-tasker cow_report koan  
-reload_cfg
-    trace "tasker"
-    #flite 'the next feature'
+            #tasker motivation smaller 
+#tasker motivation breath
+#sleep1 30
+    #tasker cow_report koan  
+    reload_cfg
+    #trace "tasker"
     local filename=$(get_filename 'txt' 'testing' )
     local line=$(cat $filename | head -1)
-    trace   "$filename" 
-    trace   "$line" 
     if [ "$line" != '' ];then
-        flite "$line"
 
-        notify-send1 'running:' 'test.sh'
-        messageYN1 "$line" 'add a soldier ?' 
+
+
+
+
+
+        #notify-send1 'running:' 'test.sh'
+        messageYN1 "$line" 'update easiest ?' 
 
         local res=$?
         if [ $res -eq 1 ];then
 
-            line=$(  tasker db get koan true false )
-#return
-#assert_equal_str "$line" 'line'
-            local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-            local time=$( echo "$line" | awk -F '|' '{print $2}' )
-            local route=$( echo "$line" | awk -F '|' '{print $3}' )
-            local method=$( echo "$line" | awk -F '|' '{print $4}' )
-            local inputs=$( echo "$line" | awk -F '|' '{print $5}' )
-            local expect=$( echo "$line" | awk -F '|' '{print $6}' )
 
-#assert_equal_str "$line" 'desc|time|route|method|input|expect?'
-
-            #assert_equal_str "$inputs" "inputs"
-            local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
-route='tasks_sh'
-            local cmd=$( echo "$route $method $inputs1" )
-            #update_commander
-            local result=$(commander "$cmd")
-            #remove_commander
-            result="$result"
-
-            #assert_not_equal_str "$result" "" 'must not be empty'
-
-
-
-
-local equality=''
-if [ "$result" != '' ];then
-
-             equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+tasker free_imagination $DATA_DIR/txt/testing.txt &
         else
-            equality='empty'
-fi
 
-          
-            #tasker db update_table1 koan true true 
-            local data="$desc|$time1|$route|$method|$inputs|$expect|$equality"
-            
-            local ans=$(tasker db set koan false true "$data" )
-            if  [ "$equality" ] && [ "$equality" = 'equal' ];then
-                notify-send3 'test ok!'
-            else
-                notify-send1 'google is a friend ?' 'test failed'
-                cmd='notify-send3 " must document the new tests"'
-                (every "$cmd" 5  &)
-            fi
 
-            #local ans=$(tasker db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
-            #local choose_line=$( tasker db show_selected_table koan )
-
-            echo "$equality"
-        else
-            notify-send1 'skip' 'pushing test forward'
-            tasker motivation smaller &
+        flite "$line"
         fi
     else
 
@@ -139,7 +95,73 @@ fi
 
     fi
 
-#sleep1 5
+    #sleep1 5
+echo 'equal'
+}
+tesst(){
+  #local run1=$( echo "$line" | awk -F '|' '{print $2}' )
+            #xdg-open "$run1"
+
+            #new
+            local line=$(cat $filename | tail -1)
+
+            #flite "$line"
+            messageYN1 "$line" 'add a soldier ?' 
+return
+            local res=$?
+            #if [ $res -eq 1 ];then
+
+                line=$(  tasker db get koan true false )
+                #return
+                #assert_equal_str "$line" 'line'
+                local desc=$( echo "$line" | awk -F '|' '{print $1}' )
+                local time=$( echo "$line" | awk -F '|' '{print $2}' )
+                local route=$( echo "$line" | awk -F '|' '{print $3}' )
+                local method=$( echo "$line" | awk -F '|' '{print $4}' )
+                local inputs=$( echo "$line" | awk -F '|' '{print $5}' )
+                local expect=$( echo "$line" | awk -F '|' '{print $6}' )
+
+                #assert_equal_str "$line" 'desc|time|route|method|input|expect?'
+
+                #assert_equal_str "$inputs" "inputs"
+                local inputs1=$( echo "$inputs" | sed 's/,/ /g' ) 
+                route='tasks_sh'
+                local cmd=$( echo "$route $method $inputs1" )
+                #update_commander
+                local result=$(commander "$cmd")
+                #remove_commander
+                result="$result"
+
+                #assert_not_equal_str "$result" "" 'must not be empty'
+
+
+
+
+                local equality=''
+                if [ "$result" != '' ];then
+
+                    equality=$([[ "$result" = "$expect" ]] && echo 'equal' || echo "$result")
+                else
+                    equality='empty'
+                fi
+
+
+                #tasker db update_table1 koan true true 
+                local data="$desc|$time1|$route|$method|$inputs|$expect|$equality"
+
+                local ans=$(tasker db set koan false true "$data" )
+                if  [ "$equality" ] && [ "$equality" = 'equal' ];then
+                    notify-send3 'test ok!'
+                else
+                    notify-send1 'google is a friend ?' 'test failed'
+                    cmd='notify-send3 " must document the new tests"'
+                    (every "$cmd" 5  &)
+                fi
+
+                #local ans=$(tasker db update_table koan true "$desc" "$time1" "$route" "$method" "$inputs1" "$expect" "$equality" )
+                #local choose_line=$( tasker db show_selected_table koan )
+
+                echo "$equality"
 
 }
 

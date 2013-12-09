@@ -3,15 +3,16 @@ date:
 
 
 workflow:
-        - homework||lpi homework
-        - children_story||an awesome children story
-        - git_commit||update the repo
-        - increase_motivation||increase motivation reminder
-        #- regexp|tasks|on next suspension I can
-        - riddle||add a riddle
+        - lpi 60 8||lpi homework
+        - collect_new_words 30 8||learn new language
+#        - children_story||an awesome children story
+#        - git_commit||update the repo
+#        - increase_motivation||increase motivation reminder
+#        #- regexp|tasks|on next suspension I can
+#        - riddle||add a riddle
 
 limit:
-        - collect_new_words 60 8
+        - collect_new_words 30 8
         - lpi 60 8
         #- easiest_task 60 8
 
