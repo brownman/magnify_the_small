@@ -28,6 +28,7 @@ collect_new_words(){
 }
 
 efficiency_report(){
+    flite 'efficiency report'
     notify-send1 'efficiency report:' 'words,snippets,order'
     local res=$(    level)
     #local res=$(    check-boxes)
@@ -346,7 +347,7 @@ update(){
 #
 #    cmd=learn_langs
 #    every "$cmd" 15
-#}
+#e
 play_recent(){
     local line=$(        random_line $DATA_DIR/tmp/workflow.tmp )
     parse_line1 "$line" 
