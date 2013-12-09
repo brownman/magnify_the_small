@@ -523,8 +523,8 @@ git_commit(){
     local answer=$(    gxmessage $GXMESSAGET -entry  "git commit ?" )
     if [ "$answer" ];then
         git rm -r --cached .
-        update_readme
-        git add .
+        update_readme &
+        git add . 
         git commit -am "$answer"
 
 
@@ -533,7 +533,7 @@ git_commit(){
 
         if [[ $answer -eq 1 ]];then
             git push origin develop 
-            exo-open 'https://github.com/brownman/magnify_the_small'
+            exo-open 'https://github.com/brownman/magnify_the_small' &
         else
             echo 'skip pushing'
 
