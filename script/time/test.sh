@@ -86,7 +86,8 @@ tasker free_imagination $DATA_DIR/txt/testing.txt &
         else
 
 
-        flite "$line"
+        #flite "$line"
+        tasker motivation
         fi
     else
 

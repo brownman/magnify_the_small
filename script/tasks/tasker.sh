@@ -30,8 +30,10 @@ collect_new_words(){
 efficiency_report(){
     notify-send1 'efficiency report:' 'words,snippets,order'
     local res=$(    level)
-    local res=$(    check-boxes)
-    notify-send1 'efficiency level:' "$res"
+    #local res=$(    check-boxes)
+    #notify-send1 'efficiency level:' "$res"
+    #echo "$res"
+    return $res
 }
 
 
@@ -355,19 +357,19 @@ play_recent(){
 play_recent2(){
     notify-send1 'play_recent2'
     local line=$(        random_line $DATA_DIR/tmp/limit.tmp )
-cmd="     limit $line "
-#update_commander
+    cmd="     limit $line "
+    #update_commander
     commander "$cmd"
 
     #update_table logger "$date1" "play_recent" "$line1"
 }
 
 after_suspend2(){
-notify-send3 'chase your fear and they will run away from you'
-   #flite "collect more koans " 
+    notify-send3 'chase your fear and they will run away from you'
+    #flite "collect more koans " 
 
     sleep1 5
-   flite 'sharing sharing sharing'
+    flite 'sharing sharing sharing'
     sleep1 5
     #cow_report words &
     #sleep1 5
@@ -377,23 +379,31 @@ notify-send3 'chase your fear and they will run away from you'
     #limit 'tasker lpi' 60
     #reminder &
 }
-#easiest_task(){
-#local file=$DATA_DIR/txt/easiest.txt
-#touch $file
-#gedit $file &
-#local  str=$(cat $file | head -1)
-#flite "$str"
-#}
+easiest_task(){
+    local file=$DATA_DIR/txt/testing.txt
+    #touch $file
+    free_imagination $file &
+    local  str=$(cat $file | head -1)
+    flite "$str"
+}
 
 
 must(){
-    optional learn_langs &
-    optional riddle &
-    optional increase_motivation &
-    reminder &
-
-    git_commit &
+    $(    efficiency_report )
+    local ans=$?
+    if [ $ans -ge 0 ];then
+        learn_langs &
+        if [ $ans -ge 1 ];then
+            git_commit &
+            riddle &
+            if [ $ans -ge 2 ];then
+                optional increase_motivation &
+                optional reminder &
+            fi
+        fi
+    fi
 }
+
 lpi(){
     xdg-open /home/dao01/Desktop/linux-edu/LPIC1.pdf
 }
@@ -401,26 +411,16 @@ lpi(){
 suspend1(){
     local timeout=500
     must &
-
-
     sleep2 suspend suspend $timeout
-
-
-play_recent2
+    if [ $ans -ne 0 ];then
+        play_recent2
+    fi
     notify-send1 'skip suspension for deal my fears:' '..'
     flite 'white board is awesome'
-    flite 'go away - and thanks for '
     $PLUGINS_DIR/suspend.sh
-
-
-
-#limit 'tasker collect_new_words' 30 5
-
-#limit 'tasker lpi' 60 5
-
-    after_suspend2 #use it with checkboxes
-
-
+    if [ $ans -ne 0 ];then
+        after_suspend2 #use it with checkboxes
+    fi
 }
 
 show_progress(){

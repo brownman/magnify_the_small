@@ -1,31 +1,9 @@
-Mazkirut - call them
-Biniyan - visit thier website
-paprika
-Bankat -money
-backup movies
 mind map
-Gila -  charged me ?
-Masha - call Eti
-
-111
-paprika
-shalva - collar & coat
-ahil
-grabage
-cable - phone
-kumkum
-sd card / ssd/ western digital
-
-
-
-array pairs
-abs-questions
-fix translation limitation 
+meteor tts chat
 direct errors - to a /tmp/error - make watchr trigger a gui dialog
 update picture from blgger 
 nested quotes
-plugin - root your android + bin4ry - android rooting
+plugin - root your android + bin4ry - android  
 find recent iandroid records
 python - virtual environment
-meteor tts
 random learn langs

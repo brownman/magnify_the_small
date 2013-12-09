@@ -3,8 +3,8 @@ date:
 
 
 workflow:
-        - lpi 60 8||lpi homework
-        - collect_new_words 30 8||learn new language
+        - lpi 60 8|lpi homework
+        - collect_new_words 30 8|learn new language
 #        - children_story||an awesome children story
 #        - git_commit||update the repo
 #        - increase_motivation||increase motivation reminder
@@ -14,7 +14,7 @@ workflow:
 limit:
         - collect_new_words 30 8
         - lpi 60 8
-        #- easiest_task 60 8
+        - easiest_task 60 8
 
 
 

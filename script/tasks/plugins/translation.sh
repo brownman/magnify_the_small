@@ -8,8 +8,11 @@ repeater["en"]=1
 repeater["ru"]=2
 repeater["ar"]=1
 repeater["hi"]=1
+repeater["jp"]=1
 repeater["tl"]=1
+
 declare -A amount 
+amount["jp"]=11
 amount["it"]=11
 amount["en"]=11
 amount["ru"]=12

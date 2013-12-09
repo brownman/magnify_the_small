@@ -50,7 +50,9 @@ watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 
 #watch('data/yaml/one.yaml') {|match| system "./1/testing/python2/run.sh"}
 #
+
 watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
+watch('bugs/bash_koans/src\/.*\.sh') {|match| system "bugs/bash_koans/meditate"}
 
 
 watch('script/time/test.sh') {|match| system "./1/testing/python2/run.sh"}

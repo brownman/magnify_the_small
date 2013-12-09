@@ -47,10 +47,17 @@ parse_line1(){
 #fi
 #
     notify-send3 "TASK: $desc"
-   flite "$desc" true
+   flite "$desc" 
 
 
-    tasker "$action"
+   #cmd="limit  $action"
+   update_commander 
+   #commander "$cmd"
+   #arr=( $action )
+   arr=(1 2 3)
+   show_args
+   breakpoint
+   #limit "${arr_actionp[]}"
     #"$args0"
     #"$desc" 
 
