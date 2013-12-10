@@ -1,3 +1,5 @@
+read the book
+bash koans
 meteor tts chat
 nested quotes
 find recent iandroid records

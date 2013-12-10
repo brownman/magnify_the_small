@@ -282,7 +282,7 @@ choose4(){
 echo5(){
 
     #sleep1 3
-    notify-send1 'echo5'
+    notify-send 'echo5'
 
     #count words in sentence - if lower then 4 - translate_f also to: ar, hi
     local max1=0

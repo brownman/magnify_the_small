@@ -411,6 +411,10 @@ lpi(){
 
 suspend1(){
     local timeout=500
+reminder
+tasker lpi &
+    sleep2 book book 120
+
     must &
     sleep2 suspend suspend $timeout
     if [ $ans -ne 0 ];then
@@ -554,7 +558,7 @@ deal_comparison(){
 
 ##works:
 args=( "$@" )
-#$(show_args "${args[@]}")
+$(show_args "${args[@]}")
 res1=$(  "${args[@]}" )
 echo "$res1" #must echo for testing to work
 #assert_equal_str "$res1"

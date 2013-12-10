@@ -76,7 +76,7 @@ test_yaml(){
 
 
         #notify-send1 'running:' 'test.sh'
-        messageYN1 "$line" 'update easiest ?' 
+        messageYN1 "$line" 'focus is:' 
 
         local res=$?
         if [ $res -eq 1 ];then

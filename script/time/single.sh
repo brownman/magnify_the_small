@@ -7,8 +7,8 @@
 
 #assert_equal_str "$@"
 #show_vars
-name="$1"
-shift
+#name="$1"
+#shift
 args=( "$@" )
 #echo "$args"
 #exiting
@@ -20,7 +20,8 @@ notify-send 'single process' "$name"
 
 run(){
 
-cmd="tasker $name '${args[@]}'"
+show_args
+cmd="tasker ${args[@]}"
 
 #cmd="tasker "$name" "${args[@]}"
 #COMMANDER=true

@@ -4,6 +4,7 @@
 pushd `dirname $0` > /dev/null
 #chmod +w time
 #ls -d -l time
+
 notify-send "genius:" "$@"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
@@ -12,6 +13,8 @@ export file_loader=$ROOT_DIR/script/loader.sh
 input="$1"
 shift
 args=( "$@" )
+
+trace "pid: $$"
 dir1=$SCRIPT_DIR/time
 result='equal'
 

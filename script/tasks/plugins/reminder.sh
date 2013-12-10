@@ -65,7 +65,7 @@ run(){
 #        title="$desc"
 #    fi
 
-    delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
+    delay=$(gxmessage -entrytext "$delay" -title 'focus:' 'delay' $GXMESSAGET)
 
     if [ !  "$delay" ];then
         exiting
@@ -77,7 +77,7 @@ run(){
         res=$?
         #assert_equal_str "$res" '1 or 0'
         if [[ $res -eq 1 ]];then
-            text1=$(gxmessage -entrytext "$text1" -title 'update' 'content' $GXMESSAGET)
+            text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
             helper0 "$text1" $file_log
             #update_table logger "$date1" "reminder" "$text1"
 
@@ -92,8 +92,8 @@ run(){
     done
 }
 
-#run
-unlocker
+run
+#unlocker
 #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
 #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
 #   local raw=$( zenity --forms --title="Add a progress bar" \

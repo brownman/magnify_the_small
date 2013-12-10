@@ -13,8 +13,10 @@ workflow:
 
 limit:
         - collect_new_words 30 8
-        - lpi 60 8
-        - easiest_task 60 8
+        #- lpi 60 8
+        #- easiest_task 60 8
+        #- buy paprika 60 8
+        #- push_koans 60 8
 
 
 
