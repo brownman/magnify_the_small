@@ -8,7 +8,7 @@ test_if_condition() {
     local assert='YES'
   fi
 
-  assertEqual $assert 'YES'
+  assertEqual $assert __
 }
 
 
