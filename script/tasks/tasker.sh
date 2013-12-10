@@ -8,11 +8,10 @@ notify-send 'db.sh' "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 cfg1(){
-    export DEBUG=true
+    #export DEBUG=true
     notify-send 'cfg-test' 'unit..' 
     args=( "$@" )
-    #$(show_args "${args[@]}") &
-    res1=$(  ${args[@]} )
+    res1=$(  "${args[@]}" )
     echo "$res1" #must echo for testing to work
     #assert_equal_str "$res1"
 
@@ -411,11 +410,12 @@ lpi(){
 
 suspend1(){
     local timeout=500
-reminder
+
+    must &
 tasker lpi &
     sleep2 book book 120
 
-    must &
+
     sleep2 suspend suspend $timeout
     if [ $ans -ne 0 ];then
         play_recent2
@@ -558,7 +558,8 @@ deal_comparison(){
 
 ##works:
 args=( "$@" )
-$(show_args "${args[@]}")
+#$(show_args "${args[@]}")
+#eval show_args
 res1=$(  "${args[@]}" )
 echo "$res1" #must echo for testing to work
 #assert_equal_str "$res1"

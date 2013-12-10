@@ -5,29 +5,14 @@
 
 #notify-send 'ensure suspension'
 
-#assert_equal_str "$@"
-#show_vars
-#name="$1"
-#shift
 args=( "$@" )
-#echo "$args"
-#exiting
+res=''
+notify-send1 'single process' $@""
 
-notify-send 'single process' "$name"
-
-#file_locker=/tmp/$name
-#delay=5
 
 run(){
-
-show_args
-cmd="tasker ${args[@]}"
-
-#cmd="tasker "$name" "${args[@]}"
-#COMMANDER=true
-#update_commander
-res=$( commander "$cmd" )
-#remove_commander
+#eval show_args
+res=$( tasker "${args[@]}" )
 }
 run
 echo "$res"
