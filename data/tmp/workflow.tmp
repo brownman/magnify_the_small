@@ -1,2 +1,3 @@
-lpi 60 8|lpi homework
-collect_new_words 30 8|learn new language
+tasker limit lpi 60 8|lpi homework
+tasker limit collect_new_words 30 8|learn new language
+tasker suspend1|update white board

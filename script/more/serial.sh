@@ -23,16 +23,6 @@ trace "serial.sh got: 1:$1 2:$2"
 #}
 execute_line(){
     local line="$1"
-    #local msg="$2"
-    #trace "$line" "1 line"
-    #evaluate_
-    #notify-send "" "$msg"
-    parse_line1 "$line"
-    #"$msg"
-}
-
-parse_line1(){
-    local line="$1"
 
     #local msg="$2"
 
@@ -46,17 +36,19 @@ parse_line1(){
 #    parse_subject  "$args0" 
 #fi
 #
+#assert_equal_str "$action"
     notify-send3 "TASK: $desc"
-   flite "$desc" 
+   #flite "$desc" 
+   #update_commander 
+   local args=( ${action} )
+  #eval show_args
+#"${args}"
 
-
-   #cmd="limit  $action"
-   update_commander 
-   #commander "$cmd"
-   #arr=( $action )
-   arr=(1 2 3)
-   show_args
-   breakpoint
+local res1=$(  "${args[@]}" )
+#echo "$res1"
+trace "$res1"
+#commander "$cmd"
+   
    #limit "${arr_actionp[]}"
     #"$args0"
     #"$desc" 

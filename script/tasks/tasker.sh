@@ -409,7 +409,7 @@ lpi(){
 }
 
 suspend1(){
-    local timeout=500
+    local timeout=60
 
     must &
 tasker lpi &
@@ -427,6 +427,7 @@ tasker lpi &
         after_suspend2 #use it with checkboxes
     fi
 }
+
 
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
