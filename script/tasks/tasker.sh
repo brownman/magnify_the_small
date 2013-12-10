@@ -488,32 +488,32 @@ scp_android(){
 
 }
 update_readme(){
-    local file=$DATA_DIR/txt/dump.txt
+    #local file=$DATA_DIR/txt/dump.txt
     local readme=$PROJECT_DIR/README.md
 
-    #$PROJECT_DIR/README.md
-    echo '' > $file
+#    #$PROJECT_DIR/README.md
+#    echo '' > $file
+#
+#
+#    cat $DATA_DIR/md/README.md >> $file
+#    #echo "- RECENT_DUMP:" >> $file
+#
+#
+#    echo '- riddle:' >> $file
+#    local res=$(db select_from_table riddle)
+#    echo "$res" >>  $file
+#
+#    #
+#    echo '- koan' >> $file
+#    local res=$(db select_from_table koan)
+#    echo "$res" >>  $file
+#
+#    cat -n $DATA_DIR/txt/child.txt >> $file
+#
+#    cat $file > $readme
+#
 
-
-    cat $DATA_DIR/md/README.md >> $file
-    #echo "- RECENT_DUMP:" >> $file
-
-
-    echo '- riddle:' >> $file
-    local res=$(db select_from_table riddle)
-    echo "$res" >>  $file
-
-    #
-    echo '- koan' >> $file
-    local res=$(db select_from_table koan)
-    echo "$res" >>  $file
-
-    cat -n $DATA_DIR/txt/child.txt >> $file
-
-    cat $file > $readme
-
-
-    gedit $file &
+    gedit $readme &
 }
 homework(){
     local dir=$DATA_DIR/homework/linux-edu
