@@ -3,9 +3,25 @@ date:
 
 
 workflow:
+        #update white board
+        #
+        #- tasker limit free_imagination 60|plan the next feature
+        #
+        #
+        #
+        - tasker limit free_speak 60 8|say thanks a little bit
+        - tasker limit add_koan 60 8|add 1 koan
         - tasker limit lpi 60 8|lpi homework
-        - tasker limit collect_new_words 30 8|learn new language
-        - tasker suspend1|update white board
+
+        #- tasker limit collect_new_words 30 8|learn new language
+        - tasker suspend1|suspend package
+        #- tasker limit must 30 8|must increase efficiency level
+
+        #lpi homework
+        #- tasker limit efficiency_report 5
+
+
+
 #        - children_story||an awesome children story
 #        - git_commit||update the repo
 #        - increase_motivation||increase motivation reminder
@@ -31,6 +47,7 @@ order:
 hotkeys:
         #- free_imagination
         - impulse
+        - add_koan 
         - riddle
         - reminder
         - increase_motivation 

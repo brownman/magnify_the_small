@@ -1,4 +1,5 @@
 notify-send 'loader.sh'
+
 files=$(ls -1 $ROOT_DIR/script/cfg/*.cfg)
 for file in $files
 do

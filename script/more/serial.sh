@@ -87,7 +87,7 @@ notify-send1 'continue on moving your ass around'
             local str2="$count of $max"
 
 
-            $( messageYN1 'continue to next task?' 'workflow efficiency:' )
+            $( messageYN1 "$str2" ' next task?'  )
             local result=$?
             if [[ $result -eq 1 ]];then
 

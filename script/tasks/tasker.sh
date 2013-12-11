@@ -29,7 +29,7 @@ collect_new_words(){
 efficiency_report(){
     flite 'efficiency report'
     notify-send1 'efficiency report:' 'words,snippets,order'
-    local res=$(    level)
+    local res=$(    level )
     #local res=$(    check-boxes)
     #notify-send1 'efficiency level:' "$res"
     #echo "$res"
@@ -59,7 +59,7 @@ children_story(){
     free_speak child &
 }
 riddle(){
-    $PLUGINS_DIR/riddle.sh 
+    xterm1 $PLUGINS_DIR/riddle.sh 
 }
 
 
@@ -161,8 +161,10 @@ string_to_buttons(){
 }
 
 free_speak(){
-    local subject="$1"
-    $PLUGINS_DIR/free_speak.sh "$subject" 
+    local subject=${1:-'free'}
+
+     xterm1 $PLUGINS_DIR/free_speak.sh "$subject" 
+#disown
 }
 
 nothing(){
@@ -209,11 +211,11 @@ menu(){
     breakpoint
 }
 
-cow_report(){
-    local table=$1
-    local num=$( db counter $table)
-    notify-send3 "$table.db: ++$num "
-}
+#cow_report(){
+#    local table=$1
+#    local num=$( db counter $table)
+#    notify-send3 "$table.db: ++$num "
+#}
 cow_report_txt(){
     #flite 'riddl'
     #local file=
@@ -228,9 +230,9 @@ motivation(){
     #notify-send1 'motivation'
     #caller1
     subject="$1"
-    cmd=cow_report
-    every "$cmd" 3 
-    reason='push: learning new language'
+    #cmd=cow_report
+    #every "$cmd" 3 
+    #reason='push: learning new language'
     local line=''
 
     if [ "$subject" = '' ];then
@@ -247,7 +249,7 @@ motivation(){
     fi
 
 
-    helper0 "$line" & 
+    helper0 "$line"  
     #assert_equal_str "$line"
 
 
@@ -283,9 +285,10 @@ scrap(){
 
 }
 
-koan(){
-    yellow 'add 1 koan !'
-    ( bash -c $KOANS_DIR/meditate.sh &)
+add_koan(){
+    #yellow 'add 1 koan !'
+    #( bash -c $KOANS_DIR/meditate.sh &)
+    gedit $PROJECT_DIR/bugs/bash_koans/src/about_arithmetics.sh &
 }
 
 
@@ -365,7 +368,7 @@ play_recent2(){
 }
 
 after_suspend2(){
-    notify-send3 'chase your fear and they will run away from you'
+
     #flite "collect more koans " 
 
     sleep1 5
@@ -389,43 +392,55 @@ easiest_task(){
 
 
 must(){
-    $(    efficiency_report )
-    local ans=$?
-    if [ $ans -ge 0 ];then
-        learn_langs &
-        if [ $ans -ge 1 ];then
-            git_commit &
-            riddle &
-            if [ $ans -ge 2 ];then
-                optional increase_motivation &
-                optional reminder &
-            fi
-        fi
-    fi
+  
+     $PLUGINS_DIR/must.sh 
+    
 }
 
 lpi(){
     xdg-open /home/dao01/Desktop/linux-edu/LPIC1.pdf
 }
 
+background(){
+
+args=( "$@" )
+(  "${args[@]}" &)
+#res1=$(   )
+#trace "$res1" #must echo for testing to work
+###########################
+notify-send3 finito
+}
+#suspend2(){
+#    #local timeout=60
+#
+#    #must &
+##tasker lpi &
+#    #sleep2 book 'read an lpi book' 120
+#
+##
+##    #sleep2 suspend 'now is the correct time - for updating the project' $timeout
+##    if [ $ans -ne 0 ];then
+##        play_recent2
+##    fi
+#    notify-send1 'skip suspension for deal my fears:' '..'
+#    flite 'white board is awesome'
+#    $PLUGINS_DIR/suspend.sh
+##    if [ $ans -ne 0 ];then
+##        after_suspend2 #use it with checkboxes
+##    fi
+#}
 suspend1(){
-    local timeout=60
+    #must &
 
-    must &
-tasker lpi &
-    sleep2 book book 120
+    notify-send3 'chase your fear and they will run away from you'
+    sleep1 20
+  notify-send1 'skip suspension for deal my fears:' '..'
+    flite 'white board is awesome' true
+    sleep1 5
 
-
-    sleep2 suspend suspend $timeout
-    if [ $ans -ne 0 ];then
-        play_recent2
-    fi
-    notify-send1 'skip suspension for deal my fears:' '..'
-    flite 'white board is awesome'
+    motivation sport  
     $PLUGINS_DIR/suspend.sh
-    if [ $ans -ne 0 ];then
-        after_suspend2 #use it with checkboxes
-    fi
+
 }
 
 
@@ -458,8 +473,10 @@ game_essay(){
 learn_langs(){
     local file=$DATA_DIR/txt/conversation.txt
     local    cmd='tasker free_imagination $file'
-    optional "$cmd" &
-    $PLUGINS_DIR/learn_langs.sh play_lesson 
+    (    optional "$cmd" &)
+    xterm1 $PLUGINS_DIR/learn_langs.sh 
+    #play_lesson 
+#notify-send3 finish-task1
 }
 
 

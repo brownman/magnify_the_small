@@ -1,3 +1,4 @@
+tasker limit free_speak 60 8|say thanks a little bit
+tasker limit add_koan 60 8|add 1 koan
 tasker limit lpi 60 8|lpi homework
-tasker limit collect_new_words 30 8|learn new language
-tasker suspend1|update white board
+tasker suspend1|suspend package

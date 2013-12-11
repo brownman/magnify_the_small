@@ -87,7 +87,8 @@ tasker free_imagination $DATA_DIR/txt/testing.txt &
 
 
         #flite "$line"
-        tasker motivation
+cmd='tasker motivation'
+run_silently "$cmd"
         fi
     else
 

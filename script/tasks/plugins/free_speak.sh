@@ -27,7 +27,7 @@ memory_game(){
 
 local  str=$(cat $file | head -1)
 
-    #while :;do
+    while :;do
         let counter+=1
         trace "loop $counter"
         #str=$(random_grammer) 
@@ -36,7 +36,7 @@ local  str=$(cat $file | head -1)
         #eval 'helper0 "$str" "$file"' 
         helper0 "$str" "$file"
         #echo01 "$str"
-    #done
+    done
 }
 
 run(){
