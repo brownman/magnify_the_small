@@ -12,6 +12,13 @@ test_arithmetic_evaluation() {
 }
 
 test_pid(){
-  assertEqual $$ 2
+local  command='exec /bin/gxmessage hi'
+local pid0=$$
+$( eval "$command" ) & pid=$!
+   #{ sleep 4; kill $pid; } &
+#local res=$( kill -0 $pid )
+assertEqual "$pid" "$pid0"
+
 }
+
 

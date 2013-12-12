@@ -9,12 +9,11 @@ workflow:
         #
         #
         #
-        - tasker limit free_speak 60 8|say thanks a little bit
-        - tasker limit add_koan 60 8|add 1 koan
-        - tasker limit lpi 60 8|lpi homework
-
-        #- tasker limit collect_new_words 30 8|learn new language
-        - tasker suspend1|suspend package
+        - tasker limit1 60 8 free_speak|say thanks a little bit
+        - tasker limit1 60 8 add_koan|add 1 koan
+        - tasker limit1 60 8 lpi|lpi homework
+        - tasker limit1 30 8 collect_new_words|learn new language
+        - tasker suspend2|suspend package
         #- tasker limit must 30 8|must increase efficiency level
 
         #lpi homework
