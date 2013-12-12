@@ -101,7 +101,7 @@ read_lines(){
         if [[ $result -eq 1 ]];then
 
 
-            notify-send1 "$str2"
+            notify-send3 "$str2"
 
             execute_line "$line" 
             sleep1 8

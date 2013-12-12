@@ -20,7 +20,7 @@ cfg1(){
 
 
 collect_new_words(){
-    #flite 'collect new words!'
+    flite 'collect new words!' true
     flite 'create your own conversation'
     optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
     ( exo-open http://www.google.com &)
