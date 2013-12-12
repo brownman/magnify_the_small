@@ -28,6 +28,7 @@ run(){
 cmd='tasker motivation koan'
 every  "$cmd"
 #force_koan 
+tasker resources &
         run_workflow
         #sleep1 $waiting
 #        if [ "$DEBUG" = false ];then
@@ -36,15 +37,15 @@ every  "$cmd"
     done
     #random_quote_after    
 }
-force_koan(){
-   tasker add_koan &
-   flite 'add 1 koan'
-   sleep1 10
-        tasker cfg1 xdg-open 'http://www.tldp.org/LDP/abs/html/' &
-  tasker cfg1 xdg-open http://mywiki.wooledge.org/ & 
-
-
-}
+#force_koan(){
+#   tasker add_koan &
+#   flite 'add 1 koan'
+#   sleep1 10
+#        tasker cfg1 xdg-open 'http://www.tldp.org/LDP/abs/html/' &
+#  tasker cfg1 xdg-open http://mywiki.wooledge.org/ & 
+#
+#
+#}
 
 run_workflow(){
     sleep1 2

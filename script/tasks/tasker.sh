@@ -357,15 +357,11 @@ play_recent(){
 
     #update_table logger "$date1" "play_recent" "$line1"
 }
-#play_recent2(){
-#    notify-send1 'play_recent2'
-#    local line=$(        random_line $DATA_DIR/tmp/limit.tmp )
-#    cmd="     limit $line "
-#    #update_commander
-#    commander "$cmd"
-#
-#    #update_table logger "$date1" "play_recent" "$line1"
-#}
+resources(){
+    local cmd=$(        random_line $DATA_DIR/tmp/resources.tmp )
+    commander "$cmd"
+
+}
 
 after_suspend2(){
 
@@ -445,7 +441,7 @@ suspend2(){
 suspend1(){
 local timeout=300
 must &
-sleep2 suspend 'have fun' $timeout
+sleep2 'or: sport,order' 'suspend?' $timeout
     $PLUGINS_DIR/suspend.sh
 }
 
