@@ -1,4 +1,5 @@
 homework
+show log after a cycle
 chat through shell
 make homework
 bash - limit process cpu

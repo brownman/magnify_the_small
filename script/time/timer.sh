@@ -29,6 +29,7 @@ cmd='tasker motivation koan'
 every  "$cmd"
 #force_koan 
 tasker resources &
+gxmessage -file "$file_logger" $GXMESSAGET
         run_workflow
         #sleep1 $waiting
 #        if [ "$DEBUG" = false ];then

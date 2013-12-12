@@ -77,12 +77,19 @@ read_lines(){
 
 
 
-    max=${#lines[@]}
+    local max=${#lines[@]}
 
 
     local max_efficiency=$( tasker cfg1 level $max )
 
+
+
+    let "max_efficiency=max_efficiency+1"
+
+    update_file $file_logger "$time1:\t$max_efficiency"
+
     count=1
+
     for line in "${lines[@]}"
     do
         notify-send1 'continue on moving your ass around'

@@ -440,8 +440,9 @@ suspend2(){
 }
 suspend1(){
 local timeout=300
-must &
-sleep2 'or: sport,order' 'suspend?' $timeout
+tasker must &
+tasker sleep2 'or: sport,order' 'suspend?' $timeout
+tasker limit1 30 'collect_new_words'
     $PLUGINS_DIR/suspend.sh
 }
 
