@@ -8,6 +8,10 @@
 
 #. $TIMERTXT_CFG_FILE
 #file=$TODAY_DIR/txt/report.yaml
+
+delay=5
+file_locker=/tmp/learn_langs
+
 path1=$DIR_LEARN_LANGS
 
 lesson=${2:-"$LESSON_NUM"} #$2
@@ -15,8 +19,6 @@ lang=$(higher $LANG_DEFAULT)
 #assert_equal_str "$lesson"
 #notify-send "free-speak" "$0"
 
-delay=5
-file_locker=/tmp/learn_langs
 
 
 run(){
@@ -41,7 +43,7 @@ run(){
     fi
 
     while :;do
-        messageYN1 "continue to lesson -$lesson- ?"
+
         result="$?"
         echo -n  "eacher result:"
         trace "$result"
@@ -54,6 +56,8 @@ run(){
     #xterm1 $PLUGINS_DIR/free_speak.sh
             let "lesson=$lesson+1"
         fi
+
+        messageYN1 "continue to lesson -$lesson- ?"
     done
 }
 
@@ -96,7 +100,4 @@ code1(){
 
 
 }
-trace "$@"
 unlocker
-#$@
-#learn_lang "$1" "$2"

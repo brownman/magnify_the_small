@@ -48,6 +48,7 @@ order:
 hotkeys:
         #- free_imagination
         - impulse
+        - cfg_update
         - add_koan 
         - riddle
         - reminder

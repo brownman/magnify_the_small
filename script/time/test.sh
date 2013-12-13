@@ -79,7 +79,7 @@ test_yaml(){
         messageYN1 "$line" 'focus is:' 
 
         local res=$?
-        if [ $res -eq 1 ];then
+        if [ $res -eq $OK ];then
 
 
 tasker free_imagination $DATA_DIR/txt/testing.txt &

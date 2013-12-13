@@ -20,6 +20,7 @@ cfg1(){
 
 
 collect_new_words(){
+    tasker learn_langs &
     flite 'collect new words!' true
     flite 'create your own conversation'
     optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
@@ -65,7 +66,7 @@ riddle(){
 
 
 free_imagination(){
-    local file=${1:-"$DATA_DIR/txt/free_imagination.txt"}
+    local file=${1:-"$DATA_DIR/txt/testing.txt"}
 
     $PLUGINS_DIR/free_imagination.sh "$file"
 }
@@ -439,12 +440,26 @@ suspend2(){
     $PLUGINS_DIR/suspend.sh
 
 }
+cfg_update(){
+local str=$(gxmessage $GXMESSAGET -entry -title 'cfg' 'update:' )
+gedit $CFG_DIR/$str.cfg &
+
+}
 suspend1(){
 local timeout=300
-tasker must &
-tasker sleep2 'or: sport,order' 'suspend?' $timeout
-tasker limit1 30 'collect_new_words'
+#tasker must &
+notify-send1 'reminder' 'kill noisy tasks'
+#sleep1 20
+#tasker sleep2 "$suspend1_motivation" 'suspend?' $timeout
+sleep1 $timeout
+#flite 'clean whiteboard - is important - to increase motivation' true
+#tasker limit1 130 'collect_new_words'
+
     $PLUGINS_DIR/suspend.sh
+
+    #tasker free_imagination &
+    notify-send1 'suspend1' 'finish,is killing free text?'
+    sleep1 20
 }
 
 

@@ -1,5 +1,5 @@
 
-notify-send1 "reminder: increase motivation" "$@"
+#notify-send1 "reminder: increase motivation" "$@"
 
 delay=5
 file_locker=/tmp/increase_motivation
@@ -35,5 +35,4 @@ run(){
     loop
 }
 
-#run
 unlocker

@@ -1,3 +1,10 @@
+meteor - add html chat box for showing new messages
+meteor chat
+disown - single script - not koan
+cfg - messageYN1 - escape - is killing
+single script OR koan
+collected words - by pressing on button
+send meteor chat message from shell
 homework
 show log after a cycle
 chat through shell
@@ -21,3 +28,21 @@ update picture from blgger
 breakthrough will:
 buy paprika
 burn disks
+
+
+buy:
+shalva - collar
+ahil
+garbadge 
+phone cable
+kumkum
+sd card
+paprika
+
+
+tasks
+shalva - food
+mindmap - update
+drew money - bankat
+gila  - has charged me ?
+backup images and vids - first plan softly
