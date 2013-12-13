@@ -59,6 +59,7 @@ children_story(){
     free_speak child &
 }
 riddle(){
+    notify-send1 'riddle'
     xterm1 $PLUGINS_DIR/riddle.sh 
 }
 

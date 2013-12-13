@@ -4,7 +4,7 @@ file_locker=/tmp/riddle
 
 run(){
 
-
+notify-send1 'riddleee'
     #local dir_source=$PWD/1/testing/python2/koans
     #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
     local dir=$SCRIPT_DIR/tasks/abs/source
@@ -13,7 +13,8 @@ run(){
     local line=''
     local cmd=''
     #local line=$(random_line 'abs')
-    while :;do
+    breakpoint
+    while [ 1 -eq 1 ];do
         line=$(random_from_subject1 abs)
         #assert_equal_str "$line"
         res=$dir/$line

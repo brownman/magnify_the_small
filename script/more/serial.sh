@@ -86,9 +86,9 @@ read_lines(){
 
     let "max_efficiency=max_efficiency+1"
 
-    update_file $file_logger "$time1:\t$max_efficiency"
 
-    count=1
+
+      count=1
 
     for line in "${lines[@]}"
     do
@@ -117,6 +117,11 @@ read_lines(){
 
 
     done
+
+    $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
+        local result1=$?
+    update_file $file_logger "$time1|$max_efficiency|$result1"
+    
 
 }
 read_lines
