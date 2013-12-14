@@ -44,20 +44,21 @@ run(){
 
     while :;do
 
-        result="$?"
+
         echo -n  "eacher result:"
         trace "$result"
-        if [[ $result -eq 0 ]];then
+        if [[ $result -eq $NO ]];then
             echo 'breaking'
             break
-        else
+        fi 
             code1
 
     #xterm1 $PLUGINS_DIR/free_speak.sh
             let "lesson=$lesson+1"
-        fi
 
         messageYN1 "continue to lesson -$lesson- ?"
+
+        result="$?"
     done
 }
 

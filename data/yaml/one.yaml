@@ -11,12 +11,17 @@ resources:
         - http://www.grymoire.com/Unix/Sed.html
 
 workflow:
-        - tasker limit1 60 homework|homework
-        - tasker limit1 60 lpi|lpi homework
-        - tasker limit1 20 free_speak|say thanks a little bit
-        - tasker limit1 60 add_koan|add 1 koan
-        #- tasker limit1 30 collect_new_words|learn new language
-        #- tasker suspend2|suspend package
+        #- tasker limit1 200 free_speak|say thanks a little bit
+        - tasker limit1 60 say meteor|push project forward
+        - tasker limit1 30 collect_new_words|learn new language
+        - tasker suspend2 true|suspend package
+        - tasker efficiency_report2|efficiency report
+#        - tasker limit1 60 homework|homework
+#        - tasker limit1 60 lpi|lpi homework
+#        - tasker limit1 20 free_speak|say thanks a little bit
+#        - tasker limit1 60 add_koan|add 1 koan
+
+
         #- tasker limit must 30 8|must increase efficiency level
         #lpi homework
         #- tasker limit efficiency_report 5

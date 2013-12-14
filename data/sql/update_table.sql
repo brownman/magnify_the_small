@@ -20,7 +20,9 @@ INSERT INTO bookmarks VALUES (1,1,1,1);
 INSERT INTO push_forward VALUES (1,1,1,1);
 INSERT INTO koan VALUES (1,1,1,1,1,1,1,1);
 
+
 INSERT INTO riddle VALUES (1,1,1,1);
+INSERT INTO efficiency VALUES (1,1,1,1,1);
 
 
 

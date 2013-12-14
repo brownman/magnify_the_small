@@ -98,7 +98,7 @@ read_lines(){
 
         $( messageYN1 "$str2" ' next task?'  )
         local result=$?
-        if [[ $result -eq 1 ]];then
+        if [[ $result -eq $YES ]];then
 
 
             notify-send3 "$str2"

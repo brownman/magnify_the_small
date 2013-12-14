@@ -18,7 +18,9 @@ cfg1(){
 
 }
 
-
+say(){
+flite "$1"
+}
 collect_new_words(){
     tasker learn_langs &
     flite 'collect new words!' true
@@ -27,14 +29,22 @@ collect_new_words(){
     ( exo-open http://www.google.com &)
 }
 
-efficiency_report(){
-    flite 'efficiency report'
-    notify-send1 'efficiency report:' 'words,snippets,order'
-    local res=$(    level )
-    #local res=$(    check-boxes)
-    #notify-send1 'efficiency level:' "$res"
-    #echo "$res"
-    return $res
+#efficiency_report(){
+#    flite 'efficiency report'
+#    notify-send1 'efficiency report:' 'words,snippets,order'
+#    local res=$(    level )
+#    #local res=$(    check-boxes)
+#    #notify-send1 'efficiency level:' "$res"
+#    #echo "$res"
+#    return $res
+#}
+efficiency_report2(){
+    #$( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
+        #local result1=$?
+    #update_file $file_logger "$time1|$max_efficiency|$result1"
+
+local str="$time1"
+    db set efficiency true true "$str" 
 }
 
 
@@ -450,8 +460,15 @@ local timeout=300
 #tasker must &
 notify-send1 'reminder' 'kill noisy tasks'
 #sleep1 20
-#tasker sleep2 "$suspend1_motivation" 'suspend?' $timeout
+local gui=$1
+if [ "$gui" = 'true' ];then
+tasker sleep2 "$suspend1_motivation" 'suspend?' $timeout
+else
+
 sleep1 $timeout
+fi
+
+
 #flite 'clean whiteboard - is important - to increase motivation' true
 #tasker limit1 130 'collect_new_words'
 

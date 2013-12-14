@@ -159,7 +159,7 @@ get(){
         values_str=$(sqlite3 -header -list $file_db "select * from $table;" |  tail -1 )
     fi
 
-echo "$values_str"
+    echo "$values_str"
 
 
 
@@ -175,6 +175,7 @@ set(){
     local values_str="$4"
     local values_arr=()
 
+
     notify-send "gui" "$gui"
     notify-send "update" "$update"
     local num=0
@@ -187,7 +188,9 @@ set(){
 
 
 
-
+    #for values
+    IFS='|' read -a values_arr <<< "$values_str"
+    #for columns
     header=$(sqlite3 -header -list $file_db "select * from $table;" | head -n 1)
     IFS='|' read -a columns_arr <<< "$header"
     columns_arr=("${columns_arr[@]:1}") #removed the 1st element

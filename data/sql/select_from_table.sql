@@ -26,7 +26,9 @@ SELECT * FROM bookmarks ORDER BY id DESC;
 SELECT * FROM push_forward ORDER BY id DESC; 
 
 SELECT * FROM koan ORDER BY id DESC; 
+
 SELECT * FROM riddle ORDER BY id DESC; 
+SELECT * FROM efficiency ORDER BY id DESC; 
 
 
 

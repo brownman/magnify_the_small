@@ -79,6 +79,14 @@ CREATE TABLE riddle (
     link CHAR(101)
 );
 
+CREATE TABLE efficiency (
+    id INTEGER PRIMARY KEY,
+    time CHAR(10),
+    workflow CHAR(100),
+    answer BOOLEAN,
+    advice CHAR(100)
+);
+
 --CREATE UNIQUE INDEX solution ON koan(id ASC);
 
 --CREATE UNIQUE INDEX question ON riddle(id ASC);
