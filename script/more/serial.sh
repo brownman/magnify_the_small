@@ -92,6 +92,7 @@ read_lines(){
 local str_tasks=''
 local str_current=''
 
+gxmessage -file "$file_logger" $GXMESSAGET
     for line in "${lines[@]}"
     do
         notify-send1 'continue on moving your ass around'
@@ -104,8 +105,8 @@ local str_current=''
 
 
             notify-send3 "$str2"
- str_current=$(echo "$line" | awk -F '|' {print $1})
-            str_tasks="$str_task, $str_current"
+ str_current=$(echo "$line" | awk -F '|' '{print $1}')
+            str_tasks="$str_task| $count: $str_current"
             execute_line "$line" 
            
             sleep1 8
