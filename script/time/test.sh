@@ -72,32 +72,15 @@ test_yaml(){
 
 
 
+        local res="$NO"
 
 
+local cmd="tasker free_imagination $DATA_DIR/txt/testing.txt"
+tasker cfg1 notify-send4 "$line" "$cmd"
 
-        #notify-send1 'running:' 'test.sh'
-        messageYN1 "$line" 'focus is:' 
-
-        local res=$?
-        if [ $res -eq $OK ];then
-
-
-tasker free_imagination $DATA_DIR/txt/testing.txt &
-        else
-
-
-        #flite "$line"
 cmd='tasker motivation'
 run_silently "$cmd"
-        fi
-    else
-
-        trace  "empty line" 'error parsing'
-        echo "empty line"
-
-    fi
-
-    #sleep1 5
+fi
 echo 'equal'
 }
 tesst(){

@@ -1,3 +1,9 @@
+do a task first
+add many koans sorted by subject
+add a gmail plugin to fetch homework
+homework - 1 koan
+plugin - write words for translation - and play it later
+use essay generator - to practice spacific words
 db: report - efficiency
 css - scroll textarea
 meteor - add html chat box for showing new messages

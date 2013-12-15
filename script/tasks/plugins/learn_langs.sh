@@ -47,10 +47,7 @@ run(){
 
         echo -n  "eacher result:"
         trace "$result"
-        if [[ $result -eq $NO ]];then
-            echo 'breaking'
-            break
-        fi 
+      
             code1
 
     #xterm1 $PLUGINS_DIR/free_speak.sh
@@ -59,6 +56,10 @@ run(){
         messageYN1 "continue to lesson -$lesson- ?"
 
         result="$?"
+  if [[ $result -eq $NO ]];then
+            echo 'breaking'
+            break
+        fi 
     done
 }
 

@@ -7,6 +7,11 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+translate_later(){
+gedit $DATA_DIR/txt/later.txt
+}
+
+
 cfg1(){
     #export DEBUG=true
     notify-send 'cfg-test' 'unit..' 
@@ -273,8 +278,8 @@ motivation(){
 
 motivations(){
     notify-send3 'motivationsssss!'
-
-    local cmd="$PLUGINS_DIR/translation.sh lines $DATA_DIR/txt/glossary.txt true"
+local file=${1:-"$DATA_DIR/txt/later.txt"}
+    local cmd="$PLUGINS_DIR/translation.sh lines  true"
     commander "$cmd"
     echo "$motivations"
     #fi
@@ -370,8 +375,8 @@ play_recent(){
     #update_table logger "$date1" "play_recent" "$line1"
 }
 resources(){
-    local cmd=$(        random_line $DATA_DIR/tmp/resources.tmp )
-    commander "$cmd"
+    local url=$(        random_line $DATA_DIR/tmp/resources.tmp )
+    commander "exo-open $url"
 
 }
 

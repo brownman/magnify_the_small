@@ -89,6 +89,8 @@ read_lines(){
 
 
       count=1
+local str_tasks=''
+local str_current=''
 
     for line in "${lines[@]}"
     do
@@ -102,11 +104,15 @@ read_lines(){
 
 
             notify-send3 "$str2"
-
+ str_current=$(echo "$line" | awk -F '|' {print $1})
+            str_tasks="$str_task, $str_current"
             execute_line "$line" 
+           
             sleep1 8
             let "count=count+1"
         else
+            gedit $file_workflow
+            sleep1 10
             flite 'breaking'
             break
         fi
@@ -120,7 +126,7 @@ read_lines(){
 
     $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
         local result1=$?
-    update_file $file_logger "$time1|$max_efficiency|$result1"
+    update_file $file_logger "$time1|$max_efficiency|$result1|$str_tasks"
     
 
 }

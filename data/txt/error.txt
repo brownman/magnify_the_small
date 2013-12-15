@@ -1,2 +1,5 @@
-:225:set 
-:241:main 
+:7:every 
+:4:update_commander 
+:10:notify-send4 
+:19:cfg1 
+:622:main 
