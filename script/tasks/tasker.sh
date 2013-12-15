@@ -548,7 +548,7 @@ scp_android(){
 }
 update_readme(){
     #local file=$DATA_DIR/txt/dump.txt
-    local readme=$PROJECT_DIR/README.md
+    local readme=$DATA_DIR/md/README.md
 
 #    #$PROJECT_DIR/README.md
 #    echo '' > $file
