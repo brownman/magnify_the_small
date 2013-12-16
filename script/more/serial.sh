@@ -8,52 +8,7 @@
 
 trace "serial.sh got: 1:$1 2:$2"
 
-#increase_efficiency(){
-#    count="$1"
-#    max="$2"
-#    task="$3"
-#    local str2="$count of $max"
-#    gxmessage "$str2" -title "Efficiency Report" $GXMESSAGET  -buttons 'low:0,medium:1,high:2' "Task: $task"  
-#    local level="$?"
-#    local file1=$4
-#    #CFG_DIR/txt/efficiency.txt
-#    echo "level: $level"
-#    echo "##$task:$level" >> $file1
-#    #gedit $file1
-#}
-execute_line(){
-    local line="$1"
 
-    #local msg="$2"
-
-
-    local     action=$( echo "$line" | awk -F '|' '{print $1}' )
-    local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
-    #local    desc=$( echo "$line" | awk -F '|' '{print $3}' )
-    #local    args=''
-    #if [ "$args0" != '' ];then
-    #    #args=$( fetching "$args0" )
-    #    parse_subject  "$args0" 
-    #fi
-    #
-    #assert_equal_str "$action"
-    notify-send3 "TASK: $desc"
-    #flite "$desc" 
-    #update_commander 
-    local args=( ${action} )
-    #eval show_args
-    #"${args}"
-
-    local res1=$(  "${args[@]}" )
-    #echo "$res1"
-    trace "$res1"
-    #commander "$cmd"
-
-    #limit "${arr_actionp[]}"
-    #"$args0"
-    #"$desc" 
-
-}
 
 
 read_lines(){
@@ -73,47 +28,52 @@ read_lines(){
             #echo "line: $line"
             lines+=("$line")
         fi
-    done < $DATA_DIR/tmp/workflow.tmp 
+    done < $file_workflow
 
+    gxmessage -file $file_workflow "$GXMESSAGET" -title 'confirmation'
 
 
     local max=${#lines[@]}
 
 
     local max_efficiency=$( tasker cfg1 level $max )
+    if [ $max_efficiency = '' ];then
+return
+    fi
+    if [ $max_efficiency -eq 0 ];then
+
+        gedit $DATA_DIR/yaml/one.yaml
+        return
+    fi
+
+
+    #let "max_efficiency=max_efficiency+1"
 
 
 
-    let "max_efficiency=max_efficiency+1"
+    count=1
+    local str_tasks=''
 
-
-
-      count=1
-local str_tasks=''
-local str_current=''
-
-gxmessage -file "$file_logger" $GXMESSAGET
+    gxmessage -file "$file_logger" $GXMESSAGET
     for line in "${lines[@]}"
     do
         notify-send1 'continue on moving your ass around'
-        local str2="$count of $max_efficiency"
+        local str_percent="$count of $max_efficiency"
+        local     action=$( echo "$line" | awk -F '|' '{print $1}' )
+        local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
 
-
-        $( messageYN1 "$str2" ' next task?'  )
+        $( messageYN1 "$desc" ' next task?'  )
         local result=$?
         if [[ $result -eq $YES ]];then
-
-
-            notify-send3 "$str2"
- str_current=$(echo "$line" | awk -F '|' '{print $1}')
-            str_tasks="$str_task| $count: $str_current"
-            execute_line "$line" 
-           
+            str_tasks="$str_tasks _ $count: $action"
+            notify-send3 "$str_percent"
+            notify-send3 "TASK: $desc"
+            flite "$desc" true 
+            local args=( ${action} )
+            local res1=$(  "${args[@]}" )
             sleep1 8
             let "count=count+1"
         else
-            gedit $file_workflow
-            sleep1 10
             flite 'breaking'
             break
         fi
@@ -121,14 +81,12 @@ gxmessage -file "$file_logger" $GXMESSAGET
             flite 'efficiency level is smaller than counter'
             break
         fi
-
-
     done
 
     $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
-        local result1=$?
-    update_file $file_logger "$time1|$max_efficiency|$result1|$str_tasks"
-    
+    local result1=$?
+    update_file $file_logger "$time1|$result1|$str_tasks"
+
 
 }
 read_lines

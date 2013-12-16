@@ -19,7 +19,7 @@ stop_watch1(){
     while :;do
         $(messageYN1 "$date1: $content" "remind?")
         res=$?
-        if [ $res -eq 1 ];then
+        if [ $res -eq $YES ];then
             #( flite "$content" &)
             notify-send1 "$content"
             sleep1 10
@@ -65,35 +65,37 @@ run(){
 #        title="$desc"
 #    fi
 
-    delay=$(gxmessage -entrytext "$delay" -title 'focus:' 'delay' $GXMESSAGET)
 
-    if [ !  "$delay" ];then
-        exiting
-    fi
     local text1="$title" 
     while :;do
         reload_cfg
         $( messageYN1 "$text1" "reminder" '' 35 )
         res=$?
         #assert_equal_str "$res" '1 or 0'
-        if [[ $res -eq 1 ]];then
-            text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
-            helper0 "$text1" $file_log
-            #update_table logger "$date1" "reminder" "$text1"
-
-        fi
+     
         helper0 "$text1" $file_log
         cmd="sleep2 '$text1' '$title' '$delay'" 
         #assert_equal_str "$cmd"
         eval "$cmd" 
 
+   if [[ $res -eq $YES ]];then
+            text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
+            helper0 "$text1" $file_log
+            #update_table logger "$date1" "reminder" "$text1"
 
+        fi
 
     done
 }
+update_delay(){
+    delay=$(gxmessage -entrytext "$delay" -title 'focus:' 'delay' $GXMESSAGET)
 
-run
-#unlocker
+    if [ !  "$delay" ];then
+        exiting
+    fi
+}
+
+unlocker
 #    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
 #    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
 #   local raw=$( zenity --forms --title="Add a progress bar" \

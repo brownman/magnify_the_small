@@ -1,3 +1,30 @@
+15:30|1| _ 1: tasker limit1 60 add_koan
+14:11|0| _ 1: tasker limit1 60 add_koan
+13:53|1| _ 1: tasker limit1 60 add_koan _ 2: tasker limit1 300 say meteor
+13:53|1| _ 1: tasker limit1 60 add_koan _ 2: tasker limit1 300 say meteor
+13:53|1| _ 1: tasker limit1 60 add_koan
+13:53|1| _ 1: tasker limit1 60 add_koan
+13:37|1| _ 1: tasker limit1 60 add_koan _ 2: tasker limit1 300 say meteor
+13:37|1| _ 1: tasker limit1 60 add_koan
+13:16|0| _ 1: tasker limit1 60 add_koan _ 2: tasker limit1 300 say meteor _ 3: tasker limit1 30 collect_new_words _ 4: tasker suspend2 true
+12:56|1|
+12:45|0| _ 1: tasker limit1 60 add_koan
+12:27|0| _ 1: tasker limit1 60 add_koan _ 2: tasker limit1 300 say meteor
+11:35|1| _ 1: tasker limit1 20 pownder easy _ 2: tasker limit1 20 pownder advise
+11:46|1| _ 1: tasker limit1 20 pownder easy
+10:31|1| _ 1: tasker limit1 20 pownder easy
+10:31|1| _ 2: tasker limit1 20 pownder advise
+09:44|0|/ 2: tasker limit1 60 add_koan
+09:39|1|/ 2: tasker limit1 60 add_koan
+09:39|1|/ 3: tasker limit1 20 act_or_do breath
+09:16|1|| 3: tasker limit1 20 act_or_do breath
+09:11|1|| 2: tasker limit1 20 act_or_do breath
+09:11|0|| 2: tasker limit1 20 act_or_do breath
+08:00|0|| 3: tasker limit1 20 say 'think what is easy'
+06:58|0|| 1: tasker limit1 60 say breath
+06:58|0|| 1: tasker limit1 200 free_speak
+06:38|1|0|
+06:38|1|0|| 1: tasker limit1 120 say task
 15:55|1|1|
 15:55|1|0|, tasker limit1 120 say task
 15:55|1|1|

@@ -155,8 +155,8 @@ run(){
 
 
 }
-#run
-unlocker
+run
+#unlocker
 
 echo "$result_g"
 

@@ -2,19 +2,26 @@ date:
     - 1.12.13
 
 resources:
-        - http://www.tldp.org/LDP/abs/html/ 
         - http://mywiki.wooledge.org/  
         - http://www.grymoire.com/Unix/Sed.html
-
-#workflow:
+        - http://www.tldp.org/LDP/abs/html/gotchas.html
+        - http://stackoverflow.com/
+        - http://stackoverflow.com/
+        - http://stackoverflow.com/
+        - http://mywiki.wooledge.org/BashSheet
+workflow:
 #        #- tasker limit1 200 free_speak|say thanks a little bit
-#        - tasker limit1 60 say breath|don't take life too seriously - be creative on the board
+        #- tasker limit1 20 pownder easy|pownder about 
+        #- tasker limit1 20 pownder advise|pownder about 
+        - tasker limit1 60 add_koan|add 1 koan
+        #- tasker limit1 20 act_or_do breath|x
+        #- tasker limit1 20 say 'think what is easy'|x
 #        - tasker limit1 120 say task|do 1 task
-#        - tasker limit1 300 say meteor|push project forward
-#        - tasker limit1 60 add_koan|add 1 koan
+        - tasker limit1 300 say meteor|fix meteor
 #        - tasker limit1 60 translate_later|how to say
-#        - tasker limit1 30 collect_new_words|learn new language
-#        - tasker suspend2 true|suspend package
+        - tasker limit1 30 collect_new_words|collect new words
+        - tasker suspend2 true|suspend package
+#        must
 #        - tasker limit1 60 motivations|translate all
 #        - tasker efficiency_report2|efficiency report
 ##        - tasker limit1 60 homework|homework
@@ -54,8 +61,8 @@ order:
 hotkeys:
         #- free_imagination
         - impulse
+        - add_koan_type
         - cfg_update
-        - add_koan 
         - riddle
         - reminder
         - increase_motivation 

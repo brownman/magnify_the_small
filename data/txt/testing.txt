@@ -1,4 +1,18 @@
-do a task first
+update this file
+
+old:
+-------
+plugin riddle
+translation - silence
+meteor - sort
+
+
+
+
+new:
+-------
+meteor - mongo - sorting
+bash - source code - command: bg
 add many koans sorted by subject
 add a gmail plugin to fetch homework
 homework - 1 koan

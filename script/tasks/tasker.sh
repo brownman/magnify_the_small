@@ -8,7 +8,7 @@ notify-send 'db.sh' "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 translate_later(){
-gedit $DATA_DIR/txt/later.txt
+    gedit $DATA_DIR/txt/later.txt
 }
 
 
@@ -24,7 +24,7 @@ cfg1(){
 }
 
 say(){
-flite "$1"
+    flite "$1"
 }
 collect_new_words(){
     tasker learn_langs &
@@ -45,10 +45,10 @@ collect_new_words(){
 #}
 efficiency_report2(){
     #$( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
-        #local result1=$?
+    #local result1=$?
     #update_file $file_logger "$time1|$max_efficiency|$result1"
 
-local str="$time1"
+    local str="$time1"
     db set efficiency true true "$str" 
 }
 
@@ -180,8 +180,8 @@ string_to_buttons(){
 free_speak(){
     local subject=${1:-'free'}
 
-     xterm1 $PLUGINS_DIR/free_speak.sh "$subject" 
-#disown
+    xterm1 $PLUGINS_DIR/free_speak.sh "$subject" 
+    #disown
 }
 
 nothing(){
@@ -278,7 +278,7 @@ motivation(){
 
 motivations(){
     notify-send3 'motivationsssss!'
-local file=${1:-"$DATA_DIR/txt/later.txt"}
+    local file=${1:-"$DATA_DIR/txt/later.txt"}
     local cmd="$PLUGINS_DIR/translation.sh lines  true"
     commander "$cmd"
     echo "$motivations"
@@ -305,8 +305,37 @@ scrap(){
 add_koan(){
     #yellow 'add 1 koan !'
     #( bash -c $KOANS_DIR/meditate.sh &)
-    gedit $PROJECT_DIR/bugs/bash_koans/src/about_arithmetics.sh &
+
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
+    detach "$cmd"
+   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.cfg"
+    detach "$cmd"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_arithmetics.sh"
+    detach "$cmd"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_sed.sh"
+    detach "$cmd"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/meditate"
+    detach "$cmd"
 }
+add_koan_type(){
+
+    local str=$(gxmessage $GXMESSAGET -entry -title 'koan' 'update:' )
+local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
+touch $file
+chmod u+x $file
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
+
+    #update_commander
+
+    detach "$cmd"
+
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
+    detach "$cmd"
+
+ cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.sh"
+    detach "$cmd"
+}
+
 
 
 record_for_later(){
@@ -405,9 +434,9 @@ easiest_task(){
 
 
 must(){
-  
-     $PLUGINS_DIR/must.sh 
-    
+
+    $PLUGINS_DIR/must.sh 
+
 }
 
 lpi(){
@@ -416,12 +445,12 @@ lpi(){
 
 background(){
 
-args=( "$@" )
-(  "${args[@]}" &)
-#res1=$(   )
-#trace "$res1" #must echo for testing to work
-###########################
-notify-send3 finito
+    args=( "$@" )
+    (  "${args[@]}" &)
+    #res1=$(   )
+    #trace "$res1" #must echo for testing to work
+    ###########################
+    notify-send3 finito
 }
 #suspend2(){
 #    #local timeout=60
@@ -447,7 +476,7 @@ suspend2(){
 
     notify-send3 'chase your fear and they will run away from you'
     sleep1 20
-  notify-send1 'skip suspension for deal my fears:' '..'
+    notify-send1 'skip suspension for deal my fears:' '..'
     flite 'white board is awesome' true
     sleep1 5
 
@@ -456,34 +485,52 @@ suspend2(){
 
 }
 cfg_update(){
-local str=$(gxmessage $GXMESSAGET -entry -title 'cfg' 'update:' )
-gedit $CFG_DIR/$str.cfg &
+    local str=$(gxmessage $GXMESSAGET -entry -title 'cfg' 'update:' )
+    gedit $CFG_DIR/$str.cfg &
 
 }
 suspend1(){
-local timeout=300
-#tasker must &
-notify-send1 'reminder' 'kill noisy tasks'
-#sleep1 20
-local gui=$1
-if [ "$gui" = 'true' ];then
-tasker sleep2 "$suspend1_motivation" 'suspend?' $timeout
-else
+    local timeout=300
+    #tasker must &
+    notify-send1 'reminder' 'kill noisy tasks'
+    #sleep1 20
+    local gui=$1
+    if [ "$gui" = 'true' ];then
+        tasker sleep2 "$suspend1_motivation" 'suspend?' $timeout
+    else
 
-sleep1 $timeout
-fi
+        sleep1 $timeout
+    fi
 
 
-#flite 'clean whiteboard - is important - to increase motivation' true
-#tasker limit1 130 'collect_new_words'
+    #flite 'clean whiteboard - is important - to increase motivation' true
+    #tasker limit1 130 'collect_new_words'
 
     $PLUGINS_DIR/suspend.sh
 
     #tasker free_imagination &
+    detach    'tasker reminder'
     notify-send1 'suspend1' 'finish,is killing free text?'
     sleep1 20
 }
+pownder(){
+    local subject="$1"
+    gedit $DATA_DIR/txt/$subject.txt
+}
+act_or_do(){
 
+
+    messageYN1 'act or do' "y/n"
+    res=$?
+
+
+    if [ $res -eq $NO ];then
+        pownder "task"
+    else
+        xdg-open 'www.google.com'
+
+    fi
+}
 
 show_progress(){
     local cmd="sleep2 '$1' '$2' '$3'"
@@ -517,7 +564,7 @@ learn_langs(){
     (    optional "$cmd" &)
     xterm1 $PLUGINS_DIR/learn_langs.sh 
     #play_lesson 
-#notify-send3 finish-task1
+    #notify-send3 finish-task1
 }
 
 
@@ -550,27 +597,27 @@ update_readme(){
     #local file=$DATA_DIR/txt/dump.txt
     local readme=$DATA_DIR/md/README.md
 
-#    #$PROJECT_DIR/README.md
-#    echo '' > $file
-#
-#
-#    cat $DATA_DIR/md/README.md >> $file
-#    #echo "- RECENT_DUMP:" >> $file
-#
-#
-#    echo '- riddle:' >> $file
-#    local res=$(db select_from_table riddle)
-#    echo "$res" >>  $file
-#
-#    #
-#    echo '- koan' >> $file
-#    local res=$(db select_from_table koan)
-#    echo "$res" >>  $file
-#
-#    cat -n $DATA_DIR/txt/child.txt >> $file
-#
-#    cat $file > $readme
-#
+    #    #$PROJECT_DIR/README.md
+    #    echo '' > $file
+    #
+    #
+    #    cat $DATA_DIR/md/README.md >> $file
+    #    #echo "- RECENT_DUMP:" >> $file
+    #
+    #
+    #    echo '- riddle:' >> $file
+    #    local res=$(db select_from_table riddle)
+    #    echo "$res" >>  $file
+    #
+    #    #
+    #    echo '- koan' >> $file
+    #    local res=$(db select_from_table koan)
+    #    echo "$res" >>  $file
+    #
+    #    cat -n $DATA_DIR/txt/child.txt >> $file
+    #
+    #    cat $file > $readme
+    #
 
     gedit $readme &
 }

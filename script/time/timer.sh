@@ -28,7 +28,8 @@ run(){
 cmd='tasker motivation koan'
 every  "$cmd"
 #force_koan 
-tasker resources &
+cmd='tasker resources'
+every "$cmd"
 
         run_workflow
         #sleep1 $waiting
