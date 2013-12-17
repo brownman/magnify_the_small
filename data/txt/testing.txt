@@ -1,3 +1,5 @@
+connect koans-touch project-export to meteor
+
 update this file
 
 old:

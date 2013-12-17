@@ -27,7 +27,8 @@ say(){
     flite "$1"
 }
 collect_new_words(){
-    tasker learn_langs &
+    cmd='tasker learn_langs'
+    detach "$cmd"
     flite 'collect new words!' true
     flite 'create your own conversation'
     optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
@@ -336,7 +337,11 @@ chmod u+x $file
     detach "$cmd"
 }
 
-
+set_rational_condition(){
+trace ''
+local file="$DATA_DIR/txt/rational_condition.txt"
+gedit "$file"
+}
 
 record_for_later(){
     xdg-open 'http://www.youtube.com/upload'
@@ -404,6 +409,7 @@ play_recent(){
     #update_table logger "$date1" "play_recent" "$line1"
 }
 resources(){
+    notify-send1 'resources' 'list'
     local url=$(        random_line $DATA_DIR/tmp/resources.tmp )
     commander "exo-open $url"
 
@@ -512,6 +518,7 @@ suspend1(){
     detach    'tasker reminder'
     notify-send1 'suspend1' 'finish,is killing free text?'
     sleep1 20
+    #detach must
 }
 pownder(){
     local subject="$1"

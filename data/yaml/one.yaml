@@ -9,16 +9,21 @@ resources:
         - http://stackoverflow.com/
         - http://stackoverflow.com/
         - http://mywiki.wooledge.org/BashSheet
+        - https://travis-ci.org/arunoda/meteor-smart-collections
+
 workflow:
 #        #- tasker limit1 200 free_speak|say thanks a little bit
         #- tasker limit1 20 pownder easy|pownder about 
         #- tasker limit1 20 pownder advise|pownder about 
-        - tasker limit1 60 add_koan|add 1 koan
+        #
+        #
         #- tasker limit1 20 act_or_do breath|x
         #- tasker limit1 20 say 'think what is easy'|x
 #        - tasker limit1 120 say task|do 1 task
-        - tasker limit1 300 say meteor|fix meteor
+        - tasker limit1 160 add_koan|add 1 koan
+        - tasker limit1 60 set_rational_condition|set a rational condition
 #        - tasker limit1 60 translate_later|how to say
+        - tasker limit1 60 say meteor|fix meteor
         - tasker limit1 30 collect_new_words|collect new words
         - tasker suspend2 true|suspend package
 #        must
