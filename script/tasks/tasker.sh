@@ -309,9 +309,7 @@ add_koan(){
 
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
     detach "$cmd"
-   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.cfg"
-    detach "$cmd"
-    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_arithmetics.sh"
+   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.sh"
     detach "$cmd"
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_sed.sh"
     detach "$cmd"
@@ -510,7 +508,7 @@ suspend1(){
 
 
     #flite 'clean whiteboard - is important - to increase motivation' true
-    #tasker limit1 130 'collect_new_words'
+    tasker limit1 60 'collect_new_words'
 
     $PLUGINS_DIR/suspend.sh
 

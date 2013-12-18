@@ -1,3 +1,9 @@
+07:28|1|
+07:28|1| _ 1: tasker limit1 300 add_koan
+06:46|0| _ 1: tasker limit1 300 add_koan
+06:34|1| _ 1: tasker limit1 300 add_koan
+06:34|1| _ 1: tasker limit1 300 add_koan
+06:34|1| _ 1: tasker limit1 160 add_koan
 14:24|1|
 14:24|1|
 14:24|1| _ 1: tasker limit1 120 say meteor _ 2: tasker limit1 60 add_koan _ 3: tasker limit1 60 set_rational_condition _ 4: tasker limit1 30 collect_new_words _ 5: tasker suspend2 true

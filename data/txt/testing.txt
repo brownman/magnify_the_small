@@ -1,5 +1,11 @@
+export new words to file.txt- load it with meteor
 connect koans-touch project-export to meteor
 
+
+ideas
+------
+android:
+shortkeys for record voice - android - idea  -  hotkeys
 update this file
 
 old:
