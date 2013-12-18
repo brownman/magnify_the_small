@@ -31,9 +31,13 @@ run(){
 
     (exo-open "http://www.goethe-verlag.com/book2/EN/EN${lang}/EN${lang}002.HTM" &)
 
-    lang=$( gxmessage -title "Lang: $lang" 'choose a language :' -entrytext "$lang" $GXMESSAGET -buttons "ok" )
+    #lang=$( gxmessage -title "Lang: $lang" 'choose a language :' -entrytext "$lang" $GXMESSAGET -buttons "ok" )
 
-    lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
+    #lesson=$( gxmessage -title "Level: $lesson" 'choose a lesson number:' -entrytext $lesson $GXMESSAGET -buttons "ok:$lesson" )
+
+    random1 80
+    lesson=$?
+    notify-send1 'lesson' "$lesson"
 
     if [ !  "$lang" ];then
         exiting

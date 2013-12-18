@@ -10,6 +10,7 @@ resources:
         - http://stackoverflow.com/
         - http://mywiki.wooledge.org/BashSheet
         - https://travis-ci.org/arunoda/meteor-smart-collections
+        - http://manned.org/yad/820cb168
 
 workflow:
 #        #- tasker limit1 200 free_speak|say thanks a little bit
@@ -138,3 +139,7 @@ done:
 
 url:
     - http://wiki.bash-hackers.org/rcwatson
+    
+must:
+    - tasker reminder
+    - tasker git_commit

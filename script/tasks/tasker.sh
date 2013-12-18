@@ -12,7 +12,7 @@ translate_later(){
 }
 
 
-cfg1(){
+config(){
     #export DEBUG=true
     notify-send 'cfg-test' 'unit..' 
     args=( "$@" )
@@ -28,7 +28,7 @@ say(){
 }
 collect_new_words(){
     cmd='tasker learn_langs'
-    detach "$cmd"
+    commander "$cmd" &
     flite 'collect new words!' true
     flite 'create your own conversation'
     optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
@@ -309,7 +309,7 @@ add_koan(){
 
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
     detach "$cmd"
-   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.sh"
+   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
     detach "$cmd"
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_sed.sh"
     detach "$cmd"
@@ -331,7 +331,7 @@ chmod u+x $file
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
     detach "$cmd"
 
- cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/garbadge.sh"
+ cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
     detach "$cmd"
 }
 
@@ -566,8 +566,9 @@ game_essay(){
 learn_langs(){
     local file=$DATA_DIR/txt/conversation.txt
     local    cmd='tasker free_imagination $file'
-    (    optional "$cmd" &)
-    xterm1 $PLUGINS_DIR/learn_langs.sh 
+        optional "$cmd" 
+    local cmd1="xterm1 $PLUGINS_DIR/learn_langs.sh"
+    detach "$cmd1"
     #play_lesson 
     #notify-send3 finish-task1
 }

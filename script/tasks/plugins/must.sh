@@ -1,5 +1,5 @@
 notify-send1  'plugin:' 'must' 
-run(){
+run1(){
 
 
     #$( tasker  efficiency_report )
@@ -17,6 +17,29 @@ run(){
     #fi
     #fi
 
+}
+run(){
+local file=$DATA_DIR/tmp/must.tmp
+   while read -r line
+    do
+        [[ $line = \#* ]] && continue
+        if [ "$line" != ''  ];then
+            arr+=("$line")
+        fi
+    done < $file
+local str=$(check_boxes)
+#echo "$str"
+
+
+        #update_commander
+    IFS='|' read -a lines <<< "$str"
+       for line in "${lines[@]}"
+    do
+
+commander "$line"
+    done
+
+echo "$str"
 }
 
 

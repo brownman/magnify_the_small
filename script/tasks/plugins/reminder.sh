@@ -31,39 +31,21 @@ stop_watch1(){
 
 
 }
-#increase_motivation(){
-#    local  str=$(random_reason)
-#    helper0 "$str"
-#    local motivation=$(gxmessage -entrytext "$motivation"  -title 'new reason:' "$str" $GXMESSAGET )
-#    helper0 "$motivation" $file_log
-#    echo "$motivation"
-#}
+
 
 run(){
-
+local text11='practice estimation'
     local delay=600 
     local motivation=''
     local cmd=''
     #local str=''
     local res=0
 
-    line=$(gxmessage -entrytext "$line" -title 'enter new' 'goal' $GXMESSAGET)
-
+    line=$(gxmessage -entrytext "$line" -title 'enter new' "$text11" $GXMESSAGET)
+  if [ "$line" = '' ];then
+        exiting
+    fi
     local  title="$line"
-
-    #''
-
-#    if [ "$line" ];then
-#
-#        title="$line"
-#    else
-#
-##$tasks_sh free_imagination
-#        #title=$(zenity2  yaml priorities )
-#        line=$(zenity2  txt testing )
-#    local desc=$( echo "$line" | awk -F '|' '{print $1}' )
-#        title="$desc"
-#    fi
 
 
     local text1="$title" 
@@ -96,14 +78,3 @@ update_delay(){
 }
 
 unlocker
-#    type1=$(gxmessage -entrytext "$type" -title 'enter new' 'type' $GXMESSAGET)
-#    title=$(gxmessage -entrytext "$title" -title 'enter new' 'title' $GXMESSAGET)
-#   local raw=$( zenity --forms --title="Add a progress bar" \
-    #        --text="supply:" \
-    #        --separator="," \
-    #        --add-entry="delay" \
-    #        --add-entry="mini-task" )
-#
-#  local delay=$(echo "$raw" | awk -F ',' '{print $1}')
-#  local text1=$(echo "$raw" | awk -F ',' '{print $3}')
-#assert_equal_str "$title"
