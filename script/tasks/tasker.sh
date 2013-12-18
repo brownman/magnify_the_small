@@ -439,7 +439,8 @@ easiest_task(){
 
 must(){
 
-    $PLUGINS_DIR/must.sh 
+    cmd="$PLUGINS_DIR/must.sh"
+    detach "$cmd"
 
 }
 
@@ -495,7 +496,7 @@ cfg_update(){
 }
 suspend1(){
     local timeout=300
-    #tasker must &
+    tasker must 
     notify-send1 'reminder' 'kill noisy tasks'
     #sleep1 20
     local gui=$1
