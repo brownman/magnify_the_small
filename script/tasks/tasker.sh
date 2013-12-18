@@ -34,7 +34,10 @@ collect_new_words(){
     optional "free_imagination  $DATA_DIR/txt/conversation.txt" 
     ( exo-open http://www.google.com &)
 }
+cfg1(){
 
+assert_equal_str 'die'
+}
 #efficiency_report(){
 #    flite 'efficiency report'
 #    notify-send1 'efficiency report:' 'words,snippets,order'
@@ -478,6 +481,7 @@ background(){
 #}
 suspend2(){
     #must &
+    notify-send1 'suspend2 '  'run'
 
     notify-send3 'chase your fear and they will run away from you'
     sleep1 20
@@ -496,7 +500,9 @@ cfg_update(){
 }
 suspend1(){
     local timeout=300
-    tasker must 
+
+ 
+
     notify-send1 'reminder' 'kill noisy tasks'
     #sleep1 20
     local gui=$1
@@ -509,14 +515,15 @@ suspend1(){
 
 
     #flite 'clean whiteboard - is important - to increase motivation' true
-    tasker limit1 60 'collect_new_words'
+    cmd="tasker limit1 60 'collect_new_words'"
+    every "$cmd"
 
     $PLUGINS_DIR/suspend.sh
 
     #tasker free_imagination &
-    detach    'tasker reminder'
     notify-send1 'suspend1' 'finish,is killing free text?'
-    sleep1 20
+   cmd='tasker must'
+    detach "$cmd" 
     #detach must
 }
 pownder(){

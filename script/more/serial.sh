@@ -36,7 +36,8 @@ read_lines(){
     local max=${#lines[@]}
 
 
-    local max_efficiency=$( tasker cfg1 level $max )
+    local max_efficiency=$( tasker config level $max )
+assert_equal_str "$max_efficiency"
     if [ $max_efficiency = '' ];then
 return
     fi

@@ -1,3 +1,14 @@
+15:34|1| _ 1: tasker limit1 300 add_koan
+13:46|0| _ 1: tasker limit1 300 add_koan
+15:29|1| _ 1: tasker limit1 300 add_koan
+15:29|0|
+15:13|0| _ 1: tasker limit1 300 add_koan
+14:51|0| _ 1: tasker limit1 300 add_koan
+14:51|0| _ 1: tasker limit1 300 add_koan
+12:22|0| _ 1: tasker limit1 300 add_koan
+11:15|0| _ 1: tasker limit1 300 add_koan
+11:01|1| _ 1: tasker limit1 300 add_koan
+11:01|0| _ 1: tasker limit1 300 add_koan
 09:39|0| _ 1: tasker limit1 300 add_koan
 09:28|1| _ 1: tasker limit1 300 add_koan
 09:39|1|

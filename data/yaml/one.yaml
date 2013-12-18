@@ -143,3 +143,7 @@ url:
 must:
     - tasker reminder
     - tasker git_commit
+    - tasker learn_langs
+    - tasker increase_motivation
+    - tasker riddle 
+    - tasker reminder 

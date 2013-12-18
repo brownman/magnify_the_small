@@ -1,5 +1,3 @@
-:7:every 
-:4:update_commander 
-:10:notify-send4 
-:19:cfg1 
-:622:main 
+:11:assert_equal_str 
+:40:read_lines 
+:93:main 
