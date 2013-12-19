@@ -11,8 +11,11 @@ resources:
         - http://mywiki.wooledge.org/BashSheet
         - https://travis-ci.org/arunoda/meteor-smart-collections
         - http://manned.org/yad/820cb168
+        - http://codepen.io/sol0mka/pen/kpDtI
 
 workflow:
+        - tasker limit1 30 reminder|set a new goal
+        - tasker limit1 300 add_koan|add 1 koan
 #        #- tasker limit1 200 free_speak|say thanks a little bit
         #- tasker limit1 20 pownder easy|pownder about 
         #- tasker limit1 20 pownder advise|pownder about 
@@ -21,7 +24,6 @@ workflow:
         #- tasker limit1 20 act_or_do breath|x
         #- tasker limit1 20 say 'think what is easy'|x
 #        - tasker limit1 120 say task|do 1 task
-        - tasker limit1 300 add_koan|add 1 koan
         #- tasker limit1 60 set_rational_condition|set a rational condition
 #        - tasker limit1 60 translate_later|how to say
         #- tasker limit1 60 say meteor|fix meteor

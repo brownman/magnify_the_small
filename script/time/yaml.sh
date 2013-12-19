@@ -53,7 +53,7 @@ trace "show keys: $keys1"
 show_keys
 tasker db update_db_list
 touch $PROJECT_DIR/genius.sh
-tasker wallpaper
+#tasker wallpaper
  
 
 #

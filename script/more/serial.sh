@@ -86,9 +86,16 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
 
     $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
     local result1=$?
-    update_file $file_logger "$time1|$result1|$str_tasks"
+    if [ $result1 -eq "$YES" ];then
+
+        #update_file $file_logger
+        local str="$str_tasks"
+    tasker update_points "$str"
 cmd='tasker wallpaper'
 detach "$cmd"
+    fi
+
+
 
 
 }

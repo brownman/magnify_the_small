@@ -10,6 +10,7 @@ local file=$DATA_DIR/tmp/must.tmp
         fi
     done < $file
 local str=$(check_boxes)
+tasker update_points "$str"
 #echo "$str"
 
 

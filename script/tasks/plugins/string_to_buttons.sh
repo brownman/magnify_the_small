@@ -100,7 +100,7 @@ act(){
 
         trace "choosen: $str4"
         res="$str4"
-
+tasker update_points "$str4"
     fi
 
 #assert_equal_str "$res" 'dog'

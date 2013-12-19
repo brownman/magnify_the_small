@@ -1,3 +1,16 @@
+14:34| _ 1: tasker limit1 30 reminder
+14:29|_: disown : 21702 :
+_: notify-send called from: check_boxes :  :
+_: notify-send called from: run :  :
+
+tasker cron
+13:56| _ 1: tasker limit1 30 reminder _ 2: tasker limit1 300 add_koan
+14:18|_: remove_trailing :  :
+_:  :  :
+14:05|
+tasker cron
+13:34|
+12:25|0| _ 1: tasker limit1 300 add_koan
 09:55|1| _ 1: tasker limit1 300 add_koan
 09:15|1|
 09:15|0| _ 1: tasker limit1 300 add_koan

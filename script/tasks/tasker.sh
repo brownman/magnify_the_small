@@ -7,8 +7,19 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+update_points(){
+    local str="$1"
+update_file $file_logger "$time1|$str"
+cmd='tasker wallpaper'
+every "$cmd"
+}
+
+
 cron(){
+    export EDITOR=/usr/bin/gedit
 trace 'edit cron jobs'
+cmd="crontab -e"
+detach "$cmd"
 }
 
 wallpaper(){
@@ -325,15 +336,12 @@ scrap(){
 add_koan(){
     #yellow 'add 1 koan !'
     #( bash -c $KOANS_DIR/meditate.sh &)
-
-    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
-    detach "$cmd"
-   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
-    detach "$cmd"
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_sed.sh"
     detach "$cmd"
-    cmd="gedit $PROJECT_DIR/bugs/bash_koans/meditate"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_project.sh"
     detach "$cmd"
+    cmd='tasker open_more'
+    optional "$cmd"
 }
 add_koan_type(){
 
@@ -342,9 +350,17 @@ local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
 touch $file
 chmod u+x $file
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
-
     #update_commander
-
+    detach "$cmd"
+    cmd='tasker open_more'
+    optional "$cmd"
+}
+open_more(){
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/meditate"
+    detach "$cmd"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
+    detach "$cmd"
+   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
     detach "$cmd"
 
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
@@ -577,10 +593,11 @@ collaboration(){
 }
 
 reminder(){
-    notify-send1 'reminder'
+    #notify-send1 'reminder'
     flite 'update  every cicle'
-    local line="$1"
-    $PLUGINS_DIR/reminder.sh "$line"
+    #local line="$1"
+    $PLUGINS_DIR/reminder.sh 
+    #"$line"
 }
 
 game_essay(){

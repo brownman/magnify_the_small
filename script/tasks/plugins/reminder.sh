@@ -8,7 +8,7 @@ notify-send1 "reminder" "$@"
 
 delay=5
 file_locker=/tmp/reminder
-line="$1"
+line="${1:-'goal'}"
 stop_watch1(){
     trace "stop_watch1() got: $?"
 

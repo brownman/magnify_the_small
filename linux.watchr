@@ -47,7 +47,9 @@
 
 
 
+
 watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
+watch('data/txt/error.txt') {|match| system "./genius.sh simple_notification error"}
 
 #watch('data/yaml/one.yaml') {|match| system "./1/testing/python2/run.sh"}
 #

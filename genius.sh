@@ -21,11 +21,14 @@ result='equal'
 if [ "$input" = '' ];then
     #notify-send 'run:' 'menu'
 
-cat $DATA_DIR/txt/history.txt & 
+cmd="cat $DATA_DIR/txt/history.txt"
+detach "$cmd"
 #    unlocker
 else
     file11=$dir1/${input}.sh
-    result=$($file11 "${args[@]}")
+    result=$($file11 "${args[@]}" 2>&1 >> $file_error)
+#somecommand 2>&1 >> logfile | tee -a logfile
+#do_something 2>&1
     #1" "$arg2" "$arg3"
 fi
 echo "$result"
