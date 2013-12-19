@@ -37,13 +37,13 @@ read_lines(){
 
 
     local max_efficiency=$( tasker config level $max )
-assert_equal_str "$max_efficiency"
+#assert_equal_str "$max_efficiency"
     if [ $max_efficiency = '' ];then
 return
     fi
     if [ $max_efficiency -eq 0 ];then
 
-        gedit $DATA_DIR/yaml/one.yaml
+optional        "gedit $DATA_DIR/yaml/one.yaml"
         return
     fi
 
@@ -87,6 +87,8 @@ return
     $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
     local result1=$?
     update_file $file_logger "$time1|$result1|$str_tasks"
+cmd='tasker wallpaper'
+detach "$cmd"
 
 
 }

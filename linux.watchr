@@ -46,6 +46,7 @@
 
 
 
+
 watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 
 #watch('data/yaml/one.yaml') {|match| system "./1/testing/python2/run.sh"}
@@ -53,6 +54,10 @@ watch('data/yaml/one.yaml') {|match| system "./genius.sh yaml"}
 
 watch('1/testing/python2/koans\/.*\.py') {|match| system "./1/testing/python2/run.sh"}
 watch('bugs/bash_koans/src\/.*\.sh') {|match| system "bugs/bash_koans/meditate"}
+
+
+watch('script/cfg\/.*\.cfg') {|match| system "./genius.sh simple_notification"}
+watch('script/tasks/plugins\/.*\.sh') {|match| system "./genius.sh simple_notification"}
 
 
 watch('script/time/test.sh') {|match| system "./1/testing/python2/run.sh"}
@@ -67,7 +72,10 @@ watch('genius.sh') {|match| system "./1/testing/python2/run.sh"}
 #watch('.\/*\.sh') {|match| system "./1/testing/python2/run.sh"}
 
 #watch('.*\.sh') {|match| system "./1/testing/python2/run.sh"}
-watch('.*\.cfg') {|match| system "./1/testing/python2/run.sh"}
+
+#watch('script/cfg/*.cfg') {|match| system "./genius.sh yaml"}
+#watch('script/cfg/*.cfg') {|match| system "./genius.sh simple_notification"}
+#'script/test_.*\.rb' 
 #
 watch('data/txt/testing.txt') {|match| system  "./1/testing/python2/run.sh"}
 

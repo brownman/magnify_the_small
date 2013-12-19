@@ -1,3 +1,2 @@
-:11:assert_equal_str 
-:40:read_lines 
-:93:main 
+:46:cfg1 
+:691:main 

@@ -7,6 +7,15 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+cron(){
+trace 'edit cron jobs'
+}
+
+wallpaper(){
+detach $PLUGINS_DIR/wallpaper.sh
+}
+
+
 translate_later(){
     gedit $DATA_DIR/txt/later.txt
 }
@@ -36,7 +45,14 @@ collect_new_words(){
 }
 cfg1(){
 
-assert_equal_str 'die'
+#assert_equal_str 'cfg1 doesnt exist'
+#config
+#breakpoint
+trace 'no cfg1'
+flite 'exiting'
+sleep1 8
+exiting
+
 }
 #efficiency_report(){
 #    flite 'efficiency report'
