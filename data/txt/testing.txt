@@ -1,3 +1,4 @@
+shortkey: group options: fast add - gui  for category: koan/cfg/txt/yaml
 logout chat timeout
 chat +cli
 conkey + commandlinefu

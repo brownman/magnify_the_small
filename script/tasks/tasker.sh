@@ -8,22 +8,24 @@ notify-send 'db.sh' "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 update_points(){
-    local str="$1"
-update_file $file_logger "$time1|$str"
 cmd='tasker wallpaper'
-every "$cmd"
+detach "$cmd"
+    local str="$1"
+    update_file $file_logger "$time1|$str"
+    cmd='tasker wallpaper'
+    every "$cmd"
 }
 
 
 cron(){
     export EDITOR=/usr/bin/gedit
-trace 'edit cron jobs'
-cmd="crontab -e"
-detach "$cmd"
+    trace 'edit cron jobs'
+    cmd="crontab -e"
+    detach "$cmd"
 }
 
 wallpaper(){
-detach $PLUGINS_DIR/wallpaper.sh
+    detach $PLUGINS_DIR/wallpaper.sh
 }
 
 
@@ -39,8 +41,6 @@ config(){
     res1=$(  "${args[@]}" )
     echo "$res1" #must echo for testing to work
     #assert_equal_str "$res1"
-
-
 }
 
 say(){
@@ -56,13 +56,13 @@ collect_new_words(){
 }
 cfg1(){
 
-#assert_equal_str 'cfg1 doesnt exist'
-#config
-#breakpoint
-trace 'no cfg1'
-flite 'exiting'
-sleep1 8
-exiting
+    #assert_equal_str 'cfg1 doesnt exist'
+    #config
+    #breakpoint
+    trace 'no cfg1'
+    flite 'exiting'
+    sleep1 8
+    exiting
 
 }
 #efficiency_report(){
@@ -286,7 +286,7 @@ motivation(){
     if [ "$subject" = '' ];then
         random1 10
         ans=$?
-        if [ $ans -gt 3 ];then
+        if [ $ans -gt 5 ];then
             line=$(random_from_subject1 glossary)
         else
             line=$(random_from_subject1 sport)
@@ -296,6 +296,7 @@ motivation(){
         #assert_equal_str "$line"
     fi
 
+  tasker  update_points "$line"
 
     helper0 "$line"  
     #assert_equal_str "$line"
@@ -346,34 +347,40 @@ add_koan(){
 add_koan_type(){
 
     local str=$(gxmessage $GXMESSAGET -entry -title 'koan' 'update:' )
-local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
-touch $file
-chmod u+x $file
-    cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
-    #update_commander
-    detach "$cmd"
-    cmd='tasker open_more'
-    optional "$cmd"
+    if [ "$str" ];then
+
+
+        local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
+        touch $file
+        chmod u+x $file
+        cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
+        #update_commander
+        detach "$cmd"
+        cmd='tasker open_more'
+        optional "$cmd"
+    else
+        notify-send1 'skip' 'file creation'
+    fi
 }
 open_more(){
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/meditate"
     detach "$cmd"
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
     detach "$cmd"
-   cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
     detach "$cmd"
 
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/functions.sh"
     detach "$cmd"
 
- cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
+    cmd="gedit $PROJECT_DIR/bugs/bash_koans/support/1/garbadge.sh"
     detach "$cmd"
 }
 
 set_rational_condition(){
-trace ''
-local file="$DATA_DIR/txt/rational_condition.txt"
-gedit "$file"
+    trace ''
+    local file="$DATA_DIR/txt/rational_condition.txt"
+    gedit "$file"
 }
 
 record_for_later(){
@@ -492,48 +499,42 @@ background(){
     ###########################
     notify-send3 finito
 }
-#suspend2(){
-#    #local timeout=60
-#
-#    #must &
-##tasker lpi &
-#    #sleep2 book 'read an lpi book' 120
-#
-##
-##    #sleep2 suspend 'now is the correct time - for updating the project' $timeout
-##    if [ $ans -ne 0 ];then
-##        play_recent2
-##    fi
-#    notify-send1 'skip suspension for deal my fears:' '..'
-#    flite 'white board is awesome'
-#    $PLUGINS_DIR/suspend.sh
-##    if [ $ans -ne 0 ];then
-##        after_suspend2 #use it with checkboxes
-##    fi
-#}
+
 suspend2(){
     #must &
-    notify-send1 'suspend2 '  'run'
+    notify-send3 'suspend2 '  
 
-    notify-send3 'chase your fear and they will run away from you'
+    notify-send1 'chase your fear and they will run away from you'
     sleep1 20
     notify-send1 'skip suspension for deal my fears:' '..'
     flite 'white board is awesome' true
     sleep1 5
 
-    motivation sport  
+
     $PLUGINS_DIR/suspend.sh
+
+    tasker motivation sport  
+
+tasker update_points "suspend2"
 
 }
 cfg_update(){
     local str=$(gxmessage $GXMESSAGET -entry -title 'cfg' 'update:' )
-    gedit $CFG_DIR/$str.cfg &
+    local cmd=''
+    if [ "$str" ];then
+
+        cmd="gedit $CFG_DIR/$str.cfg"
+        detach "$cmd"
+    else
+        notify-send1 'cfg_update' 'skip'
+    fi
+
 
 }
 suspend1(){
     local timeout=300
 
- 
+
 
     notify-send1 'reminder' 'kill noisy tasks'
     #sleep1 20
@@ -554,8 +555,10 @@ suspend1(){
 
     #tasker free_imagination &
     notify-send1 'suspend1' 'finish,is killing free text?'
-   cmd='tasker must'
+    cmd='tasker must'
     detach "$cmd" 
+
+update_points "suspend1"
     #detach must
 }
 pownder(){
@@ -607,7 +610,7 @@ game_essay(){
 learn_langs(){
     local file=$DATA_DIR/txt/conversation.txt
     local    cmd='tasker free_imagination $file'
-        optional "$cmd" 
+    optional "$cmd" 
     local cmd1="xterm1 $PLUGINS_DIR/learn_langs.sh"
     detach "$cmd1"
     #play_lesson 

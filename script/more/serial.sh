@@ -91,8 +91,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
         #update_file $file_logger
         local str="$str_tasks"
     tasker update_points "$str"
-cmd='tasker wallpaper'
-detach "$cmd"
+
     fi
 
 

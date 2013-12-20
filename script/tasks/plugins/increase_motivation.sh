@@ -8,8 +8,6 @@ loop(){
 
     local delay=181
 
-    delay=$(gxmessage -entrytext "$delay" -title 'enter new' 'delay' $GXMESSAGET)
-    local answer=""
 if [ "$delay" ];then
     
 
@@ -18,13 +16,10 @@ if [ "$delay" ];then
         helper0 "$trigger" $file_log  
         local answer=$(gxmessage -entrytext ""  -title 'new reason:' "$trigger" $GXMESSAGET )
 
-        #sub-funcs can run break command
         helper0 "$answer" "$file_log"
 
         local  cmd="sleep2 '$answer' '$trigger' '$delay'" 
-        #update_commander
         res=$(commander "$cmd")
-        #silently_run "$cmd"
     done
 
 fi

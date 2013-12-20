@@ -18,6 +18,7 @@ trace "pid: $$"
 dir1=$SCRIPT_DIR/time
 result='equal'
 
+#clean_file "$file_logger"
 if [ "$input" = '' ];then
     #notify-send 'run:' 'menu'
 

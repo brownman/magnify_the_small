@@ -1,2 +1,3 @@
+tasker limit1 30 increase_motivation|increase motivation
 tasker limit1 30 reminder|set a new goal
-tasker limit1 300 add_koan|add 1 koan
+tasker limit1 120 suspend1 true|order and sport
