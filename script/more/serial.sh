@@ -31,10 +31,11 @@ read_lines(){
     done < $file_workflow
 
     #gxmessage -file $file_workflow "$GXMESSAGET" -title 'ensure this workflow:'
-messageFYN1 "$file_workflow" \
-'ensure this workflow:'
-local res=$?
-if [ $res -eq $NO ];then
+    local str_file_workflow=$(cat $file_workflow)
+    $(messageYN1 "$str_file_workflow" 'ensure this workflow:')
+local res_fyn=$?
+if [ $res_fyn -eq $NO ];then
+    $TIME_DIR/yaml.sh
 exiting
 else
     notify-send1 'continue' 
@@ -48,12 +49,12 @@ fi
     local max_efficiency=$( tasker config level $max )
 #assert_equal_str "$max_efficiency"
     if [ $max_efficiency = '' ];then
-return
+exiting
     fi
     if [ $max_efficiency -eq 0 ];then
 
 optional        "gedit $DATA_DIR/yaml/one.yaml"
-        return
+        exiting
     fi
 
 
@@ -64,7 +65,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
     count=1
     local str_tasks=''
 
-    gxmessage -file "$file_logger" $GXMESSAGET
+    #gxmessage -file "$file_logger" $GXMESSAGET
     for line in "${lines[@]}"
     do
         notify-send1 'continue on moving your ass around'
@@ -72,7 +73,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
         local     action=$( echo "$line" | awk -F '|' '{print $1}' )
         local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
 
-        $( messageYN1 "$desc" ' next task?'  )
+        $( messageYN1 "$desc" 'action:'  )
         local result=$?
         if [[ $result -eq $YES ]];then
             str_tasks="$str_tasks _ $count: $action"
@@ -94,7 +95,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
         fi
     done
 
-    $( messageYN1 "report:" ' are you efficient ? (answer: left or right)'  )
+    $( messageYN1 "report:" ' are you effective ? '  )
     local result1=$?
     if [ $result1 -eq "$YES" ];then
 

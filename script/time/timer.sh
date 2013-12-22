@@ -26,14 +26,19 @@ run(){
         #cmd=".$file_loader"
         #commander "$cmd"
 
-        reload_cfg
+
+
+
+        run_workflow
+
 cmd='tasker motivation koan'
-every  "$cmd"
+every  "$cmd" 
 #force_koan 
 cmd='tasker resources'
 every "$cmd"
 
-        run_workflow
+
+        reload_cfg
 
 
         #sleep1 $waiting

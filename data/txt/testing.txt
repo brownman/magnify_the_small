@@ -1,3 +1,4 @@
+python + security
 meteor - investigation project - todo with login
 backup mariana's pictures
 fix  - debug gui  utils - use only with cmd - and log it 

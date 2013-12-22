@@ -28,17 +28,18 @@ line=${1:-goal}
 #
 
 run(){
-    local text11='practice estimation'
+    local content='practice estimation'
     local delay=600 
     local motivation=''
     local cmd=''
     local res=0
-    line=$(gxmessage -entrytext "$line" -title 'enter new' "$text11" $GXMESSAGET)
+    line=$(gxmessage -entrytext "$line" -title 'next goal' "$content" $GXMESSAGET)
     if [ "$line" = '' ];then
         exiting
     fi
-    local  title="$line"
-    local text1="$title" 
+    local  title="goal"
+    local text1="$line" 
+tasker update_points "$text1"
     #while :;do
         #$( messageYN1 "$text1" "reminder" '' 35 )
         #res=$?

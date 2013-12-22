@@ -8,20 +8,38 @@ notify-send 'db.sh' "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 update_points(){
-cmd='tasker wallpaper'
-detach "$cmd"
+
     local str="$1"
-    update_file $file_logger "$time1|$str"
-    cmd='tasker wallpaper'
-    every "$cmd"
+    if [ "$str" ];then
+
+
+
+        update_file $file_logger "$time1|$str"
+        #    cmd='tasker wallpaper'
+        #    every "$cmd"
+        cmd='tasker wallpaper'
+        detach "$cmd"
+    else
+        notify-send 'skip'
+    fi
 }
 
 
-cron(){
+cronE(){
+
     export EDITOR=/usr/bin/gedit
     trace 'edit cron jobs'
     cmd="crontab -e"
     detach "$cmd"
+    echo  'cron service is alive ?'
+}
+
+cronA(){
+
+    notify-send1 'cron' 'is running'
+    sleep1 1
+    update_points "cron job - suspend2"
+tasker suspend2
 }
 
 wallpaper(){
@@ -106,8 +124,8 @@ children_story(){
     free_speak child &
 }
 riddle(){
-    notify-send1 'riddle'
-    xterm1 $PLUGINS_DIR/riddle.sh 
+    notify-send1 'task' 'riddle'
+   $PLUGINS_DIR/riddle.sh 
 }
 
 
@@ -296,7 +314,7 @@ motivation(){
         #assert_equal_str "$line"
     fi
 
-  tasker  update_points "$line"
+    tasker  update_points "$line"
 
     helper0 "$line"  
     #assert_equal_str "$line"
@@ -501,7 +519,13 @@ background(){
 }
 
 suspend2(){
-    #must &
+ 
+    $PLUGINS_DIR/suspend.sh
+
+    tasker motivation sport  
+
+    tasker update_points "suspend2"
+   #must &
     notify-send3 'suspend2 '  
 
     notify-send1 'chase your fear and they will run away from you'
@@ -511,22 +535,17 @@ suspend2(){
     sleep1 5
 
 
-    $PLUGINS_DIR/suspend.sh
-
-    tasker motivation sport  
-
-tasker update_points "suspend2"
 
 }
 cfg_update(){
-    
+
 
     local type=$(gxmessage $GXMESSAGET -entry -title 'file type' 'choose:' )
     local str=$(gxmessage $GXMESSAGET -entry -title 'file name' 'update:' )
     local cmd=''
-    
+
     if [ "$str" ] && [ "$type" ]
-        then
+    then
         cmd="gedit $DATA_DIR/$type/$str.$type"
         detach "$cmd"
     else
@@ -562,7 +581,7 @@ suspend1(){
     cmd='tasker must'
     detach "$cmd" 
 
-update_points "suspend1"
+    update_points "suspend1"
     #detach must
 }
 pownder(){

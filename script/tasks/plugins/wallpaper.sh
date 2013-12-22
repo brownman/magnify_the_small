@@ -49,7 +49,7 @@ generate(){
     color=$7
     override=$8
     #generate text:
-    cat -n $text_file | head -$amount |    convert -background none  -fill $color -size $size  -pointsize $point_size caption:@-  $file_text_image
+    cat  $text_file | head -$amount |    convert -background none  -fill $color -size $size  -pointsize $point_size caption:@-  $file_text_image
     composite -geometry "+$x+$y" $file_text_image $background $file_after 
 }
 
