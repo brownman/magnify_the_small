@@ -76,7 +76,7 @@ test_yaml(){
 
 
 local cmd="tasker free_imagination $DATA_DIR/txt/testing.txt"
-tasker cfg1 notify-send4 "$line" "$cmd"
+tasker config notify-send4 "$line" "$cmd"
 
 cmd='tasker motivation'
 run_silently "$cmd"

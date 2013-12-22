@@ -25,6 +25,8 @@ run(){
         #update_commander
         #cmd=".$file_loader"
         #commander "$cmd"
+
+        reload_cfg
 cmd='tasker motivation koan'
 every  "$cmd"
 #force_koan 
@@ -32,6 +34,8 @@ cmd='tasker resources'
 every "$cmd"
 
         run_workflow
+
+
         #sleep1 $waiting
 #        if [ "$DEBUG" = false ];then
 #            random_quote_before  

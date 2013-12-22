@@ -30,7 +30,16 @@ read_lines(){
         fi
     done < $file_workflow
 
-    gxmessage -file $file_workflow "$GXMESSAGET" -title 'confirmation'
+    #gxmessage -file $file_workflow "$GXMESSAGET" -title 'ensure this workflow:'
+messageFYN1 "$file_workflow" \
+'ensure this workflow:'
+local res=$?
+if [ $res -eq $NO ];then
+exiting
+else
+    notify-send1 'continue' 
+    #'to first task'
+fi
 
 
     local max=${#lines[@]}
@@ -72,6 +81,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
             flite "$desc" true 
             local args=( ${action} )
             local res1=$(  "${args[@]}" )
+            notify-send1 'next' 'task' 
             sleep1 8
             let "count=count+1"
         else

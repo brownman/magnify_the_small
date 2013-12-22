@@ -8,24 +8,24 @@ notify-send1 "reminder" "$@"
 
 delay=5
 file_locker=/tmp/reminder
-line=${1:-'goal'}
+line=${1:-goal}
 
-stop_watch1(){
-    trace "stop_watch1() got: $?"
-    local content="$1"
-    local res=1
-    while :;do
-        $(messageYN1 "$date1: $content" "remind?")
-        res=$?
-        if [ $res -eq $YES ];then
-            notify-send1 "$content"
-            sleep1 10
-        else
-            break
-        fi
-    done
-}
-
+#stop_watch1(){
+#    trace "stop_watch1() got: $?"
+#    local content="$1"
+#    local res=1
+#    while :;do
+#        $(messageYN1 "$date1: $content" "remind?")
+#        res=$?
+#        if [ $res -eq $YES ];then
+#            notify-send1 "$content"
+#            sleep1 10
+#        else
+#            break
+#        fi
+#    done
+#}
+#
 
 run(){
     local text11='practice estimation'
@@ -39,20 +39,21 @@ run(){
     fi
     local  title="$line"
     local text1="$title" 
-    while :;do
-        $( messageYN1 "$text1" "reminder" '' 35 )
-        res=$?
+    #while :;do
+        #$( messageYN1 "$text1" "reminder" '' 35 )
+        #res=$?
 
-        if [[ $res -eq $YES ]];then
-            text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
-            helper0 "$text1" $file_log
-        else
+        #if [[ $res -eq $YES ]];then
+            #text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
+            #helper0 "$text1" $file_log
+        #else
             helper0 "$text1" $file_log
             cmd="sleep2 '$text1' '$title' '$delay'" 
-            eval "$cmd" 
-        fi
-    done
+            detach "$cmd" 
+        #fi
+    #done
 }
 
 
-unlocker
+#unlocker
+run

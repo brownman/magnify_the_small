@@ -1,3 +1,21 @@
+11:46| _ 1: tasker limit1 30 reminder _ 2: tasker limit1 120 suspend1 true
+11:46|
+11:46|suspend1
+09:28| _ 1: tasker limit1 120 suspend1 true
+09:28|
+09:28|suspend1
+09:28| _ 1: tasker limit1 120 suspend1 true
+09:28|
+09:28|suspend1
+15:04|
+15:04|suspend1
+14:55|great
+14:59|
+14:59|suspend1
+14:55|possible
+14:55|step
+14:54|smile!
+14:53|smile!
 14:36|
 tasker learn_langs
 14:21|

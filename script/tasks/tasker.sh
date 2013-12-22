@@ -519,11 +519,15 @@ tasker update_points "suspend2"
 
 }
 cfg_update(){
-    local str=$(gxmessage $GXMESSAGET -entry -title 'cfg' 'update:' )
-    local cmd=''
-    if [ "$str" ];then
+    
 
-        cmd="gedit $CFG_DIR/$str.cfg"
+    local type=$(gxmessage $GXMESSAGET -entry -title 'file type' 'choose:' )
+    local str=$(gxmessage $GXMESSAGET -entry -title 'file name' 'update:' )
+    local cmd=''
+    
+    if [ "$str" ] && [ "$type" ]
+        then
+        cmd="gedit $DATA_DIR/$type/$str.$type"
         detach "$cmd"
     else
         notify-send1 'cfg_update' 'skip'
@@ -549,7 +553,7 @@ suspend1(){
 
     #flite 'clean whiteboard - is important - to increase motivation' true
     cmd="tasker limit1 60 'collect_new_words'"
-    every "$cmd"
+    every "$cmd" $every_collect_new_words
 
     $PLUGINS_DIR/suspend.sh
 

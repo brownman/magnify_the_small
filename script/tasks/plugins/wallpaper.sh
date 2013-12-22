@@ -8,6 +8,7 @@ file_before=/tmp/before.png #copy of the original
 file_after=/tmp/after.png #compose: txt_image + background
 file_text_image=/tmp/text.png #convert txt to image
 file_txt=$file_logger
+amount=12
 #$DATA_DIR/txt/efficiency.txt
 #file_txt=~/tmp/1.txt
 
@@ -48,7 +49,7 @@ generate(){
     color=$7
     override=$8
     #generate text:
-    cat $text_file | head -6 |    convert -background none  -fill $color -size $size  -pointsize $point_size caption:@-  $file_text_image
+    cat -n $text_file | head -$amount |    convert -background none  -fill $color -size $size  -pointsize $point_size caption:@-  $file_text_image
     composite -geometry "+$x+$y" $file_text_image $background $file_after 
 }
 

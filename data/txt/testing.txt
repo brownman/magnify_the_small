@@ -1,3 +1,8 @@
+meteor - investigation project - todo with login
+backup mariana's pictures
+fix  - debug gui  utils - use only with cmd - and log it 
+
+shortkey : update by type of file: 
 shortkey: group options: fast add - gui  for category: koan/cfg/txt/yaml
 logout chat timeout
 chat +cli
