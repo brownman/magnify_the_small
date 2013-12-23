@@ -1,3 +1,10 @@
+firsttaks - increase motivation radio buttons..
+
+3 fields:
+cron - is allive
+suspend 
+collected - words
+
 python + security
 meteor - investigation project - todo with login
 backup mariana's pictures

@@ -28,35 +28,40 @@ run(){
     replace
 }
 efficiency_image(){
-#http://www.imagemagick.org/Usage/text/#pango_markup
-local file_txt=$DATA_DIR/pango/text_data.txt
-local file_image=/tmp/text_layered.jpg
+    #http://www.imagemagick.org/Usage/text/#pango_markup
+    local file_txt=$DATA_DIR/pango/text_data.txt
+    local file_image=/tmp/text_layered.jpg
 
-  cat $file_txt |
-  while read width gravity color  pointsize x y text
-  do
-    convert -size ${width}x -gravity $gravity -fill $color -background wheat \
-                -pointsize $pointsize  -page +${x}+${y}  label:"${text}"  miff:-
-  done |
+    cat $file_txt |
+    while read width gravity color  pointsize x y text
+    do
+        convert -size ${width}x -gravity $gravity -fill $color -background wheat \
+            -pointsize $pointsize  -page +${x}+${y}  label:"${text}"  miff:-
+    done |
     convert -size 200x100 xc:   -   -flatten    $file_image
-local cmd="xloadimage $file_image"
-detach "$cmd"
+    local cmd="xloadimage $file_image"
+    detach "$cmd"
 }
 
 parse_line_of_wallpaper(){
     local filename=$( echo "$line" | awk -F ' ' '{print $1}' )
     local file_txt="$DATA_DIR/txt/$filename.txt"
-    local x=$( echo "$line" | awk -F ' ' '{print $2}' )
-    local y=$( echo "$line" | awk -F ' ' '{print $3}' )
-    local size=$( echo "$line" | awk -F ' ' '{print $4}' )
-    local point_size=$( echo "$line" | awk -F ' ' '{print $5}' )
-    local color=$( echo "$line" | awk -F ' ' '{print $6}' )
-    local override=$( echo "$line" | awk -F ' ' '{print $7}' )
-    local cmd1="generate $file_after $file_txt $x $y $size $point_size $color $override"
-    #echo "$cmd1"
-    #update_commander
-    commander "$cmd1"
-    #generate $file_before $file_txt 1130 150 600x 13 white true
+    is_valid $file_txt
+    res=$?
+    if [ $res -eq 1 ];then
+        local x=$( echo "$line" | awk -F ' ' '{print $2}' )
+        local y=$( echo "$line" | awk -F ' ' '{print $3}' )
+        local size=$( echo "$line" | awk -F ' ' '{print $4}' )
+        local point_size=$( echo "$line" | awk -F ' ' '{print $5}' )
+        local color=$( echo "$line" | awk -F ' ' '{print $6}' )
+        local override=$( echo "$line" | awk -F ' ' '{print $7}' )
+        local cmd1="generate $file_after $file_txt $x $y $size $point_size $color $override"
+        #echo "$cmd1"
+        #update_commander
+        commander "$cmd1"
+        #generate $file_before $file_txt 1130 150 600x 13 white true
+    fi
+
 }
 
 

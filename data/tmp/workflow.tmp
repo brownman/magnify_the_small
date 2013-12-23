@@ -1,6 +1,1 @@
-tasker limit1 30 task_force|force of doing a task
-tasker limit1 60 reminder|set a new goal
-tasker limit1 30 increase_motivation|increase motivation
-tasker limit1 120 suspend1 true|order and sport
-tasker limit1 40 free_imagination true|free imagination
-tasker limit1 40 must|optional
+tasker background increase_motivation|increase motivation

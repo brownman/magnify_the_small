@@ -7,6 +7,17 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+plan_hour_5m_step(){
+
+        #local  trigger=$(  zenity1 $DATA_DIR/txt/enlightment.txt )
+        #helper0 "$trigger"
+        arr=(1 2 3 4 5 6) 
+        show_args
+        
+        
+        
+}
+
 update_points(){
 
     local str="$1"
@@ -37,6 +48,9 @@ cronA(){
     sleep1 1
     update_points "cron job - suspend2" 'cron'
     tasker suspend2
+}
+cronB(){
+    notify-send3 "cron is alive $time1"
 }
 
 wallpaper(){
@@ -213,14 +227,12 @@ practice_regexp(){
 }
 
 
-string_to_buttons1(){
-    echo hi
-}
 string_to_buttons(){
 
     local str="$1"
     local delimeter="$2"
     local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
+tasker update_points "$res" collected
     echo "$res"
 }
 
@@ -253,7 +265,7 @@ take_photo(){
 
 increase_motivation(){
 
-    $PLUGINS_DIR/increase_motivation.sh
+    detach $PLUGINS_DIR/increase_motivation.sh
 }
 
 db(){

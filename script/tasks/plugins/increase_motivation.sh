@@ -12,9 +12,13 @@ if [ "$delay" ];then
     
 
 
-        local  trigger=$( random_from_subject1 trigger)
+
+        #local  trigger=$( random_from_subject1 trigger)
+        
+        local  trigger=$( zenity1 $DATA_DIR/txt/trigger.txt )
         helper0 "$trigger" $file_log  
         local answer=$(gxmessage -entrytext ""  -title 'new reason:' "$trigger" $GXMESSAGET )
+        update_points "$answer" collected
 tasker update_points "$answer"
         helper0 "$answer" "$file_log"
 

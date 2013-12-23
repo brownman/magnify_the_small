@@ -39,4 +39,4 @@ echo "$result"
 popd > /dev/null
 
 
-sudo service cron status
+service cron status

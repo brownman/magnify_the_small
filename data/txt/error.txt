@@ -1,6 +1,9 @@
 /home/dao01/magnify_the_small/script/cfg/error.cfg:14:die 
-./genius.sh:42:main 
+:26:run 
+:4:create_locker 
+:32:unlocker 
+:34:main 
 
-caller: 3: main():
- 42: ./genius.sh :
- ./genius.sh
+caller: 3: run():
+ 26: /home/dao01/magnify_the_small/script/time/timer.sh :
+ 

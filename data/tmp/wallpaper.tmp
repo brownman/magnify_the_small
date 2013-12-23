@@ -1,1 +1,3 @@
-logger 830 150 600x 43 white true
+suspend 1130 150 400x 64 blue true
+cron 430 550 300x 74 red true
+collected 830 350 600x 73 white true
