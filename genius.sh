@@ -35,8 +35,10 @@ else
 #do_something 2>&1
     #1" "$arg2" "$arg3"
 fi
+
+local str=$(service cron status)
+notify-send1 cron "$str"
 echo "$result"
 popd > /dev/null
 
 
-service cron status

@@ -1,6 +1,2 @@
-/home/dao01/magnify_the_small/script/cfg/error.cfg:14:die 
 ./genius.sh:131:main 
-
-caller: 3: main():
- 131: ./genius.sh :
- ./genius.sh
+caller: : secret():\n 0: ./genius.sh :\n /home/dao01/magnify_the_small/script/cfg/error.cfg

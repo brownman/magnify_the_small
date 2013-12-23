@@ -7,26 +7,40 @@ notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+question(){
+    local str=$(gxmessage $GXMESSAGET -entry -title question 'investigation begins')
+cmd="xdg-open http://www.commandlinefu.com/commands/using/$str"
+detach "$cmd"
+}
+readme1(){
+    echo 'update readme with blogger image of whiteboard'
+}
+funny_brain_wash(){
+    notify-send3 'be happy' 
+}
 plan_hour_5m_step(){
 
-        #local  trigger=$(  zenity1 $DATA_DIR/txt/enlightment.txt )
-        #helper0 "$trigger"
-        arr=(1 2 3 4 5 6) 
-        show_args
-        
-        
-        
+    #local  trigger=$(  zenity1 $DATA_DIR/txt/enlightment.txt )
+    #helper0 "$trigger"
+    arr=(1 2 3 4 5 6) 
+    show_args
+
+
+
 }
 
 update_points(){
-
+    notify-send1 'update' 'points'
     local str="$1"
     local filename=${2:-logger}
     local file=$DATA_DIR/txt/$filename.txt
     if [ "$str" ];then
-        update_file  "$time1|$str" $file
+        update_file  $file "$time1|$str"
         cmd='tasker wallpaper'
-        optional "$cmd"
+
+        optional "$cmd" "tasker wallpaper" warning 
+
+        every "$cmd"
     else
         notify-send 'skip'
     fi
@@ -232,7 +246,7 @@ string_to_buttons(){
     local str="$1"
     local delimeter="$2"
     local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
-tasker update_points "$res" collected
+    tasker update_points "$res" collected
     echo "$res"
 }
 
@@ -372,24 +386,7 @@ add_koan(){
     cmd='tasker open_more'
     optional "$cmd"
 }
-add_koan_type(){
 
-    local str=$(gxmessage $GXMESSAGET -entry -title 'koan' 'update:' )
-    if [ "$str" ];then
-
-
-        local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
-        touch $file
-        chmod u+x $file
-        cmd="gedit $PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
-        #update_commander
-        detach "$cmd"
-        cmd='tasker open_more'
-        optional "$cmd"
-    else
-        notify-send1 'skip' 'file creation'
-    fi
-}
 open_more(){
     cmd="gedit $PROJECT_DIR/bugs/bash_koans/meditate"
     detach "$cmd"
@@ -558,7 +555,7 @@ suspend2(){
 
 
 }
-cfg_update(){
+updating(){
 
 
     local type=$(gxmessage $GXMESSAGET -entry -title 'file type' 'choose:' )
@@ -567,11 +564,23 @@ cfg_update(){
 
     if [ "$str" ] && [ "$type" ]
     then
-        cmd="gedit $DATA_DIR/$type/$str.$type"
+        if [ "$type" = 'cfg' ];then
+            file=$CFG_DIR/$str.$type
+        elif [ "$type" = koan ];then
+
+            local file="$PROJECT_DIR/bugs/bash_koans/src/about_$str.sh"
+            touch $file
+            chmod u+x $file
+        else #yaml, txt , tmp
+            file=$DATA_DIR/$type/$str.$type
+
+        fi
+        cmd="gedit $file"
         detach "$cmd"
-    else
-        notify-send1 'cfg_update' 'skip'
+    else 
+        notify-send1 'Error on: str, type'
     fi
+
 
 
 }

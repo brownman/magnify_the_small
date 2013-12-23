@@ -83,8 +83,8 @@ order:
 hotkeys:
         #- free_imagination
         - impulse
-        - add_koan_type
-        - cfg_update
+        - updating 
+        - question
         - riddle
         - reminder
         - increase_motivation 
@@ -167,9 +167,9 @@ must:
 
 wallpaper:
     - suspend 1130 150 400x 64 blue true 
-    - cron 430 550 300x 74 red true 
+    - cron 430 550 300x 94 red true 
     #- logger 830 150 600x 43 white true 
-    - collected 830 350 600x 73 white true 
+    - collected 830 350 600x 33 white true 
     #- assosiation 230 240 400x 14 yellow true 
     #- disown 300 150 600x 23 white true 
 
