@@ -733,7 +733,7 @@ git_commit(){
         $(messageYN1 'push to remote?' 'github' )
         answer=$?
 
-        if [[ $answer -eq 1 ]];then
+        if [[ $answer -eq $YES ]];then
             git push origin develop 
             exo-open 'https://github.com/brownman/magnify_the_small' &
         else
