@@ -1,3 +1,6 @@
 #service / cron jobs
 http://theos.in/desktop-linux/removing-unwanted-startup-debian-files-or-services/
 http://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/
+
+#travis   / tdd / ci
+http://shunit2.googlecode.com/svn/trunk/source/2.1/doc/shunit2.html#some-constants-you-can-use
