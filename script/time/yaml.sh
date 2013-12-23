@@ -2,11 +2,17 @@
 
 # about file:
 # extruct yaml to dirs: tmp OR cfg 
+file_locker=/tmp/yaml
+#delay=9
+#unlocker?
+#file_locker=/tmp/translation
+delay=3
+loops=2
+gentle=true
 
 
 notify-send1 'yaml.sh' 'start'
 
-#export COMMANDER=true
 
 parse_subject(){
 trace  "parse subject $1"
@@ -33,8 +39,6 @@ local file=$DATA_DIR/tmp/${subject}.tmp
 
 show_keys(){
 local keys1=$(cat $file_data | shyaml keys)
-#echo ${keys1} | xargs notify-send
-#"show_keys:"
 
         IFS='|' read -a columns <<< "$keys1"
 
@@ -44,24 +48,32 @@ local keys1=$(cat $file_data | shyaml keys)
         trace "parse subject: $key" 
 parse_subject "$key"
 
-##mantion_file "$file"
             done
 
 
 trace "show keys: $keys1"
 }
+clean_txt_files(){
+echo '' > $file_txt_disown
+}
+
+run(){
+
+#touch $PROJECT_DIR/genius.sh
+cmd1=clean_txt_files
+every "$cmd1" 20
 show_keys
-tasker db update_db_list
-touch $PROJECT_DIR/genius.sh
-#tasker wallpaper
- 
 
-#
-#unpack_subject  story
-#unpack_subject  cake 
-#
+#cmd1='tasker db update_db_list'
+#tasker config notify-send4 "update db" "$cmd1"
 
+
+
+cmd1='tasker wallpaper'
+tasker config notify-send4 "update wallpaper" "$cmd1"
 
 
 
 notify-send1 'yaml.sh' 'end'
+}
+unlocker 

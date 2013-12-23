@@ -2,7 +2,8 @@
 
 str="$1"
 run(){
-notify-send 'simple notification' "_ $str"
+local cmd="notify-send1 'simple notification' \"_ $str\""
+every "$cmd" 10
 
     #gxmessage $GXMESSAGET -title 'simple notification' 'hello  world!'
     if [ "$str" = error ];then

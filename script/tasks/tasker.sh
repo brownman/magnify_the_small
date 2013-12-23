@@ -10,15 +10,12 @@ notify-send 'db.sh' "$@"
 update_points(){
 
     local str="$1"
+    local filename=${2:-logger}
+    local file=$DATA_DIR/txt/$filename.txt
     if [ "$str" ];then
-
-
-
-        update_file $file_logger "$time1|$str"
-        #    cmd='tasker wallpaper'
-        #    every "$cmd"
+        update_file  "$time1|$str" $file
         cmd='tasker wallpaper'
-        detach "$cmd"
+        optional "$cmd"
     else
         notify-send 'skip'
     fi
@@ -38,12 +35,13 @@ cronA(){
 
     notify-send1 'cron' 'is running'
     sleep1 1
-    update_points "cron job - suspend2"
-tasker suspend2
+    update_points "cron job - suspend2" 'cron'
+    tasker suspend2
 }
 
 wallpaper(){
-    detach $PLUGINS_DIR/wallpaper.sh
+    local cmd=$PLUGINS_DIR/wallpaper.sh
+    detach "$cmd"
 }
 
 
@@ -125,7 +123,7 @@ children_story(){
 }
 riddle(){
     notify-send1 'task' 'riddle'
-   $PLUGINS_DIR/riddle.sh 
+    $PLUGINS_DIR/riddle.sh 
 }
 
 
@@ -466,6 +464,17 @@ play_recent(){
 
     #update_table logger "$date1" "play_recent" "$line1"
 }
+task_force(){
+    local line=$( random_line $DATA_DIR/tmp/task_force.tmp )
+
+
+    local str=$( echo "$line" | awk -F '|' '{print $1}' )
+    local cmd=$( echo "$line" | awk -F '|' '{print $2}' )
+    notify-send3 "$str"
+    commander "$cmd"
+}
+
+
 resources(){
     notify-send1 'resources' 'list'
     local url=$(        random_line $DATA_DIR/tmp/resources.tmp )
@@ -519,13 +528,13 @@ background(){
 }
 
 suspend2(){
- 
+
     $PLUGINS_DIR/suspend.sh
 
     tasker motivation sport  
 
-    tasker update_points "suspend2"
-   #must &
+    tasker update_points "suspend2" suspend
+    #must &
     notify-send3 'suspend2 '  
 
     notify-send1 'chase your fear and they will run away from you'
@@ -581,7 +590,7 @@ suspend1(){
     cmd='tasker must'
     detach "$cmd" 
 
-    update_points "suspend1"
+    update_points "suspend1" suspend
     #detach must
 }
 pownder(){
@@ -621,9 +630,7 @@ collaboration(){
 reminder(){
     #notify-send1 'reminder'
     flite 'update  every cicle'
-    #local line="$1"
     $PLUGINS_DIR/reminder.sh 
-    #"$line"
 }
 
 game_essay(){

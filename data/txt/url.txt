@@ -1,0 +1,3 @@
+#service / cron jobs
+http://theos.in/desktop-linux/removing-unwanted-startup-debian-files-or-services/
+http://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/

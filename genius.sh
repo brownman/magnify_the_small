@@ -28,7 +28,7 @@ detach "$cmd"
 else
     file11=$dir1/${input}.sh
 #2>&1 >> $file_error
-
+#(ulimit -v 1000000; scriptname)
     result=$($file11 "${args[@]}"  )
     #result=$($file11 "${args[@]}" 2>&1 >> $file_error )
 #somecommand 2>&1 >> logfile | tee -a logfile
@@ -39,4 +39,4 @@ echo "$result"
 popd > /dev/null
 
 
-
+sudo service cron status

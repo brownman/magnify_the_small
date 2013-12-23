@@ -11,6 +11,13 @@ resources:
         - http://manned.org/yad/820cb168
         - https://advance-linux.meteor.com
 
+solution:
+        - http://stackoverflow.com/questions/8850995/notify-send-cause-invalid-number-of-options
+        - http://askubuntu.com/questions/195552/how-to-impose-memory-limits-to-a-shell-script
+        - http://www.commandlinefu.com/commands/matching/ulimit/dWxpbWl0/sort-by-votes
+        - http://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/
+        
+
         
 meteor:
         - http://codepen.io/sol0mka/pen/kpDtI
@@ -20,9 +27,12 @@ meteor:
         #- https://help.github.com/articles/creating-project-pages-manually
 
 workflow:
+        - tasker limit1 30 task_force|force of doing a task
         - tasker limit1 60 reminder|set a new goal
         - tasker limit1 30 increase_motivation|increase motivation
         - tasker limit1 120 suspend1 true|order and sport
+        - tasker limit1 40 free_imagination true|free imagination
+        - tasker limit1 40 must|optional
         #- tasker limit1 30 add_koan|add 1 koan
 #        #- tasker limit1 200 free_speak|say thanks a little bit
         #- tasker limit1 20 pownder easy|pownder about 
@@ -153,3 +163,14 @@ must:
     - tasker riddle 
     - tasker reminder 
     - tasker cron 
+
+wallpaper:
+    - suspend 430 150 400x 34 red true 
+    - cron 430 550 300x 34 red true 
+    - logger 830 150 600x 43 white true 
+    - assosiation 230 240 400x 14 yellow true 
+    #- disown 300 150 600x 23 white true 
+
+task_force:
+    - paypal|https://www.paypal.com
+    - shalva coat|www.google.com/coats

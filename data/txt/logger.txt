@@ -1,3 +1,5 @@
+07:47|but what about me
+16:27|suspend1
 16:27|goal
 15:54| _ 1: tasker limit1 60 reminder _ 2: tasker limit1 30 increase_motivation _ 3: tasker limit1 120 suspend1 true
 15:54|suspend1

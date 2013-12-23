@@ -1,4 +1,10 @@
 #!/bin/bash
+#about file: user yaml category: wallpaper for generating new desktop background
+#dependencies: imagemagic
+#utilize: one.yaml , data/tmp/wallpaper.tmp
+####  ###  ##  ##  ###
+#ref:
+#imagemagic
 #http://www.imagemagick.org/Usage/text/#pango_markup
 
 notify-send1 'wallapaper' 'plugin'
@@ -7,34 +13,58 @@ file_original=/usr/share/xfce4/backdrops/xubuntu-precise-right.png
 file_before=/tmp/before.png #copy of the original
 file_after=/tmp/after.png #compose: txt_image + background
 file_text_image=/tmp/text.png #convert txt to image
-file_txt=$file_logger
+file_tmp=$DATA_DIR/tmp/wallpaper.tmp
+
 amount=12
-#$DATA_DIR/txt/efficiency.txt
-#file_txt=~/tmp/1.txt
-
-
-split_txt(){
-    #gedit $file_txt
-    # file to lines
-    # line with pattern X -> 
-   trace '' 
-}
 
 run(){
-backup
+    #efficiency_image
+    backup
     #show $file_before
     #gedit $file_txt
     trigger
-cmd="show $file_after"
-optional "$cmd"
+    cmd="show $file_after"
+    optional "$cmd"
     replace
+}
+efficiency_image(){
+#http://www.imagemagick.org/Usage/text/#pango_markup
+local file_txt=$DATA_DIR/pango/text_data.txt
+local file_image=/tmp/text_layered.jpg
+
+  cat $file_txt |
+  while read width gravity color  pointsize x y text
+  do
+    convert -size ${width}x -gravity $gravity -fill $color -background wheat \
+                -pointsize $pointsize  -page +${x}+${y}  label:"${text}"  miff:-
+  done |
+    convert -size 200x100 xc:   -   -flatten    $file_image
+local cmd="xloadimage $file_image"
+detach "$cmd"
+}
+
+parse_line_of_wallpaper(){
+    local filename=$( echo "$line" | awk -F ' ' '{print $1}' )
+    local file_txt="$DATA_DIR/txt/$filename.txt"
+    local x=$( echo "$line" | awk -F ' ' '{print $2}' )
+    local y=$( echo "$line" | awk -F ' ' '{print $3}' )
+    local size=$( echo "$line" | awk -F ' ' '{print $4}' )
+    local point_size=$( echo "$line" | awk -F ' ' '{print $5}' )
+    local color=$( echo "$line" | awk -F ' ' '{print $6}' )
+    local override=$( echo "$line" | awk -F ' ' '{print $7}' )
+    local cmd1="generate $file_after $file_txt $x $y $size $point_size $color $override"
+    #echo "$cmd1"
+    #update_commander
+    commander "$cmd1"
+    #generate $file_before $file_txt 1130 150 600x 13 white true
 }
 
 
 trigger(){
-
-    generate $file_before $file_txt $x $y $size $point_size $color $override
-    #generate $file_before $file_txt 1130 150 600x 13 white true
+    lines=()
+    file_to_lines $file_tmp
+    local cmd='parse_line_of_wallpaper'
+    execute_lines
 }
 
 generate(){
@@ -71,12 +101,15 @@ backup(){
     #file1="/tmp/mm.png"
     #usr/share/xfce4/backdrops/${src}"
     #cp ~/Pictures/lubuntu-default-wallpaper-2.png /tmp/result.png
+
     cp $file_original $file_before
+    cp $file_before $file_after
 }
 replace(){
     #update xfce desktop
     notify-send3 'update wallaper' 
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s ~/Pictures/lubuntu-default-wallpaper-2.png 
+    sleep1 2
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
     #xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
 }
