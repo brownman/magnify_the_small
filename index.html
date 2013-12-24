@@ -1,79 +1,164 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Magnify the small : enjoy learning new language - while not doing what you should do" />
+    <meta charset="utf-8">
+    <title>Fu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CommandlineFu.com Overview">
+    <meta name="author" content="Samir Ahmed">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="other/my.css" rel="stylesheet">
+    <script src="other/jquery.js"></script>
+    <script src="other/scroll.js"></script>
+    
+    <style type="text/css">
+      body {
+        padding-top: 72px;
+        padding-bottom: 40px;
+      }
+    </style>
 
-    <title>Magnify the small</title>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="icon" 
+      type="image/png" 
+      href="img/favicon.png">
+      <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29998244-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+      </script>
+
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/brownman/magnify_the_small">View on GitHub</a>
-
-          <h1 id="project_title">Magnify the small</h1>
-          <h2 id="project_tagline">enjoy learning new language - while not doing what you should do</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/brownman/magnify_the_small/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/brownman/magnify_the_small/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">fu!</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#about">what?</a></li>
+              <li><a href="#usage">usage</a></li>
+              <li><a href="https://github.com/samirahmed/fu/wiki" target="_blank">wiki</a></li>
+              <li><a href="https://github.com/samirahmed/fu" target="_blank">code</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch: </p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Magnify the small maintained by <a href="https://github.com/brownman">brownman</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
     
+    <div class="teaser-unit"  >
+    <center>commandline<strong>fu</strong>.com from the <strong>commandline</strong> <br />
+    <weak>Nothing has made more sense!</weak>
+    </div>
+    <div class="container"  > 
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" id="about" >
+        <h1>Overview</h1>
+        <p>
+            <br/> Commandlinefu.com is an online repository for recording commandline gems, that you return to again and again.
+            <br/><br/>'fu' is a commandline interface that allows you to harvest the power of internets commandline wisdom.
+            <br/><br/>Now you can search this trove of online treasures from the comfort of your commandline
+            . For example ...
+        </p><br/>
+        <center>
+            <img class="shot" src="img/hero_shot.png" alt="Querying Wikipedia" />
+        </center>
+        <br/><br/>
+        <div class="span5"><a href="http://www.github.com/samirahmed/fu" target="_blank" class="btn btn-danger btn-large">Download at Github! &raquo;</a>
+        </div>
+        <a href="http://www.commandlinefu.com/" target="_blank" class="btn btn-info btn-large">Try commandlinefu.com &raquo;</a>
+        </div>
+      <!-- Example row of columns -->
+      <div class="hero-unit" id="usage">
+        <h1>
+            What can <i>you</i> do with fu?
+        </h1>
+        <p>
+            <br/>So you searched commandlinefu.com for for "query wikipedia" above. 
+            <br/>Now lets say we want try out that first command
+        </p>
+        <br/>
+        <center>
+            <img class="shot" src="img/copy_shot.png" alt="Copying a Query"/>
+        </center>
+        
+        <p>
+            <br/>And with a little ⌘-V (Mac) or Ctrl-V or Shift-Insert, you can paste your query into the terminal, and voilà!
+        </p>
+        <br/>
+        <center>
+            <img class="shot" src="img/paste_shot.png" alt="Pasting a Query"/>
+        </center>
+        <p>
+            <br/>And if you are curious about others think about that command you can learn more by reading the associated comments in a browser...
+        </p>
+        <br/>
+        <center>
+            <img class="shot" src="img/open_shot.png" alt="Opening a Query"/>
+        </center>
+        <p>
+            <br/> For more information check out the wiki!
+        </p>
+        <br/>
+        <a href="http://www.github.com/samirahmed/fu/wiki" target="_blank" class="btn btn-danger btn-large">Go to Wiki &raquo;</a>
+        <br/>
+      </div>
+      
+      <div class="hero-unit" id="more">
+        <h1>Problems?</h1>
+        <p>
+            <br/>Found a bug? Having problems? Just fu-rious? 
+            <br/>Head over to github.com to fork and fix or submit an issue
+            <br/>Or contact me via <a href="https://twitter.com/#!/samirahmed_27" target="_blank">twitter</a>
+        </p>
+        <br/>
+        <a href="http://www.github.com/samirahmed/fu" target="_blank" class="btn btn-danger btn-large">Github &raquo;</a>
+        <br/>
+    </div>
+      <footer>
+        <p>fu is provided by Samir Ahmed 2012 - Commandlinefu.com is made and managed by David Winterbottom</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap-transition.js"></script>
+    <script src="bootstrap/js/bootstrap-alert.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="bootstrap/js/bootstrap-tab.js"></script>
+    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="bootstrap/js/bootstrap-popover.js"></script>
+    <script src="bootstrap/js/bootstrap-button.js"></script>
+    <script src="bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="bootstrap/js/bootstrap-typeahead.js"></script>
 
   </body>
 </html>
