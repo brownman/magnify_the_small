@@ -114,7 +114,7 @@ replace(){
     #update xfce desktop
     notify-send3 'update wallaper' 
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s ~/Pictures/lubuntu-default-wallpaper-2.png 
-    sleep1 2
+    #sleep1 2
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
     #xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
 }

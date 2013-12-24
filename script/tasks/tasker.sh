@@ -9,8 +9,11 @@ notify-send 'db.sh' "$@"
 #every "$cmd" 10
 question(){
     local str=$(gxmessage $GXMESSAGET -entry -title question 'investigation begins')
+    if [ "$str" ];then
 cmd="xdg-open http://www.commandlinefu.com/commands/using/$str"
 detach "$cmd"
+    fi
+
 }
 readme1(){
     echo 'update readme with blogger image of whiteboard'
@@ -38,9 +41,10 @@ update_points(){
         update_file  $file "$time1|$str"
         cmd='tasker wallpaper'
 
-        optional "$cmd" "tasker wallpaper" warning 
+        #optional "$cmd" "tasker wallpaper" warning 
 
-        every "$cmd"
+        #every "$cmd"
+        commander "$cmd"
     else
         notify-send 'skip'
     fi

@@ -1,3 +1,26 @@
+16:05|
+
+
+
+generate new text on the background
+background:/tmp/after.png 
+ text_file:/home/dao01/magnify_the_small/data/txt/suspend.txt 
+ x:1130 y:150 
+ size:400x 
+ point_size:64
+generate new text on the background
+background:/tmp/after.png 
+ text_file:/home/dao01/magnify_the_small/data/txt/cron.txt 
+ x:430 y:550 
+ size:300x 
+ point_size:94
+generate new text on the background
+background:/tmp/after.png 
+ text_file:/home/dao01/magnify_the_small/data/txt/collected.txt 
+ x:830 y:350 
+ size:600x 
+ point_size:33
+faster
 14:27|
 enthusiastic
 13:38|

@@ -1,2 +1,2 @@
-./genius.sh:131:main 
-caller: : secret():\n 0: ./genius.sh :\n /home/dao01/magnify_the_small/script/cfg/error.cfg
+./genius.sh:41:main 
+caller: : 
