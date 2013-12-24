@@ -8,3 +8,7 @@ http://shunit2.googlecode.com/svn/trunk/source/2.1/doc/shunit2.html#some-constan
 
 #git learn
 http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
+## git gh_pages
+http://stackoverflow.com/questions/5689960/how-do-i-create-a-commit-without-a-parent-in-git?lq=1
+
+
