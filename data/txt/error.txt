@@ -1,2 +1,4 @@
-/home/dao01/magnify_the_small/genius.sh:39:main 
-caller: : 
+:12:update_file 
+:44:helper0 
+:363:motivation 
+:801:main 

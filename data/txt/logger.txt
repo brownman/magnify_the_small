@@ -1,71 +1,11 @@
-08:29|jump up - try to reach higher
-08:27|I could do that 
-16:12|sit straight - and open your ears
-16:07|sit straight - and open your ears
-16:05|faster
-16:05|think slowly - buy do it faster
-16:00|I have been there and I done that
-14:52|exit!
-14:52| _ 1: tasker background increase_motivation
-14:52|run
-14:25| _ 1: tasker background increase_motivation
-14:27|enthusiastic
-14:27|all of us are enthusiastic
-14:24| _ 1: tasker background increase_motivation
-14:25|dream
-14:24|dig
-13:38|sides
-13:35| _ 1: tasker background increase_motivation
-13:38|stretch your hands to your sides
-13:35|happy
-13:37|move your hands around your ass
-13:35|be happy
-07:47|but what about me
-16:27|suspend1
-16:27|goal
-15:54| _ 1: tasker limit1 60 reminder _ 2: tasker limit1 30 increase_motivation _ 3: tasker limit1 120 suspend1 true
-15:54|suspend1
-16:01| _ 1: tasker limit1 60 reminder
-14:56|plugin - riddles
-14:56|I like to help them
-14:41|exit!
-14:41|happy
-14:46|suspend2
-14:46|move your hands around your ass
-14:41|to be happy
-13:19|I am a king
-13:19|to run
-13:19|fly
-13:19|
-13:19|
-13:19|
-13:19|
-13:15|
-13:15|suspend1
-13:15|rest
-11:46| _ 1: tasker limit1 30 reminder _ 2: tasker limit1 120 suspend1 true
-11:46|
-11:46|suspend1
-09:28| _ 1: tasker limit1 120 suspend1 true
-09:28|
-09:28|suspend1
-09:28| _ 1: tasker limit1 120 suspend1 true
-09:28|
-09:28|suspend1
-15:04|
-15:04|suspend1
-14:55|great
-14:59|
-14:59|suspend1
-14:55|possible
-14:55|step
-14:54|smile!
-14:53|smile!
-14:36|
-tasker learn_langs
-14:21|
-14:16|
-13:57|notify-send called from: check_boxes|
-notify-send called from: run|
-disown|22957
-
+15:32|we
+13:45|yeah
+13:41|echo hi
+13:41|/usr/bin/notify-send "single process" "config"
+13:41|/usr/bin/notify-send "every 10" "notify-send1 cron 'cron start/running, process 23227'"
+13:41|/usr/bin/notify-send "single process" "config"
+13:40|/usr/bin/notify-send "update commander" "suspend2(): 564: /home/dao01/magnify_the_small/script/tasks/tasker.sh : "
+13:40|/usr/bin/notify-send "say:" "before suspension 2 : "
+13:40|/usr/bin/notify-send "say:" "before suspension 1 : "
+13:40|/usr/bin/notify-send "single process" "motivation"
+13:40|/usr/bin/notify-send "single process" "suspend2"

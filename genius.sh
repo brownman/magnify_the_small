@@ -2,10 +2,11 @@
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
+flite 'genius'
 #chmod +w time
 #ls -d -l time
-
-notify-send "genius:" "$@"
+str="$@"
+#notify-send "genius:" "$str"
 export ROOT_DIR=$PWD
 export file_loader=$ROOT_DIR/script/loader.sh
 . $file_loader
@@ -22,22 +23,24 @@ result='equal'
 if [ "$input" = '' ];then
     #notify-send 'run:' 'menu'
 
-cmd="cat $DATA_DIR/txt/history.txt"
-detach "$cmd"
+#cmd="cat $DATA_DIR/txt/history.txt"
+#detach "$cmd"
 #    unlocker
+flite 'no arguments to genius'
 else
-    file11=$dir1/${input}.sh
+    file11=$dir1/$input.sh
 #2>&1 >> $file_error
 #(ulimit -v 1000000; scriptname)
-    result=$($file11 "${args[@]}"  )
+    result=$( $file11 "${args[@]}"  )
     #result=$($file11 "${args[@]}" 2>&1 >> $file_error )
 #somecommand 2>&1 >> logfile | tee -a logfile
 #do_something 2>&1
     #1" "$arg2" "$arg3"
 fi
 
-local str=$(service cron status)
-notify-send1 cron "$str"
+#str=$(service cron status)
+#cmd="notify-send1 cron '$str'"
+#every "$cmd" 10
 echo "$result"
 popd > /dev/null
 

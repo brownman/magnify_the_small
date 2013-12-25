@@ -11,4 +11,15 @@ http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
 ## git gh_pages
 http://stackoverflow.com/questions/5689960/how-do-i-create-a-commit-without-a-parent-in-git?lq=1
 
+#wikipedia
+http://en.wikipedia.org/wiki/Nohup
 
+
+#bash - builtins
+http://www.gnu.org/software/bash/manual/bashref.html#The-Shopt-Builtin
+http://www.gnu.org/software/bash/manual/bashref.html#Job-Control-Builtins
+
+cron
+http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
+http://askubuntu.com/questions/23009/reasons-why-crontab-does-not-work
+http://serverfault.com/questions/85893/running-a-cron-job-manually-and-immediately

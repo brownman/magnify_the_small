@@ -1,3 +1,4 @@
-suspend 1130 150 400x 64 blue true
-cron 430 550 300x 94 red true
-collected 830 350 600x 33 white true
+suspend 1130 150 400x 31 yellow true
+cron 1130 550 300x 24 red true
+collected 530 350 600x 33 white true
+disown 1140 650 600x 13 white true

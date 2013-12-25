@@ -7,7 +7,7 @@
 #imagemagic
 #http://www.imagemagick.org/Usage/text/#pango_markup
 
-notify-send1 'wallapaper' 'plugin'
+notify-send 'wallapaper' 'plugin'
 
 file_original=/usr/share/xfce4/backdrops/xubuntu-precise-right.png
 file_before=/tmp/before.png #copy of the original

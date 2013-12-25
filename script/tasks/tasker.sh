@@ -3,16 +3,28 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-notify-send 'db.sh' "$@"
+#notify-send 'db.sh' "$@"
 #show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+
+cronT(){
+    trace 'tail'
+
+cmd="tail -f /var/log/syslog | grep CRON"
+#echo "$cmd"
+cmd1="xterm -e $cmd"
+detach  "$cmd1"
+}
 question(){
     local str=$(gxmessage $GXMESSAGET -entry -title question 'investigation begins')
     if [ "$str" ];then
 cmd="xdg-open http://www.commandlinefu.com/commands/using/$str"
 detach "$cmd"
+cmd="http://unix.stackexchange.com/questions/tagged/$str"
+detach "$cmd"
     fi
+
 
 }
 readme1(){
@@ -44,7 +56,7 @@ update_points(){
         #optional "$cmd" "tasker wallpaper" warning 
 
         #every "$cmd"
-        commander "$cmd"
+        every "$cmd" 10
     else
         notify-send 'skip'
     fi
@@ -61,13 +73,16 @@ cronE(){
 }
 
 cronA(){
-
-    notify-send1 'cron' 'is running'
-    sleep1 1
-    update_points "cron job - suspend2" 'cron'
+#flite 'cron a'
+#    notify-send1 'cron' 'is running'
+#    sleep1 1
+#    update_points "cron job - A" 'cron'
     tasker suspend2
 }
 cronB(){
+    flite 'cron b'
+
+    update_points "cron job - B" 'cron'
     notify-send3 "cron is alive $time1"
 }
 
@@ -342,8 +357,9 @@ motivation(){
         #assert_equal_str "$line"
     fi
 
-    tasker  update_points "$line"
+    #tasker  update_points "$line"
 
+    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
     helper0 "$line"  
     #assert_equal_str "$line"
 
@@ -352,6 +368,8 @@ motivation(){
     #    echo "line: $line"
     #    cmd=cow_report
     #    every "$cmd" 2 
+
+
 }
 
 motivations(){
@@ -541,8 +559,13 @@ background(){
 }
 
 suspend2(){
+flite 'before suspension 1'
+sleep1 2
 
-    $PLUGINS_DIR/suspend.sh
+flite 'before suspension 2'
+   cmd="$PLUGINS_DIR/suspend.sh"
+   update_commander
+   commander "$cmd"
 
     tasker motivation sport  
 
@@ -557,9 +580,15 @@ suspend2(){
     sleep1 5
 
 
+flite 'after suspension'
 
 }
 updating(){
+local cmd="gedit $DATA_DIR/txt/url.txt"
+#$cmd &
+ commander "$cmd" &
+}
+updating1(){
 
 
     local type=$(gxmessage $GXMESSAGET -entry -title 'file type' 'choose:' )
@@ -584,8 +613,6 @@ updating(){
     else 
         notify-send1 'Error on: str, type'
     fi
-
-
 
 }
 suspend1(){

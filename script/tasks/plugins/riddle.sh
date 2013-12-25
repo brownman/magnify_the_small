@@ -7,10 +7,6 @@ delay1=$delay_riddle
 notify-send1 delay "$delay1"
 
 random_path(){
-    random1 2
-    local res=$?
-    notify-send1 "$res"
-    if [ $res -eq 0 ];then
         dir=$SCRIPT_DIR/tasks/abs/source
         subject=abs
 
@@ -18,20 +14,21 @@ random_path(){
         filename=$(random_from_subject1 $subject)
 
         full_path=$dir/$filename
-    else
-        dir=~/magnify_the_small/1/bash-bash-4.3-testing/tests
-        subject=bash
 
-        filename=$(random_from_subject1 $subject)
-       mkdir -p $dir/tmp 
-        cp $dir/$filename $dir/tmp/$filename.sh
-
-        #full_path=$dir/$filename
-full_path=$dir/tmp/$filename.sh
-
-
-    fi
 }
+#    else
+#        dir=~/magnify_the_small/1/bash-bash-4.3-testing/tests
+#        subject=bash
+#
+#        filename=$(random_from_subject1 $subject)
+#       mkdir -p $dir/tmp 
+#        cp $dir/$filename $dir/tmp/$filename.sh
+#
+#        #full_path=$dir/$filename
+#full_path=$dir/tmp/$filename.sh
+#
+#
+#    fi
 
 
 
@@ -55,7 +52,10 @@ run(){
         #notify-send1 "res" "$file"
         if [ "$full_path" != '/' ];then
             #update_commander
-            cmd="gedit $full_path"
+           
+            cmd1="copy $full_path"
+            optional "$cmd1" "copy riddle.sh ?" question
+ cmd="gedit $full_path"
             detach "$cmd"  
             #commander "$cmd"
         fi
