@@ -37,5 +37,7 @@ bash:
 		- http://www.gnu.org/software/bash/manual/bashref.html#Job-Control-Builtins
 
 
-
+meteor:
+	W:
+		-http://www.slideshare.net/JonathanPerl/building-a-chrome-extension-with-meteor
 
