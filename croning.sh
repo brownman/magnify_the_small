@@ -25,7 +25,11 @@ run(){
 }
 action(){
 
-    /home/dao01/magnify_the_small/genius.sh single "$str1" 
+local cmd="/home/dao01/magnify_the_small/genius.sh "
+args="single \"$str1\""
+
+
+/usr/bin/nice -n 10 "$cmd"
 
 }
 gui(){

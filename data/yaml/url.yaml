@@ -1,0 +1,41 @@
+git:
+	W:
+		- http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
+		- http://stackoverflow.com/questions/5689960/how-do-i-create-a-commit-without-a-parent-in-git?lq=1
+	Q: 
+		- how to create github pages
+
+
+cron:
+	W:
+		- http://theos.in/desktop-linux/removing-unwanted-startup-debian-files-or-services/
+		- http://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/
+		- http://www.cyberciti.biz/faq/howto-runlevel-configuration-tool-to-start-service/
+		- http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log 
+		- http://askubuntu.com/questions/23009/reasons-why-crontab-does-not-work
+		- http://serverfault.com/questions/85893/running-a-cron-job-manually-and-immediately
+	Q:
+		- how to stop mail sending
+		- how to use same environments to run a script
+		- how to run cron automaticly on reboot?
+	A:
+		- sudo rcconf #gui + startup jobs + checkbox: -+cron
+		- /etc/rsyslog.d/50-default.conf #send  email on error / output error to: file.log
+
+travis:
+	W:
+		- http://shunit2.googlecode.com/svn/trunk/source/2.1/doc/shunit2.html#some-constants-you-can-use
+
+wikipedia:
+	W:
+		- http://en.wikipedia.org/wiki/Nohup
+
+
+bash:	
+	W:
+		- http://www.gnu.org/software/bash/manual/bashref.html#The-Shopt-Builtin
+		- http://www.gnu.org/software/bash/manual/bashref.html#Job-Control-Builtins
+
+
+
+

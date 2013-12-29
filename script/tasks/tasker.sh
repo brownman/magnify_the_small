@@ -3,29 +3,34 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-#notify-send 'db.sh' "$@"
-#show_args "$@"
 #cmd="notify-send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
-
-cronT(){
-    trace 'tail'
-
-cmd="tail -f /var/log/syslog | grep CRON"
-#echo "$cmd"
-cmd1="xterm -e $cmd"
-detach  "$cmd1"
+show_psaudo_like_koans(){
+    trace ''
 }
+
+cron(){
+    $PLUGINS_DIR/cron.sh "$1"
+}
+
 question(){
     local str=$(gxmessage $GXMESSAGET -entry -title question 'investigation begins')
+
     if [ "$str" ];then
-cmd="xdg-open http://www.commandlinefu.com/commands/using/$str"
-detach "$cmd"
-cmd="http://unix.stackexchange.com/questions/tagged/$str"
-detach "$cmd"
+        local cmd='tasker motivation question'
+        detach "$cmd"
+
+        url2="http://www.commandlinefu.com/commands/using/$str"
+        url3="http://unix.stackexchange.com/questions/tagged/$str"
+        url1="https://github.com/brownman/brownman.github.com/edit/master/README.md"
+
+        cmd="xdg-open $url1"
+        detach "$cmd"
+        cmd="xdg-open $url2"
+        detach "$cmd"
+        cmd="xdg-open $url3"
+        detach "$cmd"
     fi
-
-
 }
 readme1(){
     echo 'update readme with blogger image of whiteboard'
@@ -62,29 +67,6 @@ update_points(){
     fi
 }
 
-
-cronE(){
-
-    export EDITOR=/usr/bin/gedit
-    trace 'edit cron jobs'
-    cmd="crontab -e"
-    detach "$cmd"
-    echo  'cron service is alive ?'
-}
-
-cronA(){
-#flite 'cron a'
-#    notify-send1 'cron' 'is running'
-#    sleep1 1
-#    update_points "cron job - A" 'cron'
-    tasker suspend2
-}
-cronB(){
-    flite 'cron b'
-
-    update_points "cron job - B" 'cron'
-    notify-send3 "cron is alive $time1"
-}
 
 wallpaper(){
     local cmd=$PLUGINS_DIR/wallpaper.sh
@@ -359,7 +341,7 @@ motivation(){
 
     #tasker  update_points "$line"
 
-    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
+    #    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
     helper0 "$line"  
     #assert_equal_str "$line"
 
@@ -559,13 +541,13 @@ background(){
 }
 
 suspend2(){
-flite 'before suspension 1'
-sleep1 2
+    flite 'before suspension 1'
+    sleep1 2
 
-flite 'before suspension 2'
-   cmd="$PLUGINS_DIR/suspend.sh"
-   update_commander
-   commander "$cmd"
+    flite 'before suspension 2'
+    cmd="$PLUGINS_DIR/suspend.sh"
+    update_commander
+    commander "$cmd"
 
     tasker motivation sport  
 
@@ -580,13 +562,14 @@ flite 'before suspension 2'
     sleep1 5
 
 
-flite 'after suspension'
+    flite 'after suspension'
 
 }
 updating(){
-local cmd="gedit $DATA_DIR/txt/url.txt"
-#$cmd &
- commander "$cmd" &
+
+   local cmd="gedit $DATA_DIR/yaml/url.yaml"
+    #$cmd &
+    commander "$cmd" &
 }
 updating1(){
 
