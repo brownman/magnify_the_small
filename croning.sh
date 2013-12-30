@@ -25,11 +25,12 @@ run(){
 }
 action(){
 
-local cmd="/home/dao01/magnify_the_small/genius.sh "
-args="single \"$str1\""
+local file=/home/dao01/magnify_the_small/genius.sh
+args="$str1"
 
 
-/usr/bin/nice -n 10 "$cmd"
+#/usr/bin/nice -n 10 "$file $args"
+exec $file single "$args"
 
 }
 gui(){
@@ -41,10 +42,10 @@ gui(){
 }
 test1(){
 
-    flite "start $str1"
+    #flite "start $str1"
     gui
    action 
-    flite "finish $str1"
+    #flite "finish $str1"
 }
 
 run

@@ -1,3 +1,11 @@
+error:
+	W:
+		- http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-3.html
+	Q:
+		- 2 stderr ?
+	S:
+		- output errors: 1>&2
+
 git:
 	W:
 		- http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging

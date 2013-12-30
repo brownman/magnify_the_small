@@ -31,6 +31,12 @@ question(){
         cmd="xdg-open $url3"
         detach "$cmd"
     fi
+cmd="~/magnify_the_small/AWESOME/fu -a '$str1'"
+cmd1="xterm1 $cmd" 
+detach "$cmd1"
+cmd="grep -lr '$str' $SCRIPT_DIR/tasks/abs/source/*.sh"
+cmd1="xterm1 $cmd"
+detach "$cmd1"
 }
 readme1(){
     echo 'update readme with blogger image of whiteboard'
@@ -545,9 +551,9 @@ suspend2(){
     sleep1 2
 
     flite 'before suspension 2'
-    cmd="$PLUGINS_DIR/suspend.sh"
+   local cmd="$PLUGINS_DIR/suspend.sh"
     update_commander
-    commander "$cmd"
+    commander1 "$cmd"
 
     tasker motivation sport  
 
@@ -616,16 +622,17 @@ suspend1(){
 
     #flite 'clean whiteboard - is important - to increase motivation' true
     cmd="tasker limit1 60 'collect_new_words'"
-    every "$cmd" $every_collect_new_words
+    #every "$cmd" $every_collect_new_words
 
     $PLUGINS_DIR/suspend.sh
 
     #tasker free_imagination &
     notify-send1 'suspend1' 'finish,is killing free text?'
-    cmd='tasker must'
-    detach "$cmd" 
+    #cmd='tasker must'
+    #detach "$cmd" 
 
-    update_points "suspend1" suspend
+   cmd="update_points suspend1 suspend"
+   detach "$cmd"
     #detach must
 }
 pownder(){

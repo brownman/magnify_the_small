@@ -2,7 +2,8 @@
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
-flite 'genius'
+renice 10 -p $$
+#flite 'genius'
 #chmod +w time
 #ls -d -l time
 str="$@"
@@ -26,7 +27,7 @@ if [ "$input" = '' ];then
 #cmd="cat $DATA_DIR/txt/history.txt"
 #detach "$cmd"
 #    unlocker
-flite 'no arguments to genius'
+trace 'no arguments to genius'
 else
     file11=$dir1/$input.sh
 #2>&1 >> $file_error
