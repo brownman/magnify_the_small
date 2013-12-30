@@ -30,7 +30,7 @@ silence2=${3:-"$SILENCE"} #"$3" #false #export MULTIPLE_LANGS=true
 #if [ "$silence2" = 'false' ];then
 #breakpoint 3
 #fi
-#cmd="notify-send1 'silence request?' '$silence2'"
+#cmd="notify_send1 'silence request?' '$silence2'"
 #every "$cmd" 9
 #assert_equal_str "$silence2" 'false'
 #silence2=$silence2
@@ -48,7 +48,7 @@ gentle=true
 
 trace 'translate.sh got:'
 trace "1:$1 2:$2"
-notify-send 'TranslatE:' "$@"
+notify_send 'TranslatE:' "$@"
 
 
 random_language_changer(){
@@ -114,7 +114,7 @@ play1(){
             times1=${repeater[$lang]} 
             times1=${times1:-1}
 
-            notify-send "times: $times1 for $lang"
+            notify_send "times: $times1 for $lang"
             if [ "$times1" != '' ];then
 
                 #declare  -i  counter
@@ -132,9 +132,9 @@ play1(){
             #Backtrace1
         fi
     else
-        cmd="notify-send1 'silence' 'on'"
+        cmd="notify_send1 'silence' 'on'"
         every "$cmd" 15
-        #notify-send1 'silence2 is on'
+        #notify_send1 'silence2 is on'
         trace 'skip playing'
 
     fi
@@ -282,7 +282,7 @@ choose4(){
 echo5(){
 
     #sleep1 3
-    notify-send 'echo5'
+    notify_send 'echo5'
 
     #count words in sentence - if lower then 4 - translate_f also to: ar, hi
     local max1=0
@@ -306,13 +306,13 @@ echo5(){
 
     for lang in "${!amount[@]}"
     do
-        #notify-send1 ""
+        #notify_send1 ""
         max_for_lang=${amount[$lang]}
         max_for_lang=${max_for_lang:-12}
-#notify-send1        "$max_for_lang -gt $current ?"
+#notify_send1        "$max_for_lang -gt $current ?"
         if [ $current -le $max_for_lang ];then
          
-            #notify-send1 "  translate:  $lang : $str"
+            #notify_send1 "  translate:  $lang : $str"
             translate_f  "$str" $lang 
             sleep1 2
         fi
@@ -344,7 +344,7 @@ collect_new_words(){
             #update_logger "word" "$pick_word"
         fi
     else
-        #notify-send 'scrap here..'
+        #notify_send 'scrap here..'
         trace 'scrap here..'
 
         #fetch_html
@@ -404,7 +404,7 @@ echo4(){
 
 }
 printing1(){
-    #notify-send1 "printing1"
+    #notify_send1 "printing1"
     #local input_ws="$1" 
     local file_txt="$1"
 
@@ -430,20 +430,20 @@ printing1(){
     #assert_equal_str "abc"
     if [ "$silence2" = true ];then
         if [ "$lang" = ru ];then
-            notify-send1 "$line2" "$line1"   
+            notify_send1 "$line2" "$line1"   
 
             #update_logger "translate" "$input ! $lang ! $line2 !  $line1"
         else
 
-            notify-send1  "$line1"
+            notify_send1  "$line1"
         fi
     else
         if [[ "$lang" = he  ||  "$lang" = hi ]];
         then
-            notify-send1  "$line2" "$line1"   
+            notify_send1  "$line2" "$line1"   
 
         else
-            notify-send1  "$line1"
+            notify_send1  "$line1"
         fi
 
     fi
@@ -479,12 +479,12 @@ one_line(){
 }
 
 all_lines(){
-    notify-send 'speak all lines'
+    notify_send 'speak all lines'
     lines=() 
     local from="$1"
     local delay=4
     local cmd='echo4'
-    #local cmd='notify-send1'
+    #local cmd='notify_send1'
     file_to_lines "$from"
 
     execute_lines
