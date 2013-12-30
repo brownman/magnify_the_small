@@ -24,10 +24,11 @@ run(){
 
     #gedit $file_txt
     trigger
-    cmd="xloadimage $file_after"
-    optional "$cmd"
+   
 
     replace
+ cmd="xloadimage $file_after"
+    optional1 "$cmd"
 }
 efficiency_image(){
     #http://www.imagemagick.org/Usage/text/#pango_markup
@@ -46,8 +47,11 @@ efficiency_image(){
 }
 
 parse_line_of_wallpaper(){
+
     local filename=$( echo "$line" | awk -F ' ' '{print $1}' )
     local file_txt=$DATA_DIR/txt/$filename.txt
+
+notify-send1 parse_line_of_wallpaper "$filename"
     is_valid $file_txt
     res=$?
     if [ $res -eq 1 ];then
@@ -120,7 +124,7 @@ replace(){
     #update xfce desktop
     notify-send1 'update wallaper' 
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s ~/Pictures/lubuntu-default-wallpaper-2.png 
-    sleep1 1
+    sleep1 4
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after
 }

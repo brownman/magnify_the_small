@@ -12,7 +12,7 @@ notify-send1 'single process' "$@"
 
 run(){
 #eval show_args
-update_commander
+#update_commander
 
 #notify-send3 'who make the loop'
 
