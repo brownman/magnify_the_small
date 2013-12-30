@@ -1,4 +1,1 @@
-:12:update_file 
-:44:helper0 
-:345:motivation 
-:783:main 
+./genius.sh:15:main 

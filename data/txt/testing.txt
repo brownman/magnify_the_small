@@ -1,3 +1,31 @@
+urgent
+-----------
+fix - wallpaper
+
+ongoing
+--
+website: add ascii-cast link
+
+random-learn
+-------
+boot process
+kernel
+show random video - every 30 min -cron!
+
+ppa
+-----
+build-dep - reverse dependencies - which app uses : zenity/yad ?
+
+
+mantain
+-----
+arik-website - create git repo and save it
+
+chat
+-------
+
+user can  capture and show their faces
+cli - chat 
 file.sh -> cron
 connectivity:  website bind between projects
 
