@@ -38,7 +38,7 @@ if [ $res_fyn -eq $NO ];then
     $TIME_DIR/yaml.sh
 exiting
 else
-    notify-send1 'continue' 
+    notify_send1 'continue' 
     #'to first task'
 fi
 
@@ -68,7 +68,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
     #gxmessage -file "$file_logger" $GXMESSAGET
     for line in "${lines[@]}"
     do
-        notify-send1 'continue on moving your ass around'
+        notify_send1 'continue on moving your ass around'
         local str_percent="$count of $max_efficiency"
         local     action=$( echo "$line" | awk -F '|' '{print $1}' )
         local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
@@ -77,12 +77,12 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
         local result=$?
         if [[ $result -eq $YES ]];then
             str_tasks="$str_tasks _ $count: $action"
-            notify-send3 "$str_percent"
-            notify-send3 "TASK: $desc"
+            notify_send3 "$str_percent"
+            notify_send3 "TASK: $desc"
             flite "$desc" true 
             local args=( ${action} )
             local res1=$(  "${args[@]}" )
-            notify-send1 'next' 'task' 
+            notify_send1 'next' 'task' 
             sleep1 8
             let "count=count+1"
         else

@@ -1,3 +1,12 @@
+hack:
+	W:
+		- http://subsignal.org/doc/AliensBashTutorial.html#4_e
+js:
+	Q:
+		- can't select text with mouse
+deb:
+	W:
+		- http://askubuntu.com/questions/279686/how-to-package-a-simple-bash-script
 error:
 	W:
 		- http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-3.html

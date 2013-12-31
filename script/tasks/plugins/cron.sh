@@ -17,7 +17,7 @@ cronE(){
 
 cronA(){
 #flite 'cron a'
-#    notify-send1 'cron' 'is running'
+#    notify_send1 'cron' 'is running'
 #    sleep1 1
 #    update_points "cron job - A" 'cron'
     tasker suspend2
@@ -26,7 +26,7 @@ cronB(){
     flite 'cron b'
 
     update_points "cron job - B" 'cron'
-    notify-send3 "cron is alive $time1"
+    notify_send3 "cron is alive $time1"
 }
 
 

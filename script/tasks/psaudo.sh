@@ -2,7 +2,7 @@
 # about file:
 # collection of system tasks
 
-notify-send "psaudo.sh:" "$@"
+notify_send "psaudo.sh:" "$@"
 record_desktop(){
 echo 'use the plugin'
 }

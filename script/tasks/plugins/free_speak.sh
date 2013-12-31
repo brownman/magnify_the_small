@@ -4,7 +4,7 @@
 # desc: talk to yourself and translate it
 
 
-notify-send "free-speak" "$0"
+notify_send "free-speak" "$0"
 
 #${1:-'essay_generator|story_a_day|funny'}
 subject="$1"
@@ -16,7 +16,7 @@ export STRING_TO_BUTTONS=false
 
 memory_game(){
     #file_name=${1:-'essay'}
-    notify-send 'memory game'
+    notify_send 'memory game'
     local file="$1"
  
 

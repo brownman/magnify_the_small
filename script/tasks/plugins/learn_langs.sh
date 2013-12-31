@@ -17,7 +17,7 @@ path1=$DIR_LEARN_LANGS
 lesson=${2:-"$LESSON_NUM"} #$2
 lang=$(higher $LANG_DEFAULT)
 #assert_equal_str "$lesson"
-#notify-send "free-speak" "$0"
+#notify_send "free-speak" "$0"
 
 
 
@@ -37,7 +37,7 @@ run(){
 
     random1 80
     lesson=$?
-    notify-send1 'lesson' "$lesson"
+    notify_send1 'lesson' "$lesson"
 
     if [ !  "$lang" ];then
         exiting

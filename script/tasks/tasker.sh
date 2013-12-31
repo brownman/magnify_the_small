@@ -3,7 +3,7 @@
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
-#cmd="notify-send1 'tasker.sh:' '$@'"
+#cmd="notify_send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
 show_psaudo_like_koans(){
     trace ''
@@ -42,7 +42,7 @@ readme1(){
     echo 'update readme with blogger image of whiteboard'
 }
 funny_brain_wash(){
-    notify-send3 'be happy' 
+    notify_send3 'be happy' 
 }
 plan_hour_5m_step(){
 
@@ -56,7 +56,7 @@ plan_hour_5m_step(){
 }
 
 update_points(){
-    notify-send1 'update' 'points'
+    notify_send1 'update' 'points'
     local str="$1"
     local filename=${2:-logger}
     local file=$DATA_DIR/txt/$filename.txt
@@ -69,7 +69,7 @@ update_points(){
         #every "$cmd"
         every "$cmd" 10
     else
-        notify-send 'skip'
+        notify_send 'skip'
     fi
 }
 
@@ -87,7 +87,7 @@ translate_later(){
 
 config(){
     #export DEBUG=true
-    notify-send 'cfg-test' 'unit..' 
+    notify_send 'cfg-test' 'unit..' 
     args=( "$@" )
     res1=$(  "${args[@]}" )
     echo "$res1" #must echo for testing to work
@@ -118,10 +118,10 @@ cfg1(){
 }
 #efficiency_report(){
 #    flite 'efficiency report'
-#    notify-send1 'efficiency report:' 'words,snippets,order'
+#    notify_send1 'efficiency report:' 'words,snippets,order'
 #    local res=$(    level )
 #    #local res=$(    check-boxes)
-#    #notify-send1 'efficiency level:' "$res"
+#    #notify_send1 'efficiency level:' "$res"
 #    #echo "$res"
 #    return $res
 #}
@@ -146,7 +146,7 @@ impulse(){
 
 
 children_story(){
-    notify-send1 'children story'
+    notify_send1 'children story'
 
     url1='http://teaching-tales.org/'
     url2='http://www.mamalisa.com/'
@@ -157,7 +157,7 @@ children_story(){
     free_speak child &
 }
 riddle(){
-    notify-send1 'task' 'riddle'
+    notify_send1 'task' 'riddle'
     $PLUGINS_DIR/riddle.sh 
 }
 
@@ -178,7 +178,7 @@ do_koan(){
     cat $LINKS_DIR/recent_koan.py | head -10
 }
 
-#notify-send "tasker.sh:" "$*"
+#notify_send "tasker.sh:" "$*"
 article(){
 
     local file="$1"
@@ -191,7 +191,7 @@ google(){
 
 
 task_from(){
-    notify-send "picker got" "$@"
+    notify_send "picker got" "$@"
 
     local name="$1" #
     local num="$2" #
@@ -215,7 +215,7 @@ task_from(){
 }
 
 ask_a_question(){
-    notify-send 'ask! and learn!'
+    notify_send 'ask! and learn!'
 }
 
 random_quote(){
@@ -290,7 +290,7 @@ increase_motivation(){
 }
 
 db(){
-    #notify-send1 'db' "$@"
+    #notify_send1 'db' "$@"
 
     ##works:
     local args=( "$@" )
@@ -311,7 +311,7 @@ menu(){
 #cow_report(){
 #    local table=$1
 #    local num=$( db counter $table)
-#    notify-send3 "$table.db: ++$num "
+#    notify_send3 "$table.db: ++$num "
 #}
 cow_report_txt(){
     #flite 'riddl'
@@ -324,7 +324,7 @@ cow_report_txt(){
 
 motivation(){
 
-    #notify-send1 'motivation'
+    #notify_send1 'motivation'
     #caller1
     subject="$1"
     #cmd=cow_report
@@ -361,7 +361,7 @@ motivation(){
 }
 
 motivations(){
-    notify-send3 'motivationsssss!'
+    notify_send3 'motivationsssss!'
     local file=${1:-"$DATA_DIR/txt/later.txt"}
     local cmd="$PLUGINS_DIR/translation.sh lines  true"
     commander "$cmd"
@@ -465,7 +465,7 @@ update(){
 }
 
 #before_suspension(){
-#    notify-send1 'before_suspension'
+#    notify_send1 'before_suspension'
 #    flite 'think smaller'
 #    sleep1 5
 #    motivation
@@ -489,13 +489,13 @@ task_force(){
 
     local str=$( echo "$line" | awk -F '|' '{print $1}' )
     local cmd=$( echo "$line" | awk -F '|' '{print $2}' )
-    notify-send3 "$str"
+    notify_send3 "$str"
     commander "$cmd"
 }
 
 
 resources(){
-    notify-send1 'resources' 'list'
+    notify_send1 'resources' 'list'
     local url=$(        random_line $DATA_DIR/tmp/resources.tmp )
     commander "exo-open $url"
 
@@ -543,32 +543,33 @@ background(){
     #res1=$(   )
     #trace "$res1" #must echo for testing to work
     ###########################
-    notify-send3 finito
+    notify_send3 finito
 }
 
 suspend2(){
-    flite 'before suspension 1'
-    sleep1 2
-
-    flite 'before suspension 2'
+#    flite 'before suspension 1'
+#    sleep1 2
+#
+#    flite 'before suspension 2'
    local cmd="$PLUGINS_DIR/suspend.sh"
-    update_commander
-    commander1 "$cmd"
-
-    tasker motivation sport  
-
-    tasker update_points "suspend2" suspend
-    #must &
-    notify-send3 'suspend2 '  
-
-    notify-send1 'chase your fear and they will run away from you'
-    sleep1 20
-    notify-send1 'skip suspension for deal my fears:' '..'
-    flite 'white board is awesome' true
-    sleep1 5
-
-
-    flite 'after suspension'
+detach  "$cmd" 
+#    update_commander
+#    commander1 "$cmd"
+#
+#    tasker motivation sport  
+#
+#    tasker update_points "suspend2" suspend
+#    #must &
+#    notify_send3 'suspend2 '  
+#
+#    notify_send1 'chase your fear and they will run away from you'
+#    sleep1 20
+#    notify_send1 'skip suspension for deal my fears:' '..'
+#    flite 'white board is awesome' true
+#    sleep1 5
+#
+#
+#    flite 'after suspension'
 
 }
 updating(){
@@ -600,7 +601,7 @@ updating1(){
         cmd="gedit $file"
         detach "$cmd"
     else 
-        notify-send1 'Error on: str, type'
+        notify_send1 'Error on: str, type'
     fi
 
 }
@@ -609,7 +610,7 @@ suspend1(){
 
 
 
-    notify-send1 'reminder' 'kill noisy tasks'
+    notify_send1 'reminder' 'kill noisy tasks'
     #sleep1 20
     local gui=$1
     if [ "$gui" = 'true' ];then
@@ -627,7 +628,7 @@ suspend1(){
     $PLUGINS_DIR/suspend.sh
 
     #tasker free_imagination &
-    notify-send1 'suspend1' 'finish,is killing free text?'
+    notify_send1 'suspend1' 'finish,is killing free text?'
     #cmd='tasker must'
     #detach "$cmd" 
 
@@ -670,7 +671,7 @@ collaboration(){
 }
 
 reminder(){
-    #notify-send1 'reminder'
+    #notify_send1 'reminder'
     flite 'update  every cicle'
     $PLUGINS_DIR/reminder.sh 
 }
@@ -686,7 +687,7 @@ learn_langs(){
     local cmd1="xterm1 $PLUGINS_DIR/learn_langs.sh"
     detach "$cmd1"
     #play_lesson 
-    #notify-send3 finish-task1
+    #notify_send3 finish-task1
 }
 
 

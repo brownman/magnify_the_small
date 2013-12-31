@@ -18,7 +18,7 @@ step1(){
 
     #local cmd='echo4'
     local cmd='exo-open'
-    #notify-send1'
+    #notify_send1'
     file_to_lines "$from"
 
     execute_lines

@@ -13,7 +13,7 @@ update_env(){
 }
 run(){
 
-    flite "$str1"
+    flite "current cron job is $str1"
     if [ "$str1" = '' ];then
         flite 'no arguments'
     else
@@ -24,10 +24,14 @@ run(){
 
 }
 action(){
-
 local file=/home/dao01/magnify_the_small/genius.sh
-local args="$str1"
-$( $file single "$args" )
+
+notify-send1 step1
+$( $file single "$str1" )
+notify-send1 step2
+$( $file single update_points "cron-job-$str1" cron )
+
+#$( $file single wallpaper )
 }
 
 run

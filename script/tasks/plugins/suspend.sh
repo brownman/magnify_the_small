@@ -8,7 +8,7 @@
 timeout=60
 #$TIMEOUT_LET_ME_SLEEP
 
-notify-send 'suspend!'
+notify_send 'suspend!'
 suspend01(){
     trace "suspend01().."
     local elapsed=0

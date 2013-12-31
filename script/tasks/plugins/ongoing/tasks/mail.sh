@@ -88,7 +88,7 @@ send2(){
 ###send1 report_txt
 #
 #else
-#    notify-send 'not sending !'
+#    notify_send 'not sending !'
 #
 #fi
 

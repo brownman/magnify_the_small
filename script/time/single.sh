@@ -3,7 +3,7 @@
 # name:        ensure suspension!
 # description:   separate the proccess running the suspend.sh
 
-#notify-send 'ensure suspension'
+#notify_send 'ensure suspension'
 
 args=( "$@" )
 res=''
@@ -14,10 +14,10 @@ run(){
 #eval show_args
 #update_commander
 
-#notify-send3 'who make the loop'
+#notify_send3 'who make the loop'
 
 #sleep1 2
-#cmd='notify-send1 hi bye'
+#cmd='notify_send1 hi bye'
 #cmd='tasker config update_commander'
 #decide1 "$cmd"
 res=$( tasker "${args[@]}" )

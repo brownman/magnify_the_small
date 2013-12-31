@@ -167,7 +167,7 @@ must:
 
 wallpaper:
     - suspend 1130 150 400x 31 yellow true 
-    #- cron 1130 550 300x 24 red true 
+    - cron 1130 550 300x 24 red true 
     #- logger 830 150 600x 43 white true 
     - collected 530 350 400x 23 white true 
     #- assosiation 230 240 400x 14 yellow true 

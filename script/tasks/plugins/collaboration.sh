@@ -53,7 +53,7 @@ $( gxmessage -title "collaborations: with $name1" $GXMESSAGET "$ask1" -entrytext
 $TODAY_DIR/code/collaboration.sh "$name1"
 
 
-            #notify-send "TASK:" "$desc"
+            #notify_send "TASK:" "$desc"
             #( echo "$desc" | flite &)
             #( echo0 "$desc" &)
             #exec

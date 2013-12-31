@@ -7,7 +7,7 @@
 #imagemagic
 #http://www.imagemagick.org/Usage/text/#pango_markup
 
-notify-send1 'wallapaper' 'plugin'
+notify_send1 'wallapaper' 'plugin'
 
 file_original=/usr/share/xfce4/backdrops/xubuntu-precise-right.png
 file_before=/tmp/before.png #copy of the original
@@ -51,12 +51,12 @@ parse_line_of_wallpaper(){
     local filename=$( echo "$line" | awk -F ' ' '{print $1}' )
     local file_txt=$DATA_DIR/txt/$filename.txt
 
-notify-send1 parse_line_of_wallpaper "$filename"
+trace parse_line_of_wallpaper "$filename"
     is_valid $file_txt
     res=$?
     if [ $res -eq 1 ];then
 
-        notify-send1 " file ok" "$file_txt"
+        notify_send " file ok" "$file_txt"
         local x=$( echo "$line" | awk -F ' ' '{print $2}' )
         local y=$( echo "$line" | awk -F ' ' '{print $3}' )
         local size=$( echo "$line" | awk -F ' ' '{print $4}' )
@@ -69,15 +69,17 @@ notify-send1 parse_line_of_wallpaper "$filename"
         commander "$cmd1"
         #generate $file_before $file_txt 1130 150 600x 13 white true
     else
-        notify-send1 "invalid file" "$file_txt"
+        notify_send "invalid file" "$file_txt"
     fi
 
 }
 
 
 trigger(){
+    trace trigger
     lines=()
     file_to_lines $file_tmp
+    trace "lines: ${lines[@]}"
     local cmd='parse_line_of_wallpaper'
     execute_lines
 }
@@ -110,7 +112,7 @@ playground(){
     fi
 }
 backup(){
-    notify-send1 'backup'
+    notify_send1 'backup'
     #src=xfce-transparent.png
     #file1="/usr/share/xfce4/backdrops/${src}"
     #file1="/tmp/mm.png"
@@ -122,7 +124,7 @@ backup(){
 }
 replace(){
     #update xfce desktop
-    notify-send1 'update wallaper' 
+    notify_send1 'update wallaper' 
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s ~/Pictures/lubuntu-default-wallpaper-2.png 
     sleep1 4
     xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $file_after

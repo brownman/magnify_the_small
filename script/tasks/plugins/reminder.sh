@@ -4,7 +4,7 @@
 
 #. $TIMERTXT_CFG_FILE
 
-notify-send1 "reminder" "$@"
+notify_send1 "reminder" "$@"
 
 delay=5
 file_locker=/tmp/reminder
@@ -18,7 +18,7 @@ line=${1:-goal}
 #        $(messageYN1 "$date1: $content" "remind?")
 #        res=$?
 #        if [ $res -eq $YES ];then
-#            notify-send1 "$content"
+#            notify_send1 "$content"
 #            sleep1 10
 #        else
 #            break

@@ -2,7 +2,7 @@
 
 str="$1"
 run(){
-local cmd="notify-send1 'simple notification' \"_ $str\""
+local cmd="notify_send1 'simple notification' \"_ $str\""
 every "$cmd" 10
 
     #gxmessage $GXMESSAGET -title 'simple notification' 'hello  world!'

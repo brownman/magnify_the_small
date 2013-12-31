@@ -49,7 +49,7 @@ local riper=$url
 file_name=$(ls *.mp3)
 file_size=$(du -h $file_name | awk '{print $1}')
 
-notify-send -t 700 -i youtube "Downloaded " "\n `ls *.mp3|awk '{ gsub(/\_/, " "); print }'` \n------------------------------------------------------------------------ \n "Size:" $file_size"
+notify_send -t 700 -i youtube "Downloaded " "\n `ls *.mp3|awk '{ gsub(/\_/, " "); print }'` \n------------------------------------------------------------------------ \n "Size:" $file_size"
 mv *.mp3 /TORRENTS/MP3
 
 

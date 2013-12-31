@@ -1,4 +1,4 @@
-notify-send1  'plugin:' 'must' 
+notify_send1  'plugin:' 'must' 
 
 run(){
 local file=$DATA_DIR/tmp/must.tmp

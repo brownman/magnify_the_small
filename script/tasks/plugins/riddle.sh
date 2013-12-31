@@ -4,7 +4,7 @@ file_locker=/tmp/riddle
 dir=''
 subject=''
 delay1=$delay_riddle
-notify-send1 delay "$delay1"
+notify_send1 delay "$delay1"
 
 random_path(){
         dir=$SCRIPT_DIR/tasks/abs/source
@@ -36,7 +36,7 @@ random_path(){
 
 run(){
 
-    notify-send1 'riddle' 'bash riddles'
+    notify_send1 'riddle' 'bash riddles'
     #local dir_source=$PWD/1/testing/python2/koans
     #local dir='~/magnify_the_small/1/others/CODE/abs-guide-6.5'
 
@@ -49,7 +49,7 @@ run(){
         random_path
 
 
-        #notify-send1 "res" "$file"
+        #notify_send1 "res" "$file"
         if [ "$full_path" != '/' ];then
             #update_commander
            

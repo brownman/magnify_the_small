@@ -14,7 +14,7 @@ create_htmls(){
     done
 
     #google-chrome $DATA_DIR/html/all.html &
-    notify-send1  'updated' 'all.html'
+    notify_send1  'updated' 'all.html'
 }
 create_htmls "$1"
 

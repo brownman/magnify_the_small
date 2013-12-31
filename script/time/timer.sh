@@ -11,7 +11,7 @@ run(){
     local count1=0
     while :;do
         let "count1=count1+1"
-        notify-send3 "wow! cycles: $count1"
+        notify_send3 "wow! cycles: $count1"
         if [ "$DEBUG" = false ];then
             #tasker motivation glossary 
             trace ''

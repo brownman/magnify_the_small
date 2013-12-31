@@ -3,7 +3,7 @@
 #set -o errexit
 
 
-notify-send1 "Restart Test"
+notify_send1 "Restart Test"
 export  COMMANDER=false
 #export DEBUG=true
 export VERBOSE=false
@@ -19,7 +19,7 @@ plugin(){
 
 }
 #cfg(){
-#    notify-send1 'cfg test'
+#    notify_send1 'cfg test'
 #    #local cmd="$@"
 #    #assert_equal_str $cmd
 #    #local res=$(    commander "$cmd")
@@ -30,7 +30,7 @@ plugin(){
 #    echo "$res1"
 #}
 snippet(){
-    notify-send1 'cfg test'
+    notify_send1 'cfg test'
     local cmd="$@"
     #assert_equal_str $cmd
     local res=$(    commander "$cmd")
@@ -41,7 +41,7 @@ tasks_sh(){
     #exiting
     #trace "tasks_sh run: $*"
     #tasker "$@" 
-    notify-send1 'tasks_sh test'
+    notify_send1 'tasks_sh test'
     #local cmd="$@"
     local args=( "$@" )
 
@@ -76,7 +76,7 @@ test_yaml(){
 
 
 local cmd="tasker free_imagination $DATA_DIR/txt/testing.txt"
-tasker config notify-send4 "$line" "$cmd"
+tasker config notify_send4 "$line" "$cmd"
 
 cmd='tasker motivation'
 run_silently "$cmd"
@@ -136,10 +136,10 @@ return
 
                 local ans=$(tasker db set koan false true "$data" )
                 if  [ "$equality" ] && [ "$equality" = 'equal' ];then
-                    notify-send3 'test ok!'
+                    notify_send3 'test ok!'
                 else
-                    notify-send1 'google is a friend ?' 'test failed'
-                    cmd='notify-send3 " must document the new tests"'
+                    notify_send1 'google is a friend ?' 'test failed'
+                    cmd='notify_send3 " must document the new tests"'
                     (every "$cmd" 5  &)
                 fi
 

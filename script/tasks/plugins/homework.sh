@@ -1,6 +1,6 @@
 
 
-notify-send "homework" "$0"
+notify_send "homework" "$0"
 
 #${1:-'essay_generator|story_a_day|funny'}
 #subject="$1"

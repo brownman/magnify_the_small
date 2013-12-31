@@ -34,7 +34,7 @@ select_from_table(){
 
 insert_values_str(){
     #update_commander
-    notify-send 'insert values_str' "$1 | $2"
+    notify_send 'insert values_str' "$1 | $2"
     local name="$1"
     local table1="$name"
     local  file_db=$file_db
@@ -65,7 +65,7 @@ update_db_list(){
 
     local file_db=$file_db
     local file_new=$DATA_DIR/txt/db.txt
-    notify-send1 'update_db_list'
+    notify_send1 'update_db_list'
     #local str=$(sqlite3 -header -list ex1.db ".tables" | xargs echo | sed 's/ /|/g')
     local str=$(sqlite3 -header -list $file_db ".tables" | tr -s ' ' '\n')
     echo "$str" > $file_new
@@ -91,7 +91,7 @@ show_selected_table(){
 
     #assert_equal_str "$table1"
     local  file_db=$file_db
-    notify-send 'show_selected_table:' ": $table1"
+    notify_send 'show_selected_table:' ": $table1"
 
 
     local zen1="--width=1280 --height=800 --list --title=$table1"
@@ -143,15 +143,15 @@ show_selected_table(){
 #    return $max
 #}
 get(){
-    notify-send 'get last record' '!'
+    notify_send 'get last record' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
     local values_str="$4"
     local values_arr=()
 
-    notify-send "gui" "$gui"
-    notify-send "update" "$update"
+    notify_send "gui" "$gui"
+    notify_send "update" "$update"
     local num=0
     local max=0
     local header=''
@@ -168,7 +168,7 @@ get(){
 }
 
 set(){
-    notify-send 'add new row' '!'
+    notify_send 'add new row' '!'
     local table="$1"
     local gui=${2:-'true'}
     local update=${3:-'true'}
@@ -176,8 +176,8 @@ set(){
     local values_arr=()
 
 
-    notify-send "gui" "$gui"
-    notify-send "update" "$update"
+    notify_send "gui" "$gui"
+    notify_send "update" "$update"
     local num=0
     local max=0
     local header=''

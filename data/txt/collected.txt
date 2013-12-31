@@ -1,3 +1,26 @@
+11:22|3088 (process ID) old priority 10, new priority 10
+-
+11:10|8624 (process ID) old priority 10, new priority 10
+8624 (process ID) old priority 10, new priority 10
+only
+10:58|
+around
+07:14|
+success
+07:12|
+wold
+07:06|
+good
+07:04|
+but
+06:32|
+scream
+06:08|
+me
+06:04|
+ears
+06:02|
+breath
 05:41|
 and
 05:39|

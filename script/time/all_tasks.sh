@@ -6,7 +6,7 @@ file=$DATA_DIR/tmp/timer.tmp
 all_lines(){
     #lines=() 
     local from="$1"
-    local cmd='notify-send'
+    local cmd='notify_send'
     file_to_lines "$from"
 
     execute_lines
