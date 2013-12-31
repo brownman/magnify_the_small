@@ -1,3 +1,61 @@
+16:34|whenever
+16:19|doubts
+16:15|only
+16:02|up
+15:54|comfort
+15:52|sides
+15:50|here
+15:41|move
+15:37|human
+15:35|hello
+15:35|do
+15:34|empty='Q'
+assert_equal_str "$res" 'dog'
+res1=$(act "$1" "$2")
+15:33|empty='Q'
+assert_equal_str "$res" 'dog'
+res1=$(act "$1" "$2")
+15:31|empty='Q'
+assert_equal_str "$res" 'dog'
+res1=$(act "$1" "$2")
+15:30|empty='Q'
+assert_equal_str "$res" 'dog'
+act "$1" "$2"
+15:29|this
+15:29|hello
+15:27|person
+15:22|home
+15:20|gods
+13:19|6100 (process ID) old priority 10, new priority 11
+was
+13:13|2615 (process ID) old priority 10, new priority 11
+did
+13:11|1070 (process ID) old priority 11, new priority 11
+silently
+13:07|31904 (process ID) old priority 19, new priority 19
+neck
+13:05|[31m29494[0m
+29509 (process ID) old priority 10, new priority 19
+[32m29509[0m
+faster
+12:51|[31m23683[0m
+23699 (process ID) old priority 10, new priority 19
+[32m23699[0m
+[31m23683[0m
+23709 (process ID) old priority 10, new priority 19
+[32m23709[0m
+best
+12:31|[31m20532[0m
+20548 (process ID) old priority 10, new priority 15
+[32m20548[0m
+hands
+12:19|[31m16703[0m
+(B[m[32m16718[0m
+(B[m[33m16703[0m
+(B[m
+happy
+12:08|13954 (process ID) old priority 10, new priority 10
+stretch
 11:22|3088 (process ID) old priority 10, new priority 10
 -
 11:10|8624 (process ID) old priority 10, new priority 10

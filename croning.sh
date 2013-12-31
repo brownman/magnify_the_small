@@ -35,5 +35,4 @@ $( $file single update_points "cron-job-$str1" cron )
 }
 
 run
-flite "bye bye"
-
+flite "finish $str1"

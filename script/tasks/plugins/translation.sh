@@ -338,7 +338,7 @@ collect_new_words(){
 
             commander "$cmd"
 
-            make_assosiation "$pick_word"
+            #make_assosiation "$pick_word"
             #tasker add_association
 
             #update_logger "word" "$pick_word"

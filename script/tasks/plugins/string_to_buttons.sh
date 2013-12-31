@@ -13,25 +13,27 @@ arr=()
 declare -a arr=() 
 #=('aa')
 arr_to_msg(){
+    trace arr_to_msg
     local str=$(random_line $file_assosiation)
-    if [ "$STRING_TO_BUTTONS" = true ];then
+    #if [ "$STRING_TO_BUTTONS" = true ];then
 
-            gxmessage -buttons "$1" "$str" -timeout 27 
-    else
+            gxmessage -buttons "$1" "$str" $GXMESSAGET
+          
+    #else
         #mantion 'string to buttons is off'
-        gxmessage -buttons "$1" "$str" -timeout 9 -iconic 
-    fi
+        #gxmessage -buttons "$1" "$str" -timeout 9 -iconic 
+    #fi
 
     local num=$?
     local str="${arr[$num]}"
-    trace "$str"
+    green "$str"
     echo "$str"
 }
 
 
 
 str_to_arr(){
-    trace "string_to_arr() got:  1:$1 2:$2" 
+    trace "string_to_arr() got:  1:$1 " 
     str="$1" 
 
     old_IFS=$IFS
@@ -45,6 +47,7 @@ str_to_arr(){
 
 }
 arr_to_str(){
+    trace arr_to_str
 
     #local str1="$1"
     local item=''
@@ -80,7 +83,7 @@ act(){
     #assert_equal_str "$args_str" "z"
     local res=''
 
-    delimeter="${2:-' '}"   # Defaults to /tmp dir.
+    delimeter=${2:-' '}   # Defaults to /tmp dir.
 
     local str="Q${delimeter}$1"
 
@@ -100,7 +103,6 @@ act(){
 
         trace "choosen: $str4"
         res="$str4"
-tasker update_points "$str4"
     fi
 
 #assert_equal_str "$res" 'dog'
@@ -124,5 +126,6 @@ tasker update_points "$str4"
 #res=$(commander "$cmd" )
 #echo "$res"
 #
-act "$1" "$2"
+res1=$(act "$1" "$2")
+echo "$res1"
 

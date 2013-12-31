@@ -166,10 +166,10 @@ must:
     - tasker cron 
 
 wallpaper:
-    - suspend 1130 150 400x 31 yellow true 
-    - cron 1130 550 300x 24 red true 
+    - suspend 1530 550 400x 28 yellow true 
+    - cron 930 150 500x 31 red true 
     #- logger 830 150 600x 43 white true 
-    - collected 530 350 400x 23 white true 
+    - collected 230 350 400x 23 white true 
     #- assosiation 230 240 400x 14 yellow true 
     #- disown 1140 650 600x 13 white true 
 

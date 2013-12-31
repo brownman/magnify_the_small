@@ -62,12 +62,12 @@ update_points(){
     local file=$DATA_DIR/txt/$filename.txt
     if [ "$str" ];then
         update_file  $file "$time1|$str"
-        cmd='tasker wallpaper'
+       #cmd='tasker wallpaper'
 
         #optional "$cmd" "tasker wallpaper" warning 
 
         #every "$cmd"
-        every "$cmd" 10
+        #every "$cmd" 10
     else
         notify_send 'skip'
     fi
@@ -251,7 +251,7 @@ practice_regexp(){
 string_to_buttons(){
 
     local str="$1"
-    local delimeter="$2"
+    local delimeter=${2:-' '}
     local res=$($PLUGINS_DIR/string_to_buttons.sh "$str" "$delimeter")
     tasker update_points "$res" collected
     echo "$res"
@@ -348,6 +348,7 @@ motivation(){
     #tasker  update_points "$line"
 
     #    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
+    
     helper0 "$line"  
     #assert_equal_str "$line"
 
@@ -551,8 +552,16 @@ suspend2(){
 #    sleep1 2
 #
 #    flite 'before suspension 2'
+
+
+    #tasker update_points "suspend2" suspend
+
+
    local cmd="$PLUGINS_DIR/suspend.sh"
 detach  "$cmd" 
+
+   cmd="update_points suspend2 suspend"
+   detach "$cmd"
 #    update_commander
 #    commander1 "$cmd"
 #
