@@ -14,7 +14,6 @@ export file_loader=$ROOT_DIR/script/loader.sh
 
 
 
-
 input="$1"
 shift
 args=( "$@" )

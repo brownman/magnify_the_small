@@ -7,6 +7,15 @@ do
     #export "=$file
     . $file
 done
+
+## Load all files in support
+#for file in `ls -1 $KOANS_DIR/support/*.sh`; do
+#    notify-send "$file"
+#  . $file
+#done
+#$KOANS_DIR/meditate.sh
+
+#assertEqual 1 2
 #exit
 #cd ../public
 #

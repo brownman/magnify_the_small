@@ -56,7 +56,7 @@ plan_hour_5m_step(){
 }
 
 update_points(){
-    notify_send1 'update' 'points'
+    notify_send 'update' 'points'
     local str="$1"
     local filename=${2:-logger}
     local file=$DATA_DIR/txt/$filename.txt
@@ -321,7 +321,6 @@ cow_report_txt(){
     trace ''
 }
 
-
 motivation(){
 
     #notify_send1 'motivation'
@@ -548,20 +547,33 @@ background(){
 }
 
 suspend2(){
+
+    flite 'suspend2'
+    flite 'suspend2'
+    flite 'suspend2'
+    flite 'suspend2'
 #    flite 'before suspension 1'
 #    sleep1 2
 #
 #    flite 'before suspension 2'
 
 
-    #tasker update_points "suspend2" suspend
 
+$PLUGINS_DIR/suspend.sh
 
-   local cmd="$PLUGINS_DIR/suspend.sh"
-detach  "$cmd" 
+    tasker update_points "suspend2" suspend2
 
-   cmd="update_points suspend2 suspend"
-   detach "$cmd"
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
+ 
+}
+   #local cmd="$PLUGINS_DIR/suspend.sh"
+#detach  "$cmd" 
+
+   ##cmd="update_points suspend2 suspend"
+   #detach "$cmd"
 #    update_commander
 #    commander1 "$cmd"
 #
@@ -580,7 +592,6 @@ detach  "$cmd"
 #
 #    flite 'after suspension'
 
-}
 updating(){
 
    local cmd="gedit $DATA_DIR/yaml/url.yaml"
@@ -631,18 +642,21 @@ suspend1(){
 
 
     #flite 'clean whiteboard - is important - to increase motivation' true
-    cmd="tasker limit1 60 'collect_new_words'"
+    #cmd="tasker limit1 60 'collect_new_words'"
     #every "$cmd" $every_collect_new_words
 
     $PLUGINS_DIR/suspend.sh
 
     #tasker free_imagination &
-    notify_send1 'suspend1' 'finish,is killing free text?'
+    #notify_send1 'suspend1' 'finish,is killing free text?'
     #cmd='tasker must'
     #detach "$cmd" 
 
-   cmd="update_points suspend1 suspend"
-   detach "$cmd"
+  update_points suspend1 suspend1
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
+  flite 'suspend2 finish'
     #detach must
 }
 pownder(){
