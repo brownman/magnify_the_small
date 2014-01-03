@@ -15,7 +15,7 @@ file_after=/tmp/after.png #compose: txt_image + background
 file_text_image=/tmp/text.png #convert txt to image
 file_tmp=$DATA_DIR/tmp/wallpaper.tmp
 
-amount=12
+amount=4
 
 run(){
     #efficiency_image

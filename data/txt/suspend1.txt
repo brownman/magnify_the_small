@@ -1,0 +1,20 @@
+12:57|suspend1
+12:17|suspend1
+12:09|suspend1
+12:04|suspend1
+11:14|suspend1
+10:38|suspend1
+10:33|suspend1
+07:38|suspend1
+07:33|suspend1
+15:35|suspend1
+15:30|suspend1
+15:25|suspend1
+15:20|suspend1
+15:12|suspend1
+15:07|suspend1
+15:02|suspend1
+14:51|suspend1
+16:04|suspend1
+15:53|suspend1
+empty file: /home/dao01/magnify_the_small/data/txt/suspend1.txt

@@ -534,7 +534,7 @@ must(){
 }
 
 lpi(){
-    xdg-open /home/dao01/Desktop/linux-edu/LPIC1.pdf
+    evince /home/dao01/Desktop/linux-edu/LPIC1.pdf
 }
 
 background(){
