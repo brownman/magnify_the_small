@@ -7,8 +7,50 @@
 
 
 trace "serial.sh got: 1:$1 2:$2"
+report(){
+   $( messageYN1 "report:" ' are you effective ? '  )
+    local result1=$?
+    if [ $result1 -eq "$YES" ];then
+
+        #update_file $file_logger
+        local str="$str_tasks"
+    tasker update_points "$str"
+
+    fi
+}
+level(){
+    $( tasker config level $max )
+#assert_equal_str "$max_efficiency"
+    if [ $max_efficiency = '' ];then
+exiting
+    fi
+    if [ $max_efficiency -eq 0 ];then
+
+optional1        "gedit $DATA_DIR/yaml/one.yaml"
+        exiting
+    fi
 
 
+}
+efficiency(){
+    if [ $count -gt  $max_efficiency  ];then
+            flite 'efficiency level is smaller than counter'
+            break
+        fi
+}
+ensure(){
+    $(messageYN1 "$str_file_workflow" 'ensure this workflow:')
+local res_fyn=$?
+if [ $res_fyn -eq $NO ];then
+    $TIME_DIR/yaml.sh
+exiting
+else
+    notify_send1 'continue' 
+    #'to first task'
+fi
+
+
+}
 
 
 read_lines(){
@@ -32,40 +74,10 @@ read_lines(){
 
     #gxmessage -file $file_workflow "$GXMESSAGET" -title 'ensure this workflow:'
     local str_file_workflow=$(cat $file_workflow)
-    $(messageYN1 "$str_file_workflow" 'ensure this workflow:')
-local res_fyn=$?
-if [ $res_fyn -eq $NO ];then
-    $TIME_DIR/yaml.sh
-exiting
-else
-    notify_send1 'continue' 
-    #'to first task'
-fi
-
-
     local max=${#lines[@]}
-
-
-    local max_efficiency=$( tasker config level $max )
-#assert_equal_str "$max_efficiency"
-    if [ $max_efficiency = '' ];then
-exiting
-    fi
-    if [ $max_efficiency -eq 0 ];then
-
-optional        "gedit $DATA_DIR/yaml/one.yaml"
-        exiting
-    fi
-
-
-    #let "max_efficiency=max_efficiency+1"
-
-
-
+    local max_efficiency=max
     count=1
     local str_tasks=''
-
-    #gxmessage -file "$file_logger" $GXMESSAGET
     for line in "${lines[@]}"
     do
         notify_send1 'continue on moving your ass around'
@@ -77,8 +89,8 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
         local result=$?
         if [[ $result -eq $YES ]];then
             str_tasks="$str_tasks _ $count: $action"
-            notify_send3 "$str_percent"
-            notify_send3 "TASK: $desc"
+            notify_send1 "$str_percent"
+            notify_send1 "TASK: $desc"
             flite "$desc" true 
             local args=( ${action} )
             local res1=$(  "${args[@]}" )
@@ -89,25 +101,7 @@ optional        "gedit $DATA_DIR/yaml/one.yaml"
             flite 'breaking'
             break
         fi
-        if [ $count -gt  $max_efficiency  ];then
-            flite 'efficiency level is smaller than counter'
-            break
-        fi
     done
-
-    $( messageYN1 "report:" ' are you effective ? '  )
-    local result1=$?
-    if [ $result1 -eq "$YES" ];then
-
-        #update_file $file_logger
-        local str="$str_tasks"
-    tasker update_points "$str"
-
-    fi
-
-
-
-
 }
 read_lines
 

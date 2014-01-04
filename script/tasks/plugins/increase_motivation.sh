@@ -41,4 +41,5 @@ run(){
    one 
 }
 
-unlocker
+#unlocker
+run

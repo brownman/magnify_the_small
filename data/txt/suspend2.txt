@@ -1,3 +1,14 @@
+09:15|suspend2
+08:45|suspend2
+09:00|suspend2
+12:30|suspend2
+12:15|suspend2
+11:15|suspend2
+11:00|suspend2
+15:52|suspend2
+empty file: /home/dao01/magnify_the_small/data/txt/suspend2.txt
+08:45|suspend2
+09:00|suspend2
 12:30|suspend2
 12:15|suspend2
 11:15|suspend2

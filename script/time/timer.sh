@@ -17,12 +17,12 @@ run(){
             trace ''
         fi
         run_workflow
-        cmd='tasker motivation koan'
-        every  "$cmd" 
+        #cmd='tasker motivation koan'
+        #every  "$cmd" 
         #force_koan 
-        cmd='tasker resources'
-        every "$cmd"
-        reload_cfg
+        #cmd='tasker resources'
+        #every "$cmd"
+        #reload_cfg
     done
 }
 
