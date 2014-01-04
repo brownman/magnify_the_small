@@ -85,8 +85,9 @@ read_lines(){
         local     action=$( echo "$line" | awk -F '|' '{print $1}' )
         local     desc=$( echo "$line" | awk -F '|' '{print $2}' )
 
-        $( messageYN1 "$desc" 'action:'  )
-        local result=$?
+        #$( messageYN1 "$desc" 'action:'  )
+        #local result=$?
+        local result=$YES
         if [[ $result -eq $YES ]];then
             str_tasks="$str_tasks _ $count: $action"
             notify_send1 "$str_percent"
@@ -95,7 +96,7 @@ read_lines(){
             local args=( ${action} )
             local res1=$(  "${args[@]}" )
             notify_send1 'next' 'task' 
-            sleep1 8
+            sleep1 60
             let "count=count+1"
         else
             flite 'breaking'
