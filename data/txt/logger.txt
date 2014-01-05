@@ -1,3 +1,10 @@
+07:50|tasker git_commit
+12:44|tasker riddle
+12:20|tasker learn_langs
+10:41|exit!
+10:41|if I was a genius I would
+10:36|exit!
+10:36|I won
 10:30|tasker git_commit
 10:12|is to define the problem
 10:09|tasker git_commit

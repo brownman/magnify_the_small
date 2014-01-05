@@ -103,6 +103,7 @@ read_lines(){
             break
         fi
     done
+    tasker motivation sport
 }
 read_lines
 

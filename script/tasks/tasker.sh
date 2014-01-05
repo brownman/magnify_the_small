@@ -548,51 +548,13 @@ background(){
 }
 
 suspend2(){
-
     flite 'suspend2'
-    flite 'suspend2'
-    flite 'suspend2'
-    flite 'suspend2'
-#    flite 'before suspension 1'
-#    sleep1 2
-#
-#    flite 'before suspension 2'
-
-
-
 $PLUGINS_DIR/suspend.sh
-
+notify-send3 "finish suspend2"
     tasker update_points "suspend2" suspend2
-
-  flite 'suspend2 finish'
-  flite 'suspend2 finish'
-  flite 'suspend2 finish'
   flite 'suspend2 finish'
  
 }
-   #local cmd="$PLUGINS_DIR/suspend.sh"
-#detach  "$cmd" 
-
-   ##cmd="update_points suspend2 suspend"
-   #detach "$cmd"
-#    update_commander
-#    commander1 "$cmd"
-#
-#    tasker motivation sport  
-#
-#    tasker update_points "suspend2" suspend
-#    #must &
-#    notify_send3 'suspend2 '  
-#
-#    notify_send1 'chase your fear and they will run away from you'
-#    sleep1 20
-#    notify_send1 'skip suspension for deal my fears:' '..'
-#    flite 'white board is awesome' true
-#    sleep1 5
-#
-#
-#    flite 'after suspension'
-
 updating(){
 
    local cmd="gedit $DATA_DIR/yaml/url.yaml"
@@ -628,9 +590,6 @@ updating1(){
 }
 suspend1(){
     local timeout=300
-
-
-
     notify_send1 'reminder' 'kill noisy tasks'
     #sleep1 20
     local gui=$1
@@ -640,25 +599,10 @@ suspend1(){
 
         sleep1 $timeout
     fi
-
-
-    #flite 'clean whiteboard - is important - to increase motivation' true
-    #cmd="tasker limit1 60 'collect_new_words'"
-    #every "$cmd" $every_collect_new_words
-
     $PLUGINS_DIR/suspend.sh
-
-    #tasker free_imagination &
-    #notify_send1 'suspend1' 'finish,is killing free text?'
-    #cmd='tasker must'
-    #detach "$cmd" 
-
+notify-send3 "finish suspend2"
   update_points suspend1 suspend1
   flite 'suspend2 finish'
-  flite 'suspend2 finish'
-  flite 'suspend2 finish'
-  flite 'suspend2 finish'
-    #detach must
 }
 pownder(){
     local subject="$1"
@@ -744,27 +688,6 @@ update_readme(){
     #local file=$DATA_DIR/txt/dump.txt
     local readme=$DATA_DIR/md/README.md
 
-    #    #$PROJECT_DIR/README.md
-    #    echo '' > $file
-    #
-    #
-    #    cat $DATA_DIR/md/README.md >> $file
-    #    #echo "- RECENT_DUMP:" >> $file
-    #
-    #
-    #    echo '- riddle:' >> $file
-    #    local res=$(db select_from_table riddle)
-    #    echo "$res" >>  $file
-    #
-    #    #
-    #    echo '- koan' >> $file
-    #    local res=$(db select_from_table koan)
-    #    echo "$res" >>  $file
-    #
-    #    cat -n $DATA_DIR/txt/child.txt >> $file
-    #
-    #    cat $file > $readme
-    #
 
     gedit $readme &
 }

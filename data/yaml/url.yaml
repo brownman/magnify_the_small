@@ -1,3 +1,15 @@
+best-practice:
+	A:
+		- don't use network-managers !
+		- practice chroot
+		- have many partitions for test new O.S
+
+chroot:
+	W:
+		- https://help.ubuntu.com/12.10/installation-guide/powerpc/linux-upgrade.html
+	Q:
+		- how to  practice chroot/networking troubleshooting
+
 hack:
 	W:
 		- http://subsignal.org/doc/AliensBashTutorial.html#4_e
