@@ -8,7 +8,7 @@
 args=( "$@" )
 res=''
 #notify_send1 'single.sh' "$@"
-notify_send3 "$@"
+notify_send "$@"
 
 
 run(){

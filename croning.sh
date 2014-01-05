@@ -13,7 +13,7 @@ update_env(){
 }
 run(){
 
-    flite "restart $str1"
+    #flite "restart $str1"
     if [ "$str1" = '' ];then
         flite 'no arguments'
     else
@@ -30,4 +30,4 @@ $( $file single "$str1" )
 }
 
 run
-flite "finish $str1"
+#flite "finish $str1"

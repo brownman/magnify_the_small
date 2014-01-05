@@ -534,7 +534,10 @@ must(){
 }
 
 lpi(){
-    evince /home/dao01/Desktop/linux-edu/LPIC1.pdf
+local file='/home/dao01/Desktop/linux-edu/LPIC1.pdf'
+local cmd="evince $file"
+update_commander
+commander0 "$cmd"
 }
 
 background(){

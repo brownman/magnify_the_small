@@ -1,3 +1,5 @@
+11:48|tasker learn_langs
+11:47|tasker riddle
 11:20|tasker riddle
 07:55|tasker cron
 07:50|tasker git_commit

@@ -1,3 +1,5 @@
+bash
+http://askubuntu.com/questions/68175/how-to-create-script-with-auto-complete
 best-practice:
 	A:
 		- don't use network-managers !
