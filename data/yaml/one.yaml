@@ -164,6 +164,7 @@ must:
     - tasker riddle 
     - tasker reminder 
     - tasker cron 
+    - tasker vlc
 
 wallpaper:
     - suspend1 1530 550 400x 28 yellow true 

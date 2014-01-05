@@ -529,7 +529,7 @@ easiest_task(){
 must(){
 
     cmd="$PLUGINS_DIR/must.sh"
-    detach "$cmd"
+    notify_send4  'must' "$cmd"
 
 }
 
