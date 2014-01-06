@@ -26,7 +26,7 @@ run(){
 action(){
 local file=/home/dao01/magnify_the_small/genius.sh
 
-$( $file single "$str1" )
+$( $file one_cron "$str1" )
 }
 
 run

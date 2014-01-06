@@ -180,3 +180,16 @@ task_force:
 
 question:
     - https://github.com/brownman/brownman.github.com/edit/master/index.html
+
+crons:
+    - motivation 
+    - lecture
+    - lpi
+    - must
+    - suspend2
+
+shopping:
+    - www.google.com
+    - www.ebay.com
+
+#primes: 1,2,3,5,7,11,13,17 

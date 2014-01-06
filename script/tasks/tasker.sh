@@ -5,6 +5,38 @@
 # 
 #cmd="notify_send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+shopping(){
+    local res=1
+
+    local file="$DATA_DIR/txt/shopping.txt"
+    while [ "$res" ];do
+        notify_send1 'buy more'
+        res=$(zenity1 "$file")
+        if [ "$res" ];then
+            cmd="xdg-open \"$res\""
+            #notify_send4 'open website' "$cmd"
+            detach "$cmd"
+        else
+            cmd="gedit $file"
+            detach "$cmd"
+        fi
+    done
+
+}
+
+lecture(){
+
+    local util=vlc
+    local subject=lecture
+    local res=$(recent lecture 'linux lecture' )
+    if [ "$res" ];then
+        local cmd="$util '$res'"
+        detach "$cmd" 
+    fi
+
+
+}
+
 show_psaudo_like_koans(){
     trace ''
 }
@@ -31,12 +63,12 @@ question(){
         cmd="xdg-open $url3"
         detach "$cmd"
     fi
-cmd="~/magnify_the_small/AWESOME/fu -a '$str1'"
-cmd1="xterm1 $cmd" 
-detach "$cmd1"
-cmd="grep -lr '$str' $SCRIPT_DIR/tasks/abs/source/*.sh"
-cmd1="xterm1 $cmd"
-detach "$cmd1"
+    cmd="~/magnify_the_small/AWESOME/fu -a '$str1'"
+    cmd1="xterm1 $cmd" 
+    detach "$cmd1"
+    cmd="grep -lr '$str' $SCRIPT_DIR/tasks/abs/source/*.sh"
+    cmd1="xterm1 $cmd"
+    detach "$cmd1"
 }
 readme1(){
     echo 'update readme with blogger image of whiteboard'
@@ -62,7 +94,7 @@ update_points(){
     local file=$DATA_DIR/txt/$filename.txt
     if [ "$str" ];then
         update_file  $file "$time1|$str"
-       #cmd='tasker wallpaper'
+        #cmd='tasker wallpaper'
 
         #optional "$cmd" "tasker wallpaper" warning 
 
@@ -211,7 +243,10 @@ task_from(){
 
     #assert_equal_str "$cmd"
     #assert_equal_str "$cmd"
-    eval "$cmd" & 
+
+    #notify_send4 "$cmd" "$cmd"
+    detach "$cmd"
+    #eval "$cmd" & 
 }
 
 ask_a_question(){
@@ -347,9 +382,9 @@ motivation(){
     #tasker  update_points "$line"
 
     #    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
-    
-cmd="helper0 \"$line\""  
-notify_send4 "$line" "$cmd"
+
+    cmd="helper0 \"$line\""  
+    notify_send4 "$line" "$cmd"
     #assert_equal_str "$line"
 
 
@@ -534,10 +569,14 @@ must(){
 }
 
 lpi(){
-local file='/home/dao01/Desktop/linux-edu/LPIC1.pdf'
-local cmd="evince $file"
-update_commander
-commander0 "$cmd"
+    local file='/home/dao01/Desktop/linux-edu/LPIC1.pdf'
+    #local file_memory_page=/tmp/page.txt
+    #local page=$( cat $file_memory_page | head -1 )
+    local res=$( recent "page" 'lpi page' )
+    #update_file "$file_memory_page" "$page" 
+    local util=$util_pdf
+    local cmd="$util $file -i $res"
+    detach "$cmd"
 }
 
 background(){
@@ -551,18 +590,13 @@ background(){
 }
 
 suspend2(){
-    flite 'suspend2'
-$PLUGINS_DIR/suspend.sh
-notify-send3 "finish suspend2"
     tasker update_points "suspend2" suspend2
-  flite 'suspend2 finish'
- 
+    xterm1 $PLUGINS_DIR/suspend.sh
 }
 updating(){
-
-   local cmd="gedit $DATA_DIR/yaml/url.yaml"
+    local cmd="gedit $DATA_DIR/yaml/url.yaml"
     #$cmd &
-    commander "$cmd" &
+    detach "$cmd" 
 }
 updating1(){
 
@@ -603,9 +637,9 @@ suspend1(){
         sleep1 $timeout
     fi
     $PLUGINS_DIR/suspend.sh
-notify-send3 "finish suspend2"
-  update_points suspend1 suspend1
-  flite 'suspend2 finish'
+    notify-send3 "finish suspend2"
+    update_points suspend1 suspend1
+    flite 'suspend2 finish'
 }
 pownder(){
     local subject="$1"

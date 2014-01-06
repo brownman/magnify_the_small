@@ -1,5 +1,17 @@
-bash
-http://askubuntu.com/questions/68175/how-to-create-script-with-auto-complete
+bash_script:
+		-	http://askubuntu.com/questions/68175/how-to-create-script-with-auto-complete
+
+general:
+	Q:
+		- find books
+	A:
+		- http://ebookbrowsee.net/10/101-102-lpic-1-certification-bible
+
+HOW_WORK_o.s:
+	W:
+		-	http://ocw.up.edu.ps/upinar/moodledata/229/
+
+
 best-practice:
 	A:
 		- don't use network-managers !

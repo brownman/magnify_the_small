@@ -42,16 +42,15 @@ run(){
 
 
 
-        cmd="sed -n -e '/{$/p'"
-        cmd=$( gxmessage $GXMESSAGET -entrytext "$cmd" -title 'update cmd' "input" )
+        cmd="sed -n -e '/{$/p' | cut -d'(' -f1"
+        #cmd=$( gxmessage $GXMESSAGET -entrytext "$cmd" -title 'update cmd' "input" )
 
-        funcs=`eval "$cmd" $SCRIPT_DIR/tasks/tasker.sh`
+        cmd="cat $SCRIPT_DIR/tasks/tasker.sh | $cmd"
+        funcs=$(commander0 "$cmd")
 
         echo "$funcs" > /tmp/funcs.txt
-        zenity1 /tmp/funcs.txt
+        local result=$(zenity1 /tmp/funcs.txt)
 
-        url='xdg-open http://www.gentoo.org/doc/en/articles/l-sed1.xml'
-        notify_send4 'sed examples' "$url" &
 
     else
         file11=$dir1/$input.sh
@@ -60,12 +59,8 @@ run(){
 
     fi
 
-    echo "$result"
-    #str=$(service cron status)
-    #cmd="notify-send1 cron '$str'"
-    #every "$cmd" 10
-    #
-
+    cmd="tasker $result"
+    detach "$cmd"
 }
 run
 
