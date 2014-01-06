@@ -183,10 +183,10 @@ question:
 
 crons:
     - motivation 
-    - lecture
-    - lpi
-    - must
-    - suspend2
+#    - lecture
+#    - lpi
+#    - must
+#    - suspend2
 
 shopping:
     - www.google.com

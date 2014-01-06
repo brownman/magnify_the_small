@@ -1,6 +1,23 @@
 todo:
 ------
 - fu + questions
+- cron + policy for suspension
+- cron - delay/stop running jobs
+
+- attraction:
+--- lectures - create an atractive list to choose from rather than using "recent"
+--- lpi book - do the same
+
+- web:
+-- web chat + rest api
+
+
+
+later:
+------
+- multiboot usb
+- control computer through lan - including bios
+- android compile source
 
 changelog
 ------

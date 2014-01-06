@@ -8,7 +8,7 @@ notify_send 'one task:'  "$1"
 #file_locker=/tmp/one_task
 #delay=6
 
-args="$1"
+args="$@"
 run(){
     local num="$args"
         local cmd="tasker task_from hotkeys $num"
