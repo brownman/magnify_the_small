@@ -1,3 +1,6 @@
 suspend1 1530 550 400x 28 yellow true
 suspend2 930 150 500x 31 red true
+lecture 130 350 400x 13 blue true
+lpi 330 650 400x 13 purple true
 collected 230 350 400x 23 white true
+increase_motivation 230 650 400x 13 orange true

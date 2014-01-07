@@ -8,6 +8,10 @@ todo:
 --- lectures - create an atractive list to choose from rather than using "recent"
 --- lpi book - do the same
 
+- utilize
+--- asciicast
+--- iandroid - google query for new posts
+
 - contribute:
 -- web chat + rest api
 -- deb package for this project

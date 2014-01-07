@@ -28,11 +28,33 @@ lecture(){
 
     local util=vlc
     local subject=lecture
-    local res=$(recent lecture 'linux lecture' )
+    local recent=$(recent lecture )
+local dir=$DIR_LECTURE
+
+
+    local res=$(confirm  'linux lecture' 'string:' "$recent")
+    
+#assert_equal_str "$?"
+    if [ "$res" = '' ];then
+
+        #file open
+        local dir=/TORRENTS
+        local res=$(pick_file "$dir" )
+
+
+    fi
     if [ "$res" ];then
+        #cmd="vlc \"$res\""
+        #detach "$cmd"
+
+#assert_equal_str "$res"
+        update_points "$res" lecture
         local cmd="$util '$res'"
         detach "$cmd" 
+
+
     fi
+
 
 
 }
@@ -64,11 +86,17 @@ question(){
         detach "$cmd"
     fi
     cmd="~/magnify_the_small/AWESOME/fu -a '$str1'"
-    cmd1="xterm1 $cmd" 
-    detach "$cmd1"
+    #cmd1="xterm1 $cmd" 
+    local res=$(detach "$cmd")
+    gxmessage "$res" -title "fu" $GXMESSAGET
+    #detach "$cmd1"
     cmd="grep -lr '$str' $SCRIPT_DIR/tasks/abs/source/*.sh"
-    cmd1="xterm1 $cmd"
-    detach "$cmd1"
+    #cmd1="xterm1 $cmd"
+    local res=$(detach "$cmd1")
+    gxmessage "$res" -title "abs" $GXMESSAGET
+    
+#grep -r "$str" $SCRIPT_DIR
+
 }
 readme1(){
     echo 'update readme with blogger image of whiteboard'
@@ -91,7 +119,7 @@ update_points(){
     notify_send 'update' 'points'
     local str="$1"
     local filename=${2:-logger}
-    local file=$DATA_DIR/txt/$filename.txt
+    local file=$DATA_DIR/log/$filename.log
     if [ "$str" ];then
         update_file  $file "$time1|$str"
         #cmd='tasker wallpaper'
@@ -573,10 +601,12 @@ lpi(){
     #local file_memory_page=/tmp/page.txt
     #local page=$( cat $file_memory_page | head -1 )
     local res=$( recent "page" 'lpi page' )
+    update_points "$res" lpi
     #update_file "$file_memory_page" "$page" 
     local util=$util_pdf
     local cmd="$util $file -i $res"
     detach "$cmd"
+    optional1 "tasker lpi"
 }
 
 background(){

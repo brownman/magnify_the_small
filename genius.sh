@@ -54,8 +54,12 @@ run(){
 
     else
         file11=$dir1/$input.sh
+        if [ "$CATCH_ERROR" = true ];then
+            result=$( $file11 "${args[@]}"  2> $file_error )
+        else
+            result=$( $file11 "${args[@]}"  )
+        fi
 
-        result=$( $file11 "${args[@]}"  )
 
     fi
 

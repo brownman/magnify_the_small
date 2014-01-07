@@ -25,6 +25,7 @@ if [ "$delay" ];then
 
         helper0 "$trigger" $file_log  
         local answer=$(gxmessage -entrytext ""  -title 'new reason:' "$trigger" $GXMESSAGET )
+        update_points "$answer" increase_motivation
         #update_points "$answer" collected
 #tasker update_points "$answer"
         helper0 "$answer" "$file_log"

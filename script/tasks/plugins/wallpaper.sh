@@ -30,26 +30,26 @@ run(){
  cmd="xloadimage $file_after"
     optional1 "$cmd"
 }
-efficiency_image(){
-    #http://www.imagemagick.org/Usage/text/#pango_markup
-    local file_txt=$DATA_DIR/pango/text_data.txt
-    local file_image=/tmp/text_layered.jpg
-
-    cat $file_txt |
-    while read width gravity color  pointsize x y text
-    do
-        convert -size ${width}x -gravity $gravity -fill $color -background wheat \
-            -pointsize $pointsize  -page +${x}+${y}  label:"${text}"  miff:-
-    done |
-    convert -size 200x100 xc:   -   -flatten    $file_image
-    local cmd="xloadimage $file_image"
-    detach "$cmd"
-}
+#efficiency_image(){
+#    #http://www.imagemagick.org/Usage/text/#pango_markup
+#    local file_txt=$DATA_DIR/pango/text_data.txt
+#    local file_image=/tmp/text_layered.jpg
+#
+#    cat $file_txt |
+#    while read width gravity color  pointsize x y text
+#    do
+#        convert -size ${width}x -gravity $gravity -fill $color -background wheat \
+#            -pointsize $pointsize  -page +${x}+${y}  label:"${text}"  miff:-
+#    done |
+#    convert -size 200x100 xc:   -   -flatten    $file_image
+#    local cmd="xloadimage $file_image"
+#    detach "$cmd"
+#}
 
 parse_line_of_wallpaper(){
 
     local filename=$( echo "$line" | awk -F ' ' '{print $1}' )
-    local file_txt=$DATA_DIR/txt/$filename.txt
+    local file_txt=$DATA_DIR/log/$filename.log
 
 trace parse_line_of_wallpaper "$filename"
     is_valid $file_txt

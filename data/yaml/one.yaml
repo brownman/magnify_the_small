@@ -170,7 +170,10 @@ wallpaper:
     - suspend1 1530 550 400x 28 yellow true 
     - suspend2 930 150 500x 31 red true 
     #- logger 830 150 600x 43 white true 
+    - lecture 130 350 400x 13 blue true 
+    - lpi 330 650 400x 13 purple true 
     - collected 230 350 400x 23 white true 
+    - increase_motivation 230 650 400x 13 orange true 
     #- assosiation 230 240 400x 14 yellow true 
     #- disown 1140 650 600x 13 white true 
 
@@ -182,11 +185,14 @@ question:
     - https://github.com/brownman/brownman.github.com/edit/master/index.html
 
 crons:
-    - motivation 
-#    - lecture
-#    - lpi
-#    - must
-#    - suspend2
+    - 
+    - motivation glossary
+    - motivation sport 
+    - lecture
+    - lpi
+    - must
+    - increase_motivation
+    #- suspend2
 
 shopping:
     - www.google.com
