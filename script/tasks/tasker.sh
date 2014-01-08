@@ -5,6 +5,11 @@
 # 
 #cmd="notify_send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+option(){
+local task="$1"
+local cmd="tasker $task"
+notify_send4 "$task" "$cmd"
+}
 shopping(){
     local res=1
 
@@ -135,6 +140,7 @@ update_points(){
 
 
 wallpaper(){
+    notify_send3 'updating wallpaper'
     local cmd=$PLUGINS_DIR/wallpaper.sh
     detach "$cmd"
 }
@@ -412,7 +418,8 @@ motivation(){
     #    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
 
     cmd="helper0 \"$line\""  
-    notify_send4 "$line" "$cmd"
+    detach "$cmd"
+    #notify_send4 "$line" "$cmd"
     #assert_equal_str "$line"
 
 
@@ -565,21 +572,6 @@ resources(){
 
 }
 
-after_suspend2(){
-
-    #flite "collect more koans " 
-
-    sleep1 5
-    flite 'sharing sharing sharing'
-    sleep1 5
-    #cow_report words &
-    #sleep1 5
-    motivation & 
-    sleep1 5
-
-    #limit 'tasker lpi' 60
-    #reminder &
-}
 easiest_task(){
     local file=$DATA_DIR/txt/testing.txt
     #touch $file
@@ -592,7 +584,8 @@ easiest_task(){
 must(){
 
     cmd="$PLUGINS_DIR/must.sh"
-    notify_send4  'must' "$cmd"
+    #notify_send4  'must' "$cmd"
+    eval "$cmd"
 
 }
 
@@ -618,10 +611,14 @@ background(){
     ###########################
     notify_send3 finito
 }
-
+after_suspend(){
+  cmd='tasker reminder'
+   detach "$cmd" 
+}
 suspend2(){
     tasker update_points "suspend2" suspend2
     xterm1 $PLUGINS_DIR/suspend.sh
+ #after_suspend 
 }
 updating(){
     local cmd="gedit $DATA_DIR/yaml/url.yaml"

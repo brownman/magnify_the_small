@@ -167,13 +167,14 @@ must:
     - tasker vlc
 
 wallpaper:
-    - suspend1 1530 550 400x 28 yellow true 
+    - suspend1 830 550 400x 28 yellow true 
     - suspend2 930 150 500x 31 red true 
     #- logger 830 150 600x 43 white true 
-    - lecture 130 350 400x 13 blue true 
-    - lpi 330 650 400x 13 purple true 
+    - lecture 130 250 400x 23 blue true 
+    - lpi 130 650 400x 23 purple true 
     - collected 230 350 400x 23 white true 
-    - increase_motivation 230 650 400x 13 orange true 
+    - increase_motivation 230 650 400x 23 orange true 
+    - riddle 30 650 400x 23 orange true 
     #- assosiation 230 240 400x 14 yellow true 
     #- disown 1140 650 600x 13 white true 
 
@@ -185,13 +186,14 @@ question:
     - https://github.com/brownman/brownman.github.com/edit/master/index.html
 
 crons:
-    - 
     - motivation glossary
     - motivation sport 
-    - lecture
     - lpi
-    - must
+    - option must
     - increase_motivation
+    - riddle 
+    - option lecture
+    - shopping
     #- suspend2
 
 shopping:
