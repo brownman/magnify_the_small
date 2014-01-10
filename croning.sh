@@ -13,7 +13,7 @@ update_env(){
 }
 run(){
 
-    #flite "restart $str1"
+    flite "restart $str1"
     if [ "$str1" = '' ];then
         flite 'no arguments'
     else

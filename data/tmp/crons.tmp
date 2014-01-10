@@ -1,14 +1,3 @@
-option motivation sport
-option order 'push order forward'
-option reminder 'only: imagine the happiest wallpaper'
-
-option lecture 'learn about ssh connection'
-option motivation glossary
-option lpi 'only: one homework exercise'
-
-option must 'only: imagine the last wallpaper'
-
-option increase_motivation
-option riddle 'only: add 1 koan'
-
-option shopping 'only: edit the priorities'
+option 'motivation sport'
+option reminder 'limit=power'
+option wallpaper

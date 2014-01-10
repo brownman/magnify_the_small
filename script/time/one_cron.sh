@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 # about file:
 # name:        ensure I have only 1 reason to act and not many !
 

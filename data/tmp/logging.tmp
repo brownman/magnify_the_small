@@ -1,0 +1,4 @@
+show logging on tty1
+every plugin has: help/whoami/test/log
+
+zsh start!

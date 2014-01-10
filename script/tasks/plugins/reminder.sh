@@ -29,30 +29,26 @@ line=${1:-goal}
 
 run(){
     local content='practice estimation'
-    local delay=600 
-    local motivation=''
+    local delay=$TIMEOUT_GOAL 
     local cmd=''
     local res=0
-    line=$(gxmessage -entrytext "$line" -title 'next goal' "$content" $GXMESSAGET)
+    local file=$DATA_DIR/log/reminder.log
+    touch $file
+    local  title="goal"
+    line=$(gxmessage $GXMESSAGET -entrytext "$line" -title 'next goal' -file $file )
     if [ "$line" = '' ];then
         exiting
-    fi
-    local  title="goal"
-    local text1="$line" 
-tasker update_points "$text1"
-    #while :;do
-        #$( messageYN1 "$text1" "reminder" '' 35 )
-        #res=$?
+    else
 
-        #if [[ $res -eq $YES ]];then
-            #text1=$(gxmessage -entrytext "$text1" -title 'focus' 'update' $GXMESSAGET)
-            #helper0 "$text1" $file_log
-        #else
-            helper0 "$text1" $file_log
+    local text1="$line" 
+tasker update_points "$text1" reminder
+
+
+            helper0 "$text1" 
+            #$file_log
             cmd="sleep2 '$text1' '$title' '$delay'" 
             detach "$cmd" 
-        #fi
-    #done
+    fi
 }
 
 

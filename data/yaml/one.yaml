@@ -171,9 +171,9 @@ wallpaper:
 #    - lecture 130 250 400x 23 blue true 
 #    - lpi 130 650 400x 23 purple true 
 #    - collected 230 350 400x 23 white true 
-    - increase_motivation 230 650 400x 43 orange true 
+    #- increase_motivation 230 650 400x 43 orange true 
 #    - riddle 30 650 400x 23 orange true 
-    - reminder 330 450 400x 53 red true 
+    - reminder 330 650 800x 53 yellow true 
 
 
 task_force:
@@ -184,19 +184,25 @@ question:
     - https://github.com/brownman/brownman.github.com/edit/master/index.html
 
 crons:
-    - option motivation sport 
-    - option order 'push order forward' 
-    - option reminder 'only: imagine the happiest wallpaper'
-    - option lecture 'learn about ssh connection'
-    - option motivation glossary
-    - option lpi 'only: one homework exercise'
-    - option must 'only: imagine the last wallpaper'
-    - option increase_motivation
-    - option riddle 'only:  add 1 koan' 
-    - option shopping 'only:  edit the priorities'
+    - option 'motivation sport'
+    - option reminder 'limit=power'
+#    - option simplest 
+    - option wallpaper 
+#    - option todos 'push order forward' 
+#    - option lecture 'learn about ssh connection'
+#    - option 'motivation glossary'
+#    - option lpi 'only: one homework exercise'
+#    - option must 'only: imagine the last wallpaper'
+#    - option increase_motivation
+#    - option riddle 'only:  add 1 koan' 
+#    - option shopping 'only:  edit the priorities'
 
 shopping:
     - www.google.com
     - www.ebay.com
 
 #primes: 1,2,3,5,7,11,13,17 
+logging:
+    - show logging on tty1
+    - every plugin has: help/whoami/test/log
+    - zsh start!

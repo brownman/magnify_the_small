@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
@@ -64,7 +64,8 @@ run(){
     fi
 
     cmd="tasker $result"
-    detach "$cmd"
+    update_commander
+    commander00 "$cmd"
 }
 run
 

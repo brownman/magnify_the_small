@@ -1,15 +1,23 @@
-#!/bin/bash
+#!/bin/bash 
 # about file:
 # collection of system tasks
 # no gui here - remove gxmessage 
 # 
 #cmd="notify_send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
-notify_send "$@"
-
-push_order_forward(){
-$PROJECT_DIR/website/todos/mrt &
-xdg-open http://0.0.0.0:3000
+notify_send1 "$@"
+wallpaper_changer(){
+echo 
+}
+simplest(){
+notify_send3 'happiest wallpaper!'
+}
+todos(){
+cd $PROJECT_DIR/website/todos/
+#mrt &
+cmd="google-chrome 'http://0.0.0.0:3000'"
+detach "$cmd"
+mrt
 }
 
 option(){

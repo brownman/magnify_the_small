@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 # about file:
 # name:        ensure suspension!
 # description:   separate the proccess running the suspend.sh
@@ -7,7 +7,7 @@
 
 args=( "$@" )
 res=''
-#notify_send1 'single.sh' "$@"
+notify_send1 'single.sh' "$@"
 notify_send "$@"
 
 
@@ -22,8 +22,9 @@ run(){
 #cmd='tasker config update_commander'
 #decide1 "$cmd"
 str=$(  string_ws "$args" )
+touch $DATA_DIR/reason/$str.txt
 cmd="gedit $DATA_DIR/reason/$str.txt"
-notify_send4 "$cmd"
+optional1 "$cmd"
 
 res=$( tasker "${args[@]}" )
 }

@@ -11,7 +11,7 @@ loops=2
 gentle=true
 
 
-notify_send 'yaml.sh' 'start'
+notify_send1 'yaml.sh' 'start'
 
 
 parse_subject(){
@@ -70,10 +70,11 @@ show_keys
 
 
 cmd1='tasker wallpaper'
-tasker config notify_send4 "update wallpaper" "$cmd1"
+#tasker config notify_send4 "update wallpaper" "$cmd1"
 
 
 
 notify_send 'yaml.sh' 'end'
 }
-unlocker 
+#unlocker 
+run
