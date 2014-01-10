@@ -21,6 +21,10 @@ run(){
 #cmd='notify_send1 hi bye'
 #cmd='tasker config update_commander'
 #decide1 "$cmd"
+str=$(  string_ws "$args" )
+cmd="gedit $DATA_DIR/reason/$str.txt"
+notify_send4 "$cmd"
+
 res=$( tasker "${args[@]}" )
 }
 run

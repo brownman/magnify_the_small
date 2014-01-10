@@ -5,11 +5,20 @@
 # 
 #cmd="notify_send1 'tasker.sh:' '$@'"
 #every "$cmd" 10
+notify_send "$@"
+
+push_order_forward(){
+$PROJECT_DIR/website/todos/mrt &
+xdg-open http://0.0.0.0:3000
+}
+
 option(){
 local task="$1"
+local reason="$2"
 local cmd="tasker $task"
-notify_send4 "$task" "$cmd"
+notify_send4 "$reason" "$cmd"
 }
+
 shopping(){
     local res=1
 
@@ -23,7 +32,7 @@ shopping(){
             detach "$cmd"
         else
             cmd="gedit $file"
-            detach "$cmd"
+            optional1 "$cmd"
         fi
     done
 
@@ -609,7 +618,7 @@ background(){
     #res1=$(   )
     #trace "$res1" #must echo for testing to work
     ###########################
-    notify_send3 finito
+    #notify_send3 finito
 }
 after_suspend(){
   cmd='tasker reminder'
@@ -617,6 +626,7 @@ after_suspend(){
 }
 suspend2(){
     tasker update_points "suspend2" suspend2
+    xcowsay "$time1"
     xterm1 $PLUGINS_DIR/suspend.sh
  #after_suspend 
 }
