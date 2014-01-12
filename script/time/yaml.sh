@@ -45,7 +45,7 @@ local keys1=$(cat $file_data | shyaml keys)
         count=0
         for key in ${keys1[@]}; do
 
-        trace "parse subject: $key" 
+        notify_send1 "parse subject: $key" 
 parse_subject "$key"
 
             done

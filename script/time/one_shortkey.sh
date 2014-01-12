@@ -4,7 +4,7 @@
 
 
 
-notify_send 'one task:'  "$1"
+notify_send1 'one task:'  "$1"
 #file_locker=/tmp/one_task
 #delay=6
 

@@ -617,7 +617,14 @@ after_suspend(){
 }
 suspend2(){
     tasker update_points "suspend2" suspend2
-    xterm1 $PLUGINS_DIR/suspend.sh
+     $PLUGINS_DIR/suspend.sh
+
+cmd="exo-open http://0.0.0.0:3000"
+eval "$cmd"
+
+
+
+
  #after_suspend 
 }
 updating(){

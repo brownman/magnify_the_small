@@ -1,10 +1,15 @@
+print(){
+cat $0
+}
+
 cronT(){
     trace 'tail'
 
-cmd="tail -f /var/log/syslog | grep CRON"
+cmd="sudo tail -f /var/log/syslog | grep CRON"
 #echo "$cmd"
-cmd1="xterm -e $cmd"
-detach  "$cmd1"
+#cmd1="xterm -e $cmd"
+#detach  "$cmd1"
+eval "$cmd"
 }
 cronE(){
 
@@ -29,4 +34,4 @@ cronB(){
     notify_send3 "cron is alive $time1"
 }
 
-
+$1

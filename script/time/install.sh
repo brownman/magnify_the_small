@@ -5,8 +5,23 @@ xcowsay
 lib-notify
 wget
 sqlite3
+gxmessage
 }
+gem(){
+gem install watchr
+}
+pip(){
+    pip install shyaml
+#https://github.com/0k/shyaml
+}
+shortcuts(){
+echo
 
+}
+cron(){
+crontab crontab.txt
+
+}
 
 ########### INSTALL: create ########
 #TMP1=/tmp
