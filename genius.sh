@@ -5,7 +5,7 @@
 #http://subsignal.org/doc/AliensBashTutorial.html#4_e
 #http://c.learncodethehardway.org/
 pushd `dirname $0` > /dev/null
-#renice 10 -p $$
+renice 10 -p $$
 #flite 'genius'
 #chmod +w time
 #ls -d -l time
@@ -32,7 +32,7 @@ result='equal'
 show_env(){
     red show_env
     green "MUTE_CHILD: $MUTE_CHILD"
-   # sleep1 5
+    sleep1 5
 }
 run(){
 
