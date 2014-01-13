@@ -4,16 +4,16 @@ str1="$1"
 
 
 info(){
-
-    /usr/bin/env -i $(cat /home/dao01/tmp/cron-env)
+/usr/bin/env -i $(cat /tmp/cron-env)
 }
 update_env(){
     #source /etc/profile
-    source /home/dao01/.bashrc
+    source /home/$USER/.bashrc
 }
 run(){
 
-    #flite "restart $str1"
+
+    flite "restart $str1"
     if [ "$str1" = '' ];then
         flite 'no arguments'
     else
@@ -24,9 +24,10 @@ run(){
 
 }
 action(){
-local file=/home/dao01/magnify_the_small/genius.sh
-
-$( $file one_cron "$str1" )
+local file=/home/$USER/magnify_the_small/genius.sh
+local cmd="$file one_cron \"$str1\""
+local result=$( eval "$cmd" )
+echo "$result"
 }
 
 run

@@ -4,7 +4,7 @@ HOME=/home/dao02
 #MAILTO=dao02
 DISPLAY=:0 
 #* * * * * sleep 4 && echo 4 | flite && env > /tmp/env.output && notify-send cron job && gxmessage -file "/tmp/env.output" -title 'cron'
-* * * * *   /usr/bin/env > /home/dao02/tmp/cron-env
+* * * * *   /usr/bin/env > /tmp/cron-env
 #*/5 * * * * /usr/bin/python /usr/share/gnome-schedule/xwrapper.py c 54 # JOB_ID_54
 */11 * * * *  bash -c "/home/dao02/magnify_the_small/croning.sh 'motivation'"
 */23 * * * *  bash -c "/home/dao02/magnify_the_small/croning.sh 'lpi'"

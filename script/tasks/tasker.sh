@@ -417,7 +417,8 @@ motivation(){
 
     #    res=$( dbus-send --system --print-reply     --dest="org.freedesktop.UPower"     /org/freedesktop/UPower     org.freedesktop.UPower.Suspend )
 
-    cmd="helper0 \"$line\""  
+  #  cmd="helper0 \"$line\""  
+  cmd="flite '$line'"
     detach "$cmd"
     #notify_send4 "$line" "$cmd"
     #assert_equal_str "$line"
